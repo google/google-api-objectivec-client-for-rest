@@ -1781,6 +1781,33 @@
 
 @end
 
+@implementation GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesManageSourceData
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:manageSourceData";
+  GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesManageSourceData *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataResponse class];
+  query.loggingName = @"apihub.projects.locations.plugins.instances.manageSourceData";
+  return query;
+}
+
+@end
+
 @implementation GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesPatch
 
 @dynamic name, updateMask;

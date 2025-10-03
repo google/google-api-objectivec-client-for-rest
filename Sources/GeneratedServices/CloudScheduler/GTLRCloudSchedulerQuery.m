@@ -16,90 +16,6 @@
 
 @end
 
-@implementation GTLRCloudSchedulerQuery_OperationsCancel
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRCloudScheduler_CancelOperationRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:cancel";
-  GTLRCloudSchedulerQuery_OperationsCancel *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudScheduler_Empty class];
-  query.loggingName = @"cloudscheduler.operations.cancel";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudSchedulerQuery_OperationsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudSchedulerQuery_OperationsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudScheduler_Empty class];
-  query.loggingName = @"cloudscheduler.operations.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudSchedulerQuery_OperationsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudSchedulerQuery_OperationsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudScheduler_Operation class];
-  query.loggingName = @"cloudscheduler.operations.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudSchedulerQuery_OperationsList
-
-@dynamic filter, name, pageSize, pageToken;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudSchedulerQuery_OperationsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudScheduler_ListOperationsResponse class];
-  query.loggingName = @"cloudscheduler.operations.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudSchedulerQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -332,6 +248,90 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudScheduler_ListLocationsResponse class];
   query.loggingName = @"cloudscheduler.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSchedulerQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudScheduler_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudSchedulerQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudScheduler_Empty class];
+  query.loggingName = @"cloudscheduler.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSchedulerQuery_ProjectsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudSchedulerQuery_ProjectsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudScheduler_Empty class];
+  query.loggingName = @"cloudscheduler.projects.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSchedulerQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudSchedulerQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudScheduler_Operation class];
+  query.loggingName = @"cloudscheduler.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSchedulerQuery_ProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/operations";
+  GTLRCloudSchedulerQuery_ProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudScheduler_ListOperationsResponse class];
+  query.loggingName = @"cloudscheduler.projects.locations.operations.list";
   return query;
 }
 

@@ -38,6 +38,8 @@
 @class GTLRServiceUsage_ClientLibrarySettings;
 @class GTLRServiceUsage_CommonLanguageSettings;
 @class GTLRServiceUsage_ConsumerPolicy_Annotations;
+@class GTLRServiceUsage_ContentSecurity;
+@class GTLRServiceUsage_ContentSecurityProvider;
 @class GTLRServiceUsage_Context;
 @class GTLRServiceUsage_ContextRule;
 @class GTLRServiceUsage_Control;
@@ -81,6 +83,8 @@
 @class GTLRServiceUsage_Logging;
 @class GTLRServiceUsage_LoggingDestination;
 @class GTLRServiceUsage_LongRunning;
+@class GTLRServiceUsage_McpEnableRule;
+@class GTLRServiceUsage_McpService;
 @class GTLRServiceUsage_Method;
 @class GTLRServiceUsage_MethodPolicy;
 @class GTLRServiceUsage_MethodSettings;
@@ -1321,9 +1325,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  opposed to simply a description of methods and bindings. They are also
  *  sometimes simply referred to as "APIs" in other contexts, such as the name
  *  of this message itself. See https://cloud.google.com/apis/design/glossary
- *  for detailed terminology.
+ *  for detailed terminology. New usages of this message as an alternative to
+ *  ServiceDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceUsage_Api : GTLRObject
+
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /** The methods of this interface, in unspecified order. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Method *> *methods;
@@ -1647,7 +1658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRServiceUsage_BackendRule_OverridesByRequestProtocol *overridesByRequestProtocol;
 
 /**
- *  pathTranslation
+ *  no-lint
  *
  *  Likely values:
  *    @arg @c kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddress
@@ -2129,6 +2140,36 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        fetch them all at once.
  */
 @interface GTLRServiceUsage_ConsumerPolicy_Annotations : GTLRObject
+@end
+
+
+/**
+ *  ContentSecurity defines the content security related fields of a MCP policy.
+ */
+@interface GTLRServiceUsage_ContentSecurity : GTLRObject
+
+/**
+ *  List of content security providers that are enabled for content scanning.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_ContentSecurityProvider *> *contentSecurityProviders;
+
+@end
+
+
+/**
+ *  ContentSecurityProvider contains the name of content security provider.
+ */
+@interface GTLRServiceUsage_ContentSecurityProvider : GTLRObject
+
+/**
+ *  Name of security service for content scanning, such as Google Cloud Model
+ *  Armor or supported third-party ISV solutions. If it is Google 1P service,
+ *  the name should be prefixed with `services/`. If it is a 3P service, the
+ *  format needs to be documented. The currently supported values are: -
+ *  `services/modelarmor.googleapis.com` for Google Cloud Model Armor.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -2697,7 +2738,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Enum type definition.
+ *  Enum type definition. New usages of this message as an alternative to
+ *  EnumDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceUsage_Enum : GTLRObject
 
@@ -2733,7 +2778,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Enum value definition.
+ *  Enum value definition. New usages of this message as an alternative to
+ *  EnumValueDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceUsage_EnumValue : GTLRObject
 
@@ -2793,7 +2842,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  A single field of a message type.
+ *  A single field of a message type. New usages of this message as an
+ *  alternative to FieldDescriptorProto are strongly discouraged. This message
+ *  does not reliability preserve all information necessary to model the schema
+ *  and preserve semantics. Instead make use of FileDescriptorSet which
+ *  preserves the necessary information.
  */
 @interface GTLRServiceUsage_Field : GTLRObject
 
@@ -3492,8 +3545,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule *> *enableRules;
 
 /**
- *  Output only. An opaque tag indicating the current version of the policy,
- *  used for concurrency control.
+ *  An opaque tag indicating the current version of the policy, used for
+ *  concurrency control.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -3564,6 +3617,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *impactType;
 
+/**
+ *  Output only. This field will be populated only for the
+ *  `DEPENDENCY_MISSING_DEPENDENCIES` impact type. Example:
+ *  `services/compute.googleapis.com`. Impact.detail will be in format :
+ *  `missing service dependency: {missing_dependency}.`
+ */
+@property(nonatomic, copy, nullable) NSString *missingDependency;
+
 @end
 
 
@@ -3585,7 +3646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /**
  *  Map of service names to renamed services. Keys are the package relative
  *  service names and values are the name to be used for the service client and
- *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  call options. Example: publishing: go_settings: renamed_services: Publisher:
  *  TopicAdmin
  */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_GoSettings_RenamedServices *renamedServices;
@@ -3596,7 +3657,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /**
  *  Map of service names to renamed services. Keys are the package relative
  *  service names and values are the name to be used for the service client and
- *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  call options. Example: publishing: go_settings: renamed_services: Publisher:
  *  TopicAdmin
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -4229,9 +4290,88 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  Method represents a method of an API interface.
+ *  McpEnableRule contains MCP enablement related rules.
+ */
+@interface GTLRServiceUsage_McpEnableRule : GTLRObject
+
+/** List of enabled MCP services. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_McpService *> *mcpServices;
+
+@end
+
+
+/**
+ *  MCP Consumer Policy is a set of rules that define MCP related policy for a
+ *  cloud resource hierarchy.
+ */
+@interface GTLRServiceUsage_McpPolicy : GTLRObject
+
+/**
+ *  ContentSecurity contains the content security related fields of a MCP
+ *  policy.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_ContentSecurity *contentSecurity;
+
+/**
+ *  Output only. The time the policy was created. For singleton policies (such
+ *  as the `default` policy), this is the first touch of the policy.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  An opaque tag indicating the current version of the policy, used for
+ *  concurrency control.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** McpEnableRules contains MCP enablement related rules. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_McpEnableRule *> *mcpEnableRules;
+
+/**
+ *  Output only. The resource name of the policy. Only the `default` policy is
+ *  supported. We allow the following formats:
+ *  `projects/{PROJECT_NUMBER}/mcpPolicies/default`,
+ *  `projects/{PROJECT_ID}/mcpPolicies/default`,
+ *  `folders/{FOLDER_ID}/mcpPolicies/default`,
+ *  `organizations/{ORG_ID}/mcpPolicies/default`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time the policy was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  McpService contains the service names that are enabled for MCP.
+ */
+@interface GTLRServiceUsage_McpService : GTLRObject
+
+/**
+ *  The names of the services that are enabled for MCP. Example:
+ *  `services/library-example.googleapis.com`
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
+ *  Method represents a method of an API interface. New usages of this message
+ *  as an alternative to MethodDescriptorProto are strongly discouraged. This
+ *  message does not reliability preserve all information necessary to model the
+ *  schema and preserve semantics. Instead make use of FileDescriptorSet which
+ *  preserves the necessary information.
  */
 @interface GTLRServiceUsage_Method : GTLRObject
+
+/**
+ *  The source edition string, only valid when syntax is SYNTAX_EDITIONS. This
+ *  field should be ignored, instead the edition should be inherited from Api.
+ *  This is similar to Field and EnumValue.
+ */
+@property(nonatomic, copy, nullable) NSString *edition GTLR_DEPRECATED;
 
 /** The simple name of this method. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4260,7 +4400,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, copy, nullable) NSString *responseTypeUrl;
 
 /**
- *  The source syntax of this method.
+ *  The source syntax of this method. This field should be ignored, instead the
+ *  syntax should be inherited from Api. This is similar to Field and EnumValue.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceUsage_Method_Syntax_SyntaxEditions Syntax `editions`.
@@ -4270,7 +4411,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *    @arg @c kGTLRServiceUsage_Method_Syntax_SyntaxProto3 Syntax `proto3`.
  *        (Value: "SYNTAX_PROTO3")
  */
-@property(nonatomic, copy, nullable) NSString *syntax;
+@property(nonatomic, copy, nullable) NSString *syntax GTLR_DEPRECATED;
 
 @end
 
@@ -5008,7 +5149,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  A protocol buffer option, which can be attached to a message, field,
- *  enumeration, etc.
+ *  enumeration, etc. New usages of this message as an alternative to
+ *  FileOptions, MessageOptions, FieldOptions, EnumOptions, EnumValueOptions,
+ *  ServiceOptions, or MethodOptions are strongly discouraged.
  */
 @interface GTLRServiceUsage_Option : GTLRObject
 
@@ -5691,7 +5834,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  A protocol buffer message type.
+ *  A protocol buffer message type. New usages of this message as an alternative
+ *  to DescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceUsage_Type : GTLRObject
 
@@ -5742,6 +5889,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Metadata for the `UpdateConsumerPolicy` method.
  */
 @interface GTLRServiceUsage_UpdateConsumerPolicyMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for the `UpdateMcpPolicy` method.
+ */
+@interface GTLRServiceUsage_UpdateMcpPolicyMetadata : GTLRObject
 @end
 
 

@@ -174,6 +174,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSyste
 
 
 /**
+ *  A request message for signing an SSH public key.
+ */
+@interface GTLRCloudOSLogin_SignSshPublicKeyRequest : GTLRObject
+
+/**
+ *  The App Engine instance to sign the SSH public key for. Expected format:
+ *  apps/{app}/services/{service}/versions/{version}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *appEngineInstance;
+
+/**
+ *  The Compute instance to sign the SSH public key for. Expected format:
+ *  projects/{project}/zones/{zone}/instances/{numeric_instance_id}
+ */
+@property(nonatomic, copy, nullable) NSString *computeInstance;
+
+/**
+ *  Optional. The service account for the instance. If the instance in question
+ *  does not have a service account, this field should be left empty. If the
+ *  wrong service account is provided, this operation will return a signed
+ *  certificate that will not be accepted by the VM.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+/** Required. The SSH public key to sign. */
+@property(nonatomic, copy, nullable) NSString *sshPublicKey;
+
+@end
+
+
+/**
+ *  The response message for signing an SSH public key.
+ */
+@interface GTLRCloudOSLogin_SignSshPublicKeyResponse : GTLRObject
+
+/** The signed SSH public key to use in the SSH handshake. */
+@property(nonatomic, copy, nullable) NSString *signedSshPublicKey;
+
+@end
+
+
+/**
  *  The SSH public key information associated with a Google account.
  */
 @interface GTLRCloudOSLogin_SshPublicKey : GTLRObject

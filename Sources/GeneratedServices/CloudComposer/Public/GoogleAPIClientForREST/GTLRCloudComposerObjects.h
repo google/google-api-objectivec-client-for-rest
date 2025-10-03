@@ -21,6 +21,7 @@
 @class GTLRCloudComposer_CloudDataLineageIntegration;
 @class GTLRCloudComposer_ComposerWorkload;
 @class GTLRCloudComposer_ComposerWorkloadStatus;
+@class GTLRCloudComposer_ConfigConflict;
 @class GTLRCloudComposer_DagProcessorResource;
 @class GTLRCloudComposer_DatabaseConfig;
 @class GTLRCloudComposer_DataRetentionConfig;
@@ -221,6 +222,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_Sta
  *  Value: "WARNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudComposer_ConfigConflict.type
+
+/**
+ *  Conflict is blocking, the upgrade would fail.
+ *
+ *  Value: "BLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ConfigConflict_Type_Blocking;
+/**
+ *  Conflict type is unknown.
+ *
+ *  Value: "CONFLICT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ConfigConflict_Type_ConflictTypeUnspecified;
+/**
+ *  Conflict is non-blocking. The upgrade would succeed, but the environment
+ *  configuration would be changed.
+ *
+ *  Value: "NON_BLOCKING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_ConfigConflict_Type_NonBlocking;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudComposer_Environment.state
@@ -566,6 +590,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 @property(nonatomic, copy, nullable) NSString *buildLogUri;
 
 /**
+ *  Output only. Contains information about environment configuration that is
+ *  incompatible with the new image version, except for pypi modules conflicts.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_ConfigConflict *> *configConflicts;
+
+/**
  *  Output only. Whether build has succeeded or failed on modules conflicts.
  *
  *  Likely values:
@@ -713,6 +743,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 
 /** Output only. Text to provide more descriptive status. */
 @property(nonatomic, copy, nullable) NSString *statusMessage;
+
+@end
+
+
+/**
+ *  Environment configuration conflict.
+ */
+@interface GTLRCloudComposer_ConfigConflict : GTLRObject
+
+/** Conflict message. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Conflict type. It can be blocking or non-blocking.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_ConfigConflict_Type_Blocking Conflict is
+ *        blocking, the upgrade would fail. (Value: "BLOCKING")
+ *    @arg @c kGTLRCloudComposer_ConfigConflict_Type_ConflictTypeUnspecified
+ *        Conflict type is unknown. (Value: "CONFLICT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudComposer_ConfigConflict_Type_NonBlocking Conflict is
+ *        non-blocking. The upgrade would succeed, but the environment
+ *        configuration would be changed. (Value: "NON_BLOCKING")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1418,6 +1473,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudComposer_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

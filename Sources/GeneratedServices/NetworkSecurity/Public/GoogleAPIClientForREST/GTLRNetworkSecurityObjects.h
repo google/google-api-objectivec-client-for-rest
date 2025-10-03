@@ -316,8 +316,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Deny;
  *  client certificate will be rejected if CLIENT_CERT_COMMON_NAME is set as the
  *  principal selector. A match happens when there is an exact common name value
  *  match. This is only applicable for Application Load Balancers except for
- *  classic Global External Application load balancer. CLIENT_CERT_COMMON_NAME
- *  is not supported for INTERNAL_SELF_MANAGED load balancing scheme.
+ *  global external Application Load Balancer and classic Application Load
+ *  Balancer. CLIENT_CERT_COMMON_NAME is not supported for INTERNAL_SELF_MANAGED
+ *  load balancing scheme.
  *
  *  Value: "CLIENT_CERT_COMMON_NAME"
  */
@@ -1863,11 +1864,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  successfully validated by mTLS. Each identity is a string whose value is
  *  matched against a list of URI SANs, DNS Name SANs, or the common name in the
  *  client's certificate. A match happens when any principal matches with the
- *  rule. Limited to 50 principals per Authorization Policy for Regional
- *  Internal Application Load Balancer, Regional External Application Load
- *  Balancer, Cross-region Internal Application Load Balancer, and Cloud Service
- *  Mesh. Limited to 25 principals per Authorization Policy for Global External
- *  Application Load Balancer.
+ *  rule. Limited to 50 principals per Authorization Policy for regional
+ *  internal Application Load Balancers, regional external Application Load
+ *  Balancers, cross-region internal Application Load Balancers, and Cloud
+ *  Service Mesh. This field is not supported for global external Application
+ *  Load Balancers.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal *> *principals;
 
@@ -1938,9 +1939,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        the client certificate will be rejected if CLIENT_CERT_COMMON_NAME is
  *        set as the principal selector. A match happens when there is an exact
  *        common name value match. This is only applicable for Application Load
- *        Balancers except for classic Global External Application load
- *        balancer. CLIENT_CERT_COMMON_NAME is not supported for
- *        INTERNAL_SELF_MANAGED load balancing scheme. (Value:
+ *        Balancers except for global external Application Load Balancer and
+ *        classic Application Load Balancer. CLIENT_CERT_COMMON_NAME is not
+ *        supported for INTERNAL_SELF_MANAGED load balancing scheme. (Value:
  *        "CLIENT_CERT_COMMON_NAME")
  *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertDnsNameSan
  *        The principal rule is matched against a list of DNS Name SANs in the
@@ -2186,8 +2187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 /**
  *  Required. All gateways and forwarding rules referenced by this policy and
  *  extensions must share the same load balancing scheme. Supported values:
- *  `INTERNAL_MANAGED`, `INTERNAL_SELF_MANAGED`, and `EXTERNAL_MANAGED`. For
- *  more information, refer to [Backend services
+ *  `INTERNAL_MANAGED` and `EXTERNAL_MANAGED`. For more information, refer to
+ *  [Backend services
  *  overview](https://cloud.google.com/load-balancing/docs/backend-service).
  *
  *  Likely values:
@@ -2208,8 +2209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  Required. A list of references to the Forwarding Rules on which this policy
- *  will be applied. For policies created for Cloudrun, this field will
- *  reference the Cloud Run services.
+ *  will be applied.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
@@ -4456,6 +4456,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

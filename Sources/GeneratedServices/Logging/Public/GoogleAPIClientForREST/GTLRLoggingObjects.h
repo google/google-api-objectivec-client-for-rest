@@ -3338,8 +3338,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Names of one or more parent resources: projects/[PROJECT_ID]May
- *  alternatively be one or more views:
+ *  Required. Names of one or more parent resources (organizations and folders
+ *  are not supported.): projects/[PROJECT_ID]May alternatively be one or more
+ *  views:
  *  projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]/views/[VIEW_ID]A
  *  log scope can include a maximum of 5 projects and a maximum of 100 resources
  *  in total.

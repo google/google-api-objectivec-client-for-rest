@@ -16,6 +16,33 @@
 
 @end
 
+@implementation GTLRCloudOSLoginQuery_ProjectsLocationsSignSshPublicKey
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCloudOSLogin_SignSshPublicKeyRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:signSshPublicKey";
+  GTLRCloudOSLoginQuery_ProjectsLocationsSignSshPublicKey *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudOSLogin_SignSshPublicKeyResponse class];
+  query.loggingName = @"oslogin.projects.locations.signSshPublicKey";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudOSLoginQuery_UsersGetLoginProfile
 
 @dynamic name, projectId, systemId;

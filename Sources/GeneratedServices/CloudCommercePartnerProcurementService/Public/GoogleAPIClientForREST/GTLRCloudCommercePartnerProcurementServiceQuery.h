@@ -23,6 +23,38 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Include base account information. This is the default view. All fields from
+ *  Account are included except for the reseller_parent_billing_account field.
+ *
+ *  Value: "ACCOUNT_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudCommercePartnerProcurementServiceViewAccountViewBasic;
+/**
+ *  Includes all available account information, inclusive of the accounts
+ *  reseller_parent_billing_account, if it's a resold account.
+ *
+ *  Value: "ACCOUNT_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudCommercePartnerProcurementServiceViewAccountViewFull;
+/**
+ *  The default / unset value. For `GetAccount`, it defaults to the FULL view.
+ *  For `ListAccounts`, it only supports BASIC view.
+ *
+ *  Value: "ACCOUNT_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudCommercePartnerProcurementServiceViewAccountViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Cloud Commerce Partner Procurement Service query
  *  classes.
@@ -80,6 +112,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Required. The name of the account to retrieve. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. What information to include in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudCommercePartnerProcurementServiceViewAccountViewUnspecified
+ *        The default / unset value. For `GetAccount`, it defaults to the FULL
+ *        view. For `ListAccounts`, it only supports BASIC view. (Value:
+ *        "ACCOUNT_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRCloudCommercePartnerProcurementServiceViewAccountViewBasic
+ *        Include base account information. This is the default view. All fields
+ *        from Account are included except for the
+ *        reseller_parent_billing_account field. (Value: "ACCOUNT_VIEW_BASIC")
+ *    @arg @c kGTLRCloudCommercePartnerProcurementServiceViewAccountViewFull
+ *        Includes all available account information, inclusive of the accounts
+ *        reseller_parent_billing_account, if it's a resold account. (Value:
+ *        "ACCOUNT_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRCloudCommercePartnerProcurementService_Account.

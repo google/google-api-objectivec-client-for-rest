@@ -6,7 +6,7 @@
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
-//   https://developers.google.com/cloud-sql/
+//   https://cloud.google.com/sql/docs
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -47,6 +47,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeDatabase;
  *  Value: "SQL_FLAG_SCOPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// mode
+
+/**
+ *  Refresh all TLS configs. This is the default behaviour.
+ *
+ *  Value: "ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeAll;
+/**
+ *  Reset SSL mode is not specified.
+ *
+ *  Value: "RESET_SSL_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeResetSslModeUnspecified;
+/**
+ *  Refreshes the replication-related TLS configuration settings provided by the
+ *  primary instance. Not applicable to on-premises replication instances.
+ *
+ *  Value: "SYNC_FROM_PRIMARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -1509,6 +1532,44 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified
 @end
 
 /**
+ *  Execute MVU Pre-checks
+ *
+ *  Method: sql.instances.preCheckMajorVersionUpgrade
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesPreCheckMajorVersionUpgrade : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Execute MVU Pre-checks
+ *
+ *  @param object The @c
+ *    GTLRSQLAdmin_InstancesPreCheckMajorVersionUpgradeRequest to include in the
+ *    query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesPreCheckMajorVersionUpgrade
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesPreCheckMajorVersionUpgradeRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
  *  Promotes the read replica instance to be an independent Cloud SQL primary
  *  instance. Using this operation might cause your instance to restart.
  *
@@ -1640,6 +1701,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified
 
 /** Cloud SQL instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+/**
+ *  Optional. Reset SSL mode to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdminModeResetSslModeUnspecified Reset SSL mode is not
+ *        specified. (Value: "RESET_SSL_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdminModeAll Refresh all TLS configs. This is the default
+ *        behaviour. (Value: "ALL")
+ *    @arg @c kGTLRSQLAdminModeSyncFromPrimary Refreshes the replication-related
+ *        TLS configuration settings provided by the primary instance. Not
+ *        applicable to on-premises replication instances. (Value:
+ *        "SYNC_FROM_PRIMARY")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
 
 /** Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;

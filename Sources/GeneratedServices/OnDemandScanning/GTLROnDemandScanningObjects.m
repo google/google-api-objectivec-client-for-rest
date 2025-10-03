@@ -1108,11 +1108,12 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLROnDemandScanning_Operation class]
+    @"operations" : [GTLROnDemandScanning_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

@@ -1106,7 +1106,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Step_Status_InProgress
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Step_Status_NotStarted;
 /**
- *  Unspecifed code.
+ *  Unspecified code.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
@@ -1159,9 +1159,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *  opposed to simply a description of methods and bindings. They are also
  *  sometimes simply referred to as "APIs" in other contexts, such as the name
  *  of this message itself. See https://cloud.google.com/apis/design/glossary
- *  for detailed terminology.
+ *  for detailed terminology. New usages of this message as an alternative to
+ *  ServiceDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceManagement_Api : GTLRObject
+
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /** The methods of this interface, in unspecified order. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Method *> *methods;
@@ -1551,7 +1558,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) GTLRServiceManagement_BackendRule_OverridesByRequestProtocol *overridesByRequestProtocol;
 
 /**
- *  pathTranslation
+ *  no-lint
  *
  *  Likely values:
  *    @arg @c kGTLRServiceManagement_BackendRule_PathTranslation_AppendPathToAddress
@@ -2597,7 +2604,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  Enum type definition.
+ *  Enum type definition. New usages of this message as an alternative to
+ *  EnumDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceManagement_Enum : GTLRObject
 
@@ -2633,7 +2644,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  Enum value definition.
+ *  Enum value definition. New usages of this message as an alternative to
+ *  EnumValueDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceManagement_EnumValue : GTLRObject
 
@@ -2742,7 +2757,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  A single field of a message type.
+ *  A single field of a message type. New usages of this message as an
+ *  alternative to FieldDescriptorProto are strongly discouraged. This message
+ *  does not reliability preserve all information necessary to model the schema
+ *  and preserve semantics. Instead make use of FileDescriptorSet which
+ *  preserves the necessary information.
  */
 @interface GTLRServiceManagement_Field : GTLRObject
 
@@ -3033,7 +3052,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /**
  *  Map of service names to renamed services. Keys are the package relative
  *  service names and values are the name to be used for the service client and
- *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  call options. Example: publishing: go_settings: renamed_services: Publisher:
  *  TopicAdmin
  */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_GoSettings_RenamedServices *renamedServices;
@@ -3044,7 +3063,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /**
  *  Map of service names to renamed services. Keys are the package relative
  *  service names and values are the name to be used for the service client and
- *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  call options. Example: publishing: go_settings: renamed_services: Publisher:
  *  TopicAdmin
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -3640,9 +3659,20 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  Method represents a method of an API interface.
+ *  Method represents a method of an API interface. New usages of this message
+ *  as an alternative to MethodDescriptorProto are strongly discouraged. This
+ *  message does not reliability preserve all information necessary to model the
+ *  schema and preserve semantics. Instead make use of FileDescriptorSet which
+ *  preserves the necessary information.
  */
 @interface GTLRServiceManagement_Method : GTLRObject
+
+/**
+ *  The source edition string, only valid when syntax is SYNTAX_EDITIONS. This
+ *  field should be ignored, instead the edition should be inherited from Api.
+ *  This is similar to Field and EnumValue.
+ */
+@property(nonatomic, copy, nullable) NSString *edition GTLR_DEPRECATED;
 
 /** The simple name of this method. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3671,7 +3701,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, copy, nullable) NSString *responseTypeUrl;
 
 /**
- *  The source syntax of this method.
+ *  The source syntax of this method. This field should be ignored, instead the
+ *  syntax should be inherited from Api. This is similar to Field and EnumValue.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceManagement_Method_Syntax_SyntaxEditions Syntax
@@ -3681,7 +3712,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *    @arg @c kGTLRServiceManagement_Method_Syntax_SyntaxProto3 Syntax `proto3`.
  *        (Value: "SYNTAX_PROTO3")
  */
-@property(nonatomic, copy, nullable) NSString *syntax;
+@property(nonatomic, copy, nullable) NSString *syntax GTLR_DEPRECATED;
 
 @end
 
@@ -4460,7 +4491,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /**
  *  A protocol buffer option, which can be attached to a message, field,
- *  enumeration, etc.
+ *  enumeration, etc. New usages of this message as an alternative to
+ *  FileOptions, MessageOptions, FieldOptions, EnumOptions, EnumValueOptions,
+ *  ServiceOptions, or MethodOptions are strongly discouraged.
  */
 @interface GTLRServiceManagement_Option : GTLRObject
 
@@ -4538,6 +4571,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /** Some settings. */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_CommonLanguageSettings *common;
+
+/**
+ *  The package name to use in Php. Clobbers the php_namespace option set in the
+ *  protobuf. This should be used **only** by APIs who have already set the
+ *  language_settings.php.package_name" field in gapic.yaml. API teams should
+ *  use the protobuf php_namespace option where possible. Example of a YAML
+ *  configuration:: publishing: library_settings: php_settings: library_package:
+ *  Google\\Cloud\\PubSub\\V1
+ */
+@property(nonatomic, copy, nullable) NSString *libraryPackage;
 
 @end
 
@@ -4982,9 +5025,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_TrafficPercentStrategy *trafficPercentStrategy;
 
-/** The TPC universe which the rollout will be rolled out to. */
-@property(nonatomic, copy, nullable) NSString *universe;
-
 @end
 
 
@@ -5329,7 +5369,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        step is in progress. (Value: "IN_PROGRESS")
  *    @arg @c kGTLRServiceManagement_Step_Status_NotStarted The operation or
  *        step has not started yet. (Value: "NOT_STARTED")
- *    @arg @c kGTLRServiceManagement_Step_Status_StatusUnspecified Unspecifed
+ *    @arg @c kGTLRServiceManagement_Step_Status_StatusUnspecified Unspecified
  *        code. (Value: "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
@@ -5511,7 +5551,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 
 /**
- *  A protocol buffer message type.
+ *  A protocol buffer message type. New usages of this message as an alternative
+ *  to DescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceManagement_Type : GTLRObject
 

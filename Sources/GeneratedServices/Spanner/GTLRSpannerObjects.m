@@ -290,7 +290,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_AdaptMessageResponse
-@dynamic payload, stateUpdates;
+@dynamic last, payload, stateUpdates;
 @end
 
 
@@ -633,7 +633,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_CommitResponse
-@dynamic commitStats, commitTimestamp, precommitToken;
+@dynamic commitStats, commitTimestamp, precommitToken, snapshotTimestamp;
 @end
 
 

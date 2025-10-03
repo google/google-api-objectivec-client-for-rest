@@ -4,7 +4,8 @@
 // API:
 //   Content API for Shopping (content/v2.1)
 // Description:
-//   Manage your product listings and accounts for Google Shopping
+//   This API is deprecated. Please use Merchant API instead:
+//   https://developers.google.com/merchant/api.
 // Documentation:
 //   https://developers.google.com/shopping-content/v2/
 

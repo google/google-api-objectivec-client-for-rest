@@ -186,6 +186,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccountSuspensionDetails_Abu
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_TrafficPumping;
 /**
+ *  This account is being suspended for being an unqualified educational
+ *  institution.
+ *
+ *  Value: "UNQUALIFIED_EDU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_UnqualifiedEdu;
+/**
  *  This account is being suspended for unwanted content.
  *
  *  Value: "UNWANTED_CONTENT"
@@ -984,6 +991,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *    @arg @c kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_TrafficPumping
  *        This account is being suspended for artificially boosting traffic to a
  *        website. (Value: "TRAFFIC_PUMPING")
+ *    @arg @c kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_UnqualifiedEdu
+ *        This account is being suspended for being an unqualified educational
+ *        institution. (Value: "UNQUALIFIED_EDU")
  *    @arg @c kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_UnwantedContent
  *        This account is being suspended for unwanted content. (Value:
  *        "UNWANTED_CONTENT")

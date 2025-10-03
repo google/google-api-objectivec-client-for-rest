@@ -517,6 +517,50 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Database.firestoreDataAccessMode
+
+/**
+ *  Accessing the database through the API is disallowed.
+ *
+ *  Value: "DATA_ACCESS_MODE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_FirestoreDataAccessMode_DataAccessModeDisabled;
+/**
+ *  Accessing the database through the API is allowed.
+ *
+ *  Value: "DATA_ACCESS_MODE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_FirestoreDataAccessMode_DataAccessModeEnabled;
+/**
+ *  Not Used.
+ *
+ *  Value: "DATA_ACCESS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_FirestoreDataAccessMode_DataAccessModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Database.mongodbCompatibleDataAccessMode
+
+/**
+ *  Accessing the database through the API is disallowed.
+ *
+ *  Value: "DATA_ACCESS_MODE_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_MongodbCompatibleDataAccessMode_DataAccessModeDisabled;
+/**
+ *  Accessing the database through the API is allowed.
+ *
+ *  Value: "DATA_ACCESS_MODE_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_MongodbCompatibleDataAccessMode_DataAccessModeEnabled;
+/**
+ *  Not Used.
+ *
+ *  Value: "DATA_ACCESS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_MongodbCompatibleDataAccessMode_DataAccessModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Database.pointInTimeRecoveryEnablement
 
 /**
@@ -541,6 +585,29 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
  *  Value: "POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryEnablementUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1Database.realtimeUpdatesMode
+
+/**
+ *  The Realtime Updates feature is disabled by default.
+ *
+ *  Value: "REALTIME_UPDATES_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesDisabled;
+/**
+ *  The Realtime Updates feature is enabled by default. This could potentially
+ *  degrade write performance for the database.
+ *
+ *  Value: "REALTIME_UPDATES_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesEnabled;
+/**
+ *  The Realtime Updates feature is not specified.
+ *
+ *  Value: "REALTIME_UPDATES_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1Database.type
@@ -2797,6 +2864,24 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  Optional. The Firestore API data access mode to use for this database. If
+ *  not set on write: - the default value is DATA_ACCESS_MODE_DISABLED for
+ *  Enterprise Edition. - the default value is DATA_ACCESS_MODE_ENABLED for
+ *  Standard Edition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_FirestoreDataAccessMode_DataAccessModeDisabled
+ *        Accessing the database through the API is disallowed. (Value:
+ *        "DATA_ACCESS_MODE_DISABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_FirestoreDataAccessMode_DataAccessModeEnabled
+ *        Accessing the database through the API is allowed. (Value:
+ *        "DATA_ACCESS_MODE_ENABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_FirestoreDataAccessMode_DataAccessModeUnspecified
+ *        Not Used. (Value: "DATA_ACCESS_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *firestoreDataAccessMode;
+
+/**
  *  Output only. Background: Free tier is the ability of a Firestore database to
  *  use a small amount of resources every day without being charged. Once usage
  *  exceeds the free tier limit further usage is charged. Whether this database
@@ -2824,6 +2909,24 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  https://cloud.google.com/firestore/docs/locations.
  */
 @property(nonatomic, copy, nullable) NSString *locationId;
+
+/**
+ *  Optional. The MongoDB compatible API data access mode to use for this
+ *  database. If not set on write, the default value is DATA_ACCESS_MODE_ENABLED
+ *  for Enterprise Edition. The value is always DATA_ACCESS_MODE_DISABLED for
+ *  Standard Edition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_MongodbCompatibleDataAccessMode_DataAccessModeDisabled
+ *        Accessing the database through the API is disallowed. (Value:
+ *        "DATA_ACCESS_MODE_DISABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_MongodbCompatibleDataAccessMode_DataAccessModeEnabled
+ *        Accessing the database through the API is allowed. (Value:
+ *        "DATA_ACCESS_MODE_ENABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_MongodbCompatibleDataAccessMode_DataAccessModeUnspecified
+ *        Not Used. (Value: "DATA_ACCESS_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *mongodbCompatibleDataAccessMode;
 
 /**
  *  The resource name of the Database. Format:
@@ -2855,6 +2958,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  populated for deleted databases.
  */
 @property(nonatomic, copy, nullable) NSString *previousId;
+
+/**
+ *  Immutable. The default Realtime Updates mode to use for this database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesDisabled
+ *        The Realtime Updates feature is disabled by default. (Value:
+ *        "REALTIME_UPDATES_DISABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesEnabled
+ *        The Realtime Updates feature is enabled by default. This could
+ *        potentially degrade write performance for the database. (Value:
+ *        "REALTIME_UPDATES_ENABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesModeUnspecified
+ *        The Realtime Updates feature is not specified. (Value:
+ *        "REALTIME_UPDATES_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *realtimeUpdatesMode;
 
 /** Output only. Information about the provenance of this database. */
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1SourceInfo *sourceInfo;

@@ -39,10 +39,13 @@
 @class GTLRWorkloadManager_IAMPermission;
 @class GTLRWorkloadManager_Insight;
 @class GTLRWorkloadManager_InstanceProperties;
+@class GTLRWorkloadManager_InvalidRule;
+@class GTLRWorkloadManager_InvalidRulesWrapper;
 @class GTLRWorkloadManager_Location;
 @class GTLRWorkloadManager_Location_Labels;
 @class GTLRWorkloadManager_Location_Metadata;
 @class GTLRWorkloadManager_Notice;
+@class GTLRWorkloadManager_OpenShiftValidation;
 @class GTLRWorkloadManager_Operation;
 @class GTLRWorkloadManager_Operation_Metadata;
 @class GTLRWorkloadManager_Operation_Response;
@@ -2075,6 +2078,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 /** Optional. The instance id where the insight is generated from */
 @property(nonatomic, copy, nullable) NSString *instanceId;
 
+/** The insights data for the OpenShift workload validation. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_OpenShiftValidation *openShiftValidation;
+
 /**
  *  The insights data for SAP system discovery. This is a copy of SAP System
  *  proto and should get updated whenever that one changes.
@@ -2118,6 +2124,37 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 /** Optional. the next maintenance event on VM */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_UpcomingMaintenanceEvent *upcomingMaintenanceEvent;
+
+@end
+
+
+/**
+ *  Message represent an rule that failed to be validated.
+ */
+@interface GTLRWorkloadManager_InvalidRule : GTLRObject
+
+/** display name of the invalid rule */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** cloud storage destination of the invalid rule */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/** name of the invalid rule */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The error message of valdating rule formats. */
+@property(nonatomic, copy, nullable) NSString *valiadtionError;
+
+@end
+
+
+/**
+ *  Message wrappes a list of invalid rules.
+ */
+@interface GTLRWorkloadManager_InvalidRulesWrapper : GTLRObject
+
+/** The invalid rules that failed to be validated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_InvalidRule *> *invalidRules;
 
 @end
 
@@ -2282,23 +2319,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 /**
  *  Mesesage of response of list rules
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "rules" property. If returned as the result of a query, it should
- *        support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
  */
-@interface GTLRWorkloadManager_ListRulesResponse : GTLRCollectionObject
+@interface GTLRWorkloadManager_ListRulesResponse : GTLRObject
 
-/** A token identifying a page of results the server should return. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
+/** A wrapper of the invalid rules that failed to be validated. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_InvalidRulesWrapper *invalidRulesWrapper;
 
-/**
- *  all rules in response
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
+/** all rules in response */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Rule *> *rules;
 
 @end
@@ -2400,6 +2427,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 /** Output only. Message of the notice */
 @property(nonatomic, copy, nullable) NSString *message;
 
+@end
+
+
+/**
+ *  A presentation of OpenShift workload insight. The schema of OpenShift
+ *  workloads validation related data.
+ */
+@interface GTLRWorkloadManager_OpenShiftValidation : GTLRObject
 @end
 
 

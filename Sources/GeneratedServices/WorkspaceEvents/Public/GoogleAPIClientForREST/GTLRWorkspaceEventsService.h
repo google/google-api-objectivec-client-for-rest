@@ -33,6 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMemberships;
 /**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see all
+ *  messages and their associated reactions and message content
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.messages.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMessagesReadonly;
+/**
  *  Authorization scope: On their own behalf, apps in Google Chat can create
  *  conversations and spaces and see or update their metadata (including history
  *  settings and access settings)

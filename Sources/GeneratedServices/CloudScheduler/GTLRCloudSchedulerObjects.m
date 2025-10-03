@@ -183,11 +183,12 @@ NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed    = @"UPDATE_FAILED
 //
 
 @implementation GTLRCloudScheduler_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudScheduler_Operation class]
+    @"operations" : [GTLRCloudScheduler_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

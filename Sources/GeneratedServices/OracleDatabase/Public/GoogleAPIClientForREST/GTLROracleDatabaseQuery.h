@@ -238,6 +238,42 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Initiates a failover to target autonomous database from the associated
+ *  primary database.
+ *
+ *  Method: oracledatabase.projects.locations.autonomousDatabases.failover
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesFailover : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Autonomous Database in the following format:
+ *  projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Initiates a failover to target autonomous database from the associated
+ *  primary database.
+ *
+ *  @param object The @c GTLROracleDatabase_FailoverAutonomousDatabaseRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Autonomous Database in the following
+ *    format:
+ *    projects/{project}/locations/{location}/autonomousDatabases/{autonomous_database}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesFailover
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_FailoverAutonomousDatabaseRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Generates a wallet for an Autonomous Database.
  *
  *  Method: oracledatabase.projects.locations.autonomousDatabases.generateWallet
@@ -352,6 +388,63 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single Autonomous Database.
+ *
+ *  Method: oracledatabase.projects.locations.autonomousDatabases.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The name of the Autonomous Database resource in the following
+ *  format:
+ *  projects/{project}/locations/{region}/autonomousDatabases/{autonomous_database}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Exadata resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. If the user does not provide a mask then all fields
+ *  will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates the parameters of a single Autonomous Database.
+ *
+ *  @param object The @c GTLROracleDatabase_AutonomousDatabase to include in the
+ *    query.
+ *  @param name Identifier. The name of the Autonomous Database resource in the
+ *    following format:
+ *    projects/{project}/locations/{region}/autonomousDatabases/{autonomous_database}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsAutonomousDatabasesPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_AutonomousDatabase *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -766,6 +859,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLROracleDatabaseQuery_ProjectsLocationsCloudExadataInfrastructuresList : GTLROracleDatabaseQuery
 
+/** Optional. An expression for filtering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. An expression for ordering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
 /**
  *  Optional. The maximum number of items to return. If unspecified, at most 50
  *  Exadata infrastructures will be returned. The maximum value is 1000; values
@@ -1027,6 +1126,326 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  List DatabaseCharacterSets for the given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.databaseCharacterSets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDatabaseCharacterSetsList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Only the
+ *  **character_set_type** field is supported in the following format:
+ *  `character_set_type="{characterSetType}"`. Accepted values include
+ *  `DATABASE` and `NATIONAL`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of DatabaseCharacterSets to return. The service
+ *  may return fewer than this value. If unspecified, at most 50
+ *  DatabaseCharacterSets will be returned. The maximum value is 1000; values
+ *  above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListDatabaseCharacterSets`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListDatabaseCharacterSets` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for DatabaseCharacterSets in the following
+ *  format: projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListDatabaseCharacterSetsResponse.
+ *
+ *  List DatabaseCharacterSets for the given project and location.
+ *
+ *  @param parent Required. The parent value for DatabaseCharacterSets in the
+ *    following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDatabaseCharacterSetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single Database.
+ *
+ *  Method: oracledatabase.projects.locations.databases.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDatabasesGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the Database resource in the following format:
+ *  projects/{project}/locations/{region}/databases/{database}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Database.
+ *
+ *  Gets details of a single Database.
+ *
+ *  @param name Required. The name of the Database resource in the following
+ *    format: projects/{project}/locations/{region}/databases/{database}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDatabasesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the Databases for the given project, location and DbSystem.
+ *
+ *  Method: oracledatabase.projects.locations.databases.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDatabasesList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. list for
+ *  container databases is supported only with a valid dbSystem (full resource
+ *  name) filter in this format:
+ *  `dbSystem="projects/{project}/locations/{location}/dbSystems/{dbSystemId}"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, a maximum
+ *  of 50 System Versions will be returned. The maximum value is 1000; values
+ *  above 1000 will be reset to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying the requested page of results to return. All
+ *  fields except the filter should remain the same as in the request that
+ *  provided this page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name in the following format:
+ *  projects/{project}/locations/{region}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListDatabasesResponse.
+ *
+ *  Lists all the Databases for the given project, location and DbSystem.
+ *
+ *  @param parent Required. The parent resource name in the following format:
+ *    projects/{project}/locations/{region}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDatabasesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all the DbSystemInitialStorageSizes for the given project and
+ *  location.
+ *
+ *  Method: oracledatabase.projects.locations.dbSystemInitialStorageSizes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDbSystemInitialStorageSizesList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, a maximum
+ *  of 50 System Versions will be returned. The maximum value is 1000; values
+ *  above 1000 will be reset to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying the requested page of results to return. All
+ *  fields except the filter should remain the same as in the request that
+ *  provided this page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for the DbSystemInitialStorageSize resource with
+ *  the format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListDbSystemInitialStorageSizesResponse.
+ *
+ *  Lists all the DbSystemInitialStorageSizes for the given project and
+ *  location.
+ *
+ *  @param parent Required. The parent value for the DbSystemInitialStorageSize
+ *    resource with the format: projects/{project}/locations/{location}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDbSystemInitialStorageSizesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new DbSystem in a given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.dbSystems.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsCreate : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The ID of the DbSystem to create. This value is restricted to
+ *  (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63 characters
+ *  in length. The value must start with a letter and end with a letter or a
+ *  number.
+ */
+@property(nonatomic, copy, nullable) NSString *dbSystemId;
+
+/**
+ *  Required. The value for parent of the DbSystem in the following format:
+ *  projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Creates a new DbSystem in a given project and location.
+ *
+ *  @param object The @c GTLROracleDatabase_DbSystem to include in the query.
+ *  @param parent Required. The value for parent of the DbSystem in the
+ *    following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsCreate
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_DbSystem *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single DbSystem.
+ *
+ *  Method: oracledatabase.projects.locations.dbSystems.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsDelete : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the DbSystem in the following format:
+ *  projects/{project}/locations/{location}/dbSystems/{db_system}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Deletes a single DbSystem.
+ *
+ *  @param name Required. The name of the DbSystem in the following format:
+ *    projects/{project}/locations/{location}/dbSystems/{db_system}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single DbSystem.
+ *
+ *  Method: oracledatabase.projects.locations.dbSystems.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the DbSystem in the following format:
+ *  projects/{project}/locations/{location}/dbSystems/{db_system}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_DbSystem.
+ *
+ *  Gets details of a single DbSystem.
+ *
+ *  @param name Required. The name of the DbSystem in the following format:
+ *    projects/{project}/locations/{location}/dbSystems/{db_system}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists the database system shapes available for the project and location.
  *
  *  Method: oracledatabase.projects.locations.dbSystemShapes.list
@@ -1035,6 +1454,13 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
  */
 @interface GTLROracleDatabaseQuery_ProjectsLocationsDbSystemShapesList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Only the
+ *  gcp_oracle_zone_id field is supported in this format:
+ *  `gcp_oracle_zone_id="{gcp_oracle_zone_id}"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. The maximum number of items to return. If unspecified, at most 50
@@ -1063,6 +1489,114 @@ NS_ASSUME_NONNULL_BEGIN
  *    following format: projects/{project}/locations/{location}.
  *
  *  @return GTLROracleDatabaseQuery_ProjectsLocationsDbSystemShapesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all the DbSystems for the given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.dbSystems.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsList : GTLROracleDatabaseQuery
+
+/** Optional. An expression for filtering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. An expression for ordering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, at most 50
+ *  DbSystems will be returned. The maximum value is 1000; values above 1000
+ *  will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for DbSystems in the following format:
+ *  projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListDbSystemsResponse.
+ *
+ *  Lists all the DbSystems for the given project and location.
+ *
+ *  @param parent Required. The parent value for DbSystems in the following
+ *    format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDbSystemsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  List DbVersions for the given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.dbVersions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsDbVersionsList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. Filter expression that matches a subset of the DbVersions to show.
+ *  The supported filter for dbSystem creation is `db_system_shape =
+ *  {db_system_shape} AND storage_management = {storage_management}`. If no
+ *  filter is provided, all DbVersions will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, a maximum
+ *  of 50 System Versions will be returned. The maximum value is 1000; values
+ *  above 1000 will be reset to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying the requested page of results to return. All
+ *  fields except the filter should remain the same as in the request that
+ *  provided this page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for the DbVersion resource with the format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListDbVersionsResponse.
+ *
+ *  List DbVersions for the given project and location.
+ *
+ *  @param parent Required. The parent value for the DbVersion resource with the
+ *    format: projects/{project}/locations/{location}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsDbVersionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1118,6 +1652,467 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new Exadb (Exascale) VM Cluster resource.
+ *
+ *  Method: oracledatabase.projects.locations.exadbVmClusters.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersCreate : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The ID of the ExadbVmCluster to create. This value is restricted
+ *  to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of 63
+ *  characters in length. The value must start with a letter and end with a
+ *  letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *exadbVmClusterId;
+
+/**
+ *  Required. The value for parent of the ExadbVmCluster in the following
+ *  format: projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Creates a new Exadb (Exascale) VM Cluster resource.
+ *
+ *  @param object The @c GTLROracleDatabase_ExadbVmCluster to include in the
+ *    query.
+ *  @param parent Required. The value for parent of the ExadbVmCluster in the
+ *    following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersCreate
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_ExadbVmCluster *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Exadb (Exascale) VM Cluster.
+ *
+ *  Method: oracledatabase.projects.locations.exadbVmClusters.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDelete : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the ExadbVmCluster in the following format:
+ *  projects/{project}/locations/{location}/exadbVmClusters/{exadb_vm_cluster}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Deletes a single Exadb (Exascale) VM Cluster.
+ *
+ *  @param name Required. The name of the ExadbVmCluster in the following
+ *    format:
+ *    projects/{project}/locations/{location}/exadbVmClusters/{exadb_vm_cluster}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Exadb (Exascale) VM Cluster.
+ *
+ *  Method: oracledatabase.projects.locations.exadbVmClusters.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the ExadbVmCluster in the following format:
+ *  projects/{project}/locations/{location}/exadbVmClusters/{exadb_vm_cluster}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ExadbVmCluster.
+ *
+ *  Gets details of a single Exadb (Exascale) VM Cluster.
+ *
+ *  @param name Required. The name of the ExadbVmCluster in the following
+ *    format:
+ *    projects/{project}/locations/{location}/exadbVmClusters/{exadb_vm_cluster}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the Exadb (Exascale) VM Clusters for the given project and
+ *  location.
+ *
+ *  Method: oracledatabase.projects.locations.exadbVmClusters.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersList : GTLROracleDatabaseQuery
+
+/** Optional. An expression for filtering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. An expression for ordering the results of the request. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, at most 50
+ *  ExadbVmClusters will be returned. The maximum value is 1000; values above
+ *  1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for ExadbVmClusters in the following format:
+ *  projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListExadbVmClustersResponse.
+ *
+ *  Lists all the Exadb (Exascale) VM Clusters for the given project and
+ *  location.
+ *
+ *  @param parent Required. The parent value for ExadbVmClusters in the
+ *    following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a single Exadb (Exascale) VM Cluster. To add virtual machines to
+ *  existing exadb vm cluster, only pass the node count.
+ *
+ *  Method: oracledatabase.projects.locations.exadbVmClusters.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersPatch : GTLROracleDatabaseQuery
+
+/**
+ *  Identifier. The name of the ExadbVmCluster resource in the following format:
+ *  projects/{project}/locations/{region}/exadbVmClusters/{exadb_vm_cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. A mask specifying which fields in th VM Cluster should be updated.
+ *  A field specified in the mask is overwritten. If a mask isn't provided then
+ *  all the fields in the VM Cluster are overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Updates a single Exadb (Exascale) VM Cluster. To add virtual machines to
+ *  existing exadb vm cluster, only pass the node count.
+ *
+ *  @param object The @c GTLROracleDatabase_ExadbVmCluster to include in the
+ *    query.
+ *  @param name Identifier. The name of the ExadbVmCluster resource in the
+ *    following format:
+ *    projects/{project}/locations/{region}/exadbVmClusters/{exadb_vm_cluster}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersPatch
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_ExadbVmCluster *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Removes virtual machines from an existing exadb vm cluster.
+ *
+ *  Method: oracledatabase.projects.locations.exadbVmClusters.removeVirtualMachine
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersRemoveVirtualMachine : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the ExadbVmCluster in the following format:
+ *  projects/{project}/locations/{location}/exadbVmClusters/{exadb_vm_cluster}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Removes virtual machines from an existing exadb vm cluster.
+ *
+ *  @param object The @c
+ *    GTLROracleDatabase_RemoveVirtualMachineExadbVmClusterRequest to include in
+ *    the query.
+ *  @param name Required. The name of the ExadbVmCluster in the following
+ *    format:
+ *    projects/{project}/locations/{location}/exadbVmClusters/{exadb_vm_cluster}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersRemoveVirtualMachine
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_RemoveVirtualMachineExadbVmClusterRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new ExascaleDB Storage Vault resource.
+ *
+ *  Method: oracledatabase.projects.locations.exascaleDbStorageVaults.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsCreate : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The ID of the ExascaleDbStorageVault to create. This value is
+ *  restricted to (^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$) and must be a maximum of
+ *  63 characters in length. The value must start with a letter and end with a
+ *  letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *exascaleDbStorageVaultId;
+
+/**
+ *  Required. The value for parent of the ExascaleDbStorageVault in the
+ *  following format: projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Creates a new ExascaleDB Storage Vault resource.
+ *
+ *  @param object The @c GTLROracleDatabase_ExascaleDbStorageVault to include in
+ *    the query.
+ *  @param parent Required. The value for parent of the ExascaleDbStorageVault
+ *    in the following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsCreate
+ */
++ (instancetype)queryWithObject:(GTLROracleDatabase_ExascaleDbStorageVault *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single ExascaleDB Storage Vault.
+ *
+ *  Method: oracledatabase.projects.locations.exascaleDbStorageVaults.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsDelete : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the ExascaleDbStorageVault in the following format:
+ *  projects/{project}/locations/{location}/exascaleDbStorageVaults/{exascale_db_storage_vault}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_Operation.
+ *
+ *  Deletes a single ExascaleDB Storage Vault.
+ *
+ *  @param name Required. The name of the ExascaleDbStorageVault in the
+ *    following format:
+ *    projects/{project}/locations/{location}/exascaleDbStorageVaults/{exascale_db_storage_vault}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single ExascaleDB Storage Vault.
+ *
+ *  Method: oracledatabase.projects.locations.exascaleDbStorageVaults.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the ExascaleDbStorageVault in the following format:
+ *  projects/{project}/locations/{location}/exascaleDbStorageVaults/{exascale_db_storage_vault}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ExascaleDbStorageVault.
+ *
+ *  Gets details of a single ExascaleDB Storage Vault.
+ *
+ *  @param name Required. The name of the ExascaleDbStorageVault in the
+ *    following format:
+ *    projects/{project}/locations/{location}/exascaleDbStorageVaults/{exascale_db_storage_vault}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the ExascaleDB Storage Vaults for the given project and location.
+ *
+ *  Method: oracledatabase.projects.locations.exascaleDbStorageVaults.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Filter the
+ *  list as specified in https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. An expression for ordering the results of the request. Order
+ *  results as specified in https://google.aip.dev/132.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, at most 50
+ *  ExascaleDbStorageVaults will be returned. The maximum value is 1000; values
+ *  above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for ExascaleDbStorageVault in the following
+ *  format: projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListExascaleDbStorageVaultsResponse.
+ *
+ *  Lists all the ExascaleDB Storage Vaults for the given project and location.
+ *
+ *  @param parent Required. The parent value for ExascaleDbStorageVault in the
+ *    following format: projects/{project}/locations/{location}.
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExascaleDbStorageVaultsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: oracledatabase.projects.locations.get
@@ -1156,7 +2151,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. An expression for filtering the results of the request. Only the
- *  shape and gi_version fields are supported in this format: `shape="{shape}"`.
+ *  shape, gcp_oracle_zone and gi_version fields are supported in this format:
+ *  `shape="{shape}"`.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1198,6 +2194,65 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists all the valid minor versions for the given project, location, gi
+ *  version and shape family.
+ *
+ *  Method: oracledatabase.projects.locations.giVersions.minorVersions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsGiVersionsMinorVersionsList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. Only
+ *  shapeFamily and gcp_oracle_zone_id are supported in this format:
+ *  `shape_family="{shapeFamily}" AND
+ *  gcp_oracle_zone_id="{gcp_oracle_zone_id}"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, a maximum
+ *  of 50 System Versions will be returned. The maximum value is 1000; values
+ *  above 1000 will be reset to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying the requested page of results to return. All
+ *  fields except the filter should remain the same as in the request that
+ *  provided this page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for the MinorVersion resource with the format:
+ *  projects/{project}/locations/{location}/giVersions/{gi_version}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListMinorVersionsResponse.
+ *
+ *  Lists all the valid minor versions for the given project, location, gi
+ *  version and shape family.
+ *
+ *  @param parent Required. The parent value for the MinorVersion resource with
+ *    the format:
+ *    projects/{project}/locations/{location}/giVersions/{gi_version}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsGiVersionsMinorVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: oracledatabase.projects.locations.list
@@ -1208,8 +2263,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROracleDatabaseQuery_ProjectsLocationsList : GTLROracleDatabaseQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1731,6 +2786,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLROracleDatabase_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -1745,6 +2811,96 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single PluggableDatabase.
+ *
+ *  Method: oracledatabase.projects.locations.pluggableDatabases.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsPluggableDatabasesGet : GTLROracleDatabaseQuery
+
+/**
+ *  Required. The name of the PluggableDatabase resource in the following
+ *  format:
+ *  projects/{project}/locations/{region}/pluggableDatabases/{pluggable_database}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_PluggableDatabase.
+ *
+ *  Gets details of a single PluggableDatabase.
+ *
+ *  @param name Required. The name of the PluggableDatabase resource in the
+ *    following format:
+ *    projects/{project}/locations/{region}/pluggableDatabases/{pluggable_database}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsPluggableDatabasesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the PluggableDatabases for the given project, location and
+ *  Container Database.
+ *
+ *  Method: oracledatabase.projects.locations.pluggableDatabases.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsPluggableDatabasesList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. An expression for filtering the results of the request. List for
+ *  pluggable databases is supported only with a valid container database (full
+ *  resource name) filter in this format:
+ *  `database="projects/{project}/locations/{location}/databases/{database}"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of PluggableDatabases to return. The service
+ *  may return fewer than this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListPluggableDatabases`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListPluggableDatabases` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of PluggableDatabases.
+ *  Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListPluggableDatabasesResponse.
+ *
+ *  Lists all the PluggableDatabases for the given project, location and
+ *  Container Database.
+ *
+ *  @param parent Required. The parent, which owns this collection of
+ *    PluggableDatabases. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsPluggableDatabasesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

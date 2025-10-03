@@ -731,6 +731,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudScheduler_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 

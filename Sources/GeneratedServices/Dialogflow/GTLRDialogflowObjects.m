@@ -696,6 +696,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_DtmfZero = @"DTMF_ZERO";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_TelephonyDtmfUnspecified = @"TELEPHONY_DTMF_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall.state
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_State_NeedsConfirmation = @"NEEDS_CONFIRMATION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_State_Triggered = @"TRIGGERED";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata.participantRole
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent = @"AUTOMATED_AGENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_EndUser = @"END_USER";
@@ -855,6 +860,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2SmartReplyModelMetadata_
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_EndOfSingleUtterance = @"END_OF_SINGLE_UTTERANCE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_MessageTypeUnspecified = @"MESSAGE_TYPE_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_Transcript = @"TRANSCRIPT";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2ToolCall.state
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ToolCall_State_NeedsConfirmation = @"NEEDS_CONFIRMATION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ToolCall_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ToolCall_State_Triggered = @"TRIGGERED";
 
 // GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals.failureReasons
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_FailureReasons_FailedIntent = @"FAILED_INTENT";
@@ -7025,6 +7035,131 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction
+@dynamic agentAction, condition, displayDetails, displayName,
+         duplicateCheckResult, systemAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult
+@dynamic duplicateSuggestions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"duplicateSuggestions" : [GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion
+@dynamic answerRecord, similarityScore, suggestionIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestion
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestion
+@dynamic agentActionSuggestions, applicableInstructions, sampleResponses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agentActionSuggestions" : [GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion class],
+    @"applicableInstructions" : [GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction class],
+    @"sampleResponses" : [GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion
+@dynamic agentAction, duplicateCheckResult, sources;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult
+@dynamic duplicateSuggestions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"duplicateSuggestions" : [GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion
+@dynamic answerRecord, similarityScore, sources, suggestionIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse
+@dynamic duplicateCheckResult, responseText, sources;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSources
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSources
+@dynamic instructionIndexes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instructionIndexes" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2AnnotatedMessagePart
 //
 
@@ -7104,6 +7239,131 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"intents" : [GTLRDialogflow_GoogleCloudDialogflowV2Intent class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction
+@dynamic agentAction, condition, displayDetails, displayName,
+         duplicateCheckResult, systemAction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResult
+@dynamic duplicateSuggestions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"duplicateSuggestions" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion
+@dynamic answerRecord, similarityScore, suggestionIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestion
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestion
+@dynamic agentActionSuggestions, applicableInstructions, sampleResponses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"agentActionSuggestions" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionAgentActionSuggestion class],
+    @"applicableInstructions" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction class],
+    @"sampleResponses" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSampleResponse class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionAgentActionSuggestion
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionAgentActionSuggestion
+@dynamic agentAction, duplicateCheckResult, sources;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResult
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResult
+@dynamic duplicateSuggestions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"duplicateSuggestions" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion
+@dynamic answerRecord, similarityScore, sources, suggestionIndex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSampleResponse
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSampleResponse
+@dynamic duplicateCheckResult, responseText, sources;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSources
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSources
+@dynamic instructionIndexes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"instructionIndexes" : [NSNumber class]
   };
   return map;
 }
@@ -7420,7 +7680,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestion
-@dynamic freeFormSuggestion, summarySuggestion, toolCallInfo;
+@dynamic agentCoachingSuggestion, freeFormSuggestion, summarySuggestion,
+         toolCallInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8786,7 +9047,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall
-@dynamic action, createTime, inputParameters, tool;
+@dynamic action, answerRecord, createTime, inputParameters, state, tool,
+         toolDisplayDetails, toolDisplayName;
 @end
 
 
@@ -8810,7 +9072,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResult
-@dynamic action, content, createTime, error, rawContent, tool;
+@dynamic action, answerRecord, content, createTime, error, rawContent, tool;
 @end
 
 
@@ -9179,7 +9441,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestion
-@dynamic freeFormSuggestion, summarySuggestion, toolCallInfo;
+@dynamic agentCoachingSuggestion, freeFormSuggestion, summarySuggestion,
+         toolCallInfo;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -10221,7 +10484,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2ToolCall
-@dynamic action, createTime, inputParameters, tool;
+@dynamic action, answerRecord, createTime, inputParameters, state, tool,
+         toolDisplayDetails, toolDisplayName;
 @end
 
 
@@ -10245,7 +10509,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResult
-@dynamic action, content, createTime, error, rawContent, tool;
+@dynamic action, answerRecord, content, createTime, error, rawContent, tool;
 @end
 
 
@@ -10411,11 +10675,12 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDialogflow_GoogleLongrunningOperation class]
+    @"operations" : [GTLRDialogflow_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

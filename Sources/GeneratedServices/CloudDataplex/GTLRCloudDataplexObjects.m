@@ -143,6 +143,7 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_State_StateUns
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScan.type
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataDiscovery = @"DATA_DISCOVERY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataDocumentation = @"DATA_DOCUMENTATION";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataProfile = @"DATA_PROFILE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataQuality = @"DATA_QUALITY";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataScanTypeUnspecified = @"DATA_SCAN_TYPE_UNSPECIFIED";
@@ -167,6 +168,7 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Suc
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.trigger
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OnDemand = @"ON_DEMAND";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OneTime = @"ONE_TIME";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_Schedule = @"SCHEDULE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_TriggerUnspecified = @"TRIGGER_UNSPECIFIED";
 
@@ -193,6 +195,7 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Succe
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob.type
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataDiscovery = @"DATA_DISCOVERY";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataDocumentation = @"DATA_DOCUMENTATION";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataProfile = @"DATA_PROFILE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataQuality = @"DATA_QUALITY";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataScanTypeUnspecified = @"DATA_SCAN_TYPE_UNSPECIFIED";
@@ -1190,6 +1193,98 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult
+@dynamic tableResult;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultField
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultField
+@dynamic descriptionProperty, fields, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery
+@dynamic descriptionProperty, sql;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchema
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchema
+@dynamic fields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultTableResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultTableResult
+@dynamic name, overview, queries, schema;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"queries" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult
 //
 
@@ -1689,7 +1784,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScan
 @dynamic createTime, data, dataDiscoveryResult, dataDiscoverySpec,
-         dataProfileResult, dataProfileSpec, dataQualityResult, dataQualitySpec,
+         dataDocumentationResult, dataDocumentationSpec, dataProfileResult,
+         dataProfileSpec, dataQualityResult, dataQualitySpec,
          descriptionProperty, displayName, executionSpec, executionStatus,
          labels, name, state, type, uid, updateTime;
 
@@ -1865,7 +1961,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob
-@dynamic createTime, dataDiscoveryResult, dataDiscoverySpec, dataProfileResult,
+@dynamic createTime, dataDiscoveryResult, dataDiscoverySpec,
+         dataDocumentationResult, dataDocumentationSpec, dataProfileResult,
          dataProfileSpec, dataQualityResult, dataQualitySpec, endTime, message,
          name, startTime, state, type, uid;
 @end
@@ -2004,8 +2101,8 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1EncryptionConfig
-@dynamic createTime, encryptionState, ETag, failureDetails, key, name,
-         updateTime;
+@dynamic createTime, enableMetastoreEncryption, encryptionState, ETag,
+         failureDetails, key, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -4128,11 +4225,12 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudDataplex_GoogleLongrunningOperation class]
+    @"operations" : [GTLRCloudDataplex_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

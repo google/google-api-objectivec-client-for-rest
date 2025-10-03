@@ -13,6 +13,13 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRSaaSServiceManagement_ReplicationInternal.state
+NSString * const kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateFailed = @"REPLICATION_STATE_FAILED";
+NSString * const kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStatePending = @"REPLICATION_STATE_PENDING";
+NSString * const kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateRunning = @"REPLICATION_STATE_RUNNING";
+NSString * const kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateSucceeded = @"REPLICATION_STATE_SUCCEEDED";
+NSString * const kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateUnspecified = @"REPLICATION_STATE_UNSPECIFIED";
+
 // GTLRSaaSServiceManagement_Rollout.state
 NSString * const kGTLRSaaSServiceManagement_Rollout_State_RolloutStateCancelled = @"ROLLOUT_STATE_CANCELLED";
 NSString * const kGTLRSaaSServiceManagement_Rollout_State_RolloutStateCancelling = @"ROLLOUT_STATE_CANCELLING";
@@ -251,6 +258,29 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 + (NSString *)collectionItemsKey {
   return @"releases";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_ListReplicationsInternalResponse
+//
+
+@implementation GTLRSaaSServiceManagement_ListReplicationsInternalResponse
+@dynamic nextPageToken, replicationsInternal, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"replicationsInternal" : [GTLRSaaSServiceManagement_ReplicationInternal class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"replicationsInternal";
 }
 
 @end
@@ -533,6 +563,108 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSaaSServiceManagement_ReplicationInternal
+//
+
+@implementation GTLRSaaSServiceManagement_ReplicationInternal
+@dynamic annotations, createTime, ETag, labels, maxRetryCount, name, payload,
+         state, stats, targetLocations, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetLocations" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_ReplicationInternal_Annotations
+//
+
+@implementation GTLRSaaSServiceManagement_ReplicationInternal_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_ReplicationInternal_Labels
+//
+
+@implementation GTLRSaaSServiceManagement_ReplicationInternal_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_ReplicationInternal_Payload
+//
+
+@implementation GTLRSaaSServiceManagement_ReplicationInternal_Payload
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_ReplicationInternal_Stats
+//
+
+@implementation GTLRSaaSServiceManagement_ReplicationInternal_Stats
+
++ (Class)classForAdditionalProperties {
+  return [GTLRSaaSServiceManagement_ReplicationStats class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_ReplicationStats
+//
+
+@implementation GTLRSaaSServiceManagement_ReplicationStats
+@dynamic errors, failedResources, finishedResources, pendingResources,
+         retryCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRSaaSServiceManagement_Status class],
+    @"failedResources" : [NSString class],
+    @"finishedResources" : [NSString class],
+    @"pendingResources" : [NSString class],
+    @"retryCount" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSaaSServiceManagement_Rollout
 //
 
@@ -722,6 +854,38 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 @implementation GTLRSaaSServiceManagement_Schedule
 @dynamic startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_Status
+//
+
+@implementation GTLRSaaSServiceManagement_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRSaaSServiceManagement_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_Status_Details_Item
+//
+
+@implementation GTLRSaaSServiceManagement_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

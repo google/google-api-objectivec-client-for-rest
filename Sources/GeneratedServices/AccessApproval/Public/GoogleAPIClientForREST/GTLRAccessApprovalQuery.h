@@ -67,11 +67,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
- *  not deny access to the resource if another request has been made and
- *  approved. It is equivalent in effect to ignoring the request altogether.
- *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
- *  if the request exists but is not in a pending state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a
+ *  request is dismissed, it is considered ignored. Dismissing a request does
+ *  not prevent access granted by other Access Approval requests. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  Method: accessapproval.folders.approvalRequests.dismiss
  *
@@ -86,11 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
- *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
- *  not deny access to the resource if another request has been made and
- *  approved. It is equivalent in effect to ignoring the request altogether.
- *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
- *  if the request exists but is not in a pending state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a
+ *  request is dismissed, it is considered ignored. Dismissing a request does
+ *  not prevent access granted by other Access Approval requests. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  @param object The @c GTLRAccessApproval_DismissApprovalRequestMessage to
  *    include in the query.
@@ -135,10 +135,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Invalidates an existing ApprovalRequest. Returns the updated
- *  ApprovalRequest. NOTE: This does not deny access to the resource if another
- *  request has been made and approved. It only invalidates a single approval.
- *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
- *  state.
+ *  ApprovalRequest. NOTE: This action revokes Google access based on this
+ *  approval request. If the resource has other active approvals, access will
+ *  remain granted. Returns FAILED_PRECONDITION if the request exists but is not
+ *  in an approved state.
  *
  *  Method: accessapproval.folders.approvalRequests.invalidate
  *
@@ -154,10 +154,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
  *  Invalidates an existing ApprovalRequest. Returns the updated
- *  ApprovalRequest. NOTE: This does not deny access to the resource if another
- *  request has been made and approved. It only invalidates a single approval.
- *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
- *  state.
+ *  ApprovalRequest. NOTE: This action revokes Google access based on this
+ *  approval request. If the resource has other active approvals, access will
+ *  remain granted. Returns FAILED_PRECONDITION if the request exists but is not
+ *  in an approved state.
  *
  *  @param object The @c GTLRAccessApproval_InvalidateApprovalRequestMessage to
  *    include in the query.
@@ -227,11 +227,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes the settings associated with a project, folder, or organization.
- *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access Approval
- *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
- *  then Access Approval will still be enabled at this level as the settings are
- *  inherited.
+ *  This will have the effect of disabling Access Approval for the resource.
+ *  Access Approval may remain active based on parent resource settings. To
+ *  confirm the effective settings, call GetAccessApprovalSettings and verify
+ *  effective setting is disabled.
  *
  *  Method: accessapproval.folders.deleteAccessApprovalSettings
  *
@@ -247,11 +246,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAccessApproval_Empty.
  *
  *  Deletes the settings associated with a project, folder, or organization.
- *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access Approval
- *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
- *  then Access Approval will still be enabled at this level as the settings are
- *  inherited.
+ *  This will have the effect of disabling Access Approval for the resource.
+ *  Access Approval may remain active based on parent resource settings. To
+ *  confirm the effective settings, call GetAccessApprovalSettings and verify
+ *  effective setting is disabled.
  *
  *  @param name Name of the AccessApprovalSettings to delete.
  *
@@ -262,7 +260,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the settings associated with a project, folder, or organization.
+ *  Gets the Access Approval settings associated with a project, folder, or
+ *  organization.
  *
  *  Method: accessapproval.folders.getAccessApprovalSettings
  *
@@ -280,7 +279,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_Settings.
  *
- *  Gets the settings associated with a project, folder, or organization.
+ *  Gets the Access Approval settings associated with a project, folder, or
+ *  organization.
  *
  *  @param name The name of the AccessApprovalSettings to retrieve. Format:
  *    "{projects|folders|organizations}/{id}/accessApprovalSettings"
@@ -405,11 +405,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
- *  not deny access to the resource if another request has been made and
- *  approved. It is equivalent in effect to ignoring the request altogether.
- *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
- *  if the request exists but is not in a pending state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a
+ *  request is dismissed, it is considered ignored. Dismissing a request does
+ *  not prevent access granted by other Access Approval requests. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  Method: accessapproval.organizations.approvalRequests.dismiss
  *
@@ -424,11 +424,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
- *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
- *  not deny access to the resource if another request has been made and
- *  approved. It is equivalent in effect to ignoring the request altogether.
- *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
- *  if the request exists but is not in a pending state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a
+ *  request is dismissed, it is considered ignored. Dismissing a request does
+ *  not prevent access granted by other Access Approval requests. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  @param object The @c GTLRAccessApproval_DismissApprovalRequestMessage to
  *    include in the query.
@@ -473,10 +473,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Invalidates an existing ApprovalRequest. Returns the updated
- *  ApprovalRequest. NOTE: This does not deny access to the resource if another
- *  request has been made and approved. It only invalidates a single approval.
- *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
- *  state.
+ *  ApprovalRequest. NOTE: This action revokes Google access based on this
+ *  approval request. If the resource has other active approvals, access will
+ *  remain granted. Returns FAILED_PRECONDITION if the request exists but is not
+ *  in an approved state.
  *
  *  Method: accessapproval.organizations.approvalRequests.invalidate
  *
@@ -492,10 +492,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
  *  Invalidates an existing ApprovalRequest. Returns the updated
- *  ApprovalRequest. NOTE: This does not deny access to the resource if another
- *  request has been made and approved. It only invalidates a single approval.
- *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
- *  state.
+ *  ApprovalRequest. NOTE: This action revokes Google access based on this
+ *  approval request. If the resource has other active approvals, access will
+ *  remain granted. Returns FAILED_PRECONDITION if the request exists but is not
+ *  in an approved state.
  *
  *  @param object The @c GTLRAccessApproval_InvalidateApprovalRequestMessage to
  *    include in the query.
@@ -565,11 +565,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes the settings associated with a project, folder, or organization.
- *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access Approval
- *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
- *  then Access Approval will still be enabled at this level as the settings are
- *  inherited.
+ *  This will have the effect of disabling Access Approval for the resource.
+ *  Access Approval may remain active based on parent resource settings. To
+ *  confirm the effective settings, call GetAccessApprovalSettings and verify
+ *  effective setting is disabled.
  *
  *  Method: accessapproval.organizations.deleteAccessApprovalSettings
  *
@@ -585,11 +584,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAccessApproval_Empty.
  *
  *  Deletes the settings associated with a project, folder, or organization.
- *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access Approval
- *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
- *  then Access Approval will still be enabled at this level as the settings are
- *  inherited.
+ *  This will have the effect of disabling Access Approval for the resource.
+ *  Access Approval may remain active based on parent resource settings. To
+ *  confirm the effective settings, call GetAccessApprovalSettings and verify
+ *  effective setting is disabled.
  *
  *  @param name Name of the AccessApprovalSettings to delete.
  *
@@ -600,7 +598,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the settings associated with a project, folder, or organization.
+ *  Gets the Access Approval settings associated with a project, folder, or
+ *  organization.
  *
  *  Method: accessapproval.organizations.getAccessApprovalSettings
  *
@@ -618,7 +617,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_Settings.
  *
- *  Gets the settings associated with a project, folder, or organization.
+ *  Gets the Access Approval settings associated with a project, folder, or
+ *  organization.
  *
  *  @param name The name of the AccessApprovalSettings to retrieve. Format:
  *    "{projects|folders|organizations}/{id}/accessApprovalSettings"
@@ -743,11 +743,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
- *  not deny access to the resource if another request has been made and
- *  approved. It is equivalent in effect to ignoring the request altogether.
- *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
- *  if the request exists but is not in a pending state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a
+ *  request is dismissed, it is considered ignored. Dismissing a request does
+ *  not prevent access granted by other Access Approval requests. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  Method: accessapproval.projects.approvalRequests.dismiss
  *
@@ -762,11 +762,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
- *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: This does
- *  not deny access to the resource if another request has been made and
- *  approved. It is equivalent in effect to ignoring the request altogether.
- *  Returns NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION
- *  if the request exists but is not in a pending state.
+ *  Dismisses a request. Returns the updated ApprovalRequest. NOTE: When a
+ *  request is dismissed, it is considered ignored. Dismissing a request does
+ *  not prevent access granted by other Access Approval requests. Returns
+ *  NOT_FOUND if the request does not exist. Returns FAILED_PRECONDITION if the
+ *  request exists but is not in a pending state.
  *
  *  @param object The @c GTLRAccessApproval_DismissApprovalRequestMessage to
  *    include in the query.
@@ -811,10 +811,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Invalidates an existing ApprovalRequest. Returns the updated
- *  ApprovalRequest. NOTE: This does not deny access to the resource if another
- *  request has been made and approved. It only invalidates a single approval.
- *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
- *  state.
+ *  ApprovalRequest. NOTE: This action revokes Google access based on this
+ *  approval request. If the resource has other active approvals, access will
+ *  remain granted. Returns FAILED_PRECONDITION if the request exists but is not
+ *  in an approved state.
  *
  *  Method: accessapproval.projects.approvalRequests.invalidate
  *
@@ -830,10 +830,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAccessApproval_ApprovalRequest.
  *
  *  Invalidates an existing ApprovalRequest. Returns the updated
- *  ApprovalRequest. NOTE: This does not deny access to the resource if another
- *  request has been made and approved. It only invalidates a single approval.
- *  Returns FAILED_PRECONDITION if the request exists but is not in an approved
- *  state.
+ *  ApprovalRequest. NOTE: This action revokes Google access based on this
+ *  approval request. If the resource has other active approvals, access will
+ *  remain granted. Returns FAILED_PRECONDITION if the request exists but is not
+ *  in an approved state.
  *
  *  @param object The @c GTLRAccessApproval_InvalidateApprovalRequestMessage to
  *    include in the query.
@@ -903,11 +903,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Deletes the settings associated with a project, folder, or organization.
- *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access Approval
- *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
- *  then Access Approval will still be enabled at this level as the settings are
- *  inherited.
+ *  This will have the effect of disabling Access Approval for the resource.
+ *  Access Approval may remain active based on parent resource settings. To
+ *  confirm the effective settings, call GetAccessApprovalSettings and verify
+ *  effective setting is disabled.
  *
  *  Method: accessapproval.projects.deleteAccessApprovalSettings
  *
@@ -923,11 +922,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRAccessApproval_Empty.
  *
  *  Deletes the settings associated with a project, folder, or organization.
- *  This will have the effect of disabling Access Approval for the project,
- *  folder, or organization, but only if all ancestors also have Access Approval
- *  disabled. If Access Approval is enabled at a higher level of the hierarchy,
- *  then Access Approval will still be enabled at this level as the settings are
- *  inherited.
+ *  This will have the effect of disabling Access Approval for the resource.
+ *  Access Approval may remain active based on parent resource settings. To
+ *  confirm the effective settings, call GetAccessApprovalSettings and verify
+ *  effective setting is disabled.
  *
  *  @param name Name of the AccessApprovalSettings to delete.
  *
@@ -938,7 +936,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the settings associated with a project, folder, or organization.
+ *  Gets the Access Approval settings associated with a project, folder, or
+ *  organization.
  *
  *  Method: accessapproval.projects.getAccessApprovalSettings
  *
@@ -956,7 +955,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAccessApproval_Settings.
  *
- *  Gets the settings associated with a project, folder, or organization.
+ *  Gets the Access Approval settings associated with a project, folder, or
+ *  organization.
  *
  *  @param name The name of the AccessApprovalSettings to retrieve. Format:
  *    "{projects|folders|organizations}/{id}/accessApprovalSettings"

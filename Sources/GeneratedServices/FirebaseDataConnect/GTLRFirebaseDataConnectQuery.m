@@ -272,6 +272,60 @@
 
 @end
 
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesConnectorsImpersonateMutation
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_ImpersonateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:impersonateMutation";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesConnectorsImpersonateMutation *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_GraphqlResponse class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.connectors.impersonateMutation";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesConnectorsImpersonateQuery
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_ImpersonateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:impersonateQuery";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesConnectorsImpersonateQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_GraphqlResponse class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.connectors.impersonateQuery";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesConnectorsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -436,6 +490,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseDataConnect_Service class];
   query.loggingName = @"firebasedataconnect.projects.locations.services.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesIntrospectGraphql
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_GraphqlRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:introspectGraphql";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesIntrospectGraphql *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_GraphqlResponse class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.introspectGraphql";
   return query;
 }
 

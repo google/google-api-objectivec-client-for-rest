@@ -1963,7 +1963,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsGetTrial : GTLRBackupdrQuery
 
-/** Required. The name of the trial to retrieve. */
+/**
+ *  Required. The project for which trial details need to be retrieved. Format:
+ *  projects/{project}/locations/{location} Supported Locations are - us, eu and
+ *  asia.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1971,7 +1975,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *
  *  Gets the Trial state for a given project
  *
- *  @param name Required. The name of the trial to retrieve.
+ *  @param name Required. The project for which trial details need to be
+ *    retrieved. Format: projects/{project}/locations/{location} Supported
+ *    Locations are - us, eu and asia.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsGetTrial
  */
@@ -1990,8 +1996,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @interface GTLRBackupdrQuery_ProjectsLocationsList : GTLRBackupdrQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2636,7 +2642,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  */
 @interface GTLRBackupdrQuery_ProjectsLocationsTrialSubscribe : GTLRBackupdrQuery
 
-/** Required. The parent resource where this trial will be created. */
+/**
+ *  Required. The project where this trial will be created. Format:
+ *  projects/{project}/locations/{location} Supported Locations are - us, eu and
+ *  asia.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2646,8 +2656,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *
  *  @param object The @c GTLRBackupdr_SubscribeTrialRequest to include in the
  *    query.
- *  @param parent Required. The parent resource where this trial will be
- *    created.
+ *  @param parent Required. The project where this trial will be created.
+ *    Format: projects/{project}/locations/{location} Supported Locations are -
+ *    us, eu and asia.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsTrialSubscribe
  */

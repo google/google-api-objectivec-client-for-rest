@@ -1368,8 +1368,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2SubmitBuildRequest
-@dynamic buildpackBuild, dockerBuild, imageUri, machineType, releaseTrack,
-         serviceAccount, storageSource, tags, workerPool;
+@dynamic buildpackBuild, client, dockerBuild, imageUri, machineType,
+         releaseTrack, serviceAccount, storageSource, tags, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2450,11 +2450,12 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudRun_GoogleLongrunningOperation class]
+    @"operations" : [GTLRCloudRun_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

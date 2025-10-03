@@ -2115,8 +2115,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Query string search. Should be of the form "". Complete documentation is at
- *  https: //developers.google.com/admin-sdk/directory/v1/guides/search-groups
+ *  Query string search. Contains one or more search clauses, each with a field,
+ *  operator, and value. For complete documentation, go to [Search for
+ *  groups](https://developers.google.com/workspace/admin/directory/v1/guides/search-groups).
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -3580,15 +3581,16 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  String query used to filter results. Should be of the form "field operator
- *  value" where field can be any of supported fields and operators can be any
- *  of supported operations. Operators include '=' for exact match, '!=' for
- *  mismatch and ':' for prefix match or HAS match where applicable. For prefix
- *  match, the value should always be followed by a *. Logical operators NOT and
- *  AND are supported (in this order of precedence). Supported fields include
- *  `generatedResourceName`, `name`, `buildingId`, `floor_name`, `capacity`,
- *  `featureInstances.feature.name`, `resourceEmail`, `resourceCategory`. For
- *  example `buildingId=US-NYC-9TH AND featureInstances.feature.name:Phone`.
+ *  String query used to filter results. Contains one or more search clauses,
+ *  each with a field, operator, and value. A field can be any of supported
+ *  fields and operators can be any of supported operations. Operators include
+ *  '=' for exact match, '!=' for mismatch and ':' for prefix match or HAS match
+ *  where applicable. For prefix match, the value should always be followed by a
+ *  *. Logical operators NOT and AND are supported (in this order of
+ *  precedence). Supported fields include `generatedResourceName`, `name`,
+ *  `buildingId`, `floor_name`, `capacity`, `featureInstances.feature.name`,
+ *  `resourceEmail`, `resourceCategory`. For example `buildingId=US-NYC-9TH AND
+ *  featureInstances.feature.name:Phone`.
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -5581,8 +5583,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
- *  Query string search. Should be of the form "". Complete documentation is at
- *  https: //developers.google.com/admin-sdk/directory/v1/guides/search-users
+ *  Query string search. Contains one or more search clauses, each with a field,
+ *  operator, and value. For complete documentation, go to [Search for
+ *  users](https://developers.google.com/workspace/admin/directory/v1/guides/search-users).
  */
 @property(nonatomic, copy, nullable) NSString *query;
 

@@ -2500,7 +2500,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  SearchForInstances returns a list of matching instances. See [Search
  *  Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2533,7 +2533,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  SearchForInstances returns a list of matching instances. See [Search
  *  Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2556,7 +2556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  SearchForSeries returns a list of matching series. See [Search Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForSeries, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2587,7 +2587,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  SearchForSeries returns a list of matching series. See [Search Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForSeries, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2610,7 +2610,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  SearchForStudies returns a list of matching studies. See [Search
  *  Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForStudies, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2642,7 +2642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  SearchForStudies returns a list of matching studies. See [Search
  *  Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForStudies, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2756,7 +2756,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  StoreInstances stores DICOM instances associated with study instance unique
  *  identifiers (SUID). See [Store Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5).
  *  For details on the implementation of StoreInstances, see [Store
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#store_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2788,7 +2788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  StoreInstances stores DICOM instances associated with study instance unique
  *  identifiers (SUID). See [Store Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5).
  *  For details on the implementation of StoreInstances, see [Store
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#store_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2861,7 +2861,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  RetrieveStudyMetadata returns instance associated with the given study
  *  presented as metadata. See [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveStudyMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2893,7 +2893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  RetrieveStudyMetadata returns instance associated with the given study
  *  presented as metadata. See [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveStudyMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2916,7 +2916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  RetrieveStudy returns all instances within the given study. See
  *  [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveStudy, see [DICOM
  *  study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2948,7 +2948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  RetrieveStudy returns all instances within the given study. See
  *  [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveStudy, see [DICOM
  *  study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -2971,7 +2971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  SearchForInstances returns a list of matching instances. See [Search
  *  Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3004,7 +3004,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  SearchForInstances returns a list of matching instances. See [Search
  *  Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3027,7 +3027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  SearchForSeries returns a list of matching series. See [Search Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForSeries, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3058,7 +3058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  SearchForSeries returns a list of matching series. See [Search Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForSeries, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3136,7 +3136,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Returns uncompressed, unencoded bytes representing the referenced bulkdata
  *  tag from an instance. See [Retrieve
- *  Transaction](http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  Transaction](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveBulkdata, see [Bulkdata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#bulkdata-resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3168,7 +3168,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Returns uncompressed, unencoded bytes representing the referenced bulkdata
  *  tag from an instance. See [Retrieve
- *  Transaction](http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  Transaction](https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveBulkdata, see [Bulkdata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#bulkdata-resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3246,7 +3246,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  RetrieveFrames returns instances associated with the given study, series,
  *  SOP Instance UID and frame numbers. See [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4}.
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4}.
  *  For details on the implementation of RetrieveFrames, see [DICOM
  *  frames](https://cloud.google.com/healthcare/docs/dicom#dicom_frames) in the
  *  Cloud Healthcare API conformance statement. For samples that show how to
@@ -3278,7 +3278,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  RetrieveFrames returns instances associated with the given study, series,
  *  SOP Instance UID and frame numbers. See [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4}.
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4}.
  *  For details on the implementation of RetrieveFrames, see [DICOM
  *  frames](https://cloud.google.com/healthcare/docs/dicom#dicom_frames) in the
  *  Cloud Healthcare API conformance statement. For samples that show how to
@@ -3303,7 +3303,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  RetrieveRenderedFrames returns instances associated with the given study,
  *  series, SOP Instance UID and frame numbers in an acceptable Rendered Media
  *  Type. See [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveRenderedFrames, see [Rendered
  *  resources](https://cloud.google.com/healthcare/docs/dicom#rendered_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3343,7 +3343,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  RetrieveRenderedFrames returns instances associated with the given study,
  *  series, SOP Instance UID and frame numbers in an acceptable Rendered Media
  *  Type. See [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveRenderedFrames, see [Rendered
  *  resources](https://cloud.google.com/healthcare/docs/dicom#rendered_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3367,7 +3367,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  RetrieveInstance returns instance associated with the given study, series,
  *  and SOP Instance UID. See [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveInstance, see [DICOM
  *  study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances)
  *  and [DICOM
@@ -3401,7 +3401,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  RetrieveInstance returns instance associated with the given study, series,
  *  and SOP Instance UID. See [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveInstance, see [DICOM
  *  study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances)
  *  and [DICOM
@@ -3428,7 +3428,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  RetrieveInstanceMetadata returns instance associated with the given study,
  *  series, and SOP Instance UID presented as metadata. See
  *  [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveInstanceMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3462,7 +3462,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  RetrieveInstanceMetadata returns instance associated with the given study,
  *  series, and SOP Instance UID presented as metadata. See
  *  [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveInstanceMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3487,7 +3487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  RetrieveRenderedInstance returns instance associated with the given study,
  *  series, and SOP Instance UID in an acceptable Rendered Media Type. See
  *  [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveRenderedInstance, see [Rendered
  *  resources](https://cloud.google.com/healthcare/docs/dicom#rendered_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3527,7 +3527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  RetrieveRenderedInstance returns instance associated with the given study,
  *  series, and SOP Instance UID in an acceptable Rendered Media Type. See
  *  [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveRenderedInstance, see [Rendered
  *  resources](https://cloud.google.com/healthcare/docs/dicom#rendered_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3551,7 +3551,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  RetrieveSeriesMetadata returns instance associated with the given study and
  *  series, presented as metadata. See [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveSeriesMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3583,7 +3583,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  RetrieveSeriesMetadata returns instance associated with the given study and
  *  series, presented as metadata. See [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveSeriesMetadata, see [Metadata
  *  resources](https://cloud.google.com/healthcare/docs/dicom#metadata_resources)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3607,7 +3607,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  RetrieveSeries returns all instances within the given study and series. See
  *  [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveSeries, see [DICOM
  *  study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3639,7 +3639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  RetrieveSeries returns all instances within the given study and series. See
  *  [RetrieveTransaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.4).
  *  For details on the implementation of RetrieveSeries, see [DICOM
  *  study/series/instances](https://cloud.google.com/healthcare/docs/dicom#dicom_studyseriesinstances)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3662,7 +3662,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  SearchForInstances returns a list of matching instances. See [Search
  *  Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3695,7 +3695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  SearchForInstances returns a list of matching instances. See [Search
  *  Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.6).
  *  For details on the implementation of SearchForInstances, see [Search
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#search_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3719,7 +3719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  StoreInstances stores DICOM instances associated with study instance unique
  *  identifiers (SUID). See [Store Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5).
  *  For details on the implementation of StoreInstances, see [Store
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#store_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -3751,7 +3751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  StoreInstances stores DICOM instances associated with study instance unique
  *  identifiers (SUID). See [Store Transaction]
- *  (http://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5).
+ *  (https://dicom.nema.org/medical/dicom/current/output/html/part18.html#sect_10.5).
  *  For details on the implementation of StoreInstances, see [Store
  *  transaction](https://cloud.google.com/healthcare/docs/dicom#store_transaction)
  *  in the Cloud Healthcare API conformance statement. For samples that show how
@@ -8080,8 +8080,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsList : GTLRCloudHealthcareQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

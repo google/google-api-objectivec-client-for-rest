@@ -82,6 +82,26 @@ NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Windows = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudOSLogin_SignSshPublicKeyRequest
+//
+
+@implementation GTLRCloudOSLogin_SignSshPublicKeyRequest
+@dynamic appEngineInstance, computeInstance, serviceAccount, sshPublicKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudOSLogin_SignSshPublicKeyResponse
+//
+
+@implementation GTLRCloudOSLogin_SignSshPublicKeyResponse
+@dynamic signedSshPublicKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudOSLogin_SshPublicKey
 //
 

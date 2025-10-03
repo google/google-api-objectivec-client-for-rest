@@ -42,13 +42,24 @@
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpConnectorsV1alphaContainerHealthDetails_ExtendedStatus;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstream;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamExternal;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamNetwork;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EgressPolicy;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Endpoint;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Hub;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1InternetGateway;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_MetadataHeaders;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_Hubs;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscovery;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGateway;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGatewayOperationDescriptor;
 @class GTLRBeyondCorp_GoogleCloudLocationLocation;
 @class GTLRBeyondCorp_GoogleCloudLocationLocation_Labels;
 @class GTLRBeyondCorp_GoogleCloudLocationLocation_Metadata;
@@ -294,6 +305,157 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconne
  *  Value: "UNRESPONSIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInfo_Status_Unresponsive;
+
+// ----------------------------------------------------------------------------
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application.schema
+
+/**
+ *  Service Discovery API endpoint when Service Discovery is enabled in Gateway.
+ *
+ *  Value: "API_GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application_Schema_ApiGateway;
+/**
+ *  Proxy which routes traffic to actual applications, like Netscaler Gateway.
+ *
+ *  Value: "PROXY_GATEWAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application_Schema_ProxyGateway;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SCHEMA_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application_Schema_SchemaUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders.outputType
+
+/**
+ *  JSON output type.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_Json;
+/**
+ *  Explicitly disable header output.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_None;
+/**
+ *  Unspecified output type.
+ *
+ *  Value: "OUTPUT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_OutputTypeUnspecified;
+/**
+ *  Protobuf output type.
+ *
+ *  Value: "PROTOBUF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_Protobuf;
+
+// ----------------------------------------------------------------------------
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo.outputType
+
+/**
+ *  JSON output type.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_Json;
+/**
+ *  Explicitly disable header output.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_None;
+/**
+ *  Unspecified output type.
+ *
+ *  Value: "OUTPUT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_OutputTypeUnspecified;
+/**
+ *  Protobuf output type.
+ *
+ *  Value: "PROTOBUF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_Protobuf;
+
+// ----------------------------------------------------------------------------
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo.outputType
+
+/**
+ *  JSON output type.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_Json;
+/**
+ *  Explicitly disable header output.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_None;
+/**
+ *  Unspecified output type.
+ *
+ *  Value: "OUTPUT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_OutputTypeUnspecified;
+/**
+ *  Protobuf output type.
+ *
+ *  Value: "PROTOBUF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_Protobuf;
+
+// ----------------------------------------------------------------------------
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo.outputType
+
+/**
+ *  JSON output type.
+ *
+ *  Value: "JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_Json;
+/**
+ *  Explicitly disable header output.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_None;
+/**
+ *  Unspecified output type.
+ *
+ *  Value: "OUTPUT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_OutputTypeUnspecified;
+/**
+ *  Protobuf output type.
+ *
+ *  Value: "PROTOBUF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_Protobuf;
+
+// ----------------------------------------------------------------------------
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig.gatewayIdentity
+
+/**
+ *  Unspecified gateway identity.
+ *
+ *  Value: "GATEWAY_IDENTITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_GatewayIdentity_GatewayIdentityUnspecified;
+/**
+ *  Resource name for gateway identity, in the format:
+ *  projects/{project_id}/locations/{location_id}/securityGateways/{security_gateway_id}
+ *
+ *  Value: "RESOURCE_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_GatewayIdentity_ResourceName;
 
 // ----------------------------------------------------------------------------
 // GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway.state
@@ -1751,15 +1913,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
  *  hostname and ports as endpoint matchers is used to match the application.
  *  Match conditions for OR logic. An array of match conditions to allow for
  *  multiple matching criteria. The rule is considered a match if one of the
- *  conditions is met. The conditions can be one of the following combinations
- *  (Hostname), (Hostname & Ports) EXAMPLES: Hostname - ("*.example.com"),
- *  ("xyz.example.com") Hostname and Ports - ("example.com" and "22"),
- *  ("example.com" and "22,33") etc
+ *  conditions is met. The conditions should be the following combination:
+ *  (Hostname & Ports) EXAMPLES: Hostname and Ports - ("*.example.com", "443"),
+ *  ("example.com" and "22"), ("example.com" and "22,33") etc
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher *> *endpointMatchers;
 
 /** Identifier. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Type of the external application.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application_Schema_ApiGateway
+ *        Service Discovery API endpoint when Service Discovery is enabled in
+ *        Gateway. (Value: "API_GATEWAY")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application_Schema_ProxyGateway
+ *        Proxy which routes traffic to actual applications, like Netscaler
+ *        Gateway. (Value: "PROXY_GATEWAY")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application_Schema_SchemaUnspecified
+ *        Default value. This value is unused. (Value: "SCHEMA_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *schema;
 
 /** Output only. Timestamp when the resource was last modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -1778,8 +1954,25 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 /** Optional. Routing policy information. */
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EgressPolicy *egressPolicy;
 
+/** List of the external endpoints to forward traffic to. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamExternal *external;
+
 /** Network to forward traffic to. */
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamNetwork *network;
+
+/** Optional. Enables proxy protocol configuration for the upstream. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig *proxyProtocol;
+
+@end
+
+
+/**
+ *  Endpoints to forward traffic to.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamExternal : GTLRObject
+
+/** Required. List of the endpoints to forward traffic to. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Endpoint *> *endpoints;
 
 @end
 
@@ -1799,12 +1992,131 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 
 /**
+ *  Contextual headers configuration.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders : GTLRObject
+
+/** Optional. Device info configuration. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo *deviceInfo;
+
+/** Optional. Group info configuration. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo *groupInfo;
+
+/**
+ *  Optional. Default output type for all enabled headers.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_Json
+ *        JSON output type. (Value: "JSON")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_None
+ *        Explicitly disable header output. (Value: "NONE")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_OutputTypeUnspecified
+ *        Unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_Protobuf
+ *        Protobuf output type. (Value: "PROTOBUF")
+ */
+@property(nonatomic, copy, nullable) NSString *outputType;
+
+/** Optional. User info configuration. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo *userInfo;
+
+@end
+
+
+/**
+ *  Delegated device info configuration.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo : GTLRObject
+
+/**
+ *  Optional. The output type of the delegated device info.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_Json
+ *        JSON output type. (Value: "JSON")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_None
+ *        Explicitly disable header output. (Value: "NONE")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_OutputTypeUnspecified
+ *        Unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_Protobuf
+ *        Protobuf output type. (Value: "PROTOBUF")
+ */
+@property(nonatomic, copy, nullable) NSString *outputType;
+
+@end
+
+
+/**
+ *  Delegated group info configuration.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo : GTLRObject
+
+/**
+ *  Optional. The output type of the delegated group info.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_Json
+ *        JSON output type. (Value: "JSON")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_None
+ *        Explicitly disable header output. (Value: "NONE")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_OutputTypeUnspecified
+ *        Unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_Protobuf
+ *        Protobuf output type. (Value: "PROTOBUF")
+ */
+@property(nonatomic, copy, nullable) NSString *outputType;
+
+@end
+
+
+/**
+ *  Delegated user info configuration.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo : GTLRObject
+
+/**
+ *  Optional. The output type of the delegated user info.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_Json
+ *        JSON output type. (Value: "JSON")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_None
+ *        Explicitly disable header output. (Value: "NONE")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_OutputTypeUnspecified
+ *        Unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_Protobuf
+ *        Protobuf output type. (Value: "PROTOBUF")
+ */
+@property(nonatomic, copy, nullable) NSString *outputType;
+
+@end
+
+
+/**
  *  Routing policy information.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EgressPolicy : GTLRObject
 
 /** Required. List of the regions where the application sends traffic. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+
+@end
+
+
+/**
+ *  Internet Gateway endpoint to forward traffic to.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Endpoint : GTLRObject
+
+/** Required. Hostname of the endpoint. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Required. Port of the endpoint.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
 
 @end
 
@@ -1819,7 +2131,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 @property(nonatomic, copy, nullable) NSString *hostname;
 
 /**
- *  Optional. Ports of the application.
+ *  Required. Ports of the application.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1912,6 +2224,64 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 
 /**
+ *  The configuration for the proxy.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig : GTLRObject
+
+/** Optional. List of the allowed client header names. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedClientHeaders;
+
+/**
+ *  Optional. Client IP configuration. The client IP address is included if
+ *  true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clientIp;
+
+/** Optional. Configuration for the contextual headers. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders *contextualHeaders;
+
+/**
+ *  Optional. Gateway identity configuration.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_GatewayIdentity_GatewayIdentityUnspecified
+ *        Unspecified gateway identity. (Value: "GATEWAY_IDENTITY_UNSPECIFIED")
+ *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_GatewayIdentity_ResourceName
+ *        Resource name for gateway identity, in the format:
+ *        projects/{project_id}/locations/{location_id}/securityGateways/{security_gateway_id}
+ *        (Value: "RESOURCE_NAME")
+ */
+@property(nonatomic, copy, nullable) NSString *gatewayIdentity;
+
+/**
+ *  Optional. Custom resource specific headers along with the values. The names
+ *  should conform to RFC 9110: > Field names SHOULD constrain themselves to
+ *  alphanumeric characters, "-", and ".", and SHOULD begin with a letter. Field
+ *  values SHOULD contain only ASCII printable characters and tab.
+ */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_MetadataHeaders *metadataHeaders;
+
+@end
+
+
+/**
+ *  Optional. Custom resource specific headers along with the values. The names
+ *  should conform to RFC 9110: > Field names SHOULD constrain themselves to
+ *  alphanumeric characters, "-", and ".", and SHOULD begin with a letter. Field
+ *  values SHOULD contain only ASCII printable characters and tab.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_MetadataHeaders : GTLRObject
+@end
+
+
+/**
  *  The information about a security gateway resource.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway : GTLRObject
@@ -1945,6 +2315,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 /** Identifier. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Shared proxy configuration for all apps. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig *proxyProtocolConfig;
+
+/** Optional. Settings related to the Service Discovery. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscovery *serviceDiscovery;
 
 /**
  *  Output only. The operational state of the SecurityGateway.
@@ -2023,6 +2399,42 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Settings related to the Service Discovery.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscovery : GTLRObject
+
+/** Required. External API configuration. */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGateway *apiGateway;
+
+@end
+
+
+/**
+ *  If Service Discovery is done through API, defines its settings.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGateway : GTLRObject
+
+/**
+ *  Required. Enables fetching resource model updates to alter service behavior
+ *  per Chrome profile.
+ */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGatewayOperationDescriptor *resourceOverride;
+
+@end
+
+
+/**
+ *  API operation descriptor.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGatewayOperationDescriptor : GTLRObject
+
+/** Required. Contains uri path fragment where HTTP request is sent. */
+@property(nonatomic, copy, nullable) NSString *path;
 
 @end
 

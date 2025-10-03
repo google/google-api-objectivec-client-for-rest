@@ -536,6 +536,63 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 @end
 
 /**
+ *  Updates the parameters of a single Evaluation.
+ *
+ *  Method: workloadmanager.projects.locations.evaluations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsPatch : GTLRWorkloadManagerQuery
+
+/**
+ *  name of resource names have the form
+ *  'projects/{project_id}/locations/{location_id}/evaluations/{evaluation_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Evaluation resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Operation.
+ *
+ *  Updates the parameters of a single Evaluation.
+ *
+ *  @param object The @c GTLRWorkloadManager_Evaluation to include in the query.
+ *  @param name name of resource names have the form
+ *    'projects/{project_id}/locations/{location_id}/evaluations/{evaluation_id}'
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRWorkloadManager_Evaluation *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: workloadmanager.projects.locations.get
@@ -903,10 +960,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *    pre-defined rules are global available to all projects and all regions
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsRulesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 

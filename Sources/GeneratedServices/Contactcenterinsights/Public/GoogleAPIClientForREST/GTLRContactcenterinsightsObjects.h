@@ -61,6 +61,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionIssueDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionAnswerDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaScorecardDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1EncryptionSpec;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Entity_Metadata;
@@ -98,6 +99,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswer;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValueQaAnswerRationale;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaQuestionTag;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultQaTagResult;
@@ -189,6 +191,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionIssueDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionAnswerDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaScorecardDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1EncryptionSpec;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Entity;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Entity_Metadata;
@@ -235,6 +238,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswer;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValueQaAnswerRationale;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionAnswerChoice;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionMetrics;
@@ -472,11 +476,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Agent;
 /**
+ *  The dimension is keyed by the agent deployment ID.
+ *
+ *  Value: "AGENT_DEPLOYMENT_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentDeploymentId;
+/**
  *  The dimension is keyed by agent teams.
  *
  *  Value: "AGENT_TEAM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentTeam;
+/**
+ *  The dimension is keyed by the agent version ID.
+ *
+ *  Value: "AGENT_VERSION_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentVersionId;
 /**
  *  The dimension is keyed by the conversation profile ID.
  *
@@ -675,6 +691,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "EXPORT_V10"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV10;
+/**
+ *  Export schema version 11.
+ *
+ *  Value: "EXPORT_V11"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV11;
 /**
  *  Export schema version 2.
  *
@@ -1232,11 +1254,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Agent;
 /**
+ *  The dimension is keyed by the agent deployment ID.
+ *
+ *  Value: "AGENT_DEPLOYMENT_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentDeploymentId;
+/**
  *  The dimension is keyed by agent teams.
  *
  *  Value: "AGENT_TEAM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentTeam;
+/**
+ *  The dimension is keyed by the agent version ID.
+ *
+ *  Value: "AGENT_VERSION_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentVersionId;
 /**
  *  The dimension is keyed by the conversation profile ID.
  *
@@ -1435,6 +1469,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "EXPORT_V10"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV10;
+/**
+ *  Export schema version 11.
+ *
+ *  Value: "EXPORT_V11"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV11;
 /**
  *  Export schema version 2.
  *
@@ -3004,6 +3044,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  */
 @property(nonatomic, copy, nullable) NSString *agentType;
 
+/**
+ *  The agent's deployment display name. Only applicable to automated agents.
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentDisplayName;
+
+/** The agent's deployment ID. Only applicable to automated agents. */
+@property(nonatomic, copy, nullable) NSString *deploymentId;
+
 /** The agent's name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3024,6 +3072,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** User-specified strings representing the agent's teams. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *teams;
+
+/** The agent's version display name. Only applicable to automated agents. */
+@property(nonatomic, copy, nullable) NSString *versionDisplayName;
+
+/** The agent's version ID. Only applicable to automated agents. */
+@property(nonatomic, copy, nullable) NSString *versionId;
 
 @end
 
@@ -3504,8 +3558,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Agent
  *        The dimension is keyed by agents. (Value: "AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentDeploymentId
+ *        The dimension is keyed by the agent deployment ID. (Value:
+ *        "AGENT_DEPLOYMENT_ID")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentTeam
  *        The dimension is keyed by agent teams. (Value: "AGENT_TEAM")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentVersionId
+ *        The dimension is keyed by the agent version ID. (Value:
+ *        "AGENT_VERSION_ID")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationProfileId
  *        The dimension is keyed by the conversation profile ID. (Value:
  *        "CONVERSATION_PROFILE_ID")
@@ -3547,6 +3607,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 /** Output only. Metadata about the QA question dimension. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionDimensionMetadata *qaQuestionDimensionMetadata;
 
+/** Output only. Metadata about the QA scorecard dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaScorecardDimensionMetadata *qaScorecardDimensionMetadata;
+
 @end
 
 
@@ -3555,14 +3618,46 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionAgentDimensionMetadata : GTLRObject
 
-/** Optional. The agent's name */
+/**
+ *  Optional. The agent's deployment display name. Only applicable to automated
+ *  agents. This will be populated for AGENT_DEPLOYMENT_ID dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *agentDeploymentDisplayName;
+
+/**
+ *  Optional. The agent's deployment ID. Only applicable to automated agents.
+ *  This will be populated for AGENT and AGENT_DEPLOYMENT_ID dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *agentDeploymentId;
+
+/**
+ *  Optional. The agent's name This will be populated for AGENT, AGENT_TEAM,
+ *  AGENT_VERSION_ID, and AGENT_DEPLOYMENT_ID dimensions.
+ */
 @property(nonatomic, copy, nullable) NSString *agentDisplayName;
 
-/** Optional. A user-specified string representing the agent. */
+/**
+ *  Optional. A user-specified string representing the agent. This will be
+ *  populated for AGENT, AGENT_TEAM, AGENT_VERSION_ID, and AGENT_DEPLOYMENT_ID
+ *  dimensions.
+ */
 @property(nonatomic, copy, nullable) NSString *agentId;
 
 /** Optional. A user-specified string representing the agent's team. */
 @property(nonatomic, copy, nullable) NSString *agentTeam;
+
+/**
+ *  Optional. The agent's version display name. Only applicable to automated
+ *  agents. This will be populated for AGENT_VERSION_ID, and AGENT_DEPLOYMENT_ID
+ *  dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *agentVersionDisplayName;
+
+/**
+ *  Optional. The agent's version ID. Only applicable to automated agents. This
+ *  will be populated for AGENT_VERSION_ID, and AGENT_DEPLOYMENT_ID dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *agentVersionId;
 
 @end
 
@@ -3618,6 +3713,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** Optional. The full body of the question. */
 @property(nonatomic, copy, nullable) NSString *questionBody;
+
+@end
+
+
+/**
+ *  Metadata about the QA scorecard dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaScorecardDimensionMetadata : GTLRObject
+
+/** Optional. The QA scorecard ID. */
+@property(nonatomic, copy, nullable) NSString *qaScorecardId;
 
 @end
 
@@ -3831,6 +3937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *        Export schema version 1. (Value: "EXPORT_V1")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV10
  *        Export schema version 10. (Value: "EXPORT_V10")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV11
+ *        Export schema version 11. (Value: "EXPORT_V11")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2
  *        Export schema version 2. (Value: "EXPORT_V2")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3
@@ -4923,6 +5031,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, strong, nullable) NSNumber *potentialScore;
 
 /**
+ *  Output only. The rationale for the answer. This field is only populated for
+ *  answers that are generated by the LLM. Manual edits currently do not have
+ *  rationales.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValueQaAnswerRationale *rationale;
+
+/**
  *  Output only. Numerical score of the answer.
  *
  *  Uses NSNumber of doubleValue.
@@ -4940,6 +5055,17 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** String value. */
 @property(nonatomic, copy, nullable) NSString *strValue;
+
+@end
+
+
+/**
+ *  Wrapper for the rationale for the answer.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValueQaAnswerRationale : GTLRObject
+
+/** The rationale string for the answer. */
+@property(nonatomic, copy, nullable) NSString *rationale;
 
 @end
 
@@ -5150,10 +5276,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  The macro average slice contains aggregated averages across the selected
- *  dimension. i.e. if group_by agent is specified this field will contain the
- *  average across all agents. This field is only populated if the request
- *  specifies a Dimension.
+ *  The macro average slice contains aggregated averages across all selected
+ *  dimensions. i.e. if group_by agent and scorecard_id is specified, this field
+ *  will contain the average across all agents and all scorecards. This field is
+ *  only populated if the request specifies a Dimension.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSlice *macroAverageSlice;
 
@@ -5248,7 +5374,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, strong, nullable) GTLRDuration *averageDuration;
 
 /**
- *  Average QA normalized score. Will exclude 0's in average calculation.
+ *  The average normalized QA score for a scorecard. When computing the average
+ *  across a set of conversations, if a conversation has been evaluated with
+ *  multiple revisions of a scorecard, only the latest revision results will be
+ *  used. Will exclude 0's in average calculation. Will be only populated if the
+ *  request specifies a dimension of QA_SCORECARD_ID.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -7463,6 +7593,14 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *agentType;
 
+/**
+ *  The agent's deployment display name. Only applicable to automated agents.
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentDisplayName;
+
+/** The agent's deployment ID. Only applicable to automated agents. */
+@property(nonatomic, copy, nullable) NSString *deploymentId;
+
 /** The agent's name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -7483,6 +7621,12 @@ GTLR_DEPRECATED
 
 /** User-specified strings representing the agent's teams. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *teams;
+
+/** The agent's version display name. Only applicable to automated agents. */
+@property(nonatomic, copy, nullable) NSString *versionDisplayName;
+
+/** The agent's version ID. Only applicable to automated agents. */
+@property(nonatomic, copy, nullable) NSString *versionId;
 
 @end
 
@@ -7970,8 +8114,14 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Agent
  *        The dimension is keyed by agents. (Value: "AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentDeploymentId
+ *        The dimension is keyed by the agent deployment ID. (Value:
+ *        "AGENT_DEPLOYMENT_ID")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentTeam
  *        The dimension is keyed by agent teams. (Value: "AGENT_TEAM")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentVersionId
+ *        The dimension is keyed by the agent version ID. (Value:
+ *        "AGENT_VERSION_ID")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationProfileId
  *        The dimension is keyed by the conversation profile ID. (Value:
  *        "CONVERSATION_PROFILE_ID")
@@ -8013,6 +8163,9 @@ GTLR_DEPRECATED
 /** Output only. Metadata about the QA question dimension. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionDimensionMetadata *qaQuestionDimensionMetadata;
 
+/** Output only. Metadata about the QA scorecard dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaScorecardDimensionMetadata *qaScorecardDimensionMetadata;
+
 @end
 
 
@@ -8021,14 +8174,46 @@ GTLR_DEPRECATED
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionAgentDimensionMetadata : GTLRObject
 
-/** Optional. The agent's name */
+/**
+ *  Optional. The agent's deployment display name. Only applicable to automated
+ *  agents. This will be populated for AGENT_DEPLOYMENT_ID dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *agentDeploymentDisplayName;
+
+/**
+ *  Optional. The agent's deployment ID. Only applicable to automated agents.
+ *  This will be populated for AGENT and AGENT_DEPLOYMENT_ID dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *agentDeploymentId;
+
+/**
+ *  Optional. The agent's name This will be populated for AGENT, AGENT_TEAM,
+ *  AGENT_VERSION_ID, and AGENT_DEPLOYMENT_ID dimensions.
+ */
 @property(nonatomic, copy, nullable) NSString *agentDisplayName;
 
-/** Optional. A user-specified string representing the agent. */
+/**
+ *  Optional. A user-specified string representing the agent. This will be
+ *  populated for AGENT, AGENT_TEAM, AGENT_VERSION_ID, and AGENT_DEPLOYMENT_ID
+ *  dimensions.
+ */
 @property(nonatomic, copy, nullable) NSString *agentId;
 
 /** Optional. A user-specified string representing the agent's team. */
 @property(nonatomic, copy, nullable) NSString *agentTeam;
+
+/**
+ *  Optional. The agent's version display name. Only applicable to automated
+ *  agents. This will be populated for AGENT_VERSION_ID, and AGENT_DEPLOYMENT_ID
+ *  dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *agentVersionDisplayName;
+
+/**
+ *  Optional. The agent's version ID. Only applicable to automated agents. This
+ *  will be populated for AGENT_VERSION_ID, and AGENT_DEPLOYMENT_ID dimensions.
+ */
+@property(nonatomic, copy, nullable) NSString *agentVersionId;
 
 @end
 
@@ -8084,6 +8269,17 @@ GTLR_DEPRECATED
 
 /** Optional. The full body of the question. */
 @property(nonatomic, copy, nullable) NSString *questionBody;
+
+@end
+
+
+/**
+ *  Metadata about the QA scorecard dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaScorecardDimensionMetadata : GTLRObject
+
+/** Optional. The QA scorecard ID. */
+@property(nonatomic, copy, nullable) NSString *qaScorecardId;
 
 @end
 
@@ -8312,6 +8508,8 @@ GTLR_DEPRECATED
  *        Export schema version 1. (Value: "EXPORT_V1")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV10
  *        Export schema version 10. (Value: "EXPORT_V10")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV11
+ *        Export schema version 11. (Value: "EXPORT_V11")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2
  *        Export schema version 2. (Value: "EXPORT_V2")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3
@@ -10075,6 +10273,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *potentialScore;
 
 /**
+ *  Output only. The rationale for the answer. This field is only populated for
+ *  answers that are generated by the LLM. Manual edits currently do not have
+ *  rationales.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValueQaAnswerRationale *rationale;
+
+/**
  *  Output only. Numerical score of the answer.
  *
  *  Uses NSNumber of doubleValue.
@@ -10092,6 +10297,17 @@ GTLR_DEPRECATED
 
 /** String value. */
 @property(nonatomic, copy, nullable) NSString *strValue;
+
+@end
+
+
+/**
+ *  Wrapper for the rationale for the answer.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValueQaAnswerRationale : GTLRObject
+
+/** The rationale string for the answer. */
+@property(nonatomic, copy, nullable) NSString *rationale;
 
 @end
 
@@ -10713,10 +10929,10 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  The macro average slice contains aggregated averages across the selected
- *  dimension. i.e. if group_by agent is specified this field will contain the
- *  average across all agents. This field is only populated if the request
- *  specifies a Dimension.
+ *  The macro average slice contains aggregated averages across all selected
+ *  dimensions. i.e. if group_by agent and scorecard_id is specified, this field
+ *  will contain the average across all agents and all scorecards. This field is
+ *  only populated if the request specifies a Dimension.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSlice *macroAverageSlice;
 
@@ -10811,7 +11027,11 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDuration *averageDuration;
 
 /**
- *  Average QA normalized score. Will exclude 0's in average calculation.
+ *  The average normalized QA score for a scorecard. When computing the average
+ *  across a set of conversations, if a conversation has been evaluated with
+ *  multiple revisions of a scorecard, only the latest revision results will be
+ *  used. Will exclude 0's in average calculation. Will be only populated if the
+ *  request specifies a dimension of QA_SCORECARD_ID.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -12016,6 +12236,13 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

@@ -257,6 +257,33 @@ NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer   = @"SQL_SERVER";
 
 @end
 
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRWorkloadManager_Evaluation *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkloadManager_Operation class];
+  query.loggingName = @"workloadmanager.projects.locations.evaluations.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsGet
 
 @dynamic name;

@@ -59,6 +59,14 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_AuthorizationI
 NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_RateLimited = @"RATE_LIMITED";
 NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
 
+// GTLRCertificateManager_Troubleshooting.issues
+NSString * const kGTLRCertificateManager_Troubleshooting_Issues_CertificateNotAttached = @"CERTIFICATE_NOT_ATTACHED";
+NSString * const kGTLRCertificateManager_Troubleshooting_Issues_CnameMismatch = @"CNAME_MISMATCH";
+NSString * const kGTLRCertificateManager_Troubleshooting_Issues_IssueUnspecified = @"ISSUE_UNSPECIFIED";
+NSString * const kGTLRCertificateManager_Troubleshooting_Issues_NoResolvedIps = @"NO_RESOLVED_IPS";
+NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToNotServing = @"RESOLVED_TO_NOT_SERVING";
+NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServingOnAltPorts = @"RESOLVED_TO_SERVING_ON_ALT_PORTS";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCertificateManager_AllowlistedCertificate
@@ -75,7 +83,7 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 //
 
 @implementation GTLRCertificateManager_AuthorizationAttemptInfo
-@dynamic details, domain, failureReason, state;
+@dynamic attemptTime, details, domain, failureReason, state, troubleshooting;
 @end
 
 
@@ -252,6 +260,24 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateManager_CNAME
+//
+
+@implementation GTLRCertificateManager_CNAME
+@dynamic expectedData, name, resolvedData;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resolvedData" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateManager_DnsAuthorization
 //
 
@@ -338,6 +364,26 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"ports" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_IPs
+//
+
+@implementation GTLRCertificateManager_IPs
+@dynamic resolved, serving, servingOnAltPorts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resolved" : [NSString class],
+    @"serving" : [NSString class],
+    @"servingOnAltPorts" : [NSString class]
   };
   return map;
 }
@@ -488,11 +534,12 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 //
 
 @implementation GTLRCertificateManager_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCertificateManager_Operation class]
+    @"operations" : [GTLRCertificateManager_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -682,6 +729,24 @@ NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecif
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_Troubleshooting
+//
+
+@implementation GTLRCertificateManager_Troubleshooting
+@dynamic cname, ips, issues;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"issues" : [NSString class]
+  };
+  return map;
 }
 
 @end

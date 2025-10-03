@@ -44,6 +44,7 @@
 @class GTLRCloudRedis_DatabaseResourceMetadata;
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData;
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData_AdditionalMetadata;
+@class GTLRCloudRedis_DatabaseResourceSignalData;
 @class GTLRCloudRedis_DiscoveryEndpoint;
 @class GTLRCloudRedis_EncryptionInfo;
 @class GTLRCloudRedis_Entitlement;
@@ -580,6 +581,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType
  *  Value: "CONFIG_BASED_SIGNAL_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_ConfigBasedSignalData;
+/**
+ *  Database resource signal data
+ *
+ *  Value: "DATABASE_RESOURCE_SIGNAL_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_DatabaseResourceSignalData;
 /** Value: "FEEDTYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_FeedtypeUnspecified;
 /**
@@ -2385,6 +2392,76 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_WEAK_ROOT_PASSWORD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeWeakRootPassword;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_DatabaseResourceSignalData.signalState
+
+/**
+ *  Signal is active and requires attention.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_Active;
+/**
+ *  Signal is dismissed by the user and should not be shown to the user again.
+ *
+ *  Value: "DISMISSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_Dismissed;
+/**
+ *  Signal is inactive and does not require attention.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_Inactive;
+/**
+ *  Unspecified signal state.
+ *
+ *  Value: "SIGNAL_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_SignalStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_DatabaseResourceSignalData.signalType
+
+/**
+ *  Represents database auditing is disabled.
+ *
+ *  Value: "SIGNAL_TYPE_DATABASE_AUDITING_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeDatabaseAuditingDisabled;
+/**
+ *  Represents if a resource is exposed to public access.
+ *
+ *  Value: "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess;
+/**
+ *  Represents if a database has a password configured for the root account or
+ *  not.
+ *
+ *  Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword;
+/**
+ *  Outdated Minor Version
+ *
+ *  Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeOutdatedMinorVersion;
+/**
+ *  Represents if a resources requires all incoming connections to use SSL or
+ *  not.
+ *
+ *  Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeUnencryptedConnections;
+/**
+ *  Unspecified signal type.
+ *
+ *  Value: "SIGNAL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_EncryptionInfo.encryptionType
@@ -4534,7 +4611,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /**
  *  DatabaseResourceFeed is the top level proto to be used to ingest different
- *  database resource level events into Condor platform. Next ID: 11
+ *  database resource level events into Condor platform. Next ID: 13
  */
 @interface GTLRCloudRedis_DatabaseResourceFeed : GTLRObject
 
@@ -4547,6 +4624,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_ConfigBasedSignalData *configBasedSignalData;
 
+/**
+ *  Database resource signal data is used to ingest signals from database
+ *  resource signal feeds.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceSignalData *databaseResourceSignalData;
+
 /** Required. Timestamp when feed is generated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *feedTimestamp;
 
@@ -4558,6 +4641,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Database resource metadata from BackupDR (Value: "BACKUPDR_METADATA")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_ConfigBasedSignalData
  *        Database config based signal data (Value: "CONFIG_BASED_SIGNAL_DATA")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_DatabaseResourceSignalData
+ *        Database resource signal data (Value: "DATABASE_RESOURCE_SIGNAL_DATA")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_FeedtypeUnspecified
  *        Value "FEEDTYPE_UNSPECIFIED"
  *    @arg @c kGTLRCloudRedis_DatabaseResourceFeed_FeedType_ObservabilityData
@@ -5181,7 +5266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 26
+ *  Common model for database resource instance metadata. Next ID: 27
  */
 @interface GTLRCloudRedis_DatabaseResourceMetadata : GTLRObject
 
@@ -5387,6 +5472,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** User-provided labels associated with the resource */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_UserLabels *userLabelSet;
+
+/**
+ *  The resource zone. This is only applicable for zonal resources and will be
+ *  empty for regional and multi-regional resources.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
 
 @end
 
@@ -5815,6 +5908,71 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCloudRedis_DatabaseResourceRecommendationSignalData_AdditionalMetadata : GTLRObject
+@end
+
+
+/**
+ *  Database resource signal data. This is used to send signals to Condor which
+ *  are based on the DB/Instance/Fleet level configurations. These will be used
+ *  to send signals for all inventory types. Next ID: 7
+ */
+@interface GTLRCloudRedis_DatabaseResourceSignalData : GTLRObject
+
+/** Required. Full Resource name of the source resource. */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/** Required. Last time signal was refreshed */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
+
+/** Database resource id. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceId *resourceId;
+
+/**
+ *  Signal data for boolean signals.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *signalBoolValue;
+
+/**
+ *  Required. Output only. Signal state of the signal
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_Active
+ *        Signal is active and requires attention. (Value: "ACTIVE")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_Dismissed
+ *        Signal is dismissed by the user and should not be shown to the user
+ *        again. (Value: "DISMISSED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_Inactive
+ *        Signal is inactive and does not require attention. (Value: "INACTIVE")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_SignalStateUnspecified
+ *        Unspecified signal state. (Value: "SIGNAL_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *signalState;
+
+/**
+ *  Required. Signal type of the signal
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeDatabaseAuditingDisabled
+ *        Represents database auditing is disabled. (Value:
+ *        "SIGNAL_TYPE_DATABASE_AUDITING_DISABLED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess
+ *        Represents if a resource is exposed to public access. (Value:
+ *        "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword
+ *        Represents if a database has a password configured for the root
+ *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeOutdatedMinorVersion
+ *        Outdated Minor Version (Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeUnencryptedConnections
+ *        Represents if a resources requires all incoming connections to use SSL
+ *        or not. (Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeUnspecified
+ *        Unspecified signal type. (Value: "SIGNAL_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *signalType;
+
 @end
 
 

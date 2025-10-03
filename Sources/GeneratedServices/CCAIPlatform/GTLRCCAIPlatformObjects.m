@@ -308,11 +308,12 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 //
 
 @implementation GTLRCCAIPlatform_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCCAIPlatform_Operation class]
+    @"operations" : [GTLRCCAIPlatform_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

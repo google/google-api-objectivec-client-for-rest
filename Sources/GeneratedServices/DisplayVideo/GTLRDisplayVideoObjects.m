@@ -357,6 +357,7 @@ NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_E
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSmartclip = @"EXCHANGE_SMARTCLIP";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSmartrtb = @"EXCHANGE_SMARTRTB";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSmartstreamtv = @"EXCHANGE_SMARTSTREAMTV";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSnap = @"EXCHANGE_SNAP";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSoundcast = @"EXCHANGE_SOUNDCAST";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSovrn = @"EXCHANGE_SOVRN";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSpotify = @"EXCHANGE_SPOTIFY";
@@ -859,6 +860,7 @@ NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersi
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion8 = @"SDF_VERSION_8";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion81 = @"SDF_VERSION_8_1";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion9 = @"SDF_VERSION_9";
+NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion91 = @"SDF_VERSION_9_1";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_Creative.creativeAttributes
@@ -1297,6 +1299,7 @@ NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSmartclip = @"EXCHANGE_SMARTCLIP";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSmartrtb = @"EXCHANGE_SMARTRTB";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSmartstreamtv = @"EXCHANGE_SMARTSTREAMTV";
+NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSnap = @"EXCHANGE_SNAP";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSoundcast = @"EXCHANGE_SOUNDCAST";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSovrn = @"EXCHANGE_SOVRN";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSpotify = @"EXCHANGE_SPOTIFY";
@@ -1386,6 +1389,7 @@ NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmartclip = @"EXCHANGE_SMARTCLIP";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmartrtb = @"EXCHANGE_SMARTRTB";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmartstreamtv = @"EXCHANGE_SMARTSTREAMTV";
+NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSnap = @"EXCHANGE_SNAP";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSoundcast = @"EXCHANGE_SOUNDCAST";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSovrn = @"EXCHANGE_SOVRN";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSpotify = @"EXCHANGE_SPOTIFY";
@@ -1475,6 +1479,7 @@ NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmaato 
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmartclip = @"EXCHANGE_SMARTCLIP";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmartrtb = @"EXCHANGE_SMARTRTB";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmartstreamtv = @"EXCHANGE_SMARTSTREAMTV";
+NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSnap = @"EXCHANGE_SNAP";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSoundcast = @"EXCHANGE_SOUNDCAST";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSovrn = @"EXCHANGE_SOVRN";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSpotify = @"EXCHANGE_SPOTIFY";
@@ -1570,6 +1575,7 @@ NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_Excha
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmartclip = @"EXCHANGE_SMARTCLIP";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmartrtb = @"EXCHANGE_SMARTRTB";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmartstreamtv = @"EXCHANGE_SMARTSTREAMTV";
+NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSnap = @"EXCHANGE_SNAP";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSoundcast = @"EXCHANGE_SOUNDCAST";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSovrn = @"EXCHANGE_SOVRN";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSpotify = @"EXCHANGE_SPOTIFY";
@@ -1610,6 +1616,7 @@ NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceSource_Y
 
 // GTLRDisplayVideo_FirstPartyAndPartnerAudience.audienceType
 NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_ActivityBased = @"ACTIVITY_BASED";
+NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_Agency = @"AGENCY";
 NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_AudienceTypeUnspecified = @"AUDIENCE_TYPE_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_Commerce = @"COMMERCE";
 NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_CustomerMatchContactInfo = @"CUSTOMER_MATCH_CONTACT_INFO";
@@ -1873,6 +1880,7 @@ NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmaato = @"E
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmartclip = @"EXCHANGE_SMARTCLIP";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmartrtb = @"EXCHANGE_SMARTRTB";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmartstreamtv = @"EXCHANGE_SMARTSTREAMTV";
+NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSnap = @"EXCHANGE_SNAP";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSoundcast = @"EXCHANGE_SOUNDCAST";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSovrn = @"EXCHANGE_SOVRN";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSpotify = @"EXCHANGE_SPOTIFY";
@@ -2114,6 +2122,7 @@ NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmaato = @"E
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmartclip = @"EXCHANGE_SMARTCLIP";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmartrtb = @"EXCHANGE_SMARTRTB";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmartstreamtv = @"EXCHANGE_SMARTSTREAMTV";
+NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSnap = @"EXCHANGE_SNAP";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSoundcast = @"EXCHANGE_SOUNDCAST";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSovrn = @"EXCHANGE_SOVRN";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSpotify = @"EXCHANGE_SPOTIFY";
@@ -2553,6 +2562,7 @@ NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion71 = @"SDF_VERSIO
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion8 = @"SDF_VERSION_8";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion81 = @"SDF_VERSION_8_1";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion9 = @"SDF_VERSION_9";
+NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion91 = @"SDF_VERSION_9_1";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SdfDownloadTaskMetadata.version
@@ -2572,6 +2582,7 @@ NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion71 
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion8 = @"SDF_VERSION_8";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion81 = @"SDF_VERSION_8_1";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion9 = @"SDF_VERSION_9";
+NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion91 = @"SDF_VERSION_9_1";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails.excludedSensitiveCategory

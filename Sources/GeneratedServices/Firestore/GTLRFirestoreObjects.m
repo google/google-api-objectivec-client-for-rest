@@ -89,10 +89,25 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionS
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionEnabled = @"DELETE_PROTECTION_ENABLED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_DeleteProtectionState_DeleteProtectionStateUnspecified = @"DELETE_PROTECTION_STATE_UNSPECIFIED";
 
+// GTLRFirestore_GoogleFirestoreAdminV1Database.firestoreDataAccessMode
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_FirestoreDataAccessMode_DataAccessModeDisabled = @"DATA_ACCESS_MODE_DISABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_FirestoreDataAccessMode_DataAccessModeEnabled = @"DATA_ACCESS_MODE_ENABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_FirestoreDataAccessMode_DataAccessModeUnspecified = @"DATA_ACCESS_MODE_UNSPECIFIED";
+
+// GTLRFirestore_GoogleFirestoreAdminV1Database.mongodbCompatibleDataAccessMode
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_MongodbCompatibleDataAccessMode_DataAccessModeDisabled = @"DATA_ACCESS_MODE_DISABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_MongodbCompatibleDataAccessMode_DataAccessModeEnabled = @"DATA_ACCESS_MODE_ENABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_MongodbCompatibleDataAccessMode_DataAccessModeUnspecified = @"DATA_ACCESS_MODE_UNSPECIFIED";
+
 // GTLRFirestore_GoogleFirestoreAdminV1Database.pointInTimeRecoveryEnablement
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryDisabled = @"POINT_IN_TIME_RECOVERY_DISABLED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryEnabled = @"POINT_IN_TIME_RECOVERY_ENABLED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryEnablementUnspecified = @"POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED";
+
+// GTLRFirestore_GoogleFirestoreAdminV1Database.realtimeUpdatesMode
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesDisabled = @"REALTIME_UPDATES_DISABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesEnabled = @"REALTIME_UPDATES_ENABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesModeUnspecified = @"REALTIME_UPDATES_MODE_UNSPECIFIED";
 
 // GTLRFirestore_GoogleFirestoreAdminV1Database.type
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_Type_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
@@ -914,9 +929,10 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Database
 @dynamic appEngineIntegrationMode, cmekConfig, concurrencyMode, createTime,
          databaseEdition, deleteProtectionState, deleteTime,
-         earliestVersionTime, ETag, freeTier, keyPrefix, locationId, name,
-         pointInTimeRecoveryEnablement, previousId, sourceInfo, tags, type, uid,
-         updateTime, versionRetentionPeriod;
+         earliestVersionTime, ETag, firestoreDataAccessMode, freeTier,
+         keyPrefix, locationId, mongodbCompatibleDataAccessMode, name,
+         pointInTimeRecoveryEnablement, previousId, realtimeUpdatesMode,
+         sourceInfo, tags, type, uid, updateTime, versionRetentionPeriod;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

@@ -133,6 +133,18 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewBlockViewUnspecified;
 FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
 
 // ----------------------------------------------------------------------------
+// views
+
+/** Value: "DEFAULT" */
+FOUNDATION_EXTERN NSString * const kGTLRComputeViewsDefault;
+/**
+ *  Utilization data is included in the response.
+ *
+ *  Value: "WITH_UTILIZATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -2341,6 +2353,40 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
  *  @param backendService Name of the BackendService resource to return.
  *
  *  @return GTLRComputeQuery_BackendServicesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  backendService:(NSString *)backendService;
+
+@end
+
+/**
+ *  Returns effective security policies applied to this backend service.
+ *
+ *  Method: compute.backendServices.getEffectiveSecurityPolicies
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_BackendServicesGetEffectiveSecurityPolicies : GTLRComputeQuery
+
+/** Name of the Backend Service for this request. */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Returns effective security policies applied to this backend service.
+ *
+ *  @param project Project ID for this request.
+ *  @param backendService Name of the Backend Service for this request.
+ *
+ *  @return GTLRComputeQuery_BackendServicesGetEffectiveSecurityPolicies
  */
 + (instancetype)queryWithProject:(NSString *)project
                   backendService:(NSString *)backendService;
@@ -26058,6 +26104,814 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
 @end
 
 /**
+ *  Inserts an association for the specified security policy. This has billing
+ *  implications. Projects in the hierarchy with effective hierarchical security
+ *  policies will be automatically enrolled into Cloud Armor Enterprise if not
+ *  already enrolled. Use of this API to modify firewall policies is deprecated.
+ *  Use firewallPolicies.addAssociation instead if possible.
+ *
+ *  Method: compute.organizationSecurityPolicies.addAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesAddAssociation : GTLRComputeQuery
+
+/**
+ *  Indicates whether or not to replace it if an association of the attachment
+ *  already exists. This is false by default, in which case an error will be
+ *  returned if an association already exists.
+ */
+@property(nonatomic, assign) BOOL replaceExistingAssociation;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts an association for the specified security policy. This has billing
+ *  implications. Projects in the hierarchy with effective hierarchical security
+ *  policies will be automatically enrolled into Cloud Armor Enterprise if not
+ *  already enrolled. Use of this API to modify firewall policies is deprecated.
+ *  Use firewallPolicies.addAssociation instead if possible.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyAssociation to include in the
+ *    query.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesAddAssociation
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyAssociation *)object
+                 securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Inserts a rule into a security policy.
+ *
+ *  Method: compute.organizationSecurityPolicies.addRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesAddRule : GTLRComputeQuery
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Inserts a rule into a security policy.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyRule to include in the query.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesAddRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
+                 securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Copies rules to the specified security policy. Use of this API to modify
+ *  firewall policies is deprecated. Use firewallPolicies.copyRules instead.
+ *
+ *  Method: compute.organizationSecurityPolicies.copyRules
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesCopyRules : GTLRComputeQuery
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/** The security policy from which to copy rules. */
+@property(nonatomic, copy, nullable) NSString *sourceSecurityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Copies rules to the specified security policy. Use of this API to modify
+ *  firewall policies is deprecated. Use firewallPolicies.copyRules instead.
+ *
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesCopyRules
+ */
++ (instancetype)queryWithSecurityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Deletes the specified policy. Use of this API to remove firewall policies is
+ *  deprecated. Use firewallPolicies.delete instead.
+ *
+ *  Method: compute.organizationSecurityPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesDelete : GTLRComputeQuery
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to delete. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified policy. Use of this API to remove firewall policies is
+ *  deprecated. Use firewallPolicies.delete instead.
+ *
+ *  @param securityPolicy Name of the security policy to delete.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesDelete
+ */
++ (instancetype)queryWithSecurityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  List all of the ordered rules present in a single specified policy. Use of
+ *  this API to read firewall policies is deprecated. Use firewallPolicies.get
+ *  instead.
+ *
+ *  Method: compute.organizationSecurityPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesGet : GTLRComputeQuery
+
+/** Name of the security policy to get. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_SecurityPolicy.
+ *
+ *  List all of the ordered rules present in a single specified policy. Use of
+ *  this API to read firewall policies is deprecated. Use firewallPolicies.get
+ *  instead.
+ *
+ *  @param securityPolicy Name of the security policy to get.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesGet
+ */
++ (instancetype)queryWithSecurityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Gets an association with the specified name. Use of this API to read
+ *  firewall policies is deprecated. Use firewallPolicies.getAssociation instead
+ *  if possible.
+ *
+ *  Method: compute.organizationSecurityPolicies.getAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesGetAssociation : GTLRComputeQuery
+
+/** The name of the association to get from the security policy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Name of the security policy to which the queried rule belongs. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_SecurityPolicyAssociation.
+ *
+ *  Gets an association with the specified name. Use of this API to read
+ *  firewall policies is deprecated. Use firewallPolicies.getAssociation instead
+ *  if possible.
+ *
+ *  @param securityPolicy Name of the security policy to which the queried rule
+ *    belongs.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesGetAssociation
+ */
++ (instancetype)queryWithSecurityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Gets a rule at the specified priority. Use of this API to read firewall
+ *  policies is deprecated. Use firewallPolicies.getRule instead.
+ *
+ *  Method: compute.organizationSecurityPolicies.getRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesGetRule : GTLRComputeQuery
+
+/** The priority of the rule to get from the security policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/** Name of the security policy to which the queried rule belongs. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_SecurityPolicyRule.
+ *
+ *  Gets a rule at the specified priority. Use of this API to read firewall
+ *  policies is deprecated. Use firewallPolicies.getRule instead.
+ *
+ *  @param securityPolicy Name of the security policy to which the queried rule
+ *    belongs.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesGetRule
+ */
++ (instancetype)queryWithSecurityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Creates a new policy in the specified project using the data included in the
+ *  request. Use of this API to insert firewall policies is deprecated. Use
+ *  firewallPolicies.insert instead.
+ *
+ *  Method: compute.organizationSecurityPolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesInsert : GTLRComputeQuery
+
+/**
+ *  Parent ID for this request. The ID can be either be "folders/[FOLDER_ID]" if
+ *  the parent is a folder or "organizations/[ORGANIZATION_ID]" if the parent is
+ *  an organization.
+ */
+@property(nonatomic, copy, nullable) NSString *parentId;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new policy in the specified project using the data included in the
+ *  request. Use of this API to insert firewall policies is deprecated. Use
+ *  firewallPolicies.insert instead.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object;
+
+@end
+
+/**
+ *  List all the policies that have been configured for the specified project.
+ *  Use of this API to read firewall policies is deprecated. Use
+ *  firewallPolicies.list instead.
+ *
+ *  Method: compute.organizationSecurityPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Parent ID for this request. */
+@property(nonatomic, copy, nullable) NSString *parentId;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_SecurityPolicyList.
+ *
+ *  List all the policies that have been configured for the specified project.
+ *  Use of this API to read firewall policies is deprecated. Use
+ *  firewallPolicies.list instead.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Lists associations of a specified target, i.e., organization or folder. Use
+ *  of this API to read firewall policies is deprecated. Use
+ *  firewallPolicies.listAssociations instead if possible.
+ *
+ *  Method: compute.organizationSecurityPolicies.listAssociations
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesListAssociations : GTLRComputeQuery
+
+/**
+ *  The target resource to list associations. It is an organization, or a
+ *  folder.
+ */
+@property(nonatomic, copy, nullable) NSString *targetResource;
+
+/**
+ *  Fetches a @c
+ *  GTLRCompute_OrganizationSecurityPoliciesListAssociationsResponse.
+ *
+ *  Lists associations of a specified target, i.e., organization or folder. Use
+ *  of this API to read firewall policies is deprecated. Use
+ *  firewallPolicies.listAssociations instead if possible.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesListAssociations
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Gets the current list of preconfigured Web Application Firewall (WAF)
+ *  expressions.
+ *
+ *  Method: compute.organizationSecurityPolicies.listPreconfiguredExpressionSets
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesListPreconfiguredExpressionSets : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Parent ID for this request. */
+@property(nonatomic, copy, nullable) NSString *parentId;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c
+ *  GTLRCompute_SecurityPoliciesListPreconfiguredExpressionSetsResponse.
+ *
+ *  Gets the current list of preconfigured Web Application Firewall (WAF)
+ *  expressions.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesListPreconfiguredExpressionSets
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Moves the specified security policy. Use of this API to modify firewall
+ *  policies is deprecated. Use firewallPolicies.move instead.
+ *
+ *  Method: compute.organizationSecurityPolicies.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesMove : GTLRComputeQuery
+
+/** The new parent of the security policy. */
+@property(nonatomic, copy, nullable) NSString *parentId;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Moves the specified security policy. Use of this API to modify firewall
+ *  policies is deprecated. Use firewallPolicies.move instead.
+ *
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesMove
+ */
++ (instancetype)queryWithSecurityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Patches the specified policy with the data included in the request. Use of
+ *  this API to modify firewall policies is deprecated. Use
+ *  firewallPolicies.patch instead.
+ *
+ *  Method: compute.organizationSecurityPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesPatch : GTLRComputeQuery
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the specified policy with the data included in the request. Use of
+ *  this API to modify firewall policies is deprecated. Use
+ *  firewallPolicies.patch instead.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicy *)object
+                 securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Patches a rule at the specified priority. Use of this API to modify firewall
+ *  policies is deprecated. Use firewallPolicies.patchRule instead.
+ *
+ *  Method: compute.organizationSecurityPolicies.patchRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesPatchRule : GTLRComputeQuery
+
+/** The priority of the rule to patch. */
+@property(nonatomic, assign) NSInteger priority;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches a rule at the specified priority. Use of this API to modify firewall
+ *  policies is deprecated. Use firewallPolicies.patchRule instead.
+ *
+ *  @param object The @c GTLRCompute_SecurityPolicyRule to include in the query.
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesPatchRule
+ */
++ (instancetype)queryWithObject:(GTLRCompute_SecurityPolicyRule *)object
+                 securityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Removes an association for the specified security policy. Use of this API to
+ *  modify firewall policies is deprecated. Use
+ *  firewallPolicies.removeAssociation instead if possible.
+ *
+ *  Method: compute.organizationSecurityPolicies.removeAssociation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesRemoveAssociation : GTLRComputeQuery
+
+/** Name for the attachment that will be removed. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Removes an association for the specified security policy. Use of this API to
+ *  modify firewall policies is deprecated. Use
+ *  firewallPolicies.removeAssociation instead if possible.
+ *
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesRemoveAssociation
+ */
++ (instancetype)queryWithSecurityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
+ *  Deletes a rule at the specified priority.
+ *
+ *  Method: compute.organizationSecurityPolicies.removeRule
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_OrganizationSecurityPoliciesRemoveRule : GTLRComputeQuery
+
+/** The priority of the rule to remove from the security policy. */
+@property(nonatomic, assign) NSInteger priority;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the security policy to update. */
+@property(nonatomic, copy, nullable) NSString *securityPolicy;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes a rule at the specified priority.
+ *
+ *  @param securityPolicy Name of the security policy to update.
+ *
+ *  @return GTLRComputeQuery_OrganizationSecurityPoliciesRemoveRule
+ */
++ (instancetype)queryWithSecurityPolicy:(NSString *)securityPolicy;
+
+@end
+
+/**
  *  Retrieves an aggregated list of packetMirrorings. To prevent failure, Google
  *  recommends that you set the `returnPartialSuccess` parameter to `true`.
  *
@@ -26524,6 +27378,193 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
 @end
 
 /**
+ *  Returns the details of the given PreviewFeature.
+ *
+ *  Method: compute.previewFeatures.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_PreviewFeaturesGet : GTLRComputeQuery
+
+/** Name of the PreviewFeature for this request. */
+@property(nonatomic, copy, nullable) NSString *previewFeature;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRCompute_PreviewFeature.
+ *
+ *  Returns the details of the given PreviewFeature.
+ *
+ *  @param project Project ID for this request.
+ *  @param previewFeature Name of the PreviewFeature for this request.
+ *
+ *  @return GTLRComputeQuery_PreviewFeaturesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                  previewFeature:(NSString *)previewFeature;
+
+@end
+
+/**
+ *  Returns the details of the given PreviewFeature.
+ *
+ *  Method: compute.previewFeatures.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_PreviewFeaturesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions: expressions that
+ *  support regular expressions and expressions that follow API improvement
+ *  proposal AIP-160. These two types of filter expressions cannot be mixed in
+ *  one request. If you want to use AIP-160, your expression must specify the
+ *  field name, an operator, and the value that you want to use for filtering.
+ *  The value must be a string, a number, or a boolean. The operator must be
+ *  either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`. For example, if you are
+ *  filtering Compute Engine instances, you can exclude instances named
+ *  `example-instance` by specifying `name != example-instance`. The `:*`
+ *  comparison can be used to test whether a key has been defined. For example,
+ *  to find all objects with `owner` label use: ``` labels.owner:* ``` You can
+ *  also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only if they are
+ *  not scheduled for automatic restarts. You can use filtering on nested fields
+ *  to filter based on resource labels. To filter on multiple expressions,
+ *  provide each separate expression within parentheses. For example: ```
+ *  (scheduling.automaticRestart = true) (cpuPlatform = "Intel Skylake") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (cpuPlatform =
+ *  "Intel Skylake") OR (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true) ``` If you want to use a regular
+ *  expression, use the `eq` (equal) or `ne` (not equal) operator against a
+ *  single un-parenthesized expression with or without quotes or against
+ *  multiple parenthesized expressions. Examples: `fieldname eq unquoted
+ *  literal` `fieldname eq 'single quoted literal'` `fieldname eq "double quoted
+ *  literal"` `(fieldname1 eq literal) (fieldname2 ne "literal")` The literal
+ *  value is interpreted as a regular expression using Google RE2 library
+ *  syntax. The literal value must match the entire field. For example, to
+ *  filter for instances that do not end with name "instance", you would use
+ *  `name ne .*instance`. You cannot combine constraints on multiple fields
+ *  using regular expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned. If the
+ *  number of available results is larger than `maxResults`, Compute Engine
+ *  returns a `nextPageToken` that can be used to get the next page of results
+ *  in subsequent list requests. Acceptable values are `0` to `500`, inclusive.
+ *  (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results are returned in
+ *  alphanumerical order based on the resource name. You can also sort results
+ *  in descending order based on the creation timestamp using
+ *  `orderBy="creationTimestamp desc"`. This sorts results based on the
+ *  `creationTimestamp` field in reverse chronological order (newest result
+ *  first). Use this to sort resources like operations so that the newest
+ *  operation is returned first. Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the `nextPageToken`
+ *  returned by a previous list request to get the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false. For example, when partial success
+ *  behavior is enabled, aggregatedList for a single zone scope either returns
+ *  all resources in the zone or no resources, with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_PreviewFeatureList.
+ *
+ *  Returns the details of the given PreviewFeature.
+ *
+ *  @param project Project ID for this request.
+ *
+ *  @return GTLRComputeQuery_PreviewFeaturesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Patches the given PreviewFeature. This method is used to enable or disable a
+ *  PreviewFeature.
+ *
+ *  Method: compute.previewFeatures.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_PreviewFeaturesUpdate : GTLRComputeQuery
+
+/** Name of the PreviewFeature for this request. */
+@property(nonatomic, copy, nullable) NSString *previewFeature;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches the given PreviewFeature. This method is used to enable or disable a
+ *  PreviewFeature.
+ *
+ *  @param object The @c GTLRCompute_PreviewFeature to include in the query.
+ *  @param project Project ID for this request.
+ *  @param previewFeature Name of the PreviewFeature for this request.
+ *
+ *  @return GTLRComputeQuery_PreviewFeaturesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_PreviewFeature *)object
+                        project:(NSString *)project
+                 previewFeature:(NSString *)previewFeature;
+
+@end
+
+/**
  *  Disable this project as a shared VPC host project.
  *
  *  Method: compute.projects.disableXpnHost
@@ -26976,7 +28017,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
 @end
 
 /**
- *  Moves a persistent disk from one zone to another.
+ *  Starting September 29, 2025, you can't use the moveDisk API on new projects.
+ *  To move a disk to a different region or zone, follow the steps in [Change
+ *  the location of a
+ *  disk](https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/migrate-to-hyperdisk#migrate-to-hd).
+ *  Projects that already use the moveDisk API can continue usage until
+ *  September 29, 2026. Starting November 1, 2025, API responses will include a
+ *  warning message in the response body about the upcoming deprecation. You can
+ *  skip the message to continue using the service without interruption.
  *
  *  Method: compute.projects.moveDisk
  *
@@ -26984,6 +28032,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
  *    @c kGTLRAuthScopeCompute
  *    @c kGTLRAuthScopeComputeCloudPlatform
  */
+GTLR_DEPRECATED
 @interface GTLRComputeQuery_ProjectsMoveDisk : GTLRComputeQuery
 
 /** Project ID for this request. */
@@ -27005,7 +28054,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
 /**
  *  Fetches a @c GTLRCompute_Operation.
  *
- *  Moves a persistent disk from one zone to another.
+ *  Starting September 29, 2025, you can't use the moveDisk API on new projects.
+ *  To move a disk to a different region or zone, follow the steps in [Change
+ *  the location of a
+ *  disk](https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/migrate-to-hyperdisk#migrate-to-hd).
+ *  Projects that already use the moveDisk API can continue usage until
+ *  September 29, 2026. Starting November 1, 2025, API responses will include a
+ *  warning message in the response body about the upcoming deprecation. You can
+ *  skip the message to continue using the service without interruption.
  *
  *  @param object The @c GTLRCompute_DiskMoveRequest to include in the query.
  *  @param project Project ID for this request.
@@ -40136,6 +41192,78 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Allows customers to report a faulty subBlock.
+ *
+ *  Method: compute.reservationSubBlocks.reportFaulty
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ReservationSubBlocksReportFaulty : GTLRComputeQuery
+
+/**
+ *  The name of the parent reservation and parent block. In the format of
+ *  reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. For example, consider a situation
+ *  where you make an initial request and the request times out. If you make the
+ *  request again with the same request ID, the server can check if original
+ *  operation with the same request ID was received, and if so, will ignore the
+ *  second request. This prevents clients from accidentally creating duplicate
+ *  commitments. The request ID must be a valid UUID with the exception that
+ *  zero UUID is not supported ( 00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the reservation subBlock. Name should conform to RFC1035 or be a
+ *  resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationSubBlock;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Allows customers to report a faulty subBlock.
+ *
+ *  @param object The @c GTLRCompute_ReservationSubBlocksReportFaultyRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param parentName The name of the parent reservation and parent block. In
+ *    the format of
+ *    reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+ *  @param reservationSubBlock The name of the reservation subBlock. Name should
+ *    conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationSubBlocksReportFaulty
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ReservationSubBlocksReportFaultyRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                     parentName:(NSString *)parentName
+            reservationSubBlock:(NSString *)reservationSubBlock;
+
+@end
+
+/**
  *  Update share settings of the reservation.
  *
  *  Method: compute.reservations.update
@@ -46044,6 +47172,17 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
 /**
+ *  Defines the extra views returned back in the subnetwork resource. Supported
+ *  values: - WITH_UTILIZATION: Utilization data is included in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewsDefault Value "DEFAULT"
+ *    @arg @c kGTLRComputeViewsWithUtilization Utilization data is included in
+ *        the response. (Value: "WITH_UTILIZATION")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *views;
+
+/**
  *  Fetches a @c GTLRCompute_Subnetwork.
  *
  *  Returns the specified subnetwork.
@@ -46242,6 +47381,17 @@ GTLR_DEPRECATED
  *  all resources in the zone or no resources, with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Defines the extra views returned back in the subnetwork resource. Supported
+ *  values: - WITH_UTILIZATION: Utilization data is included in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewsDefault Value "DEFAULT"
+ *    @arg @c kGTLRComputeViewsWithUtilization Utilization data is included in
+ *        the response. (Value: "WITH_UTILIZATION")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *views;
 
 /**
  *  Fetches a @c GTLRCompute_SubnetworkList.

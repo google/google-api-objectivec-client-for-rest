@@ -1279,11 +1279,12 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRServiceNetworking_Operation class]
+    @"operations" : [GTLRServiceNetworking_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

@@ -578,8 +578,8 @@ NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeU
 //
 
 @implementation GTLRWorkloadManager_Insight
-@dynamic agentStatus, instanceId, sapDiscovery, sapValidation, sentTime,
-         sqlserverValidation, torsoValidation;
+@dynamic agentStatus, instanceId, openShiftValidation, sapDiscovery,
+         sapValidation, sentTime, sqlserverValidation, torsoValidation;
 @end
 
 
@@ -595,6 +595,34 @@ NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeU
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"roles" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_InvalidRule
+//
+
+@implementation GTLRWorkloadManager_InvalidRule
+@dynamic displayName, gcsUri, name, valiadtionError;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_InvalidRulesWrapper
+//
+
+@implementation GTLRWorkloadManager_InvalidRulesWrapper
+@dynamic invalidRules;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"invalidRules" : [GTLRWorkloadManager_InvalidRule class]
   };
   return map;
 }
@@ -743,17 +771,13 @@ NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeU
 //
 
 @implementation GTLRWorkloadManager_ListRulesResponse
-@dynamic nextPageToken, rules;
+@dynamic invalidRulesWrapper, rules;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"rules" : [GTLRWorkloadManager_Rule class]
   };
   return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"rules";
 }
 
 @end
@@ -826,6 +850,15 @@ NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeU
 
 @implementation GTLRWorkloadManager_Notice
 @dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_OpenShiftValidation
+//
+
+@implementation GTLRWorkloadManager_OpenShiftValidation
 @end
 
 

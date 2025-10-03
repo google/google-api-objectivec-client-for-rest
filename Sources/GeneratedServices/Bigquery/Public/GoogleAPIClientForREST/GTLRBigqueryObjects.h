@@ -96,6 +96,8 @@
 @class GTLRBigquery_HivePartitioningOptions;
 @class GTLRBigquery_HparamSearchSpaces;
 @class GTLRBigquery_HparamTuningTrial;
+@class GTLRBigquery_IncrementalResultStats;
+@class GTLRBigquery_IndexPruningStats;
 @class GTLRBigquery_IndexUnusedReason;
 @class GTLRBigquery_InputDataChange;
 @class GTLRBigquery_IntArray;
@@ -153,6 +155,7 @@
 @class GTLRBigquery_PrivacyPolicy;
 @class GTLRBigquery_ProjectList_Projects_Item;
 @class GTLRBigquery_ProjectReference;
+@class GTLRBigquery_PruningStats;
 @class GTLRBigquery_PythonOptions;
 @class GTLRBigquery_QueryInfo;
 @class GTLRBigquery_QueryInfo_OptimizationDetails;
@@ -972,6 +975,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_Succee
  *  Value: "TRIAL_STATUS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_TrialStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_IncrementalResultStats.disabledReason
+
+/**
+ *  Disabled reason not specified.
+ *
+ *  Value: "DISABLED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IncrementalResultStats_DisabledReason_DisabledReasonUnspecified;
+/**
+ *  Some other reason.
+ *
+ *  Value: "OTHER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IncrementalResultStats_DisabledReason_Other;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_IndexUnusedReason.code
@@ -3795,6 +3814,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Rando
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_PcaSolver_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_TrainingOptions.reservationAffinityType
+
+/**
+ *  Any reservation.
+ *
+ *  Value: "ANY_RESERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ReservationAffinityType_AnyReservation;
+/**
+ *  No reservation.
+ *
+ *  Value: "NO_RESERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ReservationAffinityType_NoReservation;
+/**
+ *  Default value.
+ *
+ *  Value: "RESERVATION_AFFINITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ReservationAffinityType_ReservationAffinityTypeUnspecified;
+/**
+ *  Specific reservation.
+ *
+ *  Value: "SPECIFIC_RESERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_TrainingOptions_ReservationAffinityType_SpecificReservation;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_TrainingOptions.treeMethod
@@ -6971,6 +7018,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *timestampFormat;
 
 /**
+ *  Precisions (maximum number of total digits in base 10) for seconds of
+ *  TIMESTAMP types that are allowed to the destination table for autodetection
+ *  mode. Available for the formats: CSV. For the CSV Format, Possible values
+ *  include: Not Specified, [], or [6]: timestamp(6) for all auto detected
+ *  TIMESTAMP columns [6, 12]: timestamp(6) for all auto detected TIMESTAMP
+ *  columns that have less than 6 digits of subseconds. timestamp(12) for all
+ *  auto detected TIMESTAMP columns that have more than 6 digits of subseconds.
+ *  [12]: timestamp(12) for all auto detected TIMESTAMP columns. The order of
+ *  the elements in this array is ignored. Inputs that have higher precision
+ *  than the highest target precision in this array will be truncated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *timestampTargetPrecision;
+
+/**
  *  Optional. Time zone used when parsing timestamp values that do not have
  *  specific time zone information (e.g. 2024-04-20 12:34:56). The expected
  *  format is a IANA timezone string (e.g. America/Los_Angeles).
@@ -7058,9 +7121,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_ExternalServiceCost : GTLRObject
 
 /**
- *  The billing method used for the external job. This field is only used when
- *  billed on the services sku, set to "SERVICES_SKU". Otherwise, it is
- *  unspecified for backward compatibility.
+ *  The billing method used for the external job. This field, set to
+ *  `SERVICES_SKU`, is only used when billing under the services SKU. Otherwise,
+ *  it is unspecified for backward compatibility.
  */
 @property(nonatomic, copy, nullable) NSString *billingMethod;
 
@@ -7626,6 +7689,63 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  Statistics related to Incremental Query Results. Populated as part of
+ *  JobStatistics2. This feature is not yet available.
+ */
+@interface GTLRBigquery_IncrementalResultStats : GTLRObject
+
+/**
+ *  Reason why incremental query results are/were not written by the query.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_IncrementalResultStats_DisabledReason_DisabledReasonUnspecified
+ *        Disabled reason not specified. (Value: "DISABLED_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_IncrementalResultStats_DisabledReason_Other Some
+ *        other reason. (Value: "OTHER")
+ */
+@property(nonatomic, copy, nullable) NSString *disabledReason;
+
+/**
+ *  The time at which the result table's contents were modified. May be absent
+ *  if no results have been written or the query has completed.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *resultSetLastModifyTime;
+
+/**
+ *  The time at which the result table's contents were completely replaced. May
+ *  be absent if no results have been written or the query has completed.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *resultSetLastReplaceTime;
+
+@end
+
+
+/**
+ *  Statistics for index pruning.
+ */
+@interface GTLRBigquery_IndexPruningStats : GTLRObject
+
+/** The base table reference. */
+@property(nonatomic, strong, nullable) GTLRBigquery_TableReference *baseTable;
+
+/**
+ *  The number of parallel inputs after index pruning.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *postIndexPruningParallelInputCount;
+
+/**
+ *  The number of parallel inputs before index pruning.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preIndexPruningParallelInputCount;
+
+@end
+
+
+/**
  *  Reason about why no search index was used in the search query (or
  *  sub-query).
  */
@@ -7972,11 +8092,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationExtract *extract;
 
 /**
- *  Optional. Job timeout in milliseconds. If this time limit is exceeded,
- *  BigQuery will attempt to stop a longer job, but may not always succeed in
- *  canceling it before the job completes. For example, a job that takes more
- *  than 60 seconds to complete has a better chance of being stopped than a job
- *  that takes 10 seconds to complete.
+ *  Optional. Job timeout in milliseconds relative to the job creation time. If
+ *  this time limit is exceeded, BigQuery attempts to stop the job, but might
+ *  not always succeed in canceling it before the job completes. For example, a
+ *  job that takes more than 60 seconds to complete has a better chance of being
+ *  stopped than a job that takes 10 seconds to complete.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -8002,9 +8122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) GTLRBigquery_JobConfigurationLoad *load;
 
 /**
- *  Optional. INTERNAL: DO NOT USE. The maximum rate of slot consumption to
- *  allow for this job. If set, the number of slots used to execute the job will
- *  be throttled to try and keep its slot consumption below the requested rate.
+ *  Optional. A target limit on the rate of slot consumption by this job. If set
+ *  to a value > 0, BigQuery will attempt to limit the rate of slot consumption
+ *  by this job to keep it below the configured limit, even if the job is
+ *  eligible for more slots based on fair scheduling. The unused slots will be
+ *  available for other jobs and queries to use. Note: This feature is not yet
+ *  generally available.
  *
  *  Uses NSNumber of intValue.
  */
@@ -8444,9 +8567,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Allows the schema of the destination table to be updated as a side effect of
  *  the load job if a schema is autodetected or supplied in the job
- *  configuration. Schema update options are supported in two cases: when
- *  writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE
- *  and the destination table is a partition of a table, specified by partition
+ *  configuration. Schema update options are supported in three cases: when
+ *  writeDisposition is WRITE_APPEND; when writeDisposition is
+ *  WRITE_TRUNCATE_DATA; when writeDisposition is WRITE_TRUNCATE and the
+ *  destination table is a partition of a table, specified by partition
  *  decorators. For normal tables, WRITE_TRUNCATE will always overwrite the
  *  schema. One or more of the following values are specified: *
  *  ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema. *
@@ -8525,6 +8649,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /** Optional. Date format used for parsing TIMESTAMP values. */
 @property(nonatomic, copy, nullable) NSString *timestampFormat;
+
+/**
+ *  Precisions (maximum number of total digits in base 10) for seconds of
+ *  TIMESTAMP types that are allowed to the destination table for autodetection
+ *  mode. Available for the formats: CSV. For the CSV Format, Possible values
+ *  include: Not Specified, [], or [6]: timestamp(6) for all auto detected
+ *  TIMESTAMP columns [6, 12]: timestamp(6) for all auto detected TIMESTAMP
+ *  columns that have less than 6 digits of subseconds. timestamp(12) for all
+ *  auto detected TIMESTAMP columns that have more than 6 digits of subseconds.
+ *  [12]: timestamp(12) for all auto detected TIMESTAMP columns. The order of
+ *  the elements in this array is ignored. Inputs that have higher precision
+ *  than the highest target precision in this array will be truncated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *timestampTargetPrecision;
 
 /**
  *  Optional. Default time zone that will apply when parsing timestamp values
@@ -8703,9 +8843,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Allows the schema of the destination table to be updated as a side effect of
- *  the query job. Schema update options are supported in two cases: when
- *  writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE
- *  and the destination table is a partition of a table, specified by partition
+ *  the query job. Schema update options are supported in three cases: when
+ *  writeDisposition is WRITE_APPEND; when writeDisposition is
+ *  WRITE_TRUNCATE_DATA; when writeDisposition is WRITE_TRUNCATE and the
+ *  destination table is a partition of a table, specified by partition
  *  decorators. For normal tables, WRITE_TRUNCATE will always overwrite the
  *  schema. One or more of the following values are specified: *
  *  ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema. *
@@ -9125,6 +9266,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *reservationId;
 
 /**
+ *  Output only. The reservation group path of the reservation assigned to this
+ *  job. This field has a limit of 10 nested reservation groups. This is to
+ *  maintain consistency between reservatins info schema and jobs info schema.
+ *  The first reservation group is the root reservation group and the last is
+ *  the leaf or lowest level reservation group.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *reservationGroupPath;
+
+/**
  *  Output only. Job resource usage breakdown by reservation. This field
  *  reported misleading information and will no longer be populated.
  */
@@ -9302,6 +9452,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  service costs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ExternalServiceCost *> *externalServiceCosts;
+
+/**
+ *  Output only. Statistics related to incremental query results, if enabled for
+ *  the query. This feature is not yet available.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_IncrementalResultStats *incrementalResultStats;
 
 /** Output only. Statistics for a LOAD query. */
 @property(nonatomic, strong, nullable) GTLRBigquery_LoadQueryStatistics *loadQueryStatistics;
@@ -9503,10 +9659,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *totalPartitionsProcessed;
 
 /**
- *  Output only. Total slot-milliseconds for the job that run on external
- *  services and billed on the service SKU. This field is only populated for
+ *  Output only. Total slot milliseconds for the job that ran on external
+ *  services and billed on the services SKU. This field is only populated for
  *  jobs that have external service costs, and is the total of the usage for
- *  costs whose billing method is "SERVICES_SKU".
+ *  costs whose billing method is `"SERVICES_SKU"`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -10901,6 +11057,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 
 /**
+ *  The column metadata index pruning statistics.
+ */
+@interface GTLRBigquery_PruningStats : GTLRObject
+
+/**
+ *  The number of parallel inputs matched.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *postCmetaPruningParallelInputCount;
+
+/**
+ *  The number of partitions matched.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *postCmetaPruningPartitionCount;
+
+/**
+ *  The number of parallel inputs scanned.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *preCmetaPruningParallelInputCount;
+
+@end
+
+
+/**
  *  Options for a user-defined Python function.
  */
 @interface GTLRBigquery_PythonOptions : GTLRObject
@@ -11175,10 +11360,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *maxResults;
 
 /**
- *  Optional. INTERNAL: DO NOT USE. The maximum rate of slot consumption to
- *  allow for this job. If set, the number of slots used to execute the job will
- *  be throttled to try and keep its slot consumption below the requested rate.
- *  This limit is best effort.
+ *  Optional. A target limit on the rate of slot consumption by this query. If
+ *  set to a value > 0, BigQuery will attempt to limit the rate of slot
+ *  consumption by this query to keep it below the configured limit, even if the
+ *  query is eligible for more slots based on fair scheduling. The unused slots
+ *  will be available for other jobs and queries to use. Note: This feature is
+ *  not yet generally available.
  *
  *  Uses NSNumber of intValue.
  */
@@ -12286,6 +12473,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Statistics for a search query. Populated as part of JobStatistics2.
  */
 @interface GTLRBigquery_SearchStatistics : GTLRObject
+
+/**
+ *  Search index pruning statistics, one for each base table that has a search
+ *  index. If a base table does not have a search index or the index does not
+ *  help with pruning on the base table, then there is no pruning statistics for
+ *  that table.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_IndexPruningStats *> *indexPruningStats;
 
 /**
  *  When `indexUsageMode` is `UNUSED` or `PARTIALLY_USED`, this field explains
@@ -13707,6 +13902,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *scale;
 
 /**
+ *  Optional. Precision (maximum number of total digits in base 10) for seconds
+ *  of TIMESTAMP type. Possible values include: * 6 (Default, for TIMESTAMP type
+ *  with microsecond precision) * 12 (For TIMESTAMP type with picosecond
+ *  precision)
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *timestampPrecision;
+
+/**
  *  Required. The field data type. Possible values include: * STRING * BYTES *
  *  INTEGER (or INT64) * FLOAT (or FLOAT64) * BOOLEAN (or BOOL) * TIMESTAMP *
  *  DATE * TIME * DATETIME * GEOGRAPHY * NUMERIC * BIGNUMERIC * JSON * RECORD
@@ -13907,6 +14112,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Free form human-readable reason metadata caching was unused for the job.
  */
 @property(nonatomic, copy, nullable) NSString *explanation;
+
+/** The column metadata index pruning statistics. */
+@property(nonatomic, strong, nullable) GTLRBigquery_PruningStats *pruningStats;
 
 /**
  *  Duration since last refresh as of this job for managed tables (indicates
@@ -14408,6 +14616,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *enableGlobalExplain;
 
 /**
+ *  The idle TTL of the endpoint before the resources get destroyed. The default
+ *  value is 6.5 hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *endpointIdleTtl;
+
+/**
  *  Feedback type that specifies which algorithm to run for matrix
  *  factorization.
  *
@@ -14604,6 +14818,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /** The target evaluation metrics to optimize the hyperparameters for. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *hparamTuningObjectives;
 
+/** The id of a Hugging Face model. For example, `google/gemma-2-2b-it`. */
+@property(nonatomic, copy, nullable) NSString *huggingFaceModelId;
+
 /**
  *  Include drift when fitting an ARIMA model.
  *
@@ -14726,6 +14943,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  */
 @property(nonatomic, copy, nullable) NSString *lossType;
 
+/** The type of the machine used to deploy and serve the model. */
+@property(nonatomic, copy, nullable) NSString *machineType;
+
 /**
  *  The maximum number of iterations in training. Used only for iterative
  *  training algorithms.
@@ -14740,6 +14960,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxParallelTrials;
+
+/**
+ *  The maximum number of machine replicas that will be deployed on an endpoint.
+ *  The default value is equal to min_replica_count.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxReplicaCount;
 
 /**
  *  The maximum number of time points in a time series that can be used in
@@ -14773,6 +15001,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSNumber *minRelativeProgress;
 
 /**
+ *  The minimum number of machine replicas that will be always deployed on an
+ *  endpoint. This value must be greater than or equal to 1. The default value
+ *  is 1.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minReplicaCount;
+
+/**
  *  Minimum split loss for boosted tree models.
  *
  *  Uses NSNumber of doubleValue.
@@ -14799,6 +15036,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *minTreeChildWeight;
+
+/**
+ *  The name of a Vertex model garden publisher model. Format is
+ *  `publishers/{publisher}/models/{model}\@{optional_version_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *modelGardenModelName;
 
 /**
  *  The model registry.
@@ -14900,6 +15143,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *        (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *pcaSolver;
+
+/**
+ *  Corresponds to the label key of a reservation resource used by Vertex AI. To
+ *  target a SPECIFIC_RESERVATION by name, use
+ *  `compute.googleapis.com/reservation-name` as the key and specify the name of
+ *  your reservation as its value.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationAffinityKey;
+
+/**
+ *  Specifies the reservation affinity type used to configure a Vertex AI
+ *  resource. The default value is `NO_RESERVATION`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_TrainingOptions_ReservationAffinityType_AnyReservation
+ *        Any reservation. (Value: "ANY_RESERVATION")
+ *    @arg @c kGTLRBigquery_TrainingOptions_ReservationAffinityType_NoReservation
+ *        No reservation. (Value: "NO_RESERVATION")
+ *    @arg @c kGTLRBigquery_TrainingOptions_ReservationAffinityType_ReservationAffinityTypeUnspecified
+ *        Default value. (Value: "RESERVATION_AFFINITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_TrainingOptions_ReservationAffinityType_SpecificReservation
+ *        Specific reservation. (Value: "SPECIFIC_RESERVATION")
+ */
+@property(nonatomic, copy, nullable) NSString *reservationAffinityType;
+
+/**
+ *  Corresponds to the label values of a reservation resource used by Vertex AI.
+ *  This must be the full resource name of the reservation or reservation block.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *reservationAffinityValues;
 
 /**
  *  Number of paths for the sampled Shapley explain method.

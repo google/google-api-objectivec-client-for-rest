@@ -207,11 +207,12 @@ NSString * const kGTLRParallelstore_TransferMetadataOptions_Uid_UidUnspecified =
 //
 
 @implementation GTLRParallelstore_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRParallelstore_Operation class]
+    @"operations" : [GTLRParallelstore_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

@@ -699,8 +699,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_DialogEvent
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AddedToSpace;
 /**
- *  A user uses a Chat app [quick
- *  command](https://developers.google.com/workspace/chat/commands#types).
+ *  A user uses a Chat app
+ *  [command](https://developers.google.com/workspace/chat/commands#types),
+ *  including slash commands and quick commands.
  *
  *  Value: "APP_COMMAND"
  */
@@ -722,10 +723,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_AppCom
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked;
 /**
- *  A user sends the Chat app a message, or invokes the Chat app in a space,
- *  such as any of the following examples: * Any message in a direct message
- *  (DM) space with the Chat app. * A message in a multi-person space where a
- *  person \@mentions the Chat app, or uses one of its [slash
+ *  A user sends the Chat app a message, or invokes the Chat app in a space.
+ *  Examples of message events include: * Any message in a direct message (DM)
+ *  space with the Chat app. * A message in a multi-person space where a person
+ *  \@mentions the Chat app, or uses one of its [slash
  *  commands](https://developers.google.com/workspace/chat/commands#types). * If
  *  you've configured link previews for your Chat app, a user posts a message
  *  that contains a link that matches the configured URL pattern.
@@ -752,7 +753,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Remove
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified;
 /**
- *  A user updates a widget in a card message or dialog.
+ *  A user updates a widget in a card message or dialog. This event is triggered
+ *  when a user interacts with a widget that has an associated action.
  *
  *  Value: "WIDGET_UPDATED"
  */
@@ -1089,6 +1091,34 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePic
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_TimeOnly;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1DecoratedText.startIconVerticalAlignment
+
+/**
+ *  Alignment to the bottom position.
+ *
+ *  Value: "BOTTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_Bottom;
+/**
+ *  Alignment to the middle position.
+ *
+ *  Value: "MIDDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_Middle;
+/**
+ *  Alignment to the top position.
+ *
+ *  Value: "TOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_Top;
+/**
+ *  Unspecified type. Do not use.
+ *
+ *  Value: "VERTICAL_ALIGNMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_VerticalAlignmentUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition.conditionType
 
 /**
@@ -1323,6 +1353,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_T
  *  Value: "SINGLE_LINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_SingleLine;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleAppsCardV1TextParagraph.textSyntax
+
+/**
+ *  The text is rendered as HTML. This is the default value.
+ *
+ *  Value: "HTML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextParagraph_TextSyntax_Html;
+/**
+ *  The text is rendered as Markdown.
+ *
+ *  Value: "MARKDOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextParagraph_TextSyntax_Markdown;
+/**
+ *  The text is rendered as HTML if unspecified.
+ *
+ *  Value: "TEXT_SYNTAX_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextParagraph_TextSyntax_TextSyntaxUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction.visibility
@@ -2820,8 +2872,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, copy, nullable) NSString *hostApp;
 
 /**
- *  Name of the invoked function associated with the widget. Only set for Chat
- *  apps.
+ *  Name of the function to invoke. This field doesn't populate for Google
+ *  Workspace Add-ons that extend Google Chat. Instead, to receive function data
+ *  like identifiers, add-ons that extend Chat should use the `parameters`
+ *  field. See [Build interactive interfaces for Chat
+ *  apps](https://developers.google.com/workspace/add-ons/chat/build).
  */
 @property(nonatomic, copy, nullable) NSString *invokedFunction;
 
@@ -3269,9 +3324,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *        apps in your domain](https://support.google.com/a/answer/172482).
  *        (Value: "ADDED_TO_SPACE")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_AppCommand A user uses a
- *        Chat app [quick
- *        command](https://developers.google.com/workspace/chat/commands#types).
- *        (Value: "APP_COMMAND")
+ *        Chat app
+ *        [command](https://developers.google.com/workspace/chat/commands#types),
+ *        including slash commands and quick commands. (Value: "APP_COMMAND")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_CardClicked A user clicks
  *        an interactive element of a card or dialog from a Chat app, such as a
  *        button. To receive an interaction event, the button must trigger
@@ -3287,8 +3342,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *        [`DialogEventType`](https://developers.google.com/workspace/chat/api/reference/rest/v1/DialogEventType).
  *        (Value: "CARD_CLICKED")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_Message A user sends the
- *        Chat app a message, or invokes the Chat app in a space, such as any of
- *        the following examples: * Any message in a direct message (DM) space
+ *        Chat app a message, or invokes the Chat app in a space. Examples of
+ *        message events include: * Any message in a direct message (DM) space
  *        with the Chat app. * A message in a multi-person space where a person
  *        \@mentions the Chat app, or uses one of its [slash
  *        commands](https://developers.google.com/workspace/chat/commands#types).
@@ -3307,8 +3362,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_Unspecified Default value
  *        for the enum. DO NOT USE. (Value: "UNSPECIFIED")
  *    @arg @c kGTLRHangoutsChat_DeprecatedEvent_Type_WidgetUpdated A user
- *        updates a widget in a card message or dialog. (Value:
- *        "WIDGET_UPDATED")
+ *        updates a widget in a card message or dialog. This event is triggered
+ *        when a user interacts with a widget that has an associated action.
+ *        (Value: "WIDGET_UPDATED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3936,13 +3992,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview): A
- *  carousel, also known as a slider, rotates and displays a list of widgets in
- *  a slideshow format, with buttons navigating to the previous or next widget.
- *  For example, this is a JSON representation of a carousel that contains three
- *  text paragraph widgets. ``` { "carouselCards": [ { "widgets": [ {
- *  "textParagraph": { "text": "First text paragraph in carousel", } } ] }, {
- *  "widgets": [ { "textParagraph": { "text": "Second text paragraph in
+ *  A carousel, also known as a slider, rotates and displays a list of widgets
+ *  in a slideshow format, with buttons navigating to the previous or next
+ *  widget. For example, this is a JSON representation of a carousel that
+ *  contains three text paragraph widgets. ``` { "carouselCards": [ { "widgets":
+ *  [ { "textParagraph": { "text": "First text paragraph in carousel", } } ] },
+ *  { "widgets": [ { "textParagraph": { "text": "Second text paragraph in
  *  carousel", } } ] }, { "widgets": [ { "textParagraph": { "text": "Third text
  *  paragraph in carousel", } } ] } ] } ``` [Google Chat
  *  apps](https://developers.google.com/workspace/chat):
@@ -3956,8 +4011,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview): A card
- *  that can be displayed as a carousel item. [Google Chat
+ *  A card that can be displayed as a carousel item. [Google Chat
  *  apps](https://developers.google.com/workspace/chat):
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1CarouselCard : GTLRObject
@@ -4334,8 +4388,22 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 /** The text that appears below `text`. Always wraps. */
 @property(nonatomic, copy, nullable) NSString *bottomLabel;
 
+/**
+ *  `TextParagraph` equivalent of `bottom_label`. Always wraps. Allows for more
+ *  complex formatting than `bottom_label`. [Google Chat
+ *  apps](https://developers.google.com/workspace/chat):
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1TextParagraph *bottomLabelText;
+
 /** A button that a user can click to trigger an action. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Button *button;
+
+/**
+ *  `TextParagraph` equivalent of `text`. Allows for more complex formatting
+ *  than `text`. [Google Chat
+ *  apps](https://developers.google.com/workspace/chat):
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1TextParagraph *contentText;
 
 /**
  *  An icon displayed after the text. Supports
@@ -4356,6 +4424,24 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Icon *startIcon;
 
 /**
+ *  Optional. Vertical alignment of the start icon. If not set, the icon will be
+ *  vertically centered. [Google Chat
+ *  apps](https://developers.google.com/workspace/chat):
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_Bottom
+ *        Alignment to the bottom position. (Value: "BOTTOM")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_Middle
+ *        Alignment to the middle position. (Value: "MIDDLE")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_Top
+ *        Alignment to the top position. (Value: "TOP")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_VerticalAlignmentUnspecified
+ *        Unspecified type. Do not use. (Value:
+ *        "VERTICAL_ALIGNMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *startIconVerticalAlignment;
+
+/**
  *  A switch widget that a user can click to change its state and trigger an
  *  action.
  */
@@ -4372,6 +4458,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /** The text that appears above `text`. Always truncates. */
 @property(nonatomic, copy, nullable) NSString *topLabel;
+
+/**
+ *  `TextParagraph` equivalent of `top_label`. Always truncates. Allows for more
+ *  complex formatting than `top_label`. [Google Chat
+ *  apps](https://developers.google.com/workspace/chat):
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1TextParagraph *topLabelText;
 
 /**
  *  The wrap text setting. If `true`, the text wraps and displays on multiple
@@ -4776,8 +4869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  [Developer Preview](https://developers.google.com/workspace/preview): A list
- *  of widgets that can be displayed in a containing layout, such as a
+ *  A list of widgets that can be displayed in a containing layout, such as a
  *  `CarouselCard`. [Google Chat
  *  apps](https://developers.google.com/workspace/chat):
  */
@@ -5444,6 +5536,22 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /** The text that's shown in the widget. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  The syntax of the text. If not set, the text is rendered as HTML. [Google
+ *  Chat apps](https://developers.google.com/workspace/chat):
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1TextParagraph_TextSyntax_Html
+ *        The text is rendered as HTML. This is the default value. (Value:
+ *        "HTML")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1TextParagraph_TextSyntax_Markdown
+ *        The text is rendered as Markdown. (Value: "MARKDOWN")
+ *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1TextParagraph_TextSyntax_TextSyntaxUnspecified
+ *        The text is rendered as HTML if unspecified. (Value:
+ *        "TEXT_SYNTAX_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *textSyntax;
 
 @end
 
@@ -6703,8 +6811,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @interface GTLRHangoutsChat_MessageDeletedEventData : GTLRObject
 
 /**
- *  The deleted message. Only the `name`, `createTime`, `deleteTime`, and
- *  `deletionMetadata` fields are populated.
+ *  The deleted message. Only the `name`, `createTime`, and `deletionMetadata`
+ *  fields are populated.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_Message *message;
 

@@ -710,11 +710,12 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED
 //
 
 @implementation GTLRDeveloperConnect_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDeveloperConnect_Operation class]
+    @"operations" : [GTLRDeveloperConnect_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

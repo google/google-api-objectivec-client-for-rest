@@ -1281,8 +1281,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_BillingAccountsLocationsList : GTLRLoggingQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -4018,8 +4018,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_FoldersLocationsList : GTLRLoggingQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -4081,8 +4081,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *logScopeId;
 
 /**
- *  Required. The parent project in which to create the log scope
- *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *  Required. The parent resource in which to create the log scope:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *  example:"projects/my-project/locations/global"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -4093,8 +4095,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a log scope.
  *
  *  @param object The @c GTLRLogging_LogScope to include in the query.
- *  @param parent Required. The parent project in which to create the log scope
- *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *  @param parent Required. The parent resource in which to create the log
+ *    scope: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *    example:"projects/my-project/locations/global"
  *
  *  @return GTLRLoggingQuery_FoldersLocationsLogScopesCreate
@@ -4117,7 +4121,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the log scope to delete:
- *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4128,8 +4134,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a log scope.
  *
  *  @param name Required. The resource name of the log scope to delete:
- *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
- *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *    example:"projects/my-project/locations/global/logScopes/my-log-scope"
  *
  *  @return GTLRLoggingQuery_FoldersLocationsLogScopesDelete
  */
@@ -4152,7 +4160,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the log scope:
- *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4163,8 +4173,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a log scope.
  *
  *  @param name Required. The resource name of the log scope:
- *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
- *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *    example:"projects/my-project/locations/global/logScopes/my-log-scope"
  *
  *  @return GTLRLoggingQuery_FoldersLocationsLogScopesGet
  */
@@ -6274,8 +6286,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_LocationsList : GTLRLoggingQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -7975,8 +7987,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_OrganizationsLocationsList : GTLRLoggingQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -8038,8 +8050,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *logScopeId;
 
 /**
- *  Required. The parent project in which to create the log scope
- *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *  Required. The parent resource in which to create the log scope:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *  example:"projects/my-project/locations/global"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -8050,8 +8064,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a log scope.
  *
  *  @param object The @c GTLRLogging_LogScope to include in the query.
- *  @param parent Required. The parent project in which to create the log scope
- *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *  @param parent Required. The parent resource in which to create the log
+ *    scope: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *    example:"projects/my-project/locations/global"
  *
  *  @return GTLRLoggingQuery_OrganizationsLocationsLogScopesCreate
@@ -8074,7 +8090,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the log scope to delete:
- *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -8085,8 +8103,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a log scope.
  *
  *  @param name Required. The resource name of the log scope to delete:
- *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
- *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *    example:"projects/my-project/locations/global/logScopes/my-log-scope"
  *
  *  @return GTLRLoggingQuery_OrganizationsLocationsLogScopesDelete
  */
@@ -8109,7 +8129,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the log scope:
- *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -8120,8 +8142,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a log scope.
  *
  *  @param name Required. The resource name of the log scope:
- *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
- *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *    example:"projects/my-project/locations/global/logScopes/my-log-scope"
  *
  *  @return GTLRLoggingQuery_OrganizationsLocationsLogScopesGet
  */
@@ -10710,8 +10734,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRLoggingQuery_ProjectsLocationsList : GTLRLoggingQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -10773,8 +10797,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *logScopeId;
 
 /**
- *  Required. The parent project in which to create the log scope
- *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *  Required. The parent resource in which to create the log scope:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *  example:"projects/my-project/locations/global"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -10785,8 +10811,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a log scope.
  *
  *  @param object The @c GTLRLogging_LogScope to include in the query.
- *  @param parent Required. The parent project in which to create the log scope
- *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]" For
+ *  @param parent Required. The parent resource in which to create the log
+ *    scope: "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *    example:"projects/my-project/locations/global"
  *
  *  @return GTLRLoggingQuery_ProjectsLocationsLogScopesCreate
@@ -10809,7 +10837,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the log scope to delete:
- *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -10820,8 +10850,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a log scope.
  *
  *  @param name Required. The resource name of the log scope to delete:
- *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
- *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *    example:"projects/my-project/locations/global/logScopes/my-log-scope"
  *
  *  @return GTLRLoggingQuery_ProjectsLocationsLogScopesDelete
  */
@@ -10844,7 +10876,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The resource name of the log scope:
- *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]" For
+ *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *  "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
  *  example:"projects/my-project/locations/global/logScopes/my-log-scope"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -10855,8 +10889,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a log scope.
  *
  *  @param name Required. The resource name of the log scope:
- *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/logScopes/[LOG_SCOPE_ID]"
- *    For example:"projects/my-project/locations/global/logScopes/my-log-scope"
+ *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]"
+ *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION_ID]"
+ *    "folders/[FOLDER_ID]/locations/[LOCATION_ID]" For
+ *    example:"projects/my-project/locations/global/logScopes/my-log-scope"
  *
  *  @return GTLRLoggingQuery_ProjectsLocationsLogScopesGet
  */

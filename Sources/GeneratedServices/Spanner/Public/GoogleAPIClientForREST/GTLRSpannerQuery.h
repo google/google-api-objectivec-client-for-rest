@@ -968,8 +968,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *encryptionConfigEncryptionType;
 
 /**
- *  Optional. The Cloud KMS key that will be used to protect the backup. This
- *  field should be set only when encryption_type is
+ *  Optional. This field is maintained for backwards compatibility. For new
+ *  callers, we recommend using `kms_key_names` to specify the KMS key. Only use
+ *  `kms_key_name` if the location of the KMS key matches the database
+ *  instance's configuration (location) exactly. For example, if the KMS
+ *  location is in `us-central1` or `nam3`, then the database instance must also
+ *  be in `us-central1` or `nam3`. The Cloud KMS key that is used to encrypt and
+ *  decrypt the restored database. Set this field only when encryption_type is
  *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
  *  `projects//locations//keyRings//cryptoKeys/`.
  */
@@ -993,10 +998,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *encryptionConfigKmsKeyNames;
 
 /**
- *  Required. The name of the instance in which the backup will be created. This
- *  must be the same instance that contains the database the backup will be
- *  created from. The backup will be stored in the location(s) specified in the
- *  instance configuration of this instance. Values are of the form
+ *  Required. The name of the instance in which the backup is created. This must
+ *  be the same instance that contains the database the backup is created from.
+ *  The backup will be stored in the locations specified in the instance
+ *  configuration of this instance. Values are of the form
  *  `projects//instances/`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1014,9 +1019,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  databases can run concurrently.
  *
  *  @param object The @c GTLRSpanner_Backup to include in the query.
- *  @param parent Required. The name of the instance in which the backup will be
+ *  @param parent Required. The name of the instance in which the backup is
  *    created. This must be the same instance that contains the database the
- *    backup will be created from. The backup will be stored in the location(s)
+ *    backup is created from. The backup will be stored in the locations
  *    specified in the instance configuration of this instance. Values are of
  *    the form `projects//instances/`.
  *
@@ -1385,11 +1390,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. A mask specifying which fields (e.g. `expire_time`) in the Backup
- *  resource should be updated. This mask is relative to the Backup resource,
- *  not to the request message. The field mask must always be specified; this
- *  prevents any future fields from being erased accidentally by clients that do
- *  not know about them.
+ *  Required. A mask specifying which fields (for example, `expire_time`) in the
+ *  backup resource should be updated. This mask is relative to the backup
+ *  resource, not to the request message. The field mask must always be
+ *  specified; this prevents any future fields from being erased accidentally by
+ *  clients that do not know about them.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -3631,7 +3636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Updates the schema of a Cloud Spanner database by creating/altering/dropping
  *  tables, columns, indexes, etc. The returned long-running operation will have
  *  a name of the format `/operations/` and can be used to track execution of
- *  the schema change(s). The metadata field type is UpdateDatabaseDdlMetadata.
+ *  the schema changes. The metadata field type is UpdateDatabaseDdlMetadata.
  *  The operation has no response.
  *
  *  Method: spanner.projects.instances.databases.updateDdl
@@ -3651,7 +3656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Updates the schema of a Cloud Spanner database by creating/altering/dropping
  *  tables, columns, indexes, etc. The returned long-running operation will have
  *  a name of the format `/operations/` and can be used to track execution of
- *  the schema change(s). The metadata field type is UpdateDatabaseDdlMetadata.
+ *  the schema changes. The metadata field type is UpdateDatabaseDdlMetadata.
  *  The operation has no response.
  *
  *  @param object The @c GTLRSpanner_UpdateDatabaseDdlRequest to include in the

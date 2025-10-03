@@ -70,8 +70,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRSaaSServiceManagementQuery_ProjectsLocationsList : GTLRSaaSServiceManagementQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -358,6 +358,266 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRSaaSServiceManagementQuery_ProjectsLocationsReleasesPatch
  */
 + (instancetype)queryWithObject:(GTLRSaaSServiceManagement_Release *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Create a new replication internal.
+ *
+ *  Method: saasservicemgmt.projects.locations.replicationsInternal.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ */
+@interface GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalCreate : GTLRSaaSServiceManagementQuery
+
+/** Required. The parent of the replication internal. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Required. The ID value for the new replication internal. */
+@property(nonatomic, copy, nullable) NSString *replicationInternalId;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes since the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  If "validate_only" is set to true, the service will try to validate that
+ *  this request would succeed, but will not actually make changes.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRSaaSServiceManagement_ReplicationInternal.
+ *
+ *  Create a new replication internal.
+ *
+ *  @param object The @c GTLRSaaSServiceManagement_ReplicationInternal to
+ *    include in the query.
+ *  @param parent Required. The parent of the replication internal.
+ *
+ *  @return GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalCreate
+ */
++ (instancetype)queryWithObject:(GTLRSaaSServiceManagement_ReplicationInternal *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a single replication internal.
+ *
+ *  Method: saasservicemgmt.projects.locations.replicationsInternal.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ */
+@interface GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalDelete : GTLRSaaSServiceManagementQuery
+
+/**
+ *  The etag known to the client for the expected state of the replication
+ *  internal. This is used with state-changing methods to prevent accidental
+ *  overwrites when multiple user agents might be acting in parallel on the same
+ *  resource. An etag wildcard provide optimistic concurrency based on the
+ *  expected existence of the replication internal. The Any wildcard (`*`)
+ *  requires that the resource must already exists, and the Not Any wildcard
+ *  (`!*`) requires that it must not.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The resource name of the resource within a service. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes since the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  If "validate_only" is set to true, the service will try to validate that
+ *  this request would succeed, but will not actually make changes.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRSaaSServiceManagement_Empty.
+ *
+ *  Delete a single replication internal.
+ *
+ *  @param name Required. The resource name of the resource within a service.
+ *
+ *  @return GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieve a single replication internal.
+ *
+ *  Method: saasservicemgmt.projects.locations.replicationsInternal.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ */
+@interface GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalGet : GTLRSaaSServiceManagementQuery
+
+/** Required. The resource name of the resource within a service. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRSaaSServiceManagement_ReplicationInternal.
+ *
+ *  Retrieve a single replication internal.
+ *
+ *  @param name Required. The resource name of the resource within a service.
+ *
+ *  @return GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieve a collection of replication internals.
+ *
+ *  Method: saasservicemgmt.projects.locations.replicationsInternal.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ */
+@interface GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalList : GTLRSaaSServiceManagementQuery
+
+/** Filter the list as specified in https://google.aip.dev/160. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Order results as specified in https://google.aip.dev/132. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of replication internals to send per page. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The page token: If the next_page_token from a previous response is provided,
+ *  this request will send the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent of the replication internal. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRSaaSServiceManagement_ListReplicationsInternalResponse.
+ *
+ *  Retrieve a collection of replication internals.
+ *
+ *  @param parent Required. The parent of the replication internal.
+ *
+ *  @return GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a single replication internal.
+ *
+ *  Method: saasservicemgmt.projects.locations.replicationsInternal.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSaaSServiceManagementCloudPlatform
+ */
+@interface GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalPatch : GTLRSaaSServiceManagementQuery
+
+/**
+ *  The etag known to the client for the expected state of the replication
+ *  internal. This is used with state-changing methods to prevent accidental
+ *  overwrites when multiple user agents might be acting in parallel on the same
+ *  resource. An etag wildcard provide optimistic concurrency based on the
+ *  expected existence of the replication internal. The Any wildcard (`*`)
+ *  requires that the resource must already exists, and the Not Any wildcard
+ *  (`!*`) requires that it must not.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The resource name (full URI of the resource) following the
+ *  standard naming scheme:
+ *  "projects/{project}/locations/{location}/replicationInternal/{replication_internal_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed. The server will guarantee that for
+ *  at least 60 minutes since the first request. For example, consider a
+ *  situation where you make an initial request and the request times out. If
+ *  you make the request again with the same request ID, the server can check if
+ *  original operation with the same request ID was received, and if so, will
+ *  ignore the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Field mask is used to specify the fields to be overwritten in the
+ *  ReplicationInternal resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields in the ReplicationInternal will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  If "validate_only" is set to true, the service will try to validate that
+ *  this request would succeed, but will not actually make changes.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRSaaSServiceManagement_ReplicationInternal.
+ *
+ *  Update a single replication internal.
+ *
+ *  @param object The @c GTLRSaaSServiceManagement_ReplicationInternal to
+ *    include in the query.
+ *  @param name Identifier. The resource name (full URI of the resource)
+ *    following the standard naming scheme:
+ *    "projects/{project}/locations/{location}/replicationInternal/{replication_internal_id}"
+ *
+ *  @return GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalPatch
+ */
++ (instancetype)queryWithObject:(GTLRSaaSServiceManagement_ReplicationInternal *)object
                            name:(NSString *)name;
 
 @end

@@ -243,7 +243,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ContextValue_Severity_Warning;
 
 /**
  *  Use customer managed encryption. If specified, either `kms_key_name` or
- *  `kms_key_names` must contain valid Cloud KMS key(s).
+ *  `kms_key_names` must contain valid Cloud KMS keys.
  *
  *  Value: "CUSTOMER_MANAGED_ENCRYPTION"
  */
@@ -1451,6 +1451,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_AdaptMessageResponse : GTLRObject
 
 /**
+ *  Optional. Indicates whether this is the last AdaptMessageResponse in the
+ *  stream. This field may be optionally set by the server. Clients should not
+ *  rely on this field being set in all cases.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *last;
+
+/**
  *  Optional. Uninterpreted bytes from the underlying wire protocol.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -1748,9 +1757,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *incrementalBackupChainId;
 
 /**
- *  Output only. The instance partition(s) storing the backup. This is the same
- *  as the list of the instance partition(s) that the database had footprint in
- *  at the backup's `version_time`.
+ *  Output only. The instance partition storing the backup. This is the same as
+ *  the list of the instance partitions that the database recorded at the
+ *  backup's `version_time`.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_BackupInstancePartition *> *instancePartitions;
 
@@ -2357,6 +2366,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, strong, nullable) GTLRSpanner_MultiplexedSessionPrecommitToken *precommitToken;
 
+/**
+ *  If `TransactionOptions.isolation_level` is set to
+ *  `IsolationLevel.REPEATABLE_READ`, then the snapshot timestamp is the
+ *  timestamp at which all reads in the transaction ran. This timestamp is never
+ *  returned.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *snapshotTimestamp;
+
 @end
 
 
@@ -2431,7 +2448,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Likely values:
  *    @arg @c kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_CustomerManagedEncryption
  *        Use customer managed encryption. If specified, either `kms_key_name`
- *        or `kms_key_names` must contain valid Cloud KMS key(s). (Value:
+ *        or `kms_key_names` must contain valid Cloud KMS keys. (Value:
  *        "CUSTOMER_MANAGED_ENCRYPTION")
  *    @arg @c kGTLRSpanner_CopyBackupEncryptionConfig_EncryptionType_EncryptionTypeUnspecified
  *        Unspecified. Do not use. (Value: "ENCRYPTION_TYPE_UNSPECIFIED")
@@ -2447,8 +2464,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *encryptionType;
 
 /**
- *  Optional. The Cloud KMS key that will be used to protect the backup. This
- *  field should be set only when encryption_type is
+ *  Optional. This field is maintained for backwards compatibility. For new
+ *  callers, we recommend using `kms_key_names` to specify the KMS key. Only use
+ *  `kms_key_name` if the location of the KMS key matches the database
+ *  instance's configuration (location) exactly. For example, if the KMS
+ *  location is in `us-central1` or `nam3`, then the database instance must also
+ *  be in `us-central1` or `nam3`. The Cloud KMS key that is used to encrypt and
+ *  decrypt the restored database. Set this field only when encryption_type is
  *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
  *  `projects//locations//keyRings//cryptoKeys/`.
  */
@@ -2575,8 +2597,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *encryptionType;
 
 /**
- *  Optional. The Cloud KMS key that will be used to protect the backup. This
- *  field should be set only when encryption_type is
+ *  Optional. This field is maintained for backwards compatibility. For new
+ *  callers, we recommend using `kms_key_names` to specify the KMS key. Only use
+ *  `kms_key_name` if the location of the KMS key matches the database
+ *  instance's configuration (location) exactly. For example, if the KMS
+ *  location is in `us-central1` or `nam3`, then the database instance must also
+ *  be in `us-central1` or `nam3`. The Cloud KMS key that is used to encrypt and
+ *  decrypt the restored database. Set this field only when encryption_type is
  *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
  *  `projects//locations//keyRings//cryptoKeys/`.
  */
@@ -3224,13 +3251,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_DdlStatementActionInfo : GTLRObject
 
 /**
- *  The action for the DDL statement, e.g. CREATE, ALTER, DROP, GRANT, etc. This
- *  field is a non-empty string.
+ *  The action for the DDL statement, for example, CREATE, ALTER, DROP, GRANT,
+ *  etc. This field is a non-empty string.
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  The entity name(s) being operated on the DDL statement. E.g. 1. For
+ *  The entity names being operated on the DDL statement. For example, 1. For
  *  statement "CREATE TABLE t1(...)", `entity_names` = ["t1"]. 2. For statement
  *  "GRANT ROLE r1, r2 ...", `entity_names` = ["r1", "r2"]. 3. For statement
  *  "ANALYZE", `entity_names` = [].
@@ -3238,9 +3265,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entityNames;
 
 /**
- *  The entity type for the DDL statement, e.g. TABLE, INDEX, VIEW, etc. This
- *  field can be empty string for some DDL statement, e.g. for statement
- *  "ANALYZE", `entity_type` = "".
+ *  The entity type for the DDL statement, for example, TABLE, INDEX, VIEW, etc.
+ *  This field can be empty string for some DDL statement, for example, for
+ *  statement "ANALYZE", `entity_type` = "".
  */
 @property(nonatomic, copy, nullable) NSString *entityType;
 
@@ -4460,12 +4487,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Optional. This field is maintained for backwards compatibility. For new
- *  callers, we recommend using `kms_key_names` to specify the KMS key.
- *  `kms_key_name` should only be used if the location of the KMS key matches
- *  the database instance’s configuration (location) exactly. E.g. The KMS
- *  location is in us-central1 or nam3 and the database instance is also in
- *  us-central1 or nam3. The Cloud KMS key to be used for encrypting and
- *  decrypting the database. Values are of the form
+ *  callers, we recommend using `kms_key_names` to specify the KMS key. Only use
+ *  `kms_key_name` if the location of the KMS key matches the database
+ *  instance's configuration (location) exactly. For example, if the KMS
+ *  location is in `us-central1` or `nam3`, then the database instance must also
+ *  be in `us-central1` or `nam3`. The Cloud KMS key that is used to encrypt and
+ *  decrypt the restored database. Values are of the form
  *  `projects//locations//keyRings//cryptoKeys/`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
@@ -4626,7 +4653,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @interface GTLRSpanner_InstanceReplicaSelection : GTLRObject
 
-/** Required. Name of the location of the replicas (e.g., "us-central1"). */
+/**
+ *  Required. Name of the location of the replicas (for example, "us-central1").
+ */
 @property(nonatomic, copy, nullable) NSString *location;
 
 @end
@@ -6987,8 +7016,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *encryptionType;
 
 /**
- *  Optional. The Cloud KMS key that will be used to encrypt/decrypt the
- *  restored database. This field should be set only when encryption_type is
+ *  Optional. This field is maintained for backwards compatibility. For new
+ *  callers, we recommend using `kms_key_names` to specify the KMS key. Only use
+ *  `kms_key_name` if the location of the KMS key matches the database
+ *  instance's configuration (location) exactly. For example, if the KMS
+ *  location is in `us-central1` or `nam3`, then the database instance must also
+ *  be in `us-central1` or `nam3`. The Cloud KMS key that is used to encrypt and
+ *  decrypt the restored database. Set this field only when encryption_type is
  *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
  *  `projects//locations//keyRings//cryptoKeys/`.
  */
@@ -7452,8 +7486,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_SingleRegionQuorum : GTLRObject
 
 /**
- *  Required. The location of the serving region, e.g. "us-central1". The
- *  location must be one of the regions within the dual-region instance
+ *  Required. The location of the serving region, for example, "us-central1".
+ *  The location must be one of the regions within the dual-region instance
  *  configuration of your database. The list of valid locations is available
  *  using the GetInstanceConfig API. This should only be used if you plan to
  *  change quorum to the single-region quorum type.
@@ -7944,9 +7978,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) NSArray<NSString *> *statements;
 
 /**
- *  Output only. When true, indicates that the operation is throttled e.g. due
- *  to resource constraints. When resources become available the operation will
- *  resume and this field will be false again.
+ *  Output only. When true, indicates that the operation is throttled, for
+ *  example, due to resource constraints. When resources become available the
+ *  operation will resume and this field will be false again.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7960,13 +7994,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  necessarily all at once, to the database schema at some point (or points) in
  *  the future. The server checks that the statements are executable
  *  (syntactically valid, name tables that exist, etc.) before enqueueing them,
- *  but they may still fail upon later execution (e.g., if a statement from
- *  another batch of statements is applied first and it conflicts in some way,
- *  or if there is some data-related problem like a `NULL` value in a column to
- *  which `NOT NULL` would be added). If a statement fails, all subsequent
- *  statements in the batch are automatically cancelled. Each batch of
- *  statements is assigned a name which can be used with the Operations API to
- *  monitor progress. See the operation_id field for more details.
+ *  but they may still fail upon later execution (for example, if a statement
+ *  from another batch of statements is applied first and it conflicts in some
+ *  way, or if there is some data-related problem like a `NULL` value in a
+ *  column to which `NOT NULL` would be added). If a statement fails, all
+ *  subsequent statements in the batch are automatically cancelled. Each batch
+ *  of statements is assigned a name which can be used with the Operations API
+ *  to monitor progress. See the operation_id field for more details.
  */
 @interface GTLRSpanner_UpdateDatabaseDdlRequest : GTLRObject
 

@@ -21,6 +21,8 @@
 @class GTLRTexttospeech_CustomPronunciations;
 @class GTLRTexttospeech_CustomVoiceParams;
 @class GTLRTexttospeech_MultiSpeakerMarkup;
+@class GTLRTexttospeech_MultispeakerPrebuiltVoice;
+@class GTLRTexttospeech_MultiSpeakerVoiceConfig;
 @class GTLRTexttospeech_Operation;
 @class GTLRTexttospeech_Operation_Metadata;
 @class GTLRTexttospeech_Operation_Response;
@@ -524,6 +526,43 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 
 
 /**
+ *  Configuration for a single speaker in a Gemini TTS multi-speaker setup.
+ *  Enables dialogue between two speakers.
+ */
+@interface GTLRTexttospeech_MultispeakerPrebuiltVoice : GTLRObject
+
+/**
+ *  Required. The speaker alias of the voice. This is the user-chosen speaker
+ *  name that is used in the multispeaker text input, such as "Speaker1".
+ */
+@property(nonatomic, copy, nullable) NSString *speakerAlias;
+
+/**
+ *  Required. The speaker ID of the voice. See
+ *  https://cloud.google.com/text-to-speech/docs/gemini-tts#voice_options for
+ *  available values.
+ */
+@property(nonatomic, copy, nullable) NSString *speakerId;
+
+@end
+
+
+/**
+ *  Configuration for a multi-speaker text-to-speech setup. Enables the use of
+ *  up to two distinct voices in a single synthesis request.
+ */
+@interface GTLRTexttospeech_MultiSpeakerVoiceConfig : GTLRObject
+
+/**
+ *  Required. A list of configurations for the voices of the speakers. Exactly
+ *  two speaker voice configurations must be provided.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTexttospeech_MultispeakerPrebuiltVoice *> *speakerVoiceConfigs;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -679,9 +718,10 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 @property(nonatomic, strong, nullable) GTLRTexttospeech_MultiSpeakerMarkup *multiSpeakerMarkup;
 
 /**
- *  This is system instruction supported only for controllable voice models. If
- *  used, we will pass text to Flash TTS as is. Can only used with Flash TTS.
- *  What AI Studio calls Style Instructions.
+ *  This system instruction is supported only for controllable/promptable voice
+ *  models. If this system instruction is used, we pass the unedited text to
+ *  Gemini-TTS. Otherwise, a default system instruction is used. AI Studio calls
+ *  this system instruction, Style Instructions.
  */
 @property(nonatomic, copy, nullable) NSString *prompt;
 
@@ -889,6 +929,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *  matching the specified configuration.
  */
 @property(nonatomic, copy, nullable) NSString *modelName;
+
+/**
+ *  Optional. The configuration for a Gemini multi-speaker text-to-speech setup.
+ *  Enables the use of two distinct voices in a single synthesis request.
+ */
+@property(nonatomic, strong, nullable) GTLRTexttospeech_MultiSpeakerVoiceConfig *multiSpeakerVoiceConfig;
 
 /**
  *  The name of the voice. If both the name and the gender are not set, the

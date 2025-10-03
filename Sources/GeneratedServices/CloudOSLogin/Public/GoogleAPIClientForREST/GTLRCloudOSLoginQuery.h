@@ -34,6 +34,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Signs an SSH public key for a user to authenticate to a virtual machine on
+ *  Google Compute Engine.
+ *
+ *  Method: oslogin.projects.locations.signSshPublicKey
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudOSLoginCloudPlatform
+ */
+@interface GTLRCloudOSLoginQuery_ProjectsLocationsSignSshPublicKey : GTLRCloudOSLoginQuery
+
+/**
+ *  Required. The parent for the signing request. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudOSLogin_SignSshPublicKeyResponse.
+ *
+ *  Signs an SSH public key for a user to authenticate to a virtual machine on
+ *  Google Compute Engine.
+ *
+ *  @param object The @c GTLRCloudOSLogin_SignSshPublicKeyRequest to include in
+ *    the query.
+ *  @param parent Required. The parent for the signing request. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRCloudOSLoginQuery_ProjectsLocationsSignSshPublicKey
+ */
++ (instancetype)queryWithObject:(GTLRCloudOSLogin_SignSshPublicKeyRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Retrieves the profile information used for logging in to a virtual machine
  *  on Google Compute Engine.
  *

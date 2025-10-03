@@ -2562,6 +2562,39 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsEndpointsDeployedModelsInvokeInvoke
+
+@dynamic deployedModelId, endpoint, invokeId;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest *)object
+                       endpoint:(NSString *)endpoint
+                deployedModelId:(NSString *)deployedModelId
+                       invokeId:(NSString *)invokeId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"deployedModelId", @"endpoint", @"invokeId"
+  ];
+  NSString *pathURITemplate = @"v1/{+endpoint}/deployedModels/{deployedModelId}/invoke/{+invokeId}";
+  GTLRAiplatformQuery_ProjectsLocationsEndpointsDeployedModelsInvokeInvoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.deployedModelId = deployedModelId;
+  query.invokeId = invokeId;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleApiHttpBody class];
+  query.loggingName = @"aiplatform.projects.locations.endpoints.deployedModels.invoke.invoke";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsEndpointsDeployModel
 
 @dynamic endpoint;
@@ -2743,6 +2776,37 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsEndpointsInvokeInvoke
+
+@dynamic endpoint, invokeId;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest *)object
+                       endpoint:(NSString *)endpoint
+                       invokeId:(NSString *)invokeId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"endpoint", @"invokeId"
+  ];
+  NSString *pathURITemplate = @"v1/{+endpoint}/invoke/{+invokeId}";
+  GTLRAiplatformQuery_ProjectsLocationsEndpointsInvokeInvoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.invokeId = invokeId;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleApiHttpBody class];
+  query.loggingName = @"aiplatform.projects.locations.endpoints.invoke.invoke";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsEndpointsList
 
 @dynamic filter, gdcZone, orderBy, pageSize, pageToken, parent, readMask;
@@ -2784,6 +2848,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.endpoint = endpoint;
   query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
   query.loggingName = @"aiplatform.projects.locations.endpoints.mutateDeployedModel";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsEndpointsOpenapiEmbeddings
+
+@dynamic deployedModelId, endpoint;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleApiHttpBody *)object
+                       endpoint:(NSString *)endpoint {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"endpoint" ];
+  NSString *pathURITemplate = @"v1/{+endpoint}/embeddings";
+  GTLRAiplatformQuery_ProjectsLocationsEndpointsOpenapiEmbeddings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleApiHttpBody class];
+  query.loggingName = @"aiplatform.projects.locations.endpoints.openapi.embeddings";
   return query;
 }
 

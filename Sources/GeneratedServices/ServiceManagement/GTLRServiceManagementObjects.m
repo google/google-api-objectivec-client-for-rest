@@ -216,7 +216,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Api
-@dynamic methods, mixins, name, options, sourceContext, syntax, version;
+@dynamic edition, methods, mixins, name, options, sourceContext, syntax,
+         version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1342,8 +1343,8 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Method
-@dynamic name, options, requestStreaming, requestTypeUrl, responseStreaming,
-         responseTypeUrl, syntax;
+@dynamic edition, name, options, requestStreaming, requestTypeUrl,
+         responseStreaming, responseTypeUrl, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1662,7 +1663,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_PhpSettings
-@dynamic common;
+@dynamic common, libraryPackage;
 @end
 
 
@@ -1788,7 +1789,7 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 
 @implementation GTLRServiceManagement_Rollout
 @dynamic createdBy, createTime, deleteServiceStrategy, rolloutId, serviceName,
-         status, trafficPercentStrategy, universe;
+         status, trafficPercentStrategy;
 @end
 
 

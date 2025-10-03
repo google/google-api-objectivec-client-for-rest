@@ -23,18 +23,29 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWebfonts_Tag
+//
+
+@implementation GTLRWebfonts_Tag
+@dynamic name, weight;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWebfonts_Webfont
 //
 
 @implementation GTLRWebfonts_Webfont
 @dynamic axes, category, colorCapabilities, family, files, kind, lastModified,
-         menu, subsets, variants, version;
+         menu, subsets, tags, variants, version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"axes" : [GTLRWebfonts_Axis class],
     @"colorCapabilities" : [NSString class],
     @"subsets" : [NSString class],
+    @"tags" : [GTLRWebfonts_Tag class],
     @"variants" : [NSString class]
   };
   return map;

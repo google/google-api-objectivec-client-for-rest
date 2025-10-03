@@ -6,7 +6,7 @@
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
-//   https://developers.google.com/cloud-sql/
+//   https://cloud.google.com/sql/docs
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -71,6 +71,7 @@
 @class GTLRSQLAdmin_IpMapping;
 @class GTLRSQLAdmin_LocationPreference;
 @class GTLRSQLAdmin_MaintenanceWindow;
+@class GTLRSQLAdmin_Message;
 @class GTLRSQLAdmin_Metadata;
 @class GTLRSQLAdmin_MySqlReplicaConfiguration;
 @class GTLRSQLAdmin_MySqlSyncConfig;
@@ -81,9 +82,12 @@
 @class GTLRSQLAdmin_PasswordStatus;
 @class GTLRSQLAdmin_PasswordValidationPolicy;
 @class GTLRSQLAdmin_PoolNodeConfig;
+@class GTLRSQLAdmin_PreCheckMajorVersionUpgradeContext;
+@class GTLRSQLAdmin_PreCheckResponse;
 @class GTLRSQLAdmin_PscAutoConnectionConfig;
 @class GTLRSQLAdmin_PscConfig;
 @class GTLRSQLAdmin_QueryResult;
+@class GTLRSQLAdmin_ReadPoolAutoScaleConfig;
 @class GTLRSQLAdmin_ReplicaConfiguration;
 @class GTLRSQLAdmin_ReplicationCluster;
 @class GTLRSQLAdmin_Reschedule;
@@ -105,6 +109,7 @@
 @class GTLRSQLAdmin_SslCert;
 @class GTLRSQLAdmin_SslCertDetail;
 @class GTLRSQLAdmin_SyncFlags;
+@class GTLRSQLAdmin_TargetMetric;
 @class GTLRSQLAdmin_Tier;
 @class GTLRSQLAdmin_TruncateLogContext;
 @class GTLRSQLAdmin_User;
@@ -394,6 +399,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres
  *  Value: "POSTGRES_17"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres17;
+/**
+ *  The database version is PostgreSQL 18.
+ *
+ *  Value: "POSTGRES_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres18;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -895,6 +906,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postg
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres17;
 /**
+ *  The database version is PostgreSQL 18.
+ *
+ *  Value: "POSTGRES_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres18;
+/**
  *  The database version is PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
@@ -1309,6 +1326,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres17;
 /**
+ *  The database version is PostgreSQL 18.
+ *
+ *  Value: "POSTGRES_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres18;
+/**
  *  The database version is PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
@@ -1680,6 +1703,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "POSTGRES_17"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres17;
+/**
+ *  The database version is PostgreSQL 18.
+ *
+ *  Value: "POSTGRES_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres18;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -2254,6 +2283,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres16;
  *  Value: "POSTGRES_17"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres17;
+/**
+ *  The database version is PostgreSQL 18.
+ *
+ *  Value: "POSTGRES_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres18;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -3068,6 +3103,338 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_SqlInstanc
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Suspended;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_PreCheckMajorVersionUpgradeContext.targetDatabaseVersion
+
+/**
+ *  The database version is MySQL 5.1.
+ *
+ *  Value: "MYSQL_5_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql51 GTLR_DEPRECATED;
+/**
+ *  The database version is MySQL 5.5.
+ *
+ *  Value: "MYSQL_5_5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql55 GTLR_DEPRECATED;
+/**
+ *  The database version is MySQL 5.6.
+ *
+ *  Value: "MYSQL_5_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql56;
+/**
+ *  The database version is MySQL 5.7.
+ *
+ *  Value: "MYSQL_5_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql57;
+/**
+ *  The database version is MySQL 8.
+ *
+ *  Value: "MYSQL_8_0"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql80;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 18.
+ *
+ *  Value: "MYSQL_8_0_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8018;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 26.
+ *
+ *  Value: "MYSQL_8_0_26"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8026;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 27.
+ *
+ *  Value: "MYSQL_8_0_27"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8027;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 28.
+ *
+ *  Value: "MYSQL_8_0_28"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8028;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 29.
+ *
+ *  Value: "MYSQL_8_0_29"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8029 GTLR_DEPRECATED;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 30.
+ *
+ *  Value: "MYSQL_8_0_30"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8030;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 31.
+ *
+ *  Value: "MYSQL_8_0_31"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8031;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 32.
+ *
+ *  Value: "MYSQL_8_0_32"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8032;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 33.
+ *
+ *  Value: "MYSQL_8_0_33"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8033;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 34.
+ *
+ *  Value: "MYSQL_8_0_34"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8034;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 35.
+ *
+ *  Value: "MYSQL_8_0_35"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8035;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 36.
+ *
+ *  Value: "MYSQL_8_0_36"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8036;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 37.
+ *
+ *  Value: "MYSQL_8_0_37"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8037;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 39.
+ *
+ *  Value: "MYSQL_8_0_39"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8039;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 40.
+ *
+ *  Value: "MYSQL_8_0_40"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8040;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 41.
+ *
+ *  Value: "MYSQL_8_0_41"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8041;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 42.
+ *
+ *  Value: "MYSQL_8_0_42"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8042;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 43.
+ *
+ *  Value: "MYSQL_8_0_43"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8043;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 44.
+ *
+ *  Value: "MYSQL_8_0_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8044;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 45.
+ *
+ *  Value: "MYSQL_8_0_45"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8045;
+/**
+ *  The database major version is MySQL 8.0 and the minor version is 46.
+ *
+ *  Value: "MYSQL_8_0_46"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8046;
+/**
+ *  The database version is MySQL 8.4.
+ *
+ *  Value: "MYSQL_8_4"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql84;
+/**
+ *  The database version is PostgreSQL 10.
+ *
+ *  Value: "POSTGRES_10"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres10;
+/**
+ *  The database version is PostgreSQL 11.
+ *
+ *  Value: "POSTGRES_11"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres11;
+/**
+ *  The database version is PostgreSQL 12.
+ *
+ *  Value: "POSTGRES_12"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres12;
+/**
+ *  The database version is PostgreSQL 13.
+ *
+ *  Value: "POSTGRES_13"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres13;
+/**
+ *  The database version is PostgreSQL 14.
+ *
+ *  Value: "POSTGRES_14"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres14;
+/**
+ *  The database version is PostgreSQL 15.
+ *
+ *  Value: "POSTGRES_15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres15;
+/**
+ *  The database version is PostgreSQL 16.
+ *
+ *  Value: "POSTGRES_16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres16;
+/**
+ *  The database version is PostgreSQL 17.
+ *
+ *  Value: "POSTGRES_17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres17;
+/**
+ *  The database version is PostgreSQL 18.
+ *
+ *  Value: "POSTGRES_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres18;
+/**
+ *  The database version is PostgreSQL 9.6.
+ *
+ *  Value: "POSTGRES_9_6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres96;
+/**
+ *  This is an unknown database version.
+ *
+ *  Value: "SQL_DATABASE_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_SqlDatabaseVersionUnspecified;
+/**
+ *  The database version is SQL Server 2017 Enterprise.
+ *
+ *  Value: "SQLSERVER_2017_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Enterprise;
+/**
+ *  The database version is SQL Server 2017 Express.
+ *
+ *  Value: "SQLSERVER_2017_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Express;
+/**
+ *  The database version is SQL Server 2017 Standard.
+ *
+ *  Value: "SQLSERVER_2017_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Standard;
+/**
+ *  The database version is SQL Server 2017 Web.
+ *
+ *  Value: "SQLSERVER_2017_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Web;
+/**
+ *  The database version is SQL Server 2019 Enterprise.
+ *
+ *  Value: "SQLSERVER_2019_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Enterprise;
+/**
+ *  The database version is SQL Server 2019 Express.
+ *
+ *  Value: "SQLSERVER_2019_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Express;
+/**
+ *  The database version is SQL Server 2019 Standard.
+ *
+ *  Value: "SQLSERVER_2019_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Standard;
+/**
+ *  The database version is SQL Server 2019 Web.
+ *
+ *  Value: "SQLSERVER_2019_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Web;
+/**
+ *  The database version is SQL Server 2022 Enterprise.
+ *
+ *  Value: "SQLSERVER_2022_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Enterprise;
+/**
+ *  The database version is SQL Server 2022 Express.
+ *
+ *  Value: "SQLSERVER_2022_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Express;
+/**
+ *  The database version is SQL Server 2022 Standard.
+ *
+ *  Value: "SQLSERVER_2022_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Standard;
+/**
+ *  The database version is SQL Server 2022 Web.
+ *
+ *  Value: "SQLSERVER_2022_WEB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Web;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_PreCheckResponse.messageType
+
+/**
+ *  Errors that a user must resolve before proceeding with the upgrade.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Error;
+/**
+ *  General informational messages that don't require action.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Info;
+/**
+ *  Default unspecified value to prevent unintended behavior changes.
+ *
+ *  Value: "MESSAGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_MessageTypeUnspecified;
+/**
+ *  Warnings that might impact the upgrade but don't block it.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Warning;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Reschedule.rescheduleType
 
 /**
@@ -3457,6 +3824,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Typ
  *  Value: "PG_CRON_FLAG_ENABLED_IN_REPLICA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgCronFlagEnabledInReplica;
+/**
+ *  The replication user is missing specific privileges to setup DDL
+ *  replication. (e.g. CREATE EVENT TRIGGER, CREATE SCHEMA) for PostgreSQL.
+ *
+ *  Value: "PG_DDL_REPLICATION_INSUFFICIENT_PRIVILEGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgDdlReplicationInsufficientPrivilege;
 /**
  *  pglogical node already exists on databases, applicable for postgres.
  *
@@ -3895,6 +4269,31 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_DualPasswordType_NoDualPas
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_DualPasswordType_NoModifyDualPassword;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_User.iamStatus
+
+/**
+ *  ACTIVE indicates a group is available for IAM database authentication.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_IamStatus_Active;
+/**
+ *  The default value for users that are not of type CLOUD_IAM_GROUP. Only
+ *  CLOUD_IAM_GROUP users will be inactive or active. Users with an IamStatus of
+ *  IAM_STATUS_UNSPECIFIED will not display whether they are active or inactive
+ *  as that is not applicable to them.
+ *
+ *  Value: "IAM_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_IamStatus_IamStatusUnspecified;
+/**
+ *  INACTIVE indicates a group is not available for IAM database authentication.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_IamStatus_Inactive;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_User.type
 
 /**
@@ -4057,7 +4456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  A backup resource. Next ID: 30
+ *  A backup resource.
  */
 @interface GTLRSQLAdmin_Backup : GTLRObject
 
@@ -4182,6 +4581,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        version is PostgreSQL 16. (Value: "POSTGRES_16")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres17 The database
  *        version is PostgreSQL 17. (Value: "POSTGRES_17")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres18 The database
+ *        version is PostgreSQL 18. (Value: "POSTGRES_18")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres96 The database
  *        version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -4657,6 +5058,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        version is PostgreSQL 16. (Value: "POSTGRES_16")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres17 The database
  *        version is PostgreSQL 17. (Value: "POSTGRES_17")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres18 The database
+ *        version is PostgreSQL 18. (Value: "POSTGRES_18")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres96 The database
  *        version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -5162,6 +5565,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is PostgreSQL 16. (Value: "POSTGRES_16")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres17 The
  *        database version is PostgreSQL 17. (Value: "POSTGRES_17")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres18 The
+ *        database version is PostgreSQL 18. (Value: "POSTGRES_18")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -5493,6 +5898,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        database version is PostgreSQL 16. (Value: "POSTGRES_16")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres17 The
  *        database version is PostgreSQL 17. (Value: "POSTGRES_17")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres18 The
+ *        database version is PostgreSQL 18. (Value: "POSTGRES_18")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -7231,6 +7638,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Request for Pre-checks for MVU
+ */
+@interface GTLRSQLAdmin_InstancesPreCheckMajorVersionUpgradeRequest : GTLRObject
+
+/**
+ *  Required. Contains details about the pre-check major version upgrade
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_PreCheckMajorVersionUpgradeContext *preCheckMajorVersionUpgradeContext;
+
+@end
+
+
+/**
  *  Database Instance reencrypt request.
  */
 @interface GTLRSQLAdmin_InstancesReencryptRequest : GTLRObject
@@ -7641,6 +8062,27 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Represents a notice or warning message from the database.
+ */
+@interface GTLRSQLAdmin_Message : GTLRObject
+
+/**
+ *  The full message string. For PostgreSQL, this is a formatted string that may
+ *  include severity, code, and the notice/warning message. For MySQL, this
+ *  contains the warning message.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The severity of the message (e.g., "NOTICE" for PostgreSQL, "WARNING" for
+ *  MySQL).
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+@end
+
+
+/**
  *  The additional metadata information regarding the execution of the SQL
  *  statements.
  */
@@ -7979,6 +8421,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        existing user in a Cloud SQL instance. (Value: "UPDATE_USER")
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
+
+/**
+ *  This field is only populated when the operation_type is
+ *  PRE_CHECK_MAJOR_VERSION_UPGRADE. The PreCheckMajorVersionUpgradeContext
+ *  message itself contains the details for that pre-check, such as the target
+ *  database version for the upgrade and the results of the check (including any
+ *  warnings or errors found).
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_PreCheckMajorVersionUpgradeContext *preCheckMajorVersionUpgradeContext;
 
 /** The URI of this resource. */
 @property(nonatomic, copy, nullable) NSString *selfLink;
@@ -8328,6 +8779,193 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Pre-check major version upgrade context.
+ */
+@interface GTLRSQLAdmin_PreCheckMajorVersionUpgradeContext : GTLRObject
+
+/** Optional. This is always `sql#preCheckMajorVersionUpgradeContext`. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Output only. The responses from the precheck operation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_PreCheckResponse *> *preCheckResponse;
+
+/**
+ *  Required. The target database version to upgrade to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql51
+ *        The database version is MySQL 5.1. (Value: "MYSQL_5_1")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql55
+ *        The database version is MySQL 5.5. (Value: "MYSQL_5_5")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql56
+ *        The database version is MySQL 5.6. (Value: "MYSQL_5_6")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql57
+ *        The database version is MySQL 5.7. (Value: "MYSQL_5_7")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql80
+ *        The database version is MySQL 8. (Value: "MYSQL_8_0")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8018
+ *        The database major version is MySQL 8.0 and the minor version is 18.
+ *        (Value: "MYSQL_8_0_18")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8026
+ *        The database major version is MySQL 8.0 and the minor version is 26.
+ *        (Value: "MYSQL_8_0_26")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8027
+ *        The database major version is MySQL 8.0 and the minor version is 27.
+ *        (Value: "MYSQL_8_0_27")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8028
+ *        The database major version is MySQL 8.0 and the minor version is 28.
+ *        (Value: "MYSQL_8_0_28")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8029
+ *        The database major version is MySQL 8.0 and the minor version is 29.
+ *        (Value: "MYSQL_8_0_29")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8030
+ *        The database major version is MySQL 8.0 and the minor version is 30.
+ *        (Value: "MYSQL_8_0_30")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8031
+ *        The database major version is MySQL 8.0 and the minor version is 31.
+ *        (Value: "MYSQL_8_0_31")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8032
+ *        The database major version is MySQL 8.0 and the minor version is 32.
+ *        (Value: "MYSQL_8_0_32")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8033
+ *        The database major version is MySQL 8.0 and the minor version is 33.
+ *        (Value: "MYSQL_8_0_33")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8034
+ *        The database major version is MySQL 8.0 and the minor version is 34.
+ *        (Value: "MYSQL_8_0_34")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8035
+ *        The database major version is MySQL 8.0 and the minor version is 35.
+ *        (Value: "MYSQL_8_0_35")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8036
+ *        The database major version is MySQL 8.0 and the minor version is 36.
+ *        (Value: "MYSQL_8_0_36")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8037
+ *        The database major version is MySQL 8.0 and the minor version is 37.
+ *        (Value: "MYSQL_8_0_37")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8039
+ *        The database major version is MySQL 8.0 and the minor version is 39.
+ *        (Value: "MYSQL_8_0_39")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8040
+ *        The database major version is MySQL 8.0 and the minor version is 40.
+ *        (Value: "MYSQL_8_0_40")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8041
+ *        The database major version is MySQL 8.0 and the minor version is 41.
+ *        (Value: "MYSQL_8_0_41")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8042
+ *        The database major version is MySQL 8.0 and the minor version is 42.
+ *        (Value: "MYSQL_8_0_42")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8043
+ *        The database major version is MySQL 8.0 and the minor version is 43.
+ *        (Value: "MYSQL_8_0_43")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8044
+ *        The database major version is MySQL 8.0 and the minor version is 44.
+ *        (Value: "MYSQL_8_0_44")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8045
+ *        The database major version is MySQL 8.0 and the minor version is 45.
+ *        (Value: "MYSQL_8_0_45")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8046
+ *        The database major version is MySQL 8.0 and the minor version is 46.
+ *        (Value: "MYSQL_8_0_46")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql84
+ *        The database version is MySQL 8.4. (Value: "MYSQL_8_4")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres10
+ *        The database version is PostgreSQL 10. (Value: "POSTGRES_10")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres11
+ *        The database version is PostgreSQL 11. (Value: "POSTGRES_11")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres12
+ *        The database version is PostgreSQL 12. (Value: "POSTGRES_12")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres13
+ *        The database version is PostgreSQL 13. (Value: "POSTGRES_13")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres14
+ *        The database version is PostgreSQL 14. (Value: "POSTGRES_14")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres15
+ *        The database version is PostgreSQL 15. (Value: "POSTGRES_15")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres16
+ *        The database version is PostgreSQL 16. (Value: "POSTGRES_16")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres17
+ *        The database version is PostgreSQL 17. (Value: "POSTGRES_17")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres18
+ *        The database version is PostgreSQL 18. (Value: "POSTGRES_18")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres96
+ *        The database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_SqlDatabaseVersionUnspecified
+ *        This is an unknown database version. (Value:
+ *        "SQL_DATABASE_VERSION_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Enterprise
+ *        The database version is SQL Server 2017 Enterprise. (Value:
+ *        "SQLSERVER_2017_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Express
+ *        The database version is SQL Server 2017 Express. (Value:
+ *        "SQLSERVER_2017_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Standard
+ *        The database version is SQL Server 2017 Standard. (Value:
+ *        "SQLSERVER_2017_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Web
+ *        The database version is SQL Server 2017 Web. (Value:
+ *        "SQLSERVER_2017_WEB")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Enterprise
+ *        The database version is SQL Server 2019 Enterprise. (Value:
+ *        "SQLSERVER_2019_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Express
+ *        The database version is SQL Server 2019 Express. (Value:
+ *        "SQLSERVER_2019_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Standard
+ *        The database version is SQL Server 2019 Standard. (Value:
+ *        "SQLSERVER_2019_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Web
+ *        The database version is SQL Server 2019 Web. (Value:
+ *        "SQLSERVER_2019_WEB")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Enterprise
+ *        The database version is SQL Server 2022 Enterprise. (Value:
+ *        "SQLSERVER_2022_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Express
+ *        The database version is SQL Server 2022 Express. (Value:
+ *        "SQLSERVER_2022_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Standard
+ *        The database version is SQL Server 2022 Standard. (Value:
+ *        "SQLSERVER_2022_STANDARD")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Web
+ *        The database version is SQL Server 2022 Web. (Value:
+ *        "SQLSERVER_2022_WEB")
+ */
+@property(nonatomic, copy, nullable) NSString *targetDatabaseVersion;
+
+@end
+
+
+/**
+ *  Structured PreCheckResponse containing message, type, and required actions.
+ */
+@interface GTLRSQLAdmin_PreCheckResponse : GTLRObject
+
+/**
+ *  The actions that the user needs to take. Use repeated for multiple actions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *actionsRequired;
+
+/** The message to be displayed to the user. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  The type of message whether it is an info, warning, or error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_PreCheckResponse_MessageType_Error Errors that a
+ *        user must resolve before proceeding with the upgrade. (Value: "ERROR")
+ *    @arg @c kGTLRSQLAdmin_PreCheckResponse_MessageType_Info General
+ *        informational messages that don't require action. (Value: "INFO")
+ *    @arg @c kGTLRSQLAdmin_PreCheckResponse_MessageType_MessageTypeUnspecified
+ *        Default unspecified value to prevent unintended behavior changes.
+ *        (Value: "MESSAGE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_PreCheckResponse_MessageType_Warning Warnings that
+ *        might impact the upgrade but don't block it. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *messageType;
+
+@end
+
+
+/**
  *  Settings for an automatically-setup Private Service Connect consumer
  *  endpoint that is used to connect to a Cloud SQL instance.
  */
@@ -8421,6 +9059,60 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Rows returned by the SQL statement. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Row *> *rows;
+
+@end
+
+
+/**
+ *  The read pool auto-scale configuration.
+ */
+@interface GTLRSQLAdmin_ReadPoolAutoScaleConfig : GTLRObject
+
+/**
+ *  Indicates whether read pool auto scaling supports scale in operations
+ *  (removing nodes).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableScaleIn;
+
+/**
+ *  Indicates whether read pool auto scaling is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Maximum number of read pool nodes to be maintained.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
+
+/**
+ *  Minimum number of read pool nodes to be maintained.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodeCount;
+
+/**
+ *  The cooldown period for scale-in operations.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleInCooldownSeconds;
+
+/**
+ *  The cooldown period for scale-out operations.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scaleOutCooldownSeconds;
+
+/** Optional. Target metrics for read pool auto scaling. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_TargetMetric *> *targetMetrics;
 
 @end
 
@@ -8870,6 +9562,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, copy, nullable) NSString *pricingPlan;
 
+/** Optional. The read pool auto-scale configuration for the instance. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_ReadPoolAutoScaleConfig *readPoolAutoScaleConfig;
+
 /**
  *  Optional. Configuration value for recreation of replica after certain
  *  replication lag
@@ -9117,6 +9812,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        The error message indicates that pg_cron flags are enabled on the
  *        destination which is not supported during the migration. (Value:
  *        "PG_CRON_FLAG_ENABLED_IN_REPLICA")
+ *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgDdlReplicationInsufficientPrivilege
+ *        The replication user is missing specific privileges to setup DDL
+ *        replication. (e.g. CREATE EVENT TRIGGER, CREATE SCHEMA) for
+ *        PostgreSQL. (Value: "PG_DDL_REPLICATION_INSUFFICIENT_PRIVILEGE")
  *    @arg @c kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists
  *        pglogical node already exists on databases, applicable for postgres.
  *        (Value: "PGLOGICAL_NODE_ALREADY_EXISTS")
@@ -9244,6 +9943,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Execute SQL statements response.
  */
 @interface GTLRSQLAdmin_SqlInstancesExecuteSqlResponse : GTLRObject
+
+/**
+ *  A list of notices and warnings generated during query execution. For
+ *  PostgreSQL, this includes all notices and warnings. For MySQL, this includes
+ *  warnings generated by the last executed statement. To retrieve all warnings
+ *  for a multi-statement query, `SHOW WARNINGS` must be executed after each
+ *  statement.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Message *> *messages;
 
 /**
  *  The additional metadata information regarding the execution of the SQL
@@ -9806,6 +10514,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Target metric for read pool auto scaling.
+ */
+@interface GTLRSQLAdmin_TargetMetric : GTLRObject
+
+/** The metric name to be used for auto scaling. */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/**
+ *  The target value for the metric.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetValue;
+
+@end
+
+
+/**
  *  A Google Cloud SQL service tier resource.
  */
 @interface GTLRSQLAdmin_Tier : GTLRObject
@@ -9914,6 +10640,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  instance, it's optional.
  */
 @property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Indicates if a group is active or inactive for IAM database authentication.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_User_IamStatus_Active ACTIVE indicates a group is
+ *        available for IAM database authentication. (Value: "ACTIVE")
+ *    @arg @c kGTLRSQLAdmin_User_IamStatus_IamStatusUnspecified The default
+ *        value for users that are not of type CLOUD_IAM_GROUP. Only
+ *        CLOUD_IAM_GROUP users will be inactive or active. Users with an
+ *        IamStatus of IAM_STATUS_UNSPECIFIED will not display whether they are
+ *        active or inactive as that is not applicable to them. (Value:
+ *        "IAM_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_User_IamStatus_Inactive INACTIVE indicates a group
+ *        is not available for IAM database authentication. (Value: "INACTIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *iamStatus;
 
 /**
  *  The name of the Cloud SQL instance. This does not include the project ID.

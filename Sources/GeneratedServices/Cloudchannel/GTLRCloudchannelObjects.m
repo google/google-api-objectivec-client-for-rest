@@ -2142,11 +2142,12 @@ NSString * const kGTLRCloudchannel_GoogleCloudChannelV1TransferEligibility_Ineli
 //
 
 @implementation GTLRCloudchannel_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudchannel_GoogleLongrunningOperation class]
+    @"operations" : [GTLRCloudchannel_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

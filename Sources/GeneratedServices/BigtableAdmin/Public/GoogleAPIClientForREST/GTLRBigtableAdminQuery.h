@@ -1061,7 +1061,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @interface GTLRBigtableAdminQuery_ProjectsInstancesClustersList : GTLRBigtableAdminQuery
 
 /** DEPRECATED: This field is unused and ignored. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken GTLR_DEPRECATED;
 
 /**
  *  Required. The unique name of the instance for which a list of clusters is
@@ -1370,7 +1370,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @interface GTLRBigtableAdminQuery_ProjectsInstancesList : GTLRBigtableAdminQuery
 
 /** DEPRECATED: This field is unused and ignored. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
+@property(nonatomic, copy, nullable) NSString *pageToken GTLR_DEPRECATED;
 
 /**
  *  Required. The unique name of the project for which a list of instances is
@@ -3702,8 +3702,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @interface GTLRBigtableAdminQuery_ProjectsLocationsList : GTLRBigtableAdminQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

@@ -170,6 +170,14 @@ NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_DbWorkloadUn
 NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Dw = @"DW";
 NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Oltp = @"OLTP";
 
+// GTLROracleDatabase_BackupDestinationDetails.type
+NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_BackupDestinationTypeUnspecified = @"BACKUP_DESTINATION_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_Dbrs = @"DBRS";
+NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_Local = @"LOCAL";
+NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_Nfs = @"NFS";
+NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_ObjectStore = @"OBJECT_STORE";
+NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_RecoveryAppliance = @"RECOVERY_APPLIANCE";
+
 // GTLROracleDatabase_CloudExadataInfrastructureProperties.computeModel
 NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_ComputeModel_ComputeModelEcpu = @"COMPUTE_MODEL_ECPU";
 NSString * const kGTLROracleDatabase_CloudExadataInfrastructureProperties_ComputeModel_ComputeModelOcpu = @"COMPUTE_MODEL_OCPU";
@@ -210,6 +218,20 @@ NSString * const kGTLROracleDatabase_CloudVmClusterProperties_State_Terminated =
 NSString * const kGTLROracleDatabase_CloudVmClusterProperties_State_Terminating = @"TERMINATING";
 NSString * const kGTLROracleDatabase_CloudVmClusterProperties_State_Updating = @"UPDATING";
 
+// GTLROracleDatabase_Database.opsInsightsStatus
+NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Disabling = @"DISABLING";
+NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Enabled = @"ENABLED";
+NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Enabling = @"ENABLING";
+NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_FailedDisabling = @"FAILED_DISABLING";
+NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_FailedEnabling = @"FAILED_ENABLING";
+NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_NotEnabled = @"NOT_ENABLED";
+NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_OperationsInsightsStatusUnspecified = @"OPERATIONS_INSIGHTS_STATUS_UNSPECIFIED";
+
+// GTLROracleDatabase_DatabaseCharacterSet.characterSetType
+NSString * const kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_CharacterSetTypeUnspecified = @"CHARACTER_SET_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_Database = @"DATABASE";
+NSString * const kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_National = @"NATIONAL";
+
 // GTLROracleDatabase_DatabaseConnectionStringProfile.consumerGroup
 NSString * const kGTLROracleDatabase_DatabaseConnectionStringProfile_ConsumerGroup_ConsumerGroupUnspecified = @"CONSUMER_GROUP_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_DatabaseConnectionStringProfile_ConsumerGroup_High = @"HIGH";
@@ -244,6 +266,80 @@ NSString * const kGTLROracleDatabase_DatabaseConnectionStringProfile_TlsAuthenti
 NSString * const kGTLROracleDatabase_DatabaseConnectionStringProfile_TlsAuthentication_Server = @"SERVER";
 NSString * const kGTLROracleDatabase_DatabaseConnectionStringProfile_TlsAuthentication_TlsAuthenticationUnspecified = @"TLS_AUTHENTICATION_UNSPECIFIED";
 
+// GTLROracleDatabase_DatabaseManagementConfig.managementState
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Disabled = @"DISABLED";
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Disabling = @"DISABLING";
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Enabled = @"ENABLED";
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Enabling = @"ENABLING";
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_FailedDisabling = @"FAILED_DISABLING";
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_FailedEnabling = @"FAILED_ENABLING";
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_FailedUpdating = @"FAILED_UPDATING";
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_ManagementStateUnspecified = @"MANAGEMENT_STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Updating = @"UPDATING";
+
+// GTLROracleDatabase_DatabaseManagementConfig.managementType
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementType_Advanced = @"ADVANCED";
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementType_Basic = @"BASIC";
+NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementType_ManagementTypeUnspecified = @"MANAGEMENT_TYPE_UNSPECIFIED";
+
+// GTLROracleDatabase_DatabaseProperties.state
+NSString * const kGTLROracleDatabase_DatabaseProperties_State_Available = @"AVAILABLE";
+NSString * const kGTLROracleDatabase_DatabaseProperties_State_BackupInProgress = @"BACKUP_IN_PROGRESS";
+NSString * const kGTLROracleDatabase_DatabaseProperties_State_Converting = @"CONVERTING";
+NSString * const kGTLROracleDatabase_DatabaseProperties_State_DatabaseLifecycleStateUnspecified = @"DATABASE_LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DatabaseProperties_State_Failed = @"FAILED";
+NSString * const kGTLROracleDatabase_DatabaseProperties_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLROracleDatabase_DatabaseProperties_State_RestoreFailed = @"RESTORE_FAILED";
+NSString * const kGTLROracleDatabase_DatabaseProperties_State_Terminated = @"TERMINATED";
+NSString * const kGTLROracleDatabase_DatabaseProperties_State_Terminating = @"TERMINATING";
+NSString * const kGTLROracleDatabase_DatabaseProperties_State_Updating = @"UPDATING";
+NSString * const kGTLROracleDatabase_DatabaseProperties_State_Upgrading = @"UPGRADING";
+
+// GTLROracleDatabase_DbBackupConfig.autoFullBackupDay
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Friday = @"FRIDAY";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Monday = @"MONDAY";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Saturday = @"SATURDAY";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Sunday = @"SUNDAY";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Thursday = @"THURSDAY";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Tuesday = @"TUESDAY";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Wednesday = @"WEDNESDAY";
+
+// GTLROracleDatabase_DbBackupConfig.autoFullBackupWindow
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_BackupWindowUnspecified = @"BACKUP_WINDOW_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotEight = @"SLOT_EIGHT";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotEleven = @"SLOT_ELEVEN";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotFive = @"SLOT_FIVE";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotFour = @"SLOT_FOUR";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotNine = @"SLOT_NINE";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotOne = @"SLOT_ONE";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotSeven = @"SLOT_SEVEN";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotSix = @"SLOT_SIX";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotTen = @"SLOT_TEN";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotThree = @"SLOT_THREE";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotTwelve = @"SLOT_TWELVE";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotTwo = @"SLOT_TWO";
+
+// GTLROracleDatabase_DbBackupConfig.autoIncrementalBackupWindow
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_BackupWindowUnspecified = @"BACKUP_WINDOW_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotEight = @"SLOT_EIGHT";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotEleven = @"SLOT_ELEVEN";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotFive = @"SLOT_FIVE";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotFour = @"SLOT_FOUR";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotNine = @"SLOT_NINE";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotOne = @"SLOT_ONE";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotSeven = @"SLOT_SEVEN";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotSix = @"SLOT_SIX";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotTen = @"SLOT_TEN";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotThree = @"SLOT_THREE";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotTwelve = @"SLOT_TWELVE";
+NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotTwo = @"SLOT_TWO";
+
+// GTLROracleDatabase_DbBackupConfig.backupDeletionPolicy
+NSString * const kGTLROracleDatabase_DbBackupConfig_BackupDeletionPolicy_BackupDeletionPolicyUnspecified = @"BACKUP_DELETION_POLICY_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DbBackupConfig_BackupDeletionPolicy_DeleteAfterRetentionPeriod = @"DELETE_AFTER_RETENTION_PERIOD";
+NSString * const kGTLROracleDatabase_DbBackupConfig_BackupDeletionPolicy_DeleteImmediately = @"DELETE_IMMEDIATELY";
+
 // GTLROracleDatabase_DbNodeProperties.state
 NSString * const kGTLROracleDatabase_DbNodeProperties_State_Available = @"AVAILABLE";
 NSString * const kGTLROracleDatabase_DbNodeProperties_State_Failed = @"FAILED";
@@ -264,6 +360,54 @@ NSString * const kGTLROracleDatabase_DbServerProperties_State_Deleting = @"DELET
 NSString * const kGTLROracleDatabase_DbServerProperties_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_DbServerProperties_State_Unavailable = @"UNAVAILABLE";
 
+// GTLROracleDatabase_DbSystemInitialStorageSizeProperties.shapeType
+NSString * const kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_ShapeType_ShapeTypeUnspecified = @"SHAPE_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_ShapeType_StandardX86 = @"STANDARD_X86";
+
+// GTLROracleDatabase_DbSystemInitialStorageSizeProperties.storageManagement
+NSString * const kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_StorageManagement_Asm = @"ASM";
+NSString * const kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_StorageManagement_Lvm = @"LVM";
+NSString * const kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_StorageManagement_StorageManagementUnspecified = @"STORAGE_MANAGEMENT_UNSPECIFIED";
+
+// GTLROracleDatabase_DbSystemOptions.storageManagement
+NSString * const kGTLROracleDatabase_DbSystemOptions_StorageManagement_Asm = @"ASM";
+NSString * const kGTLROracleDatabase_DbSystemOptions_StorageManagement_Lvm = @"LVM";
+NSString * const kGTLROracleDatabase_DbSystemOptions_StorageManagement_StorageManagementUnspecified = @"STORAGE_MANAGEMENT_UNSPECIFIED";
+
+// GTLROracleDatabase_DbSystemProperties.computeModel
+NSString * const kGTLROracleDatabase_DbSystemProperties_ComputeModel_ComputeModelUnspecified = @"COMPUTE_MODEL_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ecpu = @"ECPU";
+NSString * const kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ocpu = @"OCPU";
+
+// GTLROracleDatabase_DbSystemProperties.databaseEdition
+NSString * const kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_DbSystemDatabaseEditionUnspecified = @"DB_SYSTEM_DATABASE_EDITION_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_EnterpriseEdition = @"ENTERPRISE_EDITION";
+NSString * const kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_EnterpriseEditionHighPerformance = @"ENTERPRISE_EDITION_HIGH_PERFORMANCE";
+NSString * const kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_StandardEdition = @"STANDARD_EDITION";
+
+// GTLROracleDatabase_DbSystemProperties.licenseModel
+NSString * const kGTLROracleDatabase_DbSystemProperties_LicenseModel_BringYourOwnLicense = @"BRING_YOUR_OWN_LICENSE";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LicenseModel_LicenseIncluded = @"LICENSE_INCLUDED";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LicenseModel_LicenseModelUnspecified = @"LICENSE_MODEL_UNSPECIFIED";
+
+// GTLROracleDatabase_DbSystemProperties.lifecycleState
+NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Available = @"AVAILABLE";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_DbSystemLifecycleStateUnspecified = @"DB_SYSTEM_LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Failed = @"FAILED";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_MaintenanceInProgress = @"MAINTENANCE_IN_PROGRESS";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Migrated = @"MIGRATED";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_NeedsAttention = @"NEEDS_ATTENTION";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Provisioning = @"PROVISIONING";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Terminated = @"TERMINATED";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Terminating = @"TERMINATING";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Updating = @"UPDATING";
+NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Upgrading = @"UPGRADING";
+
+// GTLROracleDatabase_EncryptionKey.provider
+NSString * const kGTLROracleDatabase_EncryptionKey_Provider_GoogleManaged = @"GOOGLE_MANAGED";
+NSString * const kGTLROracleDatabase_EncryptionKey_Provider_OracleManaged = @"ORACLE_MANAGED";
+NSString * const kGTLROracleDatabase_EncryptionKey_Provider_ProviderUnspecified = @"PROVIDER_UNSPECIFIED";
+
 // GTLROracleDatabase_Entitlement.state
 NSString * const kGTLROracleDatabase_Entitlement_State_AccountNotActive = @"ACCOUNT_NOT_ACTIVE";
 NSString * const kGTLROracleDatabase_Entitlement_State_AccountNotLinked = @"ACCOUNT_NOT_LINKED";
@@ -271,6 +415,45 @@ NSString * const kGTLROracleDatabase_Entitlement_State_AccountSuspended = @"ACCO
 NSString * const kGTLROracleDatabase_Entitlement_State_Active  = @"ACTIVE";
 NSString * const kGTLROracleDatabase_Entitlement_State_NotApprovedInPrivateMarketplace = @"NOT_APPROVED_IN_PRIVATE_MARKETPLACE";
 NSString * const kGTLROracleDatabase_Entitlement_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLROracleDatabase_ExadbVmClusterProperties.licenseModel
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LicenseModel_BringYourOwnLicense = @"BRING_YOUR_OWN_LICENSE";
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LicenseModel_LicenseIncluded = @"LICENSE_INCLUDED";
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LicenseModel_LicenseModelUnspecified = @"LICENSE_MODEL_UNSPECIFIED";
+
+// GTLROracleDatabase_ExadbVmClusterProperties.lifecycleState
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Available = @"AVAILABLE";
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_ExadbVmClusterLifecycleStateUnspecified = @"EXADB_VM_CLUSTER_LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Failed = @"FAILED";
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_MaintenanceInProgress = @"MAINTENANCE_IN_PROGRESS";
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Provisioning = @"PROVISIONING";
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Terminated = @"TERMINATED";
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Terminating = @"TERMINATING";
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Updating = @"UPDATING";
+
+// GTLROracleDatabase_ExadbVmClusterProperties.shapeAttribute
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_ShapeAttribute_BlockStorage = @"BLOCK_STORAGE";
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_ShapeAttribute_ShapeAttributeUnspecified = @"SHAPE_ATTRIBUTE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_ShapeAttribute_SmartStorage = @"SMART_STORAGE";
+
+// GTLROracleDatabase_ExascaleDbStorageVaultProperties.attachedShapeAttributes
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AttachedShapeAttributes_BlockStorage = @"BLOCK_STORAGE";
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AttachedShapeAttributes_ShapeAttributeUnspecified = @"SHAPE_ATTRIBUTE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AttachedShapeAttributes_SmartStorage = @"SMART_STORAGE";
+
+// GTLROracleDatabase_ExascaleDbStorageVaultProperties.availableShapeAttributes
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AvailableShapeAttributes_BlockStorage = @"BLOCK_STORAGE";
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AvailableShapeAttributes_ShapeAttributeUnspecified = @"SHAPE_ATTRIBUTE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AvailableShapeAttributes_SmartStorage = @"SMART_STORAGE";
+
+// GTLROracleDatabase_ExascaleDbStorageVaultProperties.state
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Available = @"AVAILABLE";
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Failed = @"FAILED";
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Terminated = @"TERMINATED";
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Terminating = @"TERMINATING";
+NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Updating = @"UPDATING";
 
 // GTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest.type
 NSString * const kGTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest_Type_All = @"ALL";
@@ -337,6 +520,38 @@ NSString * const kGTLROracleDatabase_OdbSubnet_State_Failed    = @"FAILED";
 NSString * const kGTLROracleDatabase_OdbSubnet_State_Provisioning = @"PROVISIONING";
 NSString * const kGTLROracleDatabase_OdbSubnet_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLROracleDatabase_OdbSubnet_State_Terminating = @"TERMINATING";
+
+// GTLROracleDatabase_PluggableDatabaseNodeLevelDetails.openMode
+NSString * const kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_Migrate = @"MIGRATE";
+NSString * const kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_Mounted = @"MOUNTED";
+NSString * const kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_PluggableDatabaseOpenModeUnspecified = @"PLUGGABLE_DATABASE_OPEN_MODE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_ReadOnly = @"READ_ONLY";
+NSString * const kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_ReadWrite = @"READ_WRITE";
+
+// GTLROracleDatabase_PluggableDatabaseProperties.lifecycleState
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Available = @"AVAILABLE";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_BackupInProgress = @"BACKUP_IN_PROGRESS";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Disabled = @"DISABLED";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Failed = @"FAILED";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_PluggableDatabaseLifecycleStateUnspecified = @"PLUGGABLE_DATABASE_LIFECYCLE_STATE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Provisioning = @"PROVISIONING";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Refreshing = @"REFRESHING";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Relocated = @"RELOCATED";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Relocating = @"RELOCATING";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_RestoreFailed = @"RESTORE_FAILED";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_RestoreInProgress = @"RESTORE_IN_PROGRESS";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Terminated = @"TERMINATED";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Terminating = @"TERMINATING";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Updating = @"UPDATING";
+
+// GTLROracleDatabase_PluggableDatabaseProperties.operationsInsightsState
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_Disabling = @"DISABLING";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_Enabled = @"ENABLED";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_Enabling = @"ENABLING";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_FailedDisabling = @"FAILED_DISABLING";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_FailedEnabling = @"FAILED_ENABLING";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_NotEnabled = @"NOT_ENABLED";
+NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_OperationsInsightsStateUnspecified = @"OPERATIONS_INSIGHTS_STATE_UNSPECIFIED";
 
 // GTLROracleDatabase_ScheduledOperationDetails.dayOfWeek
 NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -495,7 +710,8 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
          connectionStrings, connectionUrls, cpuCoreCount, customerContacts,
          databaseManagementState, dataGuardRoleChangedTime, dataSafeState,
          dataStorageSizeGb, dataStorageSizeTb, dbEdition, dbVersion, dbWorkload,
-         disasterRecoveryRoleChangedTime, failedDataRecoveryDuration,
+         disasterRecoveryRoleChangedTime, encryptionKey,
+         encryptionKeyHistoryEntries, failedDataRecoveryDuration,
          isAutoScalingEnabled, isLocalDataGuardEnabled,
          isStorageAutoScalingEnabled, licenseType, lifecycleDetails,
          localAdgAutoFailoverMaxDataLossLimit, localDisasterRecoveryType,
@@ -505,14 +721,16 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
          ociUrl, openMode, operationsInsightsState, peerDbIds, permissionLevel,
          privateEndpoint, privateEndpointIp, privateEndpointLabel,
          refreshableMode, refreshableState, role, scheduledOperationDetails,
-         secretId, sqlWebDeveloperUrl, state, supportedCloneRegions,
-         totalAutoBackupStorageSizeGbs, usedDataStorageSizeTbs, vaultId;
+         secretId, serviceAgentEmail, sqlWebDeveloperUrl, state,
+         supportedCloneRegions, totalAutoBackupStorageSizeGbs,
+         usedDataStorageSizeTbs, vaultId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"allowlistedIps" : [NSString class],
     @"availableUpgradeVersions" : [NSString class],
     @"customerContacts" : [GTLROracleDatabase_CustomerContact class],
+    @"encryptionKeyHistoryEntries" : [GTLROracleDatabase_EncryptionKeyHistoryEntry class],
     @"peerDbIds" : [NSString class],
     @"scheduledOperationDetails" : [GTLROracleDatabase_ScheduledOperationDetails class],
     @"supportedCloneRegions" : [NSString class]
@@ -541,6 +759,16 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 @implementation GTLROracleDatabase_AutonomousDbVersion
 @dynamic dbWorkload, name, version, workloadUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_BackupDestinationDetails
+//
+
+@implementation GTLROracleDatabase_BackupDestinationDetails
+@dynamic type;
 @end
 
 
@@ -681,6 +909,28 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_Database
+//
+
+@implementation GTLROracleDatabase_Database
+@dynamic adminPassword, characterSet, createTime, databaseId, dbHomeName,
+         dbName, dbUniqueName, gcpOracleZone, name, ncharacterSet, ociUrl,
+         opsInsightsStatus, properties, tdeWalletPassword;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DatabaseCharacterSet
+//
+
+@implementation GTLROracleDatabase_DatabaseCharacterSet
+@dynamic characterSet, characterSetType, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_DatabaseConnectionStringProfile
 //
 
@@ -692,11 +942,82 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_DatabaseManagementConfig
+//
+
+@implementation GTLROracleDatabase_DatabaseManagementConfig
+@dynamic managementState, managementType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DatabaseProperties
+//
+
+@implementation GTLROracleDatabase_DatabaseProperties
+@dynamic databaseManagementConfig, dbBackupConfig, dbVersion, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_DataCollectionOptions
 //
 
 @implementation GTLROracleDatabase_DataCollectionOptions
 @dynamic diagnosticsEventsEnabled, healthMonitoringEnabled, incidentLogsEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DataCollectionOptionsCommon
+//
+
+@implementation GTLROracleDatabase_DataCollectionOptionsCommon
+@dynamic isDiagnosticsEventsEnabled, isHealthMonitoringEnabled,
+         isIncidentLogsEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DataCollectionOptionsDbSystem
+//
+
+@implementation GTLROracleDatabase_DataCollectionOptionsDbSystem
+@dynamic isDiagnosticsEventsEnabled, isIncidentLogsEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DbBackupConfig
+//
+
+@implementation GTLROracleDatabase_DbBackupConfig
+@dynamic autoBackupEnabled, autoFullBackupDay, autoFullBackupWindow,
+         autoIncrementalBackupWindow, backupDeletionPolicy,
+         backupDestinationDetails, retentionPeriodDays;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backupDestinationDetails" : [GTLROracleDatabase_BackupDestinationDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DbHome
+//
+
+@implementation GTLROracleDatabase_DbHome
+@dynamic database, dbVersion, displayName, isUnifiedAuditingEnabled;
 @end
 
 
@@ -753,6 +1074,93 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_DbSystem
+//
+
+@implementation GTLROracleDatabase_DbSystem
+@dynamic createTime, displayName, entitlementId, gcpOracleZone, labels, name,
+         ociUrl, odbNetwork, odbSubnet, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DbSystem_Labels
+//
+
+@implementation GTLROracleDatabase_DbSystem_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DbSystemInitialStorageSize
+//
+
+@implementation GTLROracleDatabase_DbSystemInitialStorageSize
+@dynamic name, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DbSystemInitialStorageSizeProperties
+//
+
+@implementation GTLROracleDatabase_DbSystemInitialStorageSizeProperties
+@dynamic launchFromBackupStorageSizeDetails, shapeType, storageManagement,
+         storageSizeDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"launchFromBackupStorageSizeDetails" : [GTLROracleDatabase_StorageSizeDetails class],
+    @"storageSizeDetails" : [GTLROracleDatabase_StorageSizeDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DbSystemOptions
+//
+
+@implementation GTLROracleDatabase_DbSystemOptions
+@dynamic storageManagement;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DbSystemProperties
+//
+
+@implementation GTLROracleDatabase_DbSystemProperties
+@dynamic computeCount, computeModel, databaseEdition, dataCollectionOptions,
+         dataStorageSizeGb, dbHome, dbSystemOptions, domain, hostname,
+         hostnamePrefix, initialDataStorageSizeGb, licenseModel, lifecycleState,
+         memorySizeGb, nodeCount, ocid, privateIp, recoStorageSizeGb, shape,
+         sshPublicKeys, timeZone;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sshPublicKeys" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_DbSystemShape
 //
 
@@ -761,6 +1169,51 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
          availableMemoryPerNodeGb, maxNodeCount, maxStorageCount,
          minCoreCountPerNode, minDbNodeStoragePerNodeGb, minMemoryPerNodeGb,
          minNodeCount, minStorageCount, name, shape;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DbVersion
+//
+
+@implementation GTLROracleDatabase_DbVersion
+@dynamic name, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DbVersionProperties
+//
+
+@implementation GTLROracleDatabase_DbVersionProperties
+@dynamic isLatestForMajorVersion, isPreviewDbVersion, isUpgradeSupported,
+         supportsPdb, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DefinedTagValue
+//
+
+@implementation GTLROracleDatabase_DefinedTagValue
+@dynamic tags;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_DefinedTagValue_Tags
+//
+
+@implementation GTLROracleDatabase_DefinedTagValue_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -775,11 +1228,160 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_EncryptionKey
+//
+
+@implementation GTLROracleDatabase_EncryptionKey
+@dynamic kmsKey, provider;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_EncryptionKeyHistoryEntry
+//
+
+@implementation GTLROracleDatabase_EncryptionKeyHistoryEntry
+@dynamic activationTime, encryptionKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_Entitlement
 //
 
 @implementation GTLROracleDatabase_Entitlement
 @dynamic cloudAccountDetails, entitlementId, name, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ExadbVmCluster
+//
+
+@implementation GTLROracleDatabase_ExadbVmCluster
+@dynamic backupOdbSubnet, createTime, displayName, entitlementId, gcpOracleZone,
+         labels, name, odbNetwork, odbSubnet, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ExadbVmCluster_Labels
+//
+
+@implementation GTLROracleDatabase_ExadbVmCluster_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ExadbVmClusterProperties
+//
+
+@implementation GTLROracleDatabase_ExadbVmClusterProperties
+@dynamic additionalEcpuCountPerNode, clusterName, dataCollectionOptions,
+         enabledEcpuCountPerNode, exascaleDbStorageVault, giVersion,
+         gridImageId, hostname, hostnamePrefix, licenseModel, lifecycleState,
+         memorySizeGb, nodeCount, ociUri, scanListenerPortTcp, shapeAttribute,
+         sshPublicKeys, timeZone, vmFileSystemStorage;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sshPublicKeys" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ExadbVmClusterStorageDetails
+//
+
+@implementation GTLROracleDatabase_ExadbVmClusterStorageDetails
+@dynamic sizeInGbsPerNode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ExascaleDbStorageDetails
+//
+
+@implementation GTLROracleDatabase_ExascaleDbStorageDetails
+@dynamic availableSizeGbs, totalSizeGbs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ExascaleDbStorageVault
+//
+
+@implementation GTLROracleDatabase_ExascaleDbStorageVault
+@dynamic createTime, displayName, entitlementId, gcpOracleZone, labels, name,
+         properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ExascaleDbStorageVault_Labels
+//
+
+@implementation GTLROracleDatabase_ExascaleDbStorageVault_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ExascaleDbStorageVaultProperties
+//
+
+@implementation GTLROracleDatabase_ExascaleDbStorageVaultProperties
+@dynamic additionalFlashCachePercent, attachedShapeAttributes,
+         availableShapeAttributes, descriptionProperty,
+         exascaleDbStorageDetails, ocid, ociUri, state, timeZone,
+         vmClusterCount, vmClusterIds;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachedShapeAttributes" : [NSString class],
+    @"availableShapeAttributes" : [NSString class],
+    @"vmClusterIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_FailoverAutonomousDatabaseRequest
+//
+
+@implementation GTLROracleDatabase_FailoverAutonomousDatabaseRequest
+@dynamic peerAutonomousDatabase;
 @end
 
 
@@ -957,6 +1559,50 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_ListDatabaseCharacterSetsResponse
+//
+
+@implementation GTLROracleDatabase_ListDatabaseCharacterSetsResponse
+@dynamic databaseCharacterSets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databaseCharacterSets" : [GTLROracleDatabase_DatabaseCharacterSet class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"databaseCharacterSets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListDatabasesResponse
+//
+
+@implementation GTLROracleDatabase_ListDatabasesResponse
+@dynamic databases, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databases" : [GTLROracleDatabase_Database class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"databases";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_ListDbNodesResponse
 //
 
@@ -1001,6 +1647,28 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_ListDbSystemInitialStorageSizesResponse
+//
+
+@implementation GTLROracleDatabase_ListDbSystemInitialStorageSizesResponse
+@dynamic dbSystemInitialStorageSizes, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dbSystemInitialStorageSizes" : [GTLROracleDatabase_DbSystemInitialStorageSize class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dbSystemInitialStorageSizes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_ListDbSystemShapesResponse
 //
 
@@ -1023,6 +1691,50 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_ListDbSystemsResponse
+//
+
+@implementation GTLROracleDatabase_ListDbSystemsResponse
+@dynamic dbSystems, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dbSystems" : [GTLROracleDatabase_DbSystem class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dbSystems";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListDbVersionsResponse
+//
+
+@implementation GTLROracleDatabase_ListDbVersionsResponse
+@dynamic dbVersions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dbVersions" : [GTLROracleDatabase_DbVersion class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dbVersions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_ListEntitlementsResponse
 //
 
@@ -1038,6 +1750,50 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 + (NSString *)collectionItemsKey {
   return @"entitlements";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListExadbVmClustersResponse
+//
+
+@implementation GTLROracleDatabase_ListExadbVmClustersResponse
+@dynamic exadbVmClusters, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exadbVmClusters" : [GTLROracleDatabase_ExadbVmCluster class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"exadbVmClusters";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListExascaleDbStorageVaultsResponse
+//
+
+@implementation GTLROracleDatabase_ListExascaleDbStorageVaultsResponse
+@dynamic exascaleDbStorageVaults, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exascaleDbStorageVaults" : [GTLROracleDatabase_ExascaleDbStorageVault class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"exascaleDbStorageVaults";
 }
 
 @end
@@ -1082,6 +1838,28 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 + (NSString *)collectionItemsKey {
   return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListMinorVersionsResponse
+//
+
+@implementation GTLROracleDatabase_ListMinorVersionsResponse
+@dynamic minorVersions, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"minorVersions" : [GTLROracleDatabase_MinorVersion class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"minorVersions";
 }
 
 @end
@@ -1139,17 +1917,40 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLROracleDatabase_Operation class]
+    @"operations" : [GTLROracleDatabase_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_ListPluggableDatabasesResponse
+//
+
+@implementation GTLROracleDatabase_ListPluggableDatabasesResponse
+@dynamic nextPageToken, pluggableDatabases;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pluggableDatabases" : [GTLROracleDatabase_PluggableDatabase class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"pluggableDatabases";
 }
 
 @end
@@ -1236,11 +2037,21 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_MinorVersion
+//
+
+@implementation GTLROracleDatabase_MinorVersion
+@dynamic gridImageId, name, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_OdbNetwork
 //
 
 @implementation GTLROracleDatabase_OdbNetwork
-@dynamic createTime, entitlementId, labels, name, network, state;
+@dynamic createTime, entitlementId, gcpOracleZone, labels, name, network, state;
 @end
 
 
@@ -1333,6 +2144,117 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROracleDatabase_PluggableDatabase
+//
+
+@implementation GTLROracleDatabase_PluggableDatabase
+@dynamic createTime, name, ociUrl, properties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_PluggableDatabaseConnectionStrings
+//
+
+@implementation GTLROracleDatabase_PluggableDatabaseConnectionStrings
+@dynamic allConnectionStrings, pdbDefault, pdbIpDefault;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_PluggableDatabaseConnectionStrings_AllConnectionStrings
+//
+
+@implementation GTLROracleDatabase_PluggableDatabaseConnectionStrings_AllConnectionStrings
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_PluggableDatabaseNodeLevelDetails
+//
+
+@implementation GTLROracleDatabase_PluggableDatabaseNodeLevelDetails
+@dynamic nodeName, openMode, pluggableDatabaseId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_PluggableDatabaseProperties
+//
+
+@implementation GTLROracleDatabase_PluggableDatabaseProperties
+@dynamic compartmentId, connectionStrings, containerDatabaseOcid,
+         databaseManagementConfig, definedTags, freeformTags, isRestricted,
+         lifecycleDetails, lifecycleState, ocid, operationsInsightsState,
+         pdbName, pdbNodeLevelDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pdbNodeLevelDetails" : [GTLROracleDatabase_PluggableDatabaseNodeLevelDetails class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_PluggableDatabaseProperties_DefinedTags
+//
+
+@implementation GTLROracleDatabase_PluggableDatabaseProperties_DefinedTags
+
++ (Class)classForAdditionalProperties {
+  return [GTLROracleDatabase_DefinedTagValue class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_PluggableDatabaseProperties_FreeformTags
+//
+
+@implementation GTLROracleDatabase_PluggableDatabaseProperties_FreeformTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_RemoveVirtualMachineExadbVmClusterRequest
+//
+
+@implementation GTLROracleDatabase_RemoveVirtualMachineExadbVmClusterRequest
+@dynamic hostnames, requestId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hostnames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROracleDatabase_RestartAutonomousDatabaseRequest
 //
 
@@ -1417,6 +2339,16 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_StopAutonomousDatabaseRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROracleDatabase_StorageSizeDetails
+//
+
+@implementation GTLROracleDatabase_StorageSizeDetails
+@dynamic dataStorageSizeInGbs, recoStorageSizeInGbs;
 @end
 
 

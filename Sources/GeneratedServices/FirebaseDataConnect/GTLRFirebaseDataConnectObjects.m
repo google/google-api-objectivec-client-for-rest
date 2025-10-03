@@ -347,6 +347,30 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseDataConnect_ImpersonateRequest
+//
+
+@implementation GTLRFirebaseDataConnect_ImpersonateRequest
+@dynamic extensions, operationName, variables;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_ImpersonateRequest_Variables
+//
+
+@implementation GTLRFirebaseDataConnect_ImpersonateRequest_Variables
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseDataConnect_Impersonation
 //
 

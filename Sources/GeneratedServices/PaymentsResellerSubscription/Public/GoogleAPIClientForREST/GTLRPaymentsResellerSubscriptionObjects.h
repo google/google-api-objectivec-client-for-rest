@@ -71,6 +71,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_CancelSubsc
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonAccountClosed;
 /**
+ *  Cancellation due to a billing system switch.
+ *
+ *  Value: "CANCELLATION_REASON_BILLING_SYSTEM_SWITCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonBillingSystemSwitch;
+/**
  *  Fraudualant transaction.
  *
  *  Value: "CANCELLATION_REASON_FRAUD"
@@ -384,6 +390,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscriptio
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonAccountClosed;
 /**
+ *  Cancellation due to a billing system switch.
+ *
+ *  Value: "CANCELLATION_REASON_BILLING_SYSTEM_SWITCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonBillingSystemSwitch;
+/**
  *  Fraudualant transaction.
  *
  *  Value: "CANCELLATION_REASON_FRAUD"
@@ -653,6 +665,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *    @arg @c kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonAccountClosed
  *        Used for notification only, do not use in Cancel API. User account
  *        closed. (Value: "CANCELLATION_REASON_ACCOUNT_CLOSED")
+ *    @arg @c kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonBillingSystemSwitch
+ *        Cancellation due to a billing system switch. (Value:
+ *        "CANCELLATION_REASON_BILLING_SYSTEM_SWITCH")
  *    @arg @c kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonFraud
  *        Fraudualant transaction. (Value: "CANCELLATION_REASON_FRAUD")
  *    @arg @c kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonOther
@@ -1651,6 +1666,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonAccountClosed
  *        Used for notification only, do not use in Cancel API. User account
  *        closed. (Value: "CANCELLATION_REASON_ACCOUNT_CLOSED")
+ *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonBillingSystemSwitch
+ *        Cancellation due to a billing system switch. (Value:
+ *        "CANCELLATION_REASON_BILLING_SYSTEM_SWITCH")
  *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonFraud
  *        Fraudualant transaction. (Value: "CANCELLATION_REASON_FRAUD")
  *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonOther

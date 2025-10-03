@@ -36,6 +36,7 @@ NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_Phishing 
 NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_Spam = @"SPAM";
 NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_TosViolation = @"TOS_VIOLATION";
 NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_TrafficPumping = @"TRAFFIC_PUMPING";
+NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_UnqualifiedEdu = @"UNQUALIFIED_EDU";
 NSString * const kGTLRAlertCenter_AccountSuspensionDetails_AbuseReason_UnwantedContent = @"UNWANTED_CONTENT";
 
 // GTLRAlertCenter_AccountSuspensionWarning.state

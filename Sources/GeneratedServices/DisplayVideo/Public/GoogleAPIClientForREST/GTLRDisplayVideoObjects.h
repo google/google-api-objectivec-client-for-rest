@@ -2141,6 +2141,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSmartstreamtv;
 /**
+ *  Snap.
+ *
+ *  Value: "EXCHANGE_SNAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSnap;
+/**
  *  SoundCast.
  *
  *  Value: "EXCHANGE_SOUNDCAST"
@@ -5019,6 +5025,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion9;
 /**
+ *  SDF version 9.1.
+ *
+ *  Value: "SDF_VERSION_9_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion91;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -7465,6 +7477,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSmartstreamtv;
 /**
+ *  Snap.
+ *
+ *  Value: "EXCHANGE_SNAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSnap;
+/**
  *  SoundCast.
  *
  *  Value: "EXCHANGE_SOUNDCAST"
@@ -7991,6 +8009,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmartstreamtv;
 /**
+ *  Snap.
+ *
+ *  Value: "EXCHANGE_SNAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSnap;
+/**
  *  SoundCast.
  *
  *  Value: "EXCHANGE_SOUNDCAST"
@@ -8516,6 +8540,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_SMARTSTREAMTV"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmartstreamtv;
+/**
+ *  Snap.
+ *
+ *  Value: "EXCHANGE_SNAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSnap;
 /**
  *  SoundCast.
  *
@@ -9071,6 +9101,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmartstreamtv;
 /**
+ *  Snap.
+ *
+ *  Value: "EXCHANGE_SNAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSnap;
+/**
  *  SoundCast.
  *
  *  Value: "EXCHANGE_SOUNDCAST"
@@ -9287,6 +9323,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudienc
  *  Value: "ACTIVITY_BASED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_ActivityBased GTLR_DEPRECATED;
+/**
+ *  Audience provided by an agency.
+ *
+ *  Value: "AGENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_Agency;
 /**
  *  Default value when type is not specified or is unknown.
  *
@@ -10795,6 +10837,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmartstreamtv;
 /**
+ *  Snap.
+ *
+ *  Value: "EXCHANGE_SNAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSnap;
+/**
  *  SoundCast.
  *
  *  Value: "EXCHANGE_SOUNDCAST"
@@ -12060,6 +12108,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_SMARTSTREAMTV"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmartstreamtv;
+/**
+ *  Snap.
+ *
+ *  Value: "EXCHANGE_SNAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSnap;
 /**
  *  SoundCast.
  *
@@ -14421,6 +14475,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion9;
 /**
+ *  SDF version 9.1.
+ *
+ *  Value: "SDF_VERSION_9_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion91;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -14534,6 +14594,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *  Value: "SDF_VERSION_9"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion9;
+/**
+ *  SDF version 9.1.
+ *
+ *  Value: "SDF_VERSION_9_1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion91;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -17496,6 +17562,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSmartstreamtv
  *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSnap
+ *        Snap. (Value: "EXCHANGE_SNAP")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSoundcast
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeSovrn
@@ -21687,6 +21755,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SDF version 9. Read the [v9 migration
  *        guide](/display-video/api/structured-data-file/v9-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_9")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion91
+ *        SDF version 9.1. (Value: "SDF_VERSION_9_1")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -23687,11 +23757,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` in the parent advertiser, then
  *  this field will be assigned `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` if
  *  not otherwise specified. This field can then be updated using the UI, API,
- *  or Structured Data Files. *Warning*: Starting **September 8, 2025**, this
- *  field must be set. If not, either the value
- *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` will be assigned to the line
- *  item if the parent advertiser has declared that it does not serve EU
- *  political ads, or **the request will fail**.
+ *  or Structured Data Files. This field must be assigned when creating a new
+ *  line item. Otherwise, **the `advertisers.lineItems.create` request will
+ *  fail**.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DuplicateLineItemRequest_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising
@@ -24119,6 +24187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSmartstreamtv
  *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSnap
+ *        Snap. (Value: "EXCHANGE_SNAP")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSoundcast
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeSovrn
@@ -24326,6 +24396,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSmartstreamtv
  *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSnap
+ *        Snap. (Value: "EXCHANGE_SNAP")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSoundcast
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeSovrn
@@ -24534,6 +24606,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSmartstreamtv
  *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSnap Snap.
+ *        (Value: "EXCHANGE_SNAP")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSoundcast
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeSovrn
@@ -24745,6 +24819,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSmartstreamtv
  *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSnap
+ *        Snap. (Value: "EXCHANGE_SNAP")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSoundcast
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeSovrn
@@ -24893,6 +24969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_ActivityBased
  *        Audience was created based on campaign activity. (Value:
  *        "ACTIVITY_BASED")
+ *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_Agency
+ *        Audience provided by an agency. (Value: "AGENCY")
  *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_AudienceTypeUnspecified
  *        Default value when type is not specified or is unknown. (Value:
  *        "AUDIENCE_TYPE_UNSPECIFIED")
@@ -25475,11 +25553,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` in the parent advertiser, then
  *  this field will be assigned `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` if
  *  not otherwise specified. This field can then be updated using the UI, API,
- *  or Structured Data Files. *Warning*: Starting **September 8, 2025**, this
- *  field must be set. If not, either the value
- *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` will be assigned to the line
- *  item if the parent advertiser has declared that it does not serve EU
- *  political ads, or **the request will fail**.
+ *  or Structured Data Files. This field must be assigned when creating a new
+ *  line item. Otherwise, **the `advertisers.lineItems.create` request will
+ *  fail**.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_GenerateDefaultLineItemRequest_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising
@@ -26152,6 +26228,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSmartstreamtv
  *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSnap Snap.
+ *        (Value: "EXCHANGE_SNAP")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSoundcast
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeSovrn Sovrn.
@@ -27260,6 +27338,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        SmartRTB+. (Value: "EXCHANGE_SMARTRTB")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSmartstreamtv
  *        SmartstreamTv. (Value: "EXCHANGE_SMARTSTREAMTV")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSnap Snap.
+ *        (Value: "EXCHANGE_SNAP")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSoundcast
  *        SoundCast. (Value: "EXCHANGE_SOUNDCAST")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeSovrn Sovrn.
@@ -28021,11 +28101,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` in the parent advertiser, then
  *  this field will be assigned `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` if
  *  not otherwise specified. This field can then be updated using the UI, API,
- *  or Structured Data Files. *Warning*: Starting **September 8, 2025**, this
- *  field must be set when creating a new line item. If not, either the value
- *  `DOES_NOT_CONTAIN_EU_POLITICAL_ADVERTISING` will be assigned if the parent
- *  advertiser has declared that it does not serve EU political ads, or **the
- *  `advertisers.lineItems.create` request will fail**.
+ *  or Structured Data Files. This field must be assigned when creating a new
+ *  line item. Otherwise, **the `advertisers.lineItems.create` request will
+ *  fail**.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_LineItem_ContainsEuPoliticalAds_ContainsEuPoliticalAdvertising
@@ -31571,6 +31649,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Read the [v9 migration
  *        guide](/display-video/api/structured-data-file/v9-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_9")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion91 SDF version 9.1.
+ *        (Value: "SDF_VERSION_9_1")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -31653,6 +31733,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        version 9. Read the [v9 migration
  *        guide](/display-video/api/structured-data-file/v9-migration-guide)
  *        before migrating to this version. (Value: "SDF_VERSION_9")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion91 SDF
+ *        version 9.1. (Value: "SDF_VERSION_9_1")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")

@@ -227,6 +227,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2ProjectDataProfile;
 @class GTLRDLP_GooglePrivacyDlpV2Proximity;
 @class GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog;
+@class GTLRDLP_GooglePrivacyDlpV2PublishFindingsToDataplexCatalog;
 @class GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToChronicle;
 @class GTLRDLP_GooglePrivacyDlpV2PublishToDataplexCatalog;
@@ -284,6 +285,8 @@
 @class GTLRDLP_GooglePrivacyDlpV2TableReference;
 @class GTLRDLP_GooglePrivacyDlpV2Tag;
 @class GTLRDLP_GooglePrivacyDlpV2TagCondition;
+@class GTLRDLP_GooglePrivacyDlpV2TagFilter;
+@class GTLRDLP_GooglePrivacyDlpV2TagFilters;
 @class GTLRDLP_GooglePrivacyDlpV2TaggedField;
 @class GTLRDLP_GooglePrivacyDlpV2TagResources;
 @class GTLRDLP_GooglePrivacyDlpV2TagValue;
@@ -3558,6 +3561,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Publish findings to Cloud Datahub. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog *publishFindingsToCloudDataCatalog;
+
+/** Publish findings as an aspect to Dataplex Universal Catalog. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishFindingsToDataplexCatalog *publishFindingsToDataplexCatalog;
 
 /** Publish summary to Cloud Security Command Center (Alpha). */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishSummaryToCscc *publishSummaryToCscc;
@@ -7733,6 +7739,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FileStoreRegexes *includeRegexes;
 
+/**
+ *  Optional. To be included in the collection, a resource must meet all of the
+ *  following requirements: - If tag filters are provided, match all provided
+ *  tag filters. - If one or more patterns are specified, match at least one
+ *  pattern. For a resource to match the tag filters, the resource must have all
+ *  of the provided tags attached. Tags refer to Resource Manager tags bound to
+ *  the resource or its ancestors. See
+ *  https://cloud.google.com/sensitive-data-protection/docs/profile-project-cloud-storage#manage-schedules
+ *  to learn more.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TagFilters *includeTags;
+
 @end
 
 
@@ -10371,6 +10389,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, copy, nullable) NSString *outputSchema;
 
 /**
+ *  Store findings in an existing Cloud Storage bucket. Files will be generated
+ *  with the job ID and file part number as the filename, and will contain
+ *  findings in textproto format as SaveToGcsFindingsOutput. The file name will
+ *  use the naming convention -, for example: my-job-id-2. Supported for Inspect
+ *  jobs. The bucket must not be the same as the bucket being inspected. If
+ *  storing findings to Cloud Storage, the output schema field should not be
+ *  set. If set, it will be ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStoragePath *storagePath;
+
+/**
  *  Store findings in an existing table or a new table in an existing dataset.
  *  If table_id is not set a new one will be generated for you with the
  *  following format: dlp_googleapis_yyyy_mm_dd_[dlp_job_id]. Pacific time zone
@@ -10629,6 +10658,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Inspect
  */
 @interface GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog : GTLRObject
+@end
+
+
+/**
+ *  Publish findings of a DlpJob to Dataplex Universal Catalog as a
+ *  `sensitive-data-protection-job-result` aspect. To learn more about aspects,
+ *  see [Send inspection results to Dataplex Universal Catalog as
+ *  aspects](https://cloud.google.com/sensitive-data-protection/docs/add-aspects-inspection-job).
+ *  Aspects are persisted in Dataplex Universal Catalog storage and are governed
+ *  by service-specific policies for Dataplex Universal Catalog. For more
+ *  information, see [Service Specific
+ *  Terms](https://cloud.google.com/terms/service-terms). Only a single instance
+ *  of this action can be specified. This action is allowed only if all
+ *  resources being scanned are BigQuery tables. Compatible with: Inspect
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2PublishFindingsToDataplexCatalog : GTLRObject
 @end
 
 
@@ -12077,6 +12122,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** The tag value to attach to resources. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TagValue *tag;
+
+@end
+
+
+/**
+ *  A single tag to filter against.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TagFilter : GTLRObject
+
+/**
+ *  The namespaced name for the tag key. Must be in the format
+ *  `{parent_id}/{tag_key_short_name}`, for example, "123456/sensitive" for an
+ *  organization parent, or "my-project/sensitive" for a project parent.
+ */
+@property(nonatomic, copy, nullable) NSString *namespacedTagKey;
+
+/**
+ *  The namespaced name for the tag value. Must be in the format
+ *  `{parent_id}/{tag_key_short_name}/{short_name}`, for example,
+ *  "123456/environment/prod" for an organization parent, or
+ *  "my-project/environment/prod" for a project parent.
+ */
+@property(nonatomic, copy, nullable) NSString *namespacedTagValue;
+
+@end
+
+
+/**
+ *  Tags to match against for filtering.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2TagFilters : GTLRObject
+
+/**
+ *  Required. A resource must match ALL of the specified tag filters to be
+ *  included in the collection.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2TagFilter *> *tagFilters;
 
 @end
 

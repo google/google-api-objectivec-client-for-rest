@@ -337,15 +337,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_Task_View_ViewUnspecified;
 // GTLRCloudTasks_UriOverride.scheme
 
 /**
- *  Convert the scheme to HTTP, e.g., https://www.google.ca will change to
- *  http://www.google.ca.
+ *  Convert the scheme to HTTP, e.g., "https://www.example.com" will change to
+ *  "http://www.example.com".
  *
  *  Value: "HTTP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_Scheme_Http;
 /**
- *  Convert the scheme to HTTPS, e.g., http://www.google.ca will change to
- *  https://www.google.ca.
+ *  Convert the scheme to HTTPS, e.g., "http://www.example.com" will change to
+ *  "https://www.example.com".
  *
  *  Value: "HTTPS"
  */
@@ -813,7 +813,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  *  Explicitly specifying a task ID enables task de-duplication. If a task's ID
  *  is identical to that of an existing task or a task that was deleted or
  *  executed recently then the call will fail with ALREADY_EXISTS. The IDs of
- *  deleted tasks are not immediately available for reuse. It can take up to 4
+ *  deleted tasks are not immediately available for reuse. It can take up to 24
  *  hours (or 9 days if the task's queue was created using a queue.yaml or
  *  queue.xml) for the task ID to be released and made available again. Because
  *  there is an extra lookup cost to identify duplicate task names, these
@@ -2095,9 +2095,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
 
 /**
  *  Port override. When specified, replaces the port part of the task URI. For
- *  instance, for a URI http://www.google.com/foo and port=123, the overridden
- *  URI becomes http://www.google.com:123/foo. Note that the port value must be
- *  a positive integer. Setting the port to 0 (Zero) clears the URI port.
+ *  instance, for a URI "https://www.example.com/example" and port=123, the
+ *  overridden URI becomes "https://www.example.com:123/example". Note that the
+ *  port value must be a positive integer. Setting the port to 0 (Zero) clears
+ *  the URI port.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2115,11 +2116,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasks_UriOverride_UriOverrideEnforc
  *
  *  Likely values:
  *    @arg @c kGTLRCloudTasks_UriOverride_Scheme_Http Convert the scheme to
- *        HTTP, e.g., https://www.google.ca will change to http://www.google.ca.
- *        (Value: "HTTP")
+ *        HTTP, e.g., "https://www.example.com" will change to
+ *        "http://www.example.com". (Value: "HTTP")
  *    @arg @c kGTLRCloudTasks_UriOverride_Scheme_Https Convert the scheme to
- *        HTTPS, e.g., http://www.google.ca will change to
- *        https://www.google.ca. (Value: "HTTPS")
+ *        HTTPS, e.g., "http://www.example.com" will change to
+ *        "https://www.example.com". (Value: "HTTPS")
  *    @arg @c kGTLRCloudTasks_UriOverride_Scheme_SchemeUnspecified Scheme
  *        unspecified. Defaults to HTTPS. (Value: "SCHEME_UNSPECIFIED")
  */

@@ -6,7 +6,7 @@
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
-//   https://developers.google.com/cloud-sql/
+//   https://cloud.google.com/sql/docs
 
 #import <GoogleAPIClientForREST/GTLRSQLAdminObjects.h>
 
@@ -61,6 +61,7 @@ NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres14 = @"POSTGRES_14
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres15 = @"POSTGRES_15";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres17 = @"POSTGRES_17";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres18 = @"POSTGRES_18";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -154,6 +155,7 @@ NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres14 = @"POSTGRES
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres15 = @"POSTGRES_15";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres17 = @"POSTGRES_17";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres18 = @"POSTGRES_18";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -228,6 +230,7 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres14 = @"PO
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres15 = @"POSTGRES_15";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres17 = @"POSTGRES_17";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres18 = @"POSTGRES_18";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -295,6 +298,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres14 = @"P
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres15 = @"POSTGRES_15";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres17 = @"POSTGRES_17";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres18 = @"POSTGRES_18";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -404,6 +408,7 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres14       = @"POSTGRES_14";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres15       = @"POSTGRES_15";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres16       = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres17       = @"POSTGRES_17";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres18       = @"POSTGRES_18";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres96       = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -553,6 +558,64 @@ NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Runnable   = @"RUNNABLE";
 NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_SqlInstanceStateUnspecified = @"SQL_INSTANCE_STATE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_PoolNodeConfig_State_Suspended  = @"SUSPENDED";
 
+// GTLRSQLAdmin_PreCheckMajorVersionUpgradeContext.targetDatabaseVersion
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql51 = @"MYSQL_5_1";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql55 = @"MYSQL_5_5";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql56 = @"MYSQL_5_6";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql57 = @"MYSQL_5_7";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql80 = @"MYSQL_8_0";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8018 = @"MYSQL_8_0_18";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8026 = @"MYSQL_8_0_26";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8027 = @"MYSQL_8_0_27";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8028 = @"MYSQL_8_0_28";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8029 = @"MYSQL_8_0_29";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8030 = @"MYSQL_8_0_30";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8031 = @"MYSQL_8_0_31";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8032 = @"MYSQL_8_0_32";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8033 = @"MYSQL_8_0_33";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8034 = @"MYSQL_8_0_34";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8035 = @"MYSQL_8_0_35";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8036 = @"MYSQL_8_0_36";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8037 = @"MYSQL_8_0_37";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8039 = @"MYSQL_8_0_39";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8040 = @"MYSQL_8_0_40";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8041 = @"MYSQL_8_0_41";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8042 = @"MYSQL_8_0_42";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8043 = @"MYSQL_8_0_43";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8044 = @"MYSQL_8_0_44";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8045 = @"MYSQL_8_0_45";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8046 = @"MYSQL_8_0_46";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql84 = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres10 = @"POSTGRES_10";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres11 = @"POSTGRES_11";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres12 = @"POSTGRES_12";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres13 = @"POSTGRES_13";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres14 = @"POSTGRES_14";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres15 = @"POSTGRES_15";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres16 = @"POSTGRES_16";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres17 = @"POSTGRES_17";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres18 = @"POSTGRES_18";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres96 = @"POSTGRES_9_6";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Express = @"SQLSERVER_2017_EXPRESS";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Standard = @"SQLSERVER_2017_STANDARD";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Web = @"SQLSERVER_2017_WEB";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Enterprise = @"SQLSERVER_2019_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Express = @"SQLSERVER_2019_EXPRESS";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Standard = @"SQLSERVER_2019_STANDARD";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2019Web = @"SQLSERVER_2019_WEB";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Enterprise = @"SQLSERVER_2022_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
+
+// GTLRSQLAdmin_PreCheckResponse.messageType
+NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Error = @"ERROR";
+NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Info = @"INFO";
+NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_MessageTypeUnspecified = @"MESSAGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Warning = @"WARNING";
+
 // GTLRSQLAdmin_Reschedule.rescheduleType
 NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_Immediate = @"IMMEDIATE";
 NSString * const kGTLRSQLAdmin_Reschedule_RescheduleType_NextAvailableWindow = @"NEXT_AVAILABLE_WINDOW";
@@ -630,6 +693,7 @@ NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MissingOptionalP
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_MysqlParallelImportInsufficientPrivilege = @"MYSQL_PARALLEL_IMPORT_INSUFFICIENT_PRIVILEGE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_NoPglogicalInstalled = @"NO_PGLOGICAL_INSTALLED";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgCronFlagEnabledInReplica = @"PG_CRON_FLAG_ENABLED_IN_REPLICA";
+NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgDdlReplicationInsufficientPrivilege = @"PG_DDL_REPLICATION_INSUFFICIENT_PRIVILEGE";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PglogicalNodeAlreadyExists = @"PGLOGICAL_NODE_ALREADY_EXISTS";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSubscriptionCount = @"PG_SUBSCRIPTION_COUNT";
 NSString * const kGTLRSQLAdmin_SqlExternalSyncSettingError_Type_PgSyncParallelLevel = @"PG_SYNC_PARALLEL_LEVEL";
@@ -711,6 +775,11 @@ NSString * const kGTLRSQLAdmin_User_DualPasswordType_DualPassword = @"DUAL_PASSW
 NSString * const kGTLRSQLAdmin_User_DualPasswordType_DualPasswordTypeUnspecified = @"DUAL_PASSWORD_TYPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_User_DualPasswordType_NoDualPassword = @"NO_DUAL_PASSWORD";
 NSString * const kGTLRSQLAdmin_User_DualPasswordType_NoModifyDualPassword = @"NO_MODIFY_DUAL_PASSWORD";
+
+// GTLRSQLAdmin_User.iamStatus
+NSString * const kGTLRSQLAdmin_User_IamStatus_Active           = @"ACTIVE";
+NSString * const kGTLRSQLAdmin_User_IamStatus_IamStatusUnspecified = @"IAM_STATUS_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_User_IamStatus_Inactive         = @"INACTIVE";
 
 // GTLRSQLAdmin_User.type
 NSString * const kGTLRSQLAdmin_User_Type_BuiltIn               = @"BUILT_IN";
@@ -1801,6 +1870,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_InstancesPreCheckMajorVersionUpgradeRequest
+//
+
+@implementation GTLRSQLAdmin_InstancesPreCheckMajorVersionUpgradeRequest
+@dynamic preCheckMajorVersionUpgradeContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_InstancesReencryptRequest
 //
 
@@ -1958,6 +2037,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_Message
+//
+
+@implementation GTLRSQLAdmin_Message
+@dynamic message, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_Metadata
 //
 
@@ -2036,8 +2125,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_Operation
 @dynamic acquireSsrsLeaseContext, apiWarning, backupContext, endTime, error,
          exportContext, importContext, insertTime, kind, name, operationType,
-         selfLink, startTime, status, subOperationType, targetId, targetLink,
-         targetProject, user;
+         preCheckMajorVersionUpgradeContext, selfLink, startTime, status,
+         subOperationType, targetId, targetLink, targetProject, user;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -2187,6 +2276,48 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_PreCheckMajorVersionUpgradeContext
+//
+
+@implementation GTLRSQLAdmin_PreCheckMajorVersionUpgradeContext
+@dynamic kind, preCheckResponse, targetDatabaseVersion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"preCheckResponse" : [GTLRSQLAdmin_PreCheckResponse class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_PreCheckResponse
+//
+
+@implementation GTLRSQLAdmin_PreCheckResponse
+@dynamic actionsRequired, message, messageType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actionsRequired" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_PscAutoConnectionConfig
 //
 
@@ -2228,6 +2359,25 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
   NSDictionary<NSString *, Class> *map = @{
     @"columns" : [GTLRSQLAdmin_Column class],
     @"rows" : [GTLRSQLAdmin_Row class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_ReadPoolAutoScaleConfig
+//
+
+@implementation GTLRSQLAdmin_ReadPoolAutoScaleConfig
+@dynamic disableScaleIn, enabled, maxNodeCount, minNodeCount,
+         scaleInCooldownSeconds, scaleOutCooldownSeconds, targetMetrics;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetMetrics" : [GTLRSQLAdmin_TargetMetric class]
   };
   return map;
 }
@@ -2367,9 +2517,10 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          enableDataplexIntegration, enableGoogleMlIntegration,
          finalBackupConfig, insightsConfig, ipConfiguration, kind,
          locationPreference, maintenanceWindow, passwordValidationPolicy,
-         pricingPlan, replicationLagMaxSeconds, replicationType,
-         retainBackupsOnDelete, settingsVersion, sqlServerAuditConfig,
-         storageAutoResize, storageAutoResizeLimit, tier, timeZone, userLabels;
+         pricingPlan, readPoolAutoScaleConfig, replicationLagMaxSeconds,
+         replicationType, retainBackupsOnDelete, settingsVersion,
+         sqlServerAuditConfig, storageAutoResize, storageAutoResizeLimit, tier,
+         timeZone, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2461,10 +2612,11 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_SqlInstancesExecuteSqlResponse
-@dynamic metadata, results;
+@dynamic messages, metadata, results;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"messages" : [GTLRSQLAdmin_Message class],
     @"results" : [GTLRSQLAdmin_QueryResult class]
   };
   return map;
@@ -2776,6 +2928,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_TargetMetric
+//
+
+@implementation GTLRSQLAdmin_TargetMetric
+@dynamic metric, targetValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_Tier
 //
 
@@ -2845,8 +3007,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_User
-@dynamic dualPasswordType, ETag, host, instance, kind, name, password,
-         passwordPolicy, project, sqlserverUserDetails, type;
+@dynamic dualPasswordType, ETag, host, iamStatus, instance, kind, name,
+         password, passwordPolicy, project, sqlserverUserDetails, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

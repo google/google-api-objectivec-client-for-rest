@@ -573,6 +573,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to true, operations that are reachable are returned as normal, and
+ *  those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field.This can only be true when reading
+ *  across collections e.g. when parent is set to
+ *  "projects/example/locations/-".This field is not by default supported and
+ *  will result in an UNIMPLEMENTED error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -941,6 +952,140 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *    value for this field.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataplex.projects.locations.changeRequests.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsGetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: dataplex.projects.locations.changeRequests.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsSetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataplex.projects.locations.changeRequests.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsTestIamPermissions : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsTestIamPermissions
  */
 + (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
@@ -2973,7 +3118,11 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Gets an Entry.
+ *  Gets an Entry. Caution: The Vertex AI, Bigtable, Spanner, Pub/Sub, Dataform,
+ *  and Dataproc Metastore metadata that is stored in Dataplex Universal Catalog
+ *  is changing. For more information, see Changes to metadata stored in
+ *  Dataplex Universal Catalog
+ *  (https://cloud.google.com/dataplex/docs/metadata-changes).
  *
  *  Method: dataplex.projects.locations.entryGroups.entries.get
  *
@@ -3021,7 +3170,11 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Entry.
  *
- *  Gets an Entry.
+ *  Gets an Entry. Caution: The Vertex AI, Bigtable, Spanner, Pub/Sub, Dataform,
+ *  and Dataproc Metastore metadata that is stored in Dataplex Universal Catalog
+ *  is changing. For more information, see Changes to metadata stored in
+ *  Dataplex Universal Catalog
+ *  (https://cloud.google.com/dataplex/docs/metadata-changes).
  *
  *  @param name Required. The resource name of the Entry:
  *    projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}.
@@ -3033,7 +3186,11 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Lists Entries within an EntryGroup.
+ *  Lists Entries within an EntryGroup. Caution: The Vertex AI, Bigtable,
+ *  Spanner, Pub/Sub, Dataform, and Dataproc Metastore metadata that is stored
+ *  in Dataplex Universal Catalog is changing. For more information, see Changes
+ *  to metadata stored in Dataplex Universal Catalog
+ *  (https://cloud.google.com/dataplex/docs/metadata-changes).
  *
  *  Method: dataplex.projects.locations.entryGroups.entries.list
  *
@@ -3080,7 +3237,11 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1ListEntriesResponse.
  *
- *  Lists Entries within an EntryGroup.
+ *  Lists Entries within an EntryGroup. Caution: The Vertex AI, Bigtable,
+ *  Spanner, Pub/Sub, Dataform, and Dataproc Metastore metadata that is stored
+ *  in Dataplex Universal Catalog is changing. For more information, see Changes
+ *  to metadata stored in Dataplex Universal Catalog
+ *  (https://cloud.google.com/dataplex/docs/metadata-changes).
  *
  *  @param parent Required. The resource name of the parent Entry Group:
  *    projects/{project}/locations/{location}/entryGroups/{entry_group}.
@@ -8495,6 +8656,10 @@ GTLR_DEPRECATED
 
 /**
  *  Looks up an entry by name using the permission on the source system.
+ *  Caution: The Vertex AI, Bigtable, Spanner, Pub/Sub, Dataform, and Dataproc
+ *  Metastore metadata that is stored in Dataplex Universal Catalog is changing.
+ *  For more information, see Changes to metadata stored in Dataplex Universal
+ *  Catalog (https://cloud.google.com/dataplex/docs/metadata-changes).
  *
  *  Method: dataplex.projects.locations.lookupEntry
  *
@@ -8549,6 +8714,10 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Entry.
  *
  *  Looks up an entry by name using the permission on the source system.
+ *  Caution: The Vertex AI, Bigtable, Spanner, Pub/Sub, Dataform, and Dataproc
+ *  Metastore metadata that is stored in Dataplex Universal Catalog is changing.
+ *  For more information, see Changes to metadata stored in Dataplex Universal
+ *  Catalog (https://cloud.google.com/dataplex/docs/metadata-changes).
  *
  *  @param name Required. The project to which the request should be attributed
  *    in the following form: projects/{project}/locations/{location}.
@@ -8869,6 +9038,17 @@ GTLR_DEPRECATED
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to true, operations that are reachable are returned as normal, and
+ *  those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field.This can only be true when reading
+ *  across collections e.g. when parent is set to
+ *  "projects/example/locations/-".This field is not by default supported and
+ *  will result in an UNIMPLEMENTED error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningListOperationsResponse.

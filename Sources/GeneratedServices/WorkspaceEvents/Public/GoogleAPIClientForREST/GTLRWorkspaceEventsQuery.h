@@ -83,11 +83,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a Google Workspace subscription. To learn how to use this method,
  *  see [Create a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/create-subscription).
+ *  For a subscription on a [Chat target
+ *  resource](https://developers.google.com/workspace/events/guides/events-chat),
+ *  you can create a subscription as: - A Chat app by specifying an
+ *  authorization scope that begins with `chat.app` and getting one-time
+ *  administrator approval ([Developer
+ *  Preview](https://developers.google.com/workspace/preview)). To learn more,
+ *  see [Authorize as a Chat app with administrator
+ *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
+ *  - A user by specifying an authorization scope that doesn't include `app` in
+ *  its name. To learn more, see [Authorize as a Chat
+ *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  Method: workspaceevents.subscriptions.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
@@ -119,6 +131,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Creates a Google Workspace subscription. To learn how to use this method,
  *  see [Create a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/create-subscription).
+ *  For a subscription on a [Chat target
+ *  resource](https://developers.google.com/workspace/events/guides/events-chat),
+ *  you can create a subscription as: - A Chat app by specifying an
+ *  authorization scope that begins with `chat.app` and getting one-time
+ *  administrator approval ([Developer
+ *  Preview](https://developers.google.com/workspace/preview)). To learn more,
+ *  see [Authorize as a Chat app with administrator
+ *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
+ *  - A user by specifying an authorization scope that doesn't include `app` in
+ *  its name. To learn more, see [Authorize as a Chat
+ *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  @param object The @c GTLRWorkspaceEvents_Subscription to include in the
  *    query.
@@ -327,11 +350,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates or renews a Google Workspace subscription. To learn how to use this
  *  method, see [Update or renew a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/update-subscription).
+ *  For a subscription on a [Chat target
+ *  resource](https://developers.google.com/workspace/events/guides/events-chat),
+ *  you can update a subscription as: - A Chat app by specifying an
+ *  authorization scope that begins with `chat.app` andgetting one-time
+ *  administrator approval ([Developer
+ *  Preview](https://developers.google.com/workspace/preview)). To learn more,
+ *  see [Authorize as a Chat app with administrator
+ *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
+ *  - A user by specifying an authorization scope that doesn't include `app` in
+ *  its name. To learn more, see [Authorize as a Chat
+ *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  Method: workspaceevents.subscriptions.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
@@ -382,6 +417,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates or renews a Google Workspace subscription. To learn how to use this
  *  method, see [Update or renew a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/update-subscription).
+ *  For a subscription on a [Chat target
+ *  resource](https://developers.google.com/workspace/events/guides/events-chat),
+ *  you can update a subscription as: - A Chat app by specifying an
+ *  authorization scope that begins with `chat.app` andgetting one-time
+ *  administrator approval ([Developer
+ *  Preview](https://developers.google.com/workspace/preview)). To learn more,
+ *  see [Authorize as a Chat app with administrator
+ *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
+ *  - A user by specifying an authorization scope that doesn't include `app` in
+ *  its name. To learn more, see [Authorize as a Chat
+ *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  @param object The @c GTLRWorkspaceEvents_Subscription to include in the
  *    query.
@@ -402,11 +448,23 @@ NS_ASSUME_NONNULL_BEGIN
  *  ignore or reject any subscription that isn't currently in a suspended state.
  *  To learn how to use this method, see [Reactivate a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription).
+ *  For a subscription on a [Chat target
+ *  resource](https://developers.google.com/workspace/events/guides/events-chat),
+ *  you can reactivate a subscription as: - A Chat app by specifying an
+ *  authorization scope that begins with `chat.app` andgetting one-time
+ *  administrator approval ([Developer
+ *  Preview](https://developers.google.com/workspace/preview)). To learn more,
+ *  see [Authorize as a Chat app with administrator
+ *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
+ *  - A user by specifying an authorization scope that doesn't include `app` in
+ *  its name. To learn more, see [Authorize as a Chat
+ *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  Method: workspaceevents.subscriptions.reactivate
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
@@ -441,6 +499,17 @@ NS_ASSUME_NONNULL_BEGIN
  *  ignore or reject any subscription that isn't currently in a suspended state.
  *  To learn how to use this method, see [Reactivate a Google Workspace
  *  subscription](https://developers.google.com/workspace/events/guides/reactivate-subscription).
+ *  For a subscription on a [Chat target
+ *  resource](https://developers.google.com/workspace/events/guides/events-chat),
+ *  you can reactivate a subscription as: - A Chat app by specifying an
+ *  authorization scope that begins with `chat.app` andgetting one-time
+ *  administrator approval ([Developer
+ *  Preview](https://developers.google.com/workspace/preview)). To learn more,
+ *  see [Authorize as a Chat app with administrator
+ *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
+ *  - A user by specifying an authorization scope that doesn't include `app` in
+ *  its name. To learn more, see [Authorize as a Chat
+ *  user](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user).
  *
  *  @param object The @c GTLRWorkspaceEvents_ReactivateSubscriptionRequest to
  *    include in the query.

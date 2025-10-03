@@ -112,6 +112,7 @@ NSString * const kGTLRCloudRedis_CrossClusterReplicationConfig_ClusterRole_Secon
 // GTLRCloudRedis_DatabaseResourceFeed.feedType
 NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_BackupdrMetadata = @"BACKUPDR_METADATA";
 NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_ConfigBasedSignalData = @"CONFIG_BASED_SIGNAL_DATA";
+NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_DatabaseResourceSignalData = @"DATABASE_RESOURCE_SIGNAL_DATA";
 NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_FeedtypeUnspecified = @"FEEDTYPE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_ObservabilityData = @"OBSERVABILITY_DATA";
 NSString * const kGTLRCloudRedis_DatabaseResourceFeed_FeedType_RecommendationSignalData = @"RECOMMENDATION_SIGNAL_DATA";
@@ -416,6 +417,20 @@ NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_Signal
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatesSoc2V2017 = @"SIGNAL_TYPE_VIOLATES_SOC2_V2017";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeWeakPasswordHashAlgorithm = @"SIGNAL_TYPE_WEAK_PASSWORD_HASH_ALGORITHM";
 NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeWeakRootPassword = @"SIGNAL_TYPE_WEAK_ROOT_PASSWORD";
+
+// GTLRCloudRedis_DatabaseResourceSignalData.signalState
+NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_Active = @"ACTIVE";
+NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_Dismissed = @"DISMISSED";
+NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_Inactive = @"INACTIVE";
+NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalState_SignalStateUnspecified = @"SIGNAL_STATE_UNSPECIFIED";
+
+// GTLRCloudRedis_DatabaseResourceSignalData.signalType
+NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeDatabaseAuditingDisabled = @"SIGNAL_TYPE_DATABASE_AUDITING_DISABLED";
+NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess = @"SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS";
+NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword = @"SIGNAL_TYPE_NO_ROOT_PASSWORD";
+NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeOutdatedMinorVersion = @"SIGNAL_TYPE_OUTDATED_MINOR_VERSION";
+NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeUnencryptedConnections = @"SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS";
+NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeUnspecified = @"SIGNAL_TYPE_UNSPECIFIED";
 
 // GTLRCloudRedis_EncryptionInfo.encryptionType
 NSString * const kGTLRCloudRedis_EncryptionInfo_EncryptionType_CustomerManagedEncryption = @"CUSTOMER_MANAGED_ENCRYPTION";
@@ -991,9 +1006,10 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_DatabaseResourceFeed
-@dynamic backupdrMetadata, configBasedSignalData, feedTimestamp, feedType,
-         observabilityMetricData, recommendationSignalData,
-         resourceHealthSignalData, resourceId, resourceMetadata, skipIngestion;
+@dynamic backupdrMetadata, configBasedSignalData, databaseResourceSignalData,
+         feedTimestamp, feedType, observabilityMetricData,
+         recommendationSignalData, resourceHealthSignalData, resourceId,
+         resourceMetadata, skipIngestion;
 @end
 
 
@@ -1056,10 +1072,14 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
          entitlements, expectedState, gcbdrConfiguration, identifier,
          instanceType, location, machineConfiguration, primaryResourceId,
          primaryResourceLocation, product, resourceContainer, resourceName,
-         suspensionReason, tagsSet, updationTime, userLabelSet;
+         suspensionReason, tagsSet, updationTime, userLabelSet, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"identifier" : @"id",
+    @"zoneProperty" : @"zone"
+  };
+  return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1094,6 +1114,17 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_DatabaseResourceSignalData
+//
+
+@implementation GTLRCloudRedis_DatabaseResourceSignalData
+@dynamic fullResourceName, lastRefreshTime, resourceId, signalBoolValue,
+         signalState, signalType;
 @end
 
 

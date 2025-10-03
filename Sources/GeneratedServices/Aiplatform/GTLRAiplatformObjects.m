@@ -200,12 +200,6 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Runn
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Succeeded = @"SUCCEEDED";
 
-// GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec.type
-NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_Bleu = @"BLEU";
-NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_ComputationBasedMetricTypeUnspecified = @"COMPUTATION_BASED_METRIC_TYPE_UNSPECIFIED";
-NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_ExactMatch = @"EXACT_MATCH";
-NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_Rouge = @"ROUGE";
-
 // GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec.rubricContentType
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec_RubricContentType_NlQuestionAnswer = @"NL_QUESTION_ANSWER";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec_RubricContentType_Property = @"PROPERTY";
@@ -430,6 +424,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorT
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH100Mega80gb = @"NVIDIA_H100_MEGA_80GB";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaH200141gb = @"NVIDIA_H200_141GB";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaL4 = @"NVIDIA_L4";
+NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaRtxPro6000 = @"NVIDIA_RTX_PRO_6000";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaTeslaK80 = @"NVIDIA_TESLA_K80";
 NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
@@ -1690,7 +1685,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1AutoraterConfig
-@dynamic autoraterModel, flipEnabled, samplingCount;
+@dynamic autoraterModel, flipEnabled, generationConfig, samplingCount;
 @end
 
 
@@ -3913,7 +3908,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1DeployRequestEndpointConfig
 @dynamic dedicatedEndpointDisabled, dedicatedEndpointEnabled,
-         endpointDisplayName, endpointUserId;
+         endpointDisplayName, endpointUserId, privateServiceConnectConfig;
 @end
 
 
@@ -4675,32 +4670,8 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetric
-@dynamic computationBasedMetricSpec, llmBasedMetricSpec, metric,
-         predefinedMetricSpec, rubricBasedMetricSpec;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec
-//
-
-@implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec
-@dynamic parameters, type;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Parameters
-//
-
-@implementation GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Parameters
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
+@dynamic llmBasedMetricSpec, metric, predefinedMetricSpec,
+         rubricBasedMetricSpec;
 @end
 
 
@@ -6912,6 +6883,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GoogleMaps
+@dynamic enableWidget;
 @end
 
 
@@ -6991,7 +6963,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSources
-@dynamic flagContentUri, reviewSnippets;
+@dynamic reviewSnippets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -7005,22 +6977,11 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution
-//
-
-@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution
-@dynamic displayName, photoUri, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet
-@dynamic authorAttribution, flagContentUri, googleMapsUri,
-         relativePublishTimeDescription, review;
+@dynamic googleMapsUri, reviewId, title;
 @end
 
 
@@ -7051,17 +7012,29 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata
 @dynamic googleMapsWidgetContextToken, groundingChunks, groundingSupports,
-         retrievalMetadata, searchEntryPoint, webSearchQueries;
+         retrievalMetadata, searchEntryPoint, sourceFlaggingUris,
+         webSearchQueries;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"groundingChunks" : [GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunk class],
     @"groundingSupports" : [GTLRAiplatform_GoogleCloudAiplatformV1GroundingSupport class],
+    @"sourceFlaggingUris" : [GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadataSourceFlaggingUri class],
     @"webSearchQueries" : [NSString class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadataSourceFlaggingUri
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadataSourceFlaggingUri
+@dynamic flagContentUri, sourceId;
 @end
 
 
@@ -7565,6 +7538,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1IntegratedGradientsAttribution
 @dynamic blurBaselineConfig, smoothGradConfig, stepCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest
+@dynamic deployedModelId, httpBody;
 @end
 
 
@@ -8874,6 +8857,32 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAiplatform_GoogleCloudAiplatformV1LLMBasedMetricSpec
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1LLMBasedMetricSpec
+@dynamic additionalConfig, judgeAutoraterConfig, metricPromptTemplate,
+         predefinedRubricGenerationSpec, rubricGenerationSpec, rubricGroupKey,
+         systemInstruction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1LLMBasedMetricSpec_AdditionalConfig
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1LLMBasedMetricSpec_AdditionalConfig
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResult
 //
 
@@ -8926,6 +8935,16 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1LookupStudyRequest
 @dynamic displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAiplatform_GoogleCloudAiplatformV1LustreMount
+//
+
+@implementation GTLRAiplatform_GoogleCloudAiplatformV1LustreMount
+@dynamic filesystem, instanceIp, mountPoint, volumeHandle;
 @end
 
 
@@ -9054,8 +9073,9 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1Metric
-@dynamic aggregationMetrics, bleuSpec, exactMatchSpec, pairwiseMetricSpec,
-         pointwiseMetricSpec, predefinedMetricSpec, rougeSpec;
+@dynamic aggregationMetrics, bleuSpec, exactMatchSpec, llmBasedMetricSpec,
+         pairwiseMetricSpec, pointwiseMetricSpec, predefinedMetricSpec,
+         rougeSpec;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -18348,11 +18368,12 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMetadata_UrlRetrieval
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1WorkerPoolSpec
-@dynamic containerSpec, diskSpec, machineSpec, nfsMounts, pythonPackageSpec,
-         replicaCount;
+@dynamic containerSpec, diskSpec, lustreMounts, machineSpec, nfsMounts,
+         pythonPackageSpec, replicaCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"lustreMounts" : [GTLRAiplatform_GoogleCloudAiplatformV1LustreMount class],
     @"nfsMounts" : [GTLRAiplatform_GoogleCloudAiplatformV1NfsMount class]
   };
   return map;

@@ -63,6 +63,39 @@ NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInf
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInfo_Status_Unhealthy = @"UNHEALTHY";
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInfo_Status_Unresponsive = @"UNRESPONSIVE";
 
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application.schema
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application_Schema_ApiGateway = @"API_GATEWAY";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application_Schema_ProxyGateway = @"PROXY_GATEWAY";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application_Schema_SchemaUnspecified = @"SCHEMA_UNSPECIFIED";
+
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders.outputType
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_Json = @"JSON";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_None = @"NONE";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_OutputTypeUnspecified = @"OUTPUT_TYPE_UNSPECIFIED";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_Protobuf = @"PROTOBUF";
+
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo.outputType
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_Json = @"JSON";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_None = @"NONE";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_OutputTypeUnspecified = @"OUTPUT_TYPE_UNSPECIFIED";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_Protobuf = @"PROTOBUF";
+
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo.outputType
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_Json = @"JSON";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_None = @"NONE";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_OutputTypeUnspecified = @"OUTPUT_TYPE_UNSPECIFIED";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_Protobuf = @"PROTOBUF";
+
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo.outputType
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_Json = @"JSON";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_None = @"NONE";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_OutputTypeUnspecified = @"OUTPUT_TYPE_UNSPECIFIED";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_Protobuf = @"PROTOBUF";
+
+// GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig.gatewayIdentity
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_GatewayIdentity_GatewayIdentityUnspecified = @"GATEWAY_IDENTITY_UNSPECIFIED";
+NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_GatewayIdentity_ResourceName = @"RESOURCE_NAME";
+
 // GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway.state
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Creating = @"CREATING";
 NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_State_Deleting = @"DELETING";
@@ -703,7 +736,8 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 //
 
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Application
-@dynamic createTime, displayName, endpointMatchers, name, updateTime, upstreams;
+@dynamic createTime, displayName, endpointMatchers, name, schema, updateTime,
+         upstreams;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -722,7 +756,25 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 //
 
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstream
-@dynamic egressPolicy, network;
+@dynamic egressPolicy, external, network, proxyProtocol;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamExternal
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamExternal
+@dynamic endpoints;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"endpoints" : [GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Endpoint class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -733,6 +785,46 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ApplicationUpstreamNetwork
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders
+@dynamic deviceInfo, groupInfo, outputType, userInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo
+@dynamic outputType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo
+@dynamic outputType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo
+@dynamic outputType;
 @end
 
 
@@ -751,6 +843,16 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Endpoint
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Endpoint
+@dynamic hostname, port;
 @end
 
 
@@ -848,12 +950,45 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig
+@dynamic allowedClientHeaders, clientIp, contextualHeaders, gatewayIdentity,
+         metadataHeaders;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedClientHeaders" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_MetadataHeaders
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_MetadataHeaders
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway
 //
 
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway
 @dynamic createTime, delegatingServiceAccount, displayName, externalIps, hubs,
-         name, state, updateTime;
+         name, proxyProtocolConfig, serviceDiscovery, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -887,6 +1022,36 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGatewayOperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscovery
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscovery
+@dynamic apiGateway;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGateway
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGateway
+@dynamic resourceOverride;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGatewayOperationDescriptor
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGatewayOperationDescriptor
+@dynamic path;
 @end
 
 

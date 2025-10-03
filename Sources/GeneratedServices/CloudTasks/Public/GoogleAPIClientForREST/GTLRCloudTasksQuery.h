@@ -136,8 +136,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @interface GTLRCloudTasksQuery_ProjectsLocationsList : GTLRCloudTasksQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -787,7 +787,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @end
 
 /**
- *  Gets a task.
+ *  Gets a task. After a task is successfully executed or has exhausted its
+ *  retry attempts, the task is deleted. A `GetTask` request for a deleted task
+ *  returns a `NOT_FOUND` error.
  *
  *  Method: cloudtasks.projects.locations.queues.tasks.get
  *
@@ -828,7 +830,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudTasks_Task.
  *
- *  Gets a task.
+ *  Gets a task. After a task is successfully executed or has exhausted its
+ *  retry attempts, the task is deleted. A `GetTask` request for a deleted task
+ *  returns a `NOT_FOUND` error.
  *
  *  @param name Required. The task name. For example:
  *    `projects/PROJECT_ID/locations/LOCATION_ID/queues/QUEUE_ID/tasks/TASK_ID`

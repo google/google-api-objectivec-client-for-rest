@@ -523,7 +523,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 @end
 
 /**
- *  Initiates the cancellation of a running clone job.
+ *  Initiates the cancellation of a running ImageImportJob.
  *
  *  Method: vmmigration.projects.locations.imageImports.imageImportJobs.cancel
  *
@@ -538,7 +538,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationServiceViewUtilizationReportV
 /**
  *  Fetches a @c GTLRVMMigrationService_Operation.
  *
- *  Initiates the cancellation of a running clone job.
+ *  Initiates the cancellation of a running ImageImportJob.
  *
  *  @param object The @c GTLRVMMigrationService_CancelImageImportJobRequest to
  *    include in the query.

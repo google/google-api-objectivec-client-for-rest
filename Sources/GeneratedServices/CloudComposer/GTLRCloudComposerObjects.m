@@ -43,6 +43,11 @@ NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Pending = @"PEN
 NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRCloudComposer_ComposerWorkloadStatus_State_Warning = @"WARNING";
 
+// GTLRCloudComposer_ConfigConflict.type
+NSString * const kGTLRCloudComposer_ConfigConflict_Type_Blocking = @"BLOCKING";
+NSString * const kGTLRCloudComposer_ConfigConflict_Type_ConflictTypeUnspecified = @"CONFLICT_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudComposer_ConfigConflict_Type_NonBlocking = @"NON_BLOCKING";
+
 // GTLRCloudComposer_Environment.state
 NSString * const kGTLRCloudComposer_Environment_State_Creating = @"CREATING";
 NSString * const kGTLRCloudComposer_Environment_State_Deleting = @"DELETING";
@@ -136,8 +141,16 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 //
 
 @implementation GTLRCloudComposer_CheckUpgradeResponse
-@dynamic buildLogUri, containsPypiModulesConflict, imageVersion,
-         pypiConflictBuildLogExtract, pypiDependencies;
+@dynamic buildLogUri, configConflicts, containsPypiModulesConflict,
+         imageVersion, pypiConflictBuildLogExtract, pypiDependencies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configConflicts" : [GTLRCloudComposer_ConfigConflict class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -192,6 +205,16 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 
 @implementation GTLRCloudComposer_ComposerWorkloadStatus
 @dynamic detailedStatusMessage, state, statusMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudComposer_ConfigConflict
+//
+
+@implementation GTLRCloudComposer_ConfigConflict
+@dynamic message, type;
 @end
 
 
@@ -455,11 +478,12 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 //
 
 @implementation GTLRCloudComposer_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudComposer_Operation class]
+    @"operations" : [GTLRCloudComposer_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
