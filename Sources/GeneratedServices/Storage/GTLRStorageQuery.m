@@ -479,8 +479,8 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @implementation GTLRStorageQuery_BucketsList
 
-@dynamic maxResults, pageToken, prefix, project, projection, softDeleted,
-         userProject;
+@dynamic maxResults, pageToken, prefix, project, projection,
+         returnPartialSuccess, softDeleted, userProject;
 
 + (instancetype)queryWithProject:(NSString *)project {
   NSString *pathURITemplate = @"b";

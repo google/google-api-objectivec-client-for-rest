@@ -70,6 +70,12 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDomainsQuery_ProjectsLocationsList : GTLRCloudDomainsQuery
 
 /**
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
  *  A filter to narrow down results to a preferred subset. The filtering
  *  language accepts strings like `"displayName=tokyo"`, and is documented in
  *  more detail in [AIP-160](https://google.aip.dev/160).

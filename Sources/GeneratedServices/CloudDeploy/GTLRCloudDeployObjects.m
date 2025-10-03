@@ -1682,11 +1682,12 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudDeploy_Operation class]
+    @"operations" : [GTLRCloudDeploy_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

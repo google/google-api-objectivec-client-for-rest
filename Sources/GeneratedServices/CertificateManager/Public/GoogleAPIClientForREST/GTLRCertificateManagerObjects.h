@@ -24,12 +24,14 @@
 @class GTLRCertificateManager_CertificateMap_Labels;
 @class GTLRCertificateManager_CertificateMapEntry;
 @class GTLRCertificateManager_CertificateMapEntry_Labels;
+@class GTLRCertificateManager_CNAME;
 @class GTLRCertificateManager_DnsAuthorization;
 @class GTLRCertificateManager_DnsAuthorization_Labels;
 @class GTLRCertificateManager_DnsResourceRecord;
 @class GTLRCertificateManager_GclbTarget;
 @class GTLRCertificateManager_IntermediateCA;
 @class GTLRCertificateManager_IpConfig;
+@class GTLRCertificateManager_IPs;
 @class GTLRCertificateManager_Location;
 @class GTLRCertificateManager_Location_Labels;
 @class GTLRCertificateManager_Location_Metadata;
@@ -41,6 +43,7 @@
 @class GTLRCertificateManager_SelfManagedCertificate;
 @class GTLRCertificateManager_Status;
 @class GTLRCertificateManager_Status_Details_Item;
+@class GTLRCertificateManager_Troubleshooting;
 @class GTLRCertificateManager_TrustAnchor;
 @class GTLRCertificateManager_TrustConfig;
 @class GTLRCertificateManager_TrustConfig_Labels;
@@ -295,6 +298,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  */
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_ReasonUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRCertificateManager_Troubleshooting.issues
+
+/**
+ *  Certificate is not configured to be served from any IPs (e.g. Certificate is
+ *  not attached to any load balancer).
+ *
+ *  Value: "CERTIFICATE_NOT_ATTACHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issues_CertificateNotAttached;
+/**
+ *  The resolved CNAME value doesn't match the expected CNAME.
+ *
+ *  Value: "CNAME_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issues_CnameMismatch;
+/**
+ *  Issue is unspecified.
+ *
+ *  Value: "ISSUE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issues_IssueUnspecified;
+/**
+ *  Domain doesn't have any A/AAAA records.
+ *
+ *  Value: "NO_RESOLVED_IPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issues_NoResolvedIps;
+/**
+ *  Domain has A/AAAA records that point to IPs, where the certificate is not
+ *  attached.
+ *
+ *  Value: "RESOLVED_TO_NOT_SERVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToNotServing;
+/**
+ *  Domain has A/AAAA records that point to IPs, where the certificate is
+ *  attached, but port 443 is not open.
+ *
+ *  Value: "RESOLVED_TO_SERVING_ON_ALT_PORTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServingOnAltPorts;
+
 /**
  *  Defines an allowlisted certificate.
  */
@@ -313,6 +359,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *  State of the latest attempt to authorize a domain for certificate issuance.
  */
 @interface GTLRCertificateManager_AuthorizationAttemptInfo : GTLRObject
+
+/** Output only. The timestamp, when the authorization attempt was made. */
+@property(nonatomic, strong, nullable) GTLRDateTime *attemptTime;
 
 /**
  *  Output only. Human readable explanation for reaching the state. Provided to
@@ -361,6 +410,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        State is unspecified. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Troubleshooting information for the authorization attempt. This
+ *  field is only populated if the authorization attempt failed.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_Troubleshooting *troubleshooting;
 
 @end
 
@@ -700,6 +755,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
 
 
 /**
+ *  CNAME troubleshooting information.
+ */
+@interface GTLRCertificateManager_CNAME : GTLRObject
+
+/**
+ *  Output only. The expected value of the CNAME record for the domain, equals
+ *  to `dns_resource_record.data` in the corresponding `DnsAuthorization`.
+ */
+@property(nonatomic, copy, nullable) NSString *expectedData;
+
+/**
+ *  Output only. The name of the CNAME record for the domain, equals to
+ *  `dns_resource_record.name` in the corresponding `DnsAuthorization`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The resolved CNAME chain. Empty list if the CNAME record for
+ *  `CNAME.name` is not found. Otherwise the first item is the value of the
+ *  CNAME record for `CNAME.name`. If the CNAME chain is longer, the second item
+ *  is the value of the CNAME record for the first item, and so on.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resolvedData;
+
+@end
+
+
+/**
  *  A DnsAuthorization resource describes a way to perform domain authorization
  *  for certificate issuance.
  */
@@ -863,6 +946,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *  Uses NSNumber of unsignedIntValue.
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *ports;
+
+@end
+
+
+/**
+ *  IPs troubleshooting information.
+ */
+@interface GTLRCertificateManager_IPs : GTLRObject
+
+/**
+ *  Output only. The list of IP addresses resolved from the domain's A/AAAA
+ *  records. Can contain both ipv4 and ipv6 addresses.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resolved;
+
+/**
+ *  Output only. The list of IP addresses, where the certificate is attached and
+ *  port 443 is open.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serving;
+
+/**
+ *  Output only. The list of IP addresses, where the certificate is attached,
+ *  but port 443 is not open.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *servingOnAltPorts;
 
 @end
 
@@ -1066,6 +1175,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateManager_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1439,6 +1555,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ProvisioningIssue_Rea
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCertificateManager_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Troubleshooting information for the authorization attempt.
+ */
+@interface GTLRCertificateManager_Troubleshooting : GTLRObject
+
+/** Output only. CNAME troubleshooting information. */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_CNAME *cname;
+
+/** Output only. IPs troubleshooting information. */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_IPs *ips;
+
+/**
+ *  Output only. The list of issues discovered during the authorization attempt.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *issues;
+
 @end
 
 

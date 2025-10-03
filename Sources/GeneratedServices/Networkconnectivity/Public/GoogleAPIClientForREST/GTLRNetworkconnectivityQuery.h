@@ -118,6 +118,53 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  CheckConsumerConfig validates the consumer network and project for potential
+ *  PSC connection creation. This method performs several checks, including: -
+ *  Validating the existence and permissions of the service class. - Ensuring
+ *  the consumer network exists and is accessible. - Verifying XPN relationships
+ *  if applicable. - Checking for compatible IP versions between the consumer
+ *  network and the requested version. This method performs a dynamic IAM check
+ *  for the `networkconnectivity.serviceClasses.use` permission on the service
+ *  class resource in the Prepare phase.
+ *
+ *  Method: networkconnectivity.projects.locations.checkConsumerConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsCheckConsumerConfig : GTLRNetworkconnectivityQuery
+
+/**
+ *  Required. The location resource path. Example: -
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_CheckConsumerConfigResponse.
+ *
+ *  CheckConsumerConfig validates the consumer network and project for potential
+ *  PSC connection creation. This method performs several checks, including: -
+ *  Validating the existence and permissions of the service class. - Ensuring
+ *  the consumer network exists and is accessible. - Verifying XPN relationships
+ *  if applicable. - Checking for compatible IP versions between the consumer
+ *  network and the requested version. This method performs a dynamic IAM check
+ *  for the `networkconnectivity.serviceClasses.use` permission on the service
+ *  class resource in the Prepare phase.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_CheckConsumerConfigRequest to
+ *    include in the query.
+ *  @param location Required. The location resource path. Example: -
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsCheckConsumerConfig
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_CheckConsumerConfigRequest *)object
+                       location:(NSString *)location;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: networkconnectivity.projects.locations.get
@@ -1818,8 +1865,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsList : GTLRNetworkconnectivityQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2537,6 +2584,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c
  *  GTLRNetworkconnectivity_GoogleLongrunningListOperationsResponse.
  *
@@ -2731,7 +2789,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesGet : GTLRNetworkconnectivityQuery
 
-/** Required. Name of the resource */
+/** Required. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2739,7 +2797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  Gets details of a single RemoteTransportProfile.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. Name of the resource.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesGet
  */
@@ -2757,10 +2815,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesList : GTLRNetworkconnectivityQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -2774,7 +2832,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Parent value for ListRemoteTransportProfilesRequest */
+/** Required. Parent value for ListRemoteTransportProfilesRequest. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -2782,7 +2840,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  Lists RemoteTransportProfiles in a given project and location.
  *
- *  @param parent Required. Parent value for ListRemoteTransportProfilesRequest
+ *  @param parent Required. Parent value for ListRemoteTransportProfilesRequest.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesList
  *
@@ -4475,7 +4533,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsDelete : GTLRNetworkconnectivityQuery
 
-/** Required. Name of the resource */
+/** Required. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4498,7 +4556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  Deletes a single Transport.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. Name of the resource.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsDelete
  */
@@ -4516,7 +4574,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsGet : GTLRNetworkconnectivityQuery
 
-/** Required. Name of the resource */
+/** Required. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4524,7 +4582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  Gets details of a single Transport.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. Name of the resource.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsGet
  */
@@ -4542,10 +4600,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsList : GTLRNetworkconnectivityQuery
 
-/** Optional. Filtering results */
+/** Optional. Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. Hint for how to order the results */
+/** Optional. Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -4559,7 +4617,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Parent value for ListTransportsRequest */
+/** Required. Parent value for ListTransportsRequest. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -4567,7 +4625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  Lists Transports in a given project and location.
  *
- *  @param parent Required. Parent value for ListTransportsRequest
+ *  @param parent Required. Parent value for ListTransportsRequest.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsList
  *
@@ -4589,7 +4647,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsPatch : GTLRNetworkconnectivityQuery
 
-/** Identifier. name of resource */
+/**
+ *  Identifier. Name of the resource, see google.aip.dev/122 for resource
+ *  naming.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -4625,7 +4686,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *
  *  @param object The @c GTLRNetworkconnectivity_Transport to include in the
  *    query.
- *  @param name Identifier. name of resource
+ *  @param name Identifier. Name of the resource, see google.aip.dev/122 for
+ *    resource naming.
  *
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsPatch
  */

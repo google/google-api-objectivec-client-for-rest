@@ -926,7 +926,7 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
 
 @implementation GTLRDeveloperConnectQuery_ProjectsLocationsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

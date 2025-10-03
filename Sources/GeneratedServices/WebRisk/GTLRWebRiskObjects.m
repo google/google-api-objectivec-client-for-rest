@@ -210,11 +210,12 @@ NSString * const kGTLRWebRisk_GoogleCloudWebriskV1SearchUrisResponseThreatUri_Th
 //
 
 @implementation GTLRWebRisk_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRWebRisk_GoogleLongrunningOperation class]
+    @"operations" : [GTLRWebRisk_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

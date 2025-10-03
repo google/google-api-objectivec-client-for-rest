@@ -27,10 +27,15 @@
 @class GTLRCloudAlloyDBAdmin_AuthorizedNetwork;
 @class GTLRCloudAlloyDBAdmin_AutomatedBackupPolicy;
 @class GTLRCloudAlloyDBAdmin_AutomatedBackupPolicy_Labels;
+@class GTLRCloudAlloyDBAdmin_AutoScalingConfig;
 @class GTLRCloudAlloyDBAdmin_Backup;
 @class GTLRCloudAlloyDBAdmin_Backup_Annotations;
 @class GTLRCloudAlloyDBAdmin_Backup_Labels;
 @class GTLRCloudAlloyDBAdmin_Backup_Tags;
+@class GTLRCloudAlloyDBAdmin_BackupDrBackupSource;
+@class GTLRCloudAlloyDBAdmin_BackupDrEnabledWindow;
+@class GTLRCloudAlloyDBAdmin_BackupDrInfo;
+@class GTLRCloudAlloyDBAdmin_BackupDrPitrSource;
 @class GTLRCloudAlloyDBAdmin_BackupSource;
 @class GTLRCloudAlloyDBAdmin_ClientConnectionConfig;
 @class GTLRCloudAlloyDBAdmin_CloudSQLBackupRunSource;
@@ -39,9 +44,12 @@
 @class GTLRCloudAlloyDBAdmin_Cluster_Labels;
 @class GTLRCloudAlloyDBAdmin_Cluster_Tags;
 @class GTLRCloudAlloyDBAdmin_ClusterUpgradeDetails;
+@class GTLRCloudAlloyDBAdmin_ConnectionPoolConfig;
+@class GTLRCloudAlloyDBAdmin_ConnectionPoolConfig_Flags;
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupConfig;
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupInfo;
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupSource;
+@class GTLRCloudAlloyDBAdmin_CpuUtilization;
 @class GTLRCloudAlloyDBAdmin_CsvExportOptions;
 @class GTLRCloudAlloyDBAdmin_CsvImportOptions;
 @class GTLRCloudAlloyDBAdmin_DenyMaintenancePeriod;
@@ -71,6 +79,7 @@
 @class GTLRCloudAlloyDBAdmin_Operation;
 @class GTLRCloudAlloyDBAdmin_Operation_Metadata;
 @class GTLRCloudAlloyDBAdmin_Operation_Response;
+@class GTLRCloudAlloyDBAdmin_Policy;
 @class GTLRCloudAlloyDBAdmin_PrimaryConfig;
 @class GTLRCloudAlloyDBAdmin_PscAutoConnectionConfig;
 @class GTLRCloudAlloyDBAdmin_PscConfig;
@@ -81,12 +90,12 @@
 @class GTLRCloudAlloyDBAdmin_QueryInsightsInstanceConfig;
 @class GTLRCloudAlloyDBAdmin_ReadPoolConfig;
 @class GTLRCloudAlloyDBAdmin_ReadPoolInstancesUpgradeStageStatus;
+@class GTLRCloudAlloyDBAdmin_Schedule;
 @class GTLRCloudAlloyDBAdmin_SecondaryConfig;
 @class GTLRCloudAlloyDBAdmin_SqlExportOptions;
 @class GTLRCloudAlloyDBAdmin_SqlImportOptions;
 @class GTLRCloudAlloyDBAdmin_SslConfig;
 @class GTLRCloudAlloyDBAdmin_StageInfo;
-@class GTLRCloudAlloyDBAdmin_StageSchedule;
 @class GTLRCloudAlloyDBAdmin_StageStatus;
 @class GTLRCloudAlloyDBAdmin_Stats;
 @class GTLRCloudAlloyDBAdmin_Status;
@@ -112,6 +121,9 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceDenySchedule;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags_Tags;
@@ -1296,6 +1308,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "CONFIG_BASED_SIGNAL_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ConfigBasedSignalData;
+/**
+ *  Database resource signal data
+ *
+ *  Value: "DATABASE_RESOURCE_SIGNAL_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_DatabaseResourceSignalData;
 /** Value: "FEEDTYPE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_FeedtypeUnspecified;
 /**
@@ -3367,6 +3385,92 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError_ErrorType_StockoutError;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule.day
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Wednesday;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule.phase
+
+/**
+ *  Any phase.
+ *
+ *  Value: "WINDOW_PHASE_ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseAny;
+/**
+ *  Phase is unspecified.
+ *
+ *  Value: "WINDOW_PHASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseUnspecified;
+/**
+ *  Week 1.
+ *
+ *  Value: "WINDOW_PHASE_WEEK1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek1;
+/**
+ *  Week 2.
+ *
+ *  Value: "WINDOW_PHASE_WEEK2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek2;
+/**
+ *  Week 5.
+ *
+ *  Value: "WINDOW_PHASE_WEEK5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek5;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings.retentionUnit
 
 /**
@@ -4080,6 +4184,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Configuration for autoscaling.
+ */
+@interface GTLRCloudAlloyDBAdmin_AutoScalingConfig : GTLRObject
+
+/** Policy for the MIG autoscaler. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_Policy *policy;
+
+/**
+ *  Optional list of schedules for the MIG autoscaler. If not set, no schedules
+ *  are created.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_Schedule *> *schedules;
+
+@end
+
+
+/**
  *  Message describing Backup object
  */
 @interface GTLRCloudAlloyDBAdmin_Backup : GTLRObject
@@ -4308,6 +4429,120 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Message describing a BackupDrBackupSource.
+ */
+@interface GTLRCloudAlloyDBAdmin_BackupDrBackupSource : GTLRObject
+
+/**
+ *  Required. The name of the backup resource with the format: *
+ *  projects/{project}/locations/{location}/backupVaults/{backupvault_id}/dataSources/{datasource_id}/backups/{backup_id}
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+@end
+
+
+/**
+ *  Information about a single window when BackupDR was enabled for this
+ *  cluster.
+ */
+@interface GTLRCloudAlloyDBAdmin_BackupDrEnabledWindow : GTLRObject
+
+/**
+ *  Whether automated backup was previously enabled prior to enabling BackupDR
+ *  protection for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *automatedBackupPreviouslyEnabled;
+
+/**
+ *  The BackupPlanAssociation resource that was used to enable BackupDR
+ *  protection for this cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlanAssociation;
+
+/**
+ *  Whether continuous backup was previously enabled prior to enabling BackupDR
+ *  protection for this cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *continuousBackupPreviouslyEnabled;
+
+/**
+ *  The time when continuous backup was previously enabled prior to enabling
+ *  BackupDR protection for this cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *continuousBackupPreviouslyEnabledTime;
+
+/**
+ *  The retention set for the continuous backup that was previously enabled
+ *  prior to enabling BackupDR protection for this cluster.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *continuousBackupPreviousRecoveryWindowDays;
+
+/** The DataSource resource that represents the cluster in BackupDR. */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/**
+ *  Time when the BackupDR protection for this cluster was disabled. This field
+ *  will be empty if this BackupDR window is the `current_window`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *disabledTime;
+
+/** Time when the BackupDR protection for this cluster was enabled. */
+@property(nonatomic, strong, nullable) GTLRDateTime *enabledTime;
+
+/** The retention period for logs generated by BackupDR for this cluster. */
+@property(nonatomic, strong, nullable) GTLRDuration *logRetentionPeriod;
+
+@end
+
+
+/**
+ *  Information about BackupDR protection for this cluster.
+ */
+@interface GTLRCloudAlloyDBAdmin_BackupDrInfo : GTLRObject
+
+/**
+ *  The current BackupDR configuration for this cluster. If BackupDR protection
+ *  is not enabled for this cluster, this field will be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_BackupDrEnabledWindow *currentWindow;
+
+/**
+ *  Windows during which BackupDR was enabled for this cluster, along with
+ *  associated configuration for that window. These are used to determine
+ *  points-in-time for which restores can be performed. The windows are ordered
+ *  with the most recent window last. Windows are mutally exclusive. Windows
+ *  which closed more than 1 year ago will be removed from this list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_BackupDrEnabledWindow *> *previousWindows;
+
+@end
+
+
+/**
+ *  Message describing a BackupDrPitrSource.
+ */
+@interface GTLRCloudAlloyDBAdmin_BackupDrPitrSource : GTLRObject
+
+/**
+ *  Required. The name of the backup resource with the format: *
+ *  projects/{project}/locations/{location}/backupVaults/{backupvault_id}/dataSources/{datasource_id}
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/** Required. The point in time to restore to. */
+@property(nonatomic, strong, nullable) GTLRDateTime *pointInTime;
+
+@end
+
+
+/**
  *  Message describing a BackupSource.
  */
 @interface GTLRCloudAlloyDBAdmin_BackupSource : GTLRObject
@@ -4432,6 +4667,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  consult the documentation for the message type.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_AutomatedBackupPolicy *automatedBackupPolicy;
+
+/** Output only. Cluster created from a BackupDR backup. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_BackupDrBackupSource *backupdrBackupSource;
+
+/**
+ *  Output only. Output only information about BackupDR protection for this
+ *  cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_BackupDrInfo *backupdrInfo;
 
 /** Output only. Cluster created from backup. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_BackupSource *backupSource;
@@ -4810,6 +5054,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Configuration for Managed Connection Pool (MCP).
+ */
+@interface GTLRCloudAlloyDBAdmin_ConnectionPoolConfig : GTLRObject
+
+/**
+ *  Optional. Whether to enable Managed Connection Pool (MCP).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** Optional. Connection Pool flags, as a list of "key": "value" pairs. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_ConnectionPoolConfig_Flags *flags;
+
+/**
+ *  Output only. The number of running poolers per instance.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *poolerCount;
+
+@end
+
+
+/**
+ *  Optional. Connection Pool flags, as a list of "key": "value" pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudAlloyDBAdmin_ConnectionPoolConfig_Flags : GTLRObject
+@end
+
+
+/**
  *  ContinuousBackupConfig describes the continuous backups recovery
  *  configurations of a cluster.
  */
@@ -4893,6 +5174,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Required. The point in time to restore to. */
 @property(nonatomic, strong, nullable) GTLRDateTime *pointInTime;
+
+@end
+
+
+/**
+ *  CPU utilization policy for the autoscaler.
+ */
+@interface GTLRCloudAlloyDBAdmin_CpuUtilization : GTLRObject
+
+/**
+ *  Target CPU utilization as a float between 0 and 1.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *utilizationTarget;
 
 @end
 
@@ -5455,6 +5751,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /** Optional. Client connection specific configurations */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_ClientConnectionConfig *clientConnectionConfig;
 
+/** Optional. The configuration for Managed Connection Pool (MCP). */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_ConnectionPoolConfig *connectionPoolConfig;
+
 /** Output only. Create time stamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -5920,6 +6219,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -6350,6 +6656,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Policy for the autoscaler.
+ */
+@interface GTLRCloudAlloyDBAdmin_Policy : GTLRObject
+
+/**
+ *  The period of time in seconds after a new node is created before the
+ *  autoscaler will incorporate its resource usage (e.g. CPU utilization) into
+ *  the autoscaling recommendation algorithm.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *coolDownPeriodSec;
+
+/** CPU utilization policy for the autoscaler. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_CpuUtilization *cpuUtilization;
+
+/**
+ *  If true, autoscaling is enabled for the instance. If not set, the default
+ *  value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Maximum number of nodes for the autoscaler.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
+
+@end
+
+
+/**
  *  Configuration for the primary cluster. It has the list of clusters that are
  *  replicating from this cluster. This should be set if and only if the cluster
  *  is of type PRIMARY.
@@ -6628,6 +6969,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @interface GTLRCloudAlloyDBAdmin_ReadPoolConfig : GTLRObject
 
 /**
+ *  Autoscaling configuration for the read pool instance. If not set, the read
+ *  pool instance will not be autoscaled.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_AutoScalingConfig *autoScalingConfig;
+
+/**
  *  Read capacity, i.e. number of nodes in a read pool instance.
  *
  *  Uses NSNumber of intValue.
@@ -6691,6 +7038,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @interface GTLRCloudAlloyDBAdmin_RestoreClusterRequest : GTLRObject
 
+/** BackupDR backup source. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_BackupDrBackupSource *backupdrBackupSource;
+
+/** BackupDR source used for point in time recovery. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_BackupDrPitrSource *backupdrPitrSource;
+
 /** Backup source. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_BackupSource *backupSource;
 
@@ -6745,6 +7098,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Required. ID of the requesting object. */
 @property(nonatomic, copy, nullable) NSString *clusterId;
+
+@end
+
+
+/**
+ *  A schedule for the autoscaler.
+ */
+@interface GTLRCloudAlloyDBAdmin_Schedule : GTLRObject
+
+/**
+ *  Cron expression for the triggering the schedule. See
+ *  https://cloud.google.com/compute/docs/autoscaler/scaling-schedules#cron_expressions
+ *  for the syntax.
+ */
+@property(nonatomic, copy, nullable) NSString *cronExpression;
+
+/**
+ *  Description of the schedule.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  If true, the schedule is disabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Duration of the schedule.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationSec;
+
+/**
+ *  Minimum number of nodes in while the schedule is active.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minNodeCount;
+
+/** Name of the schedule. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The location-based IANA time zone for interpreting the schedule's start
+ *  time. If no time zone is provided, UTC is used by default.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 @end
 
@@ -6918,41 +7323,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Timing information for the stage execution.
- */
-@interface GTLRCloudAlloyDBAdmin_StageSchedule : GTLRObject
-
-/** Actual end time of the stage. Set only if the stage has completed. */
-@property(nonatomic, strong, nullable) GTLRDateTime *actualEndTime;
-
-/** Actual start time of the stage. Set only if the stage has started. */
-@property(nonatomic, strong, nullable) GTLRDateTime *actualStartTime;
-
-/**
- *  When the stage is expected to end. Set only if the stage has not completed
- *  yet.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *estimatedEndTime;
-
-/**
- *  When the stage is expected to start. Set only if the stage has not started
- *  yet.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *estimatedStartTime;
-
-@end
-
-
-/**
  *  Status of an upgrade stage.
  */
 @interface GTLRCloudAlloyDBAdmin_StageStatus : GTLRObject
 
 /** Read pool instances upgrade metadata. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_ReadPoolInstancesUpgradeStageStatus *readPoolInstancesUpgrade;
-
-/** Output only. Timing information for the stage execution. */
-@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StageSchedule *schedule;
 
 /**
  *  Upgrade stage.
@@ -7334,7 +7710,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  DatabaseResourceFeed is the top level proto to be used to ingest different
- *  database resource level events into Condor platform. Next ID: 12
+ *  database resource level events into Condor platform. Next ID: 13
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed : GTLRObject
 
@@ -7364,6 +7740,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Database resource metadata from BackupDR (Value: "BACKUPDR_METADATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ConfigBasedSignalData
  *        Database config based signal data (Value: "CONFIG_BASED_SIGNAL_DATA")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_DatabaseResourceSignalData
+ *        Database resource signal data (Value: "DATABASE_RESOURCE_SIGNAL_DATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_FeedtypeUnspecified
  *        Value "FEEDTYPE_UNSPECIFIED"
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ObservabilityData
@@ -7988,7 +8366,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 27
+ *  Common model for database resource instance metadata. Next ID: 29
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata : GTLRObject
 
@@ -8126,6 +8504,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Machine configuration for this resource. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration *machineConfiguration;
+
+/** Optional. Maintenance info for the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo *maintenanceInfo;
 
 /**
  *  Identifier for this resource's immediate parent/primary resource if the
@@ -8936,6 +9317,110 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Additional information about the error encountered. REQUIRED */
 @property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Deny maintenance period for the database resource. It specifies the time
+ *  range during which the maintenance cannot start. This is configured by the
+ *  customer.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceDenySchedule : GTLRObject
+
+/** Optional. Deny period end date. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeDate *endDate;
+
+/** Optional. The start date of the deny maintenance period. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeDate *startDate;
+
+/**
+ *  Optional. Time in UTC when the deny period starts on start_date and ends on
+ *  end_date.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeTimeOfDay *time;
+
+@end
+
+
+/**
+ *  MaintenanceInfo to capture the maintenance details of database resource.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo : GTLRObject
+
+/** Optional. List of Deny maintenance period for the database resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceDenySchedule *> *denyMaintenanceSchedules;
+
+/** Optional. Maintenance window for the database resource. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule *maintenanceSchedule;
+
+/**
+ *  Optional. Current Maintenance version of the database resource. Example:
+ *  "MYSQL_8_0_41.R20250531.01_15"
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceVersion;
+
+@end
+
+
+/**
+ *  Maintenance window for the database resource. It specifies preferred time
+ *  and day of the week and phase in some cases, when the maintenance can start.
+ *  This is configured by the customer.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule : GTLRObject
+
+/**
+ *  Optional. Preferred day of the week for maintenance, e.g. MONDAY, TUESDAY,
+ *  etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Friday
+ *        Friday (Value: "FRIDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Monday
+ *        Monday (Value: "MONDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Saturday
+ *        Saturday (Value: "SATURDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Sunday
+ *        Sunday (Value: "SUNDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Thursday
+ *        Thursday (Value: "THURSDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Tuesday
+ *        Tuesday (Value: "TUESDAY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *day;
+
+/**
+ *  Optional. Phase of the maintenance window. This is to capture order of
+ *  maintenance. For example, for Cloud SQL resources, this can be used to
+ *  capture if the maintenance window is in Week1, Week2, Week5, etc. Non
+ *  production resources are usually part of early phase. For more details,
+ *  refer to Cloud SQL resources -
+ *  https://cloud.google.com/sql/docs/mysql/maintenance
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseAny
+ *        Any phase. (Value: "WINDOW_PHASE_ANY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseUnspecified
+ *        Phase is unspecified. (Value: "WINDOW_PHASE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek1
+ *        Week 1. (Value: "WINDOW_PHASE_WEEK1")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek2
+ *        Week 2. (Value: "WINDOW_PHASE_WEEK2")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek5
+ *        Week 5. (Value: "WINDOW_PHASE_WEEK5")
+ */
+@property(nonatomic, copy, nullable) NSString *phase;
+
+/**
+ *  Optional. Preferred time to start the maintenance operation on the specified
+ *  day.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeTimeOfDay *time;
 
 @end
 

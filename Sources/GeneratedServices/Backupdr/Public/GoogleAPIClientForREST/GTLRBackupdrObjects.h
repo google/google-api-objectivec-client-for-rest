@@ -17,6 +17,8 @@
 @class GTLRBackupdr_AdvancedMachineFeatures;
 @class GTLRBackupdr_AliasIpRange;
 @class GTLRBackupdr_AllocationAffinity;
+@class GTLRBackupdr_AlloyDbClusterBackupProperties;
+@class GTLRBackupdr_AlloyDBClusterDataSourceProperties;
 @class GTLRBackupdr_AttachedDisk;
 @class GTLRBackupdr_AuditConfig;
 @class GTLRBackupdr_AuditLogConfig;
@@ -2021,6 +2023,54 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  AlloyDbClusterBackupProperties represents AlloyDB cluster backup properties.
+ *  .
+ */
+@interface GTLRBackupdr_AlloyDbClusterBackupProperties : GTLRObject
+
+/**
+ *  Output only. The chain id of this backup. Backups belonging to the same
+ *  chain are sharing the same chain id. This property is calculated and
+ *  maintained by BackupDR.
+ */
+@property(nonatomic, copy, nullable) NSString *chainId;
+
+/**
+ *  Output only. The PostgreSQL major version of the AlloyDB cluster when the
+ *  backup was taken.
+ */
+@property(nonatomic, copy, nullable) NSString *databaseVersion;
+
+/**
+ *  An optional text description for the backup.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Storage usage of this particular backup
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storedBytes;
+
+@end
+
+
+/**
+ *  AlloyDBClusterDataSourceProperties represents the properties of a AlloyDB
+ *  cluster resource that are stored in the DataSource. .
+ */
+@interface GTLRBackupdr_AlloyDBClusterDataSourceProperties : GTLRObject
+
+/** Output only. Name of the AlloyDB cluster backed up by the datasource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  An instance-attached disk resource.
  */
 @interface GTLRBackupdr_AttachedDisk : GTLRObject
@@ -2243,6 +2293,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Message describing a Backup object.
  */
 @interface GTLRBackupdr_Backup : GTLRObject
+
+/** Output only. AlloyDB specific backup properties. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_AlloyDbClusterBackupProperties *alloyDbBackupProperties;
 
 /** Output only. Backup Appliance specific backup properties. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_BackupApplianceBackupProperties *backupApplianceBackupProperties;
@@ -3998,6 +4051,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  GcpDataSourceResource
  */
 @interface GTLRBackupdr_DataSourceGcpResource : GTLRObject
+
+/**
+ *  Output only. AlloyDBClusterDataSourceProperties has a subset of AlloyDB
+ *  cluster properties that are useful at the Datasource level. Currently none
+ *  of its child properties are auditable. If new auditable properties are
+ *  added, the AUDIT annotation should be added.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_AlloyDBClusterDataSourceProperties *alloyDbClusterDatasourceProperties;
 
 /**
  *  Output only. CloudSqlInstanceDataSourceProperties has a subset of Cloud SQL

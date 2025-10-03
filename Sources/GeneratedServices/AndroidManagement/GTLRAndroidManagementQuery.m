@@ -227,7 +227,7 @@ NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExternalStorage = @"WIPE
 
 @implementation GTLRAndroidManagementQuery_EnterprisesDevicesOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

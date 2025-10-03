@@ -1024,9 +1024,16 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  opposed to simply a description of methods and bindings. They are also
  *  sometimes simply referred to as "APIs" in other contexts, such as the name
  *  of this message itself. See https://cloud.google.com/apis/design/glossary
- *  for detailed terminology.
+ *  for detailed terminology. New usages of this message as an alternative to
+ *  ServiceDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceConsumerManagement_Api : GTLRObject
+
+/** The source edition string, only valid when syntax is SYNTAX_EDITIONS. */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /** The methods of this interface, in unspecified order. */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_Method *> *methods;
@@ -1395,7 +1402,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_BackendRule_OverridesByRequestProtocol *overridesByRequestProtocol;
 
 /**
- *  pathTranslation
+ *  no-lint
  *
  *  Likely values:
  *    @arg @c kGTLRServiceConsumerManagement_BackendRule_PathTranslation_AppendPathToAddress
@@ -2217,7 +2224,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
- *  Enum type definition.
+ *  Enum type definition. New usages of this message as an alternative to
+ *  EnumDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceConsumerManagement_Enum : GTLRObject
 
@@ -2253,7 +2264,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
- *  Enum value definition.
+ *  Enum value definition. New usages of this message as an alternative to
+ *  EnumValueDescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceConsumerManagement_EnumValue : GTLRObject
 
@@ -2313,7 +2328,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
- *  A single field of a message type.
+ *  A single field of a message type. New usages of this message as an
+ *  alternative to FieldDescriptorProto are strongly discouraged. This message
+ *  does not reliability preserve all information necessary to model the schema
+ *  and preserve semantics. Instead make use of FileDescriptorSet which
+ *  preserves the necessary information.
  */
 @interface GTLRServiceConsumerManagement_Field : GTLRObject
 
@@ -2468,7 +2487,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /**
  *  Map of service names to renamed services. Keys are the package relative
  *  service names and values are the name to be used for the service client and
- *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  call options. Example: publishing: go_settings: renamed_services: Publisher:
  *  TopicAdmin
  */
 @property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_GoSettings_RenamedServices *renamedServices;
@@ -2479,7 +2498,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /**
  *  Map of service names to renamed services. Keys are the package relative
  *  service names and values are the name to be used for the service client and
- *  call options. publishing: go_settings: renamed_services: Publisher:
+ *  call options. Example: publishing: go_settings: renamed_services: Publisher:
  *  TopicAdmin
  *
  *  @note This class is documented as having more properties of NSString. Use @c
@@ -3008,9 +3027,20 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
- *  Method represents a method of an API interface.
+ *  Method represents a method of an API interface. New usages of this message
+ *  as an alternative to MethodDescriptorProto are strongly discouraged. This
+ *  message does not reliability preserve all information necessary to model the
+ *  schema and preserve semantics. Instead make use of FileDescriptorSet which
+ *  preserves the necessary information.
  */
 @interface GTLRServiceConsumerManagement_Method : GTLRObject
+
+/**
+ *  The source edition string, only valid when syntax is SYNTAX_EDITIONS. This
+ *  field should be ignored, instead the edition should be inherited from Api.
+ *  This is similar to Field and EnumValue.
+ */
+@property(nonatomic, copy, nullable) NSString *edition GTLR_DEPRECATED;
 
 /** The simple name of this method. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3039,7 +3069,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 @property(nonatomic, copy, nullable) NSString *responseTypeUrl;
 
 /**
- *  The source syntax of this method.
+ *  The source syntax of this method. This field should be ignored, instead the
+ *  syntax should be inherited from Api. This is similar to Field and EnumValue.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceConsumerManagement_Method_Syntax_SyntaxEditions Syntax
@@ -3049,7 +3080,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *    @arg @c kGTLRServiceConsumerManagement_Method_Syntax_SyntaxProto3 Syntax
  *        `proto3`. (Value: "SYNTAX_PROTO3")
  */
-@property(nonatomic, copy, nullable) NSString *syntax;
+@property(nonatomic, copy, nullable) NSString *syntax GTLR_DEPRECATED;
 
 @end
 
@@ -3774,7 +3805,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 /**
  *  A protocol buffer option, which can be attached to a message, field,
- *  enumeration, etc.
+ *  enumeration, etc. New usages of this message as an alternative to
+ *  FileOptions, MessageOptions, FieldOptions, EnumOptions, EnumValueOptions,
+ *  ServiceOptions, or MethodOptions are strongly discouraged.
  */
 @interface GTLRServiceConsumerManagement_Option : GTLRObject
 
@@ -4706,7 +4739,11 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 
 /**
- *  A protocol buffer message type.
+ *  A protocol buffer message type. New usages of this message as an alternative
+ *  to DescriptorProto are strongly discouraged. This message does not
+ *  reliability preserve all information necessary to model the schema and
+ *  preserve semantics. Instead make use of FileDescriptorSet which preserves
+ *  the necessary information.
  */
 @interface GTLRServiceConsumerManagement_Type : GTLRObject
 

@@ -540,7 +540,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1Place
 @dynamic accessibilityOptions, addressComponents, addressDescriptor,
          adrFormatAddress, allowsDogs, attributions, businessStatus,
-         containingPlaces, curbsidePickup, currentOpeningHours,
+         consumerAlert, containingPlaces, curbsidePickup, currentOpeningHours,
          currentSecondaryOpeningHours, delivery, dineIn, displayName,
          editorialSummary, evChargeAmenitySummary, evChargeOptions,
          formattedAddress, fuelOptions, generativeSummary, goodForChildren,
@@ -616,6 +616,41 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution
 @dynamic provider, providerUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlert
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlert
+@dynamic details, languageCode, overview;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetails
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetails
+@dynamic aboutLink, descriptionProperty, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetailsLink
+//
+
+@implementation GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetailsLink
+@dynamic title, uri;
 @end
 
 
@@ -813,7 +848,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1Review
 @dynamic authorAttribution, flagContentUri, googleMapsUri, name, originalText,
-         publishTime, rating, relativePublishTimeDescription, text;
+         publishTime, rating, relativePublishTimeDescription, text, visitDate;
 @end
 
 

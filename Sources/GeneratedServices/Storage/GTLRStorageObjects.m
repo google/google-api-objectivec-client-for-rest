@@ -503,11 +503,12 @@ NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforceme
 //
 
 @implementation GTLRStorage_Buckets
-@dynamic items, kind, nextPageToken;
+@dynamic items, kind, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRStorage_Bucket class]
+    @"items" : [GTLRStorage_Bucket class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

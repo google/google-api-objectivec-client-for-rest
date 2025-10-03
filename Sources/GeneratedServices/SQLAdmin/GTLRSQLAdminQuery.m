@@ -6,7 +6,7 @@
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
-//   https://developers.google.com/cloud-sql/
+//   https://cloud.google.com/sql/docs
 
 #import <GoogleAPIClientForREST/GTLRSQLAdminQuery.h>
 
@@ -17,6 +17,11 @@
 NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeConnectionPool = @"SQL_FLAG_SCOPE_CONNECTION_POOL";
 NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeDatabase    = @"SQL_FLAG_SCOPE_DATABASE";
 NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified = @"SQL_FLAG_SCOPE_UNSPECIFIED";
+
+// mode
+NSString * const kGTLRSQLAdminModeAll                     = @"ALL";
+NSString * const kGTLRSQLAdminModeResetSslModeUnspecified = @"RESET_SSL_MODE_UNSPECIFIED";
+NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -983,6 +988,37 @@ NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified = @"SQL_FLAG_SCOP
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesPreCheckMajorVersionUpgrade
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesPreCheckMajorVersionUpgradeRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/preCheckMajorVersionUpgrade";
+  GTLRSQLAdminQuery_InstancesPreCheckMajorVersionUpgrade *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.preCheckMajorVersionUpgrade";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesPromoteReplica
 
 @dynamic failover, instance, project;
@@ -1062,7 +1098,7 @@ NSString * const kGTLRSQLAdminFlagScopeSqlFlagScopeUnspecified = @"SQL_FLAG_SCOP
 
 @implementation GTLRSQLAdminQuery_InstancesResetSslConfig
 
-@dynamic instance, project;
+@dynamic instance, mode, project;
 
 + (instancetype)queryWithProject:(NSString *)project
                         instance:(NSString *)instance {

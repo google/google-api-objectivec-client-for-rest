@@ -94,7 +94,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Retrieves an AccessProposal by ID.
+ *  Retrieves an access proposal by ID. For more information, see [Manage
+ *  pending access
+ *  proposals](https://developers.google.com/workspace/drive/api/guides/pending-access).
  *
  *  Method: drive.accessproposals.get
  *
@@ -107,19 +109,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  */
 @interface GTLRDriveQuery_AccessproposalsGet : GTLRDriveQuery
 
-/** Required. The id of the item the request is on. */
+/** Required. The ID of the item the request is on. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
-/** Required. The id of the access proposal to resolve. */
+/** Required. The ID of the access proposal to resolve. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  Fetches a @c GTLRDrive_AccessProposal.
  *
- *  Retrieves an AccessProposal by ID.
+ *  Retrieves an access proposal by ID. For more information, see [Manage
+ *  pending access
+ *  proposals](https://developers.google.com/workspace/drive/api/guides/pending-access).
  *
- *  @param fileId Required. The id of the item the request is on.
- *  @param proposalId Required. The id of the access proposal to resolve.
+ *  @param fileId Required. The ID of the item the request is on.
+ *  @param proposalId Required. The ID of the access proposal to resolve.
  *
  *  @return GTLRDriveQuery_AccessproposalsGet
  */
@@ -129,8 +133,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  List the AccessProposals on a file. Note: Only approvers are able to list
- *  AccessProposals on a file. If the user is not an approver, returns a 403.
+ *  List the access proposals on a file. For more information, see [Manage
+ *  pending access
+ *  proposals](https://developers.google.com/workspace/drive/api/guides/pending-access).
+ *  Note: Only approvers are able to list access proposals on a file. If the
+ *  user isn't an approver, a 403 error is returned.
  *
  *  Method: drive.accessproposals.list
  *
@@ -143,10 +150,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  */
 @interface GTLRDriveQuery_AccessproposalsList : GTLRDriveQuery
 
-/** Required. The id of the item the request is on. */
+/** Required. The ID of the item the request is on. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
-/** Optional. The number of results per page */
+/** Optional. The number of results per page. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /** Optional. The continuation token on the list of access requests. */
@@ -155,10 +162,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_ListAccessProposalsResponse.
  *
- *  List the AccessProposals on a file. Note: Only approvers are able to list
- *  AccessProposals on a file. If the user is not an approver, returns a 403.
+ *  List the access proposals on a file. For more information, see [Manage
+ *  pending access
+ *  proposals](https://developers.google.com/workspace/drive/api/guides/pending-access).
+ *  Note: Only approvers are able to list access proposals on a file. If the
+ *  user isn't an approver, a 403 error is returned.
  *
- *  @param fileId Required. The id of the item the request is on.
+ *  @param fileId Required. The ID of the item the request is on.
  *
  *  @return GTLRDriveQuery_AccessproposalsList
  *
@@ -171,7 +181,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Used to approve or deny an Access Proposal.
+ *  Approves or denies an access proposal. For more information, see [Manage
+ *  pending access
+ *  proposals](https://developers.google.com/workspace/drive/api/guides/pending-access).
  *
  *  Method: drive.accessproposals.resolve
  *
@@ -181,22 +193,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  */
 @interface GTLRDriveQuery_AccessproposalsResolve : GTLRDriveQuery
 
-/** Required. The id of the item the request is on. */
+/** Required. The ID of the item the request is on. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
-/** Required. The id of the access proposal to resolve. */
+/** Required. The ID of the access proposal to resolve. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
 
 /**
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Used to approve or deny an Access Proposal.
+ *  Approves or denies an access proposal. For more information, see [Manage
+ *  pending access
+ *  proposals](https://developers.google.com/workspace/drive/api/guides/pending-access).
  *
  *  @param object The @c GTLRDrive_ResolveAccessProposalRequest to include in
  *    the query.
- *  @param fileId Required. The id of the item the request is on.
- *  @param proposalId Required. The id of the access proposal to resolve.
+ *  @param fileId Required. The ID of the item the request is on.
+ *  @param proposalId Required. The ID of the access proposal to resolve.
  *
  *  @return GTLRDriveQuery_AccessproposalsResolve
  */

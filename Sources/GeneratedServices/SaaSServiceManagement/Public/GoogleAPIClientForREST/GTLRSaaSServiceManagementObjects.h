@@ -30,6 +30,12 @@
 @class GTLRSaaSServiceManagement_Release_Annotations;
 @class GTLRSaaSServiceManagement_Release_Labels;
 @class GTLRSaaSServiceManagement_ReleaseRequirements;
+@class GTLRSaaSServiceManagement_ReplicationInternal;
+@class GTLRSaaSServiceManagement_ReplicationInternal_Annotations;
+@class GTLRSaaSServiceManagement_ReplicationInternal_Labels;
+@class GTLRSaaSServiceManagement_ReplicationInternal_Payload;
+@class GTLRSaaSServiceManagement_ReplicationInternal_Stats;
+@class GTLRSaaSServiceManagement_ReplicationStats;
 @class GTLRSaaSServiceManagement_Rollout;
 @class GTLRSaaSServiceManagement_Rollout_Annotations;
 @class GTLRSaaSServiceManagement_Rollout_Labels;
@@ -43,6 +49,8 @@
 @class GTLRSaaSServiceManagement_Saas_Annotations;
 @class GTLRSaaSServiceManagement_Saas_Labels;
 @class GTLRSaaSServiceManagement_Schedule;
+@class GTLRSaaSServiceManagement_Status;
+@class GTLRSaaSServiceManagement_Status_Details_Item;
 @class GTLRSaaSServiceManagement_Tenant;
 @class GTLRSaaSServiceManagement_Tenant_Annotations;
 @class GTLRSaaSServiceManagement_Tenant_Labels;
@@ -72,6 +80,40 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRSaaSServiceManagement_ReplicationInternal.state
+
+/**
+ *  Replication has failed.
+ *
+ *  Value: "REPLICATION_STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateFailed;
+/**
+ *  Replication is pending.
+ *
+ *  Value: "REPLICATION_STATE_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStatePending;
+/**
+ *  Replication is running.
+ *
+ *  Value: "REPLICATION_STATE_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateRunning;
+/**
+ *  Replication has succeeded.
+ *
+ *  Value: "REPLICATION_STATE_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateSucceeded;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "REPLICATION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSaaSServiceManagement_Rollout.state
@@ -757,6 +799,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 
 /**
+ *  The response structure for the ListReplicationsInternal method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "replicationsInternal" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRSaaSServiceManagement_ListReplicationsInternalResponse : GTLRCollectionObject
+
+/**
+ *  If present, the next page token can be provided to a subsequent
+ *  ListReplicationsInternal call to list the next page. If empty, there are no
+ *  more pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The resulting replication internals.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_ReplicationInternal *> *replicationsInternal;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  The response structure for the ListRolloutKinds method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1147,6 +1220,192 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  constraint.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *upgradeableFromReleases;
+
+@end
+
+
+/**
+ *  ReplicationInternal is a resource that represents the replication of a
+ *  resource to multiple locations. This is an internal resource to achieve
+ *  replication before GA and will not expose to the public API.
+ */
+@interface GTLRSaaSServiceManagement_ReplicationInternal : GTLRObject
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a
+ *  resource that may be set by external tools to store and retrieve arbitrary
+ *  metadata. They are not queryable and should be preserved when modifying
+ *  objects. More info: https://kubernetes.io/docs/user-guide/annotations
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_ReplicationInternal_Annotations *annotations;
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. An opaque value that uniquely identifies a version or
+ *  generation of a resource. It can be used to confirm that the client and
+ *  server agree on the ordering of a resource being written.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. The labels on the resource, which can be used for categorization.
+ *  similar to Kubernetes resource labels.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_ReplicationInternal_Labels *labels;
+
+/**
+ *  Optional. The maximum number of retries for the replication. If the
+ *  replication fails from a retryable error, it will be retried for this number
+ *  of times.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxRetryCount;
+
+/**
+ *  Identifier. The resource name (full URI of the resource) following the
+ *  standard naming scheme:
+ *  "projects/{project}/locations/{location}/replicationInternal/{replication_internal_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The payload of the request for replication. It could be any
+ *  request type that is supported by the replication service. e.g.
+ *  CreateUnitKindRequest, UpdateUnitKindRequest, DeleteReleaseRequest, etc.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_ReplicationInternal_Payload *payload;
+
+/**
+ *  Output only. The state of the replication.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateFailed
+ *        Replication has failed. (Value: "REPLICATION_STATE_FAILED")
+ *    @arg @c kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStatePending
+ *        Replication is pending. (Value: "REPLICATION_STATE_PENDING")
+ *    @arg @c kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateRunning
+ *        Replication is running. (Value: "REPLICATION_STATE_RUNNING")
+ *    @arg @c kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateSucceeded
+ *        Replication has succeeded. (Value: "REPLICATION_STATE_SUCCEEDED")
+ *    @arg @c kGTLRSaaSServiceManagement_ReplicationInternal_State_ReplicationStateUnspecified
+ *        Unspecified state. (Value: "REPLICATION_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The stats of the replication. One key for each location in
+ *  target_locations
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_ReplicationInternal_Stats *stats;
+
+/** Optional. The target locations to replicate the resource to. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetLocations;
+
+/**
+ *  Output only. The unique identifier of the resource. UID is unique in the
+ *  time and space for this resource within the scope of the service. It is
+ *  typically generated by the server on successful creation of a resource and
+ *  must not be changed. UID is used to uniquely identify resources with
+ *  resource name reuses. This should be a UUID4.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/**
+ *  Output only. The timestamp when the resource was last updated. Any change to
+ *  the resource made by users must refresh this value. Changes to a resource
+ *  made by the service should refresh this value.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Annotations is an unstructured key-value map stored with a
+ *  resource that may be set by external tools to store and retrieve arbitrary
+ *  metadata. They are not queryable and should be preserved when modifying
+ *  objects. More info: https://kubernetes.io/docs/user-guide/annotations
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSaaSServiceManagement_ReplicationInternal_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. The labels on the resource, which can be used for categorization.
+ *  similar to Kubernetes resource labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRSaaSServiceManagement_ReplicationInternal_Labels : GTLRObject
+@end
+
+
+/**
+ *  Required. The payload of the request for replication. It could be any
+ *  request type that is supported by the replication service. e.g.
+ *  CreateUnitKindRequest, UpdateUnitKindRequest, DeleteReleaseRequest, etc.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSaaSServiceManagement_ReplicationInternal_Payload : GTLRObject
+@end
+
+
+/**
+ *  Output only. The stats of the replication. One key for each location in
+ *  target_locations
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRSaaSServiceManagement_ReplicationStats. Use @c -additionalJSONKeys
+ *        and @c -additionalPropertyForName: to get the list of properties and
+ *        then fetch them; or @c -additionalProperties to fetch them all at
+ *        once.
+ */
+@interface GTLRSaaSServiceManagement_ReplicationInternal_Stats : GTLRObject
+@end
+
+
+/**
+ *  ReplicationStats contains the stats of the replication. It contains the
+ *  resources that are pending, finished, failed, and the errors if any.
+ */
+@interface GTLRSaaSServiceManagement_ReplicationStats : GTLRObject
+
+/**
+ *  The errors that occurred during replication, one error for each failed
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_Status *> *errors;
+
+/** The resources that are failed replication. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *failedResources;
+
+/** The resources that are finished replication. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *finishedResources;
+
+/** The resources that are pending replication. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pendingResources;
+
+/**
+ *  The number of retries for the failed resources.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *retryCount;
 
 @end
 
@@ -1655,6 +1914,51 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRSaaSServiceManagement_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRSaaSServiceManagement_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSaaSServiceManagement_Status_Details_Item : GTLRObject
 @end
 
 

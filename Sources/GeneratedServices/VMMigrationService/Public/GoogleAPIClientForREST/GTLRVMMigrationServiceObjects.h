@@ -16,6 +16,7 @@
 #endif
 
 @class GTLRVMMigrationService_AccessKeyCredentials;
+@class GTLRVMMigrationService_AdaptationModifier;
 @class GTLRVMMigrationService_AdaptingOSStep;
 @class GTLRVMMigrationService_ApplianceVersion;
 @class GTLRVMMigrationService_AppliedLicense;
@@ -1778,6 +1779,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
 
 
 /**
+ *  AdaptationModifier a modifier to be used for configuration of the OS
+ *  adaptation process.
+ */
+@interface GTLRVMMigrationService_AdaptationModifier : GTLRObject
+
+/** Optional. The modifier name. */
+@property(nonatomic, copy, nullable) NSString *modifier;
+
+/**
+ *  Optional. The value of the modifier. The actual value depends on the
+ *  modifier and can also be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  AdaptingOSStep contains specific step details.
  */
 @interface GTLRVMMigrationService_AdaptingOSStep : GTLRObject
@@ -2833,6 +2852,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  */
 @interface GTLRVMMigrationService_ComputeEngineTargetDefaults : GTLRObject
 
+/**
+ *  Optional. AdaptationModifiers are the set of modifiers used during OS
+ *  adaptation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_AdaptationModifier *> *adaptationModifiers;
+
 /** Additional licenses to assign to the VM. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *additionalLicenses;
 
@@ -3018,6 +3043,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  target Compute Engine project.
  */
 @interface GTLRVMMigrationService_ComputeEngineTargetDetails : GTLRObject
+
+/**
+ *  Optional. Modifiers to be used as configuration of the OS adaptation
+ *  process.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_AdaptationModifier *> *adaptationModifiers;
 
 /** Additional licenses to assign to the VM. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *additionalLicenses;
@@ -4165,6 +4196,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *  Parameters affecting the OS adaptation process.
  */
 @interface GTLRVMMigrationService_ImageImportOsAdaptationParameters : GTLRObject
+
+/**
+ *  Optional. Modifiers to be used as configuration of the OS adaptation
+ *  process.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMMigrationService_AdaptationModifier *> *adaptationModifiers;
 
 /**
  *  Optional. By default the image will keep its existing boot option. Setting

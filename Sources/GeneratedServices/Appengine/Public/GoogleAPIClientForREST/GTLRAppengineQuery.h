@@ -1051,8 +1051,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *appsId;
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1154,6 +1154,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to true, operations that are reachable are returned as normal, and
+ *  those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field.This can only be true when reading
+ *  across collections e.g. when parent is set to
+ *  "projects/example/locations/-".This field is not by default supported and
+ *  will result in an UNIMPLEMENTED error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRAppengine_ListOperationsResponse.
@@ -2376,6 +2387,55 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @end
 
 /**
+ *  Deletes the specified domain mapping. A user must be authorized to
+ *  administer the associated domain in order to delete a DomainMapping
+ *  resource.
+ *
+ *  Method: appengine.projects.locations.applications.domainMappings.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsDelete : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *domainMappingsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Required. Name of the resource to delete. Example:
+ *  apps/myapp/domainMappings/example.com.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_Operation.
+ *
+ *  Deletes the specified domain mapping. A user must be authorized to
+ *  administer the associated domain in order to delete a DomainMapping
+ *  resource.
+ *
+ *  @param projectsId Part of `name`. Required. Name of the resource to delete.
+ *    Example: apps/myapp/domainMappings/example.com.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *  @param domainMappingsId Part of `name`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsDelete
+ */
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+                   domainMappingsId:(NSString *)domainMappingsId;
+
+@end
+
+/**
  *  Gets the specified domain mapping.
  *
  *  Method: appengine.projects.locations.applications.domainMappings.get
@@ -2419,6 +2479,66 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
                         locationsId:(NSString *)locationsId
                      applicationsId:(NSString *)applicationsId
                    domainMappingsId:(NSString *)domainMappingsId;
+
+@end
+
+/**
+ *  Updates the specified domain mapping. To map an SSL certificate to a domain
+ *  mapping, update certificate_id to point to an AuthorizedCertificate
+ *  resource. A user must be authorized to administer the associated domain in
+ *  order to update a DomainMapping resource.
+ *
+ *  Method: appengine.projects.locations.applications.domainMappings.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsPatch : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *domainMappingsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Required. Name of the resource to update. Example:
+ *  apps/myapp/domainMappings/example.com.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/**
+ *  Required. Standard field mask for the set of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAppengine_Operation.
+ *
+ *  Updates the specified domain mapping. To map an SSL certificate to a domain
+ *  mapping, update certificate_id to point to an AuthorizedCertificate
+ *  resource. A user must be authorized to administer the associated domain in
+ *  order to update a DomainMapping resource.
+ *
+ *  @param object The @c GTLRAppengine_DomainMapping to include in the query.
+ *  @param projectsId Part of `name`. Required. Name of the resource to update.
+ *    Example: apps/myapp/domainMappings/example.com.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *  @param domainMappingsId Part of `name`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsDomainMappingsPatch
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_DomainMapping *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId
+               domainMappingsId:(NSString *)domainMappingsId;
 
 @end
 

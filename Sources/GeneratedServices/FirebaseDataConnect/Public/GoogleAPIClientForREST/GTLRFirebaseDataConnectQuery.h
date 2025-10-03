@@ -74,8 +74,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseDataConnectQuery_ProjectsLocationsList : GTLRFirebaseDataConnectQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -509,6 +509,92 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Impersonate a mutation defined on a Firebase Data Connect connector. It
+ *  grants the admin SDK access to mutations defined in the given connector. The
+ *  caller can choose to impersonate a particular Firebase Auth user, or skip
+ *  \@auth completely.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.connectors.impersonateMutation
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesConnectorsImpersonateMutation : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Required. The resource name of the connector to find the predefined
+ *  query/mutation, in the format: ```
+ *  projects/{project}/locations/{location}/services/{service}/connectors/{connector}
+ *  ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_GraphqlResponse.
+ *
+ *  Impersonate a mutation defined on a Firebase Data Connect connector. It
+ *  grants the admin SDK access to mutations defined in the given connector. The
+ *  caller can choose to impersonate a particular Firebase Auth user, or skip
+ *  \@auth completely.
+ *
+ *  @param object The @c GTLRFirebaseDataConnect_ImpersonateRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the connector to find the
+ *    predefined query/mutation, in the format: ```
+ *    projects/{project}/locations/{location}/services/{service}/connectors/{connector}
+ *    ```
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesConnectorsImpersonateMutation
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_ImpersonateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Impersonate a query defined on a Firebase Data Connect connector. It grants
+ *  the admin SDK access to queries defined in the given connector. The caller
+ *  can choose to impersonate a particular Firebase Auth user, or skip \@auth
+ *  completely.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.connectors.impersonateQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesConnectorsImpersonateQuery : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Required. The resource name of the connector to find the predefined
+ *  query/mutation, in the format: ```
+ *  projects/{project}/locations/{location}/services/{service}/connectors/{connector}
+ *  ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_GraphqlResponse.
+ *
+ *  Impersonate a query defined on a Firebase Data Connect connector. It grants
+ *  the admin SDK access to queries defined in the given connector. The caller
+ *  can choose to impersonate a particular Firebase Auth user, or skip \@auth
+ *  completely.
+ *
+ *  @param object The @c GTLRFirebaseDataConnect_ImpersonateRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the connector to find the
+ *    predefined query/mutation, in the format: ```
+ *    projects/{project}/locations/{location}/services/{service}/connectors/{connector}
+ *    ```
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesConnectorsImpersonateQuery
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_ImpersonateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists Connectors in a given project and location.
  *
  *  Method: firebasedataconnect.projects.locations.services.connectors.list
@@ -875,6 +961,51 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Execute introspection query against the Firebase Data Connect's generated
+ *  GraphQL schema. GraphQL introspection query provides metadata such as what
+ *  tables the schema have, what queries and mutations can be performed on the
+ *  schema, and so on. Read more at https://graphql.org/learn/introspection.
+ *  IntrospectGraphql can read schema metadata but cannot read rows from Cloud
+ *  SQL instance, which can be done via ExecuteGraphqlRead.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.introspectGraphql
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesIntrospectGraphql : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Required. The relative resource name of Firebase Data Connect service, in
+ *  the format: ``` projects/{project}/locations/{location}/services/{service}
+ *  ```
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_GraphqlResponse.
+ *
+ *  Execute introspection query against the Firebase Data Connect's generated
+ *  GraphQL schema. GraphQL introspection query provides metadata such as what
+ *  tables the schema have, what queries and mutations can be performed on the
+ *  schema, and so on. Read more at https://graphql.org/learn/introspection.
+ *  IntrospectGraphql can read schema metadata but cannot read rows from Cloud
+ *  SQL instance, which can be done via ExecuteGraphqlRead.
+ *
+ *  @param object The @c GTLRFirebaseDataConnect_GraphqlRequest to include in
+ *    the query.
+ *  @param name Required. The relative resource name of Firebase Data Connect
+ *    service, in the format: ```
+ *    projects/{project}/locations/{location}/services/{service} ```
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesIntrospectGraphql
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_GraphqlRequest *)object
+                           name:(NSString *)name;
 
 @end
 

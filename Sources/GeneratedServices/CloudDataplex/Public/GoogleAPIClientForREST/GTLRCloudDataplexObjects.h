@@ -62,6 +62,12 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfig;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigCsvOptions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigJsonOptions;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultField;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchema;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultTableResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult;
@@ -859,6 +865,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataDiscovery;
 /**
+ *  Data documentation scan.
+ *
+ *  Value: "DATA_DOCUMENTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataDocumentation;
+/**
  *  Data profile scan.
  *
  *  Value: "DATA_PROFILE"
@@ -970,6 +982,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  *  Value: "ON_DEMAND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OnDemand;
+/**
+ *  Data scan is run one time on creation.
+ *
+ *  Value: "ONE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OneTime;
 /**
  *  Data scan triggers as per schedule.
  *
@@ -1095,6 +1113,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  *  Value: "DATA_DISCOVERY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataDiscovery;
+/**
+ *  Data documentation scan.
+ *
+ *  Value: "DATA_DOCUMENTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataDocumentation;
 /**
  *  Data profile scan.
  *
@@ -4274,6 +4298,101 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The output of a DataDocumentation scan.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult : GTLRObject
+
+/** Output only. Table result for insights. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultTableResult *tableResult;
+
+@end
+
+
+/**
+ *  Column of a table with generated metadata and nested fields.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultField : GTLRObject
+
+/**
+ *  Output only. Generated description for columns and fields.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. Nested fields. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultField *> *fields;
+
+/** Output only. The name of the column. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A sample SQL query in data documentation.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery : GTLRObject
+
+/**
+ *  Output only. The description for the query.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Output only. The SQL query string which can be executed. */
+@property(nonatomic, copy, nullable) NSString *sql;
+
+@end
+
+
+/**
+ *  Schema of the table with generated metadata of columns.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchema : GTLRObject
+
+/** Output only. The list of columns. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultField *> *fields;
+
+@end
+
+
+/**
+ *  Generated metadata about the table.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultTableResult : GTLRObject
+
+/**
+ *  Output only. The service-qualified full resource name of the cloud resource.
+ *  Ex:
+ *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Generated description of the table. */
+@property(nonatomic, copy, nullable) NSString *overview;
+
+/** Output only. Sample SQL queries for the table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery *> *queries;
+
+/**
+ *  Output only. Schema of the table with generated metadata of the columns in
+ *  the schema.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchema *schema;
+
+@end
+
+
+/**
+ *  DataDocumentation scan related spec.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec : GTLRObject
+@end
+
+
+/**
  *  DataProfileResult defines the output of DataProfileScan. Each field of the
  *  table will have field type specific profile result.
  */
@@ -5475,7 +5594,11 @@ GTLR_DEPRECATED
  *  (https://cloud.google.com/dataplex/docs/data-profiling-overview). Data
  *  discovery: scans data in Cloud Storage buckets to extract and then catalog
  *  metadata. For more information, see Discover and catalog Cloud Storage data
- *  (https://cloud.google.com/bigquery/docs/automatic-discovery).
+ *  (https://cloud.google.com/bigquery/docs/automatic-discovery). Data
+ *  documentation: analyzes the table details and generates insights including
+ *  descriptions and sample SQL queries for the table. For more information, see
+ *  Generate data insights in BigQuery
+ *  (https://cloud.google.com/bigquery/docs/data-insights).
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScan : GTLRObject
 
@@ -5490,6 +5613,12 @@ GTLR_DEPRECATED
 
 /** Settings for a data discovery scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpec *dataDiscoverySpec;
+
+/** Output only. The result of a data documentation scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult *dataDocumentationResult;
+
+/** Settings for a data documentation scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec *dataDocumentationSpec;
 
 /** Output only. The result of a data profile scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult *dataProfileResult;
@@ -5557,6 +5686,8 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataDiscovery
  *        Data discovery scan. (Value: "DATA_DISCOVERY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataDocumentation
+ *        Data documentation scan. (Value: "DATA_DOCUMENTATION")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataProfile
  *        Data profile scan. (Value: "DATA_PROFILE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScan_Type_DataQuality
@@ -5699,6 +5830,8 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OnDemand
  *        Data scan triggers on demand. (Value: "ON_DEMAND")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OneTime
+ *        Data scan is run one time on creation. (Value: "ONE_TIME")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_Schedule
  *        Data scan triggers as per schedule. (Value: "SCHEDULE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_TriggerUnspecified
@@ -5978,6 +6111,12 @@ GTLR_DEPRECATED
 /** Output only. Settings for a data discovery scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpec *dataDiscoverySpec;
 
+/** Output only. The result of a data documentation scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult *dataDocumentationResult;
+
+/** Output only. Settings for a data documentation scan. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec *dataDocumentationSpec;
+
 /** Output only. The result of a data profile scan. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult *dataProfileResult;
 
@@ -6037,6 +6176,8 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataDiscovery
  *        Data discovery scan. (Value: "DATA_DISCOVERY")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataDocumentation
+ *        Data documentation scan. (Value: "DATA_DOCUMENTATION")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataProfile
  *        Data profile scan. (Value: "DATA_PROFILE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_Type_DataQuality
@@ -6070,7 +6211,8 @@ GTLR_DEPRECATED
  *  for a DataScan job to scan against. The field could either be: Cloud Storage
  *  bucket for DataDiscoveryScan Format:
  *  //storage.googleapis.com/projects/PROJECT_ID/buckets/BUCKET_ID or BigQuery
- *  table of type "TABLE" for DataProfileScan/DataQualityScan Format:
+ *  table of type "TABLE" for
+ *  DataProfileScan/DataQualityScan/DataDocumentationScan Format:
  *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
  */
 @property(nonatomic, copy, nullable) NSString *resource;
@@ -6378,6 +6520,13 @@ GTLR_DEPRECATED
 
 /** Output only. The time when the Encryption configuration was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Represent the state of CMEK opt-in for metastore.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableMetastoreEncryption;
 
 /**
  *  Output only. The state of encryption of the databases.
@@ -9140,12 +9289,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *aspectTypes;
 
 /**
- *  Required. The entry group that is in scope for the import job, specified as
- *  a relative resource name in the format
+ *  Required. The entry groups that are in scope for the import job, specified
+ *  as relative resource names in the format
  *  projects/{project_number_or_id}/locations/{location_id}/entryGroups/{entry_group_id}.
- *  Only entries and aspects that belong to the specified entry group are
- *  affected by the job.Must contain exactly one element. The entry group and
- *  the job must be in the same location.
+ *  Only entries and aspects that belong to the specified entry groups are
+ *  affected by the job.The entry groups and the job must be in the same
+ *  location.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *entryGroups;
 
@@ -11133,6 +11282,13 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  ListOperationsRequest.return_partial_success and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

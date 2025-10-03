@@ -31,6 +31,7 @@
 @class GTLRContainer_AutopilotCompatibilityIssue;
 @class GTLRContainer_AutopilotConfig;
 @class GTLRContainer_AutoprovisioningNodePoolDefaults;
+@class GTLRContainer_AutoscaledRolloutPolicy;
 @class GTLRContainer_AutoUpgradeOptions;
 @class GTLRContainer_BestEffortProvisioning;
 @class GTLRContainer_BigQueryDestination;
@@ -206,6 +207,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -1176,7 +1178,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_LinuxNodeConfig_TransparentHug
 /**
  *  It means that an application will wake kswapd in the background to reclaim
  *  pages and wake kcompactd to compact memory so that THP is available in the
- *  near future. It’s the responsibility of khugepaged to then install the THP
+ *  near future. It's the responsibility of khugepaged to then install the THP
  *  pages later.
  *
  *  Value: "TRANSPARENT_HUGEPAGE_DEFRAG_DEFER"
@@ -2978,7 +2980,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Configuration for the ConfigConnector add-on, a Kubernetes extension to
- *  manage hosted GCP services through the Kubernetes API
+ *  manage hosted Google Cloud services through the Kubernetes API.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfigConnectorConfig *configConnectorConfig;
 
@@ -2988,7 +2990,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configuration for the Compute Engine Persistent Disk CSI driver. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcePersistentDiskCsiDriverConfig *gcePersistentDiskCsiDriverConfig;
 
-/** Configuration for the GCP Filestore CSI driver. */
+/** Configuration for the Filestore CSI driver. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcpFilestoreCsiDriverConfig *gcpFilestoreCsiDriverConfig;
 
 /** Configuration for the Cloud Storage Fuse CSI driver. */
@@ -3371,6 +3373,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Autoscaled rollout policy utilizes the cluster autoscaler during blue-green
+ *  upgrade to scale both the blue and green pools.
+ */
+@interface GTLRContainer_AutoscaledRolloutPolicy : GTLRObject
+
+/**
+ *  Optional. Time to wait after cordoning the blue pool before draining the
+ *  nodes. Defaults to 3 days. The value can be set between 0 and 7 days,
+ *  inclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *waitForDrainDuration;
+
+@end
+
+
+/**
  *  AutoUpgradeOptions defines the set of options for the user to control how
  *  the Auto Upgrades will proceed.
  */
@@ -3522,6 +3540,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Settings for blue-green upgrade.
  */
 @interface GTLRContainer_BlueGreenSettings : GTLRObject
+
+/** Autoscaled policy for cluster autoscaler enabled blue-green upgrade. */
+@property(nonatomic, strong, nullable) GTLRContainer_AutoscaledRolloutPolicy *autoscaledRolloutPolicy;
 
 /**
  *  Time needed after draining entire blue pool. After this period, blue pool
@@ -3831,8 +3852,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *endpoint;
 
-/** GKE Enterprise Configuration. */
-@property(nonatomic, strong, nullable) GTLRContainer_EnterpriseConfig *enterpriseConfig;
+/**
+ *  GKE Enterprise Configuration. Deprecated: GKE Enterprise features are now
+ *  available without an Enterprise tier.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_EnterpriseConfig *enterpriseConfig GTLR_DEPRECATED;
 
 /**
  *  This checksum is computed by the server based on the value of cluster
@@ -4172,8 +4196,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_VerticalPodAutoscaling *verticalPodAutoscaling;
 
 /**
- *  Configuration for the use of Kubernetes Service Accounts in GCP IAM
- *  policies.
+ *  Configuration for the use of Kubernetes Service Accounts in IAM policies.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_WorkloadIdentityConfig *workloadIdentityConfig;
 
@@ -4401,8 +4424,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *desiredEnablePrivateEndpoint GTLR_DEPRECATED;
 
-/** The desired enterprise configuration for the cluster. */
-@property(nonatomic, strong, nullable) GTLRContainer_DesiredEnterpriseConfig *desiredEnterpriseConfig;
+/**
+ *  The desired enterprise configuration for the cluster. Deprecated: GKE
+ *  Enterprise features are now available without an Enterprise tier.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_DesiredEnterpriseConfig *desiredEnterpriseConfig GTLR_DEPRECATED;
 
 /** The desired fleet configuration for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_Fleet *desiredFleet;
@@ -5130,7 +5156,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  DesiredEnterpriseConfig is a wrapper used for updating enterprise_config.
+ *  Deprecated: GKE Enterprise features are now available without an Enterprise
+ *  tier.
  */
+GTLR_DEPRECATED
 @interface GTLRContainer_DesiredEnterpriseConfig : GTLRObject
 
 /**
@@ -5216,11 +5245,25 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Controls whether user traffic is allowed over this endpoint. Note that
- *  GCP-managed services may still use the endpoint even if this is false.
+ *  Google-managed services may still use the endpoint even if this is false.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowExternalTraffic;
+
+/**
+ *  Controls whether the k8s certs auth is allowed via DNS.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableK8sCertsViaDns;
+
+/**
+ *  Controls whether the k8s token auth is allowed via DNS.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableK8sTokensViaDns;
 
 /**
  *  Output only. The cluster's DNS endpoint configuration. A DNS format address.
@@ -5244,8 +5287,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  EnterpriseConfig is the cluster enterprise configuration.
+ *  EnterpriseConfig is the cluster enterprise configuration. Deprecated: GKE
+ *  Enterprise features are now available without an Enterprise tier.
  */
+GTLR_DEPRECATED
 @interface GTLRContainer_EnterpriseConfig : GTLRObject
 
 /**
@@ -5615,12 +5660,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  Configuration for the GCP Filestore CSI driver.
+ *  Configuration for the Filestore CSI driver.
  */
 @interface GTLRContainer_GcpFilestoreCsiDriverConfig : GTLRObject
 
 /**
- *  Whether the GCP Filestore CSI driver is enabled for this cluster.
+ *  Whether the Filestore CSI driver is enabled for this cluster.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6349,7 +6394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDefer
  *        It means that an application will wake kswapd in the background to
  *        reclaim pages and wake kcompactd to compact memory so that THP is
- *        available in the near future. It’s the responsibility of khugepaged to
+ *        available in the near future. It's the responsibility of khugepaged to
  *        then install the THP pages later. (Value:
  *        "TRANSPARENT_HUGEPAGE_DEFRAG_DEFER")
  *    @arg @c kGTLRContainer_LinuxNodeConfig_TransparentHugepageDefrag_TransparentHugepageDefragDeferWithMadvise
@@ -9126,7 +9171,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  Collection of [GCP
+ *  Collection of [Resource Manager
  *  labels](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-labels).
  */
 @interface GTLRContainer_ResourceLabels : GTLRObject
@@ -11309,8 +11354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  Configuration for the use of Kubernetes Service Accounts in GCP IAM
- *  policies.
+ *  Configuration for the use of Kubernetes Service Accounts in IAM policies.
  */
 @interface GTLRContainer_WorkloadIdentityConfig : GTLRObject
 

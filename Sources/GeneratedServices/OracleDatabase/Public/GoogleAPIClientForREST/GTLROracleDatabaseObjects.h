@@ -28,6 +28,7 @@
 @class GTLROracleDatabase_AutonomousDatabaseProperties;
 @class GTLROracleDatabase_AutonomousDatabaseStandbySummary;
 @class GTLROracleDatabase_AutonomousDbVersion;
+@class GTLROracleDatabase_BackupDestinationDetails;
 @class GTLROracleDatabase_CloudAccountDetails;
 @class GTLROracleDatabase_CloudExadataInfrastructure;
 @class GTLROracleDatabase_CloudExadataInfrastructure_Labels;
@@ -36,20 +37,49 @@
 @class GTLROracleDatabase_CloudVmCluster_Labels;
 @class GTLROracleDatabase_CloudVmClusterProperties;
 @class GTLROracleDatabase_CustomerContact;
+@class GTLROracleDatabase_Database;
+@class GTLROracleDatabase_DatabaseCharacterSet;
 @class GTLROracleDatabase_DatabaseConnectionStringProfile;
+@class GTLROracleDatabase_DatabaseManagementConfig;
+@class GTLROracleDatabase_DatabaseProperties;
 @class GTLROracleDatabase_DataCollectionOptions;
+@class GTLROracleDatabase_DataCollectionOptionsCommon;
+@class GTLROracleDatabase_DataCollectionOptionsDbSystem;
+@class GTLROracleDatabase_DbBackupConfig;
+@class GTLROracleDatabase_DbHome;
 @class GTLROracleDatabase_DbNode;
 @class GTLROracleDatabase_DbNodeProperties;
 @class GTLROracleDatabase_DbServer;
 @class GTLROracleDatabase_DbServerProperties;
+@class GTLROracleDatabase_DbSystem;
+@class GTLROracleDatabase_DbSystem_Labels;
+@class GTLROracleDatabase_DbSystemInitialStorageSize;
+@class GTLROracleDatabase_DbSystemInitialStorageSizeProperties;
+@class GTLROracleDatabase_DbSystemOptions;
+@class GTLROracleDatabase_DbSystemProperties;
 @class GTLROracleDatabase_DbSystemShape;
+@class GTLROracleDatabase_DbVersion;
+@class GTLROracleDatabase_DbVersionProperties;
+@class GTLROracleDatabase_DefinedTagValue;
+@class GTLROracleDatabase_DefinedTagValue_Tags;
+@class GTLROracleDatabase_EncryptionKey;
+@class GTLROracleDatabase_EncryptionKeyHistoryEntry;
 @class GTLROracleDatabase_Entitlement;
+@class GTLROracleDatabase_ExadbVmCluster;
+@class GTLROracleDatabase_ExadbVmCluster_Labels;
+@class GTLROracleDatabase_ExadbVmClusterProperties;
+@class GTLROracleDatabase_ExadbVmClusterStorageDetails;
+@class GTLROracleDatabase_ExascaleDbStorageDetails;
+@class GTLROracleDatabase_ExascaleDbStorageVault;
+@class GTLROracleDatabase_ExascaleDbStorageVault_Labels;
+@class GTLROracleDatabase_ExascaleDbStorageVaultProperties;
 @class GTLROracleDatabase_GiVersion;
 @class GTLROracleDatabase_IdentityConnector;
 @class GTLROracleDatabase_Location;
 @class GTLROracleDatabase_Location_Labels;
 @class GTLROracleDatabase_Location_Metadata;
 @class GTLROracleDatabase_MaintenanceWindow;
+@class GTLROracleDatabase_MinorVersion;
 @class GTLROracleDatabase_OdbNetwork;
 @class GTLROracleDatabase_OdbNetwork_Labels;
 @class GTLROracleDatabase_OdbSubnet;
@@ -57,10 +87,18 @@
 @class GTLROracleDatabase_Operation;
 @class GTLROracleDatabase_Operation_Metadata;
 @class GTLROracleDatabase_Operation_Response;
+@class GTLROracleDatabase_PluggableDatabase;
+@class GTLROracleDatabase_PluggableDatabaseConnectionStrings;
+@class GTLROracleDatabase_PluggableDatabaseConnectionStrings_AllConnectionStrings;
+@class GTLROracleDatabase_PluggableDatabaseNodeLevelDetails;
+@class GTLROracleDatabase_PluggableDatabaseProperties;
+@class GTLROracleDatabase_PluggableDatabaseProperties_DefinedTags;
+@class GTLROracleDatabase_PluggableDatabaseProperties_FreeformTags;
 @class GTLROracleDatabase_ScheduledOperationDetails;
 @class GTLROracleDatabase_SourceConfig;
 @class GTLROracleDatabase_Status;
 @class GTLROracleDatabase_Status_Details_Item;
+@class GTLROracleDatabase_StorageSizeDetails;
 @class GTLROracleDatabase_TimeOfDay;
 @class GTLROracleDatabase_TimeZone;
 
@@ -866,6 +904,46 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWor
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDbVersion_DbWorkload_Oltp;
 
 // ----------------------------------------------------------------------------
+// GTLROracleDatabase_BackupDestinationDetails.type
+
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "BACKUP_DESTINATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_BackupDestinationTypeUnspecified;
+/**
+ *  Backup destination type is DBRS.
+ *
+ *  Value: "DBRS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_Dbrs;
+/**
+ *  Backup destination type is Local.
+ *
+ *  Value: "LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_Local;
+/**
+ *  Backup destination type is NFS.
+ *
+ *  Value: "NFS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_Nfs;
+/**
+ *  Backup destination type is Object Store.
+ *
+ *  Value: "OBJECT_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_ObjectStore;
+/**
+ *  Backup destination type is Recovery Appliance.
+ *
+ *  Value: "RECOVERY_APPLIANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_BackupDestinationDetails_Type_RecoveryAppliance;
+
+// ----------------------------------------------------------------------------
 // GTLROracleDatabase_CloudExadataInfrastructureProperties.computeModel
 
 /**
@@ -1062,6 +1140,74 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_CloudVmClusterProperties_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLROracleDatabase_Database.opsInsightsStatus
+
+/**
+ *  Indicates that the operations insights are being disabled.
+ *
+ *  Value: "DISABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Disabling;
+/**
+ *  Indicates that the operations insights are enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Enabled;
+/**
+ *  Indicates that the operations insights are being enabled.
+ *
+ *  Value: "ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_Enabling;
+/**
+ *  Indicates that the operations insights failed to disable.
+ *
+ *  Value: "FAILED_DISABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_FailedDisabling;
+/**
+ *  Indicates that the operations insights failed to enable.
+ *
+ *  Value: "FAILED_ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_FailedEnabling;
+/**
+ *  Indicates that the operations insights are not enabled.
+ *
+ *  Value: "NOT_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_NotEnabled;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "OPERATIONS_INSIGHTS_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Database_OpsInsightsStatus_OperationsInsightsStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DatabaseCharacterSet.characterSetType
+
+/**
+ *  Character set type is not specified.
+ *
+ *  Value: "CHARACTER_SET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_CharacterSetTypeUnspecified;
+/**
+ *  Character set type is set to database.
+ *
+ *  Value: "DATABASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_Database;
+/**
+ *  Character set type is set to national.
+ *
+ *  Value: "NATIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_National;
+
+// ----------------------------------------------------------------------------
 // GTLROracleDatabase_DatabaseConnectionStringProfile.consumerGroup
 
 /**
@@ -1218,6 +1364,395 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseConnectionStringP
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseConnectionStringProfile_TlsAuthentication_TlsAuthenticationUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLROracleDatabase_DatabaseManagementConfig.managementState
+
+/**
+ *  The Database Management service is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Disabled;
+/**
+ *  The Database Management service is disabling.
+ *
+ *  Value: "DISABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Disabling;
+/**
+ *  The Database Management service is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Enabled;
+/**
+ *  The Database Management service is enabling.
+ *
+ *  Value: "ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Enabling;
+/**
+ *  The Database Management service failed to disable.
+ *
+ *  Value: "FAILED_DISABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_FailedDisabling;
+/**
+ *  The Database Management service failed to enable.
+ *
+ *  Value: "FAILED_ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_FailedEnabling;
+/**
+ *  The Database Management service failed to update.
+ *
+ *  Value: "FAILED_UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_FailedUpdating;
+/**
+ *  The status is not specified.
+ *
+ *  Value: "MANAGEMENT_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_ManagementStateUnspecified;
+/**
+ *  The Database Management service is updating.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DatabaseManagementConfig.managementType
+
+/**
+ *  Advanced Database Management.
+ *
+ *  Value: "ADVANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementType_Advanced;
+/**
+ *  Basic Database Management.
+ *
+ *  Value: "BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementType_Basic;
+/**
+ *  The type is not specified.
+ *
+ *  Value: "MANAGEMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseManagementConfig_ManagementType_ManagementTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DatabaseProperties.state
+
+/**
+ *  Indicates that the resource is in available state.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseProperties_State_Available;
+/**
+ *  Indicates that the resource is in backup in progress state.
+ *
+ *  Value: "BACKUP_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseProperties_State_BackupInProgress;
+/**
+ *  Indicates that the resource is in converting state.
+ *
+ *  Value: "CONVERTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseProperties_State_Converting;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "DATABASE_LIFECYCLE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseProperties_State_DatabaseLifecycleStateUnspecified;
+/**
+ *  Indicates that the resource is in failed state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseProperties_State_Failed;
+/**
+ *  Indicates that the resource is in provisioning state.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseProperties_State_Provisioning;
+/**
+ *  Indicates that the resource is in restore failed state.
+ *
+ *  Value: "RESTORE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseProperties_State_RestoreFailed;
+/**
+ *  Indicates that the resource is in terminated state.
+ *
+ *  Value: "TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseProperties_State_Terminated;
+/**
+ *  Indicates that the resource is in terminating state.
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseProperties_State_Terminating;
+/**
+ *  Indicates that the resource is in updating state.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseProperties_State_Updating;
+/**
+ *  Indicates that the resource is in upgrading state.
+ *
+ *  Value: "UPGRADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DatabaseProperties_State_Upgrading;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DbBackupConfig.autoFullBackupDay
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Wednesday;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DbBackupConfig.autoFullBackupWindow
+
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "BACKUP_WINDOW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_BackupWindowUnspecified;
+/**
+ *  2:00 PM - 4:00 PM
+ *
+ *  Value: "SLOT_EIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotEight;
+/**
+ *  8:00 PM - 10:00 PM
+ *
+ *  Value: "SLOT_ELEVEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotEleven;
+/**
+ *  8:00 AM - 10:00 AM
+ *
+ *  Value: "SLOT_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotFive;
+/**
+ *  6:00 AM - 8:00 AM
+ *
+ *  Value: "SLOT_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotFour;
+/**
+ *  4:00 PM - 6:00 PM
+ *
+ *  Value: "SLOT_NINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotNine;
+/**
+ *  12:00 AM - 2:00 AM
+ *
+ *  Value: "SLOT_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotOne;
+/**
+ *  12:00 PM - 2:00 PM
+ *
+ *  Value: "SLOT_SEVEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotSeven;
+/**
+ *  10:00 AM - 12:00 PM
+ *
+ *  Value: "SLOT_SIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotSix;
+/**
+ *  6:00 PM - 8:00 PM
+ *
+ *  Value: "SLOT_TEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotTen;
+/**
+ *  4:00 AM - 6:00 AM
+ *
+ *  Value: "SLOT_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotThree;
+/**
+ *  10:00 PM - 12:00 AM
+ *
+ *  Value: "SLOT_TWELVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotTwelve;
+/**
+ *  2:00 AM - 4:00 AM
+ *
+ *  Value: "SLOT_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotTwo;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DbBackupConfig.autoIncrementalBackupWindow
+
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "BACKUP_WINDOW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_BackupWindowUnspecified;
+/**
+ *  2:00 PM - 4:00 PM
+ *
+ *  Value: "SLOT_EIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotEight;
+/**
+ *  8:00 PM - 10:00 PM
+ *
+ *  Value: "SLOT_ELEVEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotEleven;
+/**
+ *  8:00 AM - 10:00 AM
+ *
+ *  Value: "SLOT_FIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotFive;
+/**
+ *  6:00 AM - 8:00 AM
+ *
+ *  Value: "SLOT_FOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotFour;
+/**
+ *  4:00 PM - 6:00 PM
+ *
+ *  Value: "SLOT_NINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotNine;
+/**
+ *  12:00 AM - 2:00 AM
+ *
+ *  Value: "SLOT_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotOne;
+/**
+ *  12:00 PM - 2:00 PM
+ *
+ *  Value: "SLOT_SEVEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotSeven;
+/**
+ *  10:00 AM - 12:00 PM
+ *
+ *  Value: "SLOT_SIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotSix;
+/**
+ *  6:00 PM - 8:00 PM
+ *
+ *  Value: "SLOT_TEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotTen;
+/**
+ *  4:00 AM - 6:00 AM
+ *
+ *  Value: "SLOT_THREE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotThree;
+/**
+ *  10:00 PM - 12:00 AM
+ *
+ *  Value: "SLOT_TWELVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotTwelve;
+/**
+ *  2:00 AM - 4:00 AM
+ *
+ *  Value: "SLOT_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotTwo;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DbBackupConfig.backupDeletionPolicy
+
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "BACKUP_DELETION_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_BackupDeletionPolicy_BackupDeletionPolicyUnspecified;
+/**
+ *  Keeps the backups as per the policy defined for database backups.
+ *
+ *  Value: "DELETE_AFTER_RETENTION_PERIOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_BackupDeletionPolicy_DeleteAfterRetentionPeriod;
+/**
+ *  Keeps the backup for predefined time i.e. 72 hours and then delete
+ *  permanently.
+ *
+ *  Value: "DELETE_IMMEDIATELY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbBackupConfig_BackupDeletionPolicy_DeleteImmediately;
+
+// ----------------------------------------------------------------------------
 // GTLROracleDatabase_DbNodeProperties.state
 
 /**
@@ -1322,6 +1857,230 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbServerProperties_State_
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbServerProperties_State_Unavailable;
 
 // ----------------------------------------------------------------------------
+// GTLROracleDatabase_DbSystemInitialStorageSizeProperties.shapeType
+
+/**
+ *  Unspecified shape type.
+ *
+ *  Value: "SHAPE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_ShapeType_ShapeTypeUnspecified;
+/**
+ *  Standard X86.
+ *
+ *  Value: "STANDARD_X86"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_ShapeType_StandardX86;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DbSystemInitialStorageSizeProperties.storageManagement
+
+/**
+ *  Automatic Storage Management.
+ *
+ *  Value: "ASM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_StorageManagement_Asm;
+/**
+ *  Logical Volume Management.
+ *
+ *  Value: "LVM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_StorageManagement_Lvm;
+/**
+ *  Unspecified storage management.
+ *
+ *  Value: "STORAGE_MANAGEMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_StorageManagement_StorageManagementUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DbSystemOptions.storageManagement
+
+/**
+ *  Automatic storage management.
+ *
+ *  Value: "ASM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemOptions_StorageManagement_Asm;
+/**
+ *  Logical Volume management.
+ *
+ *  Value: "LVM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemOptions_StorageManagement_Lvm;
+/**
+ *  The storage management is unspecified.
+ *
+ *  Value: "STORAGE_MANAGEMENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemOptions_StorageManagement_StorageManagementUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DbSystemProperties.computeModel
+
+/**
+ *  The compute model is unspecified.
+ *
+ *  Value: "COMPUTE_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_ComputeModel_ComputeModelUnspecified;
+/**
+ *  The compute model is virtual.
+ *
+ *  Value: "ECPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ecpu;
+/**
+ *  The compute model is physical.
+ *
+ *  Value: "OCPU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ocpu;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DbSystemProperties.databaseEdition
+
+/**
+ *  The database edition is unspecified.
+ *
+ *  Value: "DB_SYSTEM_DATABASE_EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_DbSystemDatabaseEditionUnspecified;
+/**
+ *  The database edition is Enterprise.
+ *
+ *  Value: "ENTERPRISE_EDITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_EnterpriseEdition;
+/**
+ *  The database edition is Enterprise Edition.
+ *
+ *  Value: "ENTERPRISE_EDITION_HIGH_PERFORMANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_EnterpriseEditionHighPerformance;
+/**
+ *  The database edition is Standard.
+ *
+ *  Value: "STANDARD_EDITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_StandardEdition;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DbSystemProperties.licenseModel
+
+/**
+ *  The license model is bring your own license.
+ *
+ *  Value: "BRING_YOUR_OWN_LICENSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LicenseModel_BringYourOwnLicense;
+/**
+ *  The license model is included.
+ *
+ *  Value: "LICENSE_INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LicenseModel_LicenseIncluded;
+/**
+ *  The license model is unspecified.
+ *
+ *  Value: "LICENSE_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LicenseModel_LicenseModelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_DbSystemProperties.lifecycleState
+
+/**
+ *  Indicates that the resource is in available state.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Available;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "DB_SYSTEM_LIFECYCLE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_DbSystemLifecycleStateUnspecified;
+/**
+ *  Indicates that the resource is in failed state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Failed;
+/**
+ *  Indicates that the resource is in maintenance in progress state.
+ *
+ *  Value: "MAINTENANCE_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_MaintenanceInProgress;
+/**
+ *  Indicates that the resource has been migrated.
+ *
+ *  Value: "MIGRATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Migrated;
+/**
+ *  Indicates that the resource needs attention.
+ *
+ *  Value: "NEEDS_ATTENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_NeedsAttention;
+/**
+ *  Indicates that the resource is in provisioning state.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Provisioning;
+/**
+ *  Indicates that the resource is in terminated state.
+ *
+ *  Value: "TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Terminated;
+/**
+ *  Indicates that the resource is in terminating state.
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Terminating;
+/**
+ *  Indicates that the resource is in updating state.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Updating;
+/**
+ *  Indicates that the resource is upgrading.
+ *
+ *  Value: "UPGRADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_DbSystemProperties_LifecycleState_Upgrading;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_EncryptionKey.provider
+
+/**
+ *  Google Managed KMS key, if selected, please provide the KMS key name.
+ *
+ *  Value: "GOOGLE_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_EncryptionKey_Provider_GoogleManaged;
+/**
+ *  Oracle Managed.
+ *
+ *  Value: "ORACLE_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_EncryptionKey_Provider_OracleManaged;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_EncryptionKey_Provider_ProviderUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLROracleDatabase_Entitlement.state
 
 /**
@@ -1360,6 +2119,192 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Entitlement_State_NotAppr
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_Entitlement_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_ExadbVmClusterProperties.licenseModel
+
+/**
+ *  Bring your own license.
+ *
+ *  Value: "BRING_YOUR_OWN_LICENSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LicenseModel_BringYourOwnLicense;
+/**
+ *  Default is license included.
+ *
+ *  Value: "LICENSE_INCLUDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LicenseModel_LicenseIncluded;
+/**
+ *  Unspecified.
+ *
+ *  Value: "LICENSE_MODEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LicenseModel_LicenseModelUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_ExadbVmClusterProperties.lifecycleState
+
+/**
+ *  Indicates that the resource is in available state.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Available;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "EXADB_VM_CLUSTER_LIFECYCLE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_ExadbVmClusterLifecycleStateUnspecified;
+/**
+ *  Indicates that the resource is in failed state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Failed;
+/**
+ *  Indicates that the resource is in maintenance in progress state.
+ *
+ *  Value: "MAINTENANCE_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_MaintenanceInProgress;
+/**
+ *  Indicates that the resource is in provisioning state.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Provisioning;
+/**
+ *  Indicates that the resource is in terminated state.
+ *
+ *  Value: "TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Terminated;
+/**
+ *  Indicates that the resource is in terminating state.
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Terminating;
+/**
+ *  Indicates that the resource is in updating state.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_ExadbVmClusterProperties.shapeAttribute
+
+/**
+ *  Indicates that the resource is in block storage.
+ *
+ *  Value: "BLOCK_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_ShapeAttribute_BlockStorage;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "SHAPE_ATTRIBUTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_ShapeAttribute_ShapeAttributeUnspecified;
+/**
+ *  Indicates that the resource is in smart storage.
+ *
+ *  Value: "SMART_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExadbVmClusterProperties_ShapeAttribute_SmartStorage;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_ExascaleDbStorageVaultProperties.attachedShapeAttributes
+
+/**
+ *  Indicates that the resource is in block storage.
+ *
+ *  Value: "BLOCK_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AttachedShapeAttributes_BlockStorage;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "SHAPE_ATTRIBUTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AttachedShapeAttributes_ShapeAttributeUnspecified;
+/**
+ *  Indicates that the resource is in smart storage.
+ *
+ *  Value: "SMART_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AttachedShapeAttributes_SmartStorage;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_ExascaleDbStorageVaultProperties.availableShapeAttributes
+
+/**
+ *  Indicates that the resource is in block storage.
+ *
+ *  Value: "BLOCK_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AvailableShapeAttributes_BlockStorage;
+/**
+ *  Default unspecified value.
+ *
+ *  Value: "SHAPE_ATTRIBUTE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AvailableShapeAttributes_ShapeAttributeUnspecified;
+/**
+ *  Indicates that the resource is in smart storage.
+ *
+ *  Value: "SMART_STORAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_AvailableShapeAttributes_SmartStorage;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_ExascaleDbStorageVaultProperties.state
+
+/**
+ *  The ExascaleDbStorageVault is available.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Available;
+/**
+ *  The ExascaleDbStorageVault has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Failed;
+/**
+ *  The ExascaleDbStorageVault is being provisioned.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Provisioning;
+/**
+ *  The state of the ExascaleDbStorageVault is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_StateUnspecified;
+/**
+ *  The ExascaleDbStorageVault has been deleted.
+ *
+ *  Value: "TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Terminated;
+/**
+ *  The ExascaleDbStorageVault is being deleted.
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Terminating;
+/**
+ *  The ExascaleDbStorageVault is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_GenerateAutonomousDatabaseWalletRequest.type
@@ -1685,6 +2630,174 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbSubnet_State_StateUnsp
  *  Value: "TERMINATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_OdbSubnet_State_Terminating;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_PluggableDatabaseNodeLevelDetails.openMode
+
+/**
+ *  The pluggable database is migrated.
+ *
+ *  Value: "MIGRATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_Migrate;
+/**
+ *  The pluggable database is mounted.
+ *
+ *  Value: "MOUNTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_Mounted;
+/**
+ *  The open mode is unspecified.
+ *
+ *  Value: "PLUGGABLE_DATABASE_OPEN_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_PluggableDatabaseOpenModeUnspecified;
+/**
+ *  The pluggable database is opened in read-only mode.
+ *
+ *  Value: "READ_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_ReadOnly;
+/**
+ *  The pluggable database is opened in read-write mode.
+ *
+ *  Value: "READ_WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_ReadWrite;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_PluggableDatabaseProperties.lifecycleState
+
+/**
+ *  The pluggable database is available.
+ *
+ *  Value: "AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Available;
+/**
+ *  The pluggable database is backing up.
+ *
+ *  Value: "BACKUP_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_BackupInProgress;
+/**
+ *  The pluggable database is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Disabled;
+/**
+ *  The pluggable database is in a failed state.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Failed;
+/**
+ *  The lifecycle state is unspecified.
+ *
+ *  Value: "PLUGGABLE_DATABASE_LIFECYCLE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_PluggableDatabaseLifecycleStateUnspecified;
+/**
+ *  The pluggable database is provisioning.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Provisioning;
+/**
+ *  The pluggable database is refreshing.
+ *
+ *  Value: "REFRESHING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Refreshing;
+/**
+ *  The pluggable database is relocated.
+ *
+ *  Value: "RELOCATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Relocated;
+/**
+ *  The pluggable database is relocating.
+ *
+ *  Value: "RELOCATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Relocating;
+/**
+ *  The pluggable database restore failed.
+ *
+ *  Value: "RESTORE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_RestoreFailed;
+/**
+ *  The pluggable database is restoring.
+ *
+ *  Value: "RESTORE_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_RestoreInProgress;
+/**
+ *  The pluggable database is terminated.
+ *
+ *  Value: "TERMINATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Terminated;
+/**
+ *  The pluggable database is terminating.
+ *
+ *  Value: "TERMINATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Terminating;
+/**
+ *  The pluggable database is updating.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLROracleDatabase_PluggableDatabaseProperties.operationsInsightsState
+
+/**
+ *  Operations Insights is disabling.
+ *
+ *  Value: "DISABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_Disabling;
+/**
+ *  Operations Insights is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_Enabled;
+/**
+ *  Operations Insights is enabling.
+ *
+ *  Value: "ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_Enabling;
+/**
+ *  Operations Insights failed to disable.
+ *
+ *  Value: "FAILED_DISABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_FailedDisabling;
+/**
+ *  Operations Insights failed to enable.
+ *
+ *  Value: "FAILED_ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_FailedEnabling;
+/**
+ *  Operations Insights is not enabled.
+ *
+ *  Value: "NOT_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_NotEnabled;
+/**
+ *  The status is not specified.
+ *
+ *  Value: "OPERATIONS_INSIGHTS_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_OperationsInsightsStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_ScheduledOperationDetails.dayOfWeek
@@ -2395,6 +3508,19 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) GTLRDateTime *disasterRecoveryRoleChangedTime;
 
 /**
+ *  Optional. The encryption key used to encrypt the Autonomous Database.
+ *  Updating this field will add a new entry in the
+ *  `encryption_key_history_entries` field with the former version.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_EncryptionKey *encryptionKey;
+
+/**
+ *  Output only. The history of the encryption keys used to encrypt the
+ *  Autonomous Database.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_EncryptionKeyHistoryEntry *> *encryptionKeyHistoryEntries;
+
+/**
  *  Output only. This field indicates the number of seconds of data loss during
  *  a Data Guard failover.
  */
@@ -2660,6 +3786,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 /** Optional. The ID of the Oracle Cloud Infrastructure vault secret. */
 @property(nonatomic, copy, nullable) NSString *secretId;
 
+/**
+ *  Output only. An Oracle-managed Google Cloud service account on which
+ *  customers can grant roles to access resources in the customer project.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAgentEmail;
+
 /** Output only. The SQL Web Developer URL for the Autonomous Database. */
 @property(nonatomic, copy, nullable) NSString *sqlWebDeveloperUrl;
 
@@ -2906,6 +4038,35 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  Database version.
  */
 @property(nonatomic, copy, nullable) NSString *workloadUri;
+
+@end
+
+
+/**
+ *  The details of the database backup destination.
+ */
+@interface GTLROracleDatabase_BackupDestinationDetails : GTLRObject
+
+/**
+ *  Optional. The type of the database backup destination.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_BackupDestinationDetails_Type_BackupDestinationTypeUnspecified
+ *        Default unspecified value. (Value:
+ *        "BACKUP_DESTINATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_BackupDestinationDetails_Type_Dbrs Backup
+ *        destination type is DBRS. (Value: "DBRS")
+ *    @arg @c kGTLROracleDatabase_BackupDestinationDetails_Type_Local Backup
+ *        destination type is Local. (Value: "LOCAL")
+ *    @arg @c kGTLROracleDatabase_BackupDestinationDetails_Type_Nfs Backup
+ *        destination type is NFS. (Value: "NFS")
+ *    @arg @c kGTLROracleDatabase_BackupDestinationDetails_Type_ObjectStore
+ *        Backup destination type is Object Store. (Value: "OBJECT_STORE")
+ *    @arg @c kGTLROracleDatabase_BackupDestinationDetails_Type_RecoveryAppliance
+ *        Backup destination type is Recovery Appliance. (Value:
+ *        "RECOVERY_APPLIANCE")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3534,6 +4695,127 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  Details of the Database resource.
+ *  https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/Database/
+ */
+@interface GTLROracleDatabase_Database : GTLRObject
+
+/** Required. The password for the default ADMIN user. */
+@property(nonatomic, copy, nullable) NSString *adminPassword;
+
+/** Optional. The character set for the database. The default is AL32UTF8. */
+@property(nonatomic, copy, nullable) NSString *characterSet;
+
+/** Output only. The date and time that the Database was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The database ID of the Database. */
+@property(nonatomic, copy, nullable) NSString *databaseId;
+
+/** Optional. The name of the DbHome resource associated with the Database. */
+@property(nonatomic, copy, nullable) NSString *dbHomeName;
+
+/**
+ *  Optional. The database name. The name must begin with an alphabetic
+ *  character and can contain a maximum of eight alphanumeric characters.
+ *  Special characters are not permitted.
+ */
+@property(nonatomic, copy, nullable) NSString *dbName;
+
+/** Optional. The DB_UNIQUE_NAME of the Oracle Database being backed up. */
+@property(nonatomic, copy, nullable) NSString *dbUniqueName;
+
+/** Output only. The GCP Oracle zone where the Database is created. */
+@property(nonatomic, copy, nullable) NSString *gcpOracleZone;
+
+/**
+ *  Identifier. The name of the Database resource in the following format:
+ *  projects/{project}/locations/{region}/databases/{database}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The national character set for the database. The default is
+ *  AL16UTF16.
+ */
+@property(nonatomic, copy, nullable) NSString *ncharacterSet;
+
+/**
+ *  Output only. HTTPS link to OCI resources exposed to Customer via UI
+ *  Interface.
+ */
+@property(nonatomic, copy, nullable) NSString *ociUrl;
+
+/**
+ *  Output only. The Status of Operations Insights for this Database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_Database_OpsInsightsStatus_Disabling Indicates
+ *        that the operations insights are being disabled. (Value: "DISABLING")
+ *    @arg @c kGTLROracleDatabase_Database_OpsInsightsStatus_Enabled Indicates
+ *        that the operations insights are enabled. (Value: "ENABLED")
+ *    @arg @c kGTLROracleDatabase_Database_OpsInsightsStatus_Enabling Indicates
+ *        that the operations insights are being enabled. (Value: "ENABLING")
+ *    @arg @c kGTLROracleDatabase_Database_OpsInsightsStatus_FailedDisabling
+ *        Indicates that the operations insights failed to disable. (Value:
+ *        "FAILED_DISABLING")
+ *    @arg @c kGTLROracleDatabase_Database_OpsInsightsStatus_FailedEnabling
+ *        Indicates that the operations insights failed to enable. (Value:
+ *        "FAILED_ENABLING")
+ *    @arg @c kGTLROracleDatabase_Database_OpsInsightsStatus_NotEnabled
+ *        Indicates that the operations insights are not enabled. (Value:
+ *        "NOT_ENABLED")
+ *    @arg @c kGTLROracleDatabase_Database_OpsInsightsStatus_OperationsInsightsStatusUnspecified
+ *        Default unspecified value. (Value:
+ *        "OPERATIONS_INSIGHTS_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *opsInsightsStatus;
+
+/** Optional. The properties of the Database. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DatabaseProperties *properties;
+
+/** Optional. The TDE wallet password for the database. */
+@property(nonatomic, copy, nullable) NSString *tdeWalletPassword;
+
+@end
+
+
+/**
+ *  Details of the Database character set resource.
+ */
+@interface GTLROracleDatabase_DatabaseCharacterSet : GTLRObject
+
+/**
+ *  Output only. The character set name for the Database which is the ID in the
+ *  resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *characterSet;
+
+/**
+ *  Output only. The character set type for the Database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_CharacterSetTypeUnspecified
+ *        Character set type is not specified. (Value:
+ *        "CHARACTER_SET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_Database
+ *        Character set type is set to database. (Value: "DATABASE")
+ *    @arg @c kGTLROracleDatabase_DatabaseCharacterSet_CharacterSetType_National
+ *        Character set type is set to national. (Value: "NATIONAL")
+ */
+@property(nonatomic, copy, nullable) NSString *characterSetType;
+
+/**
+ *  Identifier. The name of the Database Character Set resource in the following
+ *  format:
+ *  projects/{project}/locations/{region}/databaseCharacterSets/{database_character_set}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  The connection string profile to allow clients to group.
  *  https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/datatypes/DatabaseConnectionStringProfile
  */
@@ -3644,6 +4926,105 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The configuration of the Database Management service.
+ */
+@interface GTLROracleDatabase_DatabaseManagementConfig : GTLRObject
+
+/**
+ *  Output only. The status of the Database Management service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Disabled
+ *        The Database Management service is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Disabling
+ *        The Database Management service is disabling. (Value: "DISABLING")
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Enabled
+ *        The Database Management service is enabled. (Value: "ENABLED")
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Enabling
+ *        The Database Management service is enabling. (Value: "ENABLING")
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_FailedDisabling
+ *        The Database Management service failed to disable. (Value:
+ *        "FAILED_DISABLING")
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_FailedEnabling
+ *        The Database Management service failed to enable. (Value:
+ *        "FAILED_ENABLING")
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_FailedUpdating
+ *        The Database Management service failed to update. (Value:
+ *        "FAILED_UPDATING")
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_ManagementStateUnspecified
+ *        The status is not specified. (Value: "MANAGEMENT_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementState_Updating
+ *        The Database Management service is updating. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *managementState;
+
+/**
+ *  Output only. The Database Management type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementType_Advanced
+ *        Advanced Database Management. (Value: "ADVANCED")
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementType_Basic
+ *        Basic Database Management. (Value: "BASIC")
+ *    @arg @c kGTLROracleDatabase_DatabaseManagementConfig_ManagementType_ManagementTypeUnspecified
+ *        The type is not specified. (Value: "MANAGEMENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *managementType;
+
+@end
+
+
+/**
+ *  The properties of a Database.
+ */
+@interface GTLROracleDatabase_DatabaseProperties : GTLRObject
+
+/** Output only. The Database Management config. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DatabaseManagementConfig *databaseManagementConfig;
+
+/** Optional. Backup options for the Database. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DbBackupConfig *dbBackupConfig;
+
+/** Required. The Oracle Database version. */
+@property(nonatomic, copy, nullable) NSString *dbVersion;
+
+/**
+ *  Output only. State of the Database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DatabaseProperties_State_Available Indicates
+ *        that the resource is in available state. (Value: "AVAILABLE")
+ *    @arg @c kGTLROracleDatabase_DatabaseProperties_State_BackupInProgress
+ *        Indicates that the resource is in backup in progress state. (Value:
+ *        "BACKUP_IN_PROGRESS")
+ *    @arg @c kGTLROracleDatabase_DatabaseProperties_State_Converting Indicates
+ *        that the resource is in converting state. (Value: "CONVERTING")
+ *    @arg @c kGTLROracleDatabase_DatabaseProperties_State_DatabaseLifecycleStateUnspecified
+ *        Default unspecified value. (Value:
+ *        "DATABASE_LIFECYCLE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DatabaseProperties_State_Failed Indicates that
+ *        the resource is in failed state. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_DatabaseProperties_State_Provisioning
+ *        Indicates that the resource is in provisioning state. (Value:
+ *        "PROVISIONING")
+ *    @arg @c kGTLROracleDatabase_DatabaseProperties_State_RestoreFailed
+ *        Indicates that the resource is in restore failed state. (Value:
+ *        "RESTORE_FAILED")
+ *    @arg @c kGTLROracleDatabase_DatabaseProperties_State_Terminated Indicates
+ *        that the resource is in terminated state. (Value: "TERMINATED")
+ *    @arg @c kGTLROracleDatabase_DatabaseProperties_State_Terminating Indicates
+ *        that the resource is in terminating state. (Value: "TERMINATING")
+ *    @arg @c kGTLROracleDatabase_DatabaseProperties_State_Updating Indicates
+ *        that the resource is in updating state. (Value: "UPDATING")
+ *    @arg @c kGTLROracleDatabase_DatabaseProperties_State_Upgrading Indicates
+ *        that the resource is in upgrading state. (Value: "UPGRADING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Data collection options for diagnostics.
  */
 @interface GTLROracleDatabase_DataCollectionOptions : GTLRObject
@@ -3670,6 +5051,225 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *incidentLogsEnabled;
+
+@end
+
+
+/**
+ *  Data collection options for diagnostics.
+ *  https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/datatypes/DataCollectionOptions
+ */
+@interface GTLROracleDatabase_DataCollectionOptionsCommon : GTLRObject
+
+/**
+ *  Optional. Indicates whether to enable data collection for diagnostics.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDiagnosticsEventsEnabled;
+
+/**
+ *  Optional. Indicates whether to enable health monitoring.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isHealthMonitoringEnabled;
+
+/**
+ *  Optional. Indicates whether to enable incident logs and trace collection.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isIncidentLogsEnabled;
+
+@end
+
+
+/**
+ *  Data collection options for DbSystem.
+ */
+@interface GTLROracleDatabase_DataCollectionOptionsDbSystem : GTLRObject
+
+/**
+ *  Optional. Indicates whether to enable data collection for diagnostics.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDiagnosticsEventsEnabled;
+
+/**
+ *  Optional. Indicates whether to enable incident logs and trace collection.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isIncidentLogsEnabled;
+
+@end
+
+
+/**
+ *  Backup Options for the Database.
+ */
+@interface GTLROracleDatabase_DbBackupConfig : GTLRObject
+
+/**
+ *  Optional. If set to true, enables automatic backups on the database.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoBackupEnabled;
+
+/**
+ *  Optional. The day of the week on which the full backup should be performed
+ *  on the database. If no value is provided, it will default to Sunday.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Friday Friday
+ *        (Value: "FRIDAY")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Monday Monday
+ *        (Value: "MONDAY")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Saturday
+ *        Saturday (Value: "SATURDAY")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Sunday Sunday
+ *        (Value: "SUNDAY")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Thursday
+ *        Thursday (Value: "THURSDAY")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Tuesday
+ *        Tuesday (Value: "TUESDAY")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupDay_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *autoFullBackupDay;
+
+/**
+ *  Optional. The window in which the full backup should be performed on the
+ *  database. If no value is provided, the default is anytime.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_BackupWindowUnspecified
+ *        Default unspecified value. (Value: "BACKUP_WINDOW_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotEight
+ *        2:00 PM - 4:00 PM (Value: "SLOT_EIGHT")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotEleven
+ *        8:00 PM - 10:00 PM (Value: "SLOT_ELEVEN")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotFive
+ *        8:00 AM - 10:00 AM (Value: "SLOT_FIVE")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotFour
+ *        6:00 AM - 8:00 AM (Value: "SLOT_FOUR")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotNine
+ *        4:00 PM - 6:00 PM (Value: "SLOT_NINE")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotOne
+ *        12:00 AM - 2:00 AM (Value: "SLOT_ONE")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotSeven
+ *        12:00 PM - 2:00 PM (Value: "SLOT_SEVEN")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotSix
+ *        10:00 AM - 12:00 PM (Value: "SLOT_SIX")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotTen
+ *        6:00 PM - 8:00 PM (Value: "SLOT_TEN")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotThree
+ *        4:00 AM - 6:00 AM (Value: "SLOT_THREE")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotTwelve
+ *        10:00 PM - 12:00 AM (Value: "SLOT_TWELVE")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoFullBackupWindow_SlotTwo
+ *        2:00 AM - 4:00 AM (Value: "SLOT_TWO")
+ */
+@property(nonatomic, copy, nullable) NSString *autoFullBackupWindow;
+
+/**
+ *  Optional. The window in which the incremental backup should be performed on
+ *  the database. If no value is provided, the default is anytime except the
+ *  auto full backup day.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_BackupWindowUnspecified
+ *        Default unspecified value. (Value: "BACKUP_WINDOW_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotEight
+ *        2:00 PM - 4:00 PM (Value: "SLOT_EIGHT")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotEleven
+ *        8:00 PM - 10:00 PM (Value: "SLOT_ELEVEN")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotFive
+ *        8:00 AM - 10:00 AM (Value: "SLOT_FIVE")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotFour
+ *        6:00 AM - 8:00 AM (Value: "SLOT_FOUR")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotNine
+ *        4:00 PM - 6:00 PM (Value: "SLOT_NINE")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotOne
+ *        12:00 AM - 2:00 AM (Value: "SLOT_ONE")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotSeven
+ *        12:00 PM - 2:00 PM (Value: "SLOT_SEVEN")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotSix
+ *        10:00 AM - 12:00 PM (Value: "SLOT_SIX")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotTen
+ *        6:00 PM - 8:00 PM (Value: "SLOT_TEN")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotThree
+ *        4:00 AM - 6:00 AM (Value: "SLOT_THREE")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotTwelve
+ *        10:00 PM - 12:00 AM (Value: "SLOT_TWELVE")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_AutoIncrementalBackupWindow_SlotTwo
+ *        2:00 AM - 4:00 AM (Value: "SLOT_TWO")
+ */
+@property(nonatomic, copy, nullable) NSString *autoIncrementalBackupWindow;
+
+/**
+ *  Optional. This defines when the backups will be deleted after Database
+ *  termination.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_BackupDeletionPolicy_BackupDeletionPolicyUnspecified
+ *        Default unspecified value. (Value:
+ *        "BACKUP_DELETION_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_BackupDeletionPolicy_DeleteAfterRetentionPeriod
+ *        Keeps the backups as per the policy defined for database backups.
+ *        (Value: "DELETE_AFTER_RETENTION_PERIOD")
+ *    @arg @c kGTLROracleDatabase_DbBackupConfig_BackupDeletionPolicy_DeleteImmediately
+ *        Keeps the backup for predefined time i.e. 72 hours and then delete
+ *        permanently. (Value: "DELETE_IMMEDIATELY")
+ */
+@property(nonatomic, copy, nullable) NSString *backupDeletionPolicy;
+
+/** Optional. Details of the database backup destinations. */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_BackupDestinationDetails *> *backupDestinationDetails;
+
+/**
+ *  Optional. The number of days an automatic backup is retained before being
+ *  automatically deleted. This value determines the earliest point in time to
+ *  which a database can be restored. Min: 1, Max: 60.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retentionPeriodDays;
+
+@end
+
+
+/**
+ *  Details of the Database Home resource.
+ */
+@interface GTLROracleDatabase_DbHome : GTLRObject
+
+/** Required. The Database resource. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_Database *database;
+
+/**
+ *  Required. A valid Oracle Database version. For a list of supported versions,
+ *  use the ListDbVersions operation.
+ */
+@property(nonatomic, copy, nullable) NSString *dbVersion;
+
+/**
+ *  Optional. The display name for the Database Home. The name does not have to
+ *  be unique within your project.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Whether unified auditing is enabled for the Database Home.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isUnifiedAuditingEnabled;
 
 @end
 
@@ -3873,6 +5473,326 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  Details of the DbSystem (BaseDB) resource.
+ *  https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/DbSystem/
+ */
+@interface GTLROracleDatabase_DbSystem : GTLRObject
+
+/** Output only. The date and time that the DbSystem was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The display name for the System db. The name does not have to be
+ *  unique within your project.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The ID of the subscription entitlement associated with the
+ *  DbSystem
+ */
+@property(nonatomic, copy, nullable) NSString *entitlementId;
+
+/**
+ *  Optional. The GCP Oracle zone where Oracle DbSystem is hosted. Example:
+ *  us-east4-b-r2. If not specified, the system will pick a zone based on
+ *  availability.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpOracleZone;
+
+/** Optional. The labels or tags associated with the DbSystem. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DbSystem_Labels *labels;
+
+/**
+ *  Identifier. The name of the DbSystem resource in the following format:
+ *  projects/{project}/locations/{region}/dbSystems/{db_system}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. HTTPS link to OCI resources exposed to Customer via UI
+ *  Interface.
+ */
+@property(nonatomic, copy, nullable) NSString *ociUrl;
+
+/**
+ *  Optional. The name of the OdbNetwork associated with the DbSystem. Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network} It is
+ *  optional but if specified, this should match the parent ODBNetwork of the
+ *  OdbSubnet.
+ */
+@property(nonatomic, copy, nullable) NSString *odbNetwork;
+
+/**
+ *  Required. The name of the OdbSubnet associated with the DbSystem for IP
+ *  allocation. Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *odbSubnet;
+
+/** Optional. The properties of the DbSystem. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DbSystemProperties *properties;
+
+@end
+
+
+/**
+ *  Optional. The labels or tags associated with the DbSystem.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_DbSystem_Labels : GTLRObject
+@end
+
+
+/**
+ *  Summary of the DbSystem initial storage size.
+ */
+@interface GTLROracleDatabase_DbSystemInitialStorageSize : GTLRObject
+
+/** Output only. The name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The properties of the DbSystem initial storage size summary.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DbSystemInitialStorageSizeProperties *properties;
+
+@end
+
+
+/**
+ *  The properties of a DbSystem initial storage size summary.
+ */
+@interface GTLROracleDatabase_DbSystemInitialStorageSizeProperties : GTLRObject
+
+/**
+ *  Output only. List of storage disk details available for launches from
+ *  backup.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_StorageSizeDetails *> *launchFromBackupStorageSizeDetails;
+
+/**
+ *  Output only. VM shape platform type
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_ShapeType_ShapeTypeUnspecified
+ *        Unspecified shape type. (Value: "SHAPE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_ShapeType_StandardX86
+ *        Standard X86. (Value: "STANDARD_X86")
+ */
+@property(nonatomic, copy, nullable) NSString *shapeType;
+
+/**
+ *  Output only. The storage option used in DB system.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_StorageManagement_Asm
+ *        Automatic Storage Management. (Value: "ASM")
+ *    @arg @c kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_StorageManagement_Lvm
+ *        Logical Volume Management. (Value: "LVM")
+ *    @arg @c kGTLROracleDatabase_DbSystemInitialStorageSizeProperties_StorageManagement_StorageManagementUnspecified
+ *        Unspecified storage management. (Value:
+ *        "STORAGE_MANAGEMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *storageManagement;
+
+/** Output only. List of storage disk details. */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_StorageSizeDetails *> *storageSizeDetails;
+
+@end
+
+
+/**
+ *  Details of the DbSystem Options.
+ */
+@interface GTLROracleDatabase_DbSystemOptions : GTLRObject
+
+/**
+ *  Optional. The storage option used in DB system.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DbSystemOptions_StorageManagement_Asm
+ *        Automatic storage management. (Value: "ASM")
+ *    @arg @c kGTLROracleDatabase_DbSystemOptions_StorageManagement_Lvm Logical
+ *        Volume management. (Value: "LVM")
+ *    @arg @c kGTLROracleDatabase_DbSystemOptions_StorageManagement_StorageManagementUnspecified
+ *        The storage management is unspecified. (Value:
+ *        "STORAGE_MANAGEMENT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *storageManagement;
+
+@end
+
+
+/**
+ *  The properties of a DbSystem.
+ */
+@interface GTLROracleDatabase_DbSystemProperties : GTLRObject
+
+/**
+ *  Required. The number of CPU cores to enable for the DbSystem.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *computeCount;
+
+/**
+ *  Optional. The compute model of the DbSystem.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_ComputeModel_ComputeModelUnspecified
+ *        The compute model is unspecified. (Value: "COMPUTE_MODEL_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ecpu The
+ *        compute model is virtual. (Value: "ECPU")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_ComputeModel_Ocpu The
+ *        compute model is physical. (Value: "OCPU")
+ */
+@property(nonatomic, copy, nullable) NSString *computeModel;
+
+/**
+ *  Required. The database edition of the DbSystem.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_DbSystemDatabaseEditionUnspecified
+ *        The database edition is unspecified. (Value:
+ *        "DB_SYSTEM_DATABASE_EDITION_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_EnterpriseEdition
+ *        The database edition is Enterprise. (Value: "ENTERPRISE_EDITION")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_EnterpriseEditionHighPerformance
+ *        The database edition is Enterprise Edition. (Value:
+ *        "ENTERPRISE_EDITION_HIGH_PERFORMANCE")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_DatabaseEdition_StandardEdition
+ *        The database edition is Standard. (Value: "STANDARD_EDITION")
+ */
+@property(nonatomic, copy, nullable) NSString *databaseEdition;
+
+/** Optional. Data collection options for diagnostics. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DataCollectionOptionsDbSystem *dataCollectionOptions;
+
+/**
+ *  Optional. The data storage size in GB that is currently available to
+ *  DbSystems.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataStorageSizeGb;
+
+/** Optional. Details for creating a Database Home. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DbHome *dbHome;
+
+/** Optional. The options for the DbSystem. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DbSystemOptions *dbSystemOptions;
+
+/** Optional. The host domain name of the DbSystem. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/** Output only. The hostname of the DbSystem. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/** Optional. Prefix for DB System host names. */
+@property(nonatomic, copy, nullable) NSString *hostnamePrefix;
+
+/**
+ *  Required. The initial data storage size in GB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *initialDataStorageSizeGb;
+
+/**
+ *  Required. The license model of the DbSystem.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LicenseModel_BringYourOwnLicense
+ *        The license model is bring your own license. (Value:
+ *        "BRING_YOUR_OWN_LICENSE")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LicenseModel_LicenseIncluded
+ *        The license model is included. (Value: "LICENSE_INCLUDED")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LicenseModel_LicenseModelUnspecified
+ *        The license model is unspecified. (Value: "LICENSE_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *licenseModel;
+
+/**
+ *  Output only. State of the DbSystem.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LifecycleState_Available
+ *        Indicates that the resource is in available state. (Value:
+ *        "AVAILABLE")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LifecycleState_DbSystemLifecycleStateUnspecified
+ *        Default unspecified value. (Value:
+ *        "DB_SYSTEM_LIFECYCLE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LifecycleState_Failed
+ *        Indicates that the resource is in failed state. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LifecycleState_MaintenanceInProgress
+ *        Indicates that the resource is in maintenance in progress state.
+ *        (Value: "MAINTENANCE_IN_PROGRESS")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LifecycleState_Migrated
+ *        Indicates that the resource has been migrated. (Value: "MIGRATED")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LifecycleState_NeedsAttention
+ *        Indicates that the resource needs attention. (Value:
+ *        "NEEDS_ATTENTION")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LifecycleState_Provisioning
+ *        Indicates that the resource is in provisioning state. (Value:
+ *        "PROVISIONING")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LifecycleState_Terminated
+ *        Indicates that the resource is in terminated state. (Value:
+ *        "TERMINATED")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LifecycleState_Terminating
+ *        Indicates that the resource is in terminating state. (Value:
+ *        "TERMINATING")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LifecycleState_Updating
+ *        Indicates that the resource is in updating state. (Value: "UPDATING")
+ *    @arg @c kGTLROracleDatabase_DbSystemProperties_LifecycleState_Upgrading
+ *        Indicates that the resource is upgrading. (Value: "UPGRADING")
+ */
+@property(nonatomic, copy, nullable) NSString *lifecycleState;
+
+/**
+ *  Optional. The memory size in GB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memorySizeGb;
+
+/**
+ *  Optional. The number of nodes in the DbSystem.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeCount;
+
+/** Output only. OCID of the DbSystem. */
+@property(nonatomic, copy, nullable) NSString *ocid;
+
+/** Optional. The private IP address of the DbSystem. */
+@property(nonatomic, copy, nullable) NSString *privateIp;
+
+/**
+ *  Optional. The reco/redo storage size in GB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recoStorageSizeGb;
+
+/** Required. Shape of DB System. */
+@property(nonatomic, copy, nullable) NSString *shape;
+
+/** Required. SSH public keys to be stored with the DbSystem. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sshPublicKeys;
+
+/** Optional. Time zone of the DbSystem. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_TimeZone *timeZone;
+
+@end
+
+
+/**
  *  Details of the Database System Shapes resource.
  *  https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/DbSystemShapeSummary/
  */
@@ -3961,12 +5881,144 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  A valid Oracle Database version.
+ */
+@interface GTLROracleDatabase_DbVersion : GTLRObject
+
+/**
+ *  Output only. The name of the DbVersion resource in the following format:
+ *  projects/{project}/locations/{region}/dbVersions/{db_version}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The properties of the DbVersion. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DbVersionProperties *properties;
+
+@end
+
+
+/**
+ *  The properties of a DbVersion.
+ */
+@interface GTLROracleDatabase_DbVersionProperties : GTLRObject
+
+/**
+ *  Output only. True if this version of the Oracle Database software is the
+ *  latest version for a release.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isLatestForMajorVersion;
+
+/**
+ *  Output only. True if this version of the Oracle Database software is the
+ *  preview version.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPreviewDbVersion;
+
+/**
+ *  Output only. True if this version of the Oracle Database software is
+ *  supported for Upgrade.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isUpgradeSupported;
+
+/**
+ *  Output only. True if this version of the Oracle Database software supports
+ *  pluggable databases.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *supportsPdb;
+
+/** Output only. A valid Oracle Database version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Wrapper message for the value of a defined tag.
+ */
+@interface GTLROracleDatabase_DefinedTagValue : GTLRObject
+
+/** The tags within the namespace. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DefinedTagValue_Tags *tags;
+
+@end
+
+
+/**
+ *  The tags within the namespace.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_DefinedTagValue_Tags : GTLRObject
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLROracleDatabase_Empty : GTLRObject
+@end
+
+
+/**
+ *  The encryption key used to encrypt the Autonomous Database.
+ */
+@interface GTLROracleDatabase_EncryptionKey : GTLRObject
+
+/**
+ *  Optional. The KMS key used to encrypt the Autonomous Database. This field is
+ *  required if the provider is GOOGLE_MANAGED. The name of the KMS key resource
+ *  in the following format:
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/**
+ *  Optional. The provider of the encryption key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_EncryptionKey_Provider_GoogleManaged Google
+ *        Managed KMS key, if selected, please provide the KMS key name. (Value:
+ *        "GOOGLE_MANAGED")
+ *    @arg @c kGTLROracleDatabase_EncryptionKey_Provider_OracleManaged Oracle
+ *        Managed. (Value: "ORACLE_MANAGED")
+ *    @arg @c kGTLROracleDatabase_EncryptionKey_Provider_ProviderUnspecified
+ *        Default unspecified value. (Value: "PROVIDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *provider;
+
+@end
+
+
+/**
+ *  The history of the encryption keys used to encrypt the Autonomous Database.
+ */
+@interface GTLROracleDatabase_EncryptionKeyHistoryEntry : GTLRObject
+
+/**
+ *  Output only. The date and time when the encryption key was activated on the
+ *  Autonomous Database..
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *activationTime;
+
+/**
+ *  Output only. The encryption key used to encrypt the Autonomous Database.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_EncryptionKey *encryptionKey;
+
 @end
 
 
@@ -4006,6 +6058,433 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *        unspecified value. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  ExadbVmCluster represents a cluster of VMs that are used to run Exadata
+ *  workloads.
+ *  https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/ExadbVmCluster/
+ */
+@interface GTLROracleDatabase_ExadbVmCluster : GTLRObject
+
+/**
+ *  Required. Immutable. The name of the backup OdbSubnet associated with the
+ *  ExadbVmCluster. Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *backupOdbSubnet;
+
+/** Output only. The date and time that the ExadbVmCluster was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Immutable. The display name for the ExadbVmCluster. The name does
+ *  not have to be unique within your project. The name must be 1-255 characters
+ *  long and can only contain alphanumeric characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The ID of the subscription entitlement associated with the
+ *  ExadbVmCluster.
+ */
+@property(nonatomic, copy, nullable) NSString *entitlementId;
+
+/**
+ *  Output only. Immutable. The GCP Oracle zone where Oracle ExadbVmCluster is
+ *  hosted. Example: us-east4-b-r2. During creation, the system will pick the
+ *  zone assigned to the ExascaleDbStorageVault.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpOracleZone;
+
+/** Optional. The labels or tags associated with the ExadbVmCluster. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_ExadbVmCluster_Labels *labels;
+
+/**
+ *  Identifier. The name of the ExadbVmCluster resource in the following format:
+ *  projects/{project}/locations/{region}/exadbVmClusters/{exadb_vm_cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Immutable. The name of the OdbNetwork associated with the
+ *  ExadbVmCluster. Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network} It is
+ *  optional but if specified, this should match the parent ODBNetwork of the
+ *  OdbSubnet.
+ */
+@property(nonatomic, copy, nullable) NSString *odbNetwork;
+
+/**
+ *  Required. Immutable. The name of the OdbSubnet associated with the
+ *  ExadbVmCluster for IP allocation. Format:
+ *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *odbSubnet;
+
+/** Required. The properties of the ExadbVmCluster. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_ExadbVmClusterProperties *properties;
+
+@end
+
+
+/**
+ *  Optional. The labels or tags associated with the ExadbVmCluster.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_ExadbVmCluster_Labels : GTLRObject
+@end
+
+
+/**
+ *  The properties of an ExadbVmCluster.
+ */
+@interface GTLROracleDatabase_ExadbVmClusterProperties : GTLRObject
+
+/**
+ *  Optional. Immutable. The number of additional ECPUs per node for an Exadata
+ *  VM cluster on exascale infrastructure.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *additionalEcpuCountPerNode;
+
+/**
+ *  Optional. Immutable. The cluster name for Exascale vm cluster. The cluster
+ *  name must begin with an alphabetic character and may contain hyphens(-) but
+ *  can not contain underscores(_). It should be not more than 11 characters and
+ *  is not case sensitive. OCI Cluster name.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterName;
+
+/**
+ *  Optional. Immutable. Indicates user preference for data collection options.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DataCollectionOptionsCommon *dataCollectionOptions;
+
+/**
+ *  Required. Immutable. The number of ECPUs enabled per node for an exadata vm
+ *  cluster on exascale infrastructure.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabledEcpuCountPerNode;
+
+/**
+ *  Required. Immutable. The name of ExascaleDbStorageVault associated with the
+ *  ExadbVmCluster. It can refer to an existing ExascaleDbStorageVault. Or a new
+ *  one can be created during the ExadbVmCluster creation (requires
+ *  storage_vault_properties to be set). Format:
+ *  projects/{project}/locations/{location}/exascaleDbStorageVaults/{exascale_db_storage_vault}
+ */
+@property(nonatomic, copy, nullable) NSString *exascaleDbStorageVault;
+
+/** Output only. The Oracle Grid Infrastructure (GI) software version. */
+@property(nonatomic, copy, nullable) NSString *giVersion;
+
+/** Required. Immutable. Grid Infrastructure Version. */
+@property(nonatomic, copy, nullable) NSString *gridImageId;
+
+/** Output only. The hostname of the ExadbVmCluster. */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/** Required. Immutable. Prefix for VM cluster host names. */
+@property(nonatomic, copy, nullable) NSString *hostnamePrefix;
+
+/**
+ *  Optional. Immutable. The license type of the ExadbVmCluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_LicenseModel_BringYourOwnLicense
+ *        Bring your own license. (Value: "BRING_YOUR_OWN_LICENSE")
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_LicenseModel_LicenseIncluded
+ *        Default is license included. (Value: "LICENSE_INCLUDED")
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_LicenseModel_LicenseModelUnspecified
+ *        Unspecified. (Value: "LICENSE_MODEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *licenseModel;
+
+/**
+ *  Output only. State of the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Available
+ *        Indicates that the resource is in available state. (Value:
+ *        "AVAILABLE")
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_ExadbVmClusterLifecycleStateUnspecified
+ *        Default unspecified value. (Value:
+ *        "EXADB_VM_CLUSTER_LIFECYCLE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Failed
+ *        Indicates that the resource is in failed state. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_MaintenanceInProgress
+ *        Indicates that the resource is in maintenance in progress state.
+ *        (Value: "MAINTENANCE_IN_PROGRESS")
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Provisioning
+ *        Indicates that the resource is in provisioning state. (Value:
+ *        "PROVISIONING")
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Terminated
+ *        Indicates that the resource is in terminated state. (Value:
+ *        "TERMINATED")
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Terminating
+ *        Indicates that the resource is in terminating state. (Value:
+ *        "TERMINATING")
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_LifecycleState_Updating
+ *        Indicates that the resource is in updating state. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *lifecycleState;
+
+/**
+ *  Output only. Memory per VM (GB) (Read-only): Shows the amount of memory
+ *  allocated to each VM. Memory is calculated based on 2.75 GB per Total ECPUs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memorySizeGb;
+
+/**
+ *  Required. The number of nodes/VMs in the ExadbVmCluster.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeCount;
+
+/** Output only. Deep link to the OCI console to view this resource. */
+@property(nonatomic, copy, nullable) NSString *ociUri;
+
+/**
+ *  Optional. Immutable. SCAN listener port - TCP
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *scanListenerPortTcp;
+
+/**
+ *  Required. Immutable. The shape attribute of the VM cluster. The type of
+ *  Exascale storage used for Exadata VM cluster. The default is SMART_STORAGE
+ *  which supports Oracle Database 23ai and later
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_ShapeAttribute_BlockStorage
+ *        Indicates that the resource is in block storage. (Value:
+ *        "BLOCK_STORAGE")
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_ShapeAttribute_ShapeAttributeUnspecified
+ *        Default unspecified value. (Value: "SHAPE_ATTRIBUTE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_ExadbVmClusterProperties_ShapeAttribute_SmartStorage
+ *        Indicates that the resource is in smart storage. (Value:
+ *        "SMART_STORAGE")
+ */
+@property(nonatomic, copy, nullable) NSString *shapeAttribute;
+
+/** Required. Immutable. The SSH public keys for the ExadbVmCluster. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sshPublicKeys;
+
+/** Optional. Immutable. The time zone of the ExadbVmCluster. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_TimeZone *timeZone;
+
+/** Required. Immutable. Total storage details for the ExadbVmCluster. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_ExadbVmClusterStorageDetails *vmFileSystemStorage;
+
+@end
+
+
+/**
+ *  The storage allocation for the exadbvmcluster, in gigabytes (GB).
+ */
+@interface GTLROracleDatabase_ExadbVmClusterStorageDetails : GTLRObject
+
+/**
+ *  Required. The storage allocation for the exadbvmcluster per node, in
+ *  gigabytes (GB). This field is used to calculate the total storage allocation
+ *  for the exadbvmcluster.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeInGbsPerNode;
+
+@end
+
+
+/**
+ *  The storage details of the ExascaleDbStorageVault.
+ */
+@interface GTLROracleDatabase_ExascaleDbStorageDetails : GTLRObject
+
+/**
+ *  Output only. The available storage capacity for the ExascaleDbStorageVault,
+ *  in gigabytes (GB).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *availableSizeGbs;
+
+/**
+ *  Required. The total storage allocation for the ExascaleDbStorageVault, in
+ *  gigabytes (GB).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSizeGbs;
+
+@end
+
+
+/**
+ *  ExascaleDbStorageVault represents a storage vault exadb vm cluster resource.
+ *  https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/ExascaleDbStorageVault/
+ */
+@interface GTLROracleDatabase_ExascaleDbStorageVault : GTLRObject
+
+/**
+ *  Output only. The date and time when the ExascaleDbStorageVault was created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The display name for the ExascaleDbStorageVault. The name does not
+ *  have to be unique within your project. The name must be 1-255 characters
+ *  long and can only contain alphanumeric characters.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The ID of the subscription entitlement associated with the
+ *  ExascaleDbStorageVault.
+ */
+@property(nonatomic, copy, nullable) NSString *entitlementId;
+
+/**
+ *  Optional. The GCP Oracle zone where Oracle ExascaleDbStorageVault is hosted.
+ *  Example: us-east4-b-r2. If not specified, the system will pick a zone based
+ *  on availability.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpOracleZone;
+
+/**
+ *  Optional. The labels or tags associated with the ExascaleDbStorageVault.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_ExascaleDbStorageVault_Labels *labels;
+
+/**
+ *  Identifier. The resource name of the ExascaleDbStorageVault. Format:
+ *  projects/{project}/locations/{location}/exascaleDbStorageVaults/{exascale_db_storage_vault}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The properties of the ExascaleDbStorageVault. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_ExascaleDbStorageVaultProperties *properties;
+
+@end
+
+
+/**
+ *  Optional. The labels or tags associated with the ExascaleDbStorageVault.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_ExascaleDbStorageVault_Labels : GTLRObject
+@end
+
+
+/**
+ *  The properties of the ExascaleDbStorageVault. next ID: 12
+ */
+@interface GTLROracleDatabase_ExascaleDbStorageVaultProperties : GTLRObject
+
+/**
+ *  Optional. The size of additional flash cache in percentage of high capacity
+ *  database storage.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *additionalFlashCachePercent;
+
+/**
+ *  Output only. The shape attributes of the VM clusters attached to the
+ *  ExascaleDbStorageVault.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *attachedShapeAttributes;
+
+/**
+ *  Output only. The shape attributes available for the VM clusters to be
+ *  attached to the ExascaleDbStorageVault.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableShapeAttributes;
+
+/**
+ *  Optional. The description of the ExascaleDbStorageVault.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. The storage details of the ExascaleDbStorageVault. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_ExascaleDbStorageDetails *exascaleDbStorageDetails;
+
+/** Output only. The OCID for the ExascaleDbStorageVault. */
+@property(nonatomic, copy, nullable) NSString *ocid;
+
+/** Output only. Deep link to the OCI console to view this resource. */
+@property(nonatomic, copy, nullable) NSString *ociUri;
+
+/**
+ *  Output only. The state of the ExascaleDbStorageVault.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Available
+ *        The ExascaleDbStorageVault is available. (Value: "AVAILABLE")
+ *    @arg @c kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Failed
+ *        The ExascaleDbStorageVault has failed. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Provisioning
+ *        The ExascaleDbStorageVault is being provisioned. (Value:
+ *        "PROVISIONING")
+ *    @arg @c kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_StateUnspecified
+ *        The state of the ExascaleDbStorageVault is unspecified. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Terminated
+ *        The ExascaleDbStorageVault has been deleted. (Value: "TERMINATED")
+ *    @arg @c kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Terminating
+ *        The ExascaleDbStorageVault is being deleted. (Value: "TERMINATING")
+ *    @arg @c kGTLROracleDatabase_ExascaleDbStorageVaultProperties_State_Updating
+ *        The ExascaleDbStorageVault is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time zone of the ExascaleDbStorageVault. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_TimeZone *timeZone;
+
+/**
+ *  Output only. The number of VM clusters associated with the
+ *  ExascaleDbStorageVault.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vmClusterCount;
+
+/**
+ *  Output only. The list of VM cluster OCIDs associated with the
+ *  ExascaleDbStorageVault.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *vmClusterIds;
+
+@end
+
+
+/**
+ *  The request for `OracleDatabase.FailoverAutonomousDatabase`.
+ */
+@interface GTLROracleDatabase_FailoverAutonomousDatabaseRequest : GTLRObject
+
+/** Required. The peer database name to fail over to. */
+@property(nonatomic, copy, nullable) NSString *peerAutonomousDatabase;
 
 @end
 
@@ -4261,6 +6740,54 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The response for `DatabaseCharacterSet.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "databaseCharacterSets" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListDatabaseCharacterSetsResponse : GTLRCollectionObject
+
+/**
+ *  The list of DatabaseCharacterSets.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_DatabaseCharacterSet *> *databaseCharacterSets;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response for `Database.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "databases" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLROracleDatabase_ListDatabasesResponse : GTLRCollectionObject
+
+/**
+ *  The list of Databases.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_Database *> *databases;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response for `DbNode.List`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4309,6 +6836,30 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The response for `DbSystemInitialStorageSizes.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dbSystemInitialStorageSizes" property. If returned as the result
+ *        of a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListDbSystemInitialStorageSizesResponse : GTLRCollectionObject
+
+/**
+ *  The list of DbSystemInitialStorageSizes.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_DbSystemInitialStorageSize *> *dbSystemInitialStorageSizes;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response for `DbSystemShape.List`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4325,6 +6876,54 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_DbSystemShape *> *dbSystemShapes;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response for `DbSystem.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dbSystems" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLROracleDatabase_ListDbSystemsResponse : GTLRCollectionObject
+
+/**
+ *  The list of DbSystems.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_DbSystem *> *dbSystems;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response for `DbVersions.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dbVersions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLROracleDatabase_ListDbVersionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of DbVersions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_DbVersion *> *dbVersions;
 
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -4351,6 +6950,59 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_Entitlement *> *entitlements;
 
 /** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response for `ExadbVmCluster.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "exadbVmClusters" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLROracleDatabase_ListExadbVmClustersResponse : GTLRCollectionObject
+
+/**
+ *  The list of ExadbVmClusters.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_ExadbVmCluster *> *exadbVmClusters;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response for `ExascaleDbStorageVault.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "exascaleDbStorageVaults" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListExascaleDbStorageVaultsResponse : GTLRCollectionObject
+
+/**
+ *  The ExascaleDbStorageVaults.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_ExascaleDbStorageVault *> *exascaleDbStorageVaults;
+
+/**
+ *  A token identifying a page of results the server should return. If present,
+ *  the next page token can be provided to a subsequent
+ *  ListExascaleDbStorageVaults call to list the next page. If empty, there are
+ *  no more pages.
+ */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -4399,6 +7051,30 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_Location *> *locations;
 
 /** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response for `MinorVersion.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "minorVersions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLROracleDatabase_ListMinorVersionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of MinorVersions.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_MinorVersion *> *minorVersions;
+
+/** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -4484,6 +7160,37 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response for `PluggableDatabase.List`.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "pluggableDatabases" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLROracleDatabase_ListPluggableDatabasesResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of PluggableDatabases.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_PluggableDatabase *> *pluggableDatabases;
 
 @end
 
@@ -4654,6 +7361,27 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  MinorVersion represents a minor version of a GI.
+ *  https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/GiMinorVersionSummary/
+ */
+@interface GTLROracleDatabase_MinorVersion : GTLRObject
+
+/** Optional. The ID of the Grid Image. */
+@property(nonatomic, copy, nullable) NSString *gridImageId;
+
+/**
+ *  Identifier. The name of the MinorVersion resource with the format:
+ *  projects/{project}/locations/{region}/giVersions/{gi_version}/minorVersions/{minor_version}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The valid Oracle grid infrastructure software version. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  Represents OdbNetwork resource.
  */
 @interface GTLROracleDatabase_OdbNetwork : GTLRObject
@@ -4666,6 +7394,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  OdbNetwork.
  */
 @property(nonatomic, copy, nullable) NSString *entitlementId;
+
+/**
+ *  Optional. The GCP Oracle zone where OdbNetwork is hosted. Example:
+ *  us-east4-b-r2. If not specified, the system will pick a zone based on
+ *  availability.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpOracleZone;
 
 /** Optional. Labels or tags associated with the resource. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_OdbNetwork_Labels *labels;
@@ -4906,6 +7641,271 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 
 /**
+ *  The PluggableDatabase resource.
+ *  https://docs.oracle.com/en-us/iaas/api/#/en/database/20160918/PluggableDatabase/
+ */
+@interface GTLROracleDatabase_PluggableDatabase : GTLRObject
+
+/** Output only. The date and time that the PluggableDatabase was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The name of the PluggableDatabase resource in the following
+ *  format:
+ *  projects/{project}/locations/{region}/pluggableDatabases/{pluggable_database}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. HTTPS link to OCI resources exposed to Customer via UI
+ *  Interface.
+ */
+@property(nonatomic, copy, nullable) NSString *ociUrl;
+
+/** Optional. The properties of the PluggableDatabase. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_PluggableDatabaseProperties *properties;
+
+@end
+
+
+/**
+ *  The connection strings used to connect to the Oracle Database.
+ */
+@interface GTLROracleDatabase_PluggableDatabaseConnectionStrings : GTLRObject
+
+/**
+ *  Optional. All connection strings to use to connect to the pluggable
+ *  database.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_PluggableDatabaseConnectionStrings_AllConnectionStrings *allConnectionStrings;
+
+/**
+ *  Optional. The default connection string to use to connect to the pluggable
+ *  database.
+ */
+@property(nonatomic, copy, nullable) NSString *pdbDefault;
+
+/**
+ *  Optional. The default connection string to use to connect to the pluggable
+ *  database using IP.
+ */
+@property(nonatomic, copy, nullable) NSString *pdbIpDefault;
+
+@end
+
+
+/**
+ *  Optional. All connection strings to use to connect to the pluggable
+ *  database.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_PluggableDatabaseConnectionStrings_AllConnectionStrings : GTLRObject
+@end
+
+
+/**
+ *  The Pluggable Database Node Level Details.
+ */
+@interface GTLROracleDatabase_PluggableDatabaseNodeLevelDetails : GTLRObject
+
+/** Required. The Node name of the Database home. */
+@property(nonatomic, copy, nullable) NSString *nodeName;
+
+/**
+ *  Required. The mode that the pluggable database is in to open it.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_Migrate
+ *        The pluggable database is migrated. (Value: "MIGRATE")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_Mounted
+ *        The pluggable database is mounted. (Value: "MOUNTED")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_PluggableDatabaseOpenModeUnspecified
+ *        The open mode is unspecified. (Value:
+ *        "PLUGGABLE_DATABASE_OPEN_MODE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_ReadOnly
+ *        The pluggable database is opened in read-only mode. (Value:
+ *        "READ_ONLY")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseNodeLevelDetails_OpenMode_ReadWrite
+ *        The pluggable database is opened in read-write mode. (Value:
+ *        "READ_WRITE")
+ */
+@property(nonatomic, copy, nullable) NSString *openMode;
+
+/** Required. The OCID of the Pluggable Database. */
+@property(nonatomic, copy, nullable) NSString *pluggableDatabaseId;
+
+@end
+
+
+/**
+ *  The properties of a PluggableDatabase.
+ */
+@interface GTLROracleDatabase_PluggableDatabaseProperties : GTLRObject
+
+/** Required. The OCID of the compartment. */
+@property(nonatomic, copy, nullable) NSString *compartmentId;
+
+/**
+ *  Optional. The Connection strings used to connect to the Oracle Database.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_PluggableDatabaseConnectionStrings *connectionStrings;
+
+/** Required. The OCID of the CDB. */
+@property(nonatomic, copy, nullable) NSString *containerDatabaseOcid;
+
+/** Output only. The configuration of the Database Management service. */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_DatabaseManagementConfig *databaseManagementConfig;
+
+/**
+ *  Optional. Defined tags for this resource. Each key is predefined and scoped
+ *  to a namespace.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_PluggableDatabaseProperties_DefinedTags *definedTags;
+
+/**
+ *  Optional. Free-form tags for this resource. Each tag is a simple key-value
+ *  pair with no predefined name, type, or namespace.
+ */
+@property(nonatomic, strong, nullable) GTLROracleDatabase_PluggableDatabaseProperties_FreeformTags *freeformTags;
+
+/**
+ *  Optional. The restricted mode of the pluggable database. If a pluggable
+ *  database is opened in restricted mode, the user needs both create a session
+ *  and have restricted session privileges to connect to it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isRestricted;
+
+/** Output only. Additional information about the current lifecycle state. */
+@property(nonatomic, copy, nullable) NSString *lifecycleDetails;
+
+/**
+ *  Output only. The current state of the pluggable database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Available
+ *        The pluggable database is available. (Value: "AVAILABLE")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_BackupInProgress
+ *        The pluggable database is backing up. (Value: "BACKUP_IN_PROGRESS")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Disabled
+ *        The pluggable database is disabled. (Value: "DISABLED")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Failed
+ *        The pluggable database is in a failed state. (Value: "FAILED")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_PluggableDatabaseLifecycleStateUnspecified
+ *        The lifecycle state is unspecified. (Value:
+ *        "PLUGGABLE_DATABASE_LIFECYCLE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Provisioning
+ *        The pluggable database is provisioning. (Value: "PROVISIONING")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Refreshing
+ *        The pluggable database is refreshing. (Value: "REFRESHING")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Relocated
+ *        The pluggable database is relocated. (Value: "RELOCATED")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Relocating
+ *        The pluggable database is relocating. (Value: "RELOCATING")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_RestoreFailed
+ *        The pluggable database restore failed. (Value: "RESTORE_FAILED")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_RestoreInProgress
+ *        The pluggable database is restoring. (Value: "RESTORE_IN_PROGRESS")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Terminated
+ *        The pluggable database is terminated. (Value: "TERMINATED")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Terminating
+ *        The pluggable database is terminating. (Value: "TERMINATING")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_LifecycleState_Updating
+ *        The pluggable database is updating. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *lifecycleState;
+
+/** Output only. The OCID of the pluggable database. */
+@property(nonatomic, copy, nullable) NSString *ocid;
+
+/**
+ *  Output only. The status of Operations Insights for this Database.
+ *
+ *  Likely values:
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_Disabling
+ *        Operations Insights is disabling. (Value: "DISABLING")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_Enabled
+ *        Operations Insights is enabled. (Value: "ENABLED")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_Enabling
+ *        Operations Insights is enabling. (Value: "ENABLING")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_FailedDisabling
+ *        Operations Insights failed to disable. (Value: "FAILED_DISABLING")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_FailedEnabling
+ *        Operations Insights failed to enable. (Value: "FAILED_ENABLING")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_NotEnabled
+ *        Operations Insights is not enabled. (Value: "NOT_ENABLED")
+ *    @arg @c kGTLROracleDatabase_PluggableDatabaseProperties_OperationsInsightsState_OperationsInsightsStateUnspecified
+ *        The status is not specified. (Value:
+ *        "OPERATIONS_INSIGHTS_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *operationsInsightsState;
+
+/** Required. The database name. */
+@property(nonatomic, copy, nullable) NSString *pdbName;
+
+/** Optional. Pluggable Database Node Level Details */
+@property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_PluggableDatabaseNodeLevelDetails *> *pdbNodeLevelDetails;
+
+@end
+
+
+/**
+ *  Optional. Defined tags for this resource. Each key is predefined and scoped
+ *  to a namespace.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLROracleDatabase_DefinedTagValue. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLROracleDatabase_PluggableDatabaseProperties_DefinedTags : GTLRObject
+@end
+
+
+/**
+ *  Optional. Free-form tags for this resource. Each tag is a simple key-value
+ *  pair with no predefined name, type, or namespace.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLROracleDatabase_PluggableDatabaseProperties_FreeformTags : GTLRObject
+@end
+
+
+/**
+ *  The request for `ExadbVmCluster.RemoveVirtualMachine`.
+ */
+@interface GTLROracleDatabase_RemoveVirtualMachineExadbVmClusterRequest : GTLRObject
+
+/**
+ *  Required. The list of host names of db nodes to be removed from the
+ *  ExadbVmCluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hostnames;
+
+/**
+ *  Optional. An optional ID to identify the request. This value is used to
+ *  identify duplicate requests. If you make a request with the same request ID
+ *  and the original request is still in progress or completed, the server
+ *  ignores the second request. This prevents clients from accidentally creating
+ *  duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  The request for `AutonomousDatabase.Restart`.
  */
 @interface GTLROracleDatabase_RestartAutonomousDatabaseRequest : GTLRObject
@@ -5039,6 +8039,31 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  The request for `AutonomousDatabase.Stop`.
  */
 @interface GTLROracleDatabase_StopAutonomousDatabaseRequest : GTLRObject
+@end
+
+
+/**
+ *  The initial storage size, in gigabytes, that is applicable for virtual
+ *  machine DBSystem.
+ */
+@interface GTLROracleDatabase_StorageSizeDetails : GTLRObject
+
+/**
+ *  Output only. The data storage size, in gigabytes, that is applicable for
+ *  virtual machine DBSystem.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataStorageSizeInGbs;
+
+/**
+ *  Output only. The RECO/REDO storage size, in gigabytes, that is applicable
+ *  for virtual machine DBSystem.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recoStorageSizeInGbs;
+
 @end
 
 

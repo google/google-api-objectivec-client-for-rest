@@ -996,6 +996,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
+ *  If true, return a list of bucket resource names for buckets that are in
+ *  unreachable locations.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  If true, only soft-deleted bucket versions will be returned. The default is
  *  false. For more information, see [Soft
  *  Delete](https://cloud.google.com/storage/docs/soft-delete).

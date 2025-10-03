@@ -649,7 +649,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2Action
 @dynamic deidentify, jobNotificationEmails, publishFindingsToCloudDataCatalog,
-         publishSummaryToCscc, publishToStackdriver, pubSub, saveFindings;
+         publishFindingsToDataplexCatalog, publishSummaryToCscc,
+         publishToStackdriver, pubSub, saveFindings;
 @end
 
 
@@ -2342,7 +2343,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2FileStoreCollection
-@dynamic includeRegexes;
+@dynamic includeRegexes, includeTags;
 @end
 
 
@@ -3741,7 +3742,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig
-@dynamic outputSchema, table;
+@dynamic outputSchema, storagePath, table;
 @end
 
 
@@ -3848,6 +3849,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2PublishFindingsToDataplexCatalog
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2PublishFindingsToDataplexCatalog
 @end
 
 
@@ -4645,6 +4655,34 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2TagCondition
 @dynamic sensitivityScore, tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2TagFilter
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2TagFilter
+@dynamic namespacedTagKey, namespacedTagValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2TagFilters
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2TagFilters
+@dynamic tagFilters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tagFilters" : [GTLRDLP_GooglePrivacyDlpV2TagFilter class]
+  };
+  return map;
+}
+
 @end
 
 

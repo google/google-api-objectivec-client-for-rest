@@ -149,7 +149,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataConnectorOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -414,7 +414,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -924,7 +924,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresModelsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -962,7 +962,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1111,7 +1111,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1568,7 +1568,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1820,7 +1820,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -2040,6 +2040,25 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent class];
   query.loggingName = @"discoveryengine.projects.locations.collections.dataStores.userEvents.write";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.delete";
   return query;
 }
 
@@ -2526,7 +2545,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -2862,6 +2881,25 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsGetDataConnector
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsGetDataConnector *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.getDataConnector";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsOperationsGet
 
 @dynamic name;
@@ -2883,7 +2921,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -2895,6 +2933,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse class];
   query.loggingName = @"discoveryengine.projects.locations.collections.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsUpdateDataConnector
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsUpdateDataConnector *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.updateDataConnector";
   return query;
 }
 
@@ -3148,7 +3213,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -3639,7 +3704,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresModelsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -3677,7 +3742,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -4789,7 +4854,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -4833,6 +4898,79 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsCreate
+
+@dynamic licenseConfigId, parent;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/licenseConfigs";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig class];
+  query.loggingName = @"discoveryengine.projects.locations.licenseConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig class];
+  query.loggingName = @"discoveryengine.projects.locations.licenseConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig class];
+  query.loggingName = @"discoveryengine.projects.locations.licenseConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsOperationsGet
 
 @dynamic name;
@@ -4854,7 +4992,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -4912,6 +5050,60 @@
   query.rankingConfig = rankingConfig;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RankResponse class];
   query.loggingName = @"discoveryengine.projects.locations.rankingConfigs.rank";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsSetUpDataConnector
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SetUpDataConnectorRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:setUpDataConnector";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsSetUpDataConnector *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"discoveryengine.projects.locations.setUpDataConnector";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsSetUpDataConnectorV2
+
+@dynamic collectionDisplayName, collectionId, parent;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:setUpDataConnectorV2";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsSetUpDataConnectorV2 *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
+  query.loggingName = @"discoveryengine.projects.locations.setUpDataConnectorV2";
   return query;
 }
 
@@ -5138,7 +5330,7 @@
 
 @implementation GTLRDiscoveryEngineQuery_ProjectsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

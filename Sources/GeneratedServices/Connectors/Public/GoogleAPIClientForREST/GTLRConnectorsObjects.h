@@ -82,6 +82,7 @@
 @class GTLRConnectors_SloMetadata;
 @class GTLRConnectors_TimeOfDay;
 @class GTLRConnectors_Tool;
+@class GTLRConnectors_ToolAnnotations;
 @class GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata;
 @class GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata_Metadata;
 @class GTLRConnectors_UpdateEntitiesWithConditionsResponse_Response;
@@ -4035,6 +4036,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @interface GTLRConnectors_Tool : GTLRObject
 
+/** Annotations for the tool. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ToolAnnotations *annotations;
+
 /** List of tool names that this tool depends on. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dependsOn;
 
@@ -4053,6 +4057,51 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 /** JSON schema for the output of the tool. */
 @property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *outputSchema;
+
+@end
+
+
+/**
+ *  ToolAnnotations holds annotations for a tool.
+ */
+@interface GTLRConnectors_ToolAnnotations : GTLRObject
+
+/**
+ *  If true, the tool may perform destructive updates to its environment. If
+ *  false, the tool performs only additive updates. (This property is meaningful
+ *  only when `read_only_hint == false`)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *destructiveHint;
+
+/**
+ *  If true, calling the tool repeatedly with the same arguments will have no
+ *  additional effect on the environment. (This property is meaningful only when
+ *  `read_only_hint == false`)
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *idempotentHint;
+
+/**
+ *  If true, this tool may interact with an "open world" of external entities.
+ *  If false, the tool's domain of interaction is closed. For example, the world
+ *  of a web search tool is open, whereas that of a memory tool is not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *openWorldHint;
+
+/**
+ *  If true, the tool does not modify its environment.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOnlyHint;
+
+/** A human-readable title for the tool. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 

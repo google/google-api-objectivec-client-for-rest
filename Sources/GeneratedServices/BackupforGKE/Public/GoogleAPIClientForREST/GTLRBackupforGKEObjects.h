@@ -1896,7 +1896,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_Date *singleOccurrenceDate;
 
 /**
- *  Required. Specifies the start time of the window using time of the day in
+ *  Optional. Specifies the start time of the window using time of the day in
  *  UTC.
  */
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_TimeOfDay *startTime;

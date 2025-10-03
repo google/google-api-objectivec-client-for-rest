@@ -2233,6 +2233,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Restore files from a backup to a volume.
+ *
+ *  Method: netapp.projects.locations.volumes.restore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsVolumesRestore : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The volume resource name, in the format
+ *  `projects/{project_id}/locations/{location}/volumes/{volume_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_Operation.
+ *
+ *  Restore files from a backup to a volume.
+ *
+ *  @param object The @c GTLRNetAppFiles_RestoreBackupFilesRequest to include in
+ *    the query.
+ *  @param name Required. The volume resource name, in the format
+ *    `projects/{project_id}/locations/{location}/volumes/{volume_id}`
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsVolumesRestore
+ */
++ (instancetype)queryWithObject:(GTLRNetAppFiles_RestoreBackupFilesRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Revert an existing volume to a specified snapshot. Warning! This operation
  *  will permanently revert all changes made after the snapshot was created.
  *

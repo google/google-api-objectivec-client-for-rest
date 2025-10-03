@@ -1297,6 +1297,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  The list of bucket resource names that could not be reached during the
+ *  listing operation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 

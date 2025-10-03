@@ -321,7 +321,8 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 @implementation GTLREventarc_GoogleApiSource
 @dynamic annotations, createTime, cryptoKeyName, destination, displayName, ETag,
-         labels, loggingConfig, name, uid, updateTime;
+         labels, loggingConfig, name, organizationSubscription,
+         projectSubscriptions, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -963,6 +964,16 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_OrganizationSubscription
+//
+
+@implementation GTLREventarc_OrganizationSubscription
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_Pipeline
 //
 
@@ -1030,6 +1041,24 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
   NSDictionary<NSString *, Class> *map = @{
     @"auditConfigs" : [GTLREventarc_AuditConfig class],
     @"bindings" : [GTLREventarc_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLREventarc_ProjectSubscriptions
+//
+
+@implementation GTLREventarc_ProjectSubscriptions
+@dynamic list;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"list" : [NSString class]
   };
   return map;
 }

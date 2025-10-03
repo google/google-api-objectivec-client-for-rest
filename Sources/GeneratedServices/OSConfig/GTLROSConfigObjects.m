@@ -312,11 +312,12 @@ NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_A
 //
 
 @implementation GTLROSConfig_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLROSConfig_Operation class]
+    @"operations" : [GTLROSConfig_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

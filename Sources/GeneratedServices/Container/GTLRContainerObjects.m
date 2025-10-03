@@ -526,6 +526,10 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_GceMetadata = @"GCE_
 NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_GkeMetadata = @"GKE_METADATA";
 NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRContainer_AcceleratorConfig
@@ -735,6 +739,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_AutoscaledRolloutPolicy
+//
+
+@implementation GTLRContainer_AutoscaledRolloutPolicy
+@dynamic waitForDrainDuration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_AutoUpgradeOptions
 //
 
@@ -804,7 +818,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_BlueGreenSettings
-@dynamic nodePoolSoakDuration, standardRolloutPolicy;
+@dynamic autoscaledRolloutPolicy, nodePoolSoakDuration, standardRolloutPolicy;
 @end
 
 
@@ -1323,7 +1337,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_DNSEndpointConfig
-@dynamic allowExternalTraffic, endpoint;
+@dynamic allowExternalTraffic, enableK8sCertsViaDns, enableK8sTokensViaDns,
+         endpoint;
 @end
 
 
@@ -3527,3 +3542,5 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 @implementation GTLRContainer_WorkloadPolicyConfig
 @dynamic allowNetAdmin, autopilotCompatibilityAuditingEnabled;
 @end
+
+#pragma clang diagnostic pop

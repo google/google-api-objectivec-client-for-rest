@@ -359,6 +359,16 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMMigrationService_AdaptationModifier
+//
+
+@implementation GTLRVMMigrationService_AdaptationModifier
+@dynamic modifier, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMMigrationService_AdaptingOSStep
 //
 
@@ -835,10 +845,10 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_ComputeEngineTargetDefaults
-@dynamic additionalLicenses, appliedLicense, bootConversion, bootOption,
-         computeScheduling, diskReplicaZones, diskType,
-         enableIntegrityMonitoring, enableVtpm, encryption, hostname, labels,
-         licenseType, machineType, machineTypeSeries, metadata,
+@dynamic adaptationModifiers, additionalLicenses, appliedLicense,
+         bootConversion, bootOption, computeScheduling, diskReplicaZones,
+         diskType, enableIntegrityMonitoring, enableVtpm, encryption, hostname,
+         labels, licenseType, machineType, machineTypeSeries, metadata,
          networkInterfaces, networkTags, secureBoot, serviceAccount,
          targetProject, vmName, zoneProperty;
 
@@ -848,6 +858,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"adaptationModifiers" : [GTLRVMMigrationService_AdaptationModifier class],
     @"additionalLicenses" : [NSString class],
     @"diskReplicaZones" : [NSString class],
     @"networkInterfaces" : [GTLRVMMigrationService_NetworkInterface class],
@@ -893,10 +904,10 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_ComputeEngineTargetDetails
-@dynamic additionalLicenses, appliedLicense, bootConversion, bootOption,
-         computeScheduling, diskReplicaZones, diskType,
-         enableIntegrityMonitoring, enableVtpm, encryption, hostname, labels,
-         licenseType, machineType, machineTypeSeries, metadata,
+@dynamic adaptationModifiers, additionalLicenses, appliedLicense,
+         bootConversion, bootOption, computeScheduling, diskReplicaZones,
+         diskType, enableIntegrityMonitoring, enableVtpm, encryption, hostname,
+         labels, licenseType, machineType, machineTypeSeries, metadata,
          networkInterfaces, networkTags, project, secureBoot, serviceAccount,
          vmName, zoneProperty;
 
@@ -906,6 +917,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"adaptationModifiers" : [GTLRVMMigrationService_AdaptationModifier class],
     @"additionalLicenses" : [NSString class],
     @"diskReplicaZones" : [NSString class],
     @"networkInterfaces" : [GTLRVMMigrationService_NetworkInterface class],
@@ -1398,7 +1410,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_ImageImportOsAdaptationParameters
-@dynamic bootConversion, generalize, licenseType;
+@dynamic adaptationModifiers, bootConversion, generalize, licenseType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adaptationModifiers" : [GTLRVMMigrationService_AdaptationModifier class]
+  };
+  return map;
+}
+
 @end
 
 

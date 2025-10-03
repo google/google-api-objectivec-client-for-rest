@@ -203,6 +203,34 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTexttospeech_MultispeakerPrebuiltVoice
+//
+
+@implementation GTLRTexttospeech_MultispeakerPrebuiltVoice
+@dynamic speakerAlias, speakerId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_MultiSpeakerVoiceConfig
+//
+
+@implementation GTLRTexttospeech_MultiSpeakerVoiceConfig
+@dynamic speakerVoiceConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"speakerVoiceConfigs" : [GTLRTexttospeech_MultispeakerPrebuiltVoice class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTexttospeech_Operation
 //
 
@@ -365,5 +393,6 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_VoiceSelectionParams
-@dynamic customVoice, languageCode, modelName, name, ssmlGender, voiceClone;
+@dynamic customVoice, languageCode, modelName, multiSpeakerVoiceConfig, name,
+         ssmlGender, voiceClone;
 @end

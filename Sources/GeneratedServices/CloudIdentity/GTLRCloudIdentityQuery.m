@@ -421,7 +421,8 @@ NSString * const kGTLRCloudIdentityViewViewUnspecified     = @"VIEW_UNSPECIFIED"
 
 @implementation GTLRCloudIdentityQuery_DevicesDeviceUsersLookup
 
-@dynamic androidId, pageSize, pageToken, parent, rawResourceId, userId;
+@dynamic androidId, iosDeviceId, pageSize, pageToken, parent, partner,
+         rawResourceId, userId;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

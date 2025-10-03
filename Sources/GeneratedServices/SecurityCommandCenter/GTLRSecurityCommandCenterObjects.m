@@ -16,6 +16,8 @@
 
 // GTLRSecurityCommandCenter_AiModel.deploymentPlatform
 NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_DeploymentPlatformUnspecified = @"DEPLOYMENT_PLATFORM_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_FineTunedModel = @"FINE_TUNED_MODEL";
+NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_Gce = @"GCE";
 NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_Gke = @"GKE";
 NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_VertexAi = @"VERTEX_AI";
 
@@ -140,6 +142,8 @@ NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Read = @"REA
 
 // GTLRSecurityCommandCenter_DataRetentionDeletionEvent.eventType
 NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded = @"EVENT_TYPE_MAX_TTL_EXCEEDED";
+NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromCreation = @"EVENT_TYPE_MAX_TTL_FROM_CREATION";
+NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification = @"EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 
 // GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.cloudProvider
@@ -315,6 +319,8 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Sensitive
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel.deploymentPlatform
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_DeploymentPlatformUnspecified = @"DEPLOYMENT_PLATFORM_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_FineTunedModel = @"FINE_TUNED_MODEL";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_Gce = @"GCE";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_Gke = @"GKE";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_VertexAi = @"VERTEX_AI";
 
@@ -416,6 +422,8 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowE
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent.eventType
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded = @"EVENT_TYPE_MAX_TTL_EXCEEDED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromCreation = @"EVENT_TYPE_MAX_TTL_FROM_CREATION";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification = @"EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation.type

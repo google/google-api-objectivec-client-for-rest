@@ -992,6 +992,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCloudRun_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -1300,9 +1311,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  The fully qualified name of this Service. In CreateServiceRequest, this
- *  field is ignored, and instead composed from CreateServiceRequest.parent and
- *  CreateServiceRequest.service_id. Format:
+ *  Identifier. The fully qualified name of this Service. In
+ *  CreateServiceRequest, this field is ignored, and instead composed from
+ *  CreateServiceRequest.parent and CreateServiceRequest.service_id. Format:
  *  projects/{project}/locations/{location}/services/{service_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1327,7 +1338,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRCloudRun_GoogleCloudRunV2Service to include in the
  *    query.
- *  @param name The fully qualified name of this Service. In
+ *  @param name Identifier. The fully qualified name of this Service. In
  *    CreateServiceRequest, this field is ignored, and instead composed from
  *    CreateServiceRequest.parent and CreateServiceRequest.service_id. Format:
  *    projects/{project}/locations/{location}/services/{service_id}

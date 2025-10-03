@@ -181,6 +181,12 @@ NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateAndTi
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_DateOnly = @"DATE_ONLY";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DateTimePicker_Type_TimeOnly = @"TIME_ONLY";
 
+// GTLRHangoutsChat_GoogleAppsCardV1DecoratedText.startIconVerticalAlignment
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_Bottom = @"BOTTOM";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_Middle = @"MIDDLE";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_Top = @"TOP";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1DecoratedText_StartIconVerticalAlignment_VerticalAlignmentUnspecified = @"VERTICAL_ALIGNMENT_UNSPECIFIED";
+
 // GTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition.conditionType
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition_ConditionType_ConditionTypeUnspecified = @"CONDITION_TYPE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition_ConditionType_ExpressionEvaluationFailure = @"EXPRESSION_EVALUATION_FAILURE";
@@ -229,6 +235,11 @@ NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SwitchControl_ControlType_Swi
 // GTLRHangoutsChat_GoogleAppsCardV1TextInput.type
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_MultipleLine = @"MULTIPLE_LINE";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextInput_Type_SingleLine = @"SINGLE_LINE";
+
+// GTLRHangoutsChat_GoogleAppsCardV1TextParagraph.textSyntax
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextParagraph_TextSyntax_Html = @"HTML";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextParagraph_TextSyntax_Markdown = @"MARKDOWN";
+NSString * const kGTLRHangoutsChat_GoogleAppsCardV1TextParagraph_TextSyntax_TextSyntaxUnspecified = @"TEXT_SYNTAX_UNSPECIFIED";
 
 // GTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction.visibility
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction_Visibility_Hidden = @"HIDDEN";
@@ -1114,8 +1125,9 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1DecoratedText
-@dynamic bottomLabel, button, endIcon, icon, onClick, startIcon, switchControl,
-         text, topLabel, wrapText;
+@dynamic bottomLabel, bottomLabelText, button, contentText, endIcon, icon,
+         onClick, startIcon, startIconVerticalAlignment, switchControl, text,
+         topLabel, topLabelText, wrapText;
 @end
 
 
@@ -1439,7 +1451,7 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1TextParagraph
-@dynamic maxLines, text;
+@dynamic maxLines, text, textSyntax;
 @end
 
 

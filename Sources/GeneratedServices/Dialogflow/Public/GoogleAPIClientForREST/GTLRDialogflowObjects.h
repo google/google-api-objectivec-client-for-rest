@@ -346,10 +346,28 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponse_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookServiceDirectoryConfig;
+@class GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction;
+@class GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult;
+@class GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult;
+@class GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSources;
 @class GTLRDialogflow_GoogleCloudDialogflowV2AnnotatedMessagePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ArticleAnswer_Metadata;
 @class GTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResult;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionAgentActionSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResult;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSampleResponse;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSources;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1AnnotatedMessagePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1ArticleAnswer_Metadata;
@@ -4027,6 +4045,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1T
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1TelephonyDtmfEvents_DtmfEvents_TelephonyDtmfUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall.state
+
+/**
+ *  The tool call requires confirmation from a human.
+ *
+ *  Value: "NEEDS_CONFIRMATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_State_NeedsConfirmation;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_State_StateUnspecified;
+/**
+ *  The tool call has been triggered.
+ *
+ *  Value: "TRIGGERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_State_Triggered;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV2ClearSuggestionFeatureConfigOperationMetadata.participantRole
 
 /**
@@ -4847,6 +4887,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Stream
  *  Value: "TRANSCRIPT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2StreamingRecognitionResult_MessageType_Transcript;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowV2ToolCall.state
+
+/**
+ *  The tool call requires confirmation from a human.
+ *
+ *  Value: "NEEDS_CONFIRMATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ToolCall_State_NeedsConfirmation;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ToolCall_State_StateUnspecified;
+/**
+ *  The tool call has been triggered.
+ *
+ *  Value: "TRIGGERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ToolCall_State_Triggered;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals.failureReasons
@@ -17672,6 +17734,193 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  Agent Coaching instructions that customer can configure.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction : GTLRObject
+
+/**
+ *  Optional. The action that human agent should take. For example, "apologize
+ *  for the slow shipping". If the users only want to use agent coaching for
+ *  intent detection, agent_action can be empty
+ */
+@property(nonatomic, copy, nullable) NSString *agentAction;
+
+/**
+ *  Optional. The condition of the instruction. For example, "the customer wants
+ *  to cancel an order". If the users want the instruction to be triggered
+ *  unconditionally, the condition can be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/** Optional. The detailed description of this instruction. */
+@property(nonatomic, copy, nullable) NSString *displayDetails;
+
+/** Optional. Display name for the instruction. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. Duplication check for the AgentCoachingInstruction. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult *duplicateCheckResult;
+
+/**
+ *  Optional. The action that system should take. For example, "call
+ *  GetOrderTime with order_number={order number provided by the customer}". If
+ *  the users don't have plugins or don't want to trigger plugins, the
+ *  system_action can be empty
+ */
+@property(nonatomic, copy, nullable) NSString *systemAction;
+
+@end
+
+
+/**
+ *  Duplication check for the suggestion.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResult : GTLRObject
+
+/** Output only. The duplicate suggestions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion *> *duplicateSuggestions;
+
+@end
+
+
+/**
+ *  The duplicate suggestion details.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion : GTLRObject
+
+/** Output only. The answer record id of the past duplicate suggestion. */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  Output only. The similarity score of between the past and current
+ *  suggestion.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *similarityScore;
+
+/**
+ *  Output only. The index of the duplicate suggestion in the past suggestion
+ *  list.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suggestionIndex;
+
+@end
+
+
+/**
+ *  Suggestion for coaching agents.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestion : GTLRObject
+
+/** Optional. Suggested actions for the agent to take. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion *> *agentActionSuggestions;
+
+/** Optional. Instructions applicable based on the current context. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction *> *applicableInstructions;
+
+/** Optional. Sample response for the Agent. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse *> *sampleResponses;
+
+@end
+
+
+/**
+ *  Actions suggested for the agent. This is based on applicable instructions.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionAgentActionSuggestion : GTLRObject
+
+/** Optional. The suggested action for the agent. */
+@property(nonatomic, copy, nullable) NSString *agentAction;
+
+/** Output only. Duplicate check result for the agent action suggestion. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult *duplicateCheckResult;
+
+/** Output only. Sources for the agent action suggestion. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSources *sources;
+
+@end
+
+
+/**
+ *  Duplication check for the suggestion.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult : GTLRObject
+
+/** Output only. The duplicate suggestions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion *> *duplicateSuggestions;
+
+@end
+
+
+/**
+ *  The duplicate suggestion details. Keeping answer_record and sources together
+ *  as they are identifiers for duplicate suggestions.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion : GTLRObject
+
+/** Output only. The answer record id of the past duplicate suggestion. */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  Output only. The similarity score of between the past and current
+ *  suggestion.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *similarityScore;
+
+/** Output only. Sources for the suggestion. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSources *sources;
+
+/**
+ *  Output only. The index of the duplicate suggestion in the past suggestion
+ *  list.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suggestionIndex;
+
+@end
+
+
+/**
+ *  Sample response that the agent can use. This could be based on applicable
+ *  instructions and ingested data from other systems.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSampleResponse : GTLRObject
+
+/** Output only. Duplicate check result for the sample response. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionDuplicateCheckResult *duplicateCheckResult;
+
+/** Optional. Sample response for Agent in text. */
+@property(nonatomic, copy, nullable) NSString *responseText;
+
+/** Output only. Sources for the Sample Response. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSources *sources;
+
+@end
+
+
+/**
+ *  Sources for the suggestion.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestionSources : GTLRObject
+
+/**
+ *  Output only. Source instruction indexes for the suggestion. This is the
+ *  index of the applicable_instructions field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *instructionIndexes;
+
+@end
+
+
+/**
  *  Represents a part of a message possibly annotated with an entity. The part
  *  can be an entity or purely a part of the message between two entities or
  *  message start/end.
@@ -17794,6 +18043,193 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** The collection of updated or created intents. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2Intent *> *intents;
+
+@end
+
+
+/**
+ *  Agent Coaching instructions that customer can configure.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction : GTLRObject
+
+/**
+ *  Optional. The action that human agent should take. For example, "apologize
+ *  for the slow shipping". If the users only want to use agent coaching for
+ *  intent detection, agent_action can be empty
+ */
+@property(nonatomic, copy, nullable) NSString *agentAction;
+
+/**
+ *  Optional. The condition of the instruction. For example, "the customer wants
+ *  to cancel an order". If the users want the instruction to be triggered
+ *  unconditionally, the condition can be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/** Optional. The detailed description of this instruction. */
+@property(nonatomic, copy, nullable) NSString *displayDetails;
+
+/** Optional. Display name for the instruction. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. Duplication check for the AgentCoachingInstruction. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResult *duplicateCheckResult;
+
+/**
+ *  Optional. The action that system should take. For example, "call
+ *  GetOrderTime with order_number={order number provided by the customer}". If
+ *  the users don't have plugins or don't want to trigger plugins, the
+ *  system_action can be empty
+ */
+@property(nonatomic, copy, nullable) NSString *systemAction;
+
+@end
+
+
+/**
+ *  Duplication check for the suggestion.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResult : GTLRObject
+
+/** Output only. The duplicate suggestions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion *> *duplicateSuggestions;
+
+@end
+
+
+/**
+ *  The duplicate suggestion details.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstructionDuplicateCheckResultDuplicateSuggestion : GTLRObject
+
+/** Output only. The answer record id of the past duplicate suggestion. */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  Output only. The similarity score of between the past and current
+ *  suggestion.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *similarityScore;
+
+/**
+ *  Output only. The index of the duplicate suggestion in the past suggestion
+ *  list.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suggestionIndex;
+
+@end
+
+
+/**
+ *  Suggestion for coaching agents.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestion : GTLRObject
+
+/** Optional. Suggested actions for the agent to take. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionAgentActionSuggestion *> *agentActionSuggestions;
+
+/** Optional. Instructions applicable based on the current context. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction *> *applicableInstructions;
+
+/** Optional. Sample response for the Agent. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSampleResponse *> *sampleResponses;
+
+@end
+
+
+/**
+ *  Actions suggested for the agent. This is based on applicable instructions.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionAgentActionSuggestion : GTLRObject
+
+/** Optional. The suggested action for the agent. */
+@property(nonatomic, copy, nullable) NSString *agentAction;
+
+/** Output only. Duplicate check result for the agent action suggestion. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResult *duplicateCheckResult;
+
+/** Output only. Sources for the agent action suggestion. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSources *sources;
+
+@end
+
+
+/**
+ *  Duplication check for the suggestion.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResult : GTLRObject
+
+/** Output only. The duplicate suggestions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion *> *duplicateSuggestions;
+
+@end
+
+
+/**
+ *  The duplicate suggestion details. Keeping answer_record and sources together
+ *  as they are identifiers for duplicate suggestions.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResultDuplicateSuggestion : GTLRObject
+
+/** Output only. The answer record id of the past duplicate suggestion. */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
+/**
+ *  Output only. The similarity score of between the past and current
+ *  suggestion.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *similarityScore;
+
+/** Output only. Sources for the suggestion. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSources *sources;
+
+/**
+ *  Output only. The index of the duplicate suggestion in the past suggestion
+ *  list.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *suggestionIndex;
+
+@end
+
+
+/**
+ *  Sample response that the agent can use. This could be based on applicable
+ *  instructions and ingested data from other systems.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSampleResponse : GTLRObject
+
+/** Output only. Duplicate check result for the sample response. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionDuplicateCheckResult *duplicateCheckResult;
+
+/** Optional. Sample response for Agent in text. */
+@property(nonatomic, copy, nullable) NSString *responseText;
+
+/** Output only. Sources for the Sample Response. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSources *sources;
+
+@end
+
+
+/**
+ *  Sources for the suggestion.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestionSources : GTLRObject
+
+/**
+ *  Output only. Source instruction indexes for the suggestion. This is the
+ *  index of the applicable_instructions field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *instructionIndexes;
 
 @end
 
@@ -18461,6 +18897,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Suggestion generated using a Generator.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1GeneratorSuggestion : GTLRObject
+
+/** Optional. Suggestion to coach the agent. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingSuggestion *agentCoachingSuggestion;
 
 /** Optional. Free form suggestion. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1FreeFormSuggestion *freeFormSuggestion;
@@ -21186,6 +21625,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Optional. The name of the tool's action associated with this call. */
 @property(nonatomic, copy, nullable) NSString *action;
 
+/** Optional. The answer record associated with this tool call. */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
 /** Output only. Create time of the tool call. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -21193,10 +21635,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_InputParameters *inputParameters;
 
 /**
+ *  Output only. State of the tool call
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_State_NeedsConfirmation
+ *        The tool call requires confirmation from a human. (Value:
+ *        "NEEDS_CONFIRMATION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_State_Triggered
+ *        The tool call has been triggered. (Value: "TRIGGERED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
  *  Optional. The tool associated with this call. Format:
  *  `projects//locations//tools/`.
  */
 @property(nonatomic, copy, nullable) NSString *tool;
+
+/** Optional. A human readable description of the tool. */
+@property(nonatomic, copy, nullable) NSString *toolDisplayDetails;
+
+/**
+ *  Optional. A human readable short name of the tool, to be shown on the UI.
+ */
+@property(nonatomic, copy, nullable) NSString *toolDisplayName;
 
 @end
 
@@ -21220,6 +21684,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Optional. The name of the tool's action associated with this call. */
 @property(nonatomic, copy, nullable) NSString *action;
+
+/** Optional. The answer record associated with this tool call result. */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
 
 /** Only populated if the response content is utf-8 encoded. */
 @property(nonatomic, copy, nullable) NSString *content;
@@ -22192,6 +22659,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Suggestion generated using a Generator.
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowV2GeneratorSuggestion : GTLRObject
+
+/** Optional. Suggestion to coach the agent. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingSuggestion *agentCoachingSuggestion;
 
 /** Optional. Free form suggestion. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2FreeFormSuggestion *freeFormSuggestion;
@@ -24302,6 +24772,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Optional. The name of the tool's action associated with this call. */
 @property(nonatomic, copy, nullable) NSString *action;
 
+/** Optional. The answer record associated with this tool call. */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
+
 /** Output only. Create time of the tool call. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -24309,10 +24782,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ToolCall_InputParameters *inputParameters;
 
 /**
+ *  Output only. State of the tool call.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ToolCall_State_NeedsConfirmation
+ *        The tool call requires confirmation from a human. (Value:
+ *        "NEEDS_CONFIRMATION")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ToolCall_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ToolCall_State_Triggered
+ *        The tool call has been triggered. (Value: "TRIGGERED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
  *  Optional. The tool associated with this call. Format:
  *  `projects//locations//tools/`.
  */
 @property(nonatomic, copy, nullable) NSString *tool;
+
+/** Optional. A human readable description of the tool. */
+@property(nonatomic, copy, nullable) NSString *toolDisplayDetails;
+
+/**
+ *  Optional. A human readable short name of the tool, to be shown on the UI.
+ */
+@property(nonatomic, copy, nullable) NSString *toolDisplayName;
 
 @end
 
@@ -24336,6 +24831,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Optional. The name of the tool's action associated with this call. */
 @property(nonatomic, copy, nullable) NSString *action;
+
+/** Optional. The answer record associated with this tool call result. */
+@property(nonatomic, copy, nullable) NSString *answerRecord;
 
 /** Only populated if the response content is utf-8 encoded. */
 @property(nonatomic, copy, nullable) NSString *content;
@@ -24725,6 +25223,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

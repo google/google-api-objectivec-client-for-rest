@@ -138,6 +138,7 @@ NSString * const kGTLRCloudDomains_Registration_DomainProperties_RequirePushTran
 NSString * const kGTLRCloudDomains_Registration_DomainProperties_TransferLockUnsupportedByRegistry = @"TRANSFER_LOCK_UNSUPPORTED_BY_REGISTRY";
 
 // GTLRCloudDomains_Registration.issues
+NSString * const kGTLRCloudDomains_Registration_Issues_AutoRenewalUpdateNotEffective = @"AUTO_RENEWAL_UPDATE_NOT_EFFECTIVE";
 NSString * const kGTLRCloudDomains_Registration_Issues_ContactSupport = @"CONTACT_SUPPORT";
 NSString * const kGTLRCloudDomains_Registration_Issues_DnsNotActivated = @"DNS_NOT_ACTIVATED";
 NSString * const kGTLRCloudDomains_Registration_Issues_IssueUnspecified = @"ISSUE_UNSPECIFIED";

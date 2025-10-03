@@ -62,10 +62,12 @@
 @class GTLREventarc_MessageBus_Annotations;
 @class GTLREventarc_MessageBus_Labels;
 @class GTLREventarc_NetworkConfig;
+@class GTLREventarc_OrganizationSubscription;
 @class GTLREventarc_Pipeline;
 @class GTLREventarc_Pipeline_Annotations;
 @class GTLREventarc_Pipeline_Labels;
 @class GTLREventarc_Policy;
+@class GTLREventarc_ProjectSubscriptions;
 @class GTLREventarc_Provider;
 @class GTLREventarc_Pubsub;
 @class GTLREventarc_StateCondition;
@@ -1100,6 +1102,18 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *  projects/{project}/locations/{location}/googleApiSources/{google_api_source}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Config to enable subscribing to events from all projects in the
+ *  GoogleApiSource's org.
+ */
+@property(nonatomic, strong, nullable) GTLREventarc_OrganizationSubscription *organizationSubscription;
+
+/**
+ *  Optional. Config to enable subscribing to all events from a list of
+ *  projects. All the projects must be in the same org as the GoogleApiSource.
+ */
+@property(nonatomic, strong, nullable) GTLREventarc_ProjectSubscriptions *projectSubscriptions;
 
 /**
  *  Output only. Server assigned unique identifier for the channel. The value is
@@ -2301,6 +2315,21 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 
 /**
+ *  Config to enabled subscribing to events from other projects in the org.
+ */
+@interface GTLREventarc_OrganizationSubscription : GTLRObject
+
+/**
+ *  Required. Enable org level subscription.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  A representation of the Pipeline resource.
  */
 @interface GTLREventarc_Pipeline : GTLRObject
@@ -2519,6 +2548,23 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Config to enable subscribing to all events from a list of projects.
+ */
+@interface GTLREventarc_ProjectSubscriptions : GTLRObject
+
+/**
+ *  Required. A list of projects to receive events from. All the projects must
+ *  be in the same org. The listed projects should have the format
+ *  project/{identifier} where identifier can be either the project id for
+ *  project number. A single list may contain both formats. At most 100 projects
+ *  can be listed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *list;
 
 @end
 

@@ -1191,11 +1191,12 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabl
 //
 
 @implementation GTLRGKEHub_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRGKEHub_Operation class]
+    @"operations" : [GTLRGKEHub_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

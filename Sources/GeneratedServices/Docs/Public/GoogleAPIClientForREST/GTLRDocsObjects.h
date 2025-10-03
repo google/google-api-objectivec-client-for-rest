@@ -94,6 +94,7 @@
 @class GTLRDocs_InsertInlineImageResponse;
 @class GTLRDocs_InsertInlineSheetsChartResponse;
 @class GTLRDocs_InsertPageBreakRequest;
+@class GTLRDocs_InsertPersonRequest;
 @class GTLRDocs_InsertSectionBreakRequest;
 @class GTLRDocs_InsertTableColumnRequest;
 @class GTLRDocs_InsertTableRequest;
@@ -3526,6 +3527,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
+ *  Inserts a person mention.
+ */
+@interface GTLRDocs_InsertPersonRequest : GTLRObject
+
+/**
+ *  Inserts the person at the end of a header, footer, footnote or the document
+ *  body.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_EndOfSegmentLocation *endOfSegmentLocation;
+
+/**
+ *  Inserts the person at a specific index in the document. The person mention
+ *  must be inserted inside the bounds of an existing Paragraph. For instance,
+ *  it cannot be inserted at a table's start index (i.e. between the table and
+ *  its preceding paragraph). People cannot be inserted inside an equation.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *location;
+
+/** The properties of the person mention to insert. */
+@property(nonatomic, strong, nullable) GTLRDocs_PersonProperties *personProperties;
+
+@end
+
+
+/**
  *  Inserts a section break at the given location. A newline character will be
  *  inserted before the section break.
  */
@@ -4930,15 +4956,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  */
 @interface GTLRDocs_PersonProperties : GTLRObject
 
-/**
- *  Output only. The email address linked to this Person. This field is always
- *  present.
- */
+/** The email address linked to this Person. This field is always present. */
 @property(nonatomic, copy, nullable) NSString *email;
 
 /**
- *  Output only. The name of the person if it's displayed in the link text
- *  instead of the person's email address.
+ *  The name of the person if it's displayed in the link text instead of the
+ *  person's email address.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5353,6 +5376,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /** Inserts a page break at the specified location. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertPageBreakRequest *insertPageBreak;
+
+/** Inserts a person mention. */
+@property(nonatomic, strong, nullable) GTLRDocs_InsertPersonRequest *insertPerson;
 
 /** Inserts a section break at the specified location. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertSectionBreakRequest *insertSectionBreak;

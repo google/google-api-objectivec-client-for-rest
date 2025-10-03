@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule.alignmentType
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule_AlignmentType_AlignmentTypeHorizontal = @"ALIGNMENT_TYPE_HORIZONTAL";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule_AlignmentType_AlignmentTypeUnspecified = @"ALIGNMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule_AlignmentType_AlignmentTypeVertical = @"ALIGNMENT_TYPE_VERTICAL";
+
 // GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation.validationOperator
 NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation_ValidationOperator_OperationTypeEq = @"OPERATION_TYPE_EQ";
 NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation_ValidationOperator_OperationTypeGe = @"OPERATION_TYPE_GE";
@@ -284,11 +289,39 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRule
-@dynamic descriptionProperty, fieldOccurrences, fieldRegex, formValidation,
-         name;
+@dynamic childAlignmentRule, descriptionProperty, entityAlignmentRule,
+         fieldOccurrences, fieldRegex, formValidation, name;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule
+//
+
+@implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule
+@dynamic alignmentType, tolerance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleChildAlignmentRule
+//
+
+@implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleChildAlignmentRule
+@dynamic alignmentRule, childFields, parentField;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"childFields" : [GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleField class]
+  };
+  return map;
 }
 
 @end
@@ -301,6 +334,24 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 @implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleConstant
 @dynamic floatValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleEntityAlignmentRule
+//
+
+@implementation GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleEntityAlignmentRule
+@dynamic alignmentRule, fields;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleField class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3371,11 +3422,12 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDocument_GoogleLongrunningOperation class]
+    @"operations" : [GTLRDocument_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

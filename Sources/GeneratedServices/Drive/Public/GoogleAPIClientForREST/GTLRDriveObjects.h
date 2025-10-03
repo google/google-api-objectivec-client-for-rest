@@ -83,8 +83,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRDrive_ResolveAccessProposalRequest.action
 
 /**
- *  The user accepts the proposal. Note: If this action is used, the `role`
- *  field must have at least one value.
+ *  The user accepts the access proposal. Note: If this action is used, the
+ *  `role` field must have at least one value.
  *
  *  Value: "ACCEPT"
  */
@@ -96,7 +96,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_ActionUnspecified;
 /**
- *  The user denies the proposal
+ *  The user denies the access proposal.
  *
  *  Value: "DENY"
  */
@@ -300,49 +300,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 
 /**
- *  The Access Proposal resource for outstanding access proposals on a file
+ *  Manage outstanding access proposals on a file.
  */
 @interface GTLRDrive_AccessProposal : GTLRObject
 
-/** The creation time */
+/** The creation time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** The file id that the proposal for access is on */
+/** The file ID that the proposal for access is on. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
-/** The id of the access proposal */
+/** The ID of the access proposal. */
 @property(nonatomic, copy, nullable) NSString *proposalId;
 
-/** The email address of the user that will receive permissions if accepted */
+/**
+ *  The email address of the user that will receive permissions, if accepted.
+ */
 @property(nonatomic, copy, nullable) NSString *recipientEmailAddress;
 
-/** The email address of the requesting user */
+/** The email address of the requesting user. */
 @property(nonatomic, copy, nullable) NSString *requesterEmailAddress;
 
-/** The message that the requester added to the proposal */
+/** The message that the requester added to the proposal. */
 @property(nonatomic, copy, nullable) NSString *requestMessage;
 
-/** A wrapper for the role and view of an access proposal. */
+/**
+ *  A wrapper for the role and view of an access proposal. For more information,
+ *  see [Roles and
+ *  permissions](https://developers.google.com/workspace/drive/api/guides/ref-roles).
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_AccessProposalRoleAndView *> *rolesAndViews;
 
 @end
 
 
 /**
- *  A wrapper for the role and view of an access proposal.
+ *  A wrapper for the role and view of an access proposal. For more information,
+ *  see [Roles and
+ *  permissions](https://developers.google.com/workspace/drive/api/guides/ref-roles).
  */
 @interface GTLRDrive_AccessProposalRoleAndView : GTLRObject
 
 /**
- *  The role that was proposed by the requester New values may be added in the
- *  future, but the following are currently possible: * `writer` * `commenter` *
- *  `reader`
+ *  The role that was proposed by the requester. The supported values are: *
+ *  `writer` * `commenter` * `reader`
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
 /**
  *  Indicates the view for this access proposal. Only populated for proposals
- *  that belong to a view. `published` is the only supported value.
+ *  that belong to a view. Only `published` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -2739,7 +2746,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 
 /**
- *  The response to an Access Proposal list request.
+ *  The response to an access proposal list request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "accessProposals" property. If returned as the result of a query,
@@ -2749,7 +2756,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @interface GTLRDrive_ListAccessProposalsResponse : GTLRCollectionObject
 
 /**
- *  The list of Access Proposals. This field is only populated in v3 and v3beta.
+ *  The list of access proposals. This field is only populated in Drive API v3.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3204,27 +3211,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @interface GTLRDrive_ResolveAccessProposalRequest : GTLRObject
 
 /**
- *  Required. The action to take on the AccessProposal.
+ *  Required. The action to take on the access proposal.
  *
  *  Likely values:
  *    @arg @c kGTLRDrive_ResolveAccessProposalRequest_Action_Accept The user
- *        accepts the proposal. Note: If this action is used, the `role` field
- *        must have at least one value. (Value: "ACCEPT")
+ *        accepts the access proposal. Note: If this action is used, the `role`
+ *        field must have at least one value. (Value: "ACCEPT")
  *    @arg @c kGTLRDrive_ResolveAccessProposalRequest_Action_ActionUnspecified
  *        Unspecified action (Value: "ACTION_UNSPECIFIED")
  *    @arg @c kGTLRDrive_ResolveAccessProposalRequest_Action_Deny The user
- *        denies the proposal (Value: "DENY")
+ *        denies the access proposal. (Value: "DENY")
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  Optional. The roles the approver has allowed, if any. Note: This field is
- *  required for the `ACCEPT` action.
+ *  Optional. The roles that the approver has allowed, if any. For more
+ *  information, see [Roles and
+ *  permissions](https://developers.google.com/workspace/drive/api/guides/ref-roles).
+ *  Note: This field is required for the `ACCEPT` action.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *role;
 
 /**
- *  Optional. Whether to send an email to the requester when the AccessProposal
+ *  Optional. Whether to send an email to the requester when the access proposal
  *  is denied or accepted.
  *
  *  Uses NSNumber of boolValue.
@@ -3233,8 +3242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Optional. Indicates the view for this access proposal. This should only be
- *  set when the proposal belongs to a view. `published` is the only supported
- *  value.
+ *  set when the proposal belongs to a view. Only `published` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *view;
 

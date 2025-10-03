@@ -114,6 +114,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1KeyAliasReference;
 @class GTLRApigee_GoogleCloudApigeeV1KeystoreConfig;
 @class GTLRApigee_GoogleCloudApigeeV1KeyValueEntry;
+@class GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy;
+@class GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow;
 @class GTLRApigee_GoogleCloudApigeeV1Metadata;
 @class GTLRApigee_GoogleCloudApigeeV1Metric;
 @class GTLRApigee_GoogleCloudApigeeV1MetricAggregation;
@@ -164,6 +166,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig;
 @class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride;
 @class GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig;
+@class GTLRApigee_GoogleCloudApigeeV1ScheduledMaintenance;
 @class GTLRApigee_GoogleCloudApigeeV1SchemaSchemaElement;
 @class GTLRApigee_GoogleCloudApigeeV1SchemaSchemaProperty;
 @class GTLRApigee_GoogleCloudApigeeV1Score;
@@ -228,6 +231,7 @@
 @class GTLRApigee_GoogleTypeExpr;
 @class GTLRApigee_GoogleTypeInterval;
 @class GTLRApigee_GoogleTypeMoney;
+@class GTLRApigee_GoogleTypeTimeOfDay;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -329,6 +333,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfi
  *  Value: "OPERATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Operation;
+/**
+ *  When quota is not explicitly defined for each operation(REST/GraphQL), the
+ *  limits set at product level will be used as a global counter for quota
+ *  evaluation by all the operations.
+ *
+ *  Value: "PRODUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Product;
 /**
  *  When quota is not explicitly defined for each operation(REST/GraphQL), set
  *  at product level will be used as a global counter for quota evaluation by
@@ -984,6 +996,80 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy.maintenanceChannel
+
+/**
+ *  Unspecified maintenance channel.
+ *
+ *  Value: "MAINTENANCE_CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy_MaintenanceChannel_MaintenanceChannelUnspecified;
+/**
+ *  Receive 1 weeks notice before maintenance occurs
+ *
+ *  Value: "WEEK1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy_MaintenanceChannel_Week1;
+/**
+ *  Receive 2 weeks notice before maintenance occurs
+ *
+ *  Value: "WEEK2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy_MaintenanceChannel_Week2;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow.day
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Wednesday;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1MetricAggregation.aggregation
@@ -2943,6 +3029,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        quota evaluation by all the operations, independent of proxy
  *        association. This behavior mimics the same as
  *        QUOTA_COUNTER_SCOPE_UNSPECIFIED. (Value: "OPERATION")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Product
+ *        When quota is not explicitly defined for each operation(REST/GraphQL),
+ *        the limits set at product level will be used as a global counter for
+ *        quota evaluation by all the operations. (Value: "PRODUCT")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Proxy
  *        When quota is not explicitly defined for each operation(REST/GraphQL),
  *        set at product level will be used as a global counter for quota
@@ -6676,6 +6766,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *ipRange;
 
 /**
+ *  Output only. Indicates whether the instance is version locked. If true, the
+ *  instance will not be updated by automated runtime rollouts. This is only
+ *  supported for Apigee X instances.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isVersionLocked;
+
+/**
  *  Output only. Time the instance was last modified in milliseconds since
  *  epoch.
  *
@@ -6685,6 +6784,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Required. Compute Engine location where the instance resides. */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Optional. Apigee customers can set the preferred window to perform
+ *  maintenance on the instance (day of the week and time of day).
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy *maintenanceUpdatePolicy;
 
 /**
  *  Required. Resource ID of the instance. Values must match the regular
@@ -6726,6 +6831,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  your Environments.
  */
 @property(nonatomic, copy, nullable) NSString *runtimeVersion;
+
+/**
+ *  Output only. Time and date of the scheduled maintenance for this instance.
+ *  This field is only populated for instances that have opted into Maintenance
+ *  Window and if there is an upcoming maintenance. Cleared once the maintenance
+ *  is complete.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1ScheduledMaintenance *scheduledMaintenance;
 
 /**
  *  Output only. Resource name of the service attachment created for the
@@ -7884,6 +7997,71 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride *> *traceConfigOverrides;
+
+@end
+
+
+/**
+ *  MaintenanceUpdatePolicy specifies the preferred window to perform
+ *  maintenance on the instance (day of the week and time of day).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy : GTLRObject
+
+/**
+ *  Optional. Maintenance channel to specify relative scheduling for
+ *  maintenance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy_MaintenanceChannel_MaintenanceChannelUnspecified
+ *        Unspecified maintenance channel. (Value:
+ *        "MAINTENANCE_CHANNEL_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy_MaintenanceChannel_Week1
+ *        Receive 1 weeks notice before maintenance occurs (Value: "WEEK1")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy_MaintenanceChannel_Week2
+ *        Receive 2 weeks notice before maintenance occurs (Value: "WEEK2")
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceChannel;
+
+/**
+ *  Optional. Preferred windows to perform maintenance. Currently limited to 1.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow *> *maintenanceWindows;
+
+@end
+
+
+/**
+ *  MaintenanceWindow specifies the preferred day of the week and time of day to
+ *  perform maintenance.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow : GTLRObject
+
+/**
+ *  Required. Preferred day of the week for maintenance, e.g. MONDAY, TUESDAY,
+ *  etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Friday
+ *        Friday (Value: "FRIDAY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Monday
+ *        Monday (Value: "MONDAY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Saturday
+ *        Saturday (Value: "SATURDAY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Sunday
+ *        Sunday (Value: "SUNDAY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Thursday
+ *        Thursday (Value: "THURSDAY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Tuesday
+ *        Tuesday (Value: "TUESDAY")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *day;
+
+/** Required. The start time (UTC) of the maintenance window. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeTimeOfDay *startTime;
 
 @end
 
@@ -10104,6 +10282,17 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *samplingRate;
+
+@end
+
+
+/**
+ *  Scheduled maintenance information for an instance.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ScheduledMaintenance : GTLRObject
+
+/** Output only. The start time (UTC) of the scheduled maintenance. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -12666,6 +12855,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleLongrunningOperation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -12946,6 +13142,50 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *units;
+
+@end
+
+
+/**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
+ */
+@interface GTLRApigee_GoogleTypeTimeOfDay : GTLRObject
+
+/**
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
 
 @end
 

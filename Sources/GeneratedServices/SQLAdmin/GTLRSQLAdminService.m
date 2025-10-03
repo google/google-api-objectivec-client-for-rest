@@ -6,7 +6,7 @@
 // Description:
 //   API for Cloud SQL database instance management
 // Documentation:
-//   https://developers.google.com/cloud-sql/
+//   https://cloud.google.com/sql/docs
 
 #import <GoogleAPIClientForREST/GTLRSQLAdmin.h>
 

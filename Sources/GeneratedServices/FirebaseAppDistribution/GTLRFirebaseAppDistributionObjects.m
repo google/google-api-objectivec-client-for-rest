@@ -560,11 +560,12 @@ NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadRel
 //
 
 @implementation GTLRFirebaseAppDistribution_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRFirebaseAppDistribution_GoogleLongrunningOperation class]
+    @"operations" : [GTLRFirebaseAppDistribution_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

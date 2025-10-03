@@ -4745,6 +4745,55 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.deployedModels.invoke.invoke
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsDeployedModelsInvokeInvoke : GTLRAiplatformQuery
+
+/** ID of the DeployedModel that serves the invoke request. */
+@property(nonatomic, copy, nullable) NSString *deployedModelId;
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+@property(nonatomic, copy, nullable) NSString *invokeId;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *  @param deployedModelId ID of the DeployedModel that serves the invoke
+ *    request.
+ *  @param invokeId NSString
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsDeployedModelsInvokeInvoke
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest *)object
+                       endpoint:(NSString *)endpoint
+                deployedModelId:(NSString *)deployedModelId
+                       invokeId:(NSString *)invokeId;
+
+@end
+
+/**
  *  Deploys a Model into this Endpoint, creating a DeployedModel within it.
  *
  *  Method: aiplatform.projects.locations.endpoints.deployModel
@@ -5006,6 +5055,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.invoke.invoke
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsInvokeInvoke : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+@property(nonatomic, copy, nullable) NSString *invokeId;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *  @param invokeId NSString
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsInvokeInvoke
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest *)object
+                       endpoint:(NSString *)endpoint
+                       invokeId:(NSString *)invokeId;
+
+@end
+
+/**
  *  Lists Endpoints in a Location.
  *
  *  Method: aiplatform.projects.locations.endpoints.list
@@ -5121,6 +5213,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsMutateDeployedModel
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1MutateDeployedModelRequest *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.openapi.embeddings
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsOpenapiEmbeddings : GTLRAiplatformQuery
+
+/** ID of the DeployedModel that serves the invoke request. */
+@property(nonatomic, copy, nullable) NSString *deployedModelId;
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleApiHttpBody to include in the
+ *    query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsOpenapiEmbeddings
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleApiHttpBody *)object
                        endpoint:(NSString *)endpoint;
 
 @end
@@ -12132,8 +12266,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsList : GTLRAiplatformQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -12333,7 +12467,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  The maximum number of Artifacts to return. The service may return fewer.
- *  Must be in range 1-1000, inclusive. Defaults to 100.
+ *  Must be in range 1-100, inclusive. Defaults to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -12950,7 +13084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  The maximum number of Contexts to return. The service may return fewer. Must
- *  be in range 1-1000, inclusive. Defaults to 100.
+ *  be in range 1-100, inclusive. Defaults to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -13611,7 +13745,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  The maximum number of Executions to return. The service may return fewer.
- *  Must be in range 1-1000, inclusive. Defaults to 100.
+ *  Must be in range 1-100, inclusive. Defaults to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -13996,7 +14130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  The maximum number of Metadata Stores to return. The service may return
- *  fewer. Must be in range 1-1000, inclusive. Defaults to 100.
+ *  fewer. Must be in range 1-100, inclusive. Defaults to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -14125,7 +14259,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  The maximum number of MetadataSchemas to return. The service may return
- *  fewer. Must be in range 1-1000, inclusive. Defaults to 100.
+ *  fewer. Must be in range 1-100, inclusive. Defaults to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

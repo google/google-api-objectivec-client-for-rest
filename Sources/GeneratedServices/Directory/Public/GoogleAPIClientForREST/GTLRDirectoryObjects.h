@@ -2145,7 +2145,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 @property(nonatomic, copy, nullable) NSString *osVersion;
 
 /**
- *  Output only. Compliance status of the OS version.
+ *  Output only. Device policy compliance status of the OS version.
  *
  *  Likely values:
  *    @arg @c kGTLRDirectory_ChromeOsDevice_OsVersionCompliance_ComplianceUnspecified

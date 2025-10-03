@@ -191,8 +191,6 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunEvaluationConfigPromptTemplate;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunInferenceConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetric;
-@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec;
-@class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Parameters;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricLLMBasedMetricSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricLLMBasedMetricSpec_AdditionalConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricPredefinedMetricSpec;
@@ -342,11 +340,11 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunk;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMaps;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSources;
-@class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkRetrievedContext;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkWeb;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadataSourceFlaggingUri;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GroundingSupport;
 @class GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob;
 @class GTLRAiplatform_GoogleCloudAiplatformV1HyperparameterTuningJob_Labels;
@@ -374,9 +372,12 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1JiraSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1JiraSourceJiraQueries;
 @class GTLRAiplatform_GoogleCloudAiplatformV1LargeModelReference;
+@class GTLRAiplatform_GoogleCloudAiplatformV1LLMBasedMetricSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1LLMBasedMetricSpec_AdditionalConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultCandidate;
 @class GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResultTopCandidates;
+@class GTLRAiplatform_GoogleCloudAiplatformV1LustreMount;
 @class GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ManualBatchTuningParameters;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Measurement;
@@ -1948,34 +1949,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Evalua
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRun_State_Succeeded;
 
 // ----------------------------------------------------------------------------
-// GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec.type
-
-/**
- *  BLEU metric.
- *
- *  Value: "BLEU"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_Bleu;
-/**
- *  Unspecified computation based metric type.
- *
- *  Value: "COMPUTATION_BASED_METRIC_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_ComputationBasedMetricTypeUnspecified;
-/**
- *  Exact match metric.
- *
- *  Value: "EXACT_MATCH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_ExactMatch;
-/**
- *  ROUGE metric.
- *
- *  Value: "ROUGE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_Rouge;
-
-// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricGenerationSpec.rubricContentType
 
 /**
@@ -2748,44 +2721,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Functi
 // GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback.blockReason
 
 /**
- *  Unspecified blocked reason.
+ *  The blocked reason is unspecified.
  *
  *  Value: "BLOCKED_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_BlockedReasonUnspecified;
 /**
- *  Candidates blocked due to the terms which are included from the terminology
+ *  The prompt was blocked because it contains a term from the terminology
  *  blocklist.
  *
  *  Value: "BLOCKLIST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_Blocklist;
 /**
- *  Candidates blocked due to unsafe image generation content.
+ *  The prompt was blocked because it contains content that is unsafe for image
+ *  generation.
  *
  *  Value: "IMAGE_SAFETY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ImageSafety;
 /**
- *  The user prompt was blocked by Model Armor.
+ *  The prompt was blocked by Model Armor.
  *
  *  Value: "MODEL_ARMOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ModelArmor;
 /**
- *  Candidates blocked due to other reason.
+ *  The prompt was blocked for other reasons. For example, it may be due to the
+ *  prompt's language, or because it contains other harmful content.
  *
  *  Value: "OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_Other;
 /**
- *  Candidates blocked due to prohibited content.
+ *  The prompt was blocked because it contains prohibited content.
  *
  *  Value: "PROHIBITED_CONTENT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ProhibitedContent;
 /**
- *  Candidates blocked due to safety.
+ *  The prompt was blocked for safety reasons.
  *
  *  Value: "SAFETY"
  */
@@ -2795,7 +2770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Genera
 // GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata.trafficType
 
 /**
- *  Type for Pay-As-You-Go traffic.
+ *  The request was processed using Pay-As-You-Go quota.
  *
  *  Value: "ON_DEMAND"
  */
@@ -3119,6 +3094,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Machin
  *  Value: "NVIDIA_L4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaL4;
+/**
+ *  Nvidia RTX Pro 6000 GPU.
+ *
+ *  Value: "NVIDIA_RTX_PRO_6000"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaRtxPro6000;
 /**
  *  Nvidia Tesla A100 GPU.
  *
@@ -7810,6 +7791,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  */
 @property(nonatomic, strong, nullable) NSNumber *flipEnabled;
 
+/** Optional. Configuration options for model generation and outputs. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig *generationConfig;
+
 /**
  *  Optional. Number of samples for each instance in the dataset. If not
  *  specified, the default is 4. Minimum value is 1, maximum value is 32.
@@ -8713,8 +8697,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 @property(nonatomic, copy, nullable) NSString *promptColumn;
 
 /**
- *  Optional. The name of the column that contains the rubrics. This will be in
- *  evaluation_rubric.RubricGroup format (cl/762595858).
+ *  Optional. The name of the column that contains the rubrics. This is in
+ *  evaluation_rubric.RubricGroup format.
  */
 @property(nonatomic, copy, nullable) NSString *rubricsColumn;
 
@@ -12428,8 +12412,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 @interface GTLRAiplatform_GoogleCloudAiplatformV1DeployRequestEndpointConfig : GTLRObject
 
 /**
- *  Optional. By default, if dedicated endpoint is enabled, the endpoint will be
- *  exposed through a dedicated DNS [Endpoint.dedicated_endpoint_dns]. Your
+ *  Optional. By default, if dedicated endpoint is enabled and private service
+ *  connect config is not set, the endpoint will be exposed through a dedicated
+ *  DNS [Endpoint.dedicated_endpoint_dns]. If private service connect config is
+ *  set, the endpoint will be exposed through private service connect. Your
  *  request to the dedicated DNS will be isolated from other users' traffic and
  *  will have better performance and reliability. Note: Once you enabled
  *  dedicated endpoint, you won't be able to send request to the shared DNS
@@ -12473,6 +12459,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  for fields that are not included in either the URI or the body.
  */
 @property(nonatomic, copy, nullable) NSString *endpointUserId;
+
+/**
+ *  Optional. Configuration for private service connect. If set, the endpoint
+ *  will be exposed through private service connect.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PrivateServiceConnectConfig *privateServiceConnectConfig;
 
 @end
 
@@ -13703,7 +13695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 /** Output only. The response from evaluation. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationResult *evaluationResponse;
 
-/** The GCS object where the request or response is stored. */
+/** The Cloud Storage object where the request or response is stored. */
 @property(nonatomic, copy, nullable) NSString *gcsUri;
 
 /** Optional. Labels for the EvaluationItem. */
@@ -14155,9 +14147,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetric : GTLRObject
 
-/** Spec for a computation based metric. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec *computationBasedMetricSpec;
-
 /** Spec for an LLM based metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricLLMBasedMetricSpec *llmBasedMetricSpec;
 
@@ -14170,47 +14159,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 /** Spec for rubric based metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricRubricBasedMetricSpec *rubricBasedMetricSpec;
 
-@end
-
-
-/**
- *  Specification for a computation based metric.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec : GTLRObject
-
-/**
- *  Optional. A map of parameters for the metric, e.g. {"rouge_type": "rougeL"}.
- */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Parameters *parameters;
-
-/**
- *  Required. The type of the computation based metric.
- *
- *  Likely values:
- *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_Bleu
- *        BLEU metric. (Value: "BLEU")
- *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_ComputationBasedMetricTypeUnspecified
- *        Unspecified computation based metric type. (Value:
- *        "COMPUTATION_BASED_METRIC_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_ExactMatch
- *        Exact match metric. (Value: "EXACT_MATCH")
- *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Type_Rouge
- *        ROUGE metric. (Value: "ROUGE")
- */
-@property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Optional. A map of parameters for the metric, e.g. {"rouge_type": "rougeL"}.
- *
- *  @note This class is documented as having more properties of any valid JSON
- *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
- *        get the list of properties and then fetch them; or @c
- *        -additionalProperties to fetch them all at once.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1EvaluationRunMetricComputationBasedMetricSpec_Parameters : GTLRObject
 @end
 
 
@@ -18246,7 +18194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1FunctionCall_Args *args;
 
 /**
- *  Required. The name of the function to call. Matches
+ *  Optional. The name of the function to call. Matches
  *  [FunctionDeclaration.name].
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -18606,120 +18554,141 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 
 /**
- *  Content filter results for a prompt sent in the request.
+ *  Content filter results for a prompt sent in the request. Note: This is sent
+ *  only in the first stream chunk and only if no candidates were generated due
+ *  to content violations.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback : GTLRObject
 
 /**
- *  Output only. Blocked reason.
+ *  Output only. The reason why the prompt was blocked.
  *
  *  Likely values:
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_BlockedReasonUnspecified
- *        Unspecified blocked reason. (Value: "BLOCKED_REASON_UNSPECIFIED")
+ *        The blocked reason is unspecified. (Value:
+ *        "BLOCKED_REASON_UNSPECIFIED")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_Blocklist
- *        Candidates blocked due to the terms which are included from the
- *        terminology blocklist. (Value: "BLOCKLIST")
+ *        The prompt was blocked because it contains a term from the terminology
+ *        blocklist. (Value: "BLOCKLIST")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ImageSafety
- *        Candidates blocked due to unsafe image generation content. (Value:
- *        "IMAGE_SAFETY")
+ *        The prompt was blocked because it contains content that is unsafe for
+ *        image generation. (Value: "IMAGE_SAFETY")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ModelArmor
- *        The user prompt was blocked by Model Armor. (Value: "MODEL_ARMOR")
+ *        The prompt was blocked by Model Armor. (Value: "MODEL_ARMOR")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_Other
- *        Candidates blocked due to other reason. (Value: "OTHER")
+ *        The prompt was blocked for other reasons. For example, it may be due
+ *        to the prompt's language, or because it contains other harmful
+ *        content. (Value: "OTHER")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_ProhibitedContent
- *        Candidates blocked due to prohibited content. (Value:
+ *        The prompt was blocked because it contains prohibited content. (Value:
  *        "PROHIBITED_CONTENT")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback_BlockReason_Safety
- *        Candidates blocked due to safety. (Value: "SAFETY")
+ *        The prompt was blocked for safety reasons. (Value: "SAFETY")
  */
 @property(nonatomic, copy, nullable) NSString *blockReason;
 
-/** Output only. A readable block reason message. */
+/**
+ *  Output only. A readable message that explains the reason why the prompt was
+ *  blocked.
+ */
 @property(nonatomic, copy, nullable) NSString *blockReasonMessage;
 
-/** Output only. Safety ratings. */
+/**
+ *  Output only. A list of safety ratings for the prompt. There is one rating
+ *  per category.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SafetyRating *> *safetyRatings;
 
 @end
 
 
 /**
- *  Usage metadata about response(s).
+ *  Usage metadata about the content generation request and response. This
+ *  message provides a detailed breakdown of token usage and other relevant
+ *  metrics.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata : GTLRObject
 
 /**
- *  Output only. Number of tokens in the cached part in the input (the cached
- *  content).
+ *  Output only. The number of tokens in the cached content that was used for
+ *  this request.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cachedContentTokenCount;
 
 /**
- *  Output only. List of modalities of the cached content in the request input.
+ *  Output only. A detailed breakdown of the token count for each modality in
+ *  the cached content.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount *> *cacheTokensDetails;
 
 /**
- *  Number of tokens in the response(s).
+ *  The total number of tokens in the generated candidates.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *candidatesTokenCount;
 
-/** Output only. List of modalities that were returned in the response. */
+/**
+ *  Output only. A detailed breakdown of the token count for each modality in
+ *  the generated candidates.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount *> *candidatesTokensDetails;
 
 /**
- *  Number of tokens in the request. When `cached_content` is set, this is still
- *  the total effective prompt size meaning this includes the number of tokens
- *  in the cached content.
+ *  The total number of tokens in the prompt. This includes any text, images, or
+ *  other media provided in the request. When `cached_content` is set, this also
+ *  includes the number of tokens in the cached content.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *promptTokenCount;
 
 /**
- *  Output only. List of modalities that were processed in the request input.
+ *  Output only. A detailed breakdown of the token count for each modality in
+ *  the prompt.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount *> *promptTokensDetails;
 
 /**
- *  Output only. Number of tokens present in thoughts output.
+ *  Output only. The number of tokens that were part of the model's generated
+ *  "thoughts" output, if applicable.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *thoughtsTokenCount;
 
 /**
- *  Output only. Number of tokens present in tool-use prompt(s).
+ *  Output only. The number of tokens in the results from tool executions, which
+ *  are provided back to the model as input, if applicable.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *toolUsePromptTokenCount;
 
 /**
- *  Output only. List of modalities that were processed for tool-use request
- *  inputs.
+ *  Output only. A detailed breakdown by modality of the token counts from the
+ *  results of tool executions, which are provided back to the model as input.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1ModalityTokenCount *> *toolUsePromptTokensDetails;
 
 /**
- *  Total token count for prompt, response candidates, and tool-use prompts (if
- *  present).
+ *  The total number of tokens for the entire request. This is the sum of
+ *  `prompt_token_count`, `candidates_token_count`,
+ *  `tool_use_prompt_token_count`, and `thoughts_token_count`.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalTokenCount;
 
 /**
- *  Output only. Traffic type. This shows whether a request consumes
- *  Pay-As-You-Go or Provisioned Throughput quota.
+ *  Output only. The traffic type for this request.
  *
  *  Likely values:
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata_TrafficType_OnDemand
- *        Type for Pay-As-You-Go traffic. (Value: "ON_DEMAND")
+ *        The request was processed using Pay-As-You-Go quota. (Value:
+ *        "ON_DEMAND")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata_TrafficType_ProvisionedThroughput
  *        Type for Provisioned Throughput traffic. (Value:
  *        "PROVISIONED_THROUGHPUT")
@@ -19173,6 +19142,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  Tool to retrieve public maps data for grounding, powered by Google.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GoogleMaps : GTLRObject
+
+/**
+ *  Optional. If true, include the widget context token in the response.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableWidget;
+
 @end
 
 
@@ -19293,13 +19270,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  */
 @property(nonatomic, copy, nullable) NSString *placeId;
 
-/** Text of the chunk. */
+/** Text of the place answer. */
 @property(nonatomic, copy, nullable) NSString *text;
 
-/** Title of the chunk. */
+/** Title of the place. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** URI reference of the chunk. */
+/** URI reference of the place. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
@@ -19310,28 +19287,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSources : GTLRObject
 
-/** A link where users can flag a problem with the generated answer. */
-@property(nonatomic, copy, nullable) NSString *flagContentUri;
-
 /** Snippets of reviews that are used to generate the answer. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet *> *reviewSnippets;
-
-@end
-
-
-/**
- *  Author attribution for a photo or review.
- */
-@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution : GTLRObject
-
-/** Name of the author of the Photo or Review. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** Profile photo URI of the author of the Photo or Review. */
-@property(nonatomic, copy, nullable) NSString *photoUri;
-
-/** URI of the author of the Photo or Review. */
-@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -19341,26 +19298,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesReviewSnippet : GTLRObject
 
-/** This review's author. */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundingChunkMapsPlaceAnswerSourcesAuthorAttribution *authorAttribution;
-
-/** A link where users can flag a problem with the review. */
-@property(nonatomic, copy, nullable) NSString *flagContentUri;
-
 /** A link to show the review on Google Maps. */
 @property(nonatomic, copy, nullable) NSString *googleMapsUri;
 
-/**
- *  A string of formatted recent time, expressing the review time relative to
- *  the current time in a form appropriate for the language and country.
- */
-@property(nonatomic, copy, nullable) NSString *relativePublishTimeDescription;
+/** Id of the review referencing the place. */
+@property(nonatomic, copy, nullable) NSString *reviewId;
 
-/**
- *  A reference representing this place review which may be used to look up this
- *  place review again.
- */
-@property(nonatomic, copy, nullable) NSString *review;
+/** Title of the review. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -19437,8 +19382,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 /** Optional. Google search entry for the following-up web searches. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SearchEntryPoint *searchEntryPoint;
 
+/**
+ *  Optional. Output only. List of source flagging uris. This is currently
+ *  populated only for Google Maps grounding.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadataSourceFlaggingUri *> *sourceFlaggingUris;
+
 /** Optional. Web search queries for the following-up web search. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *webSearchQueries;
+
+@end
+
+
+/**
+ *  Source content flagging uri for a place or review. This is currently
+ *  populated only for Google Maps grounding.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadataSourceFlaggingUri : GTLRObject
+
+/**
+ *  A link where users can flag a problem with the source (place or review).
+ */
+@property(nonatomic, copy, nullable) NSString *flagContentUri;
+
+/** Id of the place or review. */
+@property(nonatomic, copy, nullable) NSString *sourceId;
 
 @end
 
@@ -20741,6 +20709,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *stepCount;
+
+@end
+
+
+/**
+ *  Request message for PredictionService.Invoke.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest : GTLRObject
+
+/** ID of the DeployedModel that serves the invoke request. */
+@property(nonatomic, copy, nullable) NSString *deployedModelId;
+
+/**
+ *  The invoke method input. Supports HTTP headers and arbitrary data payload.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleApiHttpBody *httpBody;
 
 @end
 
@@ -22312,6 +22296,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 
 /**
+ *  Specification for an LLM based metric.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1LLMBasedMetricSpec : GTLRObject
+
+/** Optional. Optional additional configuration for the metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1LLMBasedMetricSpec_AdditionalConfig *additionalConfig;
+
+/** Optional. Optional configuration for the judge LLM (Autorater). */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1AutoraterConfig *judgeAutoraterConfig;
+
+/** Required. Template for the prompt sent to the judge model. */
+@property(nonatomic, copy, nullable) NSString *metricPromptTemplate;
+
+/** Dynamically generate rubrics using a predefined spec. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PredefinedMetricSpec *predefinedRubricGenerationSpec;
+
+/** Dynamically generate rubrics using this specification. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RubricGenerationSpec *rubricGenerationSpec;
+
+/**
+ *  Use a pre-defined group of rubrics associated with the input. Refers to a
+ *  key in the rubric_groups map of EvaluationInstance.
+ */
+@property(nonatomic, copy, nullable) NSString *rubricGroupKey;
+
+/** Optional. System instructions for the judge model. */
+@property(nonatomic, copy, nullable) NSString *systemInstruction;
+
+@end
+
+
+/**
+ *  Optional. Optional additional configuration for the metric.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1LLMBasedMetricSpec_AdditionalConfig : GTLRObject
+@end
+
+
+/**
  *  Logprobs Result
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1LogprobsResult : GTLRObject
@@ -22376,6 +22404,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 
 /**
+ *  Represents a mount configuration for Lustre file system.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1LustreMount : GTLRObject
+
+/** Required. The name of the Lustre filesystem. */
+@property(nonatomic, copy, nullable) NSString *filesystem;
+
+/** Required. IP address of the Lustre instance. */
+@property(nonatomic, copy, nullable) NSString *instanceIp;
+
+/**
+ *  Required. Destination mount path. The Lustre file system will be mounted for
+ *  the user under /mnt/lustre/
+ */
+@property(nonatomic, copy, nullable) NSString *mountPoint;
+
+/** Required. The unique identifier of the Lustre volume. */
+@property(nonatomic, copy, nullable) NSString *volumeHandle;
+
+@end
+
+
+/**
  *  Specification of a single machine.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec : GTLRObject
@@ -22409,6 +22460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
  *        Nvidia H200 141Gb GPU. (Value: "NVIDIA_H200_141GB")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaL4
  *        Nvidia L4 GPU. (Value: "NVIDIA_L4")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaRtxPro6000
+ *        Nvidia RTX Pro 6000 GPU. (Value: "NVIDIA_RTX_PRO_6000")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaTeslaA100
  *        Nvidia Tesla A100 GPU. (Value: "NVIDIA_TESLA_A100")
  *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_NvidiaTeslaK80
@@ -22690,6 +22743,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UrlMet
 
 /** Spec for exact match metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchSpec *exactMatchSpec;
+
+/** Spec for an LLM based metric. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1LLMBasedMetricSpec *llmBasedMetricSpec;
 
 /** Spec for pairwise metric. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PairwiseMetricSpec *pairwiseMetricSpec;
@@ -30521,7 +30577,8 @@ GTLR_DEPRECATED
  *  Optional. User provided package spec of the ReasoningEngine. Ignored when
  *  users directly specify a deployment image through
  *  `deployment_spec.first_party_image_override`, but keeping the field_behavior
- *  to avoid introducing breaking changes.
+ *  to avoid introducing breaking changes. The `deployment_source` field should
+ *  not be set if `package_spec` is specified.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecPackageSpec *packageSpec;
 
@@ -30630,7 +30687,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  User provided package spec like pickled object and package requirements.
+ *  User-provided package specification, containing pickled object and package
+ *  requirements.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecPackageSpec : GTLRObject
 
@@ -40740,11 +40798,8 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ToolGoogleSearch *googleSearch;
 
-/**
- *  Optional. GoogleSearchRetrieval tool type. Specialized retrieval tool that
- *  is powered by Google search.
- */
-@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval *googleSearchRetrieval;
+/** Optional. Specialized retrieval tool that is powered by Google Search. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GoogleSearchRetrieval *googleSearchRetrieval GTLR_DEPRECATED;
 
 /**
  *  Optional. Retrieval tool type. System will always execute the provided
@@ -42796,6 +42851,9 @@ GTLR_DEPRECATED
 
 /** Disk spec. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1DiskSpec *diskSpec;
+
+/** Optional. List of Lustre mounts. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1LustreMount *> *lustreMounts;
 
 /** Optional. Immutable. The specification of a single machine. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec *machineSpec;

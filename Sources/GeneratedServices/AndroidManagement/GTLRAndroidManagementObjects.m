@@ -902,6 +902,13 @@ NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Succeeded
 NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_Unsupported = @"UNSUPPORTED";
 NSString * const kGTLRAndroidManagement_RequestDeviceInfoStatus_Status_UserDeclined = @"USER_DECLINED";
 
+// GTLRAndroidManagement_Role.roleType
+NSString * const kGTLRAndroidManagement_Role_RoleType_CompanionApp = @"COMPANION_APP";
+NSString * const kGTLRAndroidManagement_Role_RoleType_Kiosk    = @"KIOSK";
+NSString * const kGTLRAndroidManagement_Role_RoleType_MobileThreatDefenseEndpointDetectionResponse = @"MOBILE_THREAT_DEFENSE_ENDPOINT_DETECTION_RESPONSE";
+NSString * const kGTLRAndroidManagement_Role_RoleType_RoleTypeUnspecified = @"ROLE_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Role_RoleType_SystemHealthMonitoring = @"SYSTEM_HEALTH_MONITORING";
+
 // GTLRAndroidManagement_ScreenBrightnessSettings.screenBrightnessMode
 NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessAutomatic = @"BRIGHTNESS_AUTOMATIC";
 NSString * const kGTLRAndroidManagement_ScreenBrightnessSettings_ScreenBrightnessMode_BrightnessFixed = @"BRIGHTNESS_FIXED";
@@ -1237,8 +1244,8 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
          defaultPermissionPolicy, delegatedScopes, disabled, extensionConfig,
          installConstraint, installPriority, installType, lockTaskAllowed,
          managedConfiguration, managedConfigurationTemplate, minimumVersionCode,
-         packageName, permissionGrants, preferentialNetworkId, signingKeyCerts,
-         userControlSettings, workProfileWidgets;
+         packageName, permissionGrants, preferentialNetworkId, roles,
+         signingKeyCerts, userControlSettings, workProfileWidgets;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1246,6 +1253,7 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
     @"delegatedScopes" : [NSString class],
     @"installConstraint" : [GTLRAndroidManagement_InstallConstraint class],
     @"permissionGrants" : [GTLRAndroidManagement_PermissionGrant class],
+    @"roles" : [GTLRAndroidManagement_Role class],
     @"signingKeyCerts" : [GTLRAndroidManagement_ApplicationSigningKeyCert class]
   };
   return map;
@@ -2261,11 +2269,12 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 //
 
 @implementation GTLRAndroidManagement_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRAndroidManagement_Operation class]
+    @"operations" : [GTLRAndroidManagement_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -2993,6 +3002,16 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_RequestDeviceInfoStatus
 @dynamic eidInfo, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_Role
+//
+
+@implementation GTLRAndroidManagement_Role
+@dynamic roleType;
 @end
 
 

@@ -1203,7 +1203,7 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 /**
  *  The gradebook settings that specify how a student's overall grade for the
- *  course will be calculated and who it will be displayed to. Read-only
+ *  course will be calculated and who it will be displayed to. Read-only.
  */
 @property(nonatomic, strong, nullable) GTLRClassroom_GradebookSettings *gradebookSettings;
 

@@ -1719,11 +1719,12 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRNetworkSecurity_Operation class]
+    @"operations" : [GTLRNetworkSecurity_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

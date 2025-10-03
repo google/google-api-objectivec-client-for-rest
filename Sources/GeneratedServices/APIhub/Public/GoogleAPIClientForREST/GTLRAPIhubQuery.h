@@ -73,7 +73,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes the API hub instance.
+ *  Deletes the API hub instance. Deleting the API hub instance will also result
+ *  in the removal of all associated runtime project attachments and the host
+ *  project registration.
  *
  *  Method: apihub.projects.locations.apiHubInstances.delete
  *
@@ -91,7 +93,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAPIhub_GoogleLongrunningOperation.
  *
- *  Deletes the API hub instance.
+ *  Deletes the API hub instance. Deleting the API hub instance will also result
+ *  in the removal of all associated runtime project attachments and the host
+ *  project registration.
  *
  *  @param name Required. The name of the Api Hub instance to delete. Format:
  *    `projects/{project}/locations/{location}/apiHubInstances/{apiHubInstance}`.
@@ -3026,8 +3030,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAPIhubQuery_ProjectsLocationsList : GTLRAPIhubQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -3740,6 +3744,43 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Manages data for a given plugin instance.
+ *
+ *  Method: apihub.projects.locations.plugins.instances.manageSourceData
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesManageSourceData : GTLRAPIhubQuery
+
+/**
+ *  Required. The name of the plugin instance for which data needs to be
+ *  managed. Format:
+ *  `projects/{project}/locations/{location}/plugins/{plugin}/instances/{instance}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataResponse.
+ *
+ *  Manages data for a given plugin instance.
+ *
+ *  @param object The @c
+ *    GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest to
+ *    include in the query.
+ *  @param name Required. The name of the plugin instance for which data needs
+ *    to be managed. Format:
+ *    `projects/{project}/locations/{location}/plugins/{plugin}/instances/{instance}`
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsPluginsInstancesManageSourceData
+ */
++ (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest *)object
+                           name:(NSString *)name;
 
 @end
 

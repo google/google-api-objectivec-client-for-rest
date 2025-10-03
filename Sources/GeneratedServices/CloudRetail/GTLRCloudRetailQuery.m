@@ -1028,6 +1028,33 @@
 
 @end
 
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsConversationalSearch
+
+@dynamic placement;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest *)object
+                      placement:(NSString *)placement {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"placement" ];
+  NSString *pathURITemplate = @"v2/{+placement}:conversationalSearch";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsConversationalSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.placement = placement;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse class];
+  query.loggingName = @"retail.projects.locations.catalogs.placements.conversationalSearch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsPredict
 
 @dynamic placement;
@@ -1104,6 +1131,33 @@
   query.servingConfig = servingConfig;
   query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ServingConfig class];
   query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.addControl";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsConversationalSearch
+
+@dynamic placement;
+
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest *)object
+                      placement:(NSString *)placement {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"placement" ];
+  NSString *pathURITemplate = @"v2/{+placement}:conversationalSearch";
+  GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsConversationalSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.placement = placement;
+  query.expectedObjectClass = [GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse class];
+  query.loggingName = @"retail.projects.locations.catalogs.servingConfigs.conversationalSearch";
   return query;
 }
 

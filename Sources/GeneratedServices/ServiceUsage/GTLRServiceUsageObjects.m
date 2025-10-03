@@ -311,7 +311,8 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_Api
-@dynamic methods, mixins, name, options, sourceContext, syntax, version;
+@dynamic edition, methods, mixins, name, options, sourceContext, syntax,
+         version;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -709,6 +710,34 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_ContentSecurity
+//
+
+@implementation GTLRServiceUsage_ContentSecurity
+@dynamic contentSecurityProviders;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"contentSecurityProviders" : [GTLRServiceUsage_ContentSecurityProvider class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_ContentSecurityProvider
+//
+
+@implementation GTLRServiceUsage_ContentSecurityProvider
+@dynamic name;
 @end
 
 
@@ -1410,7 +1439,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_GoogleApiServiceusageV2betaImpact
-@dynamic detail, impactType;
+@dynamic detail, impactType, missingDependency;
 @end
 
 
@@ -1743,12 +1772,62 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_McpEnableRule
+//
+
+@implementation GTLRServiceUsage_McpEnableRule
+@dynamic mcpServices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mcpServices" : [GTLRServiceUsage_McpService class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_McpPolicy
+//
+
+@implementation GTLRServiceUsage_McpPolicy
+@dynamic contentSecurity, createTime, ETag, mcpEnableRules, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mcpEnableRules" : [GTLRServiceUsage_McpEnableRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_McpService
+//
+
+@implementation GTLRServiceUsage_McpService
+@dynamic service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_Method
 //
 
 @implementation GTLRServiceUsage_Method
-@dynamic name, options, requestStreaming, requestTypeUrl, responseStreaming,
-         responseTypeUrl, syntax;
+@dynamic edition, name, options, requestStreaming, requestTypeUrl,
+         responseStreaming, responseTypeUrl, syntax;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2386,6 +2465,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_UpdateConsumerPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_UpdateMcpPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_UpdateMcpPolicyMetadata
 @end
 
 

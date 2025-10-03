@@ -524,7 +524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_ConsentHeaderHandling_Pr
 /**
  *  Remove tags based on DICOM Standard's Attribute Confidentiality Basic
  *  Profile (DICOM Standard Edition 2018e)
- *  http://dicom.nema.org/medical/dicom/2018e/output/chtml/part15/chapter_E.html.
+ *  https://dicom.nema.org/medical/dicom/2018e/output/chtml/part15/chapter_E.html.
  *
  *  Value: "ATTRIBUTE_CONFIDENTIALITY_BASIC_PROFILE"
  */
@@ -2691,7 +2691,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_AttributeConfidentialityBasicProfile
  *        Remove tags based on DICOM Standard's Attribute Confidentiality Basic
  *        Profile (DICOM Standard Edition 2018e)
- *        http://dicom.nema.org/medical/dicom/2018e/output/chtml/part15/chapter_E.html.
+ *        https://dicom.nema.org/medical/dicom/2018e/output/chtml/part15/chapter_E.html.
  *        (Value: "ATTRIBUTE_CONFIDENTIALITY_BASIC_PROFILE")
  *    @arg @c kGTLRCloudHealthcare_DicomConfig_FilterProfile_DeidentifyTagContents
  *        Inspects within tag contents and replaces sensitive text. The process
@@ -2723,7 +2723,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  individual out of context, given access to the original images, or to a
  *  database of the original images containing the UIDs, it would be possible to
  *  recover the individual's identity."
- *  http://dicom.nema.org/medical/dicom/current/output/chtml/part15/sect_E.3.9.html
+ *  https://dicom.nema.org/medical/dicom/current/output/chtml/part15/sect_E.3.9.html
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6721,7 +6721,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 /**
  *  Optional. Tags to be filtered. Tags must be DICOM Data Elements, File Meta
  *  Elements, or Directory Structuring Elements, as defined at:
- *  http://dicom.nema.org/medical/dicom/current/output/html/part06.html#table_6-1,.
+ *  https://dicom.nema.org/medical/dicom/current/output/html/part06.html#table_6-1,.
  *  They may be provided by "Keyword" or "Tag". For example "PatientID",
  *  "00100010".
  */

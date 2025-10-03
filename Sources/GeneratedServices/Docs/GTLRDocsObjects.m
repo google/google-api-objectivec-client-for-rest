@@ -1296,6 +1296,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_InsertPersonRequest
+//
+
+@implementation GTLRDocs_InsertPersonRequest
+@dynamic endOfSegmentLocation, location, personProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_InsertSectionBreakRequest
 //
 
@@ -1952,12 +1962,12 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
          createParagraphBullets, deleteContentRange, deleteFooter, deleteHeader,
          deleteNamedRange, deleteParagraphBullets, deletePositionedObject,
          deleteTableColumn, deleteTableRow, insertInlineImage, insertPageBreak,
-         insertSectionBreak, insertTable, insertTableColumn, insertTableRow,
-         insertText, mergeTableCells, pinTableHeaderRows, replaceAllText,
-         replaceImage, replaceNamedRangeContent, unmergeTableCells,
-         updateDocumentStyle, updateParagraphStyle, updateSectionStyle,
-         updateTableCellStyle, updateTableColumnProperties, updateTableRowStyle,
-         updateTextStyle;
+         insertPerson, insertSectionBreak, insertTable, insertTableColumn,
+         insertTableRow, insertText, mergeTableCells, pinTableHeaderRows,
+         replaceAllText, replaceImage, replaceNamedRangeContent,
+         unmergeTableCells, updateDocumentStyle, updateParagraphStyle,
+         updateSectionStyle, updateTableCellStyle, updateTableColumnProperties,
+         updateTableRowStyle, updateTextStyle;
 @end
 
 

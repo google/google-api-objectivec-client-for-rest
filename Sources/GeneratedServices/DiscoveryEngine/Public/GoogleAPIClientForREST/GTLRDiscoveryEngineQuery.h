@@ -281,6 +281,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -751,6 +762,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
@@ -1761,6 +1783,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -1830,6 +1863,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
@@ -2102,6 +2146,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
@@ -2914,6 +2969,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -3329,6 +3395,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -3685,6 +3762,37 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserEvent *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Collection.
+ *
+ *  Method: discoveryengine.projects.locations.collections.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The full resource name of the Collection, in the format of
+ *  `projects/{project}/locations/{location}/collections/{collection}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes a Collection.
+ *
+ *  @param name Required. The full resource name of the Collection, in the
+ *    format of
+ *    `projects/{project}/locations/{location}/collections/{collection}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -4561,6 +4669,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -5159,6 +5278,46 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the DataConnector. DataConnector is a singleton resource for each
+ *  Collection.
+ *
+ *  Method: discoveryengine.projects.locations.collections.getDataConnector
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsGetDataConnector : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of DataConnector, such as
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataConnector`.
+ *  If the caller does not have permission to access the DataConnector,
+ *  regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *  returned. If the requested DataConnector does not exist, a NOT_FOUND error
+ *  is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector.
+ *
+ *  Gets the DataConnector. DataConnector is a singleton resource for each
+ *  Collection.
+ *
+ *  @param name Required. Full resource name of DataConnector, such as
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataConnector`.
+ *    If the caller does not have permission to access the DataConnector,
+ *    regardless of whether or not it exists, a PERMISSION_DENIED error is
+ *    returned. If the requested DataConnector does not exist, a NOT_FOUND error
+ *    is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsGetDataConnector
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -5212,6 +5371,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -5226,6 +5396,54 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a DataConnector.
+ *
+ *  Method: discoveryengine.projects.locations.collections.updateDataConnector
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsUpdateDataConnector : GTLRDiscoveryEngineQuery
+
+/**
+ *  Output only. The full resource name of the Data Connector. Format:
+ *  `projects/ * /locations/ * /collections/ * /dataConnector`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided DataConnector to update. Supported
+ *  field paths include: - refresh_interval - params - auto_run_disabled -
+ *  action_config - action_config.action_params - action_config.service_name -
+ *  destination_configs - blocking_reasons - sync_mode -
+ *  incremental_sync_disabled - incremental_refresh_interval Note: Support for
+ *  these fields may vary depending on the connector type. For example, not all
+ *  connectors support `destination_configs`. If an unsupported or unknown field
+ *  path is provided, the request will return an INVALID_ARGUMENT error.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector.
+ *
+ *  Updates a DataConnector.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector to include
+ *    in the query.
+ *  @param name Output only. The full resource name of the Data Connector.
+ *    Format: `projects/ * /locations/ * /collections/ * /dataConnector`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsUpdateDataConnector
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -5682,6 +5900,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
@@ -6656,6 +6885,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -6725,6 +6965,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
@@ -8653,6 +8904,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -8709,6 +8971,129 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a LicenseConfig
+ *
+ *  Method: discoveryengine.projects.locations.licenseConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. The ID to use for the LicenseConfig, which will become the final
+ *  component of the LicenseConfig's resource name. We are using the tier
+ *  (product edition) name as the license config id such as `search` or
+ *  `search_and_assistant`.
+ */
+@property(nonatomic, copy, nullable) NSString *licenseConfigId;
+
+/**
+ *  Required. The parent resource name, such as
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig.
+ *
+ *  Creates a LicenseConfig
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig to include
+ *    in the query.
+ *  @param parent Required. The parent resource name, such as
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a LicenseConfig.
+ *
+ *  Method: discoveryengine.projects.locations.licenseConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of LicenseConfig, such as
+ *  `projects/{project}/locations/{location}/licenseConfigs/ *`. If the caller
+ *  does not have permission to access the LicenseConfig, regardless of whether
+ *  or not it exists, a PERMISSION_DENIED error is returned. If the requested
+ *  LicenseConfig does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig.
+ *
+ *  Gets a LicenseConfig.
+ *
+ *  @param name Required. Full resource name of LicenseConfig, such as
+ *    `projects/{project}/locations/{location}/licenseConfigs/ *`. If the caller
+ *    does not have permission to access the LicenseConfig, regardless of
+ *    whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *    requested LicenseConfig does not exist, a NOT_FOUND error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the LicenseConfig
+ *
+ *  Method: discoveryengine.projects.locations.licenseConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. Identifier. The fully qualified resource name of the license
+ *  config. Format:
+ *  `projects/{project}/locations/{location}/licenseConfigs/{license_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Indicates which fields in the provided LicenseConfig to update. If
+ *  an unsupported or unknown field is provided, an INVALID_ARGUMENT error is
+ *  returned.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig.
+ *
+ *  Updates the LicenseConfig
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig to include
+ *    in the query.
+ *  @param name Immutable. Identifier. The fully qualified resource name of the
+ *    license config. Format:
+ *    `projects/{project}/locations/{location}/licenseConfigs/{license_config}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -8760,6 +9145,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.
@@ -8841,6 +9237,100 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1RankRequest *)object
                   rankingConfig:(NSString *)rankingConfig;
+
+@end
+
+/**
+ *  Creates a Collection and sets up the DataConnector for it. To stop a
+ *  DataConnector after setup, use the CollectionService.DeleteCollection
+ *  method.
+ *
+ *  Method: discoveryengine.projects.locations.setUpDataConnector
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsSetUpDataConnector : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent of Collection, in the format of
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Creates a Collection and sets up the DataConnector for it. To stop a
+ *  DataConnector after setup, use the CollectionService.DeleteCollection
+ *  method.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SetUpDataConnectorRequest
+ *    to include in the query.
+ *  @param parent Required. The parent of Collection, in the format of
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsSetUpDataConnector
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SetUpDataConnectorRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a Collection and sets up the DataConnector for it. To stop a
+ *  DataConnector after setup, use the CollectionService.DeleteCollection
+ *  method.
+ *
+ *  Method: discoveryengine.projects.locations.setUpDataConnectorV2
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsSetUpDataConnectorV2 : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The display name of the Collection. Should be human readable, used
+ *  to display collections in the Console Dashboard. UTF-8 encoded string with
+ *  limit of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *collectionDisplayName;
+
+/**
+ *  Required. The ID to use for the Collection, which will become the final
+ *  component of the Collection's resource name. A new Collection is created as
+ *  part of the DataConnector setup. DataConnector is a singleton resource under
+ *  Collection, managing all DataStores of the Collection. This field must
+ *  conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a
+ *  length limit of 63 characters. Otherwise, an INVALID_ARGUMENT error is
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *collectionId;
+
+/**
+ *  Required. The parent of Collection, in the format of
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Creates a Collection and sets up the DataConnector for it. To stop a
+ *  DataConnector after setup, use the CollectionService.DeleteCollection
+ *  method.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector to include
+ *    in the query.
+ *  @param parent Required. The parent of Collection, in the format of
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsSetUpDataConnectorV2
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -9280,6 +9770,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningListOperationsResponse.

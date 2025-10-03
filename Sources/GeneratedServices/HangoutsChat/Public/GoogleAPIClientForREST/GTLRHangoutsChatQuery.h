@@ -2718,11 +2718,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  if you request an event about a new message but the message was later
  *  updated, the server returns the updated `Message` resource in the event
  *  payload. Note: The `permissionSettings` field is not returned in the Space
- *  object of the Space event data for this request. Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  object of the Space event data for this request. Supports the following
+ *  types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize)
  *  with an [authorization
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes)
- *  appropriate for reading the requested data: -
+ *  appropriate for reading the requested data: - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) with
+ *  one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.app.spaces` -
+ *  `https://www.googleapis.com/auth/chat.app.messages.readonly` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
  *  `https://www.googleapis.com/auth/chat.spaces` -
  *  `https://www.googleapis.com/auth/chat.messages.readonly` -
@@ -2731,7 +2741,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  `https://www.googleapis.com/auth/chat.messages.reactions` -
  *  `https://www.googleapis.com/auth/chat.memberships.readonly` -
  *  `https://www.googleapis.com/auth/chat.memberships` To get an event, the
- *  authenticated user must be a member of the space. For an example, see [Get
+ *  authenticated caller must be a member of the space. For an example, see [Get
  *  details about an event from a Google Chat
  *  space](https://developers.google.com/workspace/chat/get-space-event).
  *
@@ -2766,11 +2776,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  if you request an event about a new message but the message was later
  *  updated, the server returns the updated `Message` resource in the event
  *  payload. Note: The `permissionSettings` field is not returned in the Space
- *  object of the Space event data for this request. Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  object of the Space event data for this request. Supports the following
+ *  types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize)
  *  with an [authorization
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes)
- *  appropriate for reading the requested data: -
+ *  appropriate for reading the requested data: - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) with
+ *  one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.app.spaces` -
+ *  `https://www.googleapis.com/auth/chat.app.messages.readonly` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
  *  `https://www.googleapis.com/auth/chat.spaces` -
  *  `https://www.googleapis.com/auth/chat.messages.readonly` -
@@ -2779,7 +2799,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  `https://www.googleapis.com/auth/chat.messages.reactions` -
  *  `https://www.googleapis.com/auth/chat.memberships.readonly` -
  *  `https://www.googleapis.com/auth/chat.memberships` To get an event, the
- *  authenticated user must be a member of the space. For an example, see [Get
+ *  authenticated caller must be a member of the space. For an example, see [Get
  *  details about an event from a Google Chat
  *  space](https://developers.google.com/workspace/chat/get-space-event).
  *
@@ -2799,11 +2819,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  list events about new space members, the server returns `Membership`
  *  resources that contain the latest membership details. If new members were
  *  removed during the requested period, the event payload contains an empty
- *  `Membership` resource. Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  `Membership` resource. Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize)
  *  with an [authorization
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes)
- *  appropriate for reading the requested data: -
+ *  appropriate for reading the requested data: - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) with
+ *  one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.app.spaces` -
+ *  `https://www.googleapis.com/auth/chat.app.messages.readonly` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
  *  `https://www.googleapis.com/auth/chat.spaces` -
  *  `https://www.googleapis.com/auth/chat.messages.readonly` -
@@ -2812,8 +2841,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  `https://www.googleapis.com/auth/chat.messages.reactions` -
  *  `https://www.googleapis.com/auth/chat.memberships.readonly` -
  *  `https://www.googleapis.com/auth/chat.memberships` To list events, the
- *  authenticated user must be a member of the space. For an example, see [List
- *  events from a Google Chat
+ *  authenticated caller must be a member of the space. For an example, see
+ *  [List events from a Google Chat
  *  space](https://developers.google.com/workspace/chat/list-space-events).
  *
  *  Method: chat.spaces.spaceEvents.list
@@ -2896,11 +2925,20 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  list events about new space members, the server returns `Membership`
  *  resources that contain the latest membership details. If new members were
  *  removed during the requested period, the event payload contains an empty
- *  `Membership` resource. Requires [user
- *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  `Membership` resource. Supports the following types of
+ *  [authentication](https://developers.google.com/workspace/chat/authenticate-authorize)
  *  with an [authorization
  *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes)
- *  appropriate for reading the requested data: -
+ *  appropriate for reading the requested data: - [App
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
+ *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
+ *  in [Developer Preview](https://developers.google.com/workspace/preview) with
+ *  one of the following authorization scopes: -
+ *  `https://www.googleapis.com/auth/chat.app.spaces` -
+ *  `https://www.googleapis.com/auth/chat.app.messages.readonly` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
  *  `https://www.googleapis.com/auth/chat.spaces` -
  *  `https://www.googleapis.com/auth/chat.messages.readonly` -
@@ -2909,8 +2947,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  `https://www.googleapis.com/auth/chat.messages.reactions` -
  *  `https://www.googleapis.com/auth/chat.memberships.readonly` -
  *  `https://www.googleapis.com/auth/chat.memberships` To list events, the
- *  authenticated user must be a member of the space. For an example, see [List
- *  events from a Google Chat
+ *  authenticated caller must be a member of the space. For an example, see
+ *  [List events from a Google Chat
  *  space](https://developers.google.com/workspace/chat/list-space-events).
  *
  *  @param parent Required. Resource name of the [Google Chat

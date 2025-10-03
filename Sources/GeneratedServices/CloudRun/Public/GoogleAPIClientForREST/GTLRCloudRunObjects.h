@@ -4641,9 +4641,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2MultiRegionSettings *multiRegionSettings;
 
 /**
- *  The fully qualified name of this Service. In CreateServiceRequest, this
- *  field is ignored, and instead composed from CreateServiceRequest.parent and
- *  CreateServiceRequest.service_id. Format:
+ *  Identifier. The fully qualified name of this Service. In
+ *  CreateServiceRequest, this field is ignored, and instead composed from
+ *  CreateServiceRequest.parent and CreateServiceRequest.service_id. Format:
  *  projects/{project}/locations/{location}/services/{service_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4892,6 +4892,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Build the source using Buildpacks. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2BuildpacksBuild *buildpackBuild;
+
+/** Optional. The client that initiated the build request. */
+@property(nonatomic, copy, nullable) NSString *client;
 
 /** Build the source using Docker. This means the source has a Dockerfile. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2DockerBuild *dockerBuild;
@@ -8172,6 +8175,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

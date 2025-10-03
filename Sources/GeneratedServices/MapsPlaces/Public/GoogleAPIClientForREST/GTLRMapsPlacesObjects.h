@@ -42,6 +42,9 @@
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAccessibilityOptions;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAddressComponent;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceAttribution;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlert;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetails;
+@class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetailsLink;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceEvChargeAmenitySummary;
 @class GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGenerativeSummary;
@@ -1761,6 +1764,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, copy, nullable) NSString *businessStatus;
 
+/**
+ *  The consumer alert message for the place when we detect suspicious review
+ *  activity on a business or a business violates our policies.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlert *consumerAlert;
+
 /** List of places in which the current place is located. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1PlaceContainingPlace *> *containingPlaces;
 
@@ -2254,6 +2263,64 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** URI to the Place's data provider. */
 @property(nonatomic, copy, nullable) NSString *providerUri;
+
+@end
+
+
+/**
+ *  The consumer alert message for the place when we detect suspicious review
+ *  activity on a business or a business violates our policies.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlert : GTLRObject
+
+/** The details of the consumer alert message.ƒ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetails *details;
+
+/**
+ *  The language code of the consumer alert message. This is a BCP 47 language
+ *  code.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** The overview of the consumer alert message. */
+@property(nonatomic, copy, nullable) NSString *overview;
+
+@end
+
+
+/**
+ *  The details of the consumer alert message.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetails : GTLRObject
+
+/**
+ *  The link to show together with the description to provide more information.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetailsLink *aboutLink;
+
+/**
+ *  The description of the consumer alert message.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The title to show together with the description. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  The link to show together with the description to provide more information.
+ */
+@interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetailsLink : GTLRObject
+
+/** The title to show for the link. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/** The uri of the link. */
+@property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
@@ -2811,6 +2878,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** The localized text of the review. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *text;
+
+/**
+ *  The date when the author visited the place. This is trucated to the year and
+ *  month of the visit.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeDate *visitDate;
 
 @end
 

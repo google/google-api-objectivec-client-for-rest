@@ -16,6 +16,7 @@
 #endif
 
 @class GTLRWebfonts_Axis;
+@class GTLRWebfonts_Tag;
 @class GTLRWebfonts_Webfont;
 @class GTLRWebfonts_Webfont_Files;
 
@@ -47,6 +48,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** tag name. */
 @property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  Metadata for a tag.
+ */
+@interface GTLRWebfonts_Tag : GTLRObject
+
+/** The name of the tag. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The weight of the tag.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *weight;
 
 @end
 
@@ -88,6 +107,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The scripts supported by the font. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *subsets;
+
+/** The tags that apply to this family. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWebfonts_Tag *> *tags;
 
 /** The available variants for the font. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *variants;

@@ -174,11 +174,12 @@ NSString * const kGTLRFirebaseHosting_LiveMigrationStep_State_StateUnspecified =
 //
 
 @implementation GTLRFirebaseHosting_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRFirebaseHosting_Operation class]
+    @"operations" : [GTLRFirebaseHosting_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

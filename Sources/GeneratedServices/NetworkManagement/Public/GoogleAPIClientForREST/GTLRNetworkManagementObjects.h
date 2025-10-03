@@ -39,10 +39,8 @@
 @class GTLRNetworkManagement_FirewallInfo;
 @class GTLRNetworkManagement_ForwardInfo;
 @class GTLRNetworkManagement_ForwardingRuleInfo;
-@class GTLRNetworkManagement_GeoLocation;
 @class GTLRNetworkManagement_GKEMasterInfo;
 @class GTLRNetworkManagement_GoogleServiceInfo;
-@class GTLRNetworkManagement_Host;
 @class GTLRNetworkManagement_HybridSubnetInfo;
 @class GTLRNetworkManagement_InstanceInfo;
 @class GTLRNetworkManagement_InterconnectAttachmentInfo;
@@ -54,18 +52,13 @@
 @class GTLRNetworkManagement_Location;
 @class GTLRNetworkManagement_Location_Labels;
 @class GTLRNetworkManagement_Location_Metadata;
-@class GTLRNetworkManagement_MonitoringPoint;
 @class GTLRNetworkManagement_NatInfo;
 @class GTLRNetworkManagement_NetworkInfo;
-@class GTLRNetworkManagement_NetworkInterface;
-@class GTLRNetworkManagement_NetworkMonitoringProvider;
-@class GTLRNetworkManagement_NetworkPath;
 @class GTLRNetworkManagement_Operation;
 @class GTLRNetworkManagement_Operation_Metadata;
 @class GTLRNetworkManagement_Operation_Response;
 @class GTLRNetworkManagement_Policy;
 @class GTLRNetworkManagement_ProbingDetails;
-@class GTLRNetworkManagement_ProviderTag;
 @class GTLRNetworkManagement_ProxyConnectionInfo;
 @class GTLRNetworkManagement_ReachabilityDetails;
 @class GTLRNetworkManagement_RedisClusterInfo;
@@ -84,7 +77,6 @@
 @class GTLRNetworkManagement_VpcFlowLogsConfig_Labels;
 @class GTLRNetworkManagement_VpnGatewayInfo;
 @class GTLRNetworkManagement_VpnTunnelInfo;
-@class GTLRNetworkManagement_WebPath;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1947,96 +1939,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadB
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_TcpProxy;
 
 // ----------------------------------------------------------------------------
-// GTLRNetworkManagement_MonitoringPoint.connectionStatus
-
-/**
- *  The default value. This value is used if the status is omitted.
- *
- *  Value: "CONNECTION_STATUS_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_ConnectionStatusUnspecified;
-/**
- *  MonitoringPoint is offline.
- *
- *  Value: "OFFLINE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_Offline;
-/**
- *  MonitoringPoint is online.
- *
- *  Value: "ONLINE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_Online;
-
-// ----------------------------------------------------------------------------
-// GTLRNetworkManagement_MonitoringPoint.errors
-
-/**
- *  Error detected while downloading.
- *
- *  Value: "DOWNLOAD_FAILED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_DownloadFailed;
-/**
- *  The default value. This value is used if the error code is omitted.
- *
- *  Value: "ERROR_CODE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_ErrorCodeUnspecified;
-/**
- *  Error detected in NTP service.
- *
- *  Value: "NTP_ERROR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_NtpError;
-/**
- *  Error detected during the upgrade process.
- *
- *  Value: "UPGRADE_ERROR"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_UpgradeError;
-
-// ----------------------------------------------------------------------------
-// GTLRNetworkManagement_MonitoringPoint.upgradeType
-
-/**
- *  Upgrades are performed automatically.
- *
- *  Value: "AUTO"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Auto;
-/**
- *  Upgrades are performed externally.
- *
- *  Value: "EXTERNAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_External;
-/**
- *  Upgrades are managed.
- *
- *  Value: "MANAGED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Managed;
-/**
- *  Upgrades are performed manually.
- *
- *  Value: "MANUAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Manual;
-/**
- *  Upgrade is scheduled.
- *
- *  Value: "SCHEDULED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Scheduled;
-/**
- *  The default value. This value is used if the upgrade type is omitted.
- *
- *  Value: "UPGRADE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_UpgradeTypeUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_NatInfo.type
 
 /**
@@ -2075,130 +1977,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_Type_PrivateSe
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_Type_TypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRNetworkManagement_NetworkMonitoringProvider.providerType
-
-/**
- *  External provider.
- *
- *  Value: "EXTERNAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_ProviderType_External;
-/**
- *  The default value. This value is used if the type is omitted.
- *
- *  Value: "PROVIDER_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_ProviderType_ProviderTypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRNetworkManagement_NetworkMonitoringProvider.state
-
-/**
- *  NetworkMonitoringProvider is being activated.
- *
- *  Value: "ACTIVATING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Activating;
-/**
- *  NetworkMonitoringProvider is active.
- *
- *  Value: "ACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Active;
-/**
- *  NetworkMonitoringProvider is deleted.
- *
- *  Value: "DELETED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Deleted;
-/**
- *  NetworkMonitoringProvider is being deleted.
- *
- *  Value: "DELETING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Deleting;
-/**
- *  The default value. This value is used if the status is omitted.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_StateUnspecified;
-/**
- *  NetworkMonitoringProvider is suspended.
- *
- *  Value: "SUSPENDED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Suspended;
-/**
- *  NetworkMonitoringProvider is being suspended.
- *
- *  Value: "SUSPENDING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Suspending;
-
-// ----------------------------------------------------------------------------
-// GTLRNetworkManagement_NetworkPath.monitoringStatus
-
-/**
- *  Monitoring is disabled.
- *
- *  Value: "DISABLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_Disabled;
-/**
- *  Monitoring is enabled.
- *
- *  Value: "MONITORING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_Monitoring;
-/**
- *  Monitoring point is offline.
- *
- *  Value: "MONITORING_POINT_OFFLINE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_MonitoringPointOffline;
-/**
- *  The default value. This value is used if the status is omitted.
- *
- *  Value: "MONITORING_STATUS_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_MonitoringStatusUnspecified;
-/**
- *  Policy is mismatched.
- *
- *  Value: "POLICY_MISMATCH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_PolicyMismatch;
-
-// ----------------------------------------------------------------------------
-// GTLRNetworkManagement_NetworkPath.networkProtocol
-
-/**
- *  ICMP.
- *
- *  Value: "ICMP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Icmp;
-/**
- *  The default value. This value is used if the network protocol is omitted.
- *
- *  Value: "NETWORK_PROTOCOL_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_NetworkProtocolUnspecified;
-/**
- *  TCP.
- *
- *  Value: "TCP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Tcp;
-/**
- *  UDP.
- *
- *  Value: "UDP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Udp;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_ProbingDetails.abortCause
@@ -2259,40 +2037,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_Result_
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Unreachable;
-
-// ----------------------------------------------------------------------------
-// GTLRNetworkManagement_ProviderTag.resourceType
-
-/**
- *  Monitoring point.
- *
- *  Value: "MONITORING_POINT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPoint;
-/**
- *  Monitoring policy.
- *
- *  Value: "MONITORING_POLICY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPolicy;
-/**
- *  Network path.
- *
- *  Value: "NETWORK_PATH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_NetworkPath;
-/**
- *  The default value. This value is used if the status is omitted.
- *
- *  Value: "RESOURCE_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_ResourceTypeUnspecified;
-/**
- *  Web path.
- *
- *  Value: "WEB_PATH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_WebPath;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_ReachabilityDetails.result
@@ -2981,62 +2725,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  Value: "ROUTING_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRNetworkManagement_WebPath.monitoringStatus
-
-/**
- *  Monitoring is disabled.
- *
- *  Value: "DISABLED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_Disabled;
-/**
- *  Monitoring is enabled.
- *
- *  Value: "MONITORING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_Monitoring;
-/**
- *  Monitoring point is offline.
- *
- *  Value: "MONITORING_POINT_OFFLINE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_MonitoringPointOffline;
-/**
- *  The default value. This value is used if the status is omitted.
- *
- *  Value: "MONITORING_STATUS_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_MonitoringStatusUnspecified;
-/**
- *  Policy is mismatched.
- *
- *  Value: "POLICY_MISMATCH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_PolicyMismatch;
-
-// ----------------------------------------------------------------------------
-// GTLRNetworkManagement_WebPath.workflowType
-
-/**
- *  Browser.
- *
- *  Value: "BROWSER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_Browser;
-/**
- *  HTTP.
- *
- *  Value: "HTTP"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_Http;
-/**
- *  The default value. This value is used if the status is omitted.
- *
- *  Value: "WORKFLOW_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspecified;
 
 /**
  *  Details of the final state "abort" and associated resource.
@@ -4820,20 +4508,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 
 /**
- *  The geographical location of the MonitoringPoint.
- */
-@interface GTLRNetworkManagement_GeoLocation : GTLRObject
-
-/** Country. */
-@property(nonatomic, copy, nullable) NSString *country;
-
-/** Formatted address. */
-@property(nonatomic, copy, nullable) NSString *formattedAddress;
-
-@end
-
-
-/**
  *  For display only. Metadata associated with a Google Kubernetes Engine (GKE)
  *  cluster master.
  */
@@ -4906,38 +4580,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /** Source IP address. */
 @property(nonatomic, copy, nullable) NSString *sourceIp;
-
-@end
-
-
-/**
- *  Message describing information about the host.
- */
-@interface GTLRNetworkManagement_Host : GTLRObject
-
-/** Output only. The cloud instance id of the host. */
-@property(nonatomic, copy, nullable) NSString *cloudInstanceId;
-
-/** Output only. The cloud project id of the host. */
-@property(nonatomic, copy, nullable) NSString *cloudProjectId;
-
-/** Output only. The cloud provider of the host. */
-@property(nonatomic, copy, nullable) NSString *cloudProvider;
-
-/** Output only. The cloud region of the host. */
-@property(nonatomic, copy, nullable) NSString *cloudRegion;
-
-/** Output only. The ids of cloud virtual networks of the host. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *cloudVirtualNetworkIds;
-
-/** Output only. The id of Virtual Private Cloud (VPC) of the host. */
-@property(nonatomic, copy, nullable) NSString *cloudVpcId;
-
-/** Output only. The cloud zone of the host. */
-@property(nonatomic, copy, nullable) NSString *cloudZone;
-
-/** Output only. The operating system of the host. */
-@property(nonatomic, copy, nullable) NSString *os;
 
 @end
 
@@ -5155,78 +4797,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 
 /**
- *  Message for response to listing MonitoringPoints
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "monitoringPoints" property. If returned as the result of a query,
- *        it should support automatic pagination (when @c shouldFetchNextPages
- *        is enabled).
- */
-@interface GTLRNetworkManagement_ListMonitoringPointsResponse : GTLRCollectionObject
-
-/**
- *  The list of MonitoringPoints.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_MonitoringPoint *> *monitoringPoints;
-
-/** A token identifying a page of results the server should return. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Message for response to listing NetworkMonitoringProviders
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "networkMonitoringProviders" property. If returned as the result
- *        of a query, it should support automatic pagination (when @c
- *        shouldFetchNextPages is enabled).
- */
-@interface GTLRNetworkManagement_ListNetworkMonitoringProvidersResponse : GTLRCollectionObject
-
-/**
- *  The list of NetworkMonitoringProvider
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_NetworkMonitoringProvider *> *networkMonitoringProviders;
-
-/** A token identifying a page of results the server should return. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  Message for response to listing NetworkPaths
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "networkPaths" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRNetworkManagement_ListNetworkPathsResponse : GTLRCollectionObject
-
-/**
- *  The list of NetworkPath
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_NetworkPath *> *networkPaths;
-
-/** A token identifying a page of results the server should return. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5246,6 +4816,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -5275,30 +4852,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_VpcFlowLogsConfig *> *vpcFlowLogsConfigs;
-
-@end
-
-
-/**
- *  Message for response to listing WebPaths
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "webPaths" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRNetworkManagement_ListWebPathsResponse : GTLRCollectionObject
-
-/** A token identifying a page of results the server should return. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  The list of WebPath.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_WebPath *> *webPaths;
 
 @end
 
@@ -5547,108 +5100,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 
 /**
- *  Message describing MonitoringPoint resource.
- */
-@interface GTLRNetworkManagement_MonitoringPoint : GTLRObject
-
-/**
- *  Output only. Indicates if automaitic geographic location is enabled for the
- *  MonitoringPoint.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *autoGeoLocationEnabled;
-
-/**
- *  Output only. Connection status of the MonitoringPoint.
- *
- *  Likely values:
- *    @arg @c kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_ConnectionStatusUnspecified
- *        The default value. This value is used if the status is omitted.
- *        (Value: "CONNECTION_STATUS_UNSPECIFIED")
- *    @arg @c kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_Offline
- *        MonitoringPoint is offline. (Value: "OFFLINE")
- *    @arg @c kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_Online
- *        MonitoringPoint is online. (Value: "ONLINE")
- */
-@property(nonatomic, copy, nullable) NSString *connectionStatus;
-
-/** Output only. The time the MonitoringPoint was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. Display name of the MonitoringPoint. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** Output only. The codes of errors detected in the MonitoringPoint. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
-
-/** Output only. The geographical location of the MonitoringPoint. ; */
-@property(nonatomic, strong, nullable) GTLRNetworkManagement_GeoLocation *geoLocation;
-
-/** Output only. The host information of the MonitoringPoint. */
-@property(nonatomic, strong, nullable) GTLRNetworkManagement_Host *host;
-
-/** Output only. The hostname of the MonitoringPoint. */
-@property(nonatomic, copy, nullable) NSString *hostname;
-
-/**
- *  Identifier. Name of the resource. Format:
- *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/monitoringPoints/{monitoring_point}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The network interfaces of the MonitoringPoint. */
-@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_NetworkInterface *> *networkInterfaces;
-
-/**
- *  Output only. IP address visible when MonitoringPoint connects to the
- *  provider.
- */
-@property(nonatomic, copy, nullable) NSString *originatingIp;
-
-/** Output only. The provider tags of the MonitoringPoint. */
-@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_ProviderTag *> *providerTags;
-
-/** Output only. Deployment type of the MonitoringPoint. */
-@property(nonatomic, copy, nullable) NSString *type;
-
-/** Output only. The time the MonitoringPoint was updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-/**
- *  Output only. Indicates if an upgrade is available for the MonitoringPoint.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *upgradeAvailable;
-
-/**
- *  Output only. The type of upgrade available for the MonitoringPoint.
- *
- *  Likely values:
- *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Auto Upgrades
- *        are performed automatically. (Value: "AUTO")
- *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_External
- *        Upgrades are performed externally. (Value: "EXTERNAL")
- *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Managed
- *        Upgrades are managed. (Value: "MANAGED")
- *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Manual Upgrades
- *        are performed manually. (Value: "MANUAL")
- *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Scheduled
- *        Upgrade is scheduled. (Value: "SCHEDULED")
- *    @arg @c kGTLRNetworkManagement_MonitoringPoint_UpgradeType_UpgradeTypeUnspecified
- *        The default value. This value is used if the upgrade type is omitted.
- *        (Value: "UPGRADE_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *upgradeType;
-
-/** Output only. Version of the software running on the MonitoringPoint. */
-@property(nonatomic, copy, nullable) NSString *version;
-
-@end
-
-
-/**
  *  For display only. Metadata associated with NAT.
  */
 @interface GTLRNetworkManagement_NatInfo : GTLRObject
@@ -5750,209 +5201,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /** URI of a Compute Engine network. */
 @property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  Message describing network interfaces.
- */
-@interface GTLRNetworkManagement_NetworkInterface : GTLRObject
-
-/** Output only. The description of the interface. */
-@property(nonatomic, copy, nullable) NSString *adapterDescription;
-
-/**
- *  Output only. The IP address of the interface and subnet mask in CIDR format.
- *  Examples: 192.168.1.0/24, 2001:db8::/32
- */
-@property(nonatomic, copy, nullable) NSString *cidr;
-
-/** Output only. The name of the network interface. Examples: eth0, eno1 */
-@property(nonatomic, copy, nullable) NSString *interfaceName;
-
-/** Output only. The IP address of the interface. */
-@property(nonatomic, copy, nullable) NSString *ipAddress;
-
-/** Output only. The MAC address of the interface. */
-@property(nonatomic, copy, nullable) NSString *macAddress;
-
-/**
- *  Output only. Speed of the interface in millions of bits per second.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *speed;
-
-/**
- *  Output only. The id of the VLAN.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *vlanId;
-
-@end
-
-
-/**
- *  Message describing NetworkMonitoringProvider resource.
- */
-@interface GTLRNetworkManagement_NetworkMonitoringProvider : GTLRObject
-
-/** Output only. The time the NetworkMonitoringProvider was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Output only. The list of error messages detected for the
- *  NetworkMonitoringProvider.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
-
-/**
- *  Output only. Identifier. Name of the resource. Format:
- *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. Type of the NetworkMonitoringProvider.
- *
- *  Likely values:
- *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_ProviderType_External
- *        External provider. (Value: "EXTERNAL")
- *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_ProviderType_ProviderTypeUnspecified
- *        The default value. This value is used if the type is omitted. (Value:
- *        "PROVIDER_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *providerType;
-
-/** Output only. Link to the provider's UI. */
-@property(nonatomic, copy, nullable) NSString *providerUri;
-
-/**
- *  Output only. State of the NetworkMonitoringProvider.
- *
- *  Likely values:
- *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Activating
- *        NetworkMonitoringProvider is being activated. (Value: "ACTIVATING")
- *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Active
- *        NetworkMonitoringProvider is active. (Value: "ACTIVE")
- *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Deleted
- *        NetworkMonitoringProvider is deleted. (Value: "DELETED")
- *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Deleting
- *        NetworkMonitoringProvider is being deleted. (Value: "DELETING")
- *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_StateUnspecified
- *        The default value. This value is used if the status is omitted.
- *        (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Suspended
- *        NetworkMonitoringProvider is suspended. (Value: "SUSPENDED")
- *    @arg @c kGTLRNetworkManagement_NetworkMonitoringProvider_State_Suspending
- *        NetworkMonitoringProvider is being suspended. (Value: "SUSPENDING")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** Output only. The time the NetworkMonitoringProvider was updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  Message describing NetworkPath resource.
- */
-@interface GTLRNetworkManagement_NetworkPath : GTLRObject
-
-/** Output only. The time the NetworkPath was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. IP address or hostname of the network path destination. */
-@property(nonatomic, copy, nullable) NSString *destination;
-
-/**
- *  Output only. Geographical location of the destination MonitoringPoint. ;
- */
-@property(nonatomic, strong, nullable) GTLRNetworkManagement_GeoLocation *destinationGeoLocation;
-
-/** Output only. The display name of the network path. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Output only. Indicates if the network path is dual ended. When true, the
- *  network path is measured both: from both source to destination, and from
- *  destination to source. When false, the network path is measured from the
- *  source through the destination back to the source (round trip measurement).
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *dualEnded;
-
-/**
- *  Output only. Is monitoring enabled for the network path.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *monitoringEnabled;
-
-/** Output only. Display name of the monitoring policy. */
-@property(nonatomic, copy, nullable) NSString *monitoringPolicyDisplayName;
-
-/** Output only. ID of monitoring policy. */
-@property(nonatomic, copy, nullable) NSString *monitoringPolicyId;
-
-/**
- *  Output only. The monitoring status of the network path.
- *
- *  Likely values:
- *    @arg @c kGTLRNetworkManagement_NetworkPath_MonitoringStatus_Disabled
- *        Monitoring is disabled. (Value: "DISABLED")
- *    @arg @c kGTLRNetworkManagement_NetworkPath_MonitoringStatus_Monitoring
- *        Monitoring is enabled. (Value: "MONITORING")
- *    @arg @c kGTLRNetworkManagement_NetworkPath_MonitoringStatus_MonitoringPointOffline
- *        Monitoring point is offline. (Value: "MONITORING_POINT_OFFLINE")
- *    @arg @c kGTLRNetworkManagement_NetworkPath_MonitoringStatus_MonitoringStatusUnspecified
- *        The default value. This value is used if the status is omitted.
- *        (Value: "MONITORING_STATUS_UNSPECIFIED")
- *    @arg @c kGTLRNetworkManagement_NetworkPath_MonitoringStatus_PolicyMismatch
- *        Policy is mismatched. (Value: "POLICY_MISMATCH")
- */
-@property(nonatomic, copy, nullable) NSString *monitoringStatus;
-
-/**
- *  Identifier. Name of the resource. Format:
- *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/networkPaths/{network_path}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Output only. The network protocol of the network path.
- *
- *  Likely values:
- *    @arg @c kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Icmp ICMP.
- *        (Value: "ICMP")
- *    @arg @c kGTLRNetworkManagement_NetworkPath_NetworkProtocol_NetworkProtocolUnspecified
- *        The default value. This value is used if the network protocol is
- *        omitted. (Value: "NETWORK_PROTOCOL_UNSPECIFIED")
- *    @arg @c kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Tcp TCP.
- *        (Value: "TCP")
- *    @arg @c kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Udp UDP.
- *        (Value: "UDP")
- */
-@property(nonatomic, copy, nullable) NSString *networkProtocol;
-
-/** Output only. The provider tags of the network path. */
-@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_ProviderTag *> *providerTags;
-
-/** Output only. Link to provider's UI; link shows the NetworkPath. */
-@property(nonatomic, copy, nullable) NSString *providerUiUri;
-
-/**
- *  Output only. Provider's UUID of the source MonitoringPoint. This id may not
- *  point to a resource in the GCP.
- */
-@property(nonatomic, copy, nullable) NSString *sourceMonitoringPointId;
-
-/** Output only. The time the NetworkPath was updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -6257,38 +5505,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /** The time that reachability was assessed through active probing. */
 @property(nonatomic, strong, nullable) GTLRDateTime *verifyTime;
-
-@end
-
-
-/**
- *  Message describing the provider tag.
- */
-@interface GTLRNetworkManagement_ProviderTag : GTLRObject
-
-/** Output only. The category of the provider tag. */
-@property(nonatomic, copy, nullable) NSString *category;
-
-/**
- *  Output only. The resource type of the provider tag.
- *
- *  Likely values:
- *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPoint
- *        Monitoring point. (Value: "MONITORING_POINT")
- *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPolicy
- *        Monitoring policy. (Value: "MONITORING_POLICY")
- *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_NetworkPath
- *        Network path. (Value: "NETWORK_PATH")
- *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_ResourceTypeUnspecified
- *        The default value. This value is used if the status is omitted.
- *        (Value: "RESOURCE_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRNetworkManagement_ProviderTag_ResourceType_WebPath Web path.
- *        (Value: "WEB_PATH")
- */
-@property(nonatomic, copy, nullable) NSString *resourceType;
-
-/** Output only. The value of the provider tag. */
-@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -7505,92 +6721,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_W
 
 /** URI of a VPN tunnel. */
 @property(nonatomic, copy, nullable) NSString *uri;
-
-@end
-
-
-/**
- *  Message describing WebPath resource.
- */
-@interface GTLRNetworkManagement_WebPath : GTLRObject
-
-/** Output only. The time the WebPath was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. Web monitoring target. */
-@property(nonatomic, copy, nullable) NSString *destination;
-
-/** Output only. Display name of the WebPath. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** Output only. Monitoring interval. */
-@property(nonatomic, strong, nullable) GTLRDuration *interval;
-
-/**
- *  Output only. Is monitoring enabled for the WebPath.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *monitoringEnabled;
-
-/** Output only. Display name of the monitoring policy. */
-@property(nonatomic, copy, nullable) NSString *monitoringPolicyDisplayName;
-
-/** Output only. ID of the monitoring policy. */
-@property(nonatomic, copy, nullable) NSString *monitoringPolicyId;
-
-/**
- *  Output only. The monitoring status of the WebPath.
- *
- *  Likely values:
- *    @arg @c kGTLRNetworkManagement_WebPath_MonitoringStatus_Disabled
- *        Monitoring is disabled. (Value: "DISABLED")
- *    @arg @c kGTLRNetworkManagement_WebPath_MonitoringStatus_Monitoring
- *        Monitoring is enabled. (Value: "MONITORING")
- *    @arg @c kGTLRNetworkManagement_WebPath_MonitoringStatus_MonitoringPointOffline
- *        Monitoring point is offline. (Value: "MONITORING_POINT_OFFLINE")
- *    @arg @c kGTLRNetworkManagement_WebPath_MonitoringStatus_MonitoringStatusUnspecified
- *        The default value. This value is used if the status is omitted.
- *        (Value: "MONITORING_STATUS_UNSPECIFIED")
- *    @arg @c kGTLRNetworkManagement_WebPath_MonitoringStatus_PolicyMismatch
- *        Policy is mismatched. (Value: "POLICY_MISMATCH")
- */
-@property(nonatomic, copy, nullable) NSString *monitoringStatus;
-
-/**
- *  Identifier. Name of the resource. Format:
- *  `projects/{project}/locations/{location}/networkMonitoringProviders/{network_monitoring_provider}/webPaths/{web_path}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The provider tags of the web path. */
-@property(nonatomic, strong, nullable) NSArray<GTLRNetworkManagement_ProviderTag *> *providerTags;
-
-/** Output only. Link to provider's UI; link shows the WebPath. */
-@property(nonatomic, copy, nullable) NSString *providerUiUri;
-
-/** Output only. Provider's UUID of the related NetworkPath. */
-@property(nonatomic, copy, nullable) NSString *relatedNetworkPathId;
-
-/** Output only. ID of the source MonitoringPoint. */
-@property(nonatomic, copy, nullable) NSString *sourceMonitoringPointId;
-
-/** Output only. The time the WebPath was updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-/**
- *  Output only. The workflow type of the WebPath.
- *
- *  Likely values:
- *    @arg @c kGTLRNetworkManagement_WebPath_WorkflowType_Browser Browser.
- *        (Value: "BROWSER")
- *    @arg @c kGTLRNetworkManagement_WebPath_WorkflowType_Http HTTP. (Value:
- *        "HTTP")
- *    @arg @c kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspecified
- *        The default value. This value is used if the status is omitted.
- *        (Value: "WORKFLOW_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *workflowType;
 
 @end
 

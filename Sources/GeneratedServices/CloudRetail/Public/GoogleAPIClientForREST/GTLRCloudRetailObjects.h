@@ -71,6 +71,16 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2ConditionQueryTerm;
 @class GTLRCloudRetail_GoogleCloudRetailV2ConditionTimeRange;
 @class GTLRCloudRetail_GoogleCloudRetailV2Control;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest_UserLabels;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestSearchParams;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestUserAnswer;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestUserAnswerSelectedAnswer;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseConversationalFilteringResult;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseConversationalFilteringResultAdditionalFilter;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestion;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestionSuggestedAnswer;
+@class GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseRefinedSearch;
 @class GTLRCloudRetail_GoogleCloudRetailV2CustomAttribute;
 @class GTLRCloudRetail_GoogleCloudRetailV2DoubleList;
 @class GTLRCloudRetail_GoogleCloudRetailV2ExperimentInfo;
@@ -133,6 +143,7 @@
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleRemoveFacetAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleReplacementAction;
 @class GTLRCloudRetail_GoogleCloudRetailV2RuleTwowaySynonymsAction;
+@class GTLRCloudRetail_GoogleCloudRetailV2SafetySetting;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequest_Labels;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequest_UserAttributes;
 @class GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpec;
@@ -824,6 +835,56 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_S
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SolutionTypes_SolutionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec.conversationalFilteringMode
+
+/**
+ *  Enables Conversational Filtering without Conversational Search.
+ *
+ *  Value: "CONVERSATIONAL_FILTER_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_ConversationalFilterOnly;
+/**
+ *  Disables Conversational Filtering when using Conversational Search.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_Disabled;
+/**
+ *  Enables Conversational Filtering when using Conversational Search.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_Enabled;
+/**
+ *  Default value.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_ModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse.state
+
+/**
+ *  Unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse_State_StateUnspecified;
+/**
+ *  Response generation is being streamed.
+ *
+ *  Value: "STREAMING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse_State_Streaming;
+/**
+ *  Response generation has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse_State_Succeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest.reconciliationMode
 
 /**
@@ -1112,6 +1173,108 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUse
  *  Value: "USER_EVENT_REJOIN_SCOPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_UserEventRejoinScope_UserEventRejoinScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2SafetySetting.category
+
+/**
+ *  The harm category is civic integrity.
+ *
+ *  Value: "HARM_CATEGORY_CIVIC_INTEGRITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryCivicIntegrity;
+/**
+ *  The harm category is dangerous content.
+ *
+ *  Value: "HARM_CATEGORY_DANGEROUS_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryDangerousContent;
+/**
+ *  The harm category is harassment.
+ *
+ *  Value: "HARM_CATEGORY_HARASSMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryHarassment;
+/**
+ *  The harm category is hate speech.
+ *
+ *  Value: "HARM_CATEGORY_HATE_SPEECH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryHateSpeech;
+/**
+ *  The harm category is sexually explicit content.
+ *
+ *  Value: "HARM_CATEGORY_SEXUALLY_EXPLICIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategorySexuallyExplicit;
+/**
+ *  The harm category is unspecified.
+ *
+ *  Value: "HARM_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2SafetySetting.method
+
+/**
+ *  The harm block method is unspecified.
+ *
+ *  Value: "HARM_BLOCK_METHOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Method_HarmBlockMethodUnspecified;
+/**
+ *  The harm block method uses the probability score.
+ *
+ *  Value: "PROBABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Method_Probability;
+/**
+ *  The harm block method uses both probability and severity scores.
+ *
+ *  Value: "SEVERITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Method_Severity;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRetail_GoogleCloudRetailV2SafetySetting.threshold
+
+/**
+ *  Block low threshold and above (i.e. block more).
+ *
+ *  Value: "BLOCK_LOW_AND_ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockLowAndAbove;
+/**
+ *  Block medium threshold and above.
+ *
+ *  Value: "BLOCK_MEDIUM_AND_ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockMediumAndAbove;
+/**
+ *  Block none.
+ *
+ *  Value: "BLOCK_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockNone;
+/**
+ *  Block only high threshold (i.e. block less).
+ *
+ *  Value: "BLOCK_ONLY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockOnlyHigh;
+/**
+ *  Unspecified harm block threshold.
+ *
+ *  Value: "HARM_BLOCK_THRESHOLD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_HarmBlockThresholdUnspecified;
+/**
+ *  Turn off the safety filter.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_Off;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRetail_GoogleCloudRetailV2SearchRequest.searchMode
@@ -4438,6 +4601,361 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for ConversationalSearchService.ConversationalSearch method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest : GTLRObject
+
+/**
+ *  Required. The branch resource name, such as `projects/ *
+ *  /locations/global/catalogs/default_catalog/branches/0`. Use "default_branch"
+ *  as the branch ID or leave this field empty, to search products under the
+ *  default branch.
+ */
+@property(nonatomic, copy, nullable) NSString *branch;
+
+/**
+ *  Optional. This field specifies all conversational filtering related
+ *  parameters.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec *conversationalFilteringSpec;
+
+/**
+ *  Optional. This field specifies the conversation id, which maintains the
+ *  state of the conversation between client side and server side. Use the value
+ *  from the previous ConversationalSearchResponse.conversation_id. For the
+ *  initial request, this should be empty.
+ */
+@property(nonatomic, copy, nullable) NSString *conversationId;
+
+/**
+ *  Optional. The categories associated with a category page. Must be set for
+ *  category navigation queries to achieve good search quality. The format
+ *  should be the same as UserEvent.page_categories; To represent full path of
+ *  category, use '>' sign to separate different hierarchies. If '>' is part of
+ *  the category name, replace it with other character(s). Category pages
+ *  include special pages such as sales or promotions. For instance, a special
+ *  sale page may have the category hierarchy: "pageCategories" : ["Sales > 2017
+ *  Black Friday Deals"].
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pageCategories;
+
+/**
+ *  Optional. Raw search query to be searched for. If this field is empty, the
+ *  request is considered a category browsing request.
+ */
+@property(nonatomic, copy, nullable) NSString *query;
+
+/** Optional. The safety settings to be applied to the generated content. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2SafetySetting *> *safetySettings;
+
+/** Optional. Search parameters. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestSearchParams *searchParams;
+
+/** Optional. User information. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2UserInfo *userInfo;
+
+/**
+ *  Optional. The user labels applied to a resource must meet the following
+ *  requirements: * Each resource can have multiple labels, up to a maximum of
+ *  64. * Each label must be a key-value pair. * Keys have a minimum length of 1
+ *  character and a maximum length of 63 characters and cannot be empty. Values
+ *  can be empty and have a maximum length of 63 characters. * Keys and values
+ *  can contain only lowercase letters, numeric characters, underscores, and
+ *  dashes. All characters must use UTF-8 encoding, and international characters
+ *  are allowed. * The key portion of a label must be unique. However, you can
+ *  use the same key with multiple resources. * Keys must start with a lowercase
+ *  letter or international character. See [Google Cloud
+ *  Document](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest_UserLabels *userLabels;
+
+/**
+ *  Required. A unique identifier for tracking visitors. For example, this could
+ *  be implemented with an HTTP cookie, which should be able to uniquely
+ *  identify a visitor on a single device. This unique identifier should not
+ *  change if the visitor logs in or out of the website. This should be the same
+ *  identifier as UserEvent.visitor_id. The field must be a UTF-8 encoded string
+ *  with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT error
+ *  is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *visitorId;
+
+@end
+
+
+/**
+ *  Optional. The user labels applied to a resource must meet the following
+ *  requirements: * Each resource can have multiple labels, up to a maximum of
+ *  64. * Each label must be a key-value pair. * Keys have a minimum length of 1
+ *  character and a maximum length of 63 characters and cannot be empty. Values
+ *  can be empty and have a maximum length of 63 characters. * Keys and values
+ *  can contain only lowercase letters, numeric characters, underscores, and
+ *  dashes. All characters must use UTF-8 encoding, and international characters
+ *  are allowed. * The key portion of a label must be unique. However, you can
+ *  use the same key with multiple resources. * Keys must start with a lowercase
+ *  letter or international character. See [Google Cloud
+ *  Document](https://cloud.google.com/resource-manager/docs/creating-managing-labels#requirements)
+ *  for more details.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest_UserLabels : GTLRObject
+@end
+
+
+/**
+ *  This field specifies all conversational filtering related parameters
+ *  addition to conversational retail search.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec : GTLRObject
+
+/**
+ *  Optional. Mode to control Conversational Filtering. Defaults to
+ *  Mode.DISABLED if it's unset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_ConversationalFilterOnly
+ *        Enables Conversational Filtering without Conversational Search.
+ *        (Value: "CONVERSATIONAL_FILTER_ONLY")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_Disabled
+ *        Disables Conversational Filtering when using Conversational Search.
+ *        (Value: "DISABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_Enabled
+ *        Enables Conversational Filtering when using Conversational Search.
+ *        (Value: "ENABLED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_ModeUnspecified
+ *        Default value. (Value: "MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *conversationalFilteringMode;
+
+/**
+ *  Optional. This field is deprecated. Please use
+ *  ConversationalFilteringSpec.conversational_filtering_mode instead.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableConversationalFiltering GTLR_DEPRECATED;
+
+/**
+ *  Optional. This field specifies the current user answer during the
+ *  conversational filtering search. It can be either user selected from
+ *  suggested answers or user input plain text.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestUserAnswer *userAnswer;
+
+@end
+
+
+/**
+ *  Search parameters.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestSearchParams : GTLRObject
+
+/**
+ *  Optional. The boost spec to specify the boosting of search results. The
+ *  syntax of the boost spec is the same as SearchRequest.boost_spec.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestBoostSpec *boostSpec;
+
+/**
+ *  Optional. The canonical filter string to restrict search results. The syntax
+ *  of the canonical filter string is the same as
+ *  SearchRequest.canonical_filter.
+ */
+@property(nonatomic, copy, nullable) NSString *canonicalFilter;
+
+/**
+ *  Optional. The filter string to restrict search results. The syntax of the
+ *  filter string is the same as SearchRequest.filter.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The sort string to specify the sorting of search results. The
+ *  syntax of the sort string is the same as SearchRequest.sort.
+ */
+@property(nonatomic, copy, nullable) NSString *sortBy;
+
+@end
+
+
+/**
+ *  This field specifies the current user answer during the conversational
+ *  filtering search. This can be either user selected from suggested answers or
+ *  user input plain text.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestUserAnswer : GTLRObject
+
+/**
+ *  Optional. This field specifies the selected answer during the conversational
+ *  search. This should be a subset of
+ *  ConversationalSearchResponse.followup_question.suggested_answers.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestUserAnswerSelectedAnswer *selectedAnswer;
+
+/**
+ *  This field specifies the incremental input text from the user during the
+ *  conversational search.
+ */
+@property(nonatomic, copy, nullable) NSString *textAnswer;
+
+@end
+
+
+/**
+ *  This field specifies the selected answers during the conversational search.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestUserAnswerSelectedAnswer : GTLRObject
+
+/**
+ *  Optional. This field specifies the selected answer which is a attribute
+ *  key-value.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeValue *productAttributeValue;
+
+@end
+
+
+/**
+ *  Response message for ConversationalSearchService.ConversationalSearch
+ *  method.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse : GTLRObject
+
+/**
+ *  This field specifies all related information that is needed on client side
+ *  for UI rendering of conversational filtering search.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseConversationalFilteringResult *conversationalFilteringResult;
+
+/** The conversational answer-based text response generated by the Server. */
+@property(nonatomic, copy, nullable) NSString *conversationalTextResponse;
+
+/**
+ *  Conversation UUID. This field will be stored in client side storage to
+ *  maintain the conversation session with server and will be used for next
+ *  search request's ConversationalSearchRequest.conversation_id to restore
+ *  conversation state in server.
+ */
+@property(nonatomic, copy, nullable) NSString *conversationId;
+
+/** The conversational followup question generated for Intent refinement. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestion *followupQuestion;
+
+/**
+ *  The proposed refined search queries. They can be used to fetch the relevant
+ *  search results. When using CONVERSATIONAL_FILTER_ONLY mode, the
+ *  refined_query from search response will be populated here.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseRefinedSearch *> *refinedSearch;
+
+/**
+ *  Output only. The state of the response generation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse_State_StateUnspecified
+ *        Unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse_State_Streaming
+ *        Response generation is being streamed. (Value: "STREAMING")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse_State_Succeeded
+ *        Response generation has succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  The types Retail classifies the search query as. Supported values are: -
+ *  "ORDER_SUPPORT" - "SIMPLE_PRODUCT_SEARCH" - "INTENT_REFINEMENT" -
+ *  "PRODUCT_DETAILS" - "PRODUCT_COMPARISON" - "DEALS_AND_COUPONS" -
+ *  "STORE_RELEVANT" - "BLOCKLISTED" - "BEST_PRODUCT" - "RETAIL_SUPPORT" -
+ *  "DISABLED"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *userQueryTypes;
+
+@end
+
+
+/**
+ *  This field specifies all related information that is needed on client side
+ *  for UI rendering of conversational filtering search.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseConversationalFilteringResult : GTLRObject
+
+/**
+ *  This is the incremental additional filters implied from the current user
+ *  answer. User should add the suggested addition filters to the previous
+ *  ConversationalSearchRequest.search_params.filter and SearchRequest.filter,
+ *  and use the merged filter in the follow up requests.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseConversationalFilteringResultAdditionalFilter *additionalFilter;
+
+/** The conversational filtering question. */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestion *followupQuestion;
+
+@end
+
+
+/**
+ *  Additional filter that client side need to apply.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseConversationalFilteringResultAdditionalFilter : GTLRObject
+
+/**
+ *  Product attribute value, including an attribute key and an attribute value.
+ *  Other types can be added here in the future.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeValue *productAttributeValue;
+
+@end
+
+
+/**
+ *  The conversational followup question generated for Intent refinement.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestion : GTLRObject
+
+/** The conversational followup question generated for Intent refinement. */
+@property(nonatomic, copy, nullable) NSString *followupQuestion;
+
+/** The answer options provided to client for the follow-up question. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestionSuggestedAnswer *> *suggestedAnswers;
+
+@end
+
+
+/**
+ *  Suggested answers to the follow-up question. If it's numerical attribute,
+ *  only ProductAttributeInterval will be set. If it's textual attribute, only
+ *  productAttributeValue will be set.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestionSuggestedAnswer : GTLRObject
+
+/**
+ *  Product attribute value, including an attribute key and an attribute value.
+ *  Other types can be added here in the future.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ProductAttributeValue *productAttributeValue;
+
+@end
+
+
+/**
+ *  The proposed refined search for intent-refinement/bundled shopping
+ *  conversation. When using CONVERSATIONAL_FILTER_ONLY mode, the refined_query
+ *  from search response will be populated here.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseRefinedSearch : GTLRObject
+
+/** The query to be used for search. */
+@property(nonatomic, copy, nullable) NSString *query;
+
+@end
+
+
+/**
  *  Metadata associated with a create operation.
  */
 @interface GTLRCloudRetail_GoogleCloudRetailV2CreateModelMetadata : GTLRObject
@@ -7502,6 +8020,75 @@ GTLR_DEPRECATED
  *  least 2 synonyms.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *synonyms;
+
+@end
+
+
+/**
+ *  Safety settings.
+ */
+@interface GTLRCloudRetail_GoogleCloudRetailV2SafetySetting : GTLRObject
+
+/**
+ *  Harm category.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryCivicIntegrity
+ *        The harm category is civic integrity. (Value:
+ *        "HARM_CATEGORY_CIVIC_INTEGRITY")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryDangerousContent
+ *        The harm category is dangerous content. (Value:
+ *        "HARM_CATEGORY_DANGEROUS_CONTENT")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryHarassment
+ *        The harm category is harassment. (Value: "HARM_CATEGORY_HARASSMENT")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryHateSpeech
+ *        The harm category is hate speech. (Value: "HARM_CATEGORY_HATE_SPEECH")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategorySexuallyExplicit
+ *        The harm category is sexually explicit content. (Value:
+ *        "HARM_CATEGORY_SEXUALLY_EXPLICIT")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryUnspecified
+ *        The harm category is unspecified. (Value: "HARM_CATEGORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Optional. Specify if the threshold is used for probability or severity
+ *  score. If not specified, the threshold is used for probability score.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Method_HarmBlockMethodUnspecified
+ *        The harm block method is unspecified. (Value:
+ *        "HARM_BLOCK_METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Method_Probability
+ *        The harm block method uses the probability score. (Value:
+ *        "PROBABILITY")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Method_Severity
+ *        The harm block method uses both probability and severity scores.
+ *        (Value: "SEVERITY")
+ */
+@property(nonatomic, copy, nullable) NSString *method;
+
+/**
+ *  The harm block threshold.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockLowAndAbove
+ *        Block low threshold and above (i.e. block more). (Value:
+ *        "BLOCK_LOW_AND_ABOVE")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockMediumAndAbove
+ *        Block medium threshold and above. (Value: "BLOCK_MEDIUM_AND_ABOVE")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockNone
+ *        Block none. (Value: "BLOCK_NONE")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockOnlyHigh
+ *        Block only high threshold (i.e. block less). (Value:
+ *        "BLOCK_ONLY_HIGH")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_HarmBlockThresholdUnspecified
+ *        Unspecified harm block threshold. (Value:
+ *        "HARM_BLOCK_THRESHOLD_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_Off
+ *        Turn off the safety filter. (Value: "OFF")
+ */
+@property(nonatomic, copy, nullable) NSString *threshold;
 
 @end
 

@@ -44,8 +44,8 @@ NSString * const kGTLRCloudCommercePartnerProcurementService_Entitlement_State_E
 //
 
 @implementation GTLRCloudCommercePartnerProcurementService_Account
-@dynamic approvals, createTime, inputProperties, name, provider, state,
-         updateTime;
+@dynamic approvals, createTime, inputProperties, name, provider,
+         resellerParentBillingAccount, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

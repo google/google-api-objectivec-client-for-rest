@@ -1687,11 +1687,12 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 //
 
 @implementation GTLRMigrationCenterAPI_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRMigrationCenterAPI_Operation class]
+    @"operations" : [GTLRMigrationCenterAPI_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

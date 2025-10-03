@@ -347,10 +347,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionR
 @interface GTLRWorkspaceEvents_Subscription : GTLRObject
 
 /**
- *  Output only. The user who authorized the creation of the subscription.
- *  Format: `users/{user}` For Google Workspace users, the `{user}` value is the
+ *  Output only. The user who authorized the creation of the subscription. When
+ *  a user authorizes the subscription, this field and the `user_authority`
+ *  field have the same value and the format is: Format: `users/{user}` For
+ *  Google Workspace users, the `{user}` value is the
  *  [`user.id`](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users#User.FIELDS.ids)
- *  field from the Directory API.
+ *  field from the Directory API. When a Chat app authorizes the subscription,
+ *  only `service_account_authority` field populates and this field is empty.
  */
 @property(nonatomic, copy, nullable) NSString *authority;
 

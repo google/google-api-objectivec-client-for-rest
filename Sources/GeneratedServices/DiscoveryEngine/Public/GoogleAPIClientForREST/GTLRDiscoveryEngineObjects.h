@@ -48,6 +48,8 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingImportErrorContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingServiceContext;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineLoggingSourceLocation;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ActionConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ActionConfig_ActionParams;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequestBoostSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequestBoostSpecConditionBoostSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequestSuggestionTypeSpec;
@@ -56,12 +58,20 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryResponseQuerySuggestion;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryResponseRecentSearchSuggestion;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedSiteSearchConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_NotificationParams;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlloyDbSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaActionConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaActionConfig_ActionParams;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAdvancedSiteSearchConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyConfigAlertEnrollment;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment_NotificationParams;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerBlobAttachment;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerBlobAttachmentBlob;
@@ -87,6 +97,22 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultChunkInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionObservationSearchResultSnippetInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStepActionSearchAction;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResultBannedPhraseEnforcementResult;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResultModelArmorEnforcementResult;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResultPolicyEnforcementResult;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerReply;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContent;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentBlob;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentExecutableCode;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentFile;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContent;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadata;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadataReference;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadataReferenceDocumentMetadata;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadataSegment;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCondition;
@@ -94,6 +120,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConditionTimeRange;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRun;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaConnectorRunEntityRunProgress;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaContactDetails;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaControlBoostActionInterpolationBoostSpecControlPoint;
@@ -158,6 +185,9 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaNaturalLanguageQueryUnderstandingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaOrganicCrawlRateTimeSeries;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProject_ServiceTermsMap;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectCustomerProvidedConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectCustomerProvidedConfigNotebooklmConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectCustomerProvidedConfigNotebooklmConfigModelArmorConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectServiceTerms;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaQualityMetrics;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaQualityMetricsTopkMetrics;
@@ -194,6 +224,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestPersonalizationSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestQueryExpansionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceScoreSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAddonSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSessionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSpellCorrectionSpec;
@@ -286,14 +317,19 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantToolInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantToolList;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistUserMetadata;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BAPConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadataMatcherValue;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchUpdateUserLicensesRequestInlineSource;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAdvancedSiteSearchConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_NotificationParams;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCondition;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConditionQueryTerm;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConditionTimeRange;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaContactDetails;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpecControlPoint;
@@ -335,6 +371,9 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaNaturalLanguageQueryUnderstandingConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaOrganicCrawlRateTimeSeries;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProject_ServiceTermsMap;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectCustomerProvidedConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectCustomerProvidedConfigNotebooklmConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectCustomerProvidedConfigNotebooklmConfigModelArmorConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectServiceTerms;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaQualityMetrics;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaQualityMetricsTopkMetrics;
@@ -367,6 +406,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestPersonalizationSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceScoreSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAddonSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSessionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSpellCorrectionSpec;
@@ -405,6 +445,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Condition;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConditionQueryTerm;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConditionTimeRange;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ContactDetails;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Control;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostAction;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ControlBoostActionInterpolationBoostSpec;
@@ -421,9 +462,25 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CustomAttribute;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CustomTuningModel;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CustomTuningModel_Metrics;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_Params;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorEndUserConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorEndUserConfig_AdditionalParams;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorEndUserConfig_AuthParams;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorFederatedConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorFederatedConfig_AdditionalParams;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorFederatedConfig_AuthParams;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorSourceEntity;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorSourceEntity_KeyPropertyMappings;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorSourceEntity_Params;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStoreBillingEstimation;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStoreServingConfigDataStore;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DestinationConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DestinationConfig_Params;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DestinationConfigDestination;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document_DerivedStructData;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Document_StructData;
@@ -464,6 +521,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1HealthcareFhirConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingEntry;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityMappingStore;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityScheduleConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfigExternalIdpConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportCompletionSuggestionsRequestInlineSource;
@@ -478,6 +536,9 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PanelInfo;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Principal;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Project_ServiceTermsMap;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectCustomerProvidedConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectCustomerProvidedConfigNotebooklmConfig;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectCustomerProvidedConfigNotebooklmConfigModelArmorConfig;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectServiceTerms;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProvisionProjectRequestSaasParams;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1PurgeDocumentsRequestInlineSource;
@@ -514,6 +575,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestFacetSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestFacetSpecFacetKey;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestImageQuery;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestRelevanceScoreSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestSearchAsYouTypeSpec;
@@ -555,6 +617,7 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSite;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSiteFailureReason;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TargetSiteFailureReasonQuotaFailure;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Tenant;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TextInput;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TrainCustomModelRequestGcsTrainingInput;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TrainCustomModelResponse_Metrics;
@@ -838,6 +901,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryResponsePersonSuggestion_PersonType_ThirdPartyIdentity;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment.enrollState
+
+/**
+ *  Customer declined this policy.
+ *
+ *  Value: "DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment_EnrollState_Declined;
+/**
+ *  Customer is enrolled in this policy.
+ *
+ *  Value: "ENROLLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment_EnrollState_Enrolled;
+/**
+ *  Default value. Used for customers who have not responded to the alert
+ *  policy.
+ *
+ *  Value: "ENROLL_STATES_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment_EnrollState_EnrollStatesUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment.enrollState
+
+/**
+ *  Customer declined this policy.
+ *
+ *  Value: "DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_EnrollState_Declined;
+/**
+ *  Customer is enrolled in this policy.
+ *
+ *  Value: "ENROLLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_EnrollState_Enrolled;
+/**
+ *  Default value. Used for customers who have not responded to the alert
+ *  policy.
+ *
+ *  Value: "ENROLL_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_EnrollState_EnrollStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyConfigAlertEnrollment.enrollState
 
 /**
@@ -859,6 +968,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "ENROLL_STATES_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyConfigAlertEnrollment_EnrollState_EnrollStatesUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment.enrollState
+
+/**
+ *  Customer declined this policy.
+ *
+ *  Value: "DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment_EnrollState_Declined;
+/**
+ *  Customer is enrolled in this policy.
+ *
+ *  Value: "ENROLLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment_EnrollState_Enrolled;
+/**
+ *  Default value. Used for customers who have not responded to the alert
+ *  policy.
+ *
+ *  Value: "ENROLL_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment_EnrollState_EnrollStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer.answerSkippedReasons
@@ -1075,6 +1207,116 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswerStep_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer.assistSkippedReasons
+
+/**
+ *  Default value. Skip reason is not specified.
+ *
+ *  Value: "ASSIST_SKIPPED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_AssistSkippedReasons_AssistSkippedReasonUnspecified;
+/**
+ *  The assistant ignored the query or refused to answer because of a customer
+ *  policy violation (e.g., the query or the answer contained a banned phrase).
+ *
+ *  Value: "CUSTOMER_POLICY_VIOLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_AssistSkippedReasons_CustomerPolicyViolation;
+/**
+ *  The assistant ignored the query, because it did not appear to be
+ *  answer-seeking.
+ *
+ *  Value: "NON_ASSIST_SEEKING_QUERY_IGNORED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_AssistSkippedReasons_NonAssistSeekingQueryIgnored;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer.state
+
+/**
+ *  Assist operation has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_State_Failed;
+/**
+ *  Assist operation is currently in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_State_InProgress;
+/**
+ *  Assist operation has been skipped.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_State_Skipped;
+/**
+ *  Unknown.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_State_StateUnspecified;
+/**
+ *  Assist operation has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult.verdict
+
+/**
+ *  There was no policy violation.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult_Verdict_Allow;
+/**
+ *  Processing was blocked by the customer policy.
+ *
+ *  Value: "BLOCK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult_Verdict_Block;
+/**
+ *  Unknown value.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult_Verdict_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult.outcome
+
+/**
+ *  Code execution ran for too long, and was cancelled. There may or may not be
+ *  a partial output present.
+ *
+ *  Value: "OUTCOME_DEADLINE_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult_Outcome_OutcomeDeadlineExceeded;
+/**
+ *  Code execution finished but with a failure. `stderr` should contain the
+ *  reason.
+ *
+ *  Value: "OUTCOME_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult_Outcome_OutcomeFailed;
+/**
+ *  Code execution completed successfully.
+ *
+ *  Value: "OUTCOME_OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult_Outcome_OutcomeOk;
+/**
+ *  Unspecified status. This value should not be used.
+ *
+ *  Value: "OUTCOME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult_Outcome_OutcomeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig.supportedConnectorModes
 
 /**
@@ -1169,6 +1411,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Deleting;
+/**
+ *  The KMS key is expired, meaning the key has been disabled for 30+ days. The
+ *  customer can call DeleteCmekConfig to change the state to DELETED.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Expired;
 /**
  *  The CmekConfig is unavailable, most likely due to the KMS Key being revoked.
  *
@@ -1847,6 +2096,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorRealtimeSyncConfigStreamingError_StreamingErrorReason_StreamingSyncError;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore.configurableBillingApproach
+
+/**
+ *  Default value. For Spark and non-Spark non-configurable billing approach.
+ *
+ *  Value: "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified;
+/**
+ *  Use the consumption pay-as-you-go billing for embedding storage add-on.
+ *
+ *  Value: "CONFIGURABLE_CONSUMPTION_EMBEDDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ConfigurableBillingApproach_ConfigurableConsumptionEmbedding;
+/**
+ *  Use the subscription base + overage billing for indexing core for non
+ *  embedding storage.
+ *
+ *  Value: "CONFIGURABLE_SUBSCRIPTION_INDEXING_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ConfigurableBillingApproach_ConfigurableSubscriptionIndexingCore;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore.contentConfig
 
 /**
@@ -1961,6 +2233,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "APP_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_AppType_AppTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine.configurableBillingApproach
+
+/**
+ *  The billing approach follows configurations specified by customer.
+ *
+ *  Value: "CONFIGURABLE_BILLING_APPROACH_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_ConfigurableBillingApproach_ConfigurableBillingApproachEnabled;
+/**
+ *  Default value. For Spark and non-Spark non-configurable billing approach.
+ *  General pricing model.
+ *
+ *  Value: "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine.industryVertical
@@ -2444,6 +2733,141 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "THIRD_PARTY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaIdpConfig_IdpType_ThirdParty;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig.state
+
+/**
+ *  The license config is effective and being used.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_State_Active;
+/**
+ *  The license config has expired.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_State_Expired;
+/**
+ *  The license config has not started yet, and its start date is in the future.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_State_NotStarted;
+/**
+ *  Default value. The license config does not exist.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig.subscriptionTerm
+
+/**
+ *  1 month.
+ *
+ *  Value: "SUBSCRIPTION_TERM_ONE_MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTerm_SubscriptionTermOneMonth;
+/**
+ *  1 year.
+ *
+ *  Value: "SUBSCRIPTION_TERM_ONE_YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTerm_SubscriptionTermOneYear;
+/**
+ *  3 years.
+ *
+ *  Value: "SUBSCRIPTION_TERM_THREE_YEARS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTerm_SubscriptionTermThreeYears;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "SUBSCRIPTION_TERM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTerm_SubscriptionTermUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig.subscriptionTier
+
+/**
+ *  Agentspace Business tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceBusiness;
+/**
+ *  Agentspace Starter tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_AGENTSPACE_STARTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceStarter;
+/**
+ *  EDU tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierEdu;
+/**
+ *  EDU emerging market tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU_EMERGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierEduEmerging;
+/**
+ *  EDU Pro tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU_PRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierEduPro;
+/**
+ *  EDU Pro emerging market tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU_PRO_EMERGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierEduProEmerging;
+/**
+ *  Enterprise tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierEnterprise;
+/**
+ *  Frontline worker tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_FRONTLINE_WORKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierFrontlineWorker;
+/**
+ *  NotebookLM tier. NotebookLM is a subscription tier can only access
+ *  NotebookLM features.
+ *
+ *  Value: "SUBSCRIPTION_TIER_NOTEBOOK_LM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierNotebookLm;
+/**
+ *  Search tier. Search tier can access VAIS search features and NotebookLM
+ *  features.
+ *
+ *  Value: "SUBSCRIPTION_TIER_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierSearch;
+/**
+ *  Search + assistant tier. Search + assistant tier can access VAIS search
+ *  features, NotebookLM features and assistant features.
+ *
+ *  Value: "SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierSearchAndAssistant;
+/**
+ *  Default value.
+ *
+ *  Value: "SUBSCRIPTION_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaNaturalLanguageQueryUnderstandingConfig.mode
@@ -3815,6 +4239,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicyModelArmorConfig_FailureMode_FailureModeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BAPConfig.supportedConnectorModes
+
+/**
+ *  Connector utilized for Actions
+ *
+ *  Value: "ACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BAPConfig_SupportedConnectorModes_Actions;
+/**
+ *  Connector mode unspecified.
+ *
+ *  Value: "CONNECTOR_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BAPConfig_SupportedConnectorModes_ConnectorModeUnspecified;
+/**
+ *  Connector utilized for data ingestion.
+ *
+ *  Value: "DATA_INGESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BAPConfig_SupportedConnectorModes_DataIngestion;
+/**
+ *  Connector utilized for End User Authentication.
+ *
+ *  Value: "END_USER_AUTHENTICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BAPConfig_SupportedConnectorModes_EndUserAuthentication;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata.state
 
 /**
@@ -3841,6 +4293,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment.enrollState
+
+/**
+ *  Customer declined this policy.
+ *
+ *  Value: "DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_EnrollState_Declined;
+/**
+ *  Customer is enrolled in this policy.
+ *
+ *  Value: "ENROLLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_EnrollState_Enrolled;
+/**
+ *  Default value. Used for customers who have not responded to the alert
+ *  policy.
+ *
+ *  Value: "ENROLL_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_EnrollState_EnrollStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig.notebooklmState
@@ -3909,6 +4384,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "DELETING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Deleting;
+/**
+ *  The KMS key is expired, meaning the key has been disabled for 30+ days. The
+ *  customer can call DeleteCmekConfig to change the state to DELETED.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Expired;
 /**
  *  The CmekConfig is unavailable, most likely due to the KMS Key being revoked.
  *
@@ -4032,6 +4514,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaControlBoostActionInterpolationBoostSpec_InterpolationType_Linear;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.configurableBillingApproach
+
+/**
+ *  Default value. For Spark and non-Spark non-configurable billing approach.
+ *
+ *  Value: "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified;
+/**
+ *  Use the consumption pay-as-you-go billing for embedding storage add-on.
+ *
+ *  Value: "CONFIGURABLE_CONSUMPTION_EMBEDDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_ConfigurableBillingApproach_ConfigurableConsumptionEmbedding;
+/**
+ *  Use the subscription base + overage billing for indexing core for non
+ *  embedding storage.
+ *
+ *  Value: "CONFIGURABLE_SUBSCRIPTION_INDEXING_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_ConfigurableBillingApproach_ConfigurableSubscriptionIndexingCore;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore.contentConfig
 
 /**
@@ -4146,6 +4651,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "APP_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_AppType_AppTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine.configurableBillingApproach
+
+/**
+ *  The billing approach follows configurations specified by customer.
+ *
+ *  Value: "CONFIGURABLE_BILLING_APPROACH_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_ConfigurableBillingApproach_ConfigurableBillingApproachEnabled;
+/**
+ *  Default value. For Spark and non-Spark non-configurable billing approach.
+ *  General pricing model.
+ *
+ *  Value: "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine.industryVertical
@@ -4349,6 +4871,141 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "THIRD_PARTY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaIdpConfig_IdpType_ThirdParty;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig.state
+
+/**
+ *  The license config is effective and being used.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_State_Active;
+/**
+ *  The license config has expired.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_State_Expired;
+/**
+ *  The license config has not started yet, and its start date is in the future.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_State_NotStarted;
+/**
+ *  Default value. The license config does not exist.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig.subscriptionTerm
+
+/**
+ *  1 month.
+ *
+ *  Value: "SUBSCRIPTION_TERM_ONE_MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTerm_SubscriptionTermOneMonth;
+/**
+ *  1 year.
+ *
+ *  Value: "SUBSCRIPTION_TERM_ONE_YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTerm_SubscriptionTermOneYear;
+/**
+ *  3 years.
+ *
+ *  Value: "SUBSCRIPTION_TERM_THREE_YEARS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTerm_SubscriptionTermThreeYears;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "SUBSCRIPTION_TERM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTerm_SubscriptionTermUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig.subscriptionTier
+
+/**
+ *  Agentspace Business tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceBusiness;
+/**
+ *  Agentspace Starter tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_AGENTSPACE_STARTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceStarter;
+/**
+ *  EDU tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierEdu;
+/**
+ *  EDU emerging market tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU_EMERGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierEduEmerging;
+/**
+ *  EDU Pro tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU_PRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierEduPro;
+/**
+ *  EDU Pro emerging market tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU_PRO_EMERGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierEduProEmerging;
+/**
+ *  Enterprise tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierEnterprise;
+/**
+ *  Frontline worker tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_FRONTLINE_WORKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierFrontlineWorker;
+/**
+ *  NotebookLM tier. NotebookLM is a subscription tier can only access
+ *  NotebookLM features.
+ *
+ *  Value: "SUBSCRIPTION_TIER_NOTEBOOK_LM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierNotebookLm;
+/**
+ *  Search tier. Search tier can access VAIS search features and NotebookLM
+ *  features.
+ *
+ *  Value: "SUBSCRIPTION_TIER_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierSearch;
+/**
+ *  Search + assistant tier. Search + assistant tier can access VAIS search
+ *  features, NotebookLM features and assistant features.
+ *
+ *  Value: "SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierSearchAndAssistant;
+/**
+ *  Default value.
+ *
+ *  Value: "SUBSCRIPTION_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaNaturalLanguageQueryUnderstandingConfig.mode
@@ -5253,6 +5910,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Deleting;
 /**
+ *  The KMS key is expired, meaning the key has been disabled for 30+ days. The
+ *  customer can call DeleteCmekConfig to change the state to DELETED.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Expired;
+/**
  *  The CmekConfig is unavailable, most likely due to the KMS Key being revoked.
  *
  *  Value: "KEY_ISSUE"
@@ -5449,6 +6113,396 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CustomTuningModel_ModelState_TrainingPaused;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector.actionState
+
+/**
+ *  The connector is successfully set up and awaiting next sync run.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Active;
+/**
+ *  The connector is being set up.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Creating;
+/**
+ *  The connector is in error. The error details can be found in
+ *  DataConnector.errors. If the error is unfixable, the DataConnector can be
+ *  deleted by [CollectionService.DeleteCollection] API.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Failed;
+/**
+ *  Connector initialization failed. Potential causes include runtime errors or
+ *  issues in the asynchronous pipeline, preventing the request from reaching
+ *  downstream services (except for some connector types).
+ *
+ *  Value: "INITIALIZATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_InitializationFailed;
+/**
+ *  The connector is actively syncing records from the data source.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Running;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_StateUnspecified;
+/**
+ *  Connector is in the process of an update.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Updating;
+/**
+ *  The connector has completed a sync run, but encountered non-fatal errors.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector.blockingReasons
+
+/**
+ *  Connector requires customer to allowlist our project in their service
+ *  attachment.
+ *
+ *  Value: "ALLOWLIST_IN_SERVICE_ATTACHMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_BlockingReasons_AllowlistInServiceAttachment;
+/**
+ *  Connector requires customer to allowlist service account in their project.
+ *
+ *  Value: "ALLOWLIST_SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_BlockingReasons_AllowlistServiceAccount;
+/**
+ *  Connector requires customer to allowlist static IPs.
+ *
+ *  Value: "ALLOWLIST_STATIC_IP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_BlockingReasons_AllowlistStaticIp;
+/**
+ *  Default value.
+ *
+ *  Value: "BLOCKING_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_BlockingReasons_BlockingReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector.connectorModes
+
+/**
+ *  Connector utilized for actions.
+ *
+ *  Value: "ACTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorModes_Actions;
+/**
+ *  Connector mode unspecified.
+ *
+ *  Value: "CONNECTOR_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorModes_ConnectorModeUnspecified;
+/**
+ *  Connector utilized for data ingestion.
+ *
+ *  Value: "DATA_INGESTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorModes_DataIngestion;
+/**
+ *  Connector utilized for End User Authentication.
+ *
+ *  Value: "EUA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorModes_Eua;
+/**
+ *  Connector utilized for federated search.
+ *
+ *  Value: "FEDERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorModes_Federated;
+/**
+ *  Hybrid connector utilized for federated search and End User Authentication.
+ *
+ *  Value: "FEDERATED_AND_EUA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorModes_FederatedAndEua;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector.connectorType
+
+/**
+ *  Big query connector.
+ *
+ *  Value: "BIG_QUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_BigQuery;
+/**
+ *  Default value.
+ *
+ *  Value: "CONNECTOR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_ConnectorTypeUnspecified;
+/**
+ *  Google Cloud NetApp Volumes connector.
+ *
+ *  Value: "GCNV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_Gcnv;
+/**
+ *  Data connector connects between FHIR store and VAIS datastore.
+ *
+ *  Value: "GCP_FHIR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GcpFhir;
+/**
+ *  Google Cloud Storage connector.
+ *
+ *  Value: "GCS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_Gcs;
+/**
+ *  Google Calendar connector.
+ *
+ *  Value: "GOOGLE_CALENDAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleCalendar;
+/**
+ *  Google Drive connector.
+ *
+ *  Value: "GOOGLE_DRIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleDrive;
+/**
+ *  Gmail connector.
+ *
+ *  Value: "GOOGLE_MAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleMail;
+/**
+ *  Native Cloud Identity connector for people search powered by People API.
+ *
+ *  Value: "NATIVE_CLOUD_IDENTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_NativeCloudIdentity;
+/**
+ *  Third party connector to connector to third party application.
+ *
+ *  Value: "THIRD_PARTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_ThirdParty;
+/**
+ *  Connector utilized for End User Authentication features.
+ *
+ *  Value: "THIRD_PARTY_EUA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_ThirdPartyEua;
+/**
+ *  Federated connector, it is a third party connector that doesn't ingestion
+ *  data, and search is powered by third party application's API.
+ *
+ *  Value: "THIRD_PARTY_FEDERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_ThirdPartyFederated;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector.realtimeState
+
+/**
+ *  The connector is successfully set up and awaiting next sync run.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Active;
+/**
+ *  The connector is being set up.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Creating;
+/**
+ *  The connector is in error. The error details can be found in
+ *  DataConnector.errors. If the error is unfixable, the DataConnector can be
+ *  deleted by [CollectionService.DeleteCollection] API.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Failed;
+/**
+ *  Connector initialization failed. Potential causes include runtime errors or
+ *  issues in the asynchronous pipeline, preventing the request from reaching
+ *  downstream services (except for some connector types).
+ *
+ *  Value: "INITIALIZATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_InitializationFailed;
+/**
+ *  The connector is actively syncing records from the data source.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Running;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_StateUnspecified;
+/**
+ *  Connector is in the process of an update.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Updating;
+/**
+ *  The connector has completed a sync run, but encountered non-fatal errors.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector.state
+
+/**
+ *  The connector is successfully set up and awaiting next sync run.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Active;
+/**
+ *  The connector is being set up.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Creating;
+/**
+ *  The connector is in error. The error details can be found in
+ *  DataConnector.errors. If the error is unfixable, the DataConnector can be
+ *  deleted by [CollectionService.DeleteCollection] API.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Failed;
+/**
+ *  Connector initialization failed. Potential causes include runtime errors or
+ *  issues in the asynchronous pipeline, preventing the request from reaching
+ *  downstream services (except for some connector types).
+ *
+ *  Value: "INITIALIZATION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_InitializationFailed;
+/**
+ *  The connector is actively syncing records from the data source.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Running;
+/**
+ *  Default value.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_StateUnspecified;
+/**
+ *  Connector is in the process of an update.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Updating;
+/**
+ *  The connector has completed a sync run, but encountered non-fatal errors.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Warning;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector.syncMode
+
+/**
+ *  The connector will sync data periodically based on the refresh_interval. Use
+ *  it with auto_run_disabled to pause the periodic sync, or indicate a one-time
+ *  sync.
+ *
+ *  Value: "PERIODIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_SyncMode_Periodic;
+/**
+ *  The data will be synced in real time.
+ *
+ *  Value: "STREAMING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_SyncMode_Streaming;
+/**
+ *  Connector that doesn't ingest data will have this value
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_SyncMode_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError.streamingErrorReason
+
+/**
+ *  Ingress endpoint is required when setting up realtime sync in private
+ *  connectivity.
+ *
+ *  Value: "INGRESS_ENDPOINT_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError_StreamingErrorReason_IngressEndpointRequired;
+/**
+ *  Streaming error reason unspecified.
+ *
+ *  Value: "STREAMING_ERROR_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError_StreamingErrorReason_StreamingErrorReasonUnspecified;
+/**
+ *  Some error occurred while setting up resources for realtime sync.
+ *
+ *  Value: "STREAMING_SETUP_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError_StreamingErrorReason_StreamingSetupError;
+/**
+ *  Some error was encountered while running realtime sync for the connector.
+ *
+ *  Value: "STREAMING_SYNC_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError_StreamingErrorReason_StreamingSyncError;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore.configurableBillingApproach
+
+/**
+ *  Default value. For Spark and non-Spark non-configurable billing approach.
+ *
+ *  Value: "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified;
+/**
+ *  Use the consumption pay-as-you-go billing for embedding storage add-on.
+ *
+ *  Value: "CONFIGURABLE_CONSUMPTION_EMBEDDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_ConfigurableBillingApproach_ConfigurableConsumptionEmbedding;
+/**
+ *  Use the subscription base + overage billing for indexing core for non
+ *  embedding storage.
+ *
+ *  Value: "CONFIGURABLE_SUBSCRIPTION_INDEXING_CORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_ConfigurableBillingApproach_ConfigurableSubscriptionIndexingCore;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore.contentConfig
 
 /**
@@ -5563,6 +6617,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "APP_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_AppType_AppTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine.configurableBillingApproach
+
+/**
+ *  The billing approach follows configurations specified by customer.
+ *
+ *  Value: "CONFIGURABLE_BILLING_APPROACH_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_ConfigurableBillingApproach_ConfigurableBillingApproachEnabled;
+/**
+ *  Default value. For Spark and non-Spark non-configurable billing approach.
+ *  General pricing model.
+ *
+ *  Value: "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine.industryVertical
@@ -5758,6 +6829,141 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "RECONCILIATION_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ImportDocumentsRequest_ReconciliationMode_ReconciliationModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig.state
+
+/**
+ *  The license config is effective and being used.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_State_Active;
+/**
+ *  The license config has expired.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_State_Expired;
+/**
+ *  The license config has not started yet, and its start date is in the future.
+ *
+ *  Value: "NOT_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_State_NotStarted;
+/**
+ *  Default value. The license config does not exist.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig.subscriptionTerm
+
+/**
+ *  1 month.
+ *
+ *  Value: "SUBSCRIPTION_TERM_ONE_MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTerm_SubscriptionTermOneMonth;
+/**
+ *  1 year.
+ *
+ *  Value: "SUBSCRIPTION_TERM_ONE_YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTerm_SubscriptionTermOneYear;
+/**
+ *  3 years.
+ *
+ *  Value: "SUBSCRIPTION_TERM_THREE_YEARS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTerm_SubscriptionTermThreeYears;
+/**
+ *  Default value, do not use.
+ *
+ *  Value: "SUBSCRIPTION_TERM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTerm_SubscriptionTermUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig.subscriptionTier
+
+/**
+ *  Agentspace Business tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceBusiness;
+/**
+ *  Agentspace Starter tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_AGENTSPACE_STARTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceStarter;
+/**
+ *  EDU tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierEdu;
+/**
+ *  EDU emerging market tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU_EMERGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierEduEmerging;
+/**
+ *  EDU Pro tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU_PRO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierEduPro;
+/**
+ *  EDU Pro emerging market tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_EDU_PRO_EMERGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierEduProEmerging;
+/**
+ *  Enterprise tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierEnterprise;
+/**
+ *  Frontline worker tier.
+ *
+ *  Value: "SUBSCRIPTION_TIER_FRONTLINE_WORKER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierFrontlineWorker;
+/**
+ *  NotebookLM tier. NotebookLM is a subscription tier can only access
+ *  NotebookLM features.
+ *
+ *  Value: "SUBSCRIPTION_TIER_NOTEBOOK_LM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierNotebookLm;
+/**
+ *  Search tier. Search tier can access VAIS search features and NotebookLM
+ *  features.
+ *
+ *  Value: "SUBSCRIPTION_TIER_SEARCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierSearch;
+/**
+ *  Search + assistant tier. Search + assistant tier can access VAIS search
+ *  features, NotebookLM features and assistant features.
+ *
+ *  Value: "SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierSearchAndAssistant;
+/**
+ *  Default value.
+ *
+ *  Value: "SUBSCRIPTION_TIER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectServiceTerms.state
@@ -6057,6 +7263,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "MATCH_HIGHLIGHTING_ENABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestDisplaySpec_MatchHighlightingCondition_MatchHighlightingEnabled;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec.extractedFilterBehavior
+
+/**
+ *  `EXTRACTED_FILTER_BEHAVIOR_UNSPECIFIED` will use the default behavior for
+ *  extracted filters. For single datastore search, the default is to apply as
+ *  hard filters. For multi-datastore search, the default is to apply as soft
+ *  boosts.
+ *
+ *  Value: "EXTRACTED_FILTER_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_ExtractedFilterBehavior_ExtractedFilterBehaviorUnspecified;
+/**
+ *  Applies all extracted filters as hard filters on the results. Results that
+ *  do not pass the extracted filters will not be returned in the result set.
+ *
+ *  Value: "HARD_FILTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_ExtractedFilterBehavior_HardFilter;
+/**
+ *  Applies all extracted filters as soft boosts. Results that pass the filters
+ *  will be boosted up to higher ranks in the result set.
+ *
+ *  Value: "SOFT_BOOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_ExtractedFilterBehavior_SoftBoost;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec.filterExtractionCondition
+
+/**
+ *  Server behavior defaults to `DISABLED`.
+ *
+ *  Value: "CONDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_FilterExtractionCondition_ConditionUnspecified;
+/**
+ *  Disables NL filter extraction.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_FilterExtractionCondition_Disabled;
+/**
+ *  Enables NL filter extraction.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_FilterExtractionCondition_Enabled;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestQueryExpansionSpec.condition
@@ -7879,6 +9134,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Informations to support actions on the connector.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ActionConfig : GTLRObject
+
+/** Optional. Action parameters in structured json format. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ActionConfig_ActionParams *actionParams;
+
+/**
+ *  Output only. The connector contains the necessary parameters and is
+ *  configured to support actions.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isActionConfigured;
+
+/** Optional. Action parameters in json string format. */
+@property(nonatomic, copy, nullable) NSString *jsonActionParams;
+
+/**
+ *  Optional. The Service Directory resource name (projects/ * /locations/ *
+ *  /namespaces/ * /services/ *) representing a VPC network endpoint used to
+ *  connect to the data source's `instance_uri`, defined in
+ *  DataConnector.params. Required when VPC Service Controls are enabled.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceName;
+
+/**
+ *  Optional. Whether to use static secrets for the connector. If true, the
+ *  secrets provided in the action_params will be ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useStaticSecrets;
+
+@end
+
+
+/**
+ *  Optional. Action parameters in structured json format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ActionConfig_ActionParams : GTLRObject
+@end
+
+
+/**
  *  Request message for CompletionService.AdvancedCompleteQuery method. .
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AdvancedCompleteQueryRequest : GTLRObject
@@ -8242,6 +9547,113 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  The connector level alert config.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfig : GTLRObject
+
+/** Optional. The enrollment states of each alert. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment *> *alertEnrollments;
+
+/** Immutable. The fully qualified resource name of the AlertPolicy. */
+@property(nonatomic, copy, nullable) NSString *alertPolicyName;
+
+@end
+
+
+/**
+ *  The alert enrollment status.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment : GTLRObject
+
+/** Immutable. The id of an alert. */
+@property(nonatomic, copy, nullable) NSString *alertId;
+
+/**
+ *  Required. The enrollment status of a customer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment_EnrollState_Declined
+ *        Customer declined this policy. (Value: "DECLINED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment_EnrollState_Enrolled
+ *        Customer is enrolled in this policy. (Value: "ENROLLED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment_EnrollState_EnrollStatesUnspecified
+ *        Default value. Used for customers who have not responded to the alert
+ *        policy. (Value: "ENROLL_STATES_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *enrollState;
+
+@end
+
+
+/**
+ *  The resource level alert config. Used in: * UserLicense * EngineUserData The
+ *  AlertPolicyConfig in data connector is of same usage. No easy way to
+ *  migrate.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfig : GTLRObject
+
+/** Optional. The enrollment state of each alert. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment *> *alertEnrollments;
+
+/** Immutable. The fully qualified resource name of the AlertPolicy. */
+@property(nonatomic, copy, nullable) NSString *alertPolicy;
+
+/** Optional. The contact details for each alert policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ContactDetails *> *contactDetails;
+
+/** Optional. The language code used for notifications */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  The alert enrollment status.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment : GTLRObject
+
+/** Immutable. The id of an alert. */
+@property(nonatomic, copy, nullable) NSString *alertId;
+
+/**
+ *  Required. The enrollment status of a customer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_EnrollState_Declined
+ *        Customer declined this policy. (Value: "DECLINED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_EnrollState_Enrolled
+ *        Customer is enrolled in this policy. (Value: "ENROLLED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_EnrollState_EnrollStateUnspecified
+ *        Default value. Used for customers who have not responded to the alert
+ *        policy. (Value: "ENROLL_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *enrollState;
+
+/**
+ *  Optional. Parameters used to instantiate a notification. Used for
+ *  notifications that are triggered when registered. Not stored. * Gemini
+ *  Business welcome emails. * Gemini Business user invitation emails.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_NotificationParams *notificationParams;
+
+@end
+
+
+/**
+ *  Optional. Parameters used to instantiate a notification. Used for
+ *  notifications that are triggered when registered. Not stored. * Gemini
+ *  Business welcome emails. * Gemini Business user invitation emails.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_NotificationParams : GTLRObject
+@end
+
+
+/**
  *  AlloyDB source import data from.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlloyDbSource : GTLRObject
@@ -8312,14 +9724,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaActionConfig : GTLRObject
 
-/**
- *  Required. Params needed to support actions in the format of (Key, Value)
- *  pairs. Required parameters for sources that support OAUTH, i.e. `gmail`,
- *  `google_calendar`, `jira`, `workday`, `salesforce`, `confluence`: * Key:
- *  `client_id` * Value: type STRING. The client ID for the service provider to
- *  identify your application. * Key: `client_secret` * Value:type STRING. The
- *  client secret generated by the application's authorization server.
- */
+/** Optional. Action parameters in structured json format. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaActionConfig_ActionParams *actionParams;
 
 /**
@@ -8329,6 +9734,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isActionConfigured;
+
+/** Optional. Action parameters in json string format. */
+@property(nonatomic, copy, nullable) NSString *jsonActionParams;
 
 /**
  *  Optional. The Service Directory resource name (projects/ * /locations/ *
@@ -8350,12 +9758,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
- *  Required. Params needed to support actions in the format of (Key, Value)
- *  pairs. Required parameters for sources that support OAUTH, i.e. `gmail`,
- *  `google_calendar`, `jira`, `workday`, `salesforce`, `confluence`: * Key:
- *  `client_id` * Value: type STRING. The client ID for the service provider to
- *  identify your application. * Key: `client_secret` * Value:type STRING. The
- *  client secret generated by the application's authorization server.
+ *  Optional. Action parameters in structured json format.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -8424,6 +9827,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *enrollState;
 
+@end
+
+
+/**
+ *  The resource level alert config. Used in: * UserLicense * EngineUserData The
+ *  AlertPolicyConfig in data connector is of same usage. No easy way to
+ *  migrate.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfig : GTLRObject
+
+/** Optional. The enrollment state of each alert. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment *> *alertEnrollments;
+
+/** Immutable. The fully qualified resource name of the AlertPolicy. */
+@property(nonatomic, copy, nullable) NSString *alertPolicy;
+
+/** Optional. The contact details for each alert policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaContactDetails *> *contactDetails;
+
+/** Optional. The language code used for notifications */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  The alert enrollment status.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment : GTLRObject
+
+/** Immutable. The id of an alert. */
+@property(nonatomic, copy, nullable) NSString *alertId;
+
+/**
+ *  Required. The enrollment status of a customer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment_EnrollState_Declined
+ *        Customer declined this policy. (Value: "DECLINED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment_EnrollState_Enrolled
+ *        Customer is enrolled in this policy. (Value: "ENROLLED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment_EnrollState_EnrollStateUnspecified
+ *        Default value. Used for customers who have not responded to the alert
+ *        policy. (Value: "ENROLL_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *enrollState;
+
+/**
+ *  Optional. Parameters used to instantiate a notification. Used for
+ *  notifications that are triggered when registered. Not stored. * Gemini
+ *  Business welcome emails. * Gemini Business user invitation emails.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment_NotificationParams *notificationParams;
+
+@end
+
+
+/**
+ *  Optional. Parameters used to instantiate a notification. Used for
+ *  notifications that are triggered when registered. Not stored. * Gemini
+ *  Business welcome emails. * Gemini Business user invitation emails.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfigAlertEnrollment_NotificationParams : GTLRObject
 @end
 
 
@@ -9042,9 +10513,380 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  AssistAnswer resource, main part of AssistResponse.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer : GTLRObject
+
+/** Reasons for not answering the assist call. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *assistSkippedReasons;
+
+/**
+ *  Optional. The field contains information about the various policy checks'
+ *  results like the banned phrases or the Model Armor checks. This field is
+ *  populated only if the assist call was skipped due to a policy violation.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult *customerPolicyEnforcementResult;
+
+/**
+ *  Immutable. Identifier. Resource name of the `AssistAnswer`. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/sessions/{session}/assistAnswers/{assist_answer}`
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Replies of the assistant. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerReply *> *replies;
+
+/**
+ *  State of the answer generation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_State_Failed
+ *        Assist operation has failed. (Value: "FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_State_InProgress
+ *        Assist operation is currently in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_State_Skipped
+ *        Assist operation has been skipped. (Value: "SKIPPED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_State_StateUnspecified
+ *        Unknown. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer_State_Succeeded
+ *        Assist operation has succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Customer policy enforcement results. Contains the results of the various
+ *  policy checks, like the banned phrases or the Model Armor checks.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult : GTLRObject
+
+/**
+ *  Customer policy enforcement results. Populated only if the assist call was
+ *  skipped due to a policy violation. It contains results from those filters
+ *  that blocked the processing of the query.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResultPolicyEnforcementResult *> *policyResults;
+
+/**
+ *  Final verdict of the customer policy enforcement. If only one policy blocked
+ *  the processing, the verdict is BLOCK.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult_Verdict_Allow
+ *        There was no policy violation. (Value: "ALLOW")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult_Verdict_Block
+ *        Processing was blocked by the customer policy. (Value: "BLOCK")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResult_Verdict_Unspecified
+ *        Unknown value. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *verdict;
+
+@end
+
+
+/**
+ *  Customer policy enforcement result for the banned phrase policy.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResultBannedPhraseEnforcementResult : GTLRObject
+
+/** The banned phrases that were found in the query or the answer. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *bannedPhrases;
+
+@end
+
+
+/**
+ *  Customer policy enforcement result for the Model Armor policy.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResultModelArmorEnforcementResult : GTLRObject
+
+/**
+ *  The error returned by Model Armor if the policy enforcement failed for some
+ *  reason.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleRpcStatus *error;
+
+/** The Model Armor violation that was found. */
+@property(nonatomic, copy, nullable) NSString *modelArmorViolation;
+
+@end
+
+
+/**
+ *  Customer policy enforcement result for a single policy type.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResultPolicyEnforcementResult : GTLRObject
+
+/** The policy enforcement result for the banned phrase policy. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResultBannedPhraseEnforcementResult *bannedPhraseEnforcementResult;
+
+/** The policy enforcement result for the Model Armor policy. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerCustomerPolicyEnforcementResultModelArmorEnforcementResult *modelArmorEnforcementResult;
+
+@end
+
+
+/**
+ *  One part of the multi-part response of the assist call.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswerReply : GTLRObject
+
+/** Possibly grounded response text or media from the assistant. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContent *groundedContent;
+
+/**
+ *  Output only. When set, uniquely identifies a reply within the `AssistAnswer`
+ *  resource. During an AssistantService.StreamAssist call, multiple `Reply`
+ *  messages with the same ID can occur within the response stream (across
+ *  multiple AssistantService.StreamAssistResponse messages). These represent
+ *  parts of a single `Reply` message in the final `AssistAnswer` resource.
+ */
+@property(nonatomic, copy, nullable) NSString *replyId;
+
+@end
+
+
+/**
+ *  Multi-modal content.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContent : GTLRObject
+
+/** Result of executing an ExecutableCode. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult *codeExecutionResult;
+
+/** Code generated by the model that is meant to be executed. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentExecutableCode *executableCode;
+
+/** A file, e.g., an audio summary. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentFile *file;
+
+/** Inline binary data. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentBlob *inlineData;
+
+/** The producer of the content. Can be "model" or "user". */
+@property(nonatomic, copy, nullable) NSString *role;
+
+/** Inline text. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+/**
+ *  Optional. Indicates if the part is thought from the model.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thought;
+
+@end
+
+
+/**
+ *  Inline blob.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentBlob : GTLRObject
+
+/**
+ *  Required. Raw bytes.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/** Required. The media type (MIME type) of the generated data. */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  Result of executing ExecutableCode.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult : GTLRObject
+
+/**
+ *  Required. Outcome of the code execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult_Outcome_OutcomeDeadlineExceeded
+ *        Code execution ran for too long, and was cancelled. There may or may
+ *        not be a partial output present. (Value: "OUTCOME_DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult_Outcome_OutcomeFailed
+ *        Code execution finished but with a failure. `stderr` should contain
+ *        the reason. (Value: "OUTCOME_FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult_Outcome_OutcomeOk
+ *        Code execution completed successfully. (Value: "OUTCOME_OK")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentCodeExecutionResult_Outcome_OutcomeUnspecified
+ *        Unspecified status. This value should not be used. (Value:
+ *        "OUTCOME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *outcome;
+
+/**
+ *  Optional. Contains stdout when code execution is successful, stderr or other
+ *  description otherwise.
+ */
+@property(nonatomic, copy, nullable) NSString *output;
+
+@end
+
+
+/**
+ *  Code generated by the model that is meant to be executed by the model.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentExecutableCode : GTLRObject
+
+/** Required. The code content. Currently only supports Python. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+@end
+
+
+/**
+ *  A file, e.g., an audio summary.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContentFile : GTLRObject
+
+/** Required. The file ID. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/** Required. The media type (MIME type) of the file. */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  A piece of content and possibly its grounding information. Not all content
+ *  needs grounding. Phrases like "Of course, I will gladly search it for you."
+ *  do not need grounding.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContent : GTLRObject
+
+/** The content. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantContent *content;
+
+/** Metadata for grounding based on text sources. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadata *textGroundingMetadata;
+
+@end
+
+
+/**
+ *  Grounding details for text sources.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadata : GTLRObject
+
+/** References for the grounded text. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadataReference *> *references;
+
+/** Grounding information for parts of the text. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadataSegment *> *segments;
+
+@end
+
+
+/**
+ *  Referenced content and related document metadata.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadataReference : GTLRObject
+
+/** Referenced text content. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/** Document metadata. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadataReferenceDocumentMetadata *documentMetadata;
+
+@end
+
+
+/**
+ *  Document metadata.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadataReferenceDocumentMetadata : GTLRObject
+
+/** Document resource name. */
+@property(nonatomic, copy, nullable) NSString *document;
+
+/**
+ *  Domain name from the document URI. Note that the `uri` field may contain a
+ *  URL that redirects to the actual website, in which case this will contain
+ *  the domain name of the target site.
+ */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  The mime type of the document.
+ *  https://www.iana.org/assignments/media-types/media-types.xhtml.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/** Page identifier. */
+@property(nonatomic, copy, nullable) NSString *pageIdentifier;
+
+/** Title. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+/**
+ *  URI for the document. It may contain a URL that redirects to the actual
+ *  website.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Grounding information for a segment of the text.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContentTextGroundingMetadataSegment : GTLRObject
+
+/**
+ *  End of the segment, exclusive.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endIndex;
+
+/**
+ *  Score for the segment.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *groundingScore;
+
+/**
+ *  References for the segment.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *referenceIndices;
+
+/**
+ *  Zero-based index indicating the start of the segment, measured in bytes of a
+ *  UTF-8 string (i.e. characters encoded on multiple bytes have a length of
+ *  more than one).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startIndex;
+
+/** The text segment itself. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
  *  The configuration for the BAP connector.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaBAPConfig : GTLRObject
+
+/** Optional. The actions enabled on the associated BAP connection. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledActions;
 
 /**
  *  Required. The supported connector modes for the associated BAP connection.
@@ -9207,6 +11049,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The CmekConfig deletion process failed. (Value: "DELETE_FAILED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Deleting
  *        The CmekConfig is deleting. (Value: "DELETING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_Expired
+ *        The KMS key is expired, meaning the key has been disabled for 30+
+ *        days. The customer can call DeleteCmekConfig to change the state to
+ *        DELETED. (Value: "EXPIRED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig_State_KeyIssue
  *        The CmekConfig is unavailable, most likely due to the KMS Key being
  *        revoked. (Value: "KEY_ISSUE")
@@ -9559,6 +11405,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalCount;
+
+@end
+
+
+/**
+ *  The contact info stored in resource level. If both project level and
+ *  resource level is populated, the resource level contact info will override
+ *  the project level contact info.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaContactDetails : GTLRObject
+
+/** Optional. The email address of the contact. */
+@property(nonatomic, copy, nullable) NSString *emailAddress;
 
 @end
 
@@ -10180,6 +12039,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) NSNumber *incrementalSyncDisabled;
 
+/** Required data connector parameters in json string format. */
+@property(nonatomic, copy, nullable) NSString *jsonParams;
+
 /**
  *  Input only. The KMS key to be used to protect the DataStores managed by this
  *  connector. Must be set for requests that need to comply with CMEK Org Policy
@@ -10220,30 +12082,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleTypeDateTime *nextSyncTime;
 
-/**
- *  Required. Params needed to access the source in the format of (Key, Value)
- *  pairs. Required parameters for all data sources: * Key: `instance_uri` *
- *  Value: type STRING. The uri to access the data source. Required parameters
- *  for sources that support OAUTH, i.e. `salesforce`: * Key: `client_id` *
- *  Value: type STRING. The client ID for the third party service provider to
- *  identify your application. * Key: `client_secret` * Value:type STRING. The
- *  client secret generated by the third party authorization server. * Key:
- *  `access_token` * Value: type STRING. OAuth token for UCS to access to the
- *  protected resource. * Key: `refresh_token` * Value: type STRING. OAuth
- *  refresh token for UCS to obtain a new access token without user interaction.
- *  Required parameters for sources that support basic API token auth, i.e.
- *  `jira`, `confluence`: * Key: `user_account` * Value: type STRING. The
- *  username or email with the source. * Key: `api_token` * Value: type STRING.
- *  The API token generated for the source account, that is used for
- *  authenticating anywhere where you would have used a password. Example:
- *  ```json { "instance_uri": "https://xxx.atlassian.net", "user_account":
- *  "xxxx.xxx\@xxx.com", "api_token": "test-token" } ``` Optional parameter to
- *  specify the authorization type to use for multiple authorization types
- *  support: * Key: `auth_type` * Value: type STRING. The authorization type for
- *  the data source. Supported values: `BASIC_AUTH`, `OAUTH`,
- *  `OAUTH_ACCESS_TOKEN`, `OAUTH_TWO_LEGGED`, `OAUTH_JWT_BEARER`,
- *  `OAUTH_PASSWORD_GRANT`, `JWT`, `API_TOKEN`, `FEDERATED_CREDENTIAL`.
- */
+/** Required data connector parameters in structured json format. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_Params *params;
 
 /**
@@ -10371,28 +12210,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
- *  Required. Params needed to access the source in the format of (Key, Value)
- *  pairs. Required parameters for all data sources: * Key: `instance_uri` *
- *  Value: type STRING. The uri to access the data source. Required parameters
- *  for sources that support OAUTH, i.e. `salesforce`: * Key: `client_id` *
- *  Value: type STRING. The client ID for the third party service provider to
- *  identify your application. * Key: `client_secret` * Value:type STRING. The
- *  client secret generated by the third party authorization server. * Key:
- *  `access_token` * Value: type STRING. OAuth token for UCS to access to the
- *  protected resource. * Key: `refresh_token` * Value: type STRING. OAuth
- *  refresh token for UCS to obtain a new access token without user interaction.
- *  Required parameters for sources that support basic API token auth, i.e.
- *  `jira`, `confluence`: * Key: `user_account` * Value: type STRING. The
- *  username or email with the source. * Key: `api_token` * Value: type STRING.
- *  The API token generated for the source account, that is used for
- *  authenticating anywhere where you would have used a password. Example:
- *  ```json { "instance_uri": "https://xxx.atlassian.net", "user_account":
- *  "xxxx.xxx\@xxx.com", "api_token": "test-token" } ``` Optional parameter to
- *  specify the authorization type to use for multiple authorization types
- *  support: * Key: `auth_type` * Value: type STRING. The authorization type for
- *  the data source. Supported values: `BASIC_AUTH`, `OAUTH`,
- *  `OAUTH_ACCESS_TOKEN`, `OAUTH_TWO_LEGGED`, `OAUTH_JWT_BEARER`,
- *  `OAUTH_PASSWORD_GRANT`, `JWT`, `API_TOKEN`, `FEDERATED_CREDENTIAL`.
+ *  Required data connector parameters in structured json format.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -10413,6 +12231,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Optional. Any authentication parameters specific to EUA connectors. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorEndUserConfig_AuthParams *authParams;
+
+/**
+ *  Optional. Any authentication parameters specific to EUA connectors in json
+ *  string format.
+ */
+@property(nonatomic, copy, nullable) NSString *jsonAuthParams;
 
 /** Optional. The tenant project the connector is connected to. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaTenant *tenant;
@@ -10453,8 +12277,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Optional. Any additional parameters needed for FEDERATED. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorFederatedConfig_AdditionalParams *additionalParams;
 
-/** Optional. Any authentication parameters specific to FEDERATED. */
+/**
+ *  Optional. Any authentication parameters specific to FEDERATED connectors.
+ */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorFederatedConfig_AuthParams *authParams;
+
+/**
+ *  Optional. Any authentication parameters specific to FEDERATED connectors in
+ *  json string format.
+ */
+@property(nonatomic, copy, nullable) NSString *jsonAuthParams;
 
 @end
 
@@ -10472,7 +12304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
- *  Optional. Any authentication parameters specific to FEDERATED.
+ *  Optional. Any authentication parameters specific to FEDERATED connectors.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -10562,6 +12394,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaHealthcareFhirConfig *healthcareFhirConfig;
 
 /**
+ *  The parameters for the entity to facilitate data ingestion in json string
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *jsonParams;
+
+/**
  *  Attributes for indexing. Key: Field name. Value: The key property to map a
  *  field to, such as `title`, and `description`. Supported key properties: *
  *  `title`: The title for data record. This would be displayed on search
@@ -10571,9 +12409,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorSourceEntity_KeyPropertyMappings *keyPropertyMappings;
 
 /**
- *  The parameters for the entity to facilitate data ingestion. E.g. for
- *  BigQuery connectors: * Key: `document_id_column` * Value: type STRING. The
- *  value of the column ID.
+ *  The parameters for the entity to facilitate data ingestion in structured
+ *  json format.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnectorSourceEntity_Params *params;
 
@@ -10609,9 +12446,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
- *  The parameters for the entity to facilitate data ingestion. E.g. for
- *  BigQuery connectors: * Key: `document_id_column` * Value: type STRING. The
- *  value of the column ID.
+ *  The parameters for the entity to facilitate data ingestion in structured
+ *  json format.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -10648,6 +12484,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Output only. CMEK-related information for the DataStore. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCmekConfig *cmekConfig;
+
+/**
+ *  Optional. Configuration for configurable billing approach. See
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified
+ *        Default value. For Spark and non-Spark non-configurable billing
+ *        approach. (Value: "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ConfigurableBillingApproach_ConfigurableConsumptionEmbedding
+ *        Use the consumption pay-as-you-go billing for embedding storage
+ *        add-on. (Value: "CONFIGURABLE_CONSUMPTION_EMBEDDING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore_ConfigurableBillingApproach_ConfigurableSubscriptionIndexingCore
+ *        Use the subscription base + overage billing for indexing core for non
+ *        embedding storage. (Value: "CONFIGURABLE_SUBSCRIPTION_INDEXING_CORE")
+ */
+@property(nonatomic, copy, nullable) NSString *configurableBillingApproach;
 
 /**
  *  Immutable. The content config of the data store. If this field is unset, the
@@ -11040,18 +12892,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDestinationConfigDestination *> *destinations;
 
 /**
+ *  Additional parameters for this destination config in json string format.
+ */
+@property(nonatomic, copy, nullable) NSString *jsonParams;
+
+/**
  *  Optional. Unique destination identifier that is supported by the connector.
  */
 @property(nonatomic, copy, nullable) NSString *key;
 
-/** Optional. Additional parameters for this destination config. */
+/**
+ *  Optional. Additional parameters for this destination config in structured
+ *  json format.
+ */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDestinationConfig_Params *params;
 
 @end
 
 
 /**
- *  Optional. Additional parameters for this destination config.
+ *  Optional. Additional parameters for this destination config in structured
+ *  json format.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -11362,6 +13223,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Common config spec that specifies the metadata of the engine. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngineCommonConfig *commonConfig;
 
+/**
+ *  Optional. Configuration for configurable billing approach.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_ConfigurableBillingApproach_ConfigurableBillingApproachEnabled
+ *        The billing approach follows configurations specified by customer.
+ *        (Value: "CONFIGURABLE_BILLING_APPROACH_ENABLED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified
+ *        Default value. For Spark and non-Spark non-configurable billing
+ *        approach. General pricing model. (Value:
+ *        "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *configurableBillingApproach;
+
 /** Output only. Timestamp the Recommendation Engine was created at. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -11395,8 +13270,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
  *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
- *  `session-sharing` * `personalization-memory` - Enables personalization based
- *  on user preferences.
+ *  `session-sharing` * `personalization-memory` * `disable-agent-sharing` *
+ *  `disable-image-generation` * `disable-video-generation` *
+ *  `disable-onedrive-upload` * `disable-talk-to-content` *
+ *  `disable-google-drive-upload`
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaEngine_Features *features;
 
@@ -11483,8 +13360,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
  *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
- *  `session-sharing` * `personalization-memory` - Enables personalization based
- *  on user preferences.
+ *  `session-sharing` * `personalization-memory` * `disable-agent-sharing` *
+ *  `disable-image-generation` * `disable-video-generation` *
+ *  `disable-onedrive-upload` * `disable-talk-to-content` *
+ *  `disable-google-drive-upload`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -12763,6 +14642,122 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Information about users' licenses.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig : GTLRObject
+
+/** Optional. The alert policy config for this license config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyResourceConfig *alertPolicyResourceConfig;
+
+/**
+ *  Optional. Whether the license config should be auto renewed when it reaches
+ *  the end date.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoRenew;
+
+/** Optional. The planed end date. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleTypeDate *endDate;
+
+/**
+ *  Optional. Whether the license config is for free trial.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freeTrial;
+
+/**
+ *  Required. Number of licenses purchased.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *licenseCount;
+
+/**
+ *  Immutable. Identifier. The fully qualified resource name of the license
+ *  config. Format:
+ *  `projects/{project}/locations/{location}/licenseConfigs/{license_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The start date. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleTypeDate *startDate;
+
+/**
+ *  Output only. The state of the license config.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_State_Active
+ *        The license config is effective and being used. (Value: "ACTIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_State_Expired
+ *        The license config has expired. (Value: "EXPIRED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_State_NotStarted
+ *        The license config has not started yet, and its start date is in the
+ *        future. (Value: "NOT_STARTED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_State_StateUnspecified
+ *        Default value. The license config does not exist. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Required. Subscription term.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTerm_SubscriptionTermOneMonth
+ *        1 month. (Value: "SUBSCRIPTION_TERM_ONE_MONTH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTerm_SubscriptionTermOneYear
+ *        1 year. (Value: "SUBSCRIPTION_TERM_ONE_YEAR")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTerm_SubscriptionTermThreeYears
+ *        3 years. (Value: "SUBSCRIPTION_TERM_THREE_YEARS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTerm_SubscriptionTermUnspecified
+ *        Default value, do not use. (Value: "SUBSCRIPTION_TERM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subscriptionTerm;
+
+/**
+ *  Required. Subscription tier information for the license config.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceBusiness
+ *        Agentspace Business tier. (Value:
+ *        "SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceStarter
+ *        Agentspace Starter tier. (Value:
+ *        "SUBSCRIPTION_TIER_AGENTSPACE_STARTER")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierEdu
+ *        EDU tier. (Value: "SUBSCRIPTION_TIER_EDU")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierEduEmerging
+ *        EDU emerging market tier. (Value: "SUBSCRIPTION_TIER_EDU_EMERGING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierEduPro
+ *        EDU Pro tier. (Value: "SUBSCRIPTION_TIER_EDU_PRO")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierEduProEmerging
+ *        EDU Pro emerging market tier. (Value:
+ *        "SUBSCRIPTION_TIER_EDU_PRO_EMERGING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierEnterprise
+ *        Enterprise tier. (Value: "SUBSCRIPTION_TIER_ENTERPRISE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierFrontlineWorker
+ *        Frontline worker tier. (Value: "SUBSCRIPTION_TIER_FRONTLINE_WORKER")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierNotebookLm
+ *        NotebookLM tier. NotebookLM is a subscription tier can only access
+ *        NotebookLM features. (Value: "SUBSCRIPTION_TIER_NOTEBOOK_LM")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierSearch
+ *        Search tier. Search tier can access VAIS search features and
+ *        NotebookLM features. (Value: "SUBSCRIPTION_TIER_SEARCH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierSearchAndAssistant
+ *        Search + assistant tier. Search + assistant tier can access VAIS
+ *        search features, NotebookLM features and assistant features. (Value:
+ *        "SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig_SubscriptionTier_SubscriptionTierUnspecified
+ *        Default value. (Value: "SUBSCRIPTION_TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subscriptionTier;
+
+@end
+
+
+/**
  *  Request for ListSessions method.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaListSessionsRequest : GTLRObject
@@ -12924,6 +14919,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Output only. The timestamp when this project is created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Optional. Customer provided configurations. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectCustomerProvidedConfig *customerProvidedConfig;
+
 /**
  *  Output only. Full resource name of the project, for example
  *  `projects/{project}`. Note that when making requests, project number and
@@ -12959,6 +14957,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProject_ServiceTermsMap : GTLRObject
+@end
+
+
+/**
+ *  Customer provided configurations.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectCustomerProvidedConfig : GTLRObject
+
+/** Optional. Configuration for NotebookLM settings. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectCustomerProvidedConfigNotebooklmConfig *notebooklmConfig;
+
+@end
+
+
+/**
+ *  Configuration for NotebookLM.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectCustomerProvidedConfigNotebooklmConfig : GTLRObject
+
+/**
+ *  Model Armor configuration to be used for sanitizing user prompts and LLM
+ *  responses.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectCustomerProvidedConfigNotebooklmConfigModelArmorConfig *modelArmorConfig;
+
+@end
+
+
+/**
+ *  Configuration for customer defined Model Armor templates to be used for
+ *  sanitizing user prompts and LLM responses.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectCustomerProvidedConfigNotebooklmConfigModelArmorConfig : GTLRObject
+
+/**
+ *  Optional. The resource name of the Model Armor Template for sanitizing LLM
+ *  responses. Format:
+ *  projects/{project}/locations/{location}/templates/{template_id} If not
+ *  specified, no sanitization will be applied to the LLM response.
+ */
+@property(nonatomic, copy, nullable) NSString *responseTemplate;
+
+/**
+ *  Optional. The resource name of the Model Armor Template for sanitizing user
+ *  prompts. Format:
+ *  projects/{project}/locations/{location}/templates/{template_id} If not
+ *  specified, no sanitization will be applied to the user prompt.
+ */
+@property(nonatomic, copy, nullable) NSString *userPromptTemplate;
+
 @end
 
 
@@ -13766,8 +15814,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Config for natural language query understanding capabilities, such as
- *  extracting structured field filters from the query. Refer to [this
+ *  Optional. Config for natural language query understanding capabilities, such
+ *  as extracting structured field filters from the query. Refer to [this
  *  documentation](https://cloud.google.com/generative-ai-app-builder/docs/natural-language-queries)
  *  for more information. If `naturalLanguageQueryUnderstandingSpec` is not
  *  specified, no additional natural language query understanding will be done.
@@ -13778,7 +15826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  A 0-indexed integer that specifies the current offset (that is, starting
  *  result location, amongst the Documents deemed by the API as relevant) in
  *  search results. This field is only considered if page_token is unset. If
- *  this field is negative, an `INVALID_ARGUMENT` is returned.
+ *  this field is negative, an `INVALID_ARGUMENT` is returned. A large offset
+ *  may be capped to a reasonable threshold.
  *
  *  Uses NSNumber of intValue.
  */
@@ -13974,6 +16023,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *safeSearch;
+
+/**
+ *  Optional. SearchAddonSpec is used to disable add-ons for search as per new
+ *  repricing model. This field is only supported for search requests.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAddonSpec *searchAddonSpec;
 
 /**
  *  Search as you type configuration. Only supported for the
@@ -14854,6 +16909,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestNaturalLanguageQueryUnderstandingSpec : GTLRObject
 
 /**
+ *  Optional. Allowlist of fields that can be used for natural language filter
+ *  extraction. By default, if this is unspecified, all indexable fields are
+ *  eligible for natural language filter extraction (but are not guaranteed to
+ *  be used). If any fields are specified in allowed_field_names, only the
+ *  fields that are both marked as indexable in the schema and specified in the
+ *  allowlist will be eligible for natural language filter extraction. Note: for
+ *  multi-datastore search, this is not yet supported, and will be ignored.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedFieldNames;
+
+/**
  *  Optional. Controls behavior of how extracted filters are applied to the
  *  search. The default behavior depends on the request. For single datastore
  *  structured search, the default is `HARD_FILTER`. For multi-datastore search,
@@ -14976,6 +17042,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *returnRelevanceScore;
+
+@end
+
+
+/**
+ *  SearchAddonSpec is used to disable add-ons for search as per new repricing
+ *  model. By default if the SearchAddonSpec is not specified, we consider that
+ *  the customer wants to enable them wherever applicable.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAddonSpec : GTLRObject
+
+/**
+ *  Optional. If true, generative answer add-on is disabled. Generative answer
+ *  add-on includes natural language to filters and simple answers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableGenerativeAnswerAddOn;
+
+/**
+ *  Optional. If true, disables event re-ranking and personalization to optimize
+ *  KPIs & personalize results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableKpiPersonalizationAddOn;
+
+/**
+ *  Optional. If true, semantic add-on is disabled. Semantic add-on includes
+ *  embeddings and jetstream.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableSemanticAddOn;
 
 @end
 
@@ -15141,6 +17241,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  populated when getting answer query session.
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAnswer *detailedAnswer;
+
+/**
+ *  Output only. In ConversationalSearchService.GetSession API, if
+ *  GetSessionRequest.include_answer_details is set to true, this field will be
+ *  populated when getting assistant session.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistAnswer *detailedAssistAnswer;
 
 /**
  *  Optional. The user query. May not be set if this turn is merely regenerating
@@ -17605,6 +19712,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *domain;
 
+/**
+ *  The mime type of the document.
+ *  https://www.iana.org/assignments/media-types/media-types.xhtml.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
 /** Page identifier. */
 @property(nonatomic, copy, nullable) NSString *pageIdentifier;
 
@@ -17704,6 +19817,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Optional. IANA time zone, e.g. Europe/Budapest. */
 @property(nonatomic, copy, nullable) NSString *timeZone;
+
+@end
+
+
+/**
+ *  The configuration for the BAP connector.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BAPConfig : GTLRObject
+
+/** Optional. The actions enabled on the associated BAP connection. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledActions;
+
+/**
+ *  Required. The supported connector modes for the associated BAP connection.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedConnectorModes;
 
 @end
 
@@ -17953,6 +20082,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  The resource level alert config. Used in: * UserLicense * EngineUserData The
+ *  AlertPolicyConfig in data connector is of same usage. No easy way to
+ *  migrate.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfig : GTLRObject
+
+/** Optional. The enrollment state of each alert. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment *> *alertEnrollments;
+
+/** Immutable. The fully qualified resource name of the AlertPolicy. */
+@property(nonatomic, copy, nullable) NSString *alertPolicy;
+
+/** Optional. The contact details for each alert policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaContactDetails *> *contactDetails;
+
+/** Optional. The language code used for notifications */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+@end
+
+
+/**
+ *  The alert enrollment status.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment : GTLRObject
+
+/** Immutable. The id of an alert. */
+@property(nonatomic, copy, nullable) NSString *alertId;
+
+/**
+ *  Required. The enrollment status of a customer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_EnrollState_Declined
+ *        Customer declined this policy. (Value: "DECLINED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_EnrollState_Enrolled
+ *        Customer is enrolled in this policy. (Value: "ENROLLED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_EnrollState_EnrollStateUnspecified
+ *        Default value. Used for customers who have not responded to the alert
+ *        policy. (Value: "ENROLL_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *enrollState;
+
+/**
+ *  Optional. Parameters used to instantiate a notification. Used for
+ *  notifications that are triggered when registered. Not stored. * Gemini
+ *  Business welcome emails. * Gemini Business user invitation emails.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_NotificationParams *notificationParams;
+
+@end
+
+
+/**
+ *  Optional. Parameters used to instantiate a notification. Used for
+ *  notifications that are triggered when registered. Not stored. * Gemini
+ *  Business welcome emails. * Gemini Business user invitation emails.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_NotificationParams : GTLRObject
+@end
+
+
+/**
  *  Metadata related to the progress of the
  *  SiteSearchEngineService.BatchCreateTargetSites operation. This will be
  *  returned by the google.longrunning.Operation.metadata field.
@@ -18105,6 +20302,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The CmekConfig deletion process failed. (Value: "DELETE_FAILED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Deleting
  *        The CmekConfig is deleting. (Value: "DELETING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_Expired
+ *        The KMS key is expired, meaning the key has been disabled for 30+
+ *        days. The customer can call DeleteCmekConfig to change the state to
+ *        DELETED. (Value: "EXPIRED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_State_KeyIssue
  *        The CmekConfig is unavailable, most likely due to the KMS Key being
  *        revoked. (Value: "KEY_ISSUE")
@@ -18178,6 +20379,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Start of time range. Range is inclusive. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  The contact info stored in resource level. If both project level and
+ *  resource level is populated, the resource level contact info will override
+ *  the project level contact info.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaContactDetails : GTLRObject
+
+/** Optional. The email address of the contact. */
+@property(nonatomic, copy, nullable) NSString *emailAddress;
 
 @end
 
@@ -18604,6 +20818,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Output only. CMEK-related information for the DataStore. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig *cmekConfig;
+
+/**
+ *  Optional. Configuration for configurable billing approach. See
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified
+ *        Default value. For Spark and non-Spark non-configurable billing
+ *        approach. (Value: "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_ConfigurableBillingApproach_ConfigurableConsumptionEmbedding
+ *        Use the consumption pay-as-you-go billing for embedding storage
+ *        add-on. (Value: "CONFIGURABLE_CONSUMPTION_EMBEDDING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore_ConfigurableBillingApproach_ConfigurableSubscriptionIndexingCore
+ *        Use the subscription base + overage billing for indexing core for non
+ *        embedding storage. (Value: "CONFIGURABLE_SUBSCRIPTION_INDEXING_CORE")
+ */
+@property(nonatomic, copy, nullable) NSString *configurableBillingApproach;
 
 /**
  *  Immutable. The content config of the data store. If this field is unset, the
@@ -19214,6 +21444,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Common config spec that specifies the metadata of the engine. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngineCommonConfig *commonConfig;
 
+/**
+ *  Optional. Configuration for configurable billing approach.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_ConfigurableBillingApproach_ConfigurableBillingApproachEnabled
+ *        The billing approach follows configurations specified by customer.
+ *        (Value: "CONFIGURABLE_BILLING_APPROACH_ENABLED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified
+ *        Default value. For Spark and non-Spark non-configurable billing
+ *        approach. General pricing model. (Value:
+ *        "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *configurableBillingApproach;
+
 /** Output only. Timestamp the Recommendation Engine was created at. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -19247,8 +21491,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
  *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
- *  `session-sharing` * `personalization-memory` - Enables personalization based
- *  on user preferences.
+ *  `session-sharing` * `personalization-memory` * `disable-agent-sharing` *
+ *  `disable-image-generation` * `disable-video-generation` *
+ *  `disable-onedrive-upload` * `disable-talk-to-content` *
+ *  `disable-google-drive-upload`
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaEngine_Features *features;
 
@@ -19326,8 +21572,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
  *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
- *  `session-sharing` * `personalization-memory` - Enables personalization based
- *  on user preferences.
+ *  `session-sharing` * `personalization-memory` * `disable-agent-sharing` *
+ *  `disable-image-generation` * `disable-video-generation` *
+ *  `disable-onedrive-upload` * `disable-talk-to-content` *
+ *  `disable-google-drive-upload`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -20158,6 +22406,122 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Information about users' licenses.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig : GTLRObject
+
+/** Optional. The alert policy config for this license config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfig *alertPolicyResourceConfig;
+
+/**
+ *  Optional. Whether the license config should be auto renewed when it reaches
+ *  the end date.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoRenew;
+
+/** Optional. The planed end date. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleTypeDate *endDate;
+
+/**
+ *  Optional. Whether the license config is for free trial.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freeTrial;
+
+/**
+ *  Required. Number of licenses purchased.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *licenseCount;
+
+/**
+ *  Immutable. Identifier. The fully qualified resource name of the license
+ *  config. Format:
+ *  `projects/{project}/locations/{location}/licenseConfigs/{license_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The start date. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleTypeDate *startDate;
+
+/**
+ *  Output only. The state of the license config.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_State_Active
+ *        The license config is effective and being used. (Value: "ACTIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_State_Expired
+ *        The license config has expired. (Value: "EXPIRED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_State_NotStarted
+ *        The license config has not started yet, and its start date is in the
+ *        future. (Value: "NOT_STARTED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_State_StateUnspecified
+ *        Default value. The license config does not exist. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Required. Subscription term.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTerm_SubscriptionTermOneMonth
+ *        1 month. (Value: "SUBSCRIPTION_TERM_ONE_MONTH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTerm_SubscriptionTermOneYear
+ *        1 year. (Value: "SUBSCRIPTION_TERM_ONE_YEAR")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTerm_SubscriptionTermThreeYears
+ *        3 years. (Value: "SUBSCRIPTION_TERM_THREE_YEARS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTerm_SubscriptionTermUnspecified
+ *        Default value, do not use. (Value: "SUBSCRIPTION_TERM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subscriptionTerm;
+
+/**
+ *  Required. Subscription tier information for the license config.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceBusiness
+ *        Agentspace Business tier. (Value:
+ *        "SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceStarter
+ *        Agentspace Starter tier. (Value:
+ *        "SUBSCRIPTION_TIER_AGENTSPACE_STARTER")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierEdu
+ *        EDU tier. (Value: "SUBSCRIPTION_TIER_EDU")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierEduEmerging
+ *        EDU emerging market tier. (Value: "SUBSCRIPTION_TIER_EDU_EMERGING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierEduPro
+ *        EDU Pro tier. (Value: "SUBSCRIPTION_TIER_EDU_PRO")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierEduProEmerging
+ *        EDU Pro emerging market tier. (Value:
+ *        "SUBSCRIPTION_TIER_EDU_PRO_EMERGING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierEnterprise
+ *        Enterprise tier. (Value: "SUBSCRIPTION_TIER_ENTERPRISE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierFrontlineWorker
+ *        Frontline worker tier. (Value: "SUBSCRIPTION_TIER_FRONTLINE_WORKER")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierNotebookLm
+ *        NotebookLM tier. NotebookLM is a subscription tier can only access
+ *        NotebookLM features. (Value: "SUBSCRIPTION_TIER_NOTEBOOK_LM")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierSearch
+ *        Search tier. Search tier can access VAIS search features and
+ *        NotebookLM features. (Value: "SUBSCRIPTION_TIER_SEARCH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierSearchAndAssistant
+ *        Search + assistant tier. Search + assistant tier can access VAIS
+ *        search features, NotebookLM features and assistant features. (Value:
+ *        "SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig_SubscriptionTier_SubscriptionTierUnspecified
+ *        Default value. (Value: "SUBSCRIPTION_TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subscriptionTier;
+
+@end
+
+
+/**
  *  Configuration for Natural Language Query Understanding.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaNaturalLanguageQueryUnderstandingConfig : GTLRObject
@@ -20248,6 +22612,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Output only. The timestamp when this project is created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Optional. Customer provided configurations. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectCustomerProvidedConfig *customerProvidedConfig;
+
 /**
  *  Output only. Full resource name of the project, for example
  *  `projects/{project}`. Note that when making requests, project number and
@@ -20283,6 +22650,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProject_ServiceTermsMap : GTLRObject
+@end
+
+
+/**
+ *  Customer provided configurations.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectCustomerProvidedConfig : GTLRObject
+
+/** Optional. Configuration for NotebookLM settings. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectCustomerProvidedConfigNotebooklmConfig *notebooklmConfig;
+
+@end
+
+
+/**
+ *  Configuration for NotebookLM.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectCustomerProvidedConfigNotebooklmConfig : GTLRObject
+
+/**
+ *  Model Armor configuration to be used for sanitizing user prompts and LLM
+ *  responses.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectCustomerProvidedConfigNotebooklmConfigModelArmorConfig *modelArmorConfig;
+
+@end
+
+
+/**
+ *  Configuration for customer defined Model Armor templates to be used for
+ *  sanitizing user prompts and LLM responses.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectCustomerProvidedConfigNotebooklmConfigModelArmorConfig : GTLRObject
+
+/**
+ *  Optional. The resource name of the Model Armor Template for sanitizing LLM
+ *  responses. Format:
+ *  projects/{project}/locations/{location}/templates/{template_id} If not
+ *  specified, no sanitization will be applied to the LLM response.
+ */
+@property(nonatomic, copy, nullable) NSString *responseTemplate;
+
+/**
+ *  Optional. The resource name of the Model Armor Template for sanitizing user
+ *  prompts. Format:
+ *  projects/{project}/locations/{location}/templates/{template_id} If not
+ *  specified, no sanitization will be applied to the user prompt.
+ */
+@property(nonatomic, copy, nullable) NSString *userPromptTemplate;
+
 @end
 
 
@@ -20755,8 +23172,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
- *  Config for natural language query understanding capabilities, such as
- *  extracting structured field filters from the query. Refer to [this
+ *  Optional. Config for natural language query understanding capabilities, such
+ *  as extracting structured field filters from the query. Refer to [this
  *  documentation](https://cloud.google.com/generative-ai-app-builder/docs/natural-language-queries)
  *  for more information. If `naturalLanguageQueryUnderstandingSpec` is not
  *  specified, no additional natural language query understanding will be done.
@@ -20767,7 +23184,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  A 0-indexed integer that specifies the current offset (that is, starting
  *  result location, amongst the Documents deemed by the API as relevant) in
  *  search results. This field is only considered if page_token is unset. If
- *  this field is negative, an `INVALID_ARGUMENT` is returned.
+ *  this field is negative, an `INVALID_ARGUMENT` is returned. A large offset
+ *  may be capped to a reasonable threshold.
  *
  *  Uses NSNumber of intValue.
  */
@@ -20963,6 +23381,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *safeSearch;
+
+/**
+ *  Optional. SearchAddonSpec is used to disable add-ons for search as per new
+ *  repricing model. This field is only supported for search requests.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAddonSpec *searchAddonSpec;
 
 /**
  *  Search as you type configuration. Only supported for the
@@ -21833,6 +24257,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestNaturalLanguageQueryUnderstandingSpec : GTLRObject
 
 /**
+ *  Optional. Allowlist of fields that can be used for natural language filter
+ *  extraction. By default, if this is unspecified, all indexable fields are
+ *  eligible for natural language filter extraction (but are not guaranteed to
+ *  be used). If any fields are specified in allowed_field_names, only the
+ *  fields that are both marked as indexable in the schema and specified in the
+ *  allowlist will be eligible for natural language filter extraction. Note: for
+ *  multi-datastore search, this is not yet supported, and will be ignored.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedFieldNames;
+
+/**
  *  Optional. Controls behavior of how extracted filters are applied to the
  *  search. The default behavior depends on the request. For single datastore
  *  structured search, the default is `HARD_FILTER`. For multi-datastore search,
@@ -21955,6 +24390,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *returnRelevanceScore;
+
+@end
+
+
+/**
+ *  SearchAddonSpec is used to disable add-ons for search as per new repricing
+ *  model. By default if the SearchAddonSpec is not specified, we consider that
+ *  the customer wants to enable them wherever applicable.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAddonSpec : GTLRObject
+
+/**
+ *  Optional. If true, generative answer add-on is disabled. Generative answer
+ *  add-on includes natural language to filters and simple answers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableGenerativeAnswerAddOn;
+
+/**
+ *  Optional. If true, disables event re-ranking and personalization to optimize
+ *  KPIs & personalize results.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableKpiPersonalizationAddOn;
+
+/**
+ *  Optional. If true, semantic add-on is disabled. Semantic add-on includes
+ *  embeddings and jetstream.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableSemanticAddOn;
 
 @end
 
@@ -23322,6 +25791,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        The CmekConfig deletion process failed. (Value: "DELETE_FAILED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Deleting
  *        The CmekConfig is deleting. (Value: "DELETING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_Expired
+ *        The KMS key is expired, meaning the key has been disabled for 30+
+ *        days. The customer can call DeleteCmekConfig to change the state to
+ *        DELETED. (Value: "EXPIRED")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig_State_KeyIssue
  *        The CmekConfig is unavailable, most likely due to the KMS Key being
  *        revoked. (Value: "KEY_ISSUE")
@@ -23332,6 +25805,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        (Value: "UNUSABLE")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Collection is a container for configuring resources and access to a set of
+ *  DataStores.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Collection : GTLRObject
+
+/** Output only. Timestamp the Collection was created at. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The Collection display name. This field must be a UTF-8 encoded
+ *  string with a length limit of 128 characters. Otherwise, an INVALID_ARGUMENT
+ *  error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Immutable. The full resource name of the Collection. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection_id}`. This
+ *  field must be a UTF-8 encoded string with a length limit of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -23503,6 +26002,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Start of time range. Range is inclusive. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  The contact info stored in resource level. If both project level and
+ *  resource level is populated, the resource level contact info will override
+ *  the project level contact info.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ContactDetails : GTLRObject
+
+/** Optional. The email address of the contact. */
+@property(nonatomic, copy, nullable) NSString *emailAddress;
 
 @end
 
@@ -24202,6 +26714,631 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Manages the connection to external data sources for all data stores grouped
+ *  under a Collection. It's a singleton resource of Collection. The
+ *  initialization is only supported through
+ *  DataConnectorService.SetUpDataConnector method, which will create a new
+ *  Collection and initialize its DataConnector.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector : GTLRObject
+
+/**
+ *  Optional. Whether the connector will be created with an ACL config.
+ *  Currently this field only affects Cloud Storage and BigQuery connectors.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aclEnabled;
+
+/** Optional. Action configurations to make the connector support actions. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ActionConfig *actionConfig;
+
+/**
+ *  Output only. State of the action connector. This reflects whether the action
+ *  connector is initializing, active or has encountered errors.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Active
+ *        The connector is successfully set up and awaiting next sync run.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Creating
+ *        The connector is being set up. (Value: "CREATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Failed
+ *        The connector is in error. The error details can be found in
+ *        DataConnector.errors. If the error is unfixable, the DataConnector can
+ *        be deleted by [CollectionService.DeleteCollection] API. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_InitializationFailed
+ *        Connector initialization failed. Potential causes include runtime
+ *        errors or issues in the asynchronous pipeline, preventing the request
+ *        from reaching downstream services (except for some connector types).
+ *        (Value: "INITIALIZATION_FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Running
+ *        The connector is actively syncing records from the data source.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Updating
+ *        Connector is in the process of an update. (Value: "UPDATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ActionState_Warning
+ *        The connector has completed a sync run, but encountered non-fatal
+ *        errors. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *actionState;
+
+/** Optional. The connector level alert config. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfig *> *alertPolicyConfigs;
+
+/**
+ *  Optional. Indicates whether the connector is disabled for auto run. It can
+ *  be used to pause periodical and real time sync. Update: with the
+ *  introduction of incremental_sync_disabled, auto_run_disabled is used to
+ *  pause/disable only full syncs
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoRunDisabled;
+
+/** Optional. The configuration for establishing a BAP connection. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BAPConfig *bapConfig;
+
+/**
+ *  Output only. User actions that must be completed before the connector can
+ *  start syncing data.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *blockingReasons;
+
+/**
+ *  Optional. The modes enabled for this connector. Default state is
+ *  CONNECTOR_MODE_UNSPECIFIED.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *connectorModes;
+
+/**
+ *  Output only. The type of connector. Each source can only map to one type.
+ *  For example, salesforce, confluence and jira have THIRD_PARTY connector
+ *  type. It is not mutable once set by system.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_BigQuery
+ *        Big query connector. (Value: "BIG_QUERY")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_ConnectorTypeUnspecified
+ *        Default value. (Value: "CONNECTOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_Gcnv
+ *        Google Cloud NetApp Volumes connector. (Value: "GCNV")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GcpFhir
+ *        Data connector connects between FHIR store and VAIS datastore. (Value:
+ *        "GCP_FHIR")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_Gcs
+ *        Google Cloud Storage connector. (Value: "GCS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleCalendar
+ *        Google Calendar connector. (Value: "GOOGLE_CALENDAR")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleDrive
+ *        Google Drive connector. (Value: "GOOGLE_DRIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleMail
+ *        Gmail connector. (Value: "GOOGLE_MAIL")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_NativeCloudIdentity
+ *        Native Cloud Identity connector for people search powered by People
+ *        API. (Value: "NATIVE_CLOUD_IDENTITY")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_ThirdParty
+ *        Third party connector to connector to third party application. (Value:
+ *        "THIRD_PARTY")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_ThirdPartyEua
+ *        Connector utilized for End User Authentication features. (Value:
+ *        "THIRD_PARTY_EUA")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_ThirdPartyFederated
+ *        Federated connector, it is a third party connector that doesn't
+ *        ingestion data, and search is powered by third party application's
+ *        API. (Value: "THIRD_PARTY_FEDERATED")
+ */
+@property(nonatomic, copy, nullable) NSString *connectorType;
+
+/**
+ *  Optional. Whether the END USER AUTHENTICATION connector is created in SaaS.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createEuaSaas;
+
+/** Output only. Timestamp the DataConnector was created at. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The name of the data source. Supported values: `salesforce`,
+ *  `jira`, `confluence`, `bigquery`.
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/**
+ *  Optional. Any target destinations used to connect to third-party services.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DestinationConfig *> *destinationConfigs;
+
+/**
+ *  Optional. Any params and credentials used specifically for EUA connectors.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorEndUserConfig *endUserConfig;
+
+/** List of entities from the connected data source to ingest. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorSourceEntity *> *entities;
+
+/**
+ *  Output only. The errors from initialization or from the latest connector
+ *  run.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleRpcStatus *> *errors;
+
+/**
+ *  Optional. Any params and credentials used specifically for hybrid connectors
+ *  supporting FEDERATED mode. This field should only be set if the connector is
+ *  a hybrid connector and we want to enable FEDERATED mode.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorFederatedConfig *federatedConfig;
+
+/**
+ *  Optional. If the connector is a hybrid connector, determines whether
+ *  ingestion is enabled and appropriate resources are provisioned during
+ *  connector creation. If the connector is not a hybrid connector, this field
+ *  is ignored.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hybridIngestionDisabled;
+
+/**
+ *  The refresh interval to sync the Access Control List information for the
+ *  documents ingested by this connector. If not set, the access control list
+ *  will be refreshed at the default interval of 30 minutes. The identity
+ *  refresh interval can be at least 30 minutes and at most 7 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *identityRefreshInterval GTLR_DEPRECATED;
+
+/**
+ *  The configuration for the identity data synchronization runs. This contains
+ *  the refresh interval to sync the Access Control List information for the
+ *  documents ingested by this connector.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityScheduleConfig *identityScheduleConfig;
+
+/**
+ *  Optional. The refresh interval specifically for incremental data syncs. If
+ *  unset, incremental syncs will use the default from env, set to 3hrs. The
+ *  minimum is 30 minutes and maximum is 7 days. Applicable to only 3P
+ *  connectors. When the refresh interval is set to the same value as the
+ *  incremental refresh interval, incremental sync will be disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *incrementalRefreshInterval;
+
+/**
+ *  Optional. Indicates whether incremental syncs are paused for this connector.
+ *  This is independent of auto_run_disabled. Applicable to only 3P connectors.
+ *  When the refresh interval is set to the same value as the incremental
+ *  refresh interval, incremental sync will be disabled, i.e. set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *incrementalSyncDisabled;
+
+/** Required data connector parameters in json string format. */
+@property(nonatomic, copy, nullable) NSString *jsonParams;
+
+/**
+ *  Input only. The KMS key to be used to protect the DataStores managed by this
+ *  connector. Must be set for requests that need to comply with CMEK Org Policy
+ *  protections. If this field is set and processed successfully, the DataStores
+ *  created by this connector will be protected by the KMS key.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Output only. For periodic connectors only, the last time a data sync was
+ *  completed.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastSyncTime;
+
+/**
+ *  Output only. The most recent timestamp when this DataConnector was paused,
+ *  affecting all functionalities such as data synchronization. Pausing a
+ *  connector has the following effects: - All functionalities, including data
+ *  synchronization, are halted. - Any ongoing data synchronization job will be
+ *  canceled. - No future data synchronization runs will be scheduled nor can be
+ *  triggered.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *latestPauseTime;
+
+/**
+ *  Output only. The full resource name of the Data Connector. Format:
+ *  `projects/ * /locations/ * /collections/ * /dataConnector`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Defines the scheduled time for the next data synchronization. This field
+ *  requires hour , minute, and time_zone from the [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones). This is utilized when the data
+ *  connector has a refresh interval greater than 1 day. When the hours or
+ *  minutes are not specified, we will assume a sync time of 0:00. The user must
+ *  provide a time zone to avoid ambiguity.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleTypeDateTime *nextSyncTime;
+
+/** Required data connector parameters in structured json format. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_Params *params;
+
+/**
+ *  Output only. The tenant project ID associated with private connectivity
+ *  connectors. This project must be allowlisted by in order for the connector
+ *  to function.
+ */
+@property(nonatomic, copy, nullable) NSString *privateConnectivityProjectId;
+
+/**
+ *  Output only. real-time sync state
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Active
+ *        The connector is successfully set up and awaiting next sync run.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Creating
+ *        The connector is being set up. (Value: "CREATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Failed
+ *        The connector is in error. The error details can be found in
+ *        DataConnector.errors. If the error is unfixable, the DataConnector can
+ *        be deleted by [CollectionService.DeleteCollection] API. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_InitializationFailed
+ *        Connector initialization failed. Potential causes include runtime
+ *        errors or issues in the asynchronous pipeline, preventing the request
+ *        from reaching downstream services (except for some connector types).
+ *        (Value: "INITIALIZATION_FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Running
+ *        The connector is actively syncing records from the data source.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Updating
+ *        Connector is in the process of an update. (Value: "UPDATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_RealtimeState_Warning
+ *        The connector has completed a sync run, but encountered non-fatal
+ *        errors. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *realtimeState;
+
+/** Optional. The configuration for realtime sync. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfig *realtimeSyncConfig;
+
+/**
+ *  Required. The refresh interval for data sync. If duration is set to 0, the
+ *  data will be synced in real time. The streaming feature is not supported
+ *  yet. The minimum is 30 minutes and maximum is 7 days. When the refresh
+ *  interval is set to the same value as the incremental refresh interval,
+ *  incremental sync will be disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *refreshInterval;
+
+/**
+ *  Optional. Specifies keys to be removed from the 'params' field. This is only
+ *  active when 'params' is included in the 'update_mask' in an
+ *  UpdateDataConnectorRequest. Deletion takes precedence if a key is both in
+ *  'remove_param_keys' and present in the 'params' field of the request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *removeParamKeys;
+
+/**
+ *  Output only. State of the connector.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Active
+ *        The connector is successfully set up and awaiting next sync run.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Creating
+ *        The connector is being set up. (Value: "CREATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Failed
+ *        The connector is in error. The error details can be found in
+ *        DataConnector.errors. If the error is unfixable, the DataConnector can
+ *        be deleted by [CollectionService.DeleteCollection] API. (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_InitializationFailed
+ *        Connector initialization failed. Potential causes include runtime
+ *        errors or issues in the asynchronous pipeline, preventing the request
+ *        from reaching downstream services (except for some connector types).
+ *        (Value: "INITIALIZATION_FAILED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Running
+ *        The connector is actively syncing records from the data source.
+ *        (Value: "RUNNING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_StateUnspecified
+ *        Default value. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Updating
+ *        Connector is in the process of an update. (Value: "UPDATING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_State_Warning
+ *        The connector has completed a sync run, but encountered non-fatal
+ *        errors. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The static IP addresses used by this connector. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *staticIpAddresses;
+
+/**
+ *  Optional. Whether customer has enabled static IP addresses for this
+ *  connector.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *staticIpEnabled;
+
+/**
+ *  The data synchronization mode supported by the data connector.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_SyncMode_Periodic
+ *        The connector will sync data periodically based on the
+ *        refresh_interval. Use it with auto_run_disabled to pause the periodic
+ *        sync, or indicate a one-time sync. (Value: "PERIODIC")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_SyncMode_Streaming
+ *        The data will be synced in real time. (Value: "STREAMING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_SyncMode_Unspecified
+ *        Connector that doesn't ingest data will have this value (Value:
+ *        "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *syncMode;
+
+/** Output only. Timestamp the DataConnector was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Required data connector parameters in structured json format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_Params : GTLRObject
+@end
+
+
+/**
+ *  Any params and credentials used specifically for EUA connectors.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorEndUserConfig : GTLRObject
+
+/** Optional. Any additional parameters needed for EUA. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorEndUserConfig_AdditionalParams *additionalParams;
+
+/** Optional. Any authentication parameters specific to EUA connectors. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorEndUserConfig_AuthParams *authParams;
+
+/**
+ *  Optional. Any authentication parameters specific to EUA connectors in json
+ *  string format.
+ */
+@property(nonatomic, copy, nullable) NSString *jsonAuthParams;
+
+/** Optional. The tenant project the connector is connected to. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Tenant *tenant;
+
+@end
+
+
+/**
+ *  Optional. Any additional parameters needed for EUA.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorEndUserConfig_AdditionalParams : GTLRObject
+@end
+
+
+/**
+ *  Optional. Any authentication parameters specific to EUA connectors.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorEndUserConfig_AuthParams : GTLRObject
+@end
+
+
+/**
+ *  Any params and credentials used specifically for hybrid connectors
+ *  supporting FEDERATED mode.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorFederatedConfig : GTLRObject
+
+/** Optional. Any additional parameters needed for FEDERATED. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorFederatedConfig_AdditionalParams *additionalParams;
+
+/**
+ *  Optional. Any authentication parameters specific to FEDERATED connectors.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorFederatedConfig_AuthParams *authParams;
+
+/**
+ *  Optional. Any authentication parameters specific to FEDERATED connectors in
+ *  json string format.
+ */
+@property(nonatomic, copy, nullable) NSString *jsonAuthParams;
+
+@end
+
+
+/**
+ *  Optional. Any additional parameters needed for FEDERATED.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorFederatedConfig_AdditionalParams : GTLRObject
+@end
+
+
+/**
+ *  Optional. Any authentication parameters specific to FEDERATED connectors.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorFederatedConfig_AuthParams : GTLRObject
+@end
+
+
+/**
+ *  The configuration for realtime sync to store additional params for realtime
+ *  sync.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfig : GTLRObject
+
+/** Optional. The ID of the Secret Manager secret used for webhook secret. */
+@property(nonatomic, copy, nullable) NSString *realtimeSyncSecret;
+
+/** Optional. Streaming error details. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError *streamingError;
+
+/**
+ *  Optional. Webhook url for the connector to specify additional params for
+ *  realtime sync.
+ */
+@property(nonatomic, copy, nullable) NSString *webhookUri;
+
+@end
+
+
+/**
+ *  Streaming error details.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError : GTLRObject
+
+/** Optional. Error details. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleRpcStatus *error;
+
+/**
+ *  Optional. Streaming error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError_StreamingErrorReason_IngressEndpointRequired
+ *        Ingress endpoint is required when setting up realtime sync in private
+ *        connectivity. (Value: "INGRESS_ENDPOINT_REQUIRED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError_StreamingErrorReason_StreamingErrorReasonUnspecified
+ *        Streaming error reason unspecified. (Value:
+ *        "STREAMING_ERROR_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError_StreamingErrorReason_StreamingSetupError
+ *        Some error occurred while setting up resources for realtime sync.
+ *        (Value: "STREAMING_SETUP_ERROR")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorRealtimeSyncConfigStreamingError_StreamingErrorReason_StreamingSyncError
+ *        Some error was encountered while running realtime sync for the
+ *        connector. (Value: "STREAMING_SYNC_ERROR")
+ */
+@property(nonatomic, copy, nullable) NSString *streamingErrorReason;
+
+@end
+
+
+/**
+ *  Represents an entity in the data source. For example, the `Account` object
+ *  in Salesforce.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorSourceEntity : GTLRObject
+
+/**
+ *  Output only. The full resource name of the associated data store for the
+ *  source entity. Format: `projects/ * /locations/ * /collections/ *
+ *  /dataStores/ *`. When the connector is initialized by the
+ *  DataConnectorService.SetUpDataConnector method, a DataStore is automatically
+ *  created for each source entity.
+ */
+@property(nonatomic, copy, nullable) NSString *dataStore;
+
+/**
+ *  The name of the entity. Supported values by data source: * Salesforce:
+ *  `Lead`, `Opportunity`, `Contact`, `Account`, `Case`, `Contract`, `Campaign`
+ *  * Jira: `Issue` * Confluence: `Content`, `Space`
+ *
+ *  Remapped to 'entityNameProperty' to avoid NSObject's 'entityName'.
+ */
+@property(nonatomic, copy, nullable) NSString *entityNameProperty;
+
+/** Optional. Configuration for `HEALTHCARE_FHIR` vertical. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1HealthcareFhirConfig *healthcareFhirConfig;
+
+/**
+ *  The parameters for the entity to facilitate data ingestion in json string
+ *  format.
+ */
+@property(nonatomic, copy, nullable) NSString *jsonParams;
+
+/**
+ *  Attributes for indexing. Key: Field name. Value: The key property to map a
+ *  field to, such as `title`, and `description`. Supported key properties: *
+ *  `title`: The title for data record. This would be displayed on search
+ *  results. * `description`: The description for data record. This would be
+ *  displayed on search results.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorSourceEntity_KeyPropertyMappings *keyPropertyMappings;
+
+/**
+ *  The parameters for the entity to facilitate data ingestion in structured
+ *  json format.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorSourceEntity_Params *params;
+
+/**
+ *  Optional. The start schema to use for the DataStore created from this
+ *  SourceEntity. If unset, a default vertical specialized schema will be used.
+ *  This field is only used by SetUpDataConnector API, and will be ignored if
+ *  used in other APIs. This field will be omitted from all API responses
+ *  including GetDataConnector API. To retrieve a schema of a DataStore, use
+ *  SchemaService.GetSchema API instead. The provided schema will be validated
+ *  against certain rules on schema. Learn more from [this
+ *  doc](https://cloud.google.com/generative-ai-app-builder/docs/provide-schema).
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Schema *startingSchema;
+
+@end
+
+
+/**
+ *  Attributes for indexing. Key: Field name. Value: The key property to map a
+ *  field to, such as `title`, and `description`. Supported key properties: *
+ *  `title`: The title for data record. This would be displayed on search
+ *  results. * `description`: The description for data record. This would be
+ *  displayed on search results.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorSourceEntity_KeyPropertyMappings : GTLRObject
+@end
+
+
+/**
+ *  The parameters for the entity to facilitate data ingestion in structured
+ *  json format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnectorSourceEntity_Params : GTLRObject
+@end
+
+
+/**
  *  DataStore captures global settings and configs at the DataStore level.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore : GTLRObject
@@ -24227,6 +27364,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Output only. CMEK-related information for the DataStore. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CmekConfig *cmekConfig;
+
+/**
+ *  Optional. Configuration for configurable billing approach. See
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified
+ *        Default value. For Spark and non-Spark non-configurable billing
+ *        approach. (Value: "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_ConfigurableBillingApproach_ConfigurableConsumptionEmbedding
+ *        Use the consumption pay-as-you-go billing for embedding storage
+ *        add-on. (Value: "CONFIGURABLE_CONSUMPTION_EMBEDDING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore_ConfigurableBillingApproach_ConfigurableSubscriptionIndexingCore
+ *        Use the subscription base + overage billing for indexing core for non
+ *        embedding storage. (Value: "CONFIGURABLE_SUBSCRIPTION_INDEXING_CORE")
+ */
+@property(nonatomic, copy, nullable) NSString *configurableBillingApproach;
 
 /**
  *  Immutable. The content config of the data store. If this field is unset, the
@@ -24426,6 +27579,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Metadata related to the progress of the CollectionService.UpdateCollection
+ *  operation. This will be returned by the
+ *  google.longrunning.Operation.metadata field.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DeleteCollectionMetadata : GTLRObject
+
+/** Operation create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Operation last update time. If the operation is done, this is also the
+ *  finish time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Metadata related to the progress of the DataStoreService.DeleteDataStore
  *  operation. This will be returned by the
  *  google.longrunning.Operation.metadata field.
@@ -24533,6 +27705,64 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  finish time.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Defines target endpoints used to connect to third-party sources.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DestinationConfig : GTLRObject
+
+/** Optional. The destinations for the corresponding key. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DestinationConfigDestination *> *destinations;
+
+/**
+ *  Additional parameters for this destination config in json string format.
+ */
+@property(nonatomic, copy, nullable) NSString *jsonParams;
+
+/**
+ *  Optional. Unique destination identifier that is supported by the connector.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Optional. Additional parameters for this destination config in structured
+ *  json format.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DestinationConfig_Params *params;
+
+@end
+
+
+/**
+ *  Optional. Additional parameters for this destination config in structured
+ *  json format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DestinationConfig_Params : GTLRObject
+@end
+
+
+/**
+ *  Defines a target endpoint
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DestinationConfigDestination : GTLRObject
+
+/** Publicly routable host. */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Optional. Target port number accepted by the destination.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *port;
 
 @end
 
@@ -25121,6 +28351,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Common config spec that specifies the metadata of the engine. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1EngineCommonConfig *commonConfig;
 
+/**
+ *  Optional. Configuration for configurable billing approach.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_ConfigurableBillingApproach_ConfigurableBillingApproachEnabled
+ *        The billing approach follows configurations specified by customer.
+ *        (Value: "CONFIGURABLE_BILLING_APPROACH_ENABLED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_ConfigurableBillingApproach_ConfigurableBillingApproachUnspecified
+ *        Default value. For Spark and non-Spark non-configurable billing
+ *        approach. General pricing model. (Value:
+ *        "CONFIGURABLE_BILLING_APPROACH_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *configurableBillingApproach;
+
 /** Output only. Timestamp the Recommendation Engine was created at. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -25154,8 +28398,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
  *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
- *  `session-sharing` * `personalization-memory` - Enables personalization based
- *  on user preferences.
+ *  `session-sharing` * `personalization-memory` * `disable-agent-sharing` *
+ *  `disable-image-generation` * `disable-video-generation` *
+ *  `disable-onedrive-upload` * `disable-talk-to-content` *
+ *  `disable-google-drive-upload`
  */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine_Features *features;
 
@@ -25233,8 +28479,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  state settings are ignored. * `agent-gallery` * `no-code-agent-builder` *
  *  `prompt-gallery` * `model-selector` * `notebook-lm` * `people-search` *
  *  `people-search-org-chart` * `bi-directional-audio` * `feedback` *
- *  `session-sharing` * `personalization-memory` - Enables personalization based
- *  on user preferences.
+ *  `session-sharing` * `personalization-memory` * `disable-agent-sharing` *
+ *  `disable-image-generation` * `disable-video-generation` *
+ *  `disable-onedrive-upload` * `disable-talk-to-content` *
+ *  `disable-google-drive-upload`
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -25877,6 +29125,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  The configuration for the identity data synchronization runs.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdentityScheduleConfig : GTLRObject
+
+/**
+ *  Optional. The UTC time when the next data sync is expected to start for the
+ *  Data Connector. Customers are only able to specify the hour and minute to
+ *  schedule the data sync. This is utilized when the data connector has a
+ *  refresh interval greater than 1 day.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleTypeDateTime *nextSyncTime;
+
+/**
+ *  Optional. The refresh interval to sync the Access Control List information
+ *  for the documents ingested by this connector. If not set, the access control
+ *  list will be refreshed at the default interval of 30 minutes. The identity
+ *  refresh interval can be at least 30 minutes and at most 7 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *refreshInterval;
+
+@end
+
+
+/**
  *  Identity Provider Config.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1IdpConfig : GTLRObject
@@ -26440,6 +29712,122 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Information about users' licenses.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig : GTLRObject
+
+/** Optional. The alert policy config for this license config. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfig *alertPolicyResourceConfig;
+
+/**
+ *  Optional. Whether the license config should be auto renewed when it reaches
+ *  the end date.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoRenew;
+
+/** Optional. The planed end date. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleTypeDate *endDate;
+
+/**
+ *  Optional. Whether the license config is for free trial.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *freeTrial;
+
+/**
+ *  Required. Number of licenses purchased.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *licenseCount;
+
+/**
+ *  Immutable. Identifier. The fully qualified resource name of the license
+ *  config. Format:
+ *  `projects/{project}/locations/{location}/licenseConfigs/{license_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. The start date. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleTypeDate *startDate;
+
+/**
+ *  Output only. The state of the license config.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_State_Active
+ *        The license config is effective and being used. (Value: "ACTIVE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_State_Expired
+ *        The license config has expired. (Value: "EXPIRED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_State_NotStarted
+ *        The license config has not started yet, and its start date is in the
+ *        future. (Value: "NOT_STARTED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_State_StateUnspecified
+ *        Default value. The license config does not exist. (Value:
+ *        "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Required. Subscription term.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTerm_SubscriptionTermOneMonth
+ *        1 month. (Value: "SUBSCRIPTION_TERM_ONE_MONTH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTerm_SubscriptionTermOneYear
+ *        1 year. (Value: "SUBSCRIPTION_TERM_ONE_YEAR")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTerm_SubscriptionTermThreeYears
+ *        3 years. (Value: "SUBSCRIPTION_TERM_THREE_YEARS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTerm_SubscriptionTermUnspecified
+ *        Default value, do not use. (Value: "SUBSCRIPTION_TERM_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subscriptionTerm;
+
+/**
+ *  Required. Subscription tier information for the license config.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceBusiness
+ *        Agentspace Business tier. (Value:
+ *        "SUBSCRIPTION_TIER_AGENTSPACE_BUSINESS")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierAgentspaceStarter
+ *        Agentspace Starter tier. (Value:
+ *        "SUBSCRIPTION_TIER_AGENTSPACE_STARTER")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierEdu
+ *        EDU tier. (Value: "SUBSCRIPTION_TIER_EDU")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierEduEmerging
+ *        EDU emerging market tier. (Value: "SUBSCRIPTION_TIER_EDU_EMERGING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierEduPro
+ *        EDU Pro tier. (Value: "SUBSCRIPTION_TIER_EDU_PRO")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierEduProEmerging
+ *        EDU Pro emerging market tier. (Value:
+ *        "SUBSCRIPTION_TIER_EDU_PRO_EMERGING")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierEnterprise
+ *        Enterprise tier. (Value: "SUBSCRIPTION_TIER_ENTERPRISE")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierFrontlineWorker
+ *        Frontline worker tier. (Value: "SUBSCRIPTION_TIER_FRONTLINE_WORKER")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierNotebookLm
+ *        NotebookLM tier. NotebookLM is a subscription tier can only access
+ *        NotebookLM features. (Value: "SUBSCRIPTION_TIER_NOTEBOOK_LM")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierSearch
+ *        Search tier. Search tier can access VAIS search features and
+ *        NotebookLM features. (Value: "SUBSCRIPTION_TIER_SEARCH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierSearchAndAssistant
+ *        Search + assistant tier. Search + assistant tier can access VAIS
+ *        search features, NotebookLM features and assistant features. (Value:
+ *        "SUBSCRIPTION_TIER_SEARCH_AND_ASSISTANT")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig_SubscriptionTier_SubscriptionTierUnspecified
+ *        Default value. (Value: "SUBSCRIPTION_TIER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *subscriptionTier;
+
+@end
+
+
+/**
  *  Response message for CmekConfigService.ListCmekConfigs method.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListCmekConfigsResponse : GTLRObject
@@ -26897,6 +30285,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 /** Output only. The timestamp when this project is created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Optional. Customer provided configurations. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectCustomerProvidedConfig *customerProvidedConfig;
+
 /**
  *  Output only. Full resource name of the project, for example
  *  `projects/{project}`. Note that when making requests, project number and
@@ -26932,6 +30323,56 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Project_ServiceTermsMap : GTLRObject
+@end
+
+
+/**
+ *  Customer provided configurations.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectCustomerProvidedConfig : GTLRObject
+
+/** Optional. Configuration for NotebookLM settings. */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectCustomerProvidedConfigNotebooklmConfig *notebooklmConfig;
+
+@end
+
+
+/**
+ *  Configuration for NotebookLM.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectCustomerProvidedConfigNotebooklmConfig : GTLRObject
+
+/**
+ *  Model Armor configuration to be used for sanitizing user prompts and LLM
+ *  responses.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectCustomerProvidedConfigNotebooklmConfigModelArmorConfig *modelArmorConfig;
+
+@end
+
+
+/**
+ *  Configuration for customer defined Model Armor templates to be used for
+ *  sanitizing user prompts and LLM responses.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectCustomerProvidedConfigNotebooklmConfigModelArmorConfig : GTLRObject
+
+/**
+ *  Optional. The resource name of the Model Armor Template for sanitizing LLM
+ *  responses. Format:
+ *  projects/{project}/locations/{location}/templates/{template_id} If not
+ *  specified, no sanitization will be applied to the LLM response.
+ */
+@property(nonatomic, copy, nullable) NSString *responseTemplate;
+
+/**
+ *  Optional. The resource name of the Model Armor Template for sanitizing user
+ *  prompts. Format:
+ *  projects/{project}/locations/{location}/templates/{template_id} If not
+ *  specified, no sanitization will be applied to the user prompt.
+ */
+@property(nonatomic, copy, nullable) NSString *userPromptTemplate;
+
 @end
 
 
@@ -27035,6 +30476,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *acceptBizQos;
+
+/**
+ *  Optional. Indicates if the current request is for Biz edition (= true) or
+ *  not (= false).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isBiz;
 
 @end
 
@@ -28010,10 +31459,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, copy, nullable) NSString *languageCode;
 
 /**
+ *  Optional. Config for natural language query understanding capabilities, such
+ *  as extracting structured field filters from the query. Refer to [this
+ *  documentation](https://cloud.google.com/generative-ai-app-builder/docs/natural-language-queries)
+ *  for more information. If `naturalLanguageQueryUnderstandingSpec` is not
+ *  specified, no additional natural language query understanding will be done.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec *naturalLanguageQueryUnderstandingSpec;
+
+/**
  *  A 0-indexed integer that specifies the current offset (that is, starting
  *  result location, amongst the Documents deemed by the API as relevant) in
  *  search results. This field is only considered if page_token is unset. If
- *  this field is negative, an `INVALID_ARGUMENT` is returned.
+ *  this field is negative, an `INVALID_ARGUMENT` is returned. A large offset
+ *  may be capped to a reasonable threshold.
  *
  *  Uses NSNumber of intValue.
  */
@@ -28987,6 +32446,77 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Specification to enable natural language understanding capabilities for
+ *  search requests.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec : GTLRObject
+
+/**
+ *  Optional. Allowlist of fields that can be used for natural language filter
+ *  extraction. By default, if this is unspecified, all indexable fields are
+ *  eligible for natural language filter extraction (but are not guaranteed to
+ *  be used). If any fields are specified in allowed_field_names, only the
+ *  fields that are both marked as indexable in the schema and specified in the
+ *  allowlist will be eligible for natural language filter extraction. Note: for
+ *  multi-datastore search, this is not yet supported, and will be ignored.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedFieldNames;
+
+/**
+ *  Optional. Controls behavior of how extracted filters are applied to the
+ *  search. The default behavior depends on the request. For single datastore
+ *  structured search, the default is `HARD_FILTER`. For multi-datastore search,
+ *  the default behavior is `SOFT_BOOST`. Location-based filters are always
+ *  applied as hard filters, and the `SOFT_BOOST` setting will not affect them.
+ *  This field is only used if
+ *  SearchRequest.natural_language_query_understanding_spec.filter_extraction_condition
+ *  is set to FilterExtractionCondition.ENABLED.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_ExtractedFilterBehavior_ExtractedFilterBehaviorUnspecified
+ *        `EXTRACTED_FILTER_BEHAVIOR_UNSPECIFIED` will use the default behavior
+ *        for extracted filters. For single datastore search, the default is to
+ *        apply as hard filters. For multi-datastore search, the default is to
+ *        apply as soft boosts. (Value: "EXTRACTED_FILTER_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_ExtractedFilterBehavior_HardFilter
+ *        Applies all extracted filters as hard filters on the results. Results
+ *        that do not pass the extracted filters will not be returned in the
+ *        result set. (Value: "HARD_FILTER")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_ExtractedFilterBehavior_SoftBoost
+ *        Applies all extracted filters as soft boosts. Results that pass the
+ *        filters will be boosted up to higher ranks in the result set. (Value:
+ *        "SOFT_BOOST")
+ */
+@property(nonatomic, copy, nullable) NSString *extractedFilterBehavior;
+
+/**
+ *  The condition under which filter extraction should occur. Server behavior
+ *  defaults to `DISABLED`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_FilterExtractionCondition_ConditionUnspecified
+ *        Server behavior defaults to `DISABLED`. (Value:
+ *        "CONDITION_UNSPECIFIED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_FilterExtractionCondition_Disabled
+ *        Disables NL filter extraction. (Value: "DISABLED")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestNaturalLanguageQueryUnderstandingSpec_FilterExtractionCondition_Enabled
+ *        Enables NL filter extraction. (Value: "ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *filterExtractionCondition;
+
+/**
+ *  Field names used for location-based filtering, where geolocation filters are
+ *  detected in natural language search queries. Only valid when the
+ *  FilterExtractionCondition is set to `ENABLED`. If this field is set, it
+ *  overrides the field names set in
+ *  ServingConfig.geo_search_query_detection_field_names.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *geoSearchQueryDetectionFieldNames;
+
+@end
+
+
+/**
  *  Specification to determine under which conditions query expansion should
  *  occur.
  */
@@ -29885,6 +33415,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Answer *detailedAnswer;
 
 /**
+ *  Output only. In ConversationalSearchService.GetSession API, if
+ *  GetSessionRequest.include_answer_details is set to true, this field will be
+ *  populated when getting assistant session.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistAnswer *detailedAssistAnswer;
+
+/**
  *  Optional. The user query. May not be set if this turn is merely regenerating
  *  an answer to a different turn
  */
@@ -29911,6 +33448,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        fetch them all at once.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SessionTurn_QueryConfig : GTLRObject
+@end
+
+
+/**
+ *  Metadata for DataConnectorService.SetUpDataConnector method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SetUpDataConnectorMetadata : GTLRObject
+@end
+
+
+/**
+ *  Request for DataConnectorService.SetUpDataConnector method.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SetUpDataConnectorRequest : GTLRObject
+
+/**
+ *  Required. The display name of the Collection. Should be human readable, used
+ *  to display collections in the Console Dashboard. UTF-8 encoded string with
+ *  limit of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *collectionDisplayName;
+
+/**
+ *  Required. The ID to use for the Collection, which will become the final
+ *  component of the Collection's resource name. A new Collection is created as
+ *  part of the DataConnector setup. DataConnector is a singleton resource under
+ *  Collection, managing all DataStores of the Collection. This field must
+ *  conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a
+ *  length limit of 63 characters. Otherwise, an INVALID_ARGUMENT error is
+ *  returned.
+ */
+@property(nonatomic, copy, nullable) NSString *collectionId;
+
+/**
+ *  Required. The DataConnector to initialize in the newly created Collection.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector *dataConnector;
+
 @end
 
 
@@ -30349,6 +33924,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 
 /**
+ *  Tenant information for a connector source. This includes some of the same
+ *  information stored in the Credential message, but is limited to only what is
+ *  needed to provide a list of accessible tenants to the user.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Tenant : GTLRObject
+
+/** Optional display name for the tenant, e.g. "My Slack Team". */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The tenant's instance ID. Examples: Jira
+ *  ("8594f221-9797-5f78-1fa4-485e198d7cd0"), Slack ("T123456").
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The URI of the tenant, if applicable. For example, the URI of a Jira
+ *  instance is https://my-jira-instance.atlassian.net, and a Slack tenant does
+ *  not have a URI.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Defines text input.
  */
 @interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1TextInput : GTLRObject
@@ -30711,13 +34314,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Search for Documents. * `view-item`: Detailed page view of a Document. *
  *  `view-item-list`: View of a panel or ordered list of Documents. *
  *  `view-home-page`: View of the home page. * `view-category-page`: View of a
- *  category page, e.g. Home > Men > Jeans * `add-feedback`: Add a user
- *  feedback. Retail-related values: * `add-to-cart`: Add an item(s) to cart,
- *  e.g. in Retail online shopping * `purchase`: Purchase an item(s)
- *  Media-related values: * `media-play`: Start/resume watching a video, playing
- *  a song, etc. * `media-complete`: Finished or stopped midway through a video,
- *  song, etc. Custom conversion value: * `conversion`: Customer defined
- *  conversion event.
+ *  category page, e.g. Home > Men > Jeans Retail-related values: *
+ *  `add-to-cart`: Add an item(s) to cart, e.g. in Retail online shopping *
+ *  `purchase`: Purchase an item(s) Media-related values: * `media-play`:
+ *  Start/resume watching a video, playing a song, etc. * `media-complete`:
+ *  Finished or stopped midway through a video, song, etc. Custom conversion
+ *  value: * `conversion`: Customer defined conversion event.
  */
 @property(nonatomic, copy, nullable) NSString *eventType;
 
@@ -31011,6 +34613,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDiscoveryEngine_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

@@ -325,25 +325,6 @@ NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_Networ
 NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_SslProxy = @"SSL_PROXY";
 NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_TcpProxy = @"TCP_PROXY";
 
-// GTLRNetworkManagement_MonitoringPoint.connectionStatus
-NSString * const kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_ConnectionStatusUnspecified = @"CONNECTION_STATUS_UNSPECIFIED";
-NSString * const kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_Offline = @"OFFLINE";
-NSString * const kGTLRNetworkManagement_MonitoringPoint_ConnectionStatus_Online = @"ONLINE";
-
-// GTLRNetworkManagement_MonitoringPoint.errors
-NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_DownloadFailed = @"DOWNLOAD_FAILED";
-NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
-NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_NtpError = @"NTP_ERROR";
-NSString * const kGTLRNetworkManagement_MonitoringPoint_Errors_UpgradeError = @"UPGRADE_ERROR";
-
-// GTLRNetworkManagement_MonitoringPoint.upgradeType
-NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Auto = @"AUTO";
-NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_External = @"EXTERNAL";
-NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Managed = @"MANAGED";
-NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Manual = @"MANUAL";
-NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_Scheduled = @"SCHEDULED";
-NSString * const kGTLRNetworkManagement_MonitoringPoint_UpgradeType_UpgradeTypeUnspecified = @"UPGRADE_TYPE_UNSPECIFIED";
-
 // GTLRNetworkManagement_NatInfo.type
 NSString * const kGTLRNetworkManagement_NatInfo_Type_CloudNat  = @"CLOUD_NAT";
 NSString * const kGTLRNetworkManagement_NatInfo_Type_ExternalToInternal = @"EXTERNAL_TO_INTERNAL";
@@ -351,32 +332,6 @@ NSString * const kGTLRNetworkManagement_NatInfo_Type_GkePodIpMasquerading = @"GK
 NSString * const kGTLRNetworkManagement_NatInfo_Type_InternalToExternal = @"INTERNAL_TO_EXTERNAL";
 NSString * const kGTLRNetworkManagement_NatInfo_Type_PrivateServiceConnect = @"PRIVATE_SERVICE_CONNECT";
 NSString * const kGTLRNetworkManagement_NatInfo_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
-
-// GTLRNetworkManagement_NetworkMonitoringProvider.providerType
-NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_ProviderType_External = @"EXTERNAL";
-NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_ProviderType_ProviderTypeUnspecified = @"PROVIDER_TYPE_UNSPECIFIED";
-
-// GTLRNetworkManagement_NetworkMonitoringProvider.state
-NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Activating = @"ACTIVATING";
-NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Active = @"ACTIVE";
-NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Deleted = @"DELETED";
-NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Deleting = @"DELETING";
-NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Suspended = @"SUSPENDED";
-NSString * const kGTLRNetworkManagement_NetworkMonitoringProvider_State_Suspending = @"SUSPENDING";
-
-// GTLRNetworkManagement_NetworkPath.monitoringStatus
-NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_Disabled = @"DISABLED";
-NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_Monitoring = @"MONITORING";
-NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_MonitoringPointOffline = @"MONITORING_POINT_OFFLINE";
-NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_MonitoringStatusUnspecified = @"MONITORING_STATUS_UNSPECIFIED";
-NSString * const kGTLRNetworkManagement_NetworkPath_MonitoringStatus_PolicyMismatch = @"POLICY_MISMATCH";
-
-// GTLRNetworkManagement_NetworkPath.networkProtocol
-NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Icmp = @"ICMP";
-NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_NetworkProtocolUnspecified = @"NETWORK_PROTOCOL_UNSPECIFIED";
-NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Tcp = @"TCP";
-NSString * const kGTLRNetworkManagement_NetworkPath_NetworkProtocol_Udp = @"UDP";
 
 // GTLRNetworkManagement_ProbingDetails.abortCause
 NSString * const kGTLRNetworkManagement_ProbingDetails_AbortCause_NoSourceLocation = @"NO_SOURCE_LOCATION";
@@ -389,13 +344,6 @@ NSString * const kGTLRNetworkManagement_ProbingDetails_Result_ReachabilityIncons
 NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Reachable = @"REACHABLE";
 NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Undetermined = @"UNDETERMINED";
 NSString * const kGTLRNetworkManagement_ProbingDetails_Result_Unreachable = @"UNREACHABLE";
-
-// GTLRNetworkManagement_ProviderTag.resourceType
-NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPoint = @"MONITORING_POINT";
-NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_MonitoringPolicy = @"MONITORING_POLICY";
-NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_NetworkPath = @"NETWORK_PATH";
-NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
-NSString * const kGTLRNetworkManagement_ProviderTag_ResourceType_WebPath = @"WEB_PATH";
 
 // GTLRNetworkManagement_ReachabilityDetails.result
 NSString * const kGTLRNetworkManagement_ReachabilityDetails_Result_Ambiguous = @"AMBIGUOUS";
@@ -518,18 +466,6 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_Dynamic = @"DY
 NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_PolicyBased = @"POLICY_BASED";
 NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RouteBased = @"ROUTE_BASED";
 NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUnspecified = @"ROUTING_TYPE_UNSPECIFIED";
-
-// GTLRNetworkManagement_WebPath.monitoringStatus
-NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_Disabled = @"DISABLED";
-NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_Monitoring = @"MONITORING";
-NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_MonitoringPointOffline = @"MONITORING_POINT_OFFLINE";
-NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_MonitoringStatusUnspecified = @"MONITORING_STATUS_UNSPECIFIED";
-NSString * const kGTLRNetworkManagement_WebPath_MonitoringStatus_PolicyMismatch = @"POLICY_MISMATCH";
-
-// GTLRNetworkManagement_WebPath.workflowType
-NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_Browser = @"BROWSER";
-NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_Http = @"HTTP";
-NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspecified = @"WORKFLOW_TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -876,16 +812,6 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetworkManagement_GeoLocation
-//
-
-@implementation GTLRNetworkManagement_GeoLocation
-@dynamic country, formattedAddress;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRNetworkManagement_GKEMasterInfo
 //
 
@@ -901,25 +827,6 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 
 @implementation GTLRNetworkManagement_GoogleServiceInfo
 @dynamic googleServiceType, sourceIp;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkManagement_Host
-//
-
-@implementation GTLRNetworkManagement_Host
-@dynamic cloudInstanceId, cloudProjectId, cloudProvider, cloudRegion,
-         cloudVirtualNetworkIds, cloudVpcId, cloudZone, os;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"cloudVirtualNetworkIds" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -1039,81 +946,16 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetworkManagement_ListMonitoringPointsResponse
-//
-
-@implementation GTLRNetworkManagement_ListMonitoringPointsResponse
-@dynamic monitoringPoints, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"monitoringPoints" : [GTLRNetworkManagement_MonitoringPoint class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"monitoringPoints";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkManagement_ListNetworkMonitoringProvidersResponse
-//
-
-@implementation GTLRNetworkManagement_ListNetworkMonitoringProvidersResponse
-@dynamic networkMonitoringProviders, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"networkMonitoringProviders" : [GTLRNetworkManagement_NetworkMonitoringProvider class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"networkMonitoringProviders";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkManagement_ListNetworkPathsResponse
-//
-
-@implementation GTLRNetworkManagement_ListNetworkPathsResponse
-@dynamic networkPaths, nextPageToken;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"networkPaths" : [GTLRNetworkManagement_NetworkPath class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"networkPaths";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRNetworkManagement_ListOperationsResponse
 //
 
 @implementation GTLRNetworkManagement_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRNetworkManagement_Operation class]
+    @"operations" : [GTLRNetworkManagement_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1143,28 +985,6 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 
 + (NSString *)collectionItemsKey {
   return @"vpcFlowLogsConfigs";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkManagement_ListWebPathsResponse
-//
-
-@implementation GTLRNetworkManagement_ListWebPathsResponse
-@dynamic nextPageToken, webPaths;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"webPaths" : [GTLRNetworkManagement_WebPath class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"webPaths";
 }
 
 @end
@@ -1260,29 +1080,6 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRNetworkManagement_MonitoringPoint
-//
-
-@implementation GTLRNetworkManagement_MonitoringPoint
-@dynamic autoGeoLocationEnabled, connectionStatus, createTime, displayName,
-         errors, geoLocation, host, hostname, name, networkInterfaces,
-         originatingIp, providerTags, type, updateTime, upgradeAvailable,
-         upgradeType, version;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [NSString class],
-    @"networkInterfaces" : [GTLRNetworkManagement_NetworkInterface class],
-    @"providerTags" : [GTLRNetworkManagement_ProviderTag class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRNetworkManagement_NatInfo
 //
 
@@ -1300,56 +1097,6 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 
 @implementation GTLRNetworkManagement_NetworkInfo
 @dynamic displayName, matchedIpRange, matchedSubnetUri, region, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkManagement_NetworkInterface
-//
-
-@implementation GTLRNetworkManagement_NetworkInterface
-@dynamic adapterDescription, cidr, interfaceName, ipAddress, macAddress, speed,
-         vlanId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkManagement_NetworkMonitoringProvider
-//
-
-@implementation GTLRNetworkManagement_NetworkMonitoringProvider
-@dynamic createTime, errors, name, providerType, providerUri, state, updateTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkManagement_NetworkPath
-//
-
-@implementation GTLRNetworkManagement_NetworkPath
-@dynamic createTime, destination, destinationGeoLocation, displayName,
-         dualEnded, monitoringEnabled, monitoringPolicyDisplayName,
-         monitoringPolicyId, monitoringStatus, name, networkProtocol,
-         providerTags, providerUiUri, sourceMonitoringPointId, updateTime;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"providerTags" : [GTLRNetworkManagement_ProviderTag class]
-  };
-  return map;
-}
-
 @end
 
 
@@ -1442,16 +1189,6 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
   return map;
 }
 
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkManagement_ProviderTag
-//
-
-@implementation GTLRNetworkManagement_ProviderTag
-@dynamic category, resourceType, value;
 @end
 
 
@@ -1814,25 +1551,4 @@ NSString * const kGTLRNetworkManagement_WebPath_WorkflowType_WorkflowTypeUnspeci
 @implementation GTLRNetworkManagement_VpnTunnelInfo
 @dynamic displayName, networkUri, region, remoteGateway, remoteGatewayIp,
          routingType, sourceGateway, sourceGatewayIp, uri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRNetworkManagement_WebPath
-//
-
-@implementation GTLRNetworkManagement_WebPath
-@dynamic createTime, destination, displayName, interval, monitoringEnabled,
-         monitoringPolicyDisplayName, monitoringPolicyId, monitoringStatus,
-         name, providerTags, providerUiUri, relatedNetworkPathId,
-         sourceMonitoringPointId, updateTime, workflowType;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"providerTags" : [GTLRNetworkManagement_ProviderTag class]
-  };
-  return map;
-}
-
 @end

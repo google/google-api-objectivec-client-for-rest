@@ -957,7 +957,7 @@ NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspecified = @"INSTANCE_
 
 @implementation GTLRCloudAlloyDBAdminQuery_ProjectsLocationsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

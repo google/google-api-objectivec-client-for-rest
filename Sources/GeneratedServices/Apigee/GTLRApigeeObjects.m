@@ -36,6 +36,7 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_Enabling =
 
 // GTLRApigee_GoogleCloudApigeeV1ApiProduct.quotaCounterScope
 NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Operation = @"OPERATION";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Product = @"PRODUCT";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_Proxy = @"PROXY";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProduct_QuotaCounterScope_QuotaCounterScopeUnspecified = @"QUOTA_COUNTER_SCOPE_UNSPECIFIED";
 
@@ -166,6 +167,21 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Creating = @"CREA
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Deleting = @"DELETING";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Instance_State_Updating = @"UPDATING";
+
+// GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy.maintenanceChannel
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy_MaintenanceChannel_MaintenanceChannelUnspecified = @"MAINTENANCE_CHANNEL_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy_MaintenanceChannel_Week1 = @"WEEK1";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy_MaintenanceChannel_Week2 = @"WEEK2";
+
+// GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow.day
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Friday = @"FRIDAY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Monday = @"MONDAY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Saturday = @"SATURDAY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Sunday = @"SUNDAY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Thursday = @"THURSDAY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Tuesday = @"TUESDAY";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow_Day_Wednesday = @"WEDNESDAY";
 
 // GTLRApigee_GoogleCloudApigeeV1MetricAggregation.aggregation
 NSString * const kGTLRApigee_GoogleCloudApigeeV1MetricAggregation_Aggregation_AggregationFunctionUnspecified = @"AGGREGATION_FUNCTION_UNSPECIFIED";
@@ -2308,7 +2324,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 @implementation GTLRApigee_GoogleCloudApigeeV1Instance
 @dynamic accessLoggingConfig, consumerAcceptList, createdAt,
          descriptionProperty, diskEncryptionKeyName, displayName, host, ipRange,
-         lastModifiedAt, location, name, peeringCidrRange, port, runtimeVersion,
+         isVersionLocked, lastModifiedAt, location, maintenanceUpdatePolicy,
+         name, peeringCidrRange, port, runtimeVersion, scheduledMaintenance,
          serviceAttachment, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -3312,6 +3329,34 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy
+@dynamic maintenanceChannel, maintenanceWindows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"maintenanceWindows" : [GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow
+@dynamic day, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRApigee_GoogleCloudApigeeV1Metadata
 //
 
@@ -4261,6 +4306,16 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig
 @dynamic sampler, samplingRate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleCloudApigeeV1ScheduledMaintenance
+//
+
+@implementation GTLRApigee_GoogleCloudApigeeV1ScheduledMaintenance
+@dynamic startTime;
 @end
 
 
@@ -5376,11 +5431,12 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRApigee_GoogleLongrunningOperation class]
+    @"operations" : [GTLRApigee_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -5536,4 +5592,14 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleTypeMoney
 @dynamic currencyCode, nanos, units;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRApigee_GoogleTypeTimeOfDay
+//
+
+@implementation GTLRApigee_GoogleTypeTimeOfDay
+@dynamic hours, minutes, nanos, seconds;
 @end

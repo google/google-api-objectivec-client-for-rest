@@ -35,6 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRWebfontsCapabilityCapabilityUnspecified;
 /**
+ *  Include tags that apply to the entire family in the response.
+ *
+ *  Value: "FAMILY_TAGS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWebfontsCapabilityFamilyTags;
+/**
  *  Prefer variable font files instead of static fonts instantiated at standard
  *  weights.
  *
@@ -121,6 +127,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWebfontsSortTrending;
  *        (Value: "WOFF2")
  *    @arg @c kGTLRWebfontsCapabilityVf Prefer variable font files instead of
  *        static fonts instantiated at standard weights. (Value: "VF")
+ *    @arg @c kGTLRWebfontsCapabilityFamilyTags Include tags that apply to the
+ *        entire family in the response. (Value: "FAMILY_TAGS")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *capability;
 

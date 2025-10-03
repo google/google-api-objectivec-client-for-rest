@@ -434,6 +434,31 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_AlloyDbClusterBackupProperties
+//
+
+@implementation GTLRBackupdr_AlloyDbClusterBackupProperties
+@dynamic chainId, databaseVersion, descriptionProperty, storedBytes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_AlloyDBClusterDataSourceProperties
+//
+
+@implementation GTLRBackupdr_AlloyDBClusterDataSourceProperties
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_AttachedDisk
 //
 
@@ -501,12 +526,12 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_Backup
-@dynamic backupApplianceBackupProperties, backupApplianceLocks, backupType,
-         cloudSqlInstanceBackupProperties, computeInstanceBackupProperties,
-         consistencyTime, createTime, descriptionProperty, diskBackupProperties,
-         enforcedRetentionEndTime, ETag, expireTime, gcpBackupPlanInfo, labels,
-         name, resourceSizeBytes, satisfiesPzi, satisfiesPzs, serviceLocks,
-         state, updateTime;
+@dynamic alloyDbBackupProperties, backupApplianceBackupProperties,
+         backupApplianceLocks, backupType, cloudSqlInstanceBackupProperties,
+         computeInstanceBackupProperties, consistencyTime, createTime,
+         descriptionProperty, diskBackupProperties, enforcedRetentionEndTime,
+         ETag, expireTime, gcpBackupPlanInfo, labels, name, resourceSizeBytes,
+         satisfiesPzi, satisfiesPzs, serviceLocks, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1044,7 +1069,8 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_DataSourceGcpResource
-@dynamic cloudSqlInstanceDatasourceProperties,
+@dynamic alloyDbClusterDatasourceProperties,
+         cloudSqlInstanceDatasourceProperties,
          computeInstanceDatasourceProperties, diskDatasourceProperties,
          gcpResourcename, location, type;
 @end

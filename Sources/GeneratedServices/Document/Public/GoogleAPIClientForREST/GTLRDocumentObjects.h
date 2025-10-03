@@ -17,7 +17,10 @@
 #endif
 
 @class GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRule;
+@class GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule;
+@class GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleChildAlignmentRule;
 @class GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleConstant;
+@class GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleEntityAlignmentRule;
 @class GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleField;
 @class GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFieldOccurrences;
 @class GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFieldRegex;
@@ -180,6 +183,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule.alignmentType
+
+/** Value: "ALIGNMENT_TYPE_HORIZONTAL" */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule_AlignmentType_AlignmentTypeHorizontal;
+/** Value: "ALIGNMENT_TYPE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule_AlignmentType_AlignmentTypeUnspecified;
+/** Value: "ALIGNMENT_TYPE_VERTICAL" */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule_AlignmentType_AlignmentTypeVertical;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation.validationOperator
@@ -1358,6 +1371,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRule : GTLRObject
 
+@property(nonatomic, strong, nullable) GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleChildAlignmentRule *childAlignmentRule;
+
 /**
  *  Description of the validation rule. This has no use but for documentation
  *
@@ -1365,12 +1380,61 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+@property(nonatomic, strong, nullable) GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleEntityAlignmentRule *entityAlignmentRule;
 @property(nonatomic, strong, nullable) GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFieldOccurrences *fieldOccurrences;
 @property(nonatomic, strong, nullable) GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFieldRegex *fieldRegex;
 @property(nonatomic, strong, nullable) GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleFormValidation *formValidation;
 
 /** Name of the validation rule. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  A rule for checking field alignment. Horizontal alignment checks if fields
+ *  are on the same row by comparing y-coordinates of bounding box centers,
+ *  while vertical alignment checks if fields are on the same column by
+ *  comparing x-coordinates of bounding box centers.
+ */
+@interface GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule : GTLRObject
+
+/**
+ *  alignmentType
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule_AlignmentType_AlignmentTypeHorizontal
+ *        Value "ALIGNMENT_TYPE_HORIZONTAL"
+ *    @arg @c kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule_AlignmentType_AlignmentTypeUnspecified
+ *        Value "ALIGNMENT_TYPE_UNSPECIFIED"
+ *    @arg @c kGTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule_AlignmentType_AlignmentTypeVertical
+ *        Value "ALIGNMENT_TYPE_VERTICAL"
+ */
+@property(nonatomic, copy, nullable) NSString *alignmentType;
+
+/**
+ *  The tolerance to use when comparing coordinates.
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *tolerance;
+
+@end
+
+
+/**
+ *  A rule that aligns specified child fields with a parent field.
+ */
+@interface GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleChildAlignmentRule : GTLRObject
+
+/** The alignment rule to apply to the child fields. */
+@property(nonatomic, strong, nullable) GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule *alignmentRule;
+
+/** The child fields to be aligned within the parent field. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleField *> *childFields;
+
+/** The full path of the parent field. */
+@property(nonatomic, strong, nullable) GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleField *parentField;
 
 @end
 
@@ -1386,6 +1450,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *floatValue;
+
+@end
+
+
+/**
+ *  A rule that aligns specified fields with each other.
+ */
+@interface GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleEntityAlignmentRule : GTLRObject
+
+/** The alignment rule to apply to the fields. */
+@property(nonatomic, strong, nullable) GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleAlignmentRule *alignmentRule;
+
+/** The fields to be aligned. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleField *> *fields;
 
 @end
 
@@ -6805,7 +6883,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions : GTLRObject
 
 /**
- *  Training method to use for CDE training.
+ *  Optional. Training method to use for CDE training.
  *
  *  Likely values:
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestCustomDocumentExtractionOptions_TrainingMethod_ModelBased
@@ -7023,6 +7101,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

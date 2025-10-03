@@ -252,11 +252,12 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 //
 
 @implementation GTLRStorageBatchOperations_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRStorageBatchOperations_Operation class]
+    @"operations" : [GTLRStorageBatchOperations_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

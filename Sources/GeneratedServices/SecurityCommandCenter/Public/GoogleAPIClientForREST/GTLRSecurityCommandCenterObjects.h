@@ -328,6 +328,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_DeploymentPlatformUnspecified;
 /**
+ *  Fine tuned model.
+ *
+ *  Value: "FINE_TUNED_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_FineTunedModel;
+/**
+ *  Google Compute Engine.
+ *
+ *  Value: "GCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_Gce;
+/**
  *  Google Kubernetes Engine.
  *
  *  Value: "GKE"
@@ -931,6 +943,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Oper
  *  Value: "EVENT_TYPE_MAX_TTL_EXCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded;
+/**
+ *  Max TTL from the asset's creation time.
+ *
+ *  Value: "EVENT_TYPE_MAX_TTL_FROM_CREATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromCreation;
+/**
+ *  Max TTL from the asset's last modification time.
+ *
+ *  Value: "EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification;
 /**
  *  Unspecified event type.
  *
@@ -1808,6 +1832,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_DeploymentPlatformUnspecified;
 /**
+ *  Fine tuned model.
+ *
+ *  Value: "FINE_TUNED_MODEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_FineTunedModel;
+/**
+ *  Google Compute Engine.
+ *
+ *  Value: "GCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_Gce;
+/**
  *  Google Kubernetes Engine.
  *
  *  Value: "GKE"
@@ -2302,6 +2338,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "EVENT_TYPE_MAX_TTL_EXCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded;
+/**
+ *  Max TTL from the asset's creation time.
+ *
+ *  Value: "EVENT_TYPE_MAX_TTL_FROM_CREATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromCreation;
+/**
+ *  Max TTL from the asset's last modification time.
+ *
+ *  Value: "EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification;
 /**
  *  Unspecified event type.
  *
@@ -7587,6 +7635,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *    @arg @c kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_DeploymentPlatformUnspecified
  *        Unspecified deployment platform. (Value:
  *        "DEPLOYMENT_PLATFORM_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_FineTunedModel
+ *        Fine tuned model. (Value: "FINE_TUNED_MODEL")
+ *    @arg @c kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_Gce Google
+ *        Compute Engine. (Value: "GCE")
  *    @arg @c kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_Gke Google
  *        Kubernetes Engine. (Value: "GKE")
  *    @arg @c kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_VertexAi
@@ -9344,6 +9396,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *    @arg @c kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded
  *        The maximum retention time has been exceeded. (Value:
  *        "EVENT_TYPE_MAX_TTL_EXCEEDED")
+ *    @arg @c kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromCreation
+ *        Max TTL from the asset's creation time. (Value:
+ *        "EVENT_TYPE_MAX_TTL_FROM_CREATION")
+ *    @arg @c kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification
+ *        Max TTL from the asset's last modification time. (Value:
+ *        "EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION")
  *    @arg @c kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeUnspecified
  *        Unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
  */
@@ -11785,6 +11843,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_DeploymentPlatformUnspecified
  *        Unspecified deployment platform. (Value:
  *        "DEPLOYMENT_PLATFORM_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_FineTunedModel
+ *        Fine tuned model. (Value: "FINE_TUNED_MODEL")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_Gce
+ *        Google Compute Engine. (Value: "GCE")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_Gke
  *        Google Kubernetes Engine. (Value: "GKE")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_VertexAi
@@ -13132,6 +13194,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded
  *        The maximum retention time has been exceeded. (Value:
  *        "EVENT_TYPE_MAX_TTL_EXCEEDED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromCreation
+ *        Max TTL from the asset's creation time. (Value:
+ *        "EVENT_TYPE_MAX_TTL_FROM_CREATION")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification
+ *        Max TTL from the asset's last modification time. (Value:
+ *        "EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified
  *        Unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
  */

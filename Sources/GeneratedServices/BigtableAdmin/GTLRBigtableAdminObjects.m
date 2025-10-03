@@ -394,7 +394,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_CreateBackupMetadata
-@dynamic endTime, name, sourceTable, startTime;
+@dynamic endTime, finishTime, name, requestTime, sourceTable, startTime;
 @end
 
 
@@ -472,7 +472,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_CreateLogicalViewMetadata
-@dynamic endTime, originalRequest, startTime;
+@dynamic endTime, finishTime, originalRequest, requestTime, startTime;
 @end
 
 
@@ -492,7 +492,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_CreateMaterializedViewMetadata
-@dynamic endTime, originalRequest, startTime;
+@dynamic endTime, finishTime, originalRequest, requestTime, startTime;
 @end
 
 
@@ -512,7 +512,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_CreateSchemaBundleMetadata
-@dynamic endTime, name, startTime;
+@dynamic finishTime, name, requestTime;
 @end
 
 
@@ -1873,7 +1873,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_UndeleteTableMetadata
-@dynamic endTime, name, startTime;
+@dynamic endTime, finishTime, name, requestTime, startTime;
 @end
 
 
@@ -1959,7 +1959,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_UpdateLogicalViewMetadata
-@dynamic endTime, originalRequest, startTime;
+@dynamic endTime, finishTime, originalRequest, requestTime, startTime;
 @end
 
 
@@ -1979,7 +1979,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_UpdateSchemaBundleMetadata
-@dynamic endTime, name, startTime;
+@dynamic finishTime, name, requestTime;
 @end
 
 
@@ -1989,7 +1989,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_UpdateTableMetadata
-@dynamic endTime, name, startTime;
+@dynamic endTime, finishTime, name, requestTime, startTime;
 @end
 
 #pragma clang diagnostic pop

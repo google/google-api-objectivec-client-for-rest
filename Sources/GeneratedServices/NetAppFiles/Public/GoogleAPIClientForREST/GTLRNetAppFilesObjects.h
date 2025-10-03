@@ -26,6 +26,8 @@
 @class GTLRNetAppFiles_BackupRetentionPolicy;
 @class GTLRNetAppFiles_BackupVault;
 @class GTLRNetAppFiles_BackupVault_Labels;
+@class GTLRNetAppFiles_CacheConfig;
+@class GTLRNetAppFiles_CacheParameters;
 @class GTLRNetAppFiles_DailySchedule;
 @class GTLRNetAppFiles_DestinationVolumeParameters;
 @class GTLRNetAppFiles_ExportPolicy;
@@ -298,6 +300,42 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_State_StateUnspe
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_CacheParameters.cacheState
+
+/**
+ *  Default unspecified state.
+ *
+ *  Value: "CACHE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_CacheStateUnspecified;
+/**
+ *  Terminal state wherein peering with origin volume's ONTAP cluster has
+ *  failed.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_Error;
+/**
+ *  State indicating successful establishment of peering with origin volumes's
+ *  ONTAP cluster.
+ *
+ *  Value: "PEERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_Peered;
+/**
+ *  State indicating waiting for cluster peering to be established.
+ *
+ *  Value: "PENDING_CLUSTER_PEERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_PendingClusterPeering;
+/**
+ *  State indicating waiting for SVM peering to be established.
+ *
+ *  Value: "PENDING_SVM_PEERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_PendingSvmPeering;
 
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_HybridReplicationParameters.hybridReplicationType
@@ -1898,6 +1936,96 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 
 /**
+ *  Configuration of the cache volume.
+ */
+@interface GTLRNetAppFiles_CacheConfig : GTLRObject
+
+/**
+ *  Optional. Flag indicating whether a CIFS change notification is enabled for
+ *  the FlexCache volume.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *cifsChangeNotifyEnabled;
+
+@end
+
+
+/**
+ *  Cache Parameters for the volume.
+ */
+@interface GTLRNetAppFiles_CacheParameters : GTLRObject
+
+/** Optional. Configuration of the cache volume. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_CacheConfig *cacheConfig;
+
+/**
+ *  Output only. State of the cache volume indicating the peering status.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_CacheParameters_CacheState_CacheStateUnspecified
+ *        Default unspecified state. (Value: "CACHE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetAppFiles_CacheParameters_CacheState_Error Terminal state
+ *        wherein peering with origin volume's ONTAP cluster has failed. (Value:
+ *        "ERROR")
+ *    @arg @c kGTLRNetAppFiles_CacheParameters_CacheState_Peered State
+ *        indicating successful establishment of peering with origin volumes's
+ *        ONTAP cluster. (Value: "PEERED")
+ *    @arg @c kGTLRNetAppFiles_CacheParameters_CacheState_PendingClusterPeering
+ *        State indicating waiting for cluster peering to be established.
+ *        (Value: "PENDING_CLUSTER_PEERING")
+ *    @arg @c kGTLRNetAppFiles_CacheParameters_CacheState_PendingSvmPeering
+ *        State indicating waiting for SVM peering to be established. (Value:
+ *        "PENDING_SVM_PEERING")
+ */
+@property(nonatomic, copy, nullable) NSString *cacheState;
+
+/**
+ *  Output only. Copy-paste-able commands to be used on user's ONTAP to accept
+ *  peering requests.
+ */
+@property(nonatomic, copy, nullable) NSString *command;
+
+/**
+ *  Optional. Field indicating whether cache volume as global file lock enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableGlobalFileLock;
+
+/**
+ *  Output only. Temporary passphrase generated to accept cluster peering
+ *  command.
+ */
+@property(nonatomic, copy, nullable) NSString *passphrase;
+
+/** Required. Name of the origin volume's ONTAP cluster. */
+@property(nonatomic, copy, nullable) NSString *peerClusterName;
+
+/**
+ *  Optional. Expiration time for the peering command to be executed on user's
+ *  ONTAP.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *peeringCommandExpiryTime;
+
+/**
+ *  Required. List of IC LIF addresses of the origin volume's ONTAP cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *peerIpAddresses;
+
+/** Required. Name of the origin volume's SVM. */
+@property(nonatomic, copy, nullable) NSString *peerSvmName;
+
+/** Required. Name of the origin volume for the cache volume. */
+@property(nonatomic, copy, nullable) NSString *peerVolumeName;
+
+/** Output only. Detailed description of the current cache state. */
+@property(nonatomic, copy, nullable) NSString *stateDetails;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRNetAppFiles_CancelOperationRequest : GTLRObject
@@ -3182,6 +3310,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 
 /**
+ *  RestoreBackupFilesRequest restores files from a backup to a volume.
+ */
+@interface GTLRNetAppFiles_RestoreBackupFilesRequest : GTLRObject
+
+/**
+ *  Required. The backup resource name, in the format
+ *  `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}/backups/{backup_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *backup;
+
+/**
+ *  Required. List of files to be restored in the form of their absolute path as
+ *  in source volume.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileList;
+
+/** Optional. Absolute directory path in the destination volume. */
+@property(nonatomic, copy, nullable) NSString *restoreDestinationPath;
+
+@end
+
+
+/**
  *  The RestoreParameters if volume is created from a snapshot or backup.
  */
 @interface GTLRNetAppFiles_RestoreParameters : GTLRObject
@@ -3959,6 +4110,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /** BackupConfig of the volume. */
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_BackupConfig *backupConfig;
+
+/** Optional. Cache parameters for the volume. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_CacheParameters *cacheParameters;
 
 /**
  *  Required. Capacity in GIB of the volume

@@ -176,6 +176,125 @@
 
 @end
 
+@implementation GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalCreate
+
+@dynamic parent, replicationInternalId, requestId, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRSaaSServiceManagement_ReplicationInternal *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/replicationsInternal";
+  GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSaaSServiceManagement_ReplicationInternal class];
+  query.loggingName = @"saasservicemgmt.projects.locations.replicationsInternal.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalDelete
+
+@dynamic ETag, name, requestId, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSaaSServiceManagement_Empty class];
+  query.loggingName = @"saasservicemgmt.projects.locations.replicationsInternal.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSaaSServiceManagement_ReplicationInternal class];
+  query.loggingName = @"saasservicemgmt.projects.locations.replicationsInternal.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1beta1/{+parent}/replicationsInternal";
+  GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRSaaSServiceManagement_ListReplicationsInternalResponse class];
+  query.loggingName = @"saasservicemgmt.projects.locations.replicationsInternal.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalPatch
+
+@dynamic ETag, name, requestId, updateMask, validateOnly;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithObject:(GTLRSaaSServiceManagement_ReplicationInternal *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1beta1/{+name}";
+  GTLRSaaSServiceManagementQuery_ProjectsLocationsReplicationsInternalPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRSaaSServiceManagement_ReplicationInternal class];
+  query.loggingName = @"saasservicemgmt.projects.locations.replicationsInternal.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRSaaSServiceManagementQuery_ProjectsLocationsRolloutKindsCreate
 
 @dynamic parent, requestId, rolloutKindId, validateOnly;

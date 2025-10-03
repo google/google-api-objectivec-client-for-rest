@@ -60,6 +60,13 @@ NSString * const kGTLRNetAppFiles_BackupVault_State_Ready      = @"READY";
 NSString * const kGTLRNetAppFiles_BackupVault_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_BackupVault_State_Updating   = @"UPDATING";
 
+// GTLRNetAppFiles_CacheParameters.cacheState
+NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_CacheStateUnspecified = @"CACHE_STATE_UNSPECIFIED";
+NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_Error = @"ERROR";
+NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_Peered = @"PEERED";
+NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_PendingClusterPeering = @"PENDING_CLUSTER_PEERING";
+NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_PendingSvmPeering = @"PENDING_SVM_PEERING";
+
 // GTLRNetAppFiles_HybridReplicationParameters.hybridReplicationType
 NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_ContinuousReplication = @"CONTINUOUS_REPLICATION";
 NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_Migration = @"MIGRATION";
@@ -428,6 +435,36 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_CacheConfig
+//
+
+@implementation GTLRNetAppFiles_CacheConfig
+@dynamic cifsChangeNotifyEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_CacheParameters
+//
+
+@implementation GTLRNetAppFiles_CacheParameters
+@dynamic cacheConfig, cacheState, command, enableGlobalFileLock, passphrase,
+         peerClusterName, peeringCommandExpiryTime, peerIpAddresses,
+         peerSvmName, peerVolumeName, stateDetails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"peerIpAddresses" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -1080,6 +1117,24 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetAppFiles_RestoreBackupFilesRequest
+//
+
+@implementation GTLRNetAppFiles_RestoreBackupFilesRequest
+@dynamic backup, fileList, restoreDestinationPath;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fileList" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetAppFiles_RestoreParameters
 //
 
@@ -1344,15 +1399,16 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_Volume
-@dynamic activeDirectory, backupConfig, capacityGib, coldTierSizeGib,
-         createTime, descriptionProperty, encryptionType, exportPolicy,
-         hasReplication, hotTierSizeUsedGib, hybridReplicationParameters,
-         kerberosEnabled, kmsConfig, labels, largeCapacity, ldapEnabled,
-         mountOptions, multipleEndpoints, name, network, protocols, psaRange,
-         replicaZone, restoreParameters, restrictedActions, securityStyle,
-         serviceLevel, shareName, smbSettings, snapReserve, snapshotDirectory,
-         snapshotPolicy, state, stateDetails, storagePool, throughputMibps,
-         tieringPolicy, unixPermissions, usedGib, zoneProperty;
+@dynamic activeDirectory, backupConfig, cacheParameters, capacityGib,
+         coldTierSizeGib, createTime, descriptionProperty, encryptionType,
+         exportPolicy, hasReplication, hotTierSizeUsedGib,
+         hybridReplicationParameters, kerberosEnabled, kmsConfig, labels,
+         largeCapacity, ldapEnabled, mountOptions, multipleEndpoints, name,
+         network, protocols, psaRange, replicaZone, restoreParameters,
+         restrictedActions, securityStyle, serviceLevel, shareName, smbSettings,
+         snapReserve, snapshotDirectory, snapshotPolicy, state, stateDetails,
+         storagePool, throughputMibps, tieringPolicy, unixPermissions, usedGib,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

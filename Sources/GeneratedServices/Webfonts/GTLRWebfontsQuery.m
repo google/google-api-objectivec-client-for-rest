@@ -18,6 +18,7 @@
 
 // capability
 NSString * const kGTLRWebfontsCapabilityCapabilityUnspecified = @"CAPABILITY_UNSPECIFIED";
+NSString * const kGTLRWebfontsCapabilityFamilyTags            = @"FAMILY_TAGS";
 NSString * const kGTLRWebfontsCapabilityVf                    = @"VF";
 NSString * const kGTLRWebfontsCapabilityWoff2                 = @"WOFF2";
 

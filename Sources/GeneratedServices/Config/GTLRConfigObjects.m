@@ -451,11 +451,12 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 //
 
 @implementation GTLRConfig_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRConfig_Operation class]
+    @"operations" : [GTLRConfig_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

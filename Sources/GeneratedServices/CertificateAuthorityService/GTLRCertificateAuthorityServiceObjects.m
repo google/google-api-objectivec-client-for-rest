@@ -849,11 +849,12 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCertificateAuthorityService_Operation class]
+    @"operations" : [GTLRCertificateAuthorityService_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

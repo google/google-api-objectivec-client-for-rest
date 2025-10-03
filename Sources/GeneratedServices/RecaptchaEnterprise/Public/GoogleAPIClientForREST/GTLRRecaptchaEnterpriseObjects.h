@@ -46,6 +46,7 @@
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1IpOverrideData;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Key_Labels;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneAuthenticationEvent;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PrivatePasswordLeakVerification;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RelatedAccountGroup;
@@ -1121,6 +1122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, copy, nullable) NSString *hashedAccountId;
 
+/**
+ *  Optional. If using an external multi-factor authentication provider, provide
+ *  phone authentication details for fraud detection purposes.
+ */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneAuthenticationEvent *phoneAuthenticationEvent;
+
 /** Optional. Reasons for the annotation that are assigned to the event. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reasons;
 
@@ -2159,6 +2166,26 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 
 /**
+ *  Details on a phone authentication event
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneAuthenticationEvent : GTLRObject
+
+/**
+ *  Optional. The time at which the multi-factor authentication event (challenge
+ *  or verification) occurred.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  Required. Phone number in E.164 format for which a multi-factor
+ *  authentication challenge was initiated, succeeded, or failed.
+ */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+@end
+
+
+/**
  *  Assessment for Phone Fraud
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneFraudAssessment : GTLRObject
@@ -2326,7 +2353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Output only. Challenge information for POLICY_BASED_CHALLENGE and INVISIBLE
- *  keys
+ *  keys.
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Challenge_ChallengeUnspecified

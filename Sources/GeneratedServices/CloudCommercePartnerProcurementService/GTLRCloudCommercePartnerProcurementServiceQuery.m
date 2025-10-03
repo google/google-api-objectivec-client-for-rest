@@ -10,6 +10,18 @@
 
 #import <GoogleAPIClientForREST/GTLRCloudCommercePartnerProcurementServiceQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// view
+NSString * const kGTLRCloudCommercePartnerProcurementServiceViewAccountViewBasic = @"ACCOUNT_VIEW_BASIC";
+NSString * const kGTLRCloudCommercePartnerProcurementServiceViewAccountViewFull = @"ACCOUNT_VIEW_FULL";
+NSString * const kGTLRCloudCommercePartnerProcurementServiceViewAccountViewUnspecified = @"ACCOUNT_VIEW_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRCloudCommercePartnerProcurementServiceQuery
 
 @dynamic fields;
@@ -45,7 +57,7 @@
 
 @implementation GTLRCloudCommercePartnerProcurementServiceQuery_ProvidersAccountsGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

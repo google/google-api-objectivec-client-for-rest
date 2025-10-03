@@ -498,11 +498,12 @@ NSString * const kGTLRAPIManagement_TagAction_Action_Remove    = @"REMOVE";
 //
 
 @implementation GTLRAPIManagement_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRAPIManagement_Operation class]
+    @"operations" : [GTLRAPIManagement_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

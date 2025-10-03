@@ -955,6 +955,62 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1LintResponse_S
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1LintResponse_State_LintStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest.action
+
+/**
+ *  Default unspecified action.
+ *
+ *  Value: "ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_Action_ActionUnspecified;
+/**
+ *  Delete data.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_Action_Delete;
+/**
+ *  Upload or upsert data.
+ *
+ *  Value: "UPLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_Action_Upload;
+
+// ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest.dataType
+
+/**
+ *  Default unspecified type.
+ *
+ *  Value: "DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_DataTypeUnspecified;
+/**
+ *  Environment manifest.
+ *
+ *  Value: "ENVIRONMENT_MANIFEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_EnvironmentManifest;
+/**
+ *  Proxy bundle.
+ *
+ *  Value: "PROXY_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_ProxyBundle;
+/**
+ *  Proxy deployment manifest.
+ *
+ *  Value: "PROXY_DEPLOYMENT_MANIFEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_ProxyDeploymentManifest;
+/**
+ *  Shared flow bundle.
+ *
+ *  Value: "SHARED_FLOW_BUNDLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_SharedFlowBundle;
+
+// ----------------------------------------------------------------------------
 // GTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails.format
 
 /**
@@ -4137,6 +4193,64 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  The ManagePluginInstanceSourceData method's request.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest : GTLRObject
+
+/**
+ *  Required. Action to be performed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_Action_ActionUnspecified
+ *        Default unspecified action. (Value: "ACTION_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_Action_Delete
+ *        Delete data. (Value: "DELETE")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_Action_Upload
+ *        Upload or upsert data. (Value: "UPLOAD")
+ */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Required. Data to be managed.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/**
+ *  Required. Type of data to be managed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_DataTypeUnspecified
+ *        Default unspecified type. (Value: "DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_EnvironmentManifest
+ *        Environment manifest. (Value: "ENVIRONMENT_MANIFEST")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_ProxyBundle
+ *        Proxy bundle. (Value: "PROXY_BUNDLE")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_ProxyDeploymentManifest
+ *        Proxy deployment manifest. (Value: "PROXY_DEPLOYMENT_MANIFEST")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_SharedFlowBundle
+ *        Shared flow bundle. (Value: "SHARED_FLOW_BUNDLE")
+ */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/**
+ *  Required. Relative path of data being managed for a given plugin instance.
+ */
+@property(nonatomic, copy, nullable) NSString *relativePath;
+
+@end
+
+
+/**
+ *  The ManagePluginInstanceSourceData method's response.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataResponse : GTLRObject
+@end
+
+
+/**
  *  MatchResult represents the result of matching a discovered API operation
  *  with a catalog API operation.
  */
@@ -4390,7 +4504,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1Plugin : GTLRObject
 
-/** Required. The configuration of actions supported by the plugin. */
+/**
+ *  Optional. The configuration of actions supported by the plugin.
+ *  **REQUIRED**: This field must be provided when creating or updating a
+ *  Plugin. The server will reject requests if this field is missing.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1PluginActionConfig *> *actionsConfig;
 
 /** Optional. The configuration template for the plugin. */

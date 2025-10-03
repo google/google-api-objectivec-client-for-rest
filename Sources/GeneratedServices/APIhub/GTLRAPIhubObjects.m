@@ -184,6 +184,18 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1LintResponse_State_LintStateErro
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1LintResponse_State_LintStateSuccess = @"LINT_STATE_SUCCESS";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1LintResponse_State_LintStateUnspecified = @"LINT_STATE_UNSPECIFIED";
 
+// GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest.action
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_Action_Delete = @"DELETE";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_Action_Upload = @"UPLOAD";
+
+// GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest.dataType
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_DataTypeUnspecified = @"DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_EnvironmentManifest = @"ENVIRONMENT_MANIFEST";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_ProxyBundle = @"PROXY_BUNDLE";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_ProxyDeploymentManifest = @"PROXY_DEPLOYMENT_MANIFEST";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest_DataType_SharedFlowBundle = @"SHARED_FLOW_BUNDLE";
+
 // GTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails.format
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails_Format_FormatUnspecified = @"FORMAT_UNSPECIFIED";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails_Format_OpenApiSpec20 = @"OPEN_API_SPEC_2_0";
@@ -1547,6 +1559,25 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1LookupRuntimeProjectAttachmentResponse
 @dynamic runtimeProjectAttachment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest
+@dynamic action, data, dataType, relativePath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataResponse
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataResponse
 @end
 
 

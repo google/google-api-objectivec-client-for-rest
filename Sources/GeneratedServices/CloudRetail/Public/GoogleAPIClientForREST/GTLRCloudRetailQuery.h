@@ -1934,6 +1934,53 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Performs a conversational search. This feature is only available for users
+ *  who have Conversational Search enabled.
+ *
+ *  Method: retail.projects.locations.catalogs.placements.conversationalSearch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsConversationalSearch : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the search engine placement, such as
+ *  `projects/ *
+ *  /locations/global/catalogs/default_catalog/placements/default_search` or
+ *  `projects/ *
+ *  /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
+ *  This field is used to identify the serving config name and the set of models
+ *  that will be used to make the search.
+ */
+@property(nonatomic, copy, nullable) NSString *placement;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse.
+ *
+ *  Performs a conversational search. This feature is only available for users
+ *  who have Conversational Search enabled.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest to include
+ *    in the query.
+ *  @param placement Required. The resource name of the search engine placement,
+ *    such as `projects/ *
+ *    /locations/global/catalogs/default_catalog/placements/default_search` or
+ *    `projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
+ *    This field is used to identify the serving config name and the set of
+ *    models that will be used to make the search.
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsPlacementsConversationalSearch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest *)object
+                      placement:(NSString *)placement;
+
+@end
+
+/**
  *  Makes a recommendation prediction.
  *
  *  Method: retail.projects.locations.catalogs.placements.predict
@@ -2075,6 +2122,53 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2AddControlRequest *)object
                   servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Performs a conversational search. This feature is only available for users
+ *  who have Conversational Search enabled.
+ *
+ *  Method: retail.projects.locations.catalogs.servingConfigs.conversationalSearch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRetailCloudPlatform
+ */
+@interface GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsConversationalSearch : GTLRCloudRetailQuery
+
+/**
+ *  Required. The resource name of the search engine placement, such as
+ *  `projects/ *
+ *  /locations/global/catalogs/default_catalog/placements/default_search` or
+ *  `projects/ *
+ *  /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
+ *  This field is used to identify the serving config name and the set of models
+ *  that will be used to make the search.
+ */
+@property(nonatomic, copy, nullable) NSString *placement;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse.
+ *
+ *  Performs a conversational search. This feature is only available for users
+ *  who have Conversational Search enabled.
+ *
+ *  @param object The @c
+ *    GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest to include
+ *    in the query.
+ *  @param placement Required. The resource name of the search engine placement,
+ *    such as `projects/ *
+ *    /locations/global/catalogs/default_catalog/placements/default_search` or
+ *    `projects/ *
+ *    /locations/global/catalogs/default_catalog/servingConfigs/default_serving_config`
+ *    This field is used to identify the serving config name and the set of
+ *    models that will be used to make the search.
+ *
+ *  @return GTLRCloudRetailQuery_ProjectsLocationsCatalogsServingConfigsConversationalSearch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest *)object
+                      placement:(NSString *)placement;
 
 @end
 

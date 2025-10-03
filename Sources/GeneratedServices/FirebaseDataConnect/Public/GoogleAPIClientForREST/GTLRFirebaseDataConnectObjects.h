@@ -33,6 +33,7 @@
 @class GTLRFirebaseDataConnect_GraphqlRequest_Variables;
 @class GTLRFirebaseDataConnect_GraphqlRequestExtensions;
 @class GTLRFirebaseDataConnect_GraphqlResponse_Data;
+@class GTLRFirebaseDataConnect_ImpersonateRequest_Variables;
 @class GTLRFirebaseDataConnect_Impersonation;
 @class GTLRFirebaseDataConnect_Impersonation_AuthClaims;
 @class GTLRFirebaseDataConnect_Location;
@@ -819,6 +820,39 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRFirebaseDataConnect_GraphqlResponse_Data : GTLRObject
+@end
+
+
+/**
+ *  The Impersonate request to Firebase Data Connect.
+ */
+@interface GTLRFirebaseDataConnect_ImpersonateRequest : GTLRObject
+
+/** Optional. Additional GraphQL request information. */
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_GraphqlRequestExtensions *extensions;
+
+/**
+ *  Required. The name of the GraphQL operation name. Required because all
+ *  Connector operations must be named. See
+ *  https://graphql.org/learn/queries/#operation-name.
+ */
+@property(nonatomic, copy, nullable) NSString *operationName;
+
+/** Optional. Values for GraphQL variables provided in this request. */
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_ImpersonateRequest_Variables *variables;
+
+@end
+
+
+/**
+ *  Optional. Values for GraphQL variables provided in this request.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirebaseDataConnect_ImpersonateRequest_Variables : GTLRObject
 @end
 
 

@@ -143,6 +143,17 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SolutionTypes_Solut
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SolutionTypes_SolutionTypeSearch = @"SOLUTION_TYPE_SEARCH";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Control_SolutionTypes_SolutionTypeUnspecified = @"SOLUTION_TYPE_UNSPECIFIED";
 
+// GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec.conversationalFilteringMode
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_ConversationalFilterOnly = @"CONVERSATIONAL_FILTER_ONLY";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_Disabled = @"DISABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_Enabled = @"ENABLED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec_ConversationalFilteringMode_ModeUnspecified = @"MODE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse.state
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse_State_Streaming = @"STREAMING";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse_State_Succeeded = @"SUCCEEDED";
+
 // GTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest.reconciliationMode
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Full = @"FULL";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ImportProductsRequest_ReconciliationMode_Incremental = @"INCREMENTAL";
@@ -202,6 +213,27 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2Product_Type_Variant = @"VA
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_UserEventRejoinScope_JoinedEvents = @"JOINED_EVENTS";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_UserEventRejoinScope_UnjoinedEvents = @"UNJOINED_EVENTS";
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2RejoinUserEventsRequest_UserEventRejoinScope_UserEventRejoinScopeUnspecified = @"USER_EVENT_REJOIN_SCOPE_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2SafetySetting.category
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryCivicIntegrity = @"HARM_CATEGORY_CIVIC_INTEGRITY";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryDangerousContent = @"HARM_CATEGORY_DANGEROUS_CONTENT";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryHarassment = @"HARM_CATEGORY_HARASSMENT";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryHateSpeech = @"HARM_CATEGORY_HATE_SPEECH";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategorySexuallyExplicit = @"HARM_CATEGORY_SEXUALLY_EXPLICIT";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Category_HarmCategoryUnspecified = @"HARM_CATEGORY_UNSPECIFIED";
+
+// GTLRCloudRetail_GoogleCloudRetailV2SafetySetting.method
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Method_HarmBlockMethodUnspecified = @"HARM_BLOCK_METHOD_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Method_Probability = @"PROBABILITY";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Method_Severity = @"SEVERITY";
+
+// GTLRCloudRetail_GoogleCloudRetailV2SafetySetting.threshold
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockLowAndAbove = @"BLOCK_LOW_AND_ABOVE";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockMediumAndAbove = @"BLOCK_MEDIUM_AND_ABOVE";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockNone = @"BLOCK_NONE";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_BlockOnlyHigh = @"BLOCK_ONLY_HIGH";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_HarmBlockThresholdUnspecified = @"HARM_BLOCK_THRESHOLD_UNSPECIFIED";
+NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SafetySetting_Threshold_Off = @"OFF";
 
 // GTLRCloudRetail_GoogleCloudRetailV2SearchRequest.searchMode
 NSString * const kGTLRCloudRetail_GoogleCloudRetailV2SearchRequest_SearchMode_FacetedSearchOnly = @"FACETED_SEARCH_ONLY";
@@ -1884,6 +1916,158 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest
+@dynamic branch, conversationalFilteringSpec, conversationId, pageCategories,
+         query, safetySettings, searchParams, userInfo, userLabels, visitorId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pageCategories" : [NSString class],
+    @"safetySettings" : [GTLRCloudRetail_GoogleCloudRetailV2SafetySetting class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest_UserLabels
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequest_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestConversationalFilteringSpec
+@dynamic conversationalFilteringMode, enableConversationalFiltering, userAnswer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestSearchParams
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestSearchParams
+@dynamic boostSpec, canonicalFilter, filter, sortBy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestUserAnswer
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestUserAnswer
+@dynamic selectedAnswer, textAnswer;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestUserAnswerSelectedAnswer
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestUserAnswerSelectedAnswer
+@dynamic productAttributeValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponse
+@dynamic conversationalFilteringResult, conversationalTextResponse,
+         conversationId, followupQuestion, refinedSearch, state, userQueryTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"refinedSearch" : [GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseRefinedSearch class],
+    @"userQueryTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseConversationalFilteringResult
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseConversationalFilteringResult
+@dynamic additionalFilter, followupQuestion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseConversationalFilteringResultAdditionalFilter
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseConversationalFilteringResultAdditionalFilter
+@dynamic productAttributeValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestion
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestion
+@dynamic followupQuestion, suggestedAnswers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suggestedAnswers" : [GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestionSuggestedAnswer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestionSuggestedAnswer
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseFollowupQuestionSuggestedAnswer
+@dynamic productAttributeValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseRefinedSearch
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseRefinedSearch
+@dynamic query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRetail_GoogleCloudRetailV2CreateModelMetadata
 //
 
@@ -3305,6 +3489,16 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRetail_GoogleCloudRetailV2SafetySetting
+//
+
+@implementation GTLRCloudRetail_GoogleCloudRetailV2SafetySetting
+@dynamic category, method, threshold;
 @end
 
 

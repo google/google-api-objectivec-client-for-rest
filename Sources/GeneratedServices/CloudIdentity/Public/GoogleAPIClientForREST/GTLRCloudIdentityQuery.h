@@ -957,10 +957,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  properties are provided, only DeviceUsers having all of these properties are
  *  considered as matches - i.e. the query behaves like an AND. Different
  *  platforms require different amounts of information from the caller to ensure
- *  that the DeviceUser is uniquely identified. - iOS: No properties need to be
- *  passed, the caller's credentials are sufficient to identify the
- *  corresponding DeviceUser. - Android: Specifying the 'android_id' field is
- *  required. - Desktop: Specifying the 'raw_resource_id' field is required.
+ *  that the DeviceUser is uniquely identified. - iOS: Specifying the 'partner'
+ *  and 'ios_device_id' fields is required. - Android: Specifying the
+ *  'android_id' field is required. - Desktop: Specifying the 'raw_resource_id'
+ *  field is required.
  *
  *  Method: cloudidentity.devices.deviceUsers.lookup
  *
@@ -974,6 +974,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  [Settings.Secure#ANDROID_ID](https://developer.android.com/reference/android/provider/Settings.Secure.html#ANDROID_ID).
  */
 @property(nonatomic, copy, nullable) NSString *androidId;
+
+/**
+ *  Optional. The partner-specified device identifier assigned to the iOS device
+ *  that initiated the Lookup API call. This string must match the value of the
+ *  iosDeviceId key in the app config dictionary provided to Google Workspace
+ *  apps.
+ */
+@property(nonatomic, copy, nullable) NSString *iosDeviceId;
 
 /**
  *  The maximum number of DeviceUsers to return. If unspecified, at most 20
@@ -997,12 +1005,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. The partner ID of the calling iOS app. This string must match the
+ *  value of the partner key within the app configuration dictionary provided to
+ *  Google Workspace apps.
+ */
+@property(nonatomic, copy, nullable) NSString *partner;
+
+/**
  *  Raw Resource Id used by Google Endpoint Verification. If the user is
  *  enrolled into Google Endpoint Verification, this id will be saved as the
- *  'device_resource_id' field in the following platform dependent files. *
- *  macOS: ~/.secureConnect/context_aware_config.json * Windows:
- *  %USERPROFILE%\\AppData\\Local\\Google\\Endpoint Verification\\accounts.json
- *  * Linux: ~/.secureConnect/context_aware_config.json
+ *  'device_resource_id' field in the following platform dependent files. Mac:
+ *  ~/.secureConnect/context_aware_config.json Windows:
+ *  C:\\Users\\%USERPROFILE%\\.secureConnect\\context_aware_config.json Linux:
+ *  ~/.secureConnect/context_aware_config.json
  */
 @property(nonatomic, copy, nullable) NSString *rawResourceId;
 
@@ -1023,10 +1038,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  properties are provided, only DeviceUsers having all of these properties are
  *  considered as matches - i.e. the query behaves like an AND. Different
  *  platforms require different amounts of information from the caller to ensure
- *  that the DeviceUser is uniquely identified. - iOS: No properties need to be
- *  passed, the caller's credentials are sufficient to identify the
- *  corresponding DeviceUser. - Android: Specifying the 'android_id' field is
- *  required. - Desktop: Specifying the 'raw_resource_id' field is required.
+ *  that the DeviceUser is uniquely identified. - iOS: Specifying the 'partner'
+ *  and 'ios_device_id' fields is required. - Android: Specifying the
+ *  'android_id' field is required. - Desktop: Specifying the 'raw_resource_id'
+ *  field is required.
  *
  *  @param parent Must be set to "devices/-/deviceUsers" to search across all
  *    DeviceUser belonging to the user.
