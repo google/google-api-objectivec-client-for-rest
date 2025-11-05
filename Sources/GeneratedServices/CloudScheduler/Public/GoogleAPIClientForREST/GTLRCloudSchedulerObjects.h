@@ -379,6 +379,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 
 /**
+ *  Describes the project/location configuration of Cloud Scheduler Resources.
+ */
+@interface GTLRCloudScheduler_CmekConfig : GTLRObject
+
+/**
+ *  Optional. Resource name of the Cloud KMS key, of the form
+ *  `projects/PROJECT_ID/locations/LOCATION_ID/keyRings/KEY_RING_ID/cryptoKeys/KEY_ID`,
+ *  that will be used to encrypt Jobs in the region. Setting this as blank will
+ *  turn off CMEK encryption.
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/**
+ *  Identifier. The config resource name which includes the project and location
+ *  and must end in 'cmekConfig', in the format
+ *  projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -564,12 +587,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`. * `PROJECT_ID` can
  *  contain letters ([A-Za-z]), numbers ([0-9]), hyphens (-), colons (:), or
  *  periods (.). For more information, see [Identifying
- *  projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
+ *  projects](/resource-manager/docs/creating-managing-projects#identifying_projects)
  *  * `LOCATION_ID` is the canonical ID for the job's location. The list of
- *  available locations can be obtained by calling ListLocations. For more
- *  information, see https://cloud.google.com/about/locations/. * `JOB_ID` can
- *  contain only letters ([A-Za-z]), numbers ([0-9]), hyphens (-), or
- *  underscores (_). The maximum length is 500 characters.
+ *  available locations can be obtained by calling
+ *  [locations.list](/scheduler/docs/reference/rest/v1/projects.locations/list).
+ *  For more information, see [Cloud Scheduler
+ *  locations](/scheduler/docs/locations). * `JOB_ID` can contain only letters
+ *  ([A-Za-z]), numbers ([0-9]), hyphens (-), or underscores (_). The maximum
+ *  length is 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -591,19 +616,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  Required, except when used with UpdateJob. Describes the schedule on which
  *  the job will be executed. The schedule can be either of the following types:
  *  * [Crontab](https://en.wikipedia.org/wiki/Cron#Overview) * English-like
- *  [schedule](https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules)
- *  As a general rule, execution `n + 1` of a job will not begin until execution
- *  `n` has finished. Cloud Scheduler will never allow two simultaneously
- *  outstanding executions. For example, this implies that if the `n+1`th
- *  execution is scheduled to run at 16:00 but the `n`th execution takes until
- *  16:15, the `n+1`th execution will not start until `16:15`. A scheduled start
- *  time will be delayed if the previous execution has not ended when its
- *  scheduled time occurs. If retry_count > 0 and a job attempt fails, the job
- *  will be tried a total of retry_count times, with exponential backoff, until
- *  the next scheduled start time. If retry_count is 0, a job attempt will not
- *  be retried if it fails. Instead the Cloud Scheduler system will wait for the
- *  next scheduled execution time. Setting retry_count to 0 does not prevent
- *  failed jobs from running according to schedule after the failure.
+ *  [schedule](/scheduler/docs/configuring/cron-job-schedules) As a general
+ *  rule, execution `n + 1` of a job will not begin until execution `n` has
+ *  finished. Cloud Scheduler will never allow two simultaneously outstanding
+ *  executions. For example, this implies that if the `n+1`th execution is
+ *  scheduled to run at 16:00 but the `n`th execution takes until 16:15, the
+ *  `n+1`th execution will not start until `16:15`. A scheduled start time will
+ *  be delayed if the previous execution has not ended when its scheduled time
+ *  occurs. If retry_count > 0 and a job attempt fails, the job will be tried a
+ *  total of retry_count times, with exponential backoff, until the next
+ *  scheduled start time. If retry_count is 0, a job attempt will not be retried
+ *  if it fails. Instead the Cloud Scheduler system will wait for the next
+ *  scheduled execution time. Setting retry_count to 0 does not prevent failed
+ *  jobs from running according to schedule after the failure.
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
 
@@ -1105,10 +1130,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
 
 /**
  *  Settings that determine the retry behavior. For more information, see [Retry
- *  jobs](https://cloud.google.com/scheduler/docs/configuring/retry-jobs). By
- *  default, if a job does not complete successfully (meaning that an
- *  acknowledgement is not received from the handler, then it will be retried
- *  with exponential backoff according to the settings in RetryConfig.
+ *  jobs](/scheduler/docs/configuring/retry-jobs). By default, if a job does not
+ *  complete successfully (meaning that an acknowledgement is not received from
+ *  the handler, then it will be retried with exponential backoff according to
+ *  the settings in RetryConfig.
  */
 @interface GTLRCloudScheduler_RetryConfig : GTLRObject
 
@@ -1123,8 +1148,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed;
  *  interval starts at min_backoff_duration, then doubles `max_doublings` times,
  *  then increases linearly, and finally retries at intervals of
  *  max_backoff_duration up to retry_count times. For examples, see [Retry
- *  jobs](https://cloud.google.com/scheduler/docs/configuring/retry-jobs#max-doublings).
- *  The default value of this field is 5.
+ *  jobs](/scheduler/docs/configuring/retry-jobs#max-doublings). The default
+ *  value of this field is 5.
  *
  *  Uses NSNumber of intValue.
  */

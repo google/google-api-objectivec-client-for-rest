@@ -824,6 +824,76 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @end
 
 /**
+ *  Gets a specific resource.
+ *
+ *  Method: connectors.projects.locations.connections.resources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesGet : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Resource. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/resources/{resource}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_GetResourceResponse.
+ *
+ *  Gets a specific resource.
+ *
+ *  @param name Required. Resource name of the Resource. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/resources/{resource}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all available resources.
+ *
+ *  Method: connectors.projects.locations.connections.resources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesList : GTLRConnectorsQuery
+
+/** Optional. Page size for the request. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Page token for the request. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Resource name of the connection. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRConnectors_ListResourcesResponse.
+ *
+ *  Lists all available resources.
+ *
+ *  @param parent Required. Resource name of the connection. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Executes a specific tool.
  *
  *  Method: connectors.projects.locations.connections.tools.execute

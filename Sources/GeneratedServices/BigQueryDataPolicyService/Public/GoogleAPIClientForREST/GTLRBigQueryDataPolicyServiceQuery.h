@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Data Policy API (bigquerydatapolicy/v1)
+//   BigQuery Data Policy API (bigquerydatapolicy/v2)
 // Description:
 //   Allows users to manage BigQuery data policies.
 // Documentation:
@@ -34,8 +34,49 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new data policy under a project with the given `dataPolicyId`
- *  (used as the display name), policy tag, and data policy type.
+ *  Adds new grantees to a data policy. The new grantees will be added to the
+ *  existing grantees. If the request contains a duplicate grantee, the grantee
+ *  will be ignored. If the request contains a grantee that already exists, the
+ *  grantee will be ignored.
+ *
+ *  Method: bigquerydatapolicy.projects.locations.dataPolicies.addGrantees
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataPolicyServiceBigquery
+ *    @c kGTLRAuthScopeBigQueryDataPolicyServiceCloudPlatform
+ */
+@interface GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesAddGrantees : GTLRBigQueryDataPolicyServiceQuery
+
+/**
+ *  Required. Resource name of this data policy, in the format of
+ *  `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *dataPolicy;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataPolicyService_DataPolicy.
+ *
+ *  Adds new grantees to a data policy. The new grantees will be added to the
+ *  existing grantees. If the request contains a duplicate grantee, the grantee
+ *  will be ignored. If the request contains a grantee that already exists, the
+ *  grantee will be ignored.
+ *
+ *  @param object The @c GTLRBigQueryDataPolicyService_AddGranteesRequest to
+ *    include in the query.
+ *  @param dataPolicy Required. Resource name of this data policy, in the format
+ *    of
+ *    `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
+ *
+ *  @return GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesAddGrantees
+ */
++ (instancetype)queryWithObject:(GTLRBigQueryDataPolicyService_AddGranteesRequest *)object
+                     dataPolicy:(NSString *)dataPolicy;
+
+@end
+
+/**
+ *  Creates a new data policy under a project with the given `data_policy_id`
+ *  (used as the display name), and data policy type.
  *
  *  Method: bigquerydatapolicy.projects.locations.dataPolicies.create
  *
@@ -54,18 +95,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBigQueryDataPolicyService_DataPolicy.
  *
- *  Creates a new data policy under a project with the given `dataPolicyId`
- *  (used as the display name), policy tag, and data policy type.
+ *  Creates a new data policy under a project with the given `data_policy_id`
+ *  (used as the display name), and data policy type.
  *
- *  @param object The @c GTLRBigQueryDataPolicyService_DataPolicy to include in
- *    the query.
+ *  @param object The @c GTLRBigQueryDataPolicyService_CreateDataPolicyRequest
+ *    to include in the query.
  *  @param parent Required. Resource name of the project that the data policy
  *    will belong to. The format is
  *    `projects/{project_number}/locations/{location_id}`.
  *
  *  @return GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesCreate
  */
-+ (instancetype)queryWithObject:(GTLRBigQueryDataPolicyService_DataPolicy *)object
++ (instancetype)queryWithObject:(GTLRBigQueryDataPolicyService_CreateDataPolicyRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -82,14 +123,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesDelete : GTLRBigQueryDataPolicyServiceQuery
 
 /**
- *  Optional. If true, the data policy will be deleted even when it is
- *  referenced by one or more table columns.
- */
-@property(nonatomic, assign) BOOL force;
-
-/**
  *  Required. Resource name of the data policy to delete. Format is
- *  `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
+ *  `projects/{project_number}/locations/{location_id}/dataPolicies/{id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -99,7 +134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes the data policy specified by its resource name.
  *
  *  @param name Required. Resource name of the data policy to delete. Format is
- *    `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
+ *    `projects/{project_number}/locations/{location_id}/dataPolicies/{id}`.
  *
  *  @return GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesDelete
  */
@@ -120,7 +155,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. Resource name of the requested data policy. Format is
- *  `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
+ *  `projects/{project_number}/locations/{location_id}/dataPolicies/{id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -130,7 +165,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the data policy specified by its resource name.
  *
  *  @param name Required. Resource name of the requested data policy. Format is
- *    `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
+ *    `projects/{project_number}/locations/{location_id}/dataPolicies/{id}`.
  *
  *  @return GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesGet
  */
@@ -187,9 +222,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesList : GTLRBigQueryDataPolicyServiceQuery
 
 /**
- *  Filters the data policies by policy tags that they are associated with.
- *  Currently filter only supports "policy_tag" based filtering and OR based
- *  predicates. Sample filter can be "policy_tag:
+ *  Optional. Filters the data policies by policy tags that they are associated
+ *  with. Currently filter only supports "policy_tag" based filtering and OR
+ *  based predicates. Sample filter can be "policy_tag:
  *  projects/1/locations/us/taxonomies/2/policyTags/3". You may also use
  *  wildcard such as "policy_tag: projects/1/locations/us/taxonomies/2*". Please
  *  note that OR predicates cannot be used with wildcard filters.
@@ -197,14 +232,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The maximum number of data policies to return. Must be a value between 1 and
- *  1000. If not set, defaults to 50.
+ *  Optional. The maximum number of data policies to return. Must be a value
+ *  between 1 and 1000. If not set, defaults to 50.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The `nextPageToken` value returned from a previous list request, if any. If
- *  not set, defaults to an empty string.
+ *  Optional. The `nextPageToken` value returned from a previous list request,
+ *  if any. If not set, defaults to an empty string.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -251,13 +286,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Output only. Resource name of this data policy, in the format of
+ *  Identifier. Resource name of this data policy, in the format of
  *  `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The update mask applies to the resource. For the `FieldMask` definition, see
+ *  Optional. The update mask applies to the resource. For the `FieldMask`
+ *  definition, see
  *  https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#fieldmask
  *  If not set, defaults to all of the fields that are allowed to update.
  *  Updates to the `name` and `dataPolicyId` fields are not allowed.
@@ -274,7 +310,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRBigQueryDataPolicyService_DataPolicy to include in
  *    the query.
- *  @param name Output only. Resource name of this data policy, in the format of
+ *  @param name Identifier. Resource name of this data policy, in the format of
  *    `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
  *
  *  @return GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesPatch
@@ -285,37 +321,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Renames the id (display name) of the specified data policy.
+ *  Removes grantees from a data policy. The grantees will be removed from the
+ *  existing grantees. If the request contains a grantee that does not exist,
+ *  the grantee will be ignored.
  *
- *  Method: bigquerydatapolicy.projects.locations.dataPolicies.rename
+ *  Method: bigquerydatapolicy.projects.locations.dataPolicies.removeGrantees
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeBigQueryDataPolicyServiceBigquery
  *    @c kGTLRAuthScopeBigQueryDataPolicyServiceCloudPlatform
  */
-@interface GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesRename : GTLRBigQueryDataPolicyServiceQuery
+@interface GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesRemoveGrantees : GTLRBigQueryDataPolicyServiceQuery
 
 /**
- *  Required. Resource name of the data policy to rename. The format is
- *  `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`
+ *  Required. Resource name of this data policy, in the format of
+ *  `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
  */
-@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, copy, nullable) NSString *dataPolicy;
 
 /**
  *  Fetches a @c GTLRBigQueryDataPolicyService_DataPolicy.
  *
- *  Renames the id (display name) of the specified data policy.
+ *  Removes grantees from a data policy. The grantees will be removed from the
+ *  existing grantees. If the request contains a grantee that does not exist,
+ *  the grantee will be ignored.
  *
- *  @param object The @c GTLRBigQueryDataPolicyService_RenameDataPolicyRequest
- *    to include in the query.
- *  @param name Required. Resource name of the data policy to rename. The format
- *    is
- *    `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`
+ *  @param object The @c GTLRBigQueryDataPolicyService_RemoveGranteesRequest to
+ *    include in the query.
+ *  @param dataPolicy Required. Resource name of this data policy, in the format
+ *    of
+ *    `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
  *
- *  @return GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesRename
+ *  @return GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesRemoveGrantees
  */
-+ (instancetype)queryWithObject:(GTLRBigQueryDataPolicyService_RenameDataPolicyRequest *)object
-                           name:(NSString *)name;
++ (instancetype)queryWithObject:(GTLRBigQueryDataPolicyService_RemoveGranteesRequest *)object
+                     dataPolicy:(NSString *)dataPolicy;
 
 @end
 

@@ -257,7 +257,15 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_DataDisk
-@dynamic diskEncryption, diskSizeGb, diskType, kmsKey;
+@dynamic diskEncryption, diskSizeGb, diskType, kmsKey, resourcePolicies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourcePolicies" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -348,7 +356,7 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 @implementation GTLRAIPlatformNotebooks_GceSetup
 @dynamic acceleratorConfigs, bootDisk, confidentialInstanceConfig,
          containerImage, dataDisks, disablePublicIp, enableIpForwarding,
-         gpuDriverConfig, machineType, metadata, minCpuPlatform,
+         gpuDriverConfig, instanceId, machineType, metadata, minCpuPlatform,
          networkInterfaces, reservationAffinity, serviceAccounts,
          shieldedInstanceConfig, tags, vmImage;
 
@@ -536,11 +544,12 @@ NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_State_Succeeded = 
 //
 
 @implementation GTLRAIPlatformNotebooks_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRAIPlatformNotebooks_Operation class]
+    @"operations" : [GTLRAIPlatformNotebooks_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

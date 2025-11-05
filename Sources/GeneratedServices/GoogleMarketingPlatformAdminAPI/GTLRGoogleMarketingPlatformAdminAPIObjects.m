@@ -22,6 +22,17 @@ NSString * const kGTLRGoogleMarketingPlatformAdminAPI_AnalyticsAccountLink_LinkV
 NSString * const kGTLRGoogleMarketingPlatformAdminAPI_AnalyticsAccountLink_LinkVerificationState_LinkVerificationStateUnspecified = @"LINK_VERIFICATION_STATE_UNSPECIFIED";
 NSString * const kGTLRGoogleMarketingPlatformAdminAPI_AnalyticsAccountLink_LinkVerificationState_LinkVerificationStateVerified = @"LINK_VERIFICATION_STATE_VERIFIED";
 
+// GTLRGoogleMarketingPlatformAdminAPI_PropertyUsage.propertyType
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeOrdinary = @"ANALYTICS_PROPERTY_TYPE_ORDINARY";
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeRollup = @"ANALYTICS_PROPERTY_TYPE_ROLLUP";
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeSubproperty = @"ANALYTICS_PROPERTY_TYPE_SUBPROPERTY";
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeUnspecified = @"ANALYTICS_PROPERTY_TYPE_UNSPECIFIED";
+
+// GTLRGoogleMarketingPlatformAdminAPI_PropertyUsage.serviceLevel
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_ServiceLevel_AnalyticsServiceLevel360 = @"ANALYTICS_SERVICE_LEVEL_360";
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_ServiceLevel_AnalyticsServiceLevelStandard = @"ANALYTICS_SERVICE_LEVEL_STANDARD";
+NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_ServiceLevel_AnalyticsServiceLevelUnspecified = @"ANALYTICS_SERVICE_LEVEL_UNSPECIFIED";
+
 // GTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelRequest.serviceLevel
 NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelRequest_ServiceLevel_AnalyticsServiceLevel360 = @"ANALYTICS_SERVICE_LEVEL_360";
 NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelRequest_ServiceLevel_AnalyticsServiceLevelStandard = @"ANALYTICS_SERVICE_LEVEL_STANDARD";
@@ -39,10 +50,68 @@ NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelReq
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleMarketingPlatformAdminAPI_BillInfo
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_BillInfo
+@dynamic baseFee, eventFee, priceProtectionCredit, total;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_ClientData
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_ClientData
+@dynamic endDate, organization, startDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_Date
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleMarketingPlatformAdminAPI_Empty
 //
 
 @implementation GTLRGoogleMarketingPlatformAdminAPI_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_FindSalesPartnerManagedClientsRequest
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_FindSalesPartnerManagedClientsRequest
+@dynamic isActive;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_FindSalesPartnerManagedClientsResponse
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_FindSalesPartnerManagedClientsResponse
+@dynamic clientData;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clientData" : [GTLRGoogleMarketingPlatformAdminAPI_ClientData class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -70,11 +139,82 @@ NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelReq
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGoogleMarketingPlatformAdminAPI_ListOrganizationsResponse
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_ListOrganizationsResponse
+@dynamic nextPageToken, organizations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"organizations" : [GTLRGoogleMarketingPlatformAdminAPI_Organization class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"organizations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_Money
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_Money
+@dynamic currencyCode, nanos, units;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGoogleMarketingPlatformAdminAPI_Organization
 //
 
 @implementation GTLRGoogleMarketingPlatformAdminAPI_Organization
 @dynamic displayName, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_PropertyUsage
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_PropertyUsage
+@dynamic accountId, billableEventCount, displayName, property, propertyType,
+         serviceLevel, totalEventCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageRequest
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageRequest
+@dynamic month;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageResponse
+//
+
+@implementation GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageResponse
+@dynamic billInfo, propertyUsages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"propertyUsages" : [GTLRGoogleMarketingPlatformAdminAPI_PropertyUsage class]
+  };
+  return map;
+}
+
 @end
 
 

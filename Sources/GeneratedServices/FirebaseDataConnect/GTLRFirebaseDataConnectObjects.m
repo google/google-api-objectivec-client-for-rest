@@ -36,6 +36,13 @@ NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Unavailabl
 NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Unimplemented = @"UNIMPLEMENTED";
 NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Unknown = @"UNKNOWN";
 
+// GTLRFirebaseDataConnect_GraphqlErrorExtensions.warningLevel
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_InteractiveAck = @"INTERACTIVE_ACK";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_LogOnly = @"LOG_ONLY";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_RequireAck = @"REQUIRE_ACK";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_RequireForce = @"REQUIRE_FORCE";
+NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_WarningLevelUnknown = @"WARNING_LEVEL_UNKNOWN";
+
 // GTLRFirebaseDataConnect_PostgreSql.schemaMigration
 NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_MigrateCompatible = @"MIGRATE_COMPATIBLE";
 NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_SqlSchemaMigrationUnspecified = @"SQL_SCHEMA_MIGRATION_UNSPECIFIED";
@@ -275,7 +282,15 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_GraphqlErrorExtensions
-@dynamic code, debugDetails, file, resource;
+@dynamic code, debugDetails, file, warningLevel, workarounds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"workarounds" : [GTLRFirebaseDataConnect_Workaround class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -444,11 +459,12 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRFirebaseDataConnect_Operation class]
+    @"operations" : [GTLRFirebaseDataConnect_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -754,6 +770,21 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_Workaround
+//
+
+@implementation GTLRFirebaseDataConnect_Workaround
+@dynamic descriptionProperty, reason, replace;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

@@ -2168,6 +2168,101 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoringViewViewUnspecified;
 @end
 
 /**
+ *  Gets a single alert.
+ *
+ *  Method: monitoring.projects.alerts.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ProjectsAlertsGet : GTLRMonitoringQuery
+
+/**
+ *  Required. The name of the alert.The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/alerts/[ALERT_ID] The [ALERT_ID] is a
+ *  system-assigned unique identifier for the alert.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMonitoring_Alert.
+ *
+ *  Gets a single alert.
+ *
+ *  @param name Required. The name of the alert.The format is:
+ *    projects/[PROJECT_ID_OR_NUMBER]/alerts/[ALERT_ID] The [ALERT_ID] is a
+ *    system-assigned unique identifier for the alert.
+ *
+ *  @return GTLRMonitoringQuery_ProjectsAlertsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the existing alerts for the metrics scope of the project.
+ *
+ *  Method: monitoring.projects.alerts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMonitoring
+ *    @c kGTLRAuthScopeMonitoringCloudPlatform
+ *    @c kGTLRAuthScopeMonitoringRead
+ */
+@interface GTLRMonitoringQuery_ProjectsAlertsList : GTLRMonitoringQuery
+
+/**
+ *  Optional. An alert is returned if there is a match on any fields belonging
+ *  to the alert or its subfields.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields in Alert to use for sorting. The
+ *  default sort direction is ascending. To specify descending order for a
+ *  field, add a desc modifier. The following fields are supported: open_time
+ *  close_timeFor example, close_time desc, open_time will return the alerts
+ *  closed most recently, with ties broken in the order of older alerts listed
+ *  first.If the field is not set, the results are sorted by open_time desc.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of results to return in a single response. If
+ *  not set to a positive number, at most 50 alerts will be returned. The
+ *  maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. If non-empty, page_token must contain a value returned as the
+ *  next_page_token in a previous response to request the next set of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The name of the project to list alerts for. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMonitoring_ListAlertsResponse.
+ *
+ *  Lists the existing alerts for the metrics scope of the project.
+ *
+ *  @param parent Required. The name of the project to list alerts for.
+ *
+ *  @return GTLRMonitoringQuery_ProjectsAlertsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Cloud Monitoring Agent only: Creates a new time series.This method is only
  *  for use by the Cloud Monitoring Agent. Use projects.timeSeries.create
  *  instead.

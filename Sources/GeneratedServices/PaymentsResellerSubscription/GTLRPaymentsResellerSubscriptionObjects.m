@@ -63,6 +63,7 @@ NSString * const kGTLRPaymentsResellerSubscription_Promotion_PromotionType_Promo
 // GTLRPaymentsResellerSubscription_Subscription.processingState
 NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateCancelling = @"PROCESSING_STATE_CANCELLING";
 NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateRecurring = @"PROCESSING_STATE_RECURRING";
+NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateResuming = @"PROCESSING_STATE_RESUMING";
 NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateUnspecified = @"PROCESSING_STATE_UNSPECIFIED";
 
 // GTLRPaymentsResellerSubscription_Subscription.state
@@ -156,7 +157,17 @@ NSString * const kGTLRPaymentsResellerSubscription_YoutubePayload_PartnerPlanTyp
 //
 
 @implementation GTLRPaymentsResellerSubscription_CreateSubscriptionIntent
-@dynamic parent, subscription, subscriptionId;
+@dynamic cycleOptions, parent, subscription, subscriptionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_CycleOptions
+//
+
+@implementation GTLRPaymentsResellerSubscription_CycleOptions
+@dynamic initialCycleDuration;
 @end
 
 
@@ -362,7 +373,17 @@ NSString * const kGTLRPaymentsResellerSubscription_YoutubePayload_PartnerPlanTyp
 //
 
 @implementation GTLRPaymentsResellerSubscription_IntentPayload
-@dynamic createIntent, entitleIntent;
+@dynamic createIntent, entitleIntent, intentOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPaymentsResellerSubscription_IntentPayloadIntentOptions
+//
+
+@implementation GTLRPaymentsResellerSubscription_IntentPayloadIntentOptions
+@dynamic enableOfferOverride;
 @end
 
 
@@ -545,6 +566,7 @@ NSString * const kGTLRPaymentsResellerSubscription_YoutubePayload_PartnerPlanTyp
 //
 
 @implementation GTLRPaymentsResellerSubscription_ResumeSubscriptionRequest
+@dynamic cycleOptions;
 @end
 
 
@@ -610,7 +632,7 @@ NSString * const kGTLRPaymentsResellerSubscription_YoutubePayload_PartnerPlanTyp
 
 @implementation GTLRPaymentsResellerSubscription_SubscriptionLineItem
 @dynamic amount, bundleDetails, descriptionProperty, finiteBillingCycleDetails,
-         lineItemFreeTrialEndTime, lineItemIndex, lineItemPromotionSpecs,
+         lineItemFreeTrialEndTime, lineItemIndex, lineItemPromotionSpecs, name,
          oneTimeRecurrenceDetails, product, productPayload, recurrenceType,
          state;
 

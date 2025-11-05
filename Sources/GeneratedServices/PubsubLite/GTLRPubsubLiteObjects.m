@@ -178,11 +178,12 @@ NSString * const kGTLRPubsubLite_SeekSubscriptionRequest_NamedTarget_Tail = @"TA
 //
 
 @implementation GTLRPubsubLite_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRPubsubLite_Operation class]
+    @"operations" : [GTLRPubsubLite_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

@@ -39,7 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.media.download
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_MediaDownload : GTLRDiscoveryEngineQuery
 
@@ -88,6 +90,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsDelete : GTLRDiscoveryEngineQuery
 
@@ -118,6 +121,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsGet : GTLRDiscoveryEngineQuery
 
@@ -153,6 +157,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsList : GTLRDiscoveryEngineQuery
 
@@ -190,6 +195,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCmekConfigsPatch : GTLRDiscoveryEngineQuery
 
@@ -236,6 +242,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataConnectorOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -265,6 +272,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataConnectorOperationsList : GTLRDiscoveryEngineQuery
 
@@ -317,6 +325,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesBatchGetDocumentsMetadata : GTLRDiscoveryEngineQuery
 
@@ -358,6 +367,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsCreate : GTLRDiscoveryEngineQuery
 
@@ -404,6 +414,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsDelete : GTLRDiscoveryEngineQuery
 
@@ -440,6 +451,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsGet : GTLRDiscoveryEngineQuery
 
@@ -478,6 +490,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsImport : GTLRDiscoveryEngineQuery
 
@@ -516,6 +529,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsList : GTLRDiscoveryEngineQuery
 
@@ -575,6 +589,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsPatch : GTLRDiscoveryEngineQuery
 
@@ -632,6 +647,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesDocumentsPurge : GTLRDiscoveryEngineQuery
 
@@ -679,6 +695,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesOperationsCancel : GTLRDiscoveryEngineQuery
 
@@ -719,6 +736,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -748,6 +766,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresBranchesOperationsList : GTLRDiscoveryEngineQuery
 
@@ -798,7 +817,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.completeQuery
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompleteQuery : GTLRDiscoveryEngineQuery
 
@@ -839,14 +860,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *queryModel;
 
 /**
- *  A unique identifier for tracking visitors. For example, this could be
- *  implemented with an HTTP cookie, which should be able to uniquely identify a
- *  visitor on a single device. This unique identifier should not change if the
- *  visitor logs in or out of the website. This field should NOT have a fixed
- *  value such as `unknown_visitor`. This should be the same identifier as
- *  UserEvent.user_pseudo_id and SearchRequest.user_pseudo_id. The field must be
- *  a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an
- *  `INVALID_ARGUMENT` error is returned.
+ *  Optional. A unique identifier for tracking visitors. For example, this could
+ *  be implemented with an HTTP cookie, which should be able to uniquely
+ *  identify a visitor on a single device. This unique identifier should not
+ *  change if the visitor logs in or out of the website. This field should NOT
+ *  have a fixed value such as `unknown_visitor`. This should be the same
+ *  identifier as UserEvent.user_pseudo_id and SearchRequest.user_pseudo_id. The
+ *  field must be a UTF-8 encoded string with a length limit of 128 characters.
+ *  Otherwise, an `INVALID_ARGUMENT` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *userPseudoId;
 
@@ -872,8 +893,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.completionConfig.completeQuery
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
  *    @c kGTLRAuthScopeDiscoveryEngineCloudSearchQuery
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionConfigCompleteQuery : GTLRDiscoveryEngineQuery
 
@@ -917,7 +940,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.completionSuggestions.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionSuggestionsImport : GTLRDiscoveryEngineQuery
 
@@ -953,7 +978,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.completionSuggestions.purge
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCompletionSuggestionsPurge : GTLRDiscoveryEngineQuery
 
@@ -992,6 +1019,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsCreate : GTLRDiscoveryEngineQuery
 
@@ -1039,6 +1067,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsDelete : GTLRDiscoveryEngineQuery
 
@@ -1070,6 +1099,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsGet : GTLRDiscoveryEngineQuery
 
@@ -1100,6 +1130,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsList : GTLRDiscoveryEngineQuery
 
@@ -1159,6 +1190,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresControlsPatch : GTLRDiscoveryEngineQuery
 
@@ -1202,6 +1234,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsConverse : GTLRDiscoveryEngineQuery
 
@@ -1246,6 +1279,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsCreate : GTLRDiscoveryEngineQuery
 
@@ -1282,6 +1316,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsDelete : GTLRDiscoveryEngineQuery
 
@@ -1314,6 +1349,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsGet : GTLRDiscoveryEngineQuery
 
@@ -1344,6 +1380,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsList : GTLRDiscoveryEngineQuery
 
@@ -1406,6 +1443,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresConversationsPatch : GTLRDiscoveryEngineQuery
 
@@ -1458,6 +1496,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCreate : GTLRDiscoveryEngineQuery
 
@@ -1528,6 +1567,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresCustomModelsList : GTLRDiscoveryEngineQuery
 
@@ -1564,6 +1604,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresDelete : GTLRDiscoveryEngineQuery
 
@@ -1600,6 +1641,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresGet : GTLRDiscoveryEngineQuery
 
@@ -1636,6 +1678,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresGetSiteSearchEngine : GTLRDiscoveryEngineQuery
 
@@ -1673,6 +1716,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresList : GTLRDiscoveryEngineQuery
 
@@ -1738,6 +1782,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresModelsOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -1767,6 +1812,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresModelsOperationsList : GTLRDiscoveryEngineQuery
 
@@ -1820,6 +1866,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -1849,6 +1896,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresOperationsList : GTLRDiscoveryEngineQuery
 
@@ -1900,6 +1948,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresPatch : GTLRDiscoveryEngineQuery
 
@@ -1948,6 +1997,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasCreate : GTLRDiscoveryEngineQuery
 
@@ -1990,6 +2040,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasDelete : GTLRDiscoveryEngineQuery
 
@@ -2020,6 +2071,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasGet : GTLRDiscoveryEngineQuery
 
@@ -2050,6 +2102,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasList : GTLRDiscoveryEngineQuery
 
@@ -2103,6 +2156,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -2132,6 +2186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasOperationsList : GTLRDiscoveryEngineQuery
 
@@ -2183,6 +2238,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSchemasPatch : GTLRDiscoveryEngineQuery
 
@@ -2227,6 +2283,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsAnswer : GTLRDiscoveryEngineQuery
 
@@ -2265,6 +2322,88 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the ServingConfig to get. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig.
+ *
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  @param name Required. The resource name of the ServingConfig to get. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. Maximum number of results to return. If unspecified, defaults to
+ *  100. If a value greater than 100 is provided, at most 100 results are
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListServingConfigs` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Full resource name of the parent resource. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListServingConfigsResponse.
+ *
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  @param parent Required. Full resource name of the parent resource. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
  *  not exist.
  *
@@ -2272,6 +2411,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsPatch : GTLRDiscoveryEngineQuery
 
@@ -2316,6 +2456,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsRecommend : GTLRDiscoveryEngineQuery
 
@@ -2366,7 +2507,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.search
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsSearch : GTLRDiscoveryEngineQuery
 
@@ -2416,7 +2559,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.searchLite
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsSearchLite : GTLRDiscoveryEngineQuery
 
@@ -2468,6 +2613,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsStreamAnswer : GTLRDiscoveryEngineQuery
 
@@ -2513,6 +2659,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsAnswersGet : GTLRDiscoveryEngineQuery
 
@@ -2543,7 +2690,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.sessions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsCreate : GTLRDiscoveryEngineQuery
 
@@ -2578,7 +2727,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.sessions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsDelete : GTLRDiscoveryEngineQuery
 
@@ -2609,7 +2760,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.sessions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsGet : GTLRDiscoveryEngineQuery
 
@@ -2645,7 +2798,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.sessions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsList : GTLRDiscoveryEngineQuery
 
@@ -2712,7 +2867,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.sessions.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSessionsPatch : GTLRDiscoveryEngineQuery
 
@@ -2759,6 +2916,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineBatchVerifyTargetSites : GTLRDiscoveryEngineQuery
 
@@ -2795,6 +2953,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineDisableAdvancedSiteSearch : GTLRDiscoveryEngineQuery
 
@@ -2830,6 +2989,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineEnableAdvancedSiteSearch : GTLRDiscoveryEngineQuery
 
@@ -2867,6 +3027,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineFetchDomainVerificationStatus : GTLRDiscoveryEngineQuery
 
@@ -2924,6 +3085,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -2953,6 +3115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineOperationsList : GTLRDiscoveryEngineQuery
 
@@ -3004,6 +3167,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineRecrawlUris : GTLRDiscoveryEngineQuery
 
@@ -3039,6 +3203,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineSitemapsCreate : GTLRDiscoveryEngineQuery
 
@@ -3073,6 +3238,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineSitemapsDelete : GTLRDiscoveryEngineQuery
 
@@ -3109,6 +3275,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineSitemapsFetch : GTLRDiscoveryEngineQuery
 
@@ -3144,6 +3311,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesBatchCreate : GTLRDiscoveryEngineQuery
 
@@ -3183,6 +3351,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesCreate : GTLRDiscoveryEngineQuery
 
@@ -3217,6 +3386,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesDelete : GTLRDiscoveryEngineQuery
 
@@ -3254,6 +3424,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesGet : GTLRDiscoveryEngineQuery
 
@@ -3291,6 +3462,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesList : GTLRDiscoveryEngineQuery
 
@@ -3350,6 +3522,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -3379,6 +3552,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesOperationsList : GTLRDiscoveryEngineQuery
 
@@ -3430,6 +3604,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSiteSearchEngineTargetSitesPatch : GTLRDiscoveryEngineQuery
 
@@ -3466,7 +3641,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.suggestionDenyListEntries.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSuggestionDenyListEntriesImport : GTLRDiscoveryEngineQuery
 
@@ -3502,7 +3679,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.suggestionDenyListEntries.purge
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresSuggestionDenyListEntriesPurge : GTLRDiscoveryEngineQuery
 
@@ -3539,6 +3718,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresTrainCustomModel : GTLRDiscoveryEngineQuery
 
@@ -3578,7 +3758,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.userEvents.collect
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsCollect : GTLRDiscoveryEngineQuery
 
@@ -3643,7 +3825,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.userEvents.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsImport : GTLRDiscoveryEngineQuery
 
@@ -3684,7 +3868,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.userEvents.purge
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsPurge : GTLRDiscoveryEngineQuery
 
@@ -3723,7 +3909,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.dataStores.userEvents.write
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresUserEventsWrite : GTLRDiscoveryEngineQuery
 
@@ -3772,6 +3960,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDelete : GTLRDiscoveryEngineQuery
 
@@ -3802,7 +3991,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.engines.assistants.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsGet : GTLRDiscoveryEngineQuery
 
@@ -3832,7 +4023,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.engines.assistants.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsPatch : GTLRDiscoveryEngineQuery
 
@@ -3875,7 +4068,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.engines.assistants.streamAssist
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsStreamAssist : GTLRDiscoveryEngineQuery
 
@@ -3910,8 +4105,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.engines.completionConfig.completeQuery
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
  *    @c kGTLRAuthScopeDiscoveryEngineCloudSearchQuery
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesCompletionConfigCompleteQuery : GTLRDiscoveryEngineQuery
 
@@ -3958,6 +4155,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsCreate : GTLRDiscoveryEngineQuery
 
@@ -4005,6 +4203,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsDelete : GTLRDiscoveryEngineQuery
 
@@ -4036,6 +4235,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsGet : GTLRDiscoveryEngineQuery
 
@@ -4066,6 +4266,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsList : GTLRDiscoveryEngineQuery
 
@@ -4125,6 +4326,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesControlsPatch : GTLRDiscoveryEngineQuery
 
@@ -4168,6 +4370,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsConverse : GTLRDiscoveryEngineQuery
 
@@ -4212,6 +4415,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsCreate : GTLRDiscoveryEngineQuery
 
@@ -4248,6 +4452,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsDelete : GTLRDiscoveryEngineQuery
 
@@ -4280,6 +4485,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsGet : GTLRDiscoveryEngineQuery
 
@@ -4310,6 +4516,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsList : GTLRDiscoveryEngineQuery
 
@@ -4372,6 +4579,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesConversationsPatch : GTLRDiscoveryEngineQuery
 
@@ -4422,6 +4630,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesCreate : GTLRDiscoveryEngineQuery
 
@@ -4463,6 +4672,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesDelete : GTLRDiscoveryEngineQuery
 
@@ -4499,6 +4709,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesGet : GTLRDiscoveryEngineQuery
 
@@ -4529,6 +4740,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesList : GTLRDiscoveryEngineQuery
 
@@ -4584,6 +4796,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesOperationsCancel : GTLRDiscoveryEngineQuery
 
@@ -4624,6 +4837,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -4653,6 +4867,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesOperationsList : GTLRDiscoveryEngineQuery
 
@@ -4704,6 +4919,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesPatch : GTLRDiscoveryEngineQuery
 
@@ -4753,6 +4969,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsAnswer : GTLRDiscoveryEngineQuery
 
@@ -4791,6 +5008,88 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the ServingConfig to get. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig.
+ *
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  @param name Required. The resource name of the ServingConfig to get. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. Maximum number of results to return. If unspecified, defaults to
+ *  100. If a value greater than 100 is provided, at most 100 results are
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListServingConfigs` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Full resource name of the parent resource. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListServingConfigsResponse.
+ *
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  @param parent Required. Full resource name of the parent resource. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
  *  not exist.
  *
@@ -4798,6 +5097,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsPatch : GTLRDiscoveryEngineQuery
 
@@ -4842,6 +5142,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsRecommend : GTLRDiscoveryEngineQuery
 
@@ -4892,7 +5193,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.search
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsSearch : GTLRDiscoveryEngineQuery
 
@@ -4942,7 +5245,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.searchLite
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsSearchLite : GTLRDiscoveryEngineQuery
 
@@ -4994,6 +5299,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsStreamAnswer : GTLRDiscoveryEngineQuery
 
@@ -5039,6 +5345,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsAnswersGet : GTLRDiscoveryEngineQuery
 
@@ -5069,7 +5376,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.engines.sessions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsCreate : GTLRDiscoveryEngineQuery
 
@@ -5104,7 +5413,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.engines.sessions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsDelete : GTLRDiscoveryEngineQuery
 
@@ -5135,7 +5446,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.engines.sessions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsGet : GTLRDiscoveryEngineQuery
 
@@ -5171,7 +5484,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.engines.sessions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsList : GTLRDiscoveryEngineQuery
 
@@ -5238,7 +5553,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.engines.sessions.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSessionsPatch : GTLRDiscoveryEngineQuery
 
@@ -5284,7 +5601,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.getDataConnector
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsGetDataConnector : GTLRDiscoveryEngineQuery
 
@@ -5326,6 +5645,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -5355,6 +5675,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsOperationsList : GTLRDiscoveryEngineQuery
 
@@ -5405,7 +5726,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.collections.updateDataConnector
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsUpdateDataConnector : GTLRDiscoveryEngineQuery
 
@@ -5455,6 +5778,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesBatchGetDocumentsMetadata : GTLRDiscoveryEngineQuery
 
@@ -5496,6 +5820,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsCreate : GTLRDiscoveryEngineQuery
 
@@ -5542,6 +5867,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsDelete : GTLRDiscoveryEngineQuery
 
@@ -5578,6 +5904,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsGet : GTLRDiscoveryEngineQuery
 
@@ -5616,6 +5943,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsImport : GTLRDiscoveryEngineQuery
 
@@ -5654,6 +5982,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsList : GTLRDiscoveryEngineQuery
 
@@ -5713,6 +6042,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsPatch : GTLRDiscoveryEngineQuery
 
@@ -5770,6 +6100,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesDocumentsPurge : GTLRDiscoveryEngineQuery
 
@@ -5817,6 +6148,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesOperationsCancel : GTLRDiscoveryEngineQuery
 
@@ -5857,6 +6189,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -5886,6 +6219,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresBranchesOperationsList : GTLRDiscoveryEngineQuery
 
@@ -5936,7 +6270,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.completeQuery
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompleteQuery : GTLRDiscoveryEngineQuery
 
@@ -5977,14 +6313,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *queryModel;
 
 /**
- *  A unique identifier for tracking visitors. For example, this could be
- *  implemented with an HTTP cookie, which should be able to uniquely identify a
- *  visitor on a single device. This unique identifier should not change if the
- *  visitor logs in or out of the website. This field should NOT have a fixed
- *  value such as `unknown_visitor`. This should be the same identifier as
- *  UserEvent.user_pseudo_id and SearchRequest.user_pseudo_id. The field must be
- *  a UTF-8 encoded string with a length limit of 128 characters. Otherwise, an
- *  `INVALID_ARGUMENT` error is returned.
+ *  Optional. A unique identifier for tracking visitors. For example, this could
+ *  be implemented with an HTTP cookie, which should be able to uniquely
+ *  identify a visitor on a single device. This unique identifier should not
+ *  change if the visitor logs in or out of the website. This field should NOT
+ *  have a fixed value such as `unknown_visitor`. This should be the same
+ *  identifier as UserEvent.user_pseudo_id and SearchRequest.user_pseudo_id. The
+ *  field must be a UTF-8 encoded string with a length limit of 128 characters.
+ *  Otherwise, an `INVALID_ARGUMENT` error is returned.
  */
 @property(nonatomic, copy, nullable) NSString *userPseudoId;
 
@@ -6010,8 +6346,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.completionConfig.completeQuery
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
  *    @c kGTLRAuthScopeDiscoveryEngineCloudSearchQuery
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionConfigCompleteQuery : GTLRDiscoveryEngineQuery
 
@@ -6055,7 +6393,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.completionSuggestions.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionSuggestionsImport : GTLRDiscoveryEngineQuery
 
@@ -6091,7 +6431,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.completionSuggestions.purge
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCompletionSuggestionsPurge : GTLRDiscoveryEngineQuery
 
@@ -6130,6 +6472,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsCreate : GTLRDiscoveryEngineQuery
 
@@ -6177,6 +6520,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsDelete : GTLRDiscoveryEngineQuery
 
@@ -6208,6 +6552,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsGet : GTLRDiscoveryEngineQuery
 
@@ -6238,6 +6583,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsList : GTLRDiscoveryEngineQuery
 
@@ -6297,6 +6643,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresControlsPatch : GTLRDiscoveryEngineQuery
 
@@ -6340,6 +6687,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsConverse : GTLRDiscoveryEngineQuery
 
@@ -6384,6 +6732,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsCreate : GTLRDiscoveryEngineQuery
 
@@ -6420,6 +6769,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsDelete : GTLRDiscoveryEngineQuery
 
@@ -6452,6 +6802,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsGet : GTLRDiscoveryEngineQuery
 
@@ -6482,6 +6833,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsList : GTLRDiscoveryEngineQuery
 
@@ -6544,6 +6896,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresConversationsPatch : GTLRDiscoveryEngineQuery
 
@@ -6596,6 +6949,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresCreate : GTLRDiscoveryEngineQuery
 
@@ -6666,6 +7020,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresDelete : GTLRDiscoveryEngineQuery
 
@@ -6702,6 +7057,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresGet : GTLRDiscoveryEngineQuery
 
@@ -6738,6 +7094,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresGetSiteSearchEngine : GTLRDiscoveryEngineQuery
 
@@ -6775,6 +7132,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresList : GTLRDiscoveryEngineQuery
 
@@ -6840,6 +7198,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresModelsOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -6869,6 +7228,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresModelsOperationsList : GTLRDiscoveryEngineQuery
 
@@ -6922,6 +7282,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -6951,6 +7312,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresOperationsList : GTLRDiscoveryEngineQuery
 
@@ -7002,6 +7364,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresPatch : GTLRDiscoveryEngineQuery
 
@@ -7050,6 +7413,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSchemasCreate : GTLRDiscoveryEngineQuery
 
@@ -7092,6 +7456,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSchemasDelete : GTLRDiscoveryEngineQuery
 
@@ -7122,6 +7487,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSchemasGet : GTLRDiscoveryEngineQuery
 
@@ -7152,6 +7518,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSchemasList : GTLRDiscoveryEngineQuery
 
@@ -7203,6 +7570,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSchemasPatch : GTLRDiscoveryEngineQuery
 
@@ -7247,6 +7615,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsAnswer : GTLRDiscoveryEngineQuery
 
@@ -7285,6 +7654,88 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the ServingConfig to get. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig.
+ *
+ *  Gets a ServingConfig. Returns a NotFound error if the ServingConfig does not
+ *  exist.
+ *
+ *  @param name Required. The resource name of the ServingConfig to get. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. Maximum number of results to return. If unspecified, defaults to
+ *  100. If a value greater than 100 is provided, at most 100 results are
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListServingConfigs` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Full resource name of the parent resource. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListServingConfigsResponse.
+ *
+ *  Lists all ServingConfigs linked to this dataStore.
+ *
+ *  @param parent Required. Full resource name of the parent resource. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
  *  not exist.
  *
@@ -7292,6 +7743,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsPatch : GTLRDiscoveryEngineQuery
 
@@ -7336,6 +7788,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsRecommend : GTLRDiscoveryEngineQuery
 
@@ -7386,7 +7839,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.search
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsSearch : GTLRDiscoveryEngineQuery
 
@@ -7436,7 +7891,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.searchLite
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsSearchLite : GTLRDiscoveryEngineQuery
 
@@ -7488,6 +7945,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsStreamAnswer : GTLRDiscoveryEngineQuery
 
@@ -7533,6 +7991,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsAnswersGet : GTLRDiscoveryEngineQuery
 
@@ -7563,7 +8022,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.sessions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsCreate : GTLRDiscoveryEngineQuery
 
@@ -7598,7 +8059,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.sessions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsDelete : GTLRDiscoveryEngineQuery
 
@@ -7629,7 +8092,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.sessions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsGet : GTLRDiscoveryEngineQuery
 
@@ -7665,7 +8130,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.sessions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsList : GTLRDiscoveryEngineQuery
 
@@ -7732,7 +8199,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.sessions.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSessionsPatch : GTLRDiscoveryEngineQuery
 
@@ -7778,6 +8247,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineDisableAdvancedSiteSearch : GTLRDiscoveryEngineQuery
 
@@ -7813,6 +8283,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineEnableAdvancedSiteSearch : GTLRDiscoveryEngineQuery
 
@@ -7848,6 +8319,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineRecrawlUris : GTLRDiscoveryEngineQuery
 
@@ -7883,6 +8355,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineSitemapsCreate : GTLRDiscoveryEngineQuery
 
@@ -7917,6 +8390,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineSitemapsDelete : GTLRDiscoveryEngineQuery
 
@@ -7953,6 +8427,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineSitemapsFetch : GTLRDiscoveryEngineQuery
 
@@ -7988,6 +8463,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesBatchCreate : GTLRDiscoveryEngineQuery
 
@@ -8027,6 +8503,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesCreate : GTLRDiscoveryEngineQuery
 
@@ -8061,6 +8538,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesDelete : GTLRDiscoveryEngineQuery
 
@@ -8098,6 +8576,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesGet : GTLRDiscoveryEngineQuery
 
@@ -8135,6 +8614,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesList : GTLRDiscoveryEngineQuery
 
@@ -8192,6 +8672,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSiteSearchEngineTargetSitesPatch : GTLRDiscoveryEngineQuery
 
@@ -8228,7 +8709,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.suggestionDenyListEntries.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSuggestionDenyListEntriesImport : GTLRDiscoveryEngineQuery
 
@@ -8264,7 +8747,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.suggestionDenyListEntries.purge
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresSuggestionDenyListEntriesPurge : GTLRDiscoveryEngineQuery
 
@@ -8303,7 +8788,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.userEvents.collect
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsCollect : GTLRDiscoveryEngineQuery
 
@@ -8368,7 +8855,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.userEvents.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsImport : GTLRDiscoveryEngineQuery
 
@@ -8409,7 +8898,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.userEvents.purge
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsPurge : GTLRDiscoveryEngineQuery
 
@@ -8448,7 +8939,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.dataStores.userEvents.write
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresUserEventsWrite : GTLRDiscoveryEngineQuery
 
@@ -8497,6 +8990,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsGetAclConfig : GTLRDiscoveryEngineQuery
 
@@ -8531,6 +9025,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsGetCmekConfig : GTLRDiscoveryEngineQuery
 
@@ -8566,6 +9061,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsGroundingConfigsCheck : GTLRDiscoveryEngineQuery
 
@@ -8602,6 +9098,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresCreate : GTLRDiscoveryEngineQuery
 
@@ -8657,6 +9154,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresDelete : GTLRDiscoveryEngineQuery
 
@@ -8688,6 +9186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresGet : GTLRDiscoveryEngineQuery
 
@@ -8719,6 +9218,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresImportIdentityMappings : GTLRDiscoveryEngineQuery
 
@@ -8755,6 +9255,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresList : GTLRDiscoveryEngineQuery
 
@@ -8805,6 +9306,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresListIdentityMappings : GTLRDiscoveryEngineQuery
 
@@ -8859,6 +9361,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -8888,6 +9391,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresOperationsList : GTLRDiscoveryEngineQuery
 
@@ -8940,6 +9444,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsIdentityMappingStoresPurgeIdentityMappings : GTLRDiscoveryEngineQuery
 
@@ -8977,6 +9482,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsCreate : GTLRDiscoveryEngineQuery
 
@@ -9019,6 +9525,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsGet : GTLRDiscoveryEngineQuery
 
@@ -9055,6 +9562,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsLicenseConfigsPatch : GTLRDiscoveryEngineQuery
 
@@ -9102,6 +9610,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -9131,6 +9640,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsOperationsList : GTLRDiscoveryEngineQuery
 
@@ -9184,6 +9694,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsPodcastsOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -9212,6 +9723,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsRankingConfigsRank : GTLRDiscoveryEngineQuery
 
@@ -9248,7 +9760,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.setUpDataConnector
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsSetUpDataConnector : GTLRDiscoveryEngineQuery
 
@@ -9286,7 +9800,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.setUpDataConnectorV2
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsSetUpDataConnectorV2 : GTLRDiscoveryEngineQuery
 
@@ -9343,6 +9859,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsUpdateAclConfig : GTLRDiscoveryEngineQuery
 
@@ -9383,6 +9900,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsUpdateCmekConfig : GTLRDiscoveryEngineQuery
 
@@ -9429,7 +9947,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.userEvents.collect
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsCollect : GTLRDiscoveryEngineQuery
 
@@ -9494,7 +10014,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.userEvents.import
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsImport : GTLRDiscoveryEngineQuery
 
@@ -9532,7 +10054,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: discoveryengine.projects.locations.userEvents.write
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserEventsWrite : GTLRDiscoveryEngineQuery
 
@@ -9582,6 +10106,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresBatchUpdateUserLicenses : GTLRDiscoveryEngineQuery
 
@@ -9611,12 +10136,163 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new User Store.
+ *
+ *  Method: discoveryengine.projects.locations.userStores.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent collection resource name, such as
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID of the User Store to create. The ID must contain only
+ *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
+ *  maximum length is 63 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *userStoreId;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserStore.
+ *
+ *  Creates a new User Store.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserStore to include in
+ *    the query.
+ *  @param parent Required. The parent collection resource name, such as
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserStore *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the User Store.
+ *
+ *  Method: discoveryengine.projects.locations.userStores.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The name of the User Store to delete. Format:
+ *  `projects/{project}/locations/{location}/userStores/{user_store_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Deletes the User Store.
+ *
+ *  @param name Required. The name of the User Store to delete. Format:
+ *    `projects/{project}/locations/{location}/userStores/{user_store_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the User Store.
+ *
+ *  Method: discoveryengine.projects.locations.userStores.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The name of the User Store to get. Format:
+ *  `projects/{project}/locations/{location}/userStores/{user_store_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserStore.
+ *
+ *  Gets the User Store.
+ *
+ *  @param name Required. The name of the User Store to get. Format:
+ *    `projects/{project}/locations/{location}/userStores/{user_store_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the User Store.
+ *
+ *  Method: discoveryengine.projects.locations.userStores.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. The full resource name of the User Store, in the format of
+ *  `projects/{project}/locations/{location}/userStores/{user_store}`. This
+ *  field must be a UTF-8 encoded string with a length limit of 1024 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserStore.
+ *
+ *  Updates the User Store.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserStore to include in
+ *    the query.
+ *  @param name Immutable. The full resource name of the User Store, in the
+ *    format of
+ *    `projects/{project}/locations/{location}/userStores/{user_store}`. This
+ *    field must be a UTF-8 encoded string with a length limit of 1024
+ *    characters.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserStore *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists the User Licenses.
  *
  *  Method: discoveryengine.projects.locations.userStores.userLicenses.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresUserLicensesList : GTLRDiscoveryEngineQuery
 
@@ -9687,6 +10363,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsOperationsCancel : GTLRDiscoveryEngineQuery
 
@@ -9727,6 +10404,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsOperationsGet : GTLRDiscoveryEngineQuery
 
@@ -9756,6 +10434,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsOperationsList : GTLRDiscoveryEngineQuery
 
@@ -9810,6 +10489,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
  */
 @interface GTLRDiscoveryEngineQuery_ProjectsProvision : GTLRDiscoveryEngineQuery
 

@@ -8,7 +8,7 @@
 //   with Google Chat and manage Chat resources such as spaces, members, and
 //   messages.
 // Documentation:
-//   https://developers.google.com/hangouts/chat
+//   https://developers.google.com/workspace/chat
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -1734,6 +1734,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.messages.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeHangoutsChatBot
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesReadonly
@@ -1814,6 +1815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Method: chat.spaces.messages.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeHangoutsChatImport
  *    @c kGTLRAuthScopeHangoutsChatMessages
  *    @c kGTLRAuthScopeHangoutsChatMessagesReadonly
@@ -2749,6 +2751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatAppMemberships
+ *    @c kGTLRAuthScopeHangoutsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeHangoutsChatAppSpaces
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly
@@ -2849,6 +2852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatAppMemberships
+ *    @c kGTLRAuthScopeHangoutsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeHangoutsChatAppSpaces
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly

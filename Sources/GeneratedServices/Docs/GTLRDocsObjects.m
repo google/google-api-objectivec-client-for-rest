@@ -54,6 +54,11 @@ NSString * const kGTLRDocs_Document_SuggestionsViewMode_PreviewSuggestionsAccept
 NSString * const kGTLRDocs_Document_SuggestionsViewMode_PreviewWithoutSuggestions = @"PREVIEW_WITHOUT_SUGGESTIONS";
 NSString * const kGTLRDocs_Document_SuggestionsViewMode_SuggestionsInline = @"SUGGESTIONS_INLINE";
 
+// GTLRDocs_DocumentFormat.documentMode
+NSString * const kGTLRDocs_DocumentFormat_DocumentMode_DocumentModeUnspecified = @"DOCUMENT_MODE_UNSPECIFIED";
+NSString * const kGTLRDocs_DocumentFormat_DocumentMode_Pageless = @"PAGELESS";
+NSString * const kGTLRDocs_DocumentFormat_DocumentMode_Pages   = @"PAGES";
+
 // GTLRDocs_EmbeddedObjectBorder.dashStyle
 NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_Dash = @"DASH";
 NSString * const kGTLRDocs_EmbeddedObjectBorder_DashStyle_DashStyleUnspecified = @"DASH_STYLE_UNSPECIFIED";
@@ -739,15 +744,25 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_DocumentFormat
+//
+
+@implementation GTLRDocs_DocumentFormat
+@dynamic documentMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_DocumentStyle
 //
 
 @implementation GTLRDocs_DocumentStyle
-@dynamic background, defaultFooterId, defaultHeaderId, evenPageFooterId,
-         evenPageHeaderId, firstPageFooterId, firstPageHeaderId,
-         flipPageOrientation, marginBottom, marginFooter, marginHeader,
-         marginLeft, marginRight, marginTop, pageNumberStart, pageSize,
-         useCustomHeaderFooterMargins, useEvenPageHeaderFooter,
+@dynamic background, defaultFooterId, defaultHeaderId, documentFormat,
+         evenPageFooterId, evenPageHeaderId, firstPageFooterId,
+         firstPageHeaderId, flipPageOrientation, marginBottom, marginFooter,
+         marginHeader, marginLeft, marginRight, marginTop, pageNumberStart,
+         pageSize, useCustomHeaderFooterMargins, useEvenPageHeaderFooter,
          useFirstPageHeaderFooter;
 @end
 
@@ -2506,7 +2521,7 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_TabProperties
-@dynamic index, nestingLevel, parentTabId, tabId, title;
+@dynamic iconEmoji, index, nestingLevel, parentTabId, tabId, title;
 @end
 
 

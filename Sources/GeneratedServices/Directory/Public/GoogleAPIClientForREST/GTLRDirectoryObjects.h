@@ -19,6 +19,7 @@
 @class GTLRDirectory_Asp;
 @class GTLRDirectory_AuxiliaryMessage;
 @class GTLRDirectory_BacklightInfo;
+@class GTLRDirectory_BluetoothAdapterInfo;
 @class GTLRDirectory_Building;
 @class GTLRDirectory_BuildingAddress;
 @class GTLRDirectory_BuildingCoordinates;
@@ -1443,6 +1444,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 
 /**
+ *  Information about a device's Bluetooth adapter.
+ */
+@interface GTLRDirectory_BluetoothAdapterInfo : GTLRObject
+
+/** Output only. The MAC address of the adapter. */
+@property(nonatomic, copy, nullable) NSString *address;
+
+/**
+ *  Output only. The number of devices connected to this adapter.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numConnectedDevices;
+
+@end
+
+
+/**
  *  Public API: Resources.buildings
  */
 @interface GTLRDirectory_Building : GTLRObject
@@ -1870,6 +1889,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 /** Output only. Contains backlight information for the device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_BacklightInfo *> *backlightInfo;
+
+/** Output only. Information about bluetooth adapters of the device. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDirectory_BluetoothAdapterInfo *> *bluetoothAdapterInfo;
 
 /**
  *  The boot mode for the device. The possible values are: * `Verified`: The

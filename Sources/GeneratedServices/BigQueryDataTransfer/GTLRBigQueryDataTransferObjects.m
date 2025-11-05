@@ -40,6 +40,11 @@ NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_Record = @"R
 NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_String = @"STRING";
 NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRBigQueryDataTransfer_TransferConfig.managedTableType
+NSString * const kGTLRBigQueryDataTransfer_TransferConfig_ManagedTableType_Biglake = @"BIGLAKE";
+NSString * const kGTLRBigQueryDataTransfer_TransferConfig_ManagedTableType_ManagedTableTypeUnspecified = @"MANAGED_TABLE_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigQueryDataTransfer_TransferConfig_ManagedTableType_Native = @"NATIVE";
+
 // GTLRBigQueryDataTransfer_TransferConfig.state
 NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRBigQueryDataTransfer_TransferConfig_State_Failed = @"FAILED";
@@ -484,7 +489,7 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 @implementation GTLRBigQueryDataTransfer_TransferConfig
 @dynamic dataRefreshWindowDays, datasetRegion, dataSourceId,
          destinationDatasetId, disabled, displayName, emailPreferences,
-         encryptionConfiguration, error, name, nextRunTime,
+         encryptionConfiguration, error, managedTableType, name, nextRunTime,
          notificationPubsubTopic, ownerInfo, params, schedule, scheduleOptions,
          scheduleOptionsV2, state, updateTime, userId;
 @end

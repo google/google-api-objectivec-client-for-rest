@@ -377,11 +377,12 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 //
 
 @implementation GTLRStorageTransfer_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRStorageTransfer_Operation class]
+    @"operations" : [GTLRStorageTransfer_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

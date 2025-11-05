@@ -1643,7 +1643,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_RolloutUp
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_RolloutUpdateEvent_RolloutUpdateType_InProgress;
 /**
- *  rollout state updated to pending.
+ *  Rollout state updated to pending (release has succeeded, waiting on the
+ *  rollout to start).
  *
  *  Value: "PENDING"
  */
@@ -6697,7 +6698,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *    @arg @c kGTLRCloudDeploy_RolloutUpdateEvent_RolloutUpdateType_InProgress
  *        Rollout state updated to in progress. (Value: "IN_PROGRESS")
  *    @arg @c kGTLRCloudDeploy_RolloutUpdateEvent_RolloutUpdateType_Pending
- *        rollout state updated to pending. (Value: "PENDING")
+ *        Rollout state updated to pending (release has succeeded, waiting on
+ *        the rollout to start). (Value: "PENDING")
  *    @arg @c kGTLRCloudDeploy_RolloutUpdateEvent_RolloutUpdateType_PendingRelease
  *        Rollout state updated to pending release. (Value: "PENDING_RELEASE")
  *    @arg @c kGTLRCloudDeploy_RolloutUpdateEvent_RolloutUpdateType_Rejected

@@ -447,6 +447,16 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_BluetoothAdapterInfo
+//
+
+@implementation GTLRDirectory_BluetoothAdapterInfo
+@dynamic address, numConnectedDevices;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_Building
 //
 
@@ -624,15 +634,16 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 @implementation GTLRDirectory_ChromeOsDevice
 @dynamic activeTimeRanges, annotatedAssetId, annotatedLocation, annotatedUser,
-         autoUpdateExpiration, autoUpdateThrough, backlightInfo, bootMode,
-         chromeOsType, cpuInfo, cpuStatusReports, deprovisionReason,
-         deviceFiles, deviceId, deviceLicenseType, diskSpaceUsage,
-         diskVolumeReports, dockMacAddress, ETag, ethernetMacAddress,
-         ethernetMacAddress0, extendedSupportEligible, extendedSupportEnabled,
-         extendedSupportStart, fanInfo, firmwareVersion, firstEnrollmentTime,
-         kind, lastDeprovisionTimestamp, lastEnrollmentTime, lastKnownNetwork,
-         lastSync, macAddress, manufactureDate, meid, model, notes, orderNumber,
-         orgUnitId, orgUnitPath, osUpdateStatus, osVersion, osVersionCompliance,
+         autoUpdateExpiration, autoUpdateThrough, backlightInfo,
+         bluetoothAdapterInfo, bootMode, chromeOsType, cpuInfo,
+         cpuStatusReports, deprovisionReason, deviceFiles, deviceId,
+         deviceLicenseType, diskSpaceUsage, diskVolumeReports, dockMacAddress,
+         ETag, ethernetMacAddress, ethernetMacAddress0, extendedSupportEligible,
+         extendedSupportEnabled, extendedSupportStart, fanInfo, firmwareVersion,
+         firstEnrollmentTime, kind, lastDeprovisionTimestamp,
+         lastEnrollmentTime, lastKnownNetwork, lastSync, macAddress,
+         manufactureDate, meid, model, notes, orderNumber, orgUnitId,
+         orgUnitPath, osUpdateStatus, osVersion, osVersionCompliance,
          platformVersion, recentUsers, screenshotFiles, serialNumber, status,
          supportEndDate, systemRamFreeReports, systemRamTotal, tpmVersionInfo,
          willAutoRenew;
@@ -645,6 +656,7 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
   NSDictionary<NSString *, Class> *map = @{
     @"activeTimeRanges" : [GTLRDirectory_ChromeOsDevice_ActiveTimeRanges_Item class],
     @"backlightInfo" : [GTLRDirectory_BacklightInfo class],
+    @"bluetoothAdapterInfo" : [GTLRDirectory_BluetoothAdapterInfo class],
     @"cpuInfo" : [GTLRDirectory_ChromeOsDevice_CpuInfo_Item class],
     @"cpuStatusReports" : [GTLRDirectory_ChromeOsDevice_CpuStatusReports_Item class],
     @"deviceFiles" : [GTLRDirectory_ChromeOsDevice_DeviceFiles_Item class],

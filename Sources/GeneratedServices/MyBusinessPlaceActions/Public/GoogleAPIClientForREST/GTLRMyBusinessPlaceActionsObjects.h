@@ -80,6 +80,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_P
  *  Value: "SHOP_ONLINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_ShopOnline;
+/**
+ *  The action type is booking an appointment with a Solopneuer partner.
+ *
+ *  Value: "SOLOPRENEUR_APPOINTMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_SolopreneurAppointment;
 
 // ----------------------------------------------------------------------------
 // GTLRMyBusinessPlaceActions_PlaceActionLink.providerType
@@ -154,6 +160,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMe
  *  Value: "SHOP_ONLINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_ShopOnline;
+/**
+ *  The action type is booking an appointment with a Solopneuer partner.
+ *
+ *  Value: "SOLOPRENEUR_APPOINTMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_SolopreneurAppointment;
 
 /**
  *  A generic empty message that you can re-use to avoid defining duplicated
@@ -282,6 +294,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMe
  *    @arg @c kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_ShopOnline
  *        The action type is shopping, that can be delivery and/or pickup.
  *        (Value: "SHOP_ONLINE")
+ *    @arg @c kGTLRMyBusinessPlaceActions_PlaceActionLink_PlaceActionType_SolopreneurAppointment
+ *        The action type is booking an appointment with a Solopneuer partner.
+ *        (Value: "SOLOPRENEUR_APPOINTMENT")
  */
 @property(nonatomic, copy, nullable) NSString *placeActionType;
 
@@ -349,6 +364,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessPlaceActions_PlaceActionTypeMe
  *    @arg @c kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_ShopOnline
  *        The action type is shopping, that can be delivery and/or pickup.
  *        (Value: "SHOP_ONLINE")
+ *    @arg @c kGTLRMyBusinessPlaceActions_PlaceActionTypeMetadata_PlaceActionType_SolopreneurAppointment
+ *        The action type is booking an appointment with a Solopneuer partner.
+ *        (Value: "SOLOPRENEUR_APPOINTMENT")
  */
 @property(nonatomic, copy, nullable) NSString *placeActionType;
 

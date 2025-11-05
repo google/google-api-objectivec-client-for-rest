@@ -136,9 +136,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "writer" - Provides read and write access to the calendar. Private events
  *  will appear to users with writer access, and event details will be visible.
  *  Provides read access to the calendar's ACLs.
- *  - "owner" - Provides ownership of the calendar. This role has all of the
- *  permissions of the writer role with the additional ability to manipulate
- *  ACLs.
+ *  - "owner" - Provides manager access to the calendar. This role has all of
+ *  the permissions of the writer role with the additional ability to modify
+ *  access levels of other users.
+ *  Important: the owner role is different from the calendar's data owner. A
+ *  calendar has a single data owner, but can have multiple users with owner
+ *  role.
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -182,6 +185,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  conferences are allowed.
  */
 @property(nonatomic, strong, nullable) GTLRCalendar_ConferenceProperties *conferenceProperties;
+
+/**
+ *  The email of the owner of the calendar. Set only for secondary calendars.
+ *  Read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *dataOwner;
 
 /**
  *  Description of the calendar. Optional.
@@ -272,9 +281,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  appear to users with reader access, but event details will be hidden.
  *  - "writer" - Provides read and write access to the calendar. Private events
  *  will appear to users with writer access, and event details will be visible.
- *  - "owner" - Provides ownership of the calendar. This role has all of the
- *  permissions of the writer role with the additional ability to see and
- *  manipulate ACLs.
+ *  - "owner" - Provides manager access to the calendar. This role has all of
+ *  the permissions of the writer role with the additional ability to see and
+ *  modify access levels of other users.
+ *  Important: the owner role is different from the calendar's data owner. A
+ *  calendar has a single data owner, but can have multiple users with owner
+ *  role.
  */
 @property(nonatomic, copy, nullable) NSString *accessRole;
 
@@ -299,6 +311,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  conferences are allowed.
  */
 @property(nonatomic, strong, nullable) GTLRCalendar_ConferenceProperties *conferenceProperties;
+
+/**
+ *  The email of the owner of the calendar. Set only for secondary calendars.
+ *  Read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *dataOwner;
 
 /**
  *  The default reminders that the authenticated user has for this calendar.
@@ -1730,9 +1748,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  - "writer" - The user has read and write access to the calendar. Private
  *  events will appear to users with writer access, and event details will be
  *  visible.
- *  - "owner" - The user has ownership of the calendar. This role has all of the
- *  permissions of the writer role with the additional ability to see and
- *  manipulate ACLs.
+ *  - "owner" - The user has manager access to the calendar. This role has all
+ *  of the permissions of the writer role with the additional ability to see and
+ *  modify access levels of other users.
+ *  Important: the owner role is different from the calendar's data owner. A
+ *  calendar has a single data owner, but can have multiple users with owner
+ *  role.
  */
 @property(nonatomic, copy, nullable) NSString *accessRole;
 

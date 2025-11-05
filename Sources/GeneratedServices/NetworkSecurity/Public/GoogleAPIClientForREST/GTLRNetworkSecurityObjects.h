@@ -910,6 +910,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeployment_Stat
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Active;
 /**
+ *  The deployment group is being wiped out (project deleted).
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Closed;
+/**
  *  The deployment group is being created.
  *
  *  Value: "CREATING"
@@ -2761,6 +2767,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  Settings for the endpoint.
  */
 @interface GTLRNetworkSecurity_FirewallEndpointEndpointSettings : GTLRObject
+
+/**
+ *  Optional. Immutable. Indicates whether Jumbo Frames are enabled. Default
+ *  value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jumboFramesEnabled;
+
 @end
 
 
@@ -4868,6 +4883,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  Likely values:
  *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Active The
  *        deployment group is ready. (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Closed The
+ *        deployment group is being wiped out (project deleted). (Value:
+ *        "CLOSED")
  *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Creating The
  *        deployment group is being created. (Value: "CREATING")
  *    @arg @c kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Deleting The

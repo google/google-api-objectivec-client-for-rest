@@ -254,6 +254,7 @@ NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionNewRegionsCon
 // GTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig.availability
 NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailabilityUnspecified = @"AVAILABILITY_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_Available = @"AVAILABLE";
+NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableForOffersOnly = @"AVAILABLE_FOR_OFFERS_ONLY";
 NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableIfReleased = @"AVAILABLE_IF_RELEASED";
 NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_NoLongerAvailable = @"NO_LONGER_AVAILABLE";
 
@@ -3021,7 +3022,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_OneTimePurchaseDetails
-@dynamic offerId, purchaseOptionId, quantity, rentalDetails;
+@dynamic offerId, preorderDetails, purchaseOptionId, quantity, rentalDetails;
 @end
 
 
@@ -3202,6 +3203,25 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_PreorderDetails
+//
+
+@implementation GTLRAndroidPublisher_PreorderDetails
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_PreorderOfferDetails
+//
+
+@implementation GTLRAndroidPublisher_PreorderOfferDetails
+@dynamic preorderReleaseTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_PrepaidBasePlanType
 //
 
@@ -3266,8 +3286,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_ProductOfferDetails
-@dynamic consumptionState, offerId, offerTags, offerToken, purchaseOptionId,
-         quantity, refundableQuantity, rentOfferDetails;
+@dynamic consumptionState, offerId, offerTags, offerToken, preorderOfferDetails,
+         purchaseOptionId, quantity, refundableQuantity, rentOfferDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

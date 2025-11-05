@@ -1258,11 +1258,12 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 //
 
 @implementation GTLRGKEOnPrem_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRGKEOnPrem_Operation class]
+    @"operations" : [GTLRGKEOnPrem_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

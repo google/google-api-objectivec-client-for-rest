@@ -908,6 +908,90 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @end
 
 /**
+ *  Fetch Backups for a given resource type.
+ *
+ *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.fetchForResourceType
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsFetchForResourceType : GTLRBackupdrQuery
+
+/**
+ *  Optional. A filter expression that filters the results fetched in the
+ *  response. The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. Supported fields:
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of Backups to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 Backups will be returned.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous call of
+ *  `FetchBackupsForResourceType`. Provide this to retrieve the subsequent page.
+ *  When paginating, all other parameters provided to
+ *  `FetchBackupsForResourceType` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Datasources are the parent resource for the backups. Format:
+ *  projects/{project}/locations/{location}/backupVaults/{backupVaultId}/dataSources/{datasourceId}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The type of the GCP resource. Ex: sqladmin.googleapis.com/Instance
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Optional. This parameter is used to specify the view of the backup. If not
+ *  specified, the default view is BASIC.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdrViewBackupViewUnspecified If the value is not set,
+ *        the default 'FULL' view is used. (Value: "BACKUP_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdrViewBackupViewBasic Includes basic data about the
+ *        Backup, but not the full contents. (Value: "BACKUP_VIEW_BASIC")
+ *    @arg @c kGTLRBackupdrViewBackupViewFull Includes all data about the
+ *        Backup. This is the default value (for both ListBackups and
+ *        GetBackup). (Value: "BACKUP_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRBackupdr_FetchBackupsForResourceTypeResponse.
+ *
+ *  Fetch Backups for a given resource type.
+ *
+ *  @param parent Required. Datasources are the parent resource for the backups.
+ *    Format:
+ *    projects/{project}/locations/{location}/backupVaults/{backupVaultId}/dataSources/{datasourceId}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsFetchForResourceType
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets details of a Backup.
  *
  *  Method: backupdr.projects.locations.backupVaults.dataSources.backups.get
@@ -1928,6 +2012,73 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @end
 
 /**
+ *  Lists DataSourceReferences for a given project and location.
+ *
+ *  Method: backupdr.projects.locations.dataSourceReferences.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesList : GTLRBackupdrQuery
+
+/**
+ *  Optional. A filter expression that filters the results listed in the
+ *  response. The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. The following field and
+ *  operator combinations are supported: *
+ *  data_source_gcp_resource_info.gcp_resourcename with `=`, `!=` *
+ *  data_source_gcp_resource_info.type with `=`, `!=`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. A comma-separated list of fields to order by, sorted in ascending
+ *  order. Use "desc" after a field name for descending. Supported fields: *
+ *  data_source * data_source_gcp_resource_info.gcp_resourcename
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of DataSourceReferences to return. The service
+ *  may return fewer than this value. If unspecified, at most 50
+ *  DataSourceReferences will be returned. The maximum value is 100; values
+ *  above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListDataSourceReferences`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListDataSourceReferences` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_ListDataSourceReferencesResponse.
+ *
+ *  Lists DataSourceReferences for a given project and location.
+ *
+ *  @param parent Required. The parent resource name. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: backupdr.projects.locations.get
@@ -1996,8 +2147,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @interface GTLRBackupdrQuery_ProjectsLocationsList : GTLRBackupdrQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2523,6 +2674,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRBackupdr_ListOperationsResponse.

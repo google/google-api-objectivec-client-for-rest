@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Dataform API (dataform/v1beta1)
+//   Dataform API (dataform/v1)
 // Description:
 //   Service to develop, version control, and operationalize SQL pipelines in
 //   BigQuery.

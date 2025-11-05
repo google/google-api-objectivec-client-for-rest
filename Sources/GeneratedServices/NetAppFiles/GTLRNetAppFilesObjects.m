@@ -208,6 +208,7 @@ NSString * const kGTLRNetAppFiles_StoragePool_ServiceLevel_Standard = @"STANDARD
 
 // GTLRNetAppFiles_StoragePool.state
 NSString * const kGTLRNetAppFiles_StoragePool_State_Creating   = @"CREATING";
+NSString * const kGTLRNetAppFiles_StoragePool_State_Degraded   = @"DEGRADED";
 NSString * const kGTLRNetAppFiles_StoragePool_State_Deleting   = @"DELETING";
 NSString * const kGTLRNetAppFiles_StoragePool_State_Disabled   = @"DISABLED";
 NSString * const kGTLRNetAppFiles_StoragePool_State_Error      = @"ERROR";
@@ -790,11 +791,12 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRNetAppFiles_Operation class]
+    @"operations" : [GTLRNetAppFiles_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

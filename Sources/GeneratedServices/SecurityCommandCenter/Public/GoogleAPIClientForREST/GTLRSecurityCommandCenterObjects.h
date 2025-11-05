@@ -177,6 +177,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Indicator;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InfoType;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRule;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRules;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueDomain;
@@ -186,6 +187,10 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplication;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributes;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesContactInfo;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadata;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAwsMetadataAwsAccount;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAzureMetadata;
@@ -229,6 +234,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityPolicy;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityPosture;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ServiceAccountDelegationInfo;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Subject;
@@ -243,6 +249,7 @@
 @class GTLRSecurityCommandCenter_IamBinding;
 @class GTLRSecurityCommandCenter_IamPolicy;
 @class GTLRSecurityCommandCenter_Indicator;
+@class GTLRSecurityCommandCenter_InfoType;
 @class GTLRSecurityCommandCenter_IpRule;
 @class GTLRSecurityCommandCenter_IpRules;
 @class GTLRSecurityCommandCenter_Job;
@@ -289,6 +296,7 @@
 @class GTLRSecurityCommandCenter_SecurityMarks_Marks;
 @class GTLRSecurityCommandCenter_SecurityPolicy;
 @class GTLRSecurityCommandCenter_SecurityPosture;
+@class GTLRSecurityCommandCenter_SensitivityScore;
 @class GTLRSecurityCommandCenter_ServiceAccountDelegationInfo;
 @class GTLRSecurityCommandCenter_SimulatedResource;
 @class GTLRSecurityCommandCenter_SimulatedResource_ResourceData;
@@ -2890,6 +2898,74 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource_CloudProvider_MicrosoftAzure;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality.type
+
+/**
+ *  Unspecified type.
+ *
+ *  Value: "CRITICALITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality_Type_CriticalityTypeUnspecified;
+/**
+ *  High impact.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality_Type_High;
+/**
+ *  Low impact.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality_Type_Low;
+/**
+ *  Medium impact.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality_Type_Medium;
+/**
+ *  Mission critical service, application or workload.
+ *
+ *  Value: "MISSION_CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality_Type_MissionCritical;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment.type
+
+/**
+ *  Development environment.
+ *
+ *  Value: "DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment_Type_Development;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "ENVIRONMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment_Type_EnvironmentTypeUnspecified;
+/**
+ *  Production environment.
+ *
+ *  Value: "PRODUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment_Type_Production;
+/**
+ *  Staging environment.
+ *
+ *  Value: "STAGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment_Type_Staging;
+/**
+ *  Test environment.
+ *
+ *  Value: "TEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment_Type_Test;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Job.state
 
 /**
@@ -3356,6 +3432,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "EXPLOITATION_FOR_CLIENT_EXECUTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExploitationForClientExecution;
+/**
+ *  T1212
+ *
+ *  Value: "EXPLOITATION_FOR_CREDENTIAL_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_AdditionalTechniques_ExploitationForCredentialAccess;
 /**
  *  T1068
  *
@@ -4283,6 +4365,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExploitationForClientExecution;
 /**
+ *  T1212
+ *
+ *  Value: "EXPLOITATION_FOR_CREDENTIAL_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2MitreAttack_PrimaryTechniques_ExploitationForCredentialAccess;
+/**
  *  T1068
  *
  *  Value: "EXPLOITATION_FOR_PRIVILEGE_ESCALATION"
@@ -5071,6 +5159,44 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping_MediumSensitivityMapping_ResourceValueUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore.score
+
+/**
+ *  High risk. Sensitive personally identifiable information (SPII) can be
+ *  present. Exfiltration of data can lead to user data loss. Re-identification
+ *  of users might be possible. Consider limiting usage and or removing SPII.
+ *
+ *  Value: "SENSITIVITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore_Score_SensitivityHigh;
+/**
+ *  No sensitive information detected. The resource isn't publicly accessible.
+ *
+ *  Value: "SENSITIVITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore_Score_SensitivityLow;
+/**
+ *  Medium risk. Contains personally identifiable information (PII), potentially
+ *  sensitive data, or fields with free-text data that are at a higher risk of
+ *  having intermittent sensitive data. Consider limiting access.
+ *
+ *  Value: "SENSITIVITY_MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore_Score_SensitivityModerate;
+/**
+ *  Unused.
+ *
+ *  Value: "SENSITIVITY_SCORE_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore_Score_SensitivityScoreLevelUnspecified;
+/**
+ *  Unable to determine sensitivity.
+ *
+ *  Value: "SENSITIVITY_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore_Score_SensitivityUnknown;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2StaticMute.state
 
 /**
@@ -5724,6 +5850,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Additi
  *  Value: "EXPLOITATION_FOR_CLIENT_EXECUTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExploitationForClientExecution;
+/**
+ *  T1212
+ *
+ *  Value: "EXPLOITATION_FOR_CREDENTIAL_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_AdditionalTechniques_ExploitationForCredentialAccess;
 /**
  *  T1068
  *
@@ -6651,6 +6783,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_Primar
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExploitationForClientExecution;
 /**
+ *  T1212
+ *
+ *  Value: "EXPLOITATION_FOR_CREDENTIAL_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_MitreAttack_PrimaryTechniques_ExploitationForCredentialAccess;
+/**
  *  T1068
  *
  *  Value: "EXPLOITATION_FOR_PRIVILEGE_ESCALATION"
@@ -7278,6 +7416,44 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Role_Kind_KindUnsp
  *  Value: "ROLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Role_Kind_Role;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_SensitivityScore.score
+
+/**
+ *  High risk. Sensitive personally identifiable information (SPII) can be
+ *  present. Exfiltration of data can lead to user data loss. Re-identification
+ *  of users might be possible. Consider limiting usage and or removing SPII.
+ *
+ *  Value: "SENSITIVITY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityHigh;
+/**
+ *  No sensitive information detected. The resource isn't publicly accessible.
+ *
+ *  Value: "SENSITIVITY_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityLow;
+/**
+ *  Medium risk. Contains personally identifiable information (PII), potentially
+ *  sensitive data, or fields with free-text data that are at a higher risk of
+ *  having intermittent sensitive data. Consider limiting access.
+ *
+ *  Value: "SENSITIVITY_MODERATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityModerate;
+/**
+ *  Unused.
+ *
+ *  Value: "SENSITIVITY_SCORE_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityScoreLevelUnspecified;
+/**
+ *  Unable to determine sensitivity.
+ *
+ *  Value: "SENSITIVITY_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_SetFindingStateRequest.state
@@ -8641,6 +8817,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  `projects/123/locations/europe/tableProfiles/8383929`.
  */
 @property(nonatomic, copy, nullable) NSString *dataProfile;
+
+/**
+ *  Type of information detected by SDP. Info type includes name, version and
+ *  sensitivity of the detected information type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_InfoType *> *infoTypes;
 
 /**
  *  The resource hierarchy level at which the data profile was generated.
@@ -12501,6 +12683,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *dataProfile;
 
 /**
+ *  Type of information detected by SDP. Info type includes name, version and
+ *  sensitivity of the detected information type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InfoType *> *infoTypes;
+
+/**
  *  The resource hierarchy level at which the data profile was generated.
  *
  *  Likely values:
@@ -14187,6 +14375,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Type of information detected by the API.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InfoType : GTLRObject
+
+/**
+ *  Name of the information type. Either a name of your choosing when creating a
+ *  CustomInfoType, or one of the names listed at
+ *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  when specifying a built-in type. When sending Cloud DLP results to Data
+ *  Catalog, infoType names should conform to the pattern
+ *  `[A-Za-z0-9$_-]{1,64}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional custom sensitivity for this InfoType. This only applies to data
+ *  profiling.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore *sensitivityScore;
+
+/** Optional version name for this InfoType. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
  *  IP rule information.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IpRule : GTLRObject
@@ -14529,11 +14744,99 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplication : GTLRObject
 
+/** Consumer provided attributes for the application */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributes *attributes;
+
 /**
  *  The resource name of an Application. Format:
  *  `projects/{host-project-id}/locations/{location}/applications/{application-id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Consumer provided attributes for the application
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributes : GTLRObject
+
+/** Business team that ensures user needs are met and value is delivered */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesContactInfo *> *businessOwners;
+
+/** User-defined criticality information. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality *criticality;
+
+/** Developer team that owns development and coding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesContactInfo *> *developerOwners;
+
+/** User-defined environment information. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment *environment;
+
+/** Operator team that ensures runtime and operations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesContactInfo *> *operatorOwners;
+
+@end
+
+
+/**
+ *  Contact information of stakeholders.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesContactInfo : GTLRObject
+
+/** Email address of the contacts. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+@end
+
+
+/**
+ *  Criticality of the Application, Service, or Workload
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality : GTLRObject
+
+/**
+ *  Criticality Type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality_Type_CriticalityTypeUnspecified
+ *        Unspecified type. (Value: "CRITICALITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality_Type_High
+ *        High impact. (Value: "HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality_Type_Low
+ *        Low impact. (Value: "LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality_Type_Medium
+ *        Medium impact. (Value: "MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesCriticality_Type_MissionCritical
+ *        Mission critical service, application or workload. (Value:
+ *        "MISSION_CRITICAL")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Environment of the Application, Service, or Workload
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment : GTLRObject
+
+/**
+ *  Environment Type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment_Type_Development
+ *        Development environment. (Value: "DEVELOPMENT")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment_Type_EnvironmentTypeUnspecified
+ *        Unspecified type. (Value: "ENVIRONMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment_Type_Production
+ *        Production environment. (Value: "PRODUCTION")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment_Type_Staging
+ *        Staging environment. (Value: "STAGING")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesEnvironment_Type_Test
+ *        Test environment. (Value: "TEST")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -15947,6 +16250,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Score is calculated from of all elements in the data profile. A higher level
+ *  means the data is more sensitive.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore : GTLRObject
+
+/**
+ *  The sensitivity score applied to the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore_Score_SensitivityHigh
+ *        High risk. Sensitive personally identifiable information (SPII) can be
+ *        present. Exfiltration of data can lead to user data loss.
+ *        Re-identification of users might be possible. Consider limiting usage
+ *        and or removing SPII. (Value: "SENSITIVITY_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore_Score_SensitivityLow
+ *        No sensitive information detected. The resource isn't publicly
+ *        accessible. (Value: "SENSITIVITY_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore_Score_SensitivityModerate
+ *        Medium risk. Contains personally identifiable information (PII),
+ *        potentially sensitive data, or fields with free-text data that are at
+ *        a higher risk of having intermittent sensitive data. Consider limiting
+ *        access. (Value: "SENSITIVITY_MODERATE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore_Score_SensitivityScoreLevelUnspecified
+ *        Unused. (Value: "SENSITIVITY_SCORE_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitivityScore_Score_SensitivityUnknown
+ *        Unable to determine sensitivity. (Value: "SENSITIVITY_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *score;
+
+@end
+
+
+/**
  *  Identity delegation history of an authenticated service account.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ServiceAccountDelegationInfo : GTLRObject
@@ -16567,6 +16903,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The list of URIs associated to the Findings. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *uris;
+
+@end
+
+
+/**
+ *  Type of information detected by the API.
+ */
+@interface GTLRSecurityCommandCenter_InfoType : GTLRObject
+
+/**
+ *  Name of the information type. Either a name of your choosing when creating a
+ *  CustomInfoType, or one of the names listed at
+ *  https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference
+ *  when specifying a built-in type. When sending Cloud DLP results to Data
+ *  Catalog, infoType names should conform to the pattern
+ *  `[A-Za-z0-9$_-]{1,64}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional custom sensitivity for this InfoType. This only applies to data
+ *  profiling.
+ */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SensitivityScore *sensitivityScore;
+
+/** Optional version name for this InfoType. */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -17231,6 +17594,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -18537,6 +18907,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The version of the posture, for example, `c7cfa2a8`. */
 @property(nonatomic, copy, nullable) NSString *revisionId;
+
+@end
+
+
+/**
+ *  Score is calculated from of all elements in the data profile. A higher level
+ *  means the data is more sensitive.
+ */
+@interface GTLRSecurityCommandCenter_SensitivityScore : GTLRObject
+
+/**
+ *  The sensitivity score applied to the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityHigh
+ *        High risk. Sensitive personally identifiable information (SPII) can be
+ *        present. Exfiltration of data can lead to user data loss.
+ *        Re-identification of users might be possible. Consider limiting usage
+ *        and or removing SPII. (Value: "SENSITIVITY_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityLow
+ *        No sensitive information detected. The resource isn't publicly
+ *        accessible. (Value: "SENSITIVITY_LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityModerate
+ *        Medium risk. Contains personally identifiable information (PII),
+ *        potentially sensitive data, or fields with free-text data that are at
+ *        a higher risk of having intermittent sensitive data. Consider limiting
+ *        access. (Value: "SENSITIVITY_MODERATE")
+ *    @arg @c kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityScoreLevelUnspecified
+ *        Unused. (Value: "SENSITIVITY_SCORE_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityUnknown
+ *        Unable to determine sensitivity. (Value: "SENSITIVITY_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *score;
 
 @end
 

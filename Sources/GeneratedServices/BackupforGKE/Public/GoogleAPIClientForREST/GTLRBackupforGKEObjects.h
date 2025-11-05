@@ -960,8 +960,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) NSNumber *manual;
 
 /**
- *  Output only. The fully qualified name of the Backup. `projects/ *
- *  /locations/ * /backupPlans/ * /backups/ *`
+ *  Output only. Identifier. The fully qualified name of the Backup. `projects/
+ *  * /locations/ * /backupPlans/ * /backups/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1383,8 +1383,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRDateTime *lastSuccessfulBackupTime;
 
 /**
- *  Output only. The full name of the BackupPlan resource. Format: `projects/ *
- *  /locations/ * /backupPlans/ *`
+ *  Output only. Identifier. The full name of the BackupPlan resource. Format:
+ *  `projects/ * /locations/ * /backupPlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2018,6 +2018,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -2932,8 +2939,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_Restore_Labels *labels;
 
 /**
- *  Output only. The full name of the Restore resource. Format: `projects/ *
- *  /locations/ * /restorePlans/ * /restores/ *`
+ *  Output only. Identifier. The full name of the Restore resource. Format:
+ *  `projects/ * /locations/ * /restorePlans/ * /restores/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3364,8 +3371,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, strong, nullable) GTLRBackupforGKE_RestorePlan_Labels *labels;
 
 /**
- *  Output only. The full name of the RestorePlan resource. Format: `projects/ *
- *  /locations/ * /restorePlans/ *`.
+ *  Output only. Identifier. The full name of the RestorePlan resource. Format:
+ *  `projects/ * /locations/ * /restorePlans/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

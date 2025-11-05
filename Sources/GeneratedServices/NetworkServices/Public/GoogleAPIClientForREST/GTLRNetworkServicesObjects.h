@@ -66,6 +66,8 @@
 @class GTLRNetworkServices_HttpRouteRouteRule;
 @class GTLRNetworkServices_HttpRouteStatefulSessionAffinityPolicy;
 @class GTLRNetworkServices_HttpRouteURLRewrite;
+@class GTLRNetworkServices_LbEdgeExtension;
+@class GTLRNetworkServices_LbEdgeExtension_Labels;
 @class GTLRNetworkServices_LbRouteExtension;
 @class GTLRNetworkServices_LbRouteExtension_Labels;
 @class GTLRNetworkServices_LbRouteExtension_Metadata;
@@ -178,14 +180,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalan
 // GTLRNetworkServices_AuthzExtension.wireFormat
 
 /**
- *  The extension service uses Envoy's `ext_authz` gRPC API. The backend service
- *  for the extension must use HTTP2, or H2C as the protocol. `EXT_AUTHZ_GRPC`
- *  is only supported for `AuthzExtension` resources.
- *
- *  Value: "EXT_AUTHZ_GRPC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtAuthzGrpc;
-/**
  *  The extension service uses ext_proc gRPC API over a gRPC stream. This is the
  *  default value if the wire format is not specified. The backend service for
  *  the extension must use HTTP2 or H2C as the protocol. All `supported_events`
@@ -246,6 +240,68 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_Grpc
  *  Value: "SIDECAR_PROXY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_ExtensionChainExtension.requestBodySendMode
+
+/**
+ *  Calls are executed in the full duplex mode. Subsequent chunks will be sent
+ *  for processing without waiting for the response for the previous chunk or
+ *  for the response for `REQUEST_HEADERS` event. Extension can freely modify or
+ *  chunk the body contents. If the extension doesn't send the body contents
+ *  back, the next extension in the chain or the upstream will receive an empty
+ *  body.
+ *
+ *  Value: "BODY_SEND_MODE_FULL_DUPLEX_STREAMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_RequestBodySendMode_BodySendModeFullDuplexStreamed;
+/**
+ *  Calls to the extension are executed in the streamed mode. Subsequent chunks
+ *  will be sent only after the previous chunks have been processed. The content
+ *  of the body chunks is sent one way to the extension. Extension may send
+ *  modified chunks back. This is the default value if the processing mode is
+ *  not specified.
+ *
+ *  Value: "BODY_SEND_MODE_STREAMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_RequestBodySendMode_BodySendModeStreamed;
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "BODY_SEND_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_RequestBodySendMode_BodySendModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_ExtensionChainExtension.responseBodySendMode
+
+/**
+ *  Calls are executed in the full duplex mode. Subsequent chunks will be sent
+ *  for processing without waiting for the response for the previous chunk or
+ *  for the response for `REQUEST_HEADERS` event. Extension can freely modify or
+ *  chunk the body contents. If the extension doesn't send the body contents
+ *  back, the next extension in the chain or the upstream will receive an empty
+ *  body.
+ *
+ *  Value: "BODY_SEND_MODE_FULL_DUPLEX_STREAMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_ResponseBodySendMode_BodySendModeFullDuplexStreamed;
+/**
+ *  Calls to the extension are executed in the streamed mode. Subsequent chunks
+ *  will be sent only after the previous chunks have been processed. The content
+ *  of the body chunks is sent one way to the extension. Extension may send
+ *  modified chunks back. This is the default value if the processing mode is
+ *  not specified.
+ *
+ *  Value: "BODY_SEND_MODE_STREAMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_ResponseBodySendMode_BodySendModeStreamed;
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "BODY_SEND_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_ResponseBodySendMode_BodySendModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkServices_ExtensionChainExtension.supportedEvents
@@ -473,6 +529,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_Respon
  *  Value: "TEMPORARY_REDIRECT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRedirect;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkServices_LbEdgeExtension.loadBalancingScheme
+
+/**
+ *  Signifies that this is used for External Managed HTTP(S) Load Balancing.
+ *
+ *  Value: "EXTERNAL_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbEdgeExtension_LoadBalancingScheme_ExternalManaged;
+/**
+ *  Signifies that this is used for Internal HTTP(S) Load Balancing.
+ *
+ *  Value: "INTERNAL_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbEdgeExtension_LoadBalancingScheme_InternalManaged;
+/**
+ *  Default value. Do not use.
+ *
+ *  Value: "LOAD_BALANCING_SCHEME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LbEdgeExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkServices_LbRouteExtension.loadBalancingScheme
@@ -918,11 +996,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  not specified, the default value `EXT_PROC_GRPC` is used.
  *
  *  Likely values:
- *    @arg @c kGTLRNetworkServices_AuthzExtension_WireFormat_ExtAuthzGrpc The
- *        extension service uses Envoy's `ext_authz` gRPC API. The backend
- *        service for the extension must use HTTP2, or H2C as the protocol.
- *        `EXT_AUTHZ_GRPC` is only supported for `AuthzExtension` resources.
- *        (Value: "EXT_AUTHZ_GRPC")
  *    @arg @c kGTLRNetworkServices_AuthzExtension_WireFormat_ExtProcGrpc The
  *        extension service uses ext_proc gRPC API over a gRPC stream. This is
  *        the default value if the wire format is not specified. The backend
@@ -1362,8 +1435,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. The metadata provided here is included as part of the
  *  `metadata_context` (of type `google.protobuf.Struct`) in the
- *  `ProcessingRequest` message sent to the extension server. The metadata is
- *  available under the namespace `com.google....`. For example:
+ *  `ProcessingRequest` message sent to the extension server. For
+ *  `AuthzExtension` resources, the metadata is available under the namespace
+ *  `com.google.authz_extension.`. For other types of extensions, the metadata
+ *  is available under the namespace `com.google....`. For example:
  *  `com.google.lb_traffic_extension.lbtrafficextension1.chain1.ext1`. The
  *  following variables are supported in the metadata: `{forwarding_rule_id}` -
  *  substituted with the forwarding rule's fully qualified resource name. This
@@ -1380,13 +1455,77 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, strong, nullable) GTLRNetworkServices_ExtensionChainExtension_Metadata *metadata;
 
 /**
- *  Required. The name for this extension. The name is logged as part of the
+ *  Optional. The name for this extension. The name is logged as part of the
  *  HTTP request logs. The name must conform with RFC-1034, is restricted to
  *  lower-cased letters, numbers and hyphens, and can have a maximum length of
  *  63 characters. Additionally, the first character must be a letter and the
- *  last a letter or a number.
+ *  last a letter or a number. This field is required except for AuthzExtension.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Configures the send mode for request body processing. The field
+ *  can only be set if `supported_events` includes `REQUEST_BODY`. If
+ *  `supported_events` includes `REQUEST_BODY`, but `request_body_send_mode` is
+ *  unset, the default value `STREAMED` is used. When this field is set to
+ *  `FULL_DUPLEX_STREAMED`, `supported_events` must include both `REQUEST_BODY`
+ *  and `REQUEST_TRAILERS`. This field can be set only for `LbTrafficExtension`
+ *  and `LbRouteExtension` resources, and only when the `service` field of the
+ *  extension points to a `BackendService`. Only `FULL_DUPLEX_STREAMED` mode is
+ *  supported for `LbRouteExtension` resources.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_ExtensionChainExtension_RequestBodySendMode_BodySendModeFullDuplexStreamed
+ *        Calls are executed in the full duplex mode. Subsequent chunks will be
+ *        sent for processing without waiting for the response for the previous
+ *        chunk or for the response for `REQUEST_HEADERS` event. Extension can
+ *        freely modify or chunk the body contents. If the extension doesn't
+ *        send the body contents back, the next extension in the chain or the
+ *        upstream will receive an empty body. (Value:
+ *        "BODY_SEND_MODE_FULL_DUPLEX_STREAMED")
+ *    @arg @c kGTLRNetworkServices_ExtensionChainExtension_RequestBodySendMode_BodySendModeStreamed
+ *        Calls to the extension are executed in the streamed mode. Subsequent
+ *        chunks will be sent only after the previous chunks have been
+ *        processed. The content of the body chunks is sent one way to the
+ *        extension. Extension may send modified chunks back. This is the
+ *        default value if the processing mode is not specified. (Value:
+ *        "BODY_SEND_MODE_STREAMED")
+ *    @arg @c kGTLRNetworkServices_ExtensionChainExtension_RequestBodySendMode_BodySendModeUnspecified
+ *        Default value. Do not use. (Value: "BODY_SEND_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *requestBodySendMode;
+
+/**
+ *  Optional. Configures the send mode for response processing. If unspecified,
+ *  the default value `STREAMED` is used. The field can only be set if
+ *  `supported_events` includes `RESPONSE_BODY`. If `supported_events` includes
+ *  `RESPONSE_BODY`, but `response_body_send_mode` is unset, the default value
+ *  `STREAMED` is used. When this field is set to `FULL_DUPLEX_STREAMED`,
+ *  `supported_events` must include both `RESPONSE_BODY` and
+ *  `RESPONSE_TRAILERS`. This field can be set only for `LbTrafficExtension`
+ *  resources, and only when the `service` field of the extension points to a
+ *  `BackendService`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_ExtensionChainExtension_ResponseBodySendMode_BodySendModeFullDuplexStreamed
+ *        Calls are executed in the full duplex mode. Subsequent chunks will be
+ *        sent for processing without waiting for the response for the previous
+ *        chunk or for the response for `REQUEST_HEADERS` event. Extension can
+ *        freely modify or chunk the body contents. If the extension doesn't
+ *        send the body contents back, the next extension in the chain or the
+ *        upstream will receive an empty body. (Value:
+ *        "BODY_SEND_MODE_FULL_DUPLEX_STREAMED")
+ *    @arg @c kGTLRNetworkServices_ExtensionChainExtension_ResponseBodySendMode_BodySendModeStreamed
+ *        Calls to the extension are executed in the streamed mode. Subsequent
+ *        chunks will be sent only after the previous chunks have been
+ *        processed. The content of the body chunks is sent one way to the
+ *        extension. Extension may send modified chunks back. This is the
+ *        default value if the processing mode is not specified. (Value:
+ *        "BODY_SEND_MODE_STREAMED")
+ *    @arg @c kGTLRNetworkServices_ExtensionChainExtension_ResponseBodySendMode_BodySendModeUnspecified
+ *        Default value. Do not use. (Value: "BODY_SEND_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *responseBodySendMode;
 
 /**
  *  Required. The reference to the service that runs the extension. To configure
@@ -1414,7 +1553,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  is required. For the `LbRouteExtension` resource, this field is optional. If
  *  unspecified, `REQUEST_HEADERS` event is assumed as supported. For the
  *  `LbEdgeExtension` resource, this field is required and must only contain
- *  `REQUEST_HEADERS` event.
+ *  `REQUEST_HEADERS` event. For the `AuthzExtension` resource, this field is
+ *  optional. `REQUEST_HEADERS` is the only supported event. If unspecified,
+ *  `REQUEST_HEADERS` event is assumed as supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedEvents;
 
@@ -1432,8 +1573,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. The metadata provided here is included as part of the
  *  `metadata_context` (of type `google.protobuf.Struct`) in the
- *  `ProcessingRequest` message sent to the extension server. The metadata is
- *  available under the namespace `com.google....`. For example:
+ *  `ProcessingRequest` message sent to the extension server. For
+ *  `AuthzExtension` resources, the metadata is available under the namespace
+ *  `com.google.authz_extension.`. For other types of extensions, the metadata
+ *  is available under the namespace `com.google....`. For example:
  *  `com.google.lb_traffic_extension.lbtrafficextension1.chain1.ext1`. The
  *  following variables are supported in the metadata: `{forwarding_rule_id}` -
  *  substituted with the forwarding rule's fully qualified resource name. This
@@ -2863,6 +3006,93 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
+ *  `LbEdgeExtension` is a resource that lets the extension service influence
+ *  the selection of backend services and Cloud CDN cache keys by modifying
+ *  request headers.
+ */
+@interface GTLRNetworkServices_LbEdgeExtension : GTLRObject
+
+/** Output only. The timestamp when the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A human-readable description of the resource.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. A set of ordered extension chains that contain the match
+ *  conditions and extensions to execute. Match conditions for each extension
+ *  chain are evaluated in sequence for a given request. The first extension
+ *  chain that has a condition that matches the request is executed. Any
+ *  subsequent extension chains do not execute. Limited to 5 extension chains
+ *  per resource.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_ExtensionChain *> *extensionChains;
+
+/**
+ *  Required. A list of references to the forwarding rules to which this service
+ *  extension is attached. At least one forwarding rule is required. Only one
+ *  `LbEdgeExtension` resource can be associated with a forwarding rule.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forwardingRules;
+
+/**
+ *  Optional. Set of labels associated with the `LbEdgeExtension` resource. The
+ *  format must comply with [the requirements for
+ *  labels](https://cloud.google.com/compute/docs/labeling-resources#requirements)
+ *  for Google Cloud resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkServices_LbEdgeExtension_Labels *labels;
+
+/**
+ *  Required. All forwarding rules referenced by this extension must share the
+ *  same load balancing scheme. Supported values: `EXTERNAL_MANAGED`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkServices_LbEdgeExtension_LoadBalancingScheme_ExternalManaged
+ *        Signifies that this is used for External Managed HTTP(S) Load
+ *        Balancing. (Value: "EXTERNAL_MANAGED")
+ *    @arg @c kGTLRNetworkServices_LbEdgeExtension_LoadBalancingScheme_InternalManaged
+ *        Signifies that this is used for Internal HTTP(S) Load Balancing.
+ *        (Value: "INTERNAL_MANAGED")
+ *    @arg @c kGTLRNetworkServices_LbEdgeExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified
+ *        Default value. Do not use. (Value:
+ *        "LOAD_BALANCING_SCHEME_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
+
+/**
+ *  Required. Identifier. Name of the `LbEdgeExtension` resource in the
+ *  following format:
+ *  `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The timestamp when the resource was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Set of labels associated with the `LbEdgeExtension` resource. The
+ *  format must comply with [the requirements for
+ *  labels](https://cloud.google.com/compute/docs/labeling-resources#requirements)
+ *  for Google Cloud resources.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkServices_LbEdgeExtension_Labels : GTLRObject
+@end
+
+
+/**
  *  `LbRouteExtension` is a resource that lets you control where traffic is
  *  routed to for a given request.
  */
@@ -3318,6 +3548,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 
 /**
+ *  Message for response to listing `LbEdgeExtension` resources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "lbEdgeExtensions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRNetworkServices_ListLbEdgeExtensionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of `LbEdgeExtension` resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_LbEdgeExtension *> *lbEdgeExtensions;
+
+/** A token identifying a page of results that the server returns. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Message for response to listing `LbRouteExtension` resources.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3484,6 +3741,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkServices_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

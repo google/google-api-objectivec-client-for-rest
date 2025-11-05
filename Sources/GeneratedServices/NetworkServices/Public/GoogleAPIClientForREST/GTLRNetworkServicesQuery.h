@@ -1558,6 +1558,246 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @end
 
 /**
+ *  Creates a new `LbEdgeExtension` resource in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.lbEdgeExtensions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsCreate : GTLRNetworkServicesQuery
+
+/**
+ *  Required. User-provided ID of the `LbEdgeExtension` resource to be created.
+ */
+@property(nonatomic, copy, nullable) NSString *lbEdgeExtensionId;
+
+/**
+ *  Required. The parent resource of the `LbEdgeExtension` resource. Must be in
+ *  the format `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes since the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Creates a new `LbEdgeExtension` resource in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkServices_LbEdgeExtension to include in the
+ *    query.
+ *  @param parent Required. The parent resource of the `LbEdgeExtension`
+ *    resource. Must be in the format `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_LbEdgeExtension *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specified `LbEdgeExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.lbEdgeExtensions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsDelete : GTLRNetworkServicesQuery
+
+/**
+ *  Required. The name of the `LbEdgeExtension` resource to delete. Must be in
+ *  the format
+ *  `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes after the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Deletes the specified `LbEdgeExtension` resource.
+ *
+ *  @param name Required. The name of the `LbEdgeExtension` resource to delete.
+ *    Must be in the format
+ *    `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of the specified `LbEdgeExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.lbEdgeExtensions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsGet : GTLRNetworkServicesQuery
+
+/**
+ *  Required. A name of the `LbEdgeExtension` resource to get. Must be in the
+ *  format
+ *  `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_LbEdgeExtension.
+ *
+ *  Gets details of the specified `LbEdgeExtension` resource.
+ *
+ *  @param name Required. A name of the `LbEdgeExtension` resource to get. Must
+ *    be in the format
+ *    `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `LbEdgeExtension` resources in a given project and location.
+ *
+ *  Method: networkservices.projects.locations.lbEdgeExtensions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsList : GTLRNetworkServicesQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint about how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. The server might return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results that the server returns.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location from which the `LbEdgeExtension`
+ *  resources are listed. These values are specified in the following format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_ListLbEdgeExtensionsResponse.
+ *
+ *  Lists `LbEdgeExtension` resources in a given project and location.
+ *
+ *  @param parent Required. The project and location from which the
+ *    `LbEdgeExtension` resources are listed. These values are specified in the
+ *    following format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of the specified `LbEdgeExtension` resource.
+ *
+ *  Method: networkservices.projects.locations.lbEdgeExtensions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
+ */
+@interface GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsPatch : GTLRNetworkServicesQuery
+
+/**
+ *  Required. Identifier. Name of the `LbEdgeExtension` resource in the
+ *  following format:
+ *  `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server can ignore the
+ *  request if it has already been completed. The server guarantees that for 60
+ *  minutes since the first request. For example, consider a situation where you
+ *  make an initial request and the request times out. If you make the request
+ *  again with the same request ID, the server ignores the second request This
+ *  prevents clients from accidentally creating duplicate commitments. The
+ *  request ID must be a valid UUID with the exception that zero UUID is not
+ *  supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Used to specify the fields to be overwritten in the
+ *  `LbEdgeExtension` resource by the update. The fields specified in the
+ *  `update_mask` are relative to the resource, not the full request. A field is
+ *  overwritten if it is in the mask. If the user does not specify a mask, then
+ *  all fields are overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkServices_Operation.
+ *
+ *  Updates the parameters of the specified `LbEdgeExtension` resource.
+ *
+ *  @param object The @c GTLRNetworkServices_LbEdgeExtension to include in the
+ *    query.
+ *  @param name Required. Identifier. Name of the `LbEdgeExtension` resource in
+ *    the following format:
+ *    `projects/{project}/locations/{location}/lbEdgeExtensions/{lb_edge_extension}`.
+ *
+ *  @return GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkServices_LbEdgeExtension *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new `LbRouteExtension` resource in a given project and location.
  *
  *  Method: networkservices.projects.locations.lbRouteExtensions.create
@@ -2049,8 +2289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @interface GTLRNetworkServicesQuery_ProjectsLocationsList : GTLRNetworkServicesQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2485,6 +2725,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRNetworkServices_ListOperationsResponse.

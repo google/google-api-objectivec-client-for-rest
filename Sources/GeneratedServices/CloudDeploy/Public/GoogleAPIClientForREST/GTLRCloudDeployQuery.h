@@ -2336,8 +2336,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudDeployQuery_ProjectsLocationsList : GTLRCloudDeployQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

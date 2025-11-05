@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRWorkspaceEvents_Message.role
+NSString * const kGTLRWorkspaceEvents_Message_Role_RoleAgent   = @"ROLE_AGENT";
+NSString * const kGTLRWorkspaceEvents_Message_Role_RoleUnspecified = @"ROLE_UNSPECIFIED";
+NSString * const kGTLRWorkspaceEvents_Message_Role_RoleUser    = @"ROLE_USER";
+
 // GTLRWorkspaceEvents_Subscription.state
 NSString * const kGTLRWorkspaceEvents_Subscription_State_Active = @"ACTIVE";
 NSString * const kGTLRWorkspaceEvents_Subscription_State_Deleted = @"DELETED";
@@ -29,6 +34,398 @@ NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_Other = @"OT
 NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_ResourceDeleted = @"RESOURCE_DELETED";
 NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_UserAuthorizationFailure = @"USER_AUTHORIZATION_FAILURE";
 NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_UserScopeRevoked = @"USER_SCOPE_REVOKED";
+
+// GTLRWorkspaceEvents_TaskStatus.state
+NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateAuthRequired = @"TASK_STATE_AUTH_REQUIRED";
+NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateCancelled = @"TASK_STATE_CANCELLED";
+NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateCompleted = @"TASK_STATE_COMPLETED";
+NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateFailed = @"TASK_STATE_FAILED";
+NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateInputRequired = @"TASK_STATE_INPUT_REQUIRED";
+NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateRejected = @"TASK_STATE_REJECTED";
+NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateSubmitted = @"TASK_STATE_SUBMITTED";
+NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateUnspecified = @"TASK_STATE_UNSPECIFIED";
+NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK_STATE_WORKING";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AgentCapabilities
+//
+
+@implementation GTLRWorkspaceEvents_AgentCapabilities
+@dynamic extensions, pushNotifications, streaming;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [GTLRWorkspaceEvents_AgentExtension class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AgentCard
+//
+
+@implementation GTLRWorkspaceEvents_AgentCard
+@dynamic additionalInterfaces, capabilities, defaultInputModes,
+         defaultOutputModes, descriptionProperty, documentationUrl, iconUrl,
+         name, preferredTransport, protocolVersion, provider, security,
+         securitySchemes, signatures, skills, supportsAuthenticatedExtendedCard,
+         url, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalInterfaces" : [GTLRWorkspaceEvents_AgentInterface class],
+    @"defaultInputModes" : [NSString class],
+    @"defaultOutputModes" : [NSString class],
+    @"security" : [GTLRWorkspaceEvents_Security class],
+    @"signatures" : [GTLRWorkspaceEvents_AgentCardSignature class],
+    @"skills" : [GTLRWorkspaceEvents_AgentSkill class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AgentCard_SecuritySchemes
+//
+
+@implementation GTLRWorkspaceEvents_AgentCard_SecuritySchemes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRWorkspaceEvents_SecurityScheme class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AgentCardSignature
+//
+
+@implementation GTLRWorkspaceEvents_AgentCardSignature
+@dynamic header, protectedProperty, signature;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"protectedProperty" : @"protected" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AgentCardSignature_Header
+//
+
+@implementation GTLRWorkspaceEvents_AgentCardSignature_Header
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AgentExtension
+//
+
+@implementation GTLRWorkspaceEvents_AgentExtension
+@dynamic descriptionProperty, params, required, uri;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AgentExtension_Params
+//
+
+@implementation GTLRWorkspaceEvents_AgentExtension_Params
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AgentInterface
+//
+
+@implementation GTLRWorkspaceEvents_AgentInterface
+@dynamic transport, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AgentProvider
+//
+
+@implementation GTLRWorkspaceEvents_AgentProvider
+@dynamic organization, url;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AgentSkill
+//
+
+@implementation GTLRWorkspaceEvents_AgentSkill
+@dynamic descriptionProperty, examples, identifier, inputModes, name,
+         outputModes, security, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"examples" : [NSString class],
+    @"inputModes" : [NSString class],
+    @"outputModes" : [NSString class],
+    @"security" : [GTLRWorkspaceEvents_Security class],
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_APIKeySecurityScheme
+//
+
+@implementation GTLRWorkspaceEvents_APIKeySecurityScheme
+@dynamic descriptionProperty, location, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_Artifact
+//
+
+@implementation GTLRWorkspaceEvents_Artifact
+@dynamic artifactId, descriptionProperty, extensions, metadata, name, parts;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensions" : [NSString class],
+    @"parts" : [GTLRWorkspaceEvents_Part class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_Artifact_Metadata
+//
+
+@implementation GTLRWorkspaceEvents_Artifact_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AuthenticationInfo
+//
+
+@implementation GTLRWorkspaceEvents_AuthenticationInfo
+@dynamic credentials, schemes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schemes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AuthorizationCodeOAuthFlow
+//
+
+@implementation GTLRWorkspaceEvents_AuthorizationCodeOAuthFlow
+@dynamic authorizationUrl, refreshUrl, scopes, tokenUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_AuthorizationCodeOAuthFlow_Scopes
+//
+
+@implementation GTLRWorkspaceEvents_AuthorizationCodeOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_CancelTaskRequest
+//
+
+@implementation GTLRWorkspaceEvents_CancelTaskRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_ClientCredentialsOAuthFlow
+//
+
+@implementation GTLRWorkspaceEvents_ClientCredentialsOAuthFlow
+@dynamic refreshUrl, scopes, tokenUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_ClientCredentialsOAuthFlow_Scopes
+//
+
+@implementation GTLRWorkspaceEvents_ClientCredentialsOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_DataPart
+//
+
+@implementation GTLRWorkspaceEvents_DataPart
+@dynamic data;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_DataPart_Data
+//
+
+@implementation GTLRWorkspaceEvents_DataPart_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_Empty
+//
+
+@implementation GTLRWorkspaceEvents_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_FilePart
+//
+
+@implementation GTLRWorkspaceEvents_FilePart
+@dynamic fileWithBytes, fileWithUri, mimeType, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_HTTPAuthSecurityScheme
+//
+
+@implementation GTLRWorkspaceEvents_HTTPAuthSecurityScheme
+@dynamic bearerFormat, descriptionProperty, scheme;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_ImplicitOAuthFlow
+//
+
+@implementation GTLRWorkspaceEvents_ImplicitOAuthFlow
+@dynamic authorizationUrl, refreshUrl, scopes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_ImplicitOAuthFlow_Scopes
+//
+
+@implementation GTLRWorkspaceEvents_ImplicitOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -54,11 +451,121 @@ NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_UserScopeRev
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkspaceEvents_ListTaskPushNotificationConfigResponse
+//
+
+@implementation GTLRWorkspaceEvents_ListTaskPushNotificationConfigResponse
+@dynamic configs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"configs" : [GTLRWorkspaceEvents_TaskPushNotificationConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"configs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_Message
+//
+
+@implementation GTLRWorkspaceEvents_Message
+@dynamic content, contextId, extensions, messageId, metadata, role, taskId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"content" : [GTLRWorkspaceEvents_Part class],
+    @"extensions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_Message_Metadata
+//
+
+@implementation GTLRWorkspaceEvents_Message_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_MutualTlsSecurityScheme
+//
+
+@implementation GTLRWorkspaceEvents_MutualTlsSecurityScheme
+@dynamic descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkspaceEvents_NotificationEndpoint
 //
 
 @implementation GTLRWorkspaceEvents_NotificationEndpoint
 @dynamic pubsubTopic;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_OAuth2SecurityScheme
+//
+
+@implementation GTLRWorkspaceEvents_OAuth2SecurityScheme
+@dynamic descriptionProperty, flows, oauth2MetadataUrl;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_OAuthFlows
+//
+
+@implementation GTLRWorkspaceEvents_OAuthFlows
+@dynamic authorizationCode, clientCredentials, implicit, password;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_OpenIdConnectSecurityScheme
+//
+
+@implementation GTLRWorkspaceEvents_OpenIdConnectSecurityScheme
+@dynamic descriptionProperty, openIdConnectUrl;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -102,6 +609,54 @@ NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_UserScopeRev
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkspaceEvents_Part
+//
+
+@implementation GTLRWorkspaceEvents_Part
+@dynamic data, file, metadata, text;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_Part_Metadata
+//
+
+@implementation GTLRWorkspaceEvents_Part_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_PasswordOAuthFlow
+//
+
+@implementation GTLRWorkspaceEvents_PasswordOAuthFlow
+@dynamic refreshUrl, scopes, tokenUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_PasswordOAuthFlow_Scopes
+//
+
+@implementation GTLRWorkspaceEvents_PasswordOAuthFlow_Scopes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkspaceEvents_PayloadOptions
 //
 
@@ -112,10 +667,102 @@ NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_UserScopeRev
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkspaceEvents_PushNotificationConfig
+//
+
+@implementation GTLRWorkspaceEvents_PushNotificationConfig
+@dynamic authentication, identifier, token, url;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkspaceEvents_ReactivateSubscriptionRequest
 //
 
 @implementation GTLRWorkspaceEvents_ReactivateSubscriptionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_Security
+//
+
+@implementation GTLRWorkspaceEvents_Security
+@dynamic schemes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_Security_Schemes
+//
+
+@implementation GTLRWorkspaceEvents_Security_Schemes
+
++ (Class)classForAdditionalProperties {
+  return [GTLRWorkspaceEvents_StringList class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_SecurityScheme
+//
+
+@implementation GTLRWorkspaceEvents_SecurityScheme
+@dynamic apiKeySecurityScheme, httpAuthSecurityScheme, mtlsSecurityScheme,
+         oauth2SecurityScheme, openIdConnectSecurityScheme;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_SendMessageConfiguration
+//
+
+@implementation GTLRWorkspaceEvents_SendMessageConfiguration
+@dynamic acceptedOutputModes, blocking, historyLength, pushNotification;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"acceptedOutputModes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_SendMessageRequest
+//
+
+@implementation GTLRWorkspaceEvents_SendMessageRequest
+@dynamic configuration, message, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_SendMessageRequest_Metadata
+//
+
+@implementation GTLRWorkspaceEvents_SendMessageRequest_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -153,6 +800,34 @@ NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_UserScopeRev
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkspaceEvents_StreamResponse
+//
+
+@implementation GTLRWorkspaceEvents_StreamResponse
+@dynamic artifactUpdate, message, statusUpdate, task;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_StringList
+//
+
+@implementation GTLRWorkspaceEvents_StringList
+@dynamic list;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"list" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkspaceEvents_Subscription
 //
 
@@ -170,6 +845,111 @@ NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_UserScopeRev
     @"eventTypes" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_Task
+//
+
+@implementation GTLRWorkspaceEvents_Task
+@dynamic artifacts, contextId, history, identifier, metadata, status;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"artifacts" : [GTLRWorkspaceEvents_Artifact class],
+    @"history" : [GTLRWorkspaceEvents_Message class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_Task_Metadata
+//
+
+@implementation GTLRWorkspaceEvents_Task_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_TaskArtifactUpdateEvent
+//
+
+@implementation GTLRWorkspaceEvents_TaskArtifactUpdateEvent
+@dynamic append, artifact, contextId, lastChunk, metadata, taskId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_TaskArtifactUpdateEvent_Metadata
+//
+
+@implementation GTLRWorkspaceEvents_TaskArtifactUpdateEvent_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_TaskPushNotificationConfig
+//
+
+@implementation GTLRWorkspaceEvents_TaskPushNotificationConfig
+@dynamic name, pushNotificationConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_TaskStatus
+//
+
+@implementation GTLRWorkspaceEvents_TaskStatus
+@dynamic message, state, timestamp;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_TaskStatusUpdateEvent
+//
+
+@implementation GTLRWorkspaceEvents_TaskStatusUpdateEvent
+@dynamic contextId, final, metadata, status, taskId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkspaceEvents_TaskStatusUpdateEvent_Metadata
+//
+
+@implementation GTLRWorkspaceEvents_TaskStatusUpdateEvent_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

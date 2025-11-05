@@ -40,9 +40,13 @@
 @class GTLRConnectors_ExecuteActionResponse_Results_Item;
 @class GTLRConnectors_ExecuteSqlQueryResponse_Results_Item;
 @class GTLRConnectors_ExecuteToolRequest_Parameters;
+@class GTLRConnectors_ExecuteToolResponse_Metadata;
+@class GTLRConnectors_ExecuteToolResponse_Metadata_Metadata;
 @class GTLRConnectors_ExecuteToolResponse_Result;
 @class GTLRConnectors_Field;
 @class GTLRConnectors_Field_AdditionalDetails;
+@class GTLRConnectors_GetResourceResponse_Metadata;
+@class GTLRConnectors_GetResourceResponse_Metadata_Metadata;
 @class GTLRConnectors_InputParameter;
 @class GTLRConnectors_InputParameter_AdditionalDetails;
 @class GTLRConnectors_Instance_Labels;
@@ -60,6 +64,10 @@
 @class GTLRConnectors_ListEntitiesResponse_Metadata_Metadata;
 @class GTLRConnectors_ListEntityTypesResponse_Metadata;
 @class GTLRConnectors_ListEntityTypesResponse_Metadata_Metadata;
+@class GTLRConnectors_ListResourcesResponse_Metadata;
+@class GTLRConnectors_ListResourcesResponse_Metadata_Metadata;
+@class GTLRConnectors_ListToolsResponse_Metadata;
+@class GTLRConnectors_ListToolsResponse_Metadata_Metadata;
 @class GTLRConnectors_MaintenancePolicy;
 @class GTLRConnectors_MaintenancePolicy_Labels;
 @class GTLRConnectors_MaintenanceSchedule;
@@ -76,6 +84,7 @@
 @class GTLRConnectors_Reference;
 @class GTLRConnectors_RefreshAccessTokenResponse_Metadata;
 @class GTLRConnectors_RefreshAccessTokenResponse_Metadata_Metadata;
+@class GTLRConnectors_Resource;
 @class GTLRConnectors_ResultMetadata;
 @class GTLRConnectors_Schedule;
 @class GTLRConnectors_SloEligibility;
@@ -2317,9 +2326,25 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @interface GTLRConnectors_ExecuteToolResponse : GTLRObject
 
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecuteToolResponse_Metadata *metadata;
+
 /** Output from the tool execution. */
 @property(nonatomic, strong, nullable) GTLRConnectors_ExecuteToolResponse_Result *result;
 
+@end
+
+
+/**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_ExecuteToolResponse_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_ExecuteToolResponse_Metadata : GTLRObject
 @end
 
 
@@ -2332,6 +2357,18 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_ExecuteToolResponse_Result : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_ExecuteToolResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ExecuteToolResponse_Metadata_Metadata : GTLRObject
 @end
 
 
@@ -2483,6 +2520,53 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_Field_AdditionalDetails : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_GetResourceResponse
+ */
+@interface GTLRConnectors_GetResourceResponse : GTLRObject
+
+/**
+ *  The content of the resource.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *data;
+
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_GetResourceResponse_Metadata *metadata;
+
+/** The MIME type of the resource. */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+@end
+
+
+/**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_GetResourceResponse_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_GetResourceResponse_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_GetResourceResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_GetResourceResponse_Metadata_Metadata : GTLRObject
 @end
 
 
@@ -3250,6 +3334,58 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  GTLRConnectors_ListResourcesResponse
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resources" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRConnectors_ListResourcesResponse : GTLRCollectionObject
+
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ListResourcesResponse_Metadata *metadata;
+
+/** Next page token if more resources available. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of available resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_Resource *> *resources;
+
+@end
+
+
+/**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_ListResourcesResponse_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_ListResourcesResponse_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_ListResourcesResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ListResourcesResponse_Metadata_Metadata : GTLRObject
+@end
+
+
+/**
  *  Response message for ConnectorAgentService.ListTools
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3258,6 +3394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        enabled).
  */
 @interface GTLRConnectors_ListToolsResponse : GTLRCollectionObject
+
+/** Metadata like service latency, etc. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ListToolsResponse_Metadata *metadata;
 
 /** Next page token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
@@ -3270,6 +3409,31 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRConnectors_Tool *> *tools;
 
+@end
+
+
+/**
+ *  Metadata like service latency, etc.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_ListToolsResponse_Metadata_Metadata. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConnectors_ListToolsResponse_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_ListToolsResponse_Metadata_Metadata
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ListToolsResponse_Metadata_Metadata : GTLRObject
 @end
 
 
@@ -3763,6 +3927,37 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_RefreshAccessTokenResponse_Metadata_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_Resource
+ */
+@interface GTLRConnectors_Resource : GTLRObject
+
+/**
+ *  A description of what this resource represents.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The MIME type of this resource, if known. */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/** A human-readable name for this resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The size of the raw resource content, in bytes, if known.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *size;
+
+/** The URI of this resource. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
 @end
 
 

@@ -331,7 +331,7 @@
 
 @implementation GTLRStorageTransferQuery_TransferOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name
                        filter:(NSString *)filter {

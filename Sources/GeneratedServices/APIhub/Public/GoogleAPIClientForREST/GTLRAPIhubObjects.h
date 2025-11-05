@@ -1641,7 +1641,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 /** Optional. The documentation for the API resource. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Documentation *documentation;
 
-/** Optional. Fingerprint of the API resource. */
+/**
+ *  Optional. Fingerprint of the API resource. This must be unique for each API
+ *  resource. It can neither be unset nor be updated to an existing fingerprint
+ *  of another API resource.
+ */
 @property(nonatomic, copy, nullable) NSString *fingerprint;
 
 /**
@@ -5850,6 +5854,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

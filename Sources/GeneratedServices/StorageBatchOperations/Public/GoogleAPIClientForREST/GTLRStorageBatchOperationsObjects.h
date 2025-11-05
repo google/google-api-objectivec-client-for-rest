@@ -24,6 +24,7 @@
 @class GTLRStorageBatchOperations_Location_Metadata;
 @class GTLRStorageBatchOperations_LoggingConfig;
 @class GTLRStorageBatchOperations_Manifest;
+@class GTLRStorageBatchOperations_ObjectRetention;
 @class GTLRStorageBatchOperations_Operation;
 @class GTLRStorageBatchOperations_Operation_Metadata;
 @class GTLRStorageBatchOperations_Operation_Response;
@@ -284,6 +285,28 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_LoggingConfig_Log
 FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_LoggingConfig_LogActionStates_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRStorageBatchOperations_ObjectRetention.retentionMode
+
+/**
+ *  Sets the retention mode to locked.
+ *
+ *  Value: "LOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_ObjectRetention_RetentionMode_Locked;
+/**
+ *  If set and retain_until_time is empty, clears the retention.
+ *
+ *  Value: "RETENTION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_ObjectRetention_RetentionMode_RetentionModeUnspecified;
+/**
+ *  Sets the retention mode to unlocked.
+ *
+ *  Value: "UNLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_ObjectRetention_RetentionMode_Unlocked;
+
+// ----------------------------------------------------------------------------
 // GTLRStorageBatchOperations_PutObjectHold.eventBasedHold
 
 /**
@@ -409,6 +432,14 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *succeededObjectCount;
+
+/**
+ *  Output only. Number of bytes found from source. This field is only populated
+ *  for jobs with a prefix list object configuration.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalBytesFound;
 
 /**
  *  Output only. Number of objects listed.
@@ -624,6 +655,15 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. If true, the job will run in dry run mode, returning the total
+ *  object count and, if the object configuration is a prefix list, the bytes
+ *  found from source. No transformations will be performed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dryRun;
 
 /**
  *  Output only. Summarizes errors encountered with sample error log entries.
@@ -859,6 +899,35 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
 
 
 /**
+ *  Describes options for object retention update.
+ */
+@interface GTLRStorageBatchOperations_ObjectRetention : GTLRObject
+
+/**
+ *  Required. The time when the object will be retained until. UNSET will clear
+ *  the retention. Must be specified in RFC 3339 format e.g.
+ *  YYYY-MM-DD'T'HH:MM:SS.SS'Z' or YYYY-MM-DD'T'HH:MM:SS'Z'.
+ */
+@property(nonatomic, copy, nullable) NSString *retainUntilTime;
+
+/**
+ *  Required. The retention mode of the object.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageBatchOperations_ObjectRetention_RetentionMode_Locked
+ *        Sets the retention mode to locked. (Value: "LOCKED")
+ *    @arg @c kGTLRStorageBatchOperations_ObjectRetention_RetentionMode_RetentionModeUnspecified
+ *        If set and retain_until_time is empty, clears the retention. (Value:
+ *        "RETENTION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRStorageBatchOperations_ObjectRetention_RetentionMode_Unlocked
+ *        Sets the retention mode to unlocked. (Value: "UNLOCKED")
+ */
+@property(nonatomic, copy, nullable) NSString *retentionMode;
+
+@end
+
+
+/**
  *  This resource represents a long-running operation that is the result of a
  *  network API call.
  */
@@ -1048,6 +1117,15 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  *  https://cloud.google.com/storage/docs/metadata#custom-time.
  */
 @property(nonatomic, copy, nullable) NSString *customTime;
+
+/**
+ *  Optional. Updates objects retention lock configuration. Unset values will be
+ *  ignored. Set empty values to clear the retention for the object with
+ *  existing `Unlocked` retention mode. Object with existing `Locked` retention
+ *  mode cannot be cleared or reduce retain_until_time. Refer to documentation
+ *  in https://cloud.google.com/storage/docs/object-lock
+ */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_ObjectRetention *objectRetention;
 
 @end
 

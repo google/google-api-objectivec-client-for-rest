@@ -3254,7 +3254,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
  */
 @property(nonatomic, strong, nullable) NSNumber *usePublicIps;
 
-/** A description of the process that generated the request. */
+/** Optional. A description of the process that generated the request. */
 @property(nonatomic, strong, nullable) GTLRDataflow_Environment_UserAgent *userAgent;
 
 /**
@@ -3325,7 +3325,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 
 /**
- *  A description of the process that generated the request.
+ *  Optional. A description of the process that generated the request.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to

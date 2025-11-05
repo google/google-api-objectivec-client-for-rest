@@ -1594,7 +1594,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /**
  *  Required. List of assets to be added. The maximum number of assets that can
- *  be added in a single request is 1000.
+ *  be added in a single request is 2000.
  */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetList *assets;
 

@@ -2208,11 +2208,12 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDataproc_Operation class]
+    @"operations" : [GTLRDataproc_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -3091,8 +3092,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_RepairClusterRequest
-@dynamic cluster, clusterUuid, gracefulDecommissionTimeout, nodePools,
-         parentOperationId, requestId;
+@dynamic cluster, clusterUuid, dataprocSuperUser, gracefulDecommissionTimeout,
+         nodePools, parentOperationId, requestId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4985,7 +4986,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_UsageMetrics
 @dynamic acceleratorType, milliAcceleratorSeconds, milliDcuSeconds,
-         milliSlotSeconds, shuffleStorageGbSeconds, updateTime;
+         shuffleStorageGbSeconds, updateTime;
 @end
 
 
@@ -4996,7 +4997,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_UsageSnapshot
 @dynamic acceleratorType, milliAccelerator, milliDcu, milliDcuPremium,
-         milliSlot, shuffleStorageGb, shuffleStorageGbPremium, snapshotTime;
+         shuffleStorageGb, shuffleStorageGbPremium, snapshotTime;
 @end
 
 
@@ -5213,7 +5214,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_YarnApplication
-@dynamic name, progress, state, trackingUrl;
+@dynamic memoryMbSeconds, name, progress, state, trackingUrl, vcoreSeconds;
 @end
 
 #pragma clang diagnostic pop

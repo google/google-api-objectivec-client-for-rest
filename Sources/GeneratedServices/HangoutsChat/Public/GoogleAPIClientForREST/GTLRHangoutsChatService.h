@@ -8,7 +8,7 @@
 //   with Google Chat and manage Chat resources such as spaces, members, and
 //   messages.
 // Documentation:
-//   https://developers.google.com/hangouts/chat
+//   https://developers.google.com/workspace/chat
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -75,6 +75,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppDelete;
  *  Value "https://www.googleapis.com/auth/chat.app.memberships"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppMemberships;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see all
+ *  messages and their associated reactions and message content
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.messages.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppMessagesReadonly;
 /**
  *  Authorization scope: On their own behalf, apps in Google Chat can create
  *  conversations and spaces and see or update their metadata (including history

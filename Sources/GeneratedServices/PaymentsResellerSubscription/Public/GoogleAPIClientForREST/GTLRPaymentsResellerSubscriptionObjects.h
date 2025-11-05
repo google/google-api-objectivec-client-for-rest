@@ -14,6 +14,7 @@
 
 @class GTLRPaymentsResellerSubscription_Amount;
 @class GTLRPaymentsResellerSubscription_CreateSubscriptionIntent;
+@class GTLRPaymentsResellerSubscription_CycleOptions;
 @class GTLRPaymentsResellerSubscription_Duration;
 @class GTLRPaymentsResellerSubscription_EntitleSubscriptionIntent;
 @class GTLRPaymentsResellerSubscription_EntitleSubscriptionRequestLineItemEntitlementDetails;
@@ -23,6 +24,7 @@
 @class GTLRPaymentsResellerSubscription_GoogleOnePayload;
 @class GTLRPaymentsResellerSubscription_GoogleTypeLocalizedText;
 @class GTLRPaymentsResellerSubscription_IntentPayload;
+@class GTLRPaymentsResellerSubscription_IntentPayloadIntentOptions;
 @class GTLRPaymentsResellerSubscription_Location;
 @class GTLRPaymentsResellerSubscription_Product;
 @class GTLRPaymentsResellerSubscription_ProductBundleDetails;
@@ -317,6 +319,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscriptio
  *  Value: "PROCESSING_STATE_RECURRING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateRecurring;
+/**
+ *  The subscription is being resumed.
+ *
+ *  Value: "PROCESSING_STATE_RESUMING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateResuming;
 /**
  *  The processing state is unspecified.
  *
@@ -716,6 +724,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  */
 @interface GTLRPaymentsResellerSubscription_CreateSubscriptionIntent : GTLRObject
 
+/** Optional. The cycle options for the subscription. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_CycleOptions *cycleOptions;
+
 /**
  *  Required. The parent resource name, which is the identifier of the partner.
  */
@@ -731,6 +742,24 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *  return that one.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
+
+@end
+
+
+/**
+ *  The cycle options when starting and resuming a subscription.
+ */
+@interface GTLRPaymentsResellerSubscription_CycleOptions : GTLRObject
+
+/**
+ *  Optional. The duration of the initial cycle. Only `DAY` is supported. If
+ *  set, Google will start the subscription with this initial cycle duration
+ *  starting at the request time (see available methods below). A prorated
+ *  charge will be applied. This option is available to the following methods: -
+ *  partners.subscriptions.provision - partners.subscriptions.resume -
+ *  partners.userSessions.generate
+ */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_Duration *initialCycleDuration;
 
 @end
 
@@ -1120,6 +1149,26 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
 /** The request to entitle a subscription. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_EntitleSubscriptionIntent *entitleIntent;
 
+/** Optional. The additional features for the intent. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_IntentPayloadIntentOptions *intentOptions;
+
+@end
+
+
+/**
+ *  The options for the intent.
+ */
+@interface GTLRPaymentsResellerSubscription_IntentPayloadIntentOptions : GTLRObject
+
+/**
+ *  Optional. If true, Google may use a different product and promotion id from
+ *  the ones in the `create_intent` based on the user's eligibility. Only
+ *  applicable for certain YouTube free trial offers.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableOfferOverride;
+
 @end
 
 
@@ -1438,6 +1487,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *  Request to resume a suspended subscription.
  */
 @interface GTLRPaymentsResellerSubscription_ResumeSubscriptionRequest : GTLRObject
+
+/** Optional. The cycle options for the subscription. */
+@property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_CycleOptions *cycleOptions;
+
 @end
 
 
@@ -1545,6 +1598,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *        "PROCESSING_STATE_CANCELLING")
  *    @arg @c kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateRecurring
  *        The subscription is recurring. (Value: "PROCESSING_STATE_RECURRING")
+ *    @arg @c kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateResuming
+ *        The subscription is being resumed. (Value:
+ *        "PROCESSING_STATE_RESUMING")
  *    @arg @c kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateUnspecified
  *        The processing state is unspecified. (Value:
  *        "PROCESSING_STATE_UNSPECIFIED")
@@ -1755,6 +1811,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *  Create or Provision API, specify its resource name only.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPaymentsResellerSubscription_SubscriptionPromotionSpec *> *lineItemPromotionSpecs;
+
+/**
+ *  Identifier. Resource name of the line item. Format:
+ *  partners/{partner}/subscriptions/{subscription}/lineItems/{lineItem}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 /** Output only. Details only set for a ONE_TIME recurrence line item. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_SubscriptionLineItemOneTimeRecurrenceDetails *oneTimeRecurrenceDetails;

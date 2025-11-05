@@ -177,25 +177,6 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
-@implementation GTLRCloudKMSQuery_ProjectsGetAutokeyConfig
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudKMSQuery_ProjectsGetAutokeyConfig *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudKMS_AutokeyConfig class];
-  query.loggingName = @"cloudkms.projects.getAutokeyConfig";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudKMSQuery_ProjectsGetKajPolicyConfig
 
 @dynamic name;
@@ -1649,33 +1630,6 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
   query.project = project;
   query.expectedObjectClass = [GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsPolicyConfigResponse class];
   query.loggingName = @"cloudkms.projects.showEffectiveKeyAccessJustificationsPolicyConfig";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudKMSQuery_ProjectsUpdateAutokeyConfig
-
-@dynamic name, updateMask;
-
-+ (instancetype)queryWithObject:(GTLRCloudKMS_AutokeyConfig *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudKMSQuery_ProjectsUpdateAutokeyConfig *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudKMS_AutokeyConfig class];
-  query.loggingName = @"cloudkms.projects.updateAutokeyConfig";
   return query;
 }
 

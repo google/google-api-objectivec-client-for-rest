@@ -15,6 +15,7 @@
 #endif
 
 @class GTLRMonitoring_Aggregation;
+@class GTLRMonitoring_Alert;
 @class GTLRMonitoring_AlertPolicy;
 @class GTLRMonitoring_AlertPolicy_UserLabels;
 @class GTLRMonitoring_AlertStrategy;
@@ -70,6 +71,8 @@
 @class GTLRMonitoring_Link;
 @class GTLRMonitoring_LogMatch;
 @class GTLRMonitoring_LogMatch_LabelExtractors;
+@class GTLRMonitoring_LogMetadata;
+@class GTLRMonitoring_LogMetadata_ExtractedLabels;
 @class GTLRMonitoring_MeshIstio;
 @class GTLRMonitoring_Metric;
 @class GTLRMonitoring_Metric_Labels;
@@ -98,6 +101,8 @@
 @class GTLRMonitoring_PingConfig;
 @class GTLRMonitoring_Point;
 @class GTLRMonitoring_PointData;
+@class GTLRMonitoring_PolicySnapshot;
+@class GTLRMonitoring_PolicySnapshot_UserLabels;
 @class GTLRMonitoring_PrometheusQueryLanguageCondition;
 @class GTLRMonitoring_PrometheusQueryLanguageCondition_Labels;
 @class GTLRMonitoring_QueryLanguageCondition;
@@ -452,6 +457,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_
  *  Value: "ALIGN_SUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignSum;
+
+// ----------------------------------------------------------------------------
+// GTLRMonitoring_Alert.state
+
+/**
+ *  The alert is closed.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Alert_State_Closed;
+/**
+ *  The alert is open.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Alert_State_Open;
+/**
+ *  The alert state is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_Alert_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMonitoring_AlertPolicy.combiner
@@ -1474,6 +1501,38 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_Runni
 FOUNDATION_EXTERN NSString * const kGTLRMonitoring_OperationMetadata_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRMonitoring_PolicySnapshot.severity
+
+/**
+ *  This is the highest severity level. Use this if the problem could cause
+ *  significant damage or downtime.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_PolicySnapshot_Severity_Critical;
+/**
+ *  This is the medium severity level. Use this if the problem could cause minor
+ *  damage or downtime.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_PolicySnapshot_Severity_Error;
+/**
+ *  No severity is specified. This is the default value.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_PolicySnapshot_Severity_SeverityUnspecified;
+/**
+ *  This is the lowest severity level. Use this if the problem is not causing
+ *  any damage or downtime, but could potentially lead to a problem in the
+ *  future.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMonitoring_PolicySnapshot_Severity_Warning;
+
+// ----------------------------------------------------------------------------
 // GTLRMonitoring_QueryLanguageCondition.evaluationMissingData
 
 /**
@@ -2293,6 +2352,65 @@ FOUNDATION_EXTERN NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_Val
  *        same as the value_type of the input. (Value: "ALIGN_SUM")
  */
 @property(nonatomic, copy, nullable) NSString *perSeriesAligner;
+
+@end
+
+
+/**
+ *  An alert is the representation of a violation of an alert policy. It is a
+ *  read-only resource that cannot be modified by the accompanied API.
+ */
+@interface GTLRMonitoring_Alert : GTLRObject
+
+/** The time when the alert was closed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *closeTime;
+
+/**
+ *  The log information associated with the alert. This field is only populated
+ *  for log-based alerts.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_LogMetadata *log;
+
+/** The metadata of the monitored resource. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResourceMetadata *metadata;
+
+/**
+ *  The metric type and any metric labels preserved from the incident's
+ *  generating condition.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_Metric *metric;
+
+/**
+ *  Identifier. The name of the alert.The format is:
+ *  projects/[PROJECT_ID_OR_NUMBER]/alerts/[ALERT_ID] The [ALERT_ID] is a
+ *  system-assigned unique identifier for the alert.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The time when the alert was opened. */
+@property(nonatomic, strong, nullable) GTLRDateTime *openTime;
+
+/** The snapshot of the alert policy that generated this alert. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_PolicySnapshot *policy;
+
+/**
+ *  The monitored resource type and any monitored resource labels preserved from
+ *  the incident's generating condition.
+ */
+@property(nonatomic, strong, nullable) GTLRMonitoring_MonitoredResource *resource;
+
+/**
+ *  Output only. The current state of the alert.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_Alert_State_Closed The alert is closed. (Value:
+ *        "CLOSED")
+ *    @arg @c kGTLRMonitoring_Alert_State_Open The alert is open. (Value:
+ *        "OPEN")
+ *    @arg @c kGTLRMonitoring_Alert_State_StateUnspecified The alert state is
+ *        unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -4337,6 +4455,43 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The ListAlerts response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "alerts" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRMonitoring_ListAlertsResponse : GTLRCollectionObject
+
+/**
+ *  The list of alerts.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_Alert *> *alerts;
+
+/**
+ *  If not empty, indicates that there may be more results that match the
+ *  request. Use the value in the page_token field in a subsequent request to
+ *  fetch the next set of results. The token is encrypted and only guaranteed to
+ *  return correct results for 72 hours after it is created. If empty, all
+ *  results have been returned.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The estimated total number of matching results for this query.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
  *  The ListGroupMembers response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4762,6 +4917,29 @@ GTLR_DEPRECATED
  *        fetch them all at once.
  */
 @interface GTLRMonitoring_LogMatch_LabelExtractors : GTLRObject
+@end
+
+
+/**
+ *  Information about the log for log-based alerts.
+ */
+@interface GTLRMonitoring_LogMetadata : GTLRObject
+
+/** The labels extracted from the log. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_LogMetadata_ExtractedLabels *extractedLabels;
+
+@end
+
+
+/**
+ *  The labels extracted from the log.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMonitoring_LogMetadata_ExtractedLabels : GTLRObject
 @end
 
 
@@ -5980,6 +6158,58 @@ GTLR_DEPRECATED
 /** The values that make up the point. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMonitoring_TypedValue *> *values;
 
+@end
+
+
+/**
+ *  The state of the policy at the time the alert was generated.
+ */
+@interface GTLRMonitoring_PolicySnapshot : GTLRObject
+
+/** The display name of the alert policy. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The name of the alert policy resource. In the form of
+ *  "projects/PROJECT_ID_OR_NUMBER/alertPolicies/ALERT_POLICY_ID".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The severity of the alert policy.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMonitoring_PolicySnapshot_Severity_Critical This is the
+ *        highest severity level. Use this if the problem could cause
+ *        significant damage or downtime. (Value: "CRITICAL")
+ *    @arg @c kGTLRMonitoring_PolicySnapshot_Severity_Error This is the medium
+ *        severity level. Use this if the problem could cause minor damage or
+ *        downtime. (Value: "ERROR")
+ *    @arg @c kGTLRMonitoring_PolicySnapshot_Severity_SeverityUnspecified No
+ *        severity is specified. This is the default value. (Value:
+ *        "SEVERITY_UNSPECIFIED")
+ *    @arg @c kGTLRMonitoring_PolicySnapshot_Severity_Warning This is the lowest
+ *        severity level. Use this if the problem is not causing any damage or
+ *        downtime, but could potentially lead to a problem in the future.
+ *        (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/** The user labels for the alert policy. */
+@property(nonatomic, strong, nullable) GTLRMonitoring_PolicySnapshot_UserLabels *userLabels;
+
+@end
+
+
+/**
+ *  The user labels for the alert policy.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMonitoring_PolicySnapshot_UserLabels : GTLRObject
 @end
 
 

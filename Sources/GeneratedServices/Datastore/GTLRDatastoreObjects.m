@@ -839,11 +839,12 @@ NSString * const kGTLRDatastore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRDatastore_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDatastore_GoogleLongrunningOperation class]
+    @"operations" : [GTLRDatastore_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

@@ -266,6 +266,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_ChromeUXReport"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_Chromewebstore",
+            targets: ["GoogleAPIClientForREST_Chromewebstore"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CivicInfo",
             targets: ["GoogleAPIClientForREST_CivicInfo"]
         ),
@@ -512,6 +516,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Datalineage",
             targets: ["GoogleAPIClientForREST_Datalineage"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_DataManager",
+            targets: ["GoogleAPIClientForREST_DataManager"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Datapipelines",
@@ -1640,6 +1648,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_Chromewebstore",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/Chromewebstore",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_CivicInfo",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CivicInfo",
@@ -2009,6 +2023,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Datalineage",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Datalineage",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_DataManager",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/DataManager",
             publicHeadersPath: "Public"
         ),
         .target(

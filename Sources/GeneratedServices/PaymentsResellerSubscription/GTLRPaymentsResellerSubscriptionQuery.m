@@ -8,6 +8,19 @@
 
 #import <GoogleAPIClientForREST/GTLRPaymentsResellerSubscriptionQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// cycleOptionsInitialCycleDurationUnit
+NSString * const kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitDay = @"DAY";
+NSString * const kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitHour = @"HOUR";
+NSString * const kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitMonth = @"MONTH";
+NSString * const kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitUnitUnspecified = @"UNIT_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRPaymentsResellerSubscriptionQuery
 
 @dynamic fields;
@@ -206,9 +219,45 @@
 
 @end
 
+@implementation GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsLineItemsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_SubscriptionLineItem *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsLineItemsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRPaymentsResellerSubscription_SubscriptionLineItem class];
+  query.loggingName = @"paymentsresellersubscription.partners.subscriptions.lineItems.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsProvision
 
-@dynamic parent, subscriptionId;
+@dynamic cycleOptionsInitialCycleDurationCount,
+         cycleOptionsInitialCycleDurationUnit, parent, subscriptionId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"cycleOptionsInitialCycleDurationCount" : @"cycleOptions.initialCycleDuration.count",
+    @"cycleOptionsInitialCycleDurationUnit" : @"cycleOptions.initialCycleDuration.unit"
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_Subscription *)object
                          parent:(NSString *)parent {

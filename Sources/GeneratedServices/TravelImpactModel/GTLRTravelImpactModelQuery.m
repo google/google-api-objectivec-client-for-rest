@@ -38,6 +38,28 @@
 
 @end
 
+@implementation GTLRTravelImpactModelQuery_FlightsComputeScope3FlightEmissions
+
++ (instancetype)queryWithObject:(GTLRTravelImpactModel_ComputeScope3FlightEmissionsRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/flights:computeScope3FlightEmissions";
+  GTLRTravelImpactModelQuery_FlightsComputeScope3FlightEmissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRTravelImpactModel_ComputeScope3FlightEmissionsResponse class];
+  query.loggingName = @"travelimpactmodel.flights.computeScope3FlightEmissions";
+  return query;
+}
+
+@end
+
 @implementation GTLRTravelImpactModelQuery_FlightsComputeTypicalFlightEmissions
 
 + (instancetype)queryWithObject:(GTLRTravelImpactModel_ComputeTypicalFlightEmissionsRequest *)object {

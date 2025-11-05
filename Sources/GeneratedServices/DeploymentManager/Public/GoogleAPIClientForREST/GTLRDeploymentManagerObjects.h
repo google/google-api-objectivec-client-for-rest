@@ -310,10 +310,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Ite
  *  Reserved entries for quickly adding new warnings without breaking dependent
  *  clients.
  *
- *  Value: "RESERVED_ENTRY_135"
+ *  Value: "RESERVED_ENTRY_136"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry135;
-/** Value: "RESERVED_ENTRY_136" */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry136;
 /** Value: "RESERVED_ENTRY_139" */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry139;
@@ -321,6 +319,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Ite
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry141;
 /** Value: "RESERVED_ENTRY_142" */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry142;
+/** Value: "RESERVED_ENTRY_143" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry143;
 /**
  *  Warning that a resource is in use.
  *
@@ -381,6 +381,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Ite
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_Unreachable;
+/**
+ *  Upcoming maintenance schedule is unavailable for the resource.
+ *
+ *  Value: "UPCOMING_MAINTENANCES_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_UpcomingMaintenancesUnavailable;
 
 // ----------------------------------------------------------------------------
 // GTLRDeploymentManager_QuotaExceededInfo.rolloutStatus
@@ -573,10 +579,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item
  *  Reserved entries for quickly adding new warnings without breaking dependent
  *  clients.
  *
- *  Value: "RESERVED_ENTRY_135"
+ *  Value: "RESERVED_ENTRY_136"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry135;
-/** Value: "RESERVED_ENTRY_136" */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry136;
 /** Value: "RESERVED_ENTRY_139" */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry139;
@@ -584,6 +588,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry141;
 /** Value: "RESERVED_ENTRY_142" */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry142;
+/** Value: "RESERVED_ENTRY_143" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry143;
 /**
  *  Warning that a resource is in use.
  *
@@ -644,6 +650,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_Unreachable;
+/**
+ *  Upcoming maintenance schedule is unavailable for the resource.
+ *
+ *  Value: "UPCOMING_MAINTENANCES_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_UpcomingMaintenancesUnavailable;
 
 // ----------------------------------------------------------------------------
 // GTLRDeploymentManager_ResourceUpdate.intent
@@ -892,10 +904,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *  Reserved entries for quickly adding new warnings without breaking dependent
  *  clients.
  *
- *  Value: "RESERVED_ENTRY_135"
+ *  Value: "RESERVED_ENTRY_136"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry135;
-/** Value: "RESERVED_ENTRY_136" */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry136;
 /** Value: "RESERVED_ENTRY_139" */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry139;
@@ -903,6 +913,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry141;
 /** Value: "RESERVED_ENTRY_142" */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry142;
+/** Value: "RESERVED_ENTRY_143" */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry143;
 /**
  *  Warning that a resource is in use.
  *
@@ -963,6 +975,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warning
  *  Value: "UNREACHABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreachable;
+/**
+ *  Upcoming maintenance schedule is unavailable for the resource.
+ *
+ *  Value: "UPCOMING_MAINTENANCES_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_UpcomingMaintenancesUnavailable;
 
 // ----------------------------------------------------------------------------
 // GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo.state
@@ -2092,17 +2110,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_RequiredTosAgreement
  *        The user attempted to use a resource that requires a TOS they have not
  *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
- *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry135
- *        Reserved entries for quickly adding new warnings without breaking
- *        dependent clients. (Value: "RESERVED_ENTRY_135")
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry136
- *        Value "RESERVED_ENTRY_136"
+ *        Reserved entries for quickly adding new warnings without breaking
+ *        dependent clients. (Value: "RESERVED_ENTRY_136")
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry139
  *        Value "RESERVED_ENTRY_139"
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry141
  *        Value "RESERVED_ENTRY_141"
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry142
  *        Value "RESERVED_ENTRY_142"
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry143
+ *        Value "RESERVED_ENTRY_143"
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
  *        Warning that a resource is in use. (Value:
  *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
@@ -2133,6 +2151,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *        "UNDECLARED_PROPERTIES")
  *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_Unreachable A
  *        given scope cannot be reached. (Value: "UNREACHABLE")
+ *    @arg @c kGTLRDeploymentManager_Operation_Warnings_Item_Code_UpcomingMaintenancesUnavailable
+ *        Upcoming maintenance schedule is unavailable for the resource. (Value:
+ *        "UPCOMING_MAINTENANCES_UNAVAILABLE")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -2555,17 +2576,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_RequiredTosAgreement
  *        The user attempted to use a resource that requires a TOS they have not
  *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
- *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry135
- *        Reserved entries for quickly adding new warnings without breaking
- *        dependent clients. (Value: "RESERVED_ENTRY_135")
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry136
- *        Value "RESERVED_ENTRY_136"
+ *        Reserved entries for quickly adding new warnings without breaking
+ *        dependent clients. (Value: "RESERVED_ENTRY_136")
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry139
  *        Value "RESERVED_ENTRY_139"
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry141
  *        Value "RESERVED_ENTRY_141"
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry142
  *        Value "RESERVED_ENTRY_142"
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry143
+ *        Value "RESERVED_ENTRY_143"
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
  *        Warning that a resource is in use. (Value:
  *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
@@ -2596,6 +2617,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *        "UNDECLARED_PROPERTIES")
  *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_Unreachable A
  *        given scope cannot be reached. (Value: "UNREACHABLE")
+ *    @arg @c kGTLRDeploymentManager_Resource_Warnings_Item_Code_UpcomingMaintenancesUnavailable
+ *        Upcoming maintenance schedule is unavailable for the resource. (Value:
+ *        "UPCOMING_MAINTENANCES_UNAVAILABLE")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 
@@ -2857,17 +2881,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RequiredTosAgreement
  *        The user attempted to use a resource that requires a TOS they have not
  *        accepted. (Value: "REQUIRED_TOS_AGREEMENT")
- *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry135
- *        Reserved entries for quickly adding new warnings without breaking
- *        dependent clients. (Value: "RESERVED_ENTRY_135")
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry136
- *        Value "RESERVED_ENTRY_136"
+ *        Reserved entries for quickly adding new warnings without breaking
+ *        dependent clients. (Value: "RESERVED_ENTRY_136")
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry139
  *        Value "RESERVED_ENTRY_139"
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry141
  *        Value "RESERVED_ENTRY_141"
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry142
  *        Value "RESERVED_ENTRY_142"
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry143
+ *        Value "RESERVED_ENTRY_143"
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceInUseByOtherResourceWarning
  *        Warning that a resource is in use. (Value:
  *        "RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING")
@@ -2898,6 +2922,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  *        "UNDECLARED_PROPERTIES")
  *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreachable
  *        A given scope cannot be reached. (Value: "UNREACHABLE")
+ *    @arg @c kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_UpcomingMaintenancesUnavailable
+ *        Upcoming maintenance schedule is unavailable for the resource. (Value:
+ *        "UPCOMING_MAINTENANCES_UNAVAILABLE")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 

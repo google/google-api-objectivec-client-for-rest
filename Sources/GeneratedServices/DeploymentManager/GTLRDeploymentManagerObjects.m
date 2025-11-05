@@ -59,11 +59,11 @@ NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_PartialSucc
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_RateLimitExceeded = @"RATE_LIMIT_EXCEEDED";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry135 = @"RESERVED_ENTRY_135";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry136 = @"RESERVED_ENTRY_136";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry139 = @"RESERVED_ENTRY_139";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry141 = @"RESERVED_ENTRY_141";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry142 = @"RESERVED_ENTRY_142";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ReservedEntry143 = @"RESERVED_ENTRY_143";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_ResourceNotFoundWarning = @"RESOURCE_NOT_FOUND_WARNING";
@@ -73,6 +73,7 @@ NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_SingleInsta
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched = @"SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
+NSString * const kGTLRDeploymentManager_Operation_Warnings_Item_Code_UpcomingMaintenancesUnavailable = @"UPCOMING_MAINTENANCES_UNAVAILABLE";
 
 // GTLRDeploymentManager_QuotaExceededInfo.rolloutStatus
 NSString * const kGTLRDeploymentManager_QuotaExceededInfo_RolloutStatus_InProgress = @"IN_PROGRESS";
@@ -105,11 +106,11 @@ NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_PartialSucce
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_RateLimitExceeded = @"RATE_LIMIT_EXCEEDED";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry135 = @"RESERVED_ENTRY_135";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry136 = @"RESERVED_ENTRY_136";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry139 = @"RESERVED_ENTRY_139";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry141 = @"RESERVED_ENTRY_141";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry142 = @"RESERVED_ENTRY_142";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ReservedEntry143 = @"RESERVED_ENTRY_143";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_ResourceNotFoundWarning = @"RESOURCE_NOT_FOUND_WARNING";
@@ -119,6 +120,7 @@ NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_SingleInstan
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched = @"SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
+NSString * const kGTLRDeploymentManager_Resource_Warnings_Item_Code_UpcomingMaintenancesUnavailable = @"UPCOMING_MAINTENANCES_UNAVAILABLE";
 
 // GTLRDeploymentManager_ResourceUpdate.intent
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Intent_Abandon = @"ABANDON";
@@ -162,11 +164,11 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Partia
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_QuotaInfoUnavailable = @"QUOTA_INFO_UNAVAILABLE";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RateLimitExceeded = @"RATE_LIMIT_EXCEEDED";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_RequiredTosAgreement = @"REQUIRED_TOS_AGREEMENT";
-NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry135 = @"RESERVED_ENTRY_135";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry136 = @"RESERVED_ENTRY_136";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry139 = @"RESERVED_ENTRY_139";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry141 = @"RESERVED_ENTRY_141";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry142 = @"RESERVED_ENTRY_142";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ReservedEntry143 = @"RESERVED_ENTRY_143";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceInUseByOtherResourceWarning = @"RESOURCE_IN_USE_BY_OTHER_RESOURCE_WARNING";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceNotDeleted = @"RESOURCE_NOT_DELETED";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_ResourceNotFoundWarning = @"RESOURCE_NOT_FOUND_WARNING";
@@ -176,6 +178,7 @@ NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Single
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_SslPolicyEnabledFeaturesNotFetched = @"SSL_POLICY_ENABLED_FEATURES_NOT_FETCHED";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_UndeclaredProperties = @"UNDECLARED_PROPERTIES";
 NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_Unreachable = @"UNREACHABLE";
+NSString * const kGTLRDeploymentManager_ResourceUpdate_Warnings_Item_Code_UpcomingMaintenancesUnavailable = @"UPCOMING_MAINTENANCES_UNAVAILABLE";
 
 // GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo.state
 NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadataPerLocationOperationInfo_State_Abandoned = @"ABANDONED";

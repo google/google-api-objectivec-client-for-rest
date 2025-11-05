@@ -7728,6 +7728,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /** The base table reference. */
 @property(nonatomic, strong, nullable) GTLRBigquery_TableReference *baseTable;
 
+/** The index id. */
+@property(nonatomic, copy, nullable) NSString *indexId;
+
 /**
  *  The number of parallel inputs after index pruning.
  *

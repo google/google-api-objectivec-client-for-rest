@@ -850,7 +850,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
          diskType, enableIntegrityMonitoring, enableVtpm, encryption, hostname,
          labels, licenseType, machineType, machineTypeSeries, metadata,
          networkInterfaces, networkTags, secureBoot, serviceAccount,
-         targetProject, vmName, zoneProperty;
+         storagePool, targetProject, vmName, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -909,7 +909,7 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
          diskType, enableIntegrityMonitoring, enableVtpm, encryption, hostname,
          labels, licenseType, machineType, machineTypeSeries, metadata,
          networkInterfaces, networkTags, project, secureBoot, serviceAccount,
-         vmName, zoneProperty;
+         storagePool, vmName, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -1687,11 +1687,12 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRVMMigrationService_Operation class]
+    @"operations" : [GTLRVMMigrationService_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

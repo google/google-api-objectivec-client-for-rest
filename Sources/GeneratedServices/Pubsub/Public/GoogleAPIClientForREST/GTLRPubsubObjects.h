@@ -27,6 +27,7 @@
 @class GTLRPubsub_CloudStorageConfig;
 @class GTLRPubsub_ConfluentCloud;
 @class GTLRPubsub_CreateSnapshotRequest_Labels;
+@class GTLRPubsub_CreateSnapshotRequest_Tags;
 @class GTLRPubsub_DeadLetterPolicy;
 @class GTLRPubsub_ExpirationPolicy;
 @class GTLRPubsub_Expr;
@@ -50,10 +51,12 @@
 @class GTLRPubsub_Snapshot_Labels;
 @class GTLRPubsub_Subscription;
 @class GTLRPubsub_Subscription_Labels;
+@class GTLRPubsub_Subscription_Tags;
 @class GTLRPubsub_TextConfig;
 @class GTLRPubsub_TextFormat;
 @class GTLRPubsub_Topic;
 @class GTLRPubsub_Topic_Labels;
+@class GTLRPubsub_Topic_Tags;
 @class GTLRPubsub_Wrapper;
 
 // Generated comments include content from the discovery document; avoid them
@@ -1258,6 +1261,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_CreateSnapshotRequest_Tags *tags;
+
 @end
 
 
@@ -1271,6 +1281,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *        fetch them all at once.
  */
 @interface GTLRPubsub_CreateSnapshotRequest_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRPubsub_CreateSnapshotRequest_Tags : GTLRObject
 @end
 
 
@@ -2553,6 +2577,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_Subscription_Tags *tags;
+
+/**
  *  Required. The name of the topic from which this subscription is receiving
  *  messages. Format is `projects/{project}/topics/{topic}`. The value of this
  *  field will be `_deleted-topic_` if the topic has been deleted.
@@ -2582,6 +2613,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *        fetch them all at once.
  */
 @interface GTLRPubsub_Subscription_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRPubsub_Subscription_Tags : GTLRObject
 @end
 
 
@@ -2716,6 +2761,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_Topic_Tags *tags;
+
 @end
 
 
@@ -2729,6 +2781,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *        fetch them all at once.
  */
 @interface GTLRPubsub_Topic_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRPubsub_Topic_Tags : GTLRObject
 @end
 
 

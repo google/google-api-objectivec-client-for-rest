@@ -380,11 +380,12 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudWorkstations_Operation class]
+    @"operations" : [GTLRCloudWorkstations_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

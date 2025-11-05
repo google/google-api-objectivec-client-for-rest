@@ -280,8 +280,9 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 //
 
 @implementation GTLRDrive_Comment
-@dynamic anchor, author, content, createdTime, deleted, htmlContent, identifier,
-         kind, modifiedTime, quotedFileContent, replies, resolved;
+@dynamic anchor, assigneeEmailAddress, author, content, createdTime, deleted,
+         htmlContent, identifier, kind, mentionedEmailAddresses, modifiedTime,
+         quotedFileContent, replies, resolved;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -289,6 +290,7 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"mentionedEmailAddresses" : [NSString class],
     @"replies" : [GTLRDrive_Reply class]
   };
   return map;
@@ -1018,11 +1020,18 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
 //
 
 @implementation GTLRDrive_Reply
-@dynamic action, author, content, createdTime, deleted, htmlContent, identifier,
-         kind, modifiedTime;
+@dynamic action, assigneeEmailAddress, author, content, createdTime, deleted,
+         htmlContent, identifier, kind, mentionedEmailAddresses, modifiedTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mentionedEmailAddresses" : [NSString class]
+  };
+  return map;
 }
 
 @end

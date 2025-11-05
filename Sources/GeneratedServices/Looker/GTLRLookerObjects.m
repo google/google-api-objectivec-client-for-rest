@@ -114,6 +114,24 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLooker_ControlledEgressConfig
+//
+
+@implementation GTLRLooker_ControlledEgressConfig
+@dynamic egressFqdns, marketplaceEnabled;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"egressFqdns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLooker_CustomDomain
 //
 
@@ -226,7 +244,8 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 //
 
 @implementation GTLRLooker_Instance
-@dynamic adminSettings, classType, consumerNetwork, createTime, customDomain,
+@dynamic adminSettings, classType, consumerNetwork, controlledEgressConfig,
+         controlledEgressEnabled, createTime, customDomain,
          denyMaintenancePeriod, egressPublicIp, encryptionConfig, fipsEnabled,
          geminiEnabled, ingressPrivateIp, ingressPublicIp,
          lastDenyMaintenancePeriod, linkedLspProjectNumber, lookerUri,
@@ -321,11 +340,12 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 //
 
 @implementation GTLRLooker_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRLooker_Operation class]
+    @"operations" : [GTLRLooker_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

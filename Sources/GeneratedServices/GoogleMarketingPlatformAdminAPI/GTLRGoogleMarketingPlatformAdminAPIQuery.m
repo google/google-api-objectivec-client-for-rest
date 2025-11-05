@@ -112,6 +112,33 @@
 
 @end
 
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsFindSalesPartnerManagedClients
+
+@dynamic organization;
+
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_FindSalesPartnerManagedClientsRequest *)object
+                   organization:(NSString *)organization {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"organization" ];
+  NSString *pathURITemplate = @"v1alpha/{+organization}:findSalesPartnerManagedClients";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsFindSalesPartnerManagedClients *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.organization = organization;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_FindSalesPartnerManagedClientsResponse class];
+  query.loggingName = @"marketingplatformadmin.organizations.findSalesPartnerManagedClients";
+  return query;
+}
+
+@end
+
 @implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsGet
 
 @dynamic name;
@@ -126,6 +153,50 @@
   query.name = name;
   query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_Organization class];
   query.loggingName = @"marketingplatformadmin.organizations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsList
+
+@dynamic pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1alpha/organizations";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_ListOrganizationsResponse class];
+  query.loggingName = @"marketingplatformadmin.organizations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsReportPropertyUsage
+
+@dynamic organization;
+
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageRequest *)object
+                   organization:(NSString *)organization {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"organization" ];
+  NSString *pathURITemplate = @"v1alpha/{+organization}:reportPropertyUsage";
+  GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsReportPropertyUsage *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.organization = organization;
+  query.expectedObjectClass = [GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageResponse class];
+  query.loggingName = @"marketingplatformadmin.organizations.reportPropertyUsage";
   return query;
 }
 

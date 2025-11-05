@@ -67,7 +67,6 @@
 @class GTLRServiceUsage_GoogleApiServiceusageV2alphaEnableRule;
 @class GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysis;
 @class GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult;
-@class GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations;
 @class GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule;
 @class GTLRServiceUsage_GoogleApiServiceusageV2betaImpact;
 @class GTLRServiceUsage_GoSettings;
@@ -2157,6 +2156,30 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  Content Security Policy contains the content security related policy of a
+ *  resource.
+ */
+@interface GTLRServiceUsage_ContentSecurityPolicy : GTLRObject
+
+/**
+ *  mcp_content_security contains the content security related settings at
+ *  resource level for MCP traffic.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_ContentSecurity *mcpContentSecurity;
+
+/**
+ *  Output only. The resource name of the policy. Only the `default` policy is
+ *  supported. We allow the following formats:
+ *  `projects/{PROJECT_NUMBER}/contentSecurityPolicies/default`,
+ *  `projects/{PROJECT_ID}/contentSecurityPolicies/default`, We only support
+ *  project level content security policy for now.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  ContentSecurityProvider contains the name of content security provider.
  */
 @interface GTLRServiceUsage_ContentSecurityProvider : GTLRObject
@@ -3524,14 +3547,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @interface GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy : GTLRObject
 
 /**
- *  Optional. Annotations is an unstructured key-value map stored with a policy
- *  that may be set by external tools to store and retrieve arbitrary metadata.
- *  They are not queryable and should be preserved when modifying objects.
- *  [AIP-128](https://google.aip.dev/128#annotations)
- */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations *annotations;
-
-/**
  *  Output only. The time the policy was created. For singleton policies, this
  *  is the first touch of the policy.
  */
@@ -3561,21 +3576,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /** Output only. The time the policy was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
-@end
-
-
-/**
- *  Optional. Annotations is an unstructured key-value map stored with a policy
- *  that may be set by external tools to store and retrieve arbitrary metadata.
- *  They are not queryable and should be preserved when modifying objects.
- *  [AIP-128](https://google.aip.dev/128#annotations)
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations : GTLRObject
 @end
 
 
@@ -4133,6 +4133,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -4305,12 +4312,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  cloud resource hierarchy.
  */
 @interface GTLRServiceUsage_McpPolicy : GTLRObject
-
-/**
- *  ContentSecurity contains the content security related fields of a MCP
- *  policy.
- */
-@property(nonatomic, strong, nullable) GTLRServiceUsage_ContentSecurity *contentSecurity;
 
 /**
  *  Output only. The time the policy was created. For singleton policies (such
@@ -5889,6 +5890,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Metadata for the `UpdateConsumerPolicy` method.
  */
 @interface GTLRServiceUsage_UpdateConsumerPolicyMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for the `UpdateContentSecurityPolicy` method.
+ */
+@interface GTLRServiceUsage_UpdateContentSecurityPolicyMetadata : GTLRObject
 @end
 
 

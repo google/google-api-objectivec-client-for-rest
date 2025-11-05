@@ -21,6 +21,7 @@
 @class GTLRCloudFilestore_DailyCycle;
 @class GTLRCloudFilestore_Date;
 @class GTLRCloudFilestore_DenyMaintenancePeriod;
+@class GTLRCloudFilestore_DirectoryServicesConfig;
 @class GTLRCloudFilestore_FileShareConfig;
 @class GTLRCloudFilestore_FixedIOPS;
 @class GTLRCloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance_Labels;
@@ -43,6 +44,7 @@
 @class GTLRCloudFilestore_Instance_Labels;
 @class GTLRCloudFilestore_Instance_Tags;
 @class GTLRCloudFilestore_IOPSPerTB;
+@class GTLRCloudFilestore_LdapConfig;
 @class GTLRCloudFilestore_Location;
 @class GTLRCloudFilestore_Location_Labels;
 @class GTLRCloudFilestore_Location_Metadata;
@@ -1085,6 +1087,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
+ *  Directory Services configuration for Kerberos-based authentication.
+ */
+@interface GTLRCloudFilestore_DirectoryServicesConfig : GTLRObject
+
+/** Configuration for LDAP servers. */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_LdapConfig *ldap;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1126,6 +1139,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *  that this file share has been restored from.
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
+
+/**
+ *  The resource name of the BackupDR backup, in the format
+ *  `projects/{project_id}/locations/{location_id}/backupVaults/{backupvault_id}/dataSources/{datasource_id}/backups/{backup_id}`,
+ *  TODO (b/443690479) - Remove visibility restrictions once the feature is
+ *  ready
+ */
+@property(nonatomic, copy, nullable) NSString *sourceBackupdrBackup;
 
 @end
 
@@ -1694,6 +1715,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. Directory Services configuration for Kerberos-based
+ *  authentication. Should only be set if protocol is "NFS_V4_1".
+ */
+@property(nonatomic, strong, nullable) GTLRCloudFilestore_DirectoryServicesConfig *directoryServices;
+
+/**
  *  Server-specified ETag for the instance resource to prevent simultaneous
  *  updates from overwriting each other.
  */
@@ -1915,6 +1942,42 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
+ *  LdapConfig contains all the parameters for connecting to LDAP servers.
+ */
+@interface GTLRCloudFilestore_LdapConfig : GTLRObject
+
+/** Required. The LDAP domain name in the format of `my-domain.com`. */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Optional. The groups Organizational Unit (OU) is optional. This parameter is
+ *  a hint to allow faster lookup in the LDAP namespace. In case that this
+ *  parameter is not provided, Filestore instance will query the whole LDAP
+ *  namespace.
+ */
+@property(nonatomic, copy, nullable) NSString *groupsOu;
+
+/**
+ *  Required. The servers names are used for specifying the LDAP servers names.
+ *  The LDAP servers names can come with two formats: 1. DNS name, for example:
+ *  `ldap.example1.com`, `ldap.example2.com`. 2. IP address, for example:
+ *  `10.0.0.1`, `10.0.0.2`, `10.0.0.3`. All servers names must be in the same
+ *  format: either all DNS names or all IP addresses.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *servers;
+
+/**
+ *  Optional. The users Organizational Unit (OU) is optional. This parameter is
+ *  a hint to allow faster lookup in the LDAP namespace. In case that this
+ *  parameter is not provided, Filestore instance will query the whole LDAP
+ *  namespace.
+ */
+@property(nonatomic, copy, nullable) NSString *usersOu;
+
+@end
+
+
+/**
  *  ListBackupsResponse is the result of ListBackupsRequest.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2026,6 +2089,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

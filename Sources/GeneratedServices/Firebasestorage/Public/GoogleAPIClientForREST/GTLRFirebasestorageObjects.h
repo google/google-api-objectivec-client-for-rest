@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Immutable. Location of the default bucket. */
 @property(nonatomic, copy, nullable) NSString *location;
 
-/** Resource name of the default bucket. */
+/** Identifier. Resource name of the default bucket. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**

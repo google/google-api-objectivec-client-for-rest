@@ -17,6 +17,7 @@
 @class GTLRDeveloperConnect_AccountConnector;
 @class GTLRDeveloperConnect_AccountConnector_Annotations;
 @class GTLRDeveloperConnect_AccountConnector_Labels;
+@class GTLRDeveloperConnect_AppHubService;
 @class GTLRDeveloperConnect_AppHubWorkload;
 @class GTLRDeveloperConnect_ArtifactConfig;
 @class GTLRDeveloperConnect_BitbucketCloudConfig;
@@ -37,6 +38,7 @@
 @class GTLRDeveloperConnect_GKEWorkload;
 @class GTLRDeveloperConnect_GoogleArtifactAnalysis;
 @class GTLRDeveloperConnect_GoogleArtifactRegistry;
+@class GTLRDeveloperConnect_GoogleCloudRun;
 @class GTLRDeveloperConnect_HttpBody;
 @class GTLRDeveloperConnect_HttpBody_Extensions_Item;
 @class GTLRDeveloperConnect_InsightsConfig;
@@ -85,6 +87,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_
  *  Value: "FIREBASE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_Firebase;
+/**
+ *  The Gemini Code Assist Application.
+ *
+ *  Value: "GEMINI_CODE_ASSIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_GeminiCodeAssist;
 /**
  *  GitHub App not specified.
  *
@@ -303,6 +311,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
  *        fetch them all at once.
  */
 @interface GTLRDeveloperConnect_AccountConnector_Labels : GTLRObject
+@end
+
+
+/**
+ *  AppHubService represents the App Hub Service.
+ */
+@interface GTLRDeveloperConnect_AppHubService : GTLRObject
+
+/**
+ *  Required. Output only. Immutable. The name of the App Hub Service. Format:
+ *  `projects/{project}/locations/{location}/applications/{application}/services/{service}`.
+ */
+@property(nonatomic, copy, nullable) NSString *apphubService;
+
+/** Output only. The criticality of the App Hub Service. */
+@property(nonatomic, copy, nullable) NSString *criticality;
+
+/** Output only. The environment of the App Hub Service. */
+@property(nonatomic, copy, nullable) NSString *environment;
+
 @end
 
 
@@ -766,6 +794,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
  *        Developer Connect GitHub Application. (Value: "DEVELOPER_CONNECT")
  *    @arg @c kGTLRDeveloperConnect_GitHubConfig_GithubApp_Firebase The Firebase
  *        GitHub Application. (Value: "FIREBASE")
+ *    @arg @c kGTLRDeveloperConnect_GitHubConfig_GithubApp_GeminiCodeAssist The
+ *        Gemini Code Assist Application. (Value: "GEMINI_CODE_ASSIST")
  *    @arg @c kGTLRDeveloperConnect_GitHubConfig_GithubApp_GitHubAppUnspecified
  *        GitHub App not specified. (Value: "GIT_HUB_APP_UNSPECIFIED")
  */
@@ -1069,6 +1099,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 /** Required. The host project of Artifact Registry. */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
+ *  GoogleCloudRun represents the Cloud Run runtime.
+ */
+@interface GTLRDeveloperConnect_GoogleCloudRun : GTLRObject
+
+/**
+ *  Required. Immutable. The name of the Cloud Run service. Format:
+ *  `projects/{project}/locations/{location}/services/{service}`.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceUri;
 
 @end
 
@@ -1812,11 +1856,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
  */
 @interface GTLRDeveloperConnect_RuntimeConfig : GTLRObject
 
+/** Output only. App Hub Service. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_AppHubService *appHubService;
+
 /** Output only. App Hub Workload. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_AppHubWorkload *appHubWorkload;
 
 /** Output only. Google Kubernetes Engine runtime. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_GKEWorkload *gkeWorkload;
+
+/** Output only. Cloud Run runtime. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_GoogleCloudRun *googleCloudRun;
 
 /**
  *  Output only. The state of the Runtime.

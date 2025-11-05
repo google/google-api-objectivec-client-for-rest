@@ -268,7 +268,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_CreateSnapshotRequest
-@dynamic labels, subscription;
+@dynamic labels, subscription, tags;
 @end
 
 
@@ -278,6 +278,20 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_CreateSnapshotRequest_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_CreateSnapshotRequest_Tags
+//
+
+@implementation GTLRPubsub_CreateSnapshotRequest_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -839,7 +853,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
          cloudStorageConfig, deadLetterPolicy, detached,
          enableExactlyOnceDelivery, enableMessageOrdering, expirationPolicy,
          filter, labels, messageRetentionDuration, messageTransforms, name,
-         pushConfig, retainAckedMessages, retryPolicy, state, topic,
+         pushConfig, retainAckedMessages, retryPolicy, state, tags, topic,
          topicMessageRetentionDuration;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -858,6 +872,20 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_Subscription_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_Subscription_Tags
+//
+
+@implementation GTLRPubsub_Subscription_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -929,7 +957,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 @implementation GTLRPubsub_Topic
 @dynamic ingestionDataSourceSettings, kmsKeyName, labels,
          messageRetentionDuration, messageStoragePolicy, messageTransforms,
-         name, satisfiesPzs, schemaSettings, state;
+         name, satisfiesPzs, schemaSettings, state, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -947,6 +975,20 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_Topic_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_Topic_Tags
+//
+
+@implementation GTLRPubsub_Topic_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];

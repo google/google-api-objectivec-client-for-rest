@@ -893,11 +893,12 @@ NSString * const kGTLRRecommendationsAI_GoogleCloudRecommendationengineV1beta1Us
 //
 
 @implementation GTLRRecommendationsAI_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRRecommendationsAI_GoogleLongrunningOperation class]
+    @"operations" : [GTLRRecommendationsAI_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

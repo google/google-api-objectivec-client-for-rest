@@ -16,6 +16,7 @@
 // GTLRDeveloperConnect_GitHubConfig.githubApp
 NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_DeveloperConnect = @"DEVELOPER_CONNECT";
 NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_Firebase = @"FIREBASE";
+NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_GeminiCodeAssist = @"GEMINI_CODE_ASSIST";
 NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_GitHubAppUnspecified = @"GIT_HUB_APP_UNSPECIFIED";
 
 // GTLRDeveloperConnect_InsightsConfig.state
@@ -88,6 +89,16 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_AppHubService
+//
+
+@implementation GTLRDeveloperConnect_AppHubService
+@dynamic apphubService, criticality, environment;
 @end
 
 
@@ -471,6 +482,16 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED
 
 @implementation GTLRDeveloperConnect_GoogleArtifactRegistry
 @dynamic artifactRegistryPackage, projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_GoogleCloudRun
+//
+
+@implementation GTLRDeveloperConnect_GoogleCloudRun
+@dynamic serviceUri;
 @end
 
 
@@ -921,7 +942,7 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED
 //
 
 @implementation GTLRDeveloperConnect_RuntimeConfig
-@dynamic appHubWorkload, gkeWorkload, state, uri;
+@dynamic appHubService, appHubWorkload, gkeWorkload, googleCloudRun, state, uri;
 @end
 
 

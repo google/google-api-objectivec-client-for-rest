@@ -3360,6 +3360,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 /** Output only. Hierarchy Controller status. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerState *hierarchyControllerState;
 
+/** Output only. The Kubernetes API server version of the cluster. */
+@property(nonatomic, copy, nullable) NSString *kubernetesApiServerVersion;
+
 /**
  *  Output only. Membership configuration in the cluster. This represents the
  *  actual state in the cluster, while the MembershipSpec in the FeatureSpec

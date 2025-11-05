@@ -4097,8 +4097,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2RedactImageRequest
-@dynamic byteItem, imageRedactionConfigs, includeFindings, inspectConfig,
-         locationId;
+@dynamic byteItem, deidentifyTemplate, imageRedactionConfigs, includeFindings,
+         inspectConfig, inspectTemplate, locationId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

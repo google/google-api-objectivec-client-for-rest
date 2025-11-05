@@ -62,7 +62,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricBus
  *
  *  Value: "BUSINESS_FOOD_ORDERS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessFoodOrders;
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricBusinessFoodOrders GTLR_DEPRECATED;
 /**
  *  Business impressions on Google Maps on Desktop devices. Multiple impressions
  *  by a unique user within a single day are counted as a single impression.
@@ -148,7 +148,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBu
  *
  *  Value: "BUSINESS_FOOD_ORDERS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessFoodOrders;
+FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformanceDailyMetricsBusinessFoodOrders GTLR_DEPRECATED;
 /**
  *  Business impressions on Google Maps on Desktop devices. Multiple impressions
  *  by a unique user within a single day are counted as a single impression.

@@ -8,7 +8,7 @@
 //   with Google Chat and manage Chat resources such as spaces, members, and
 //   messages.
 // Documentation:
-//   https://developers.google.com/hangouts/chat
+//   https://developers.google.com/workspace/chat
 
 #import <GoogleAPIClientForREST/GTLRHangoutsChatQuery.h>
 

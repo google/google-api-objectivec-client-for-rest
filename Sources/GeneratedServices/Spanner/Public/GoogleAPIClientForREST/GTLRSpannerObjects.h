@@ -1192,8 +1192,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_TransactionOptions_IsolationLeve
  *  occurred in parallel. Spanner assigns commit timestamps that reflect the
  *  order of committed transactions to implement this property. Spanner offers a
  *  stronger guarantee than serializability called external consistency. For
- *  further details, please refer to
- *  https://cloud.google.com/spanner/docs/true-time-external-consistency#serializability.
+ *  more information, see [TrueTime and external
+ *  consistency](https://cloud.google.com/spanner/docs/true-time-external-consistency#serializability).
  *
  *  Value: "SERIALIZABLE"
  */
@@ -1315,6 +1315,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Timestamp;
  *  Value: "TYPE_CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified;
+/**
+ *  Encoded as `string`, in lower-case hexa-decimal format, as described in RFC
+ *  9562, section 4.
+ *
+ *  Value: "UUID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Type_Code_Uuid;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_Type.typeAnnotation
@@ -7764,9 +7771,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        transactions actually occurred in parallel. Spanner assigns commit
  *        timestamps that reflect the order of committed transactions to
  *        implement this property. Spanner offers a stronger guarantee than
- *        serializability called external consistency. For further details,
- *        please refer to
- *        https://cloud.google.com/spanner/docs/true-time-external-consistency#serializability.
+ *        serializability called external consistency. For more information, see
+ *        [TrueTime and external
+ *        consistency](https://cloud.google.com/spanner/docs/true-time-external-consistency#serializability).
  *        (Value: "SERIALIZABLE")
  */
 @property(nonatomic, copy, nullable) NSString *isolationLevel;
@@ -7893,6 +7900,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        transaction commit. (Value: "TIMESTAMP")
  *    @arg @c kGTLRSpanner_Type_Code_TypeCodeUnspecified Not specified. (Value:
  *        "TYPE_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_Type_Code_Uuid Encoded as `string`, in lower-case
+ *        hexa-decimal format, as described in RFC 9562, section 4. (Value:
+ *        "UUID")
  */
 @property(nonatomic, copy, nullable) NSString *code;
 

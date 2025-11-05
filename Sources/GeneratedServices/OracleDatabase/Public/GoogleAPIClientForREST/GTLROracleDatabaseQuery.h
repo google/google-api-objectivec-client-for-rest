@@ -1233,8 +1233,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The maximum number of items to return. If unspecified, a maximum
- *  of 50 System Versions will be returned. The maximum value is 1000; values
- *  above 1000 will be reset to 1000.
+ *  of 50 Databases will be returned. The maximum value is 1000; values above
+ *  1000 will be reset to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1282,8 +1282,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The maximum number of items to return. If unspecified, a maximum
- *  of 50 System Versions will be returned. The maximum value is 1000; values
- *  above 1000 will be reset to 1000.
+ *  of 50 DbSystemInitialStorageSizes will be returned. The maximum value is
+ *  1000; values above 1000 will be reset to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1570,8 +1570,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The maximum number of items to return. If unspecified, a maximum
- *  of 50 System Versions will be returned. The maximum value is 1000; values
- *  above 1000 will be reset to 1000.
+ *  of 50 DbVersions will be returned. The maximum value is 1000; values above
+ *  1000 will be reset to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -1704,6 +1704,52 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLROracleDatabase_ExadbVmCluster *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists the database nodes of a VM Cluster.
+ *
+ *  Method: oracledatabase.projects.locations.exadbVmClusters.dbNodes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeOracleDatabaseCloudPlatform
+ */
+@interface GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDbNodesList : GTLROracleDatabaseQuery
+
+/**
+ *  Optional. The maximum number of items to return. If unspecified, at most 50
+ *  db nodes will be returned. The maximum value is 1000; values above 1000 will
+ *  be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. A token identifying a page of results the node should return. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent value for database node in the following format:
+ *  projects/{project}/locations/{location}/cloudVmClusters/{cloudVmCluster}. .
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLROracleDatabase_ListDbNodesResponse.
+ *
+ *  Lists the database nodes of a VM Cluster.
+ *
+ *  @param parent Required. The parent value for database node in the following
+ *    format:
+ *    projects/{project}/locations/{location}/cloudVmClusters/{cloudVmCluster}.
+ *    .
+ *
+ *  @return GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDbNodesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -2263,8 +2309,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROracleDatabaseQuery_ProjectsLocationsList : GTLROracleDatabaseQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

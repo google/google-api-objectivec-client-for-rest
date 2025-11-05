@@ -183,6 +183,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_AgentTask_TaskSource_User;
 // GTLRCloudBatch_InstancePolicy.provisioningModel
 
 /**
+ *  Instance is provisioned with DWS Flex Start and has limited max run
+ *  duration.
+ *
+ *  Value: "FLEX_START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningModel_FlexStart;
+/**
  *  Preemptible VM (PVM). Above SPOT VM is the preferable model for preemptible
  *  VM instances: the old preemptible VM model (indicated by this field) is the
  *  older model, and has been migrated to use the SPOT model as the underlying
@@ -219,6 +226,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstancePolicy_ProvisioningMo
 // ----------------------------------------------------------------------------
 // GTLRCloudBatch_InstanceStatus.provisioningModel
 
+/**
+ *  Instance is provisioned with DWS Flex Start and has limited max run
+ *  duration.
+ *
+ *  Value: "FLEX_START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_InstanceStatus_ProvisioningModel_FlexStart;
 /**
  *  Preemptible VM (PVM). Above SPOT VM is the preferable model for preemptible
  *  VM instances: the old preemptible VM model (indicated by this field) is the
@@ -1644,6 +1658,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  The provisioning model.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudBatch_InstancePolicy_ProvisioningModel_FlexStart
+ *        Instance is provisioned with DWS Flex Start and has limited max run
+ *        duration. (Value: "FLEX_START")
  *    @arg @c kGTLRCloudBatch_InstancePolicy_ProvisioningModel_Preemptible
  *        Preemptible VM (PVM). Above SPOT VM is the preferable model for
  *        preemptible VM instances: the old preemptible VM model (indicated by
@@ -1749,6 +1766,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *  The VM instance provisioning model.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudBatch_InstanceStatus_ProvisioningModel_FlexStart
+ *        Instance is provisioned with DWS Flex Start and has limited max run
+ *        duration. (Value: "FLEX_START")
  *    @arg @c kGTLRCloudBatch_InstanceStatus_ProvisioningModel_Preemptible
  *        Preemptible VM (PVM). Above SPOT VM is the preferable model for
  *        preemptible VM instances: the old preemptible VM model (indicated by
@@ -2065,6 +2085,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudBatch_TaskStatus_State_Unexecuted;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudBatch_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

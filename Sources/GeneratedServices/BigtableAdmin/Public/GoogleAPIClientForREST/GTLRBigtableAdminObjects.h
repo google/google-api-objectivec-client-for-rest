@@ -48,6 +48,7 @@
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewFamilySubsets;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView_FamilySubsets;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateHyperLogLogPlusPlusUniqueCount;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMax;
@@ -90,6 +91,7 @@
 @class GTLRBigtableAdmin_Location_Metadata;
 @class GTLRBigtableAdmin_LogicalView;
 @class GTLRBigtableAdmin_MaterializedView;
+@class GTLRBigtableAdmin_MaterializedView_ClusterStates;
 @class GTLRBigtableAdmin_Modification;
 @class GTLRBigtableAdmin_MultiClusterRoutingUseAny;
 @class GTLRBigtableAdmin_Operation;
@@ -404,6 +406,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionT
  *  Value: "GOOGLE_DEFAULT_ENCRYPTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_GoogleDefaultEncryption;
+
+// ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState.replicationState
+
+/**
+ *  The cluster or view was recently created, and the materialized view must
+ *  finish backfilling before it can begin serving Data API requests.
+ *
+ *  Value: "INITIALIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_Initializing;
+/**
+ *  The materialized view can serve Data API requests from this cluster.
+ *  Depending on materialization and replication delay, reads may not
+ *  immediately reflect the state of the materialized view in other clusters.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_Ready;
+/**
+ *  The state of the materialized view is unknown in this cluster.
+ *
+ *  Value: "STATE_NOT_KNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_StateNotKnown;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Instance.state
@@ -1269,9 +1296,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  The type of data stored in each of this family's cell values, including its
  *  full encoding. If omitted, the family only serves raw untyped bytes. For
  *  now, only the `Aggregate` type is supported. `Aggregate` can only be set at
- *  family creation and is immutable afterwards. If `value_type` is `Aggregate`,
- *  written data must be compatible with: * `value_type.input_type` for
- *  `AddInput` mutations
+ *  family creation and is immutable afterwards. This field is mutually
+ *  exclusive with `sql_type`. If `value_type` is `Aggregate`, written data must
+ *  be compatible with: * `value_type.input_type` for `AddInput` mutations
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_Type *valueType;
 
@@ -2084,6 +2111,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView_FamilySubsets : GTLRObject
+@end
+
+
+/**
+ *  The state of a materialized view's data in a particular cluster.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState : GTLRObject
+
+/**
+ *  Output only. The state of the materialized view in this cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_Initializing
+ *        The cluster or view was recently created, and the materialized view
+ *        must finish backfilling before it can begin serving Data API requests.
+ *        (Value: "INITIALIZING")
+ *    @arg @c kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_Ready
+ *        The materialized view can serve Data API requests from this cluster.
+ *        Depending on materialization and replication delay, reads may not
+ *        immediately reflect the state of the materialized view in other
+ *        clusters. (Value: "READY")
+ *    @arg @c kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_StateNotKnown
+ *        The state of the materialized view is unknown in this cluster. (Value:
+ *        "STATE_NOT_KNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *replicationState;
+
 @end
 
 
@@ -3014,6 +3068,13 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -3169,6 +3230,15 @@ GTLR_DEPRECATED
 @interface GTLRBigtableAdmin_MaterializedView : GTLRObject
 
 /**
+ *  Output only. Map from cluster ID to per-cluster materialized view state. If
+ *  it could not be determined whether or not the materialized view has data in
+ *  a particular cluster (for example, if its zone is unavailable), then there
+ *  will be an entry for the cluster with `STATE_NOT_KNOWN` state. Views:
+ *  `REPLICATION_VIEW`, `FULL`.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_MaterializedView_ClusterStates *clusterStates;
+
+/**
  *  Set to true to make the MaterializedView protected against deletion. Views:
  *  `SCHEMA_VIEW`, `REPLICATION_VIEW`, `FULL`.
  *
@@ -3197,6 +3267,23 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
+@end
+
+
+/**
+ *  Output only. Map from cluster ID to per-cluster materialized view state. If
+ *  it could not be determined whether or not the materialized view has data in
+ *  a particular cluster (for example, if its zone is unavailable), then there
+ *  will be an entry for the cluster with `STATE_NOT_KNOWN` state. Views:
+ *  `REPLICATION_VIEW`, `FULL`.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRBigtableAdmin_MaterializedView_ClusterStates : GTLRObject
 @end
 
 

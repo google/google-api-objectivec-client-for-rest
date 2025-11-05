@@ -955,6 +955,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
 
 /**
  *  Creates a secondary calendar.
+ *  The authenticated user for the request is made the data owner of the new
+ *  calendar.
+ *  Note: We recommend to authenticate as the intended data owner of the
+ *  calendar. You can use domain-wide delegation of authority to allow
+ *  applications to act on behalf of a specific user. Don't use a service
+ *  account for authentication. If you use a service account for authentication,
+ *  the service account is the data owner, which can lead to unexpected
+ *  behavior. For example, if a service account is the data owner, data
+ *  ownership cannot be transferred.
  *
  *  Method: calendar.calendars.insert
  *
@@ -969,6 +978,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCalendarSendUpdatesNone;
  *  Fetches a @c GTLRCalendar_Calendar.
  *
  *  Creates a secondary calendar.
+ *  The authenticated user for the request is made the data owner of the new
+ *  calendar.
+ *  Note: We recommend to authenticate as the intended data owner of the
+ *  calendar. You can use domain-wide delegation of authority to allow
+ *  applications to act on behalf of a specific user. Don't use a service
+ *  account for authentication. If you use a service account for authentication,
+ *  the service account is the data owner, which can lead to unexpected
+ *  behavior. For example, if a service account is the data owner, data
+ *  ownership cannot be transferred.
  *
  *  @param object The @c GTLRCalendar_Calendar to include in the query.
  *

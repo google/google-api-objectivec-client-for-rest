@@ -71,11 +71,12 @@ NSString * const kGTLRWorkflows_Workflow_State_Unavailable     = @"UNAVAILABLE";
 //
 
 @implementation GTLRWorkflows_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRWorkflows_Operation class]
+    @"operations" : [GTLRWorkflows_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

@@ -528,11 +528,12 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 //
 
 @implementation GTLREventarc_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLREventarc_GoogleLongrunningOperation class]
+    @"operations" : [GTLREventarc_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

@@ -961,11 +961,12 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 //
 
 @implementation GTLRVMwareEngine_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRVMwareEngine_Operation class]
+    @"operations" : [GTLRVMwareEngine_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

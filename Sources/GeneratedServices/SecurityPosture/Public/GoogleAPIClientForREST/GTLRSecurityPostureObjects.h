@@ -968,6 +968,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_Violation_Severity_Sever
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityPosture_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 

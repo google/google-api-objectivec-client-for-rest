@@ -139,11 +139,12 @@ NSString * const kGTLRIDS_Endpoint_State_Updating         = @"UPDATING";
 //
 
 @implementation GTLRIDS_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRIDS_Operation class]
+    @"operations" : [GTLRIDS_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

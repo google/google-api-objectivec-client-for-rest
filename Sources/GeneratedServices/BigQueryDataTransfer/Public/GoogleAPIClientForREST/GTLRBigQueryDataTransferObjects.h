@@ -178,6 +178,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_DataSourceParameter_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRBigQueryDataTransfer_TransferConfig.managedTableType
+
+/**
+ *  The managed table is a BigQuery table for Apache Iceberg (formerly BigLake
+ *  managed tables), with a BigLake configuration.
+ *
+ *  Value: "BIGLAKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_ManagedTableType_Biglake;
+/**
+ *  Type unspecified. This defaults to `NATIVE` table.
+ *
+ *  Value: "MANAGED_TABLE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_ManagedTableType_ManagedTableTypeUnspecified;
+/**
+ *  The managed table is a native BigQuery table. This is the default value.
+ *
+ *  Value: "NATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferConfig_ManagedTableType_Native;
+
+// ----------------------------------------------------------------------------
 // GTLRBigQueryDataTransfer_TransferConfig.state
 
 /**
@@ -1148,6 +1171,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *  config failure.
  */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_Status *error;
+
+/**
+ *  The classification of the destination table.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_ManagedTableType_Biglake
+ *        The managed table is a BigQuery table for Apache Iceberg (formerly
+ *        BigLake managed tables), with a BigLake configuration. (Value:
+ *        "BIGLAKE")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_ManagedTableType_ManagedTableTypeUnspecified
+ *        Type unspecified. This defaults to `NATIVE` table. (Value:
+ *        "MANAGED_TABLE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferConfig_ManagedTableType_Native
+ *        The managed table is a native BigQuery table. This is the default
+ *        value. (Value: "NATIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *managedTableType;
 
 /**
  *  Identifier. The resource name of the transfer config. Transfer config names

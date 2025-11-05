@@ -79,6 +79,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -1783,6 +1784,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 /**
  *  Represents the metadata of the long-running operation.
  */
+GTLR_DEPRECATED
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpPartnerservicesV1alphaPartnerServiceOperationMetadata : GTLRObject
 
 /** Output only. API version used to start the operation. */
@@ -1821,6 +1823,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 /**
  *  Represents the metadata of the long-running operation.
  */
+GTLR_DEPRECATED
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpPartnerservicesV1mainPartnerServiceOperationMetadata : GTLRObject
 
 /** Output only. API version used to start the operation. */
@@ -2846,6 +2849,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

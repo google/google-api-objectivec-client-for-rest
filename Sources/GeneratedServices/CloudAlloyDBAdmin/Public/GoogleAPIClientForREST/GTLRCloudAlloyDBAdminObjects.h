@@ -27,7 +27,6 @@
 @class GTLRCloudAlloyDBAdmin_AuthorizedNetwork;
 @class GTLRCloudAlloyDBAdmin_AutomatedBackupPolicy;
 @class GTLRCloudAlloyDBAdmin_AutomatedBackupPolicy_Labels;
-@class GTLRCloudAlloyDBAdmin_AutoScalingConfig;
 @class GTLRCloudAlloyDBAdmin_Backup;
 @class GTLRCloudAlloyDBAdmin_Backup_Annotations;
 @class GTLRCloudAlloyDBAdmin_Backup_Labels;
@@ -49,9 +48,9 @@
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupConfig;
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupInfo;
 @class GTLRCloudAlloyDBAdmin_ContinuousBackupSource;
-@class GTLRCloudAlloyDBAdmin_CpuUtilization;
 @class GTLRCloudAlloyDBAdmin_CsvExportOptions;
 @class GTLRCloudAlloyDBAdmin_CsvImportOptions;
+@class GTLRCloudAlloyDBAdmin_DataplexConfig;
 @class GTLRCloudAlloyDBAdmin_DenyMaintenancePeriod;
 @class GTLRCloudAlloyDBAdmin_EncryptionConfig;
 @class GTLRCloudAlloyDBAdmin_EncryptionInfo;
@@ -79,7 +78,6 @@
 @class GTLRCloudAlloyDBAdmin_Operation;
 @class GTLRCloudAlloyDBAdmin_Operation_Metadata;
 @class GTLRCloudAlloyDBAdmin_Operation_Response;
-@class GTLRCloudAlloyDBAdmin_Policy;
 @class GTLRCloudAlloyDBAdmin_PrimaryConfig;
 @class GTLRCloudAlloyDBAdmin_PscAutoConnectionConfig;
 @class GTLRCloudAlloyDBAdmin_PscConfig;
@@ -90,7 +88,6 @@
 @class GTLRCloudAlloyDBAdmin_QueryInsightsInstanceConfig;
 @class GTLRCloudAlloyDBAdmin_ReadPoolConfig;
 @class GTLRCloudAlloyDBAdmin_ReadPoolInstancesUpgradeStageStatus;
-@class GTLRCloudAlloyDBAdmin_Schedule;
 @class GTLRCloudAlloyDBAdmin_SecondaryConfig;
 @class GTLRCloudAlloyDBAdmin_SqlExportOptions;
 @class GTLRCloudAlloyDBAdmin_SqlImportOptions;
@@ -723,10 +720,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_InstanceType_
 // GTLRCloudAlloyDBAdmin_Instance.state
 
 /**
- *  Index 7 is used in the producer apis for ROLLED_BACK state. Keeping that
- *  index unused in case that state also needs to exposed via consumer apis in
- *  future. The instance has been configured to sync data from some other
- *  source.
+ *  The instance has been configured to sync data from some other source.
  *
  *  Value: "BOOTSTRAPPING"
  */
@@ -1267,6 +1261,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExposedToPublicAccess;
 /**
+ *  Represents if a resource version is in extended support.
+ *
+ *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExtendedSupport;
+/**
  *  Represents if a database has a password configured for the root account or
  *  not.
  *
@@ -1507,6 +1507,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDatabaseNamesExposed;
 /**
+ *  Databoost is disabled.
+ *
+ *  Value: "SIGNAL_TYPE_DATABOOST_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDataboostDisabled;
+/**
  *  Detects if database instance data exported to a Cloud Storage bucket outside
  *  of the organization.
  *
@@ -1602,6 +1608,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_EXPOSED_TO_REMOTE_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeExposedToRemoteAccess;
+/**
+ *  Resource version is in extended support.
+ *
+ *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeExtendedSupport;
 /**
  *  Represents if a group is replicating across regions. Checks for resources
  *  that are configured to have redundancy, and ongoing replication, across
@@ -1902,6 +1914,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeReadIntensiveWorkload;
+/**
+ *  Recommended maintenance policy.
+ *
+ *  Value: "SIGNAL_TYPE_RECOMMENDED_MAINTENANCE_POLICIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeRecommendedMaintenancePolicies;
 /**
  *  Replication delay.
  *
@@ -2500,6 +2518,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDatabaseNamesExposed;
 /**
+ *  Databoost is disabled.
+ *
+ *  Value: "SIGNAL_TYPE_DATABOOST_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataboostDisabled;
+/**
  *  Detects if database instance data exported to a Cloud Storage bucket outside
  *  of the organization.
  *
@@ -2595,6 +2619,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_EXPOSED_TO_REMOTE_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeExposedToRemoteAccess;
+/**
+ *  Resource version is in extended support.
+ *
+ *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeExtendedSupport;
 /**
  *  Represents if a group is replicating across regions. Checks for resources
  *  that are configured to have redundancy, and ongoing replication, across
@@ -2896,6 +2926,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeReadIntensiveWorkload;
 /**
+ *  Recommended maintenance policy.
+ *
+ *  Value: "SIGNAL_TYPE_RECOMMENDED_MAINTENANCE_POLICIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeRecommendedMaintenancePolicies;
+/**
  *  Replication delay.
  *
  *  Value: "SIGNAL_TYPE_REPLICATION_LAG"
@@ -3163,6 +3199,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess;
+/**
+ *  Represents if a resource version is in extended support.
+ *
+ *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport;
 /**
  *  Represents if a database has a password configured for the root account or
  *  not.
@@ -3442,33 +3484,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 /**
  *  Any phase.
  *
- *  Value: "WINDOW_PHASE_ANY"
+ *  Value: "ANY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseAny;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Any;
 /**
  *  Phase is unspecified.
  *
- *  Value: "WINDOW_PHASE_UNSPECIFIED"
+ *  Value: "PHASE_UNSPECIFIED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseUnspecified;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_PhaseUnspecified;
 /**
  *  Week 1.
  *
- *  Value: "WINDOW_PHASE_WEEK1"
+ *  Value: "WEEK1"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek1;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Week1;
 /**
  *  Week 2.
  *
- *  Value: "WINDOW_PHASE_WEEK2"
+ *  Value: "WEEK2"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek2;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Week2;
 /**
  *  Week 5.
  *
- *  Value: "WINDOW_PHASE_WEEK5"
+ *  Value: "WEEK5"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek5;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Week5;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings.retentionUnit
@@ -3652,6 +3694,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "PRODUCT_TYPE_ALLOYDB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeAlloydb;
+/**
+ *  BigQuery product area in GCP
+ *
+ *  Value: "PRODUCT_TYPE_BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeBigquery;
 /**
  *  Bigtable product area in GCP
  *
@@ -4180,23 +4228,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        fetch them all at once.
  */
 @interface GTLRCloudAlloyDBAdmin_AutomatedBackupPolicy_Labels : GTLRObject
-@end
-
-
-/**
- *  Configuration for autoscaling.
- */
-@interface GTLRCloudAlloyDBAdmin_AutoScalingConfig : GTLRObject
-
-/** Policy for the MIG autoscaler. */
-@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_Policy *policy;
-
-/**
- *  Optional list of schedules for the MIG autoscaler. If not set, no schedules
- *  are created.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_Schedule *> *schedules;
-
 @end
 
 
@@ -4734,6 +4765,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
+/** Optional. Configuration for Dataplex integration. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_DataplexConfig *dataplexConfig;
+
 /** Output only. Delete time stamp */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
@@ -5179,21 +5213,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  CPU utilization policy for the autoscaler.
- */
-@interface GTLRCloudAlloyDBAdmin_CpuUtilization : GTLRObject
-
-/**
- *  Target CPU utilization as a float between 0 and 1.
- *
- *  Uses NSNumber of floatValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *utilizationTarget;
-
-@end
-
-
-/**
  *  Options for exporting data in CSV format.
  */
 @interface GTLRCloudAlloyDBAdmin_CsvExportOptions : GTLRObject
@@ -5259,6 +5278,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Required. The database table to import CSV file into. */
 @property(nonatomic, copy, nullable) NSString *table;
+
+@end
+
+
+/**
+ *  Configuration for Dataplex integration.
+ */
+@interface GTLRCloudAlloyDBAdmin_DataplexConfig : GTLRObject
+
+/**
+ *  Dataplex is enabled by default for resources such as clusters and instances.
+ *  This flag controls the integration of AlloyDB PG resources (like databases,
+ *  schemas, and tables) with Dataplex."
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -5899,11 +5935,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Output only. The current serving state of the instance.
  *
  *  Likely values:
- *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_Bootstrapping Index 7 is
- *        used in the producer apis for ROLLED_BACK state. Keeping that index
- *        unused in case that state also needs to exposed via consumer apis in
- *        future. The instance has been configured to sync data from some other
- *        source. (Value: "BOOTSTRAPPING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_Bootstrapping The instance
+ *        has been configured to sync data from some other source. (Value:
+ *        "BOOTSTRAPPING")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_Creating The instance is
  *        being created. (Value: "CREATING")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_Deleting The instance is
@@ -6656,41 +6690,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Policy for the autoscaler.
- */
-@interface GTLRCloudAlloyDBAdmin_Policy : GTLRObject
-
-/**
- *  The period of time in seconds after a new node is created before the
- *  autoscaler will incorporate its resource usage (e.g. CPU utilization) into
- *  the autoscaling recommendation algorithm.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *coolDownPeriodSec;
-
-/** CPU utilization policy for the autoscaler. */
-@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_CpuUtilization *cpuUtilization;
-
-/**
- *  If true, autoscaling is enabled for the instance. If not set, the default
- *  value is false.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enabled;
-
-/**
- *  Maximum number of nodes for the autoscaler.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
-
-@end
-
-
-/**
  *  Configuration for the primary cluster. It has the list of clusters that are
  *  replicating from this cluster. This should be set if and only if the cluster
  *  is of type PRIMARY.
@@ -6969,12 +6968,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @interface GTLRCloudAlloyDBAdmin_ReadPoolConfig : GTLRObject
 
 /**
- *  Autoscaling configuration for the read pool instance. If not set, the read
- *  pool instance will not be autoscaled.
- */
-@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_AutoScalingConfig *autoScalingConfig;
-
-/**
  *  Read capacity, i.e. number of nodes in a read pool instance.
  *
  *  Uses NSNumber of intValue.
@@ -7098,58 +7091,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Required. ID of the requesting object. */
 @property(nonatomic, copy, nullable) NSString *clusterId;
-
-@end
-
-
-/**
- *  A schedule for the autoscaler.
- */
-@interface GTLRCloudAlloyDBAdmin_Schedule : GTLRObject
-
-/**
- *  Cron expression for the triggering the schedule. See
- *  https://cloud.google.com/compute/docs/autoscaler/scaling-schedules#cron_expressions
- *  for the syntax.
- */
-@property(nonatomic, copy, nullable) NSString *cronExpression;
-
-/**
- *  Description of the schedule.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/**
- *  If true, the schedule is disabled.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *disabled;
-
-/**
- *  Duration of the schedule.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *durationSec;
-
-/**
- *  Minimum number of nodes in while the schedule is active.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *minNodeCount;
-
-/** Name of the schedule. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  The location-based IANA time zone for interpreting the schedule's start
- *  time. If no time zone is provided, UTC is used by default.
- */
-@property(nonatomic, copy, nullable) NSString *timeZone;
 
 @end
 
@@ -7676,6 +7617,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExposedToPublicAccess
  *        Represents if a resource is exposed to public access. (Value:
  *        "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExtendedSupport
+ *        Represents if a resource version is in extended support. (Value:
+ *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNoRootPassword
  *        Represents if a database has a password configured for the root
  *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -7953,6 +7897,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if the skip_show_database database flag for a Cloud SQL for
  *        MySQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_DATABASE_NAMES_EXPOSED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDataboostDisabled
+ *        Databoost is disabled. (Value: "SIGNAL_TYPE_DATABOOST_DISABLED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket
  *        Detects if database instance data exported to a Cloud Storage bucket
  *        outside of the organization. (Value:
@@ -8007,6 +7953,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if the remote access database flag for a Cloud SQL for SQL
  *        Server instance is not set to off. (Value:
  *        "SIGNAL_TYPE_EXPOSED_TO_REMOTE_ACCESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeExtendedSupport
+ *        Resource version is in extended support. (Value:
+ *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeGroupNotReplicatingAcrossRegions
  *        Represents if a group is replicating across regions. Checks for
  *        resources that are configured to have redundancy, and ongoing
@@ -8159,6 +8108,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeReadIntensiveWorkload
  *        Indicates that the instance has read intensive workload. (Value:
  *        "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeRecommendedMaintenancePolicies
+ *        Recommended maintenance policy. (Value:
+ *        "SIGNAL_TYPE_RECOMMENDED_MAINTENANCE_POLICIES")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeReplicationLag
  *        Replication delay. (Value: "SIGNAL_TYPE_REPLICATION_LAG")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeResourceSuspended
@@ -8679,6 +8631,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if the skip_show_database database flag for a Cloud SQL for
  *        MySQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_DATABASE_NAMES_EXPOSED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataboostDisabled
+ *        Databoost is disabled. (Value: "SIGNAL_TYPE_DATABOOST_DISABLED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket
  *        Detects if database instance data exported to a Cloud Storage bucket
  *        outside of the organization. (Value:
@@ -8733,6 +8687,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        Represents if the remote access database flag for a Cloud SQL for SQL
  *        Server instance is not set to off. (Value:
  *        "SIGNAL_TYPE_EXPOSED_TO_REMOTE_ACCESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeExtendedSupport
+ *        Resource version is in extended support. (Value:
+ *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeGroupNotReplicatingAcrossRegions
  *        Represents if a group is replicating across regions. Checks for
  *        resources that are configured to have redundancy, and ongoing
@@ -8885,6 +8842,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeReadIntensiveWorkload
  *        Indicates that the instance has read intensive workload. (Value:
  *        "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeRecommendedMaintenancePolicies
+ *        Recommended maintenance policy. (Value:
+ *        "SIGNAL_TYPE_RECOMMENDED_MAINTENANCE_POLICIES")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeReplicationLag
  *        Replication delay. (Value: "SIGNAL_TYPE_REPLICATION_LAG")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeResourceSuspended
@@ -9063,6 +9023,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess
  *        Represents if a resource is exposed to public access. (Value:
  *        "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport
+ *        Represents if a resource version is in extended support. (Value:
+ *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword
  *        Represents if a database has a password configured for the root
  *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -9403,16 +9366,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  https://cloud.google.com/sql/docs/mysql/maintenance
  *
  *  Likely values:
- *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseAny
- *        Any phase. (Value: "WINDOW_PHASE_ANY")
- *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseUnspecified
- *        Phase is unspecified. (Value: "WINDOW_PHASE_UNSPECIFIED")
- *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek1
- *        Week 1. (Value: "WINDOW_PHASE_WEEK1")
- *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek2
- *        Week 2. (Value: "WINDOW_PHASE_WEEK2")
- *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_WindowPhaseWeek5
- *        Week 5. (Value: "WINDOW_PHASE_WEEK5")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Any
+ *        Any phase. (Value: "ANY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_PhaseUnspecified
+ *        Phase is unspecified. (Value: "PHASE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Week1
+ *        Week 1. (Value: "WEEK1")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Week2
+ *        Week 2. (Value: "WEEK2")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Phase_Week5
+ *        Week 5. (Value: "WEEK5")
  */
 @property(nonatomic, copy, nullable) NSString *phase;
 
@@ -9605,6 +9568,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        On premises database product. (Value: "ON_PREM")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeAlloydb
  *        AlloyDB product area in GCP (Value: "PRODUCT_TYPE_ALLOYDB")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeBigquery
+ *        BigQuery product area in GCP (Value: "PRODUCT_TYPE_BIGQUERY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeBigtable
  *        Bigtable product area in GCP (Value: "PRODUCT_TYPE_BIGTABLE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct_Type_ProductTypeCloudSql

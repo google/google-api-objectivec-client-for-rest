@@ -1876,7 +1876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. The requestor ID is used to identify if the request comes from a
  *  GCA investigation or the old Ask Gemini Experience.
  */
-@property(nonatomic, copy, nullable) NSString *requestorId;
+@property(nonatomic, copy, nullable) NSString *requestorId GTLR_DEPRECATED;
 
 @end
 
@@ -4339,7 +4339,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. Resource manager tags
  *  (https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing)
  *  to add to all instances (see Use secure tags in Dataproc
- *  (https://cloud.google.com/dataproc/docs/guides/attach-secure-tags)).
+ *  (https://cloud.google.com/dataproc/docs/guides/use-secure-tags)).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_GceClusterConfig_ResourceManagerTags *resourceManagerTags;
 
@@ -4421,7 +4421,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. Resource manager tags
  *  (https://cloud.google.com/resource-manager/docs/tags/tags-creating-and-managing)
  *  to add to all instances (see Use secure tags in Dataproc
- *  (https://cloud.google.com/dataproc/docs/guides/attach-secure-tags)).
+ *  (https://cloud.google.com/dataproc/docs/guides/use-secure-tags)).
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -6207,6 +6207,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  ListOperationsRequest.return_partial_success and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -7419,7 +7426,10 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. HCFS URIs of archives to be extracted into the working directory
- *  of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
+ *  of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and
+ *  .zip.Note: Spark applications must be deployed in cluster mode
+ *  (https://spark.apache.org/docs/latest/cluster-overview.html) for correct
+ *  environment propagation.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *archiveUris;
 
@@ -7826,6 +7836,17 @@ GTLR_DEPRECATED
  *  NOT_FOUND) if a cluster with the specified UUID does not exist.
  */
 @property(nonatomic, copy, nullable) NSString *clusterUuid;
+
+/**
+ *  Optional. Whether the request is submitted by Dataproc super user. If true,
+ *  IAM will check 'dataproc.clusters.repair' permission instead of
+ *  'dataproc.clusters.update' permission. This is to give Dataproc superuser
+ *  the ability to repair clusters without granting the overly broad update
+ *  permission.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dataprocSuperUser;
 
 /**
  *  Optional. Timeout for graceful YARN decommissioning. Graceful
@@ -11585,12 +11606,13 @@ GTLR_DEPRECATED
  */
 @interface GTLRDataproc_UsageMetrics : GTLRObject
 
-/** Optional. Accelerator type being used, if any */
+/** Optional. DEPRECATED Accelerator type being used, if any */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
 /**
- *  Optional. Accelerator usage in (milliAccelerator x seconds) (see Dataproc
- *  Serverless pricing (https://cloud.google.com/dataproc-serverless/pricing)).
+ *  Optional. DEPRECATED Accelerator usage in (milliAccelerator x seconds) (see
+ *  Dataproc Serverless pricing
+ *  (https://cloud.google.com/dataproc-serverless/pricing)).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -11604,13 +11626,6 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *milliDcuSeconds;
-
-/**
- *  Optional. Slot usage in (milliSlot x seconds).
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *milliSlotSeconds;
 
 /**
  *  Optional. Shuffle storage usage in (GB x seconds) (see Dataproc Serverless
@@ -11659,13 +11674,6 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *milliDcuPremium;
-
-/**
- *  Optional. Milli (one-thousandth) Slot usage of the workload.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *milliSlot;
 
 /**
  *  Optional. Shuffle Storage in gigabytes (GB). (see Dataproc Serverless
@@ -12075,6 +12083,14 @@ GTLR_DEPRECATED
  */
 @interface GTLRDataproc_YarnApplication : GTLRObject
 
+/**
+ *  Optional. The cumulative memory usage of the application for a job, measured
+ *  in mb-seconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *memoryMbSeconds;
+
 /** Required. The application name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -12117,6 +12133,14 @@ GTLR_DEPRECATED
  *  possibly, access.
  */
 @property(nonatomic, copy, nullable) NSString *trackingUrl;
+
+/**
+ *  Optional. The cumulative CPU time consumed by the application for a job,
+ *  measured in vcore-seconds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *vcoreSeconds;
 
 @end
 

@@ -50,6 +50,11 @@ NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignRate = @"ALIG
 NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignStddev = @"ALIGN_STDDEV";
 NSString * const kGTLRMonitoring_Aggregation_PerSeriesAligner_AlignSum = @"ALIGN_SUM";
 
+// GTLRMonitoring_Alert.state
+NSString * const kGTLRMonitoring_Alert_State_Closed           = @"CLOSED";
+NSString * const kGTLRMonitoring_Alert_State_Open             = @"OPEN";
+NSString * const kGTLRMonitoring_Alert_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRMonitoring_AlertPolicy.combiner
 NSString * const kGTLRMonitoring_AlertPolicy_Combiner_And      = @"AND";
 NSString * const kGTLRMonitoring_AlertPolicy_Combiner_AndWithMatchingResource = @"AND_WITH_MATCHING_RESOURCE";
@@ -228,6 +233,12 @@ NSString * const kGTLRMonitoring_OperationMetadata_State_Done  = @"DONE";
 NSString * const kGTLRMonitoring_OperationMetadata_State_Running = @"RUNNING";
 NSString * const kGTLRMonitoring_OperationMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRMonitoring_PolicySnapshot.severity
+NSString * const kGTLRMonitoring_PolicySnapshot_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRMonitoring_PolicySnapshot_Severity_Error = @"ERROR";
+NSString * const kGTLRMonitoring_PolicySnapshot_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+NSString * const kGTLRMonitoring_PolicySnapshot_Severity_Warning = @"WARNING";
+
 // GTLRMonitoring_QueryLanguageCondition.evaluationMissingData
 NSString * const kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataActive = @"EVALUATION_MISSING_DATA_ACTIVE";
 NSString * const kGTLRMonitoring_QueryLanguageCondition_EvaluationMissingData_EvaluationMissingDataInactive = @"EVALUATION_MISSING_DATA_INACTIVE";
@@ -350,6 +361,17 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_Alert
+//
+
+@implementation GTLRMonitoring_Alert
+@dynamic closeTime, log, metadata, metric, name, openTime, policy, resource,
+         state;
 @end
 
 
@@ -1153,6 +1175,28 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMonitoring_ListAlertsResponse
+//
+
+@implementation GTLRMonitoring_ListAlertsResponse
+@dynamic alerts, nextPageToken, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alerts" : [GTLRMonitoring_Alert class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"alerts";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMonitoring_ListGroupMembersResponse
 //
 
@@ -1429,6 +1473,30 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
 //
 
 @implementation GTLRMonitoring_LogMatch_LabelExtractors
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_LogMetadata
+//
+
+@implementation GTLRMonitoring_LogMetadata
+@dynamic extractedLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_LogMetadata_ExtractedLabels
+//
+
+@implementation GTLRMonitoring_LogMetadata_ExtractedLabels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -1847,6 +1915,30 @@ NSString * const kGTLRMonitoring_ValueDescriptor_ValueType_ValueTypeUnspecified 
     @"values" : [GTLRMonitoring_TypedValue class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_PolicySnapshot
+//
+
+@implementation GTLRMonitoring_PolicySnapshot
+@dynamic displayName, name, severity, userLabels;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMonitoring_PolicySnapshot_UserLabels
+//
+
+@implementation GTLRMonitoring_PolicySnapshot_UserLabels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

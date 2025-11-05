@@ -19,6 +19,12 @@
 #endif
 
 @class GTLRGoogleMarketingPlatformAdminAPI_AnalyticsAccountLink;
+@class GTLRGoogleMarketingPlatformAdminAPI_BillInfo;
+@class GTLRGoogleMarketingPlatformAdminAPI_ClientData;
+@class GTLRGoogleMarketingPlatformAdminAPI_Date;
+@class GTLRGoogleMarketingPlatformAdminAPI_Money;
+@class GTLRGoogleMarketingPlatformAdminAPI_Organization;
+@class GTLRGoogleMarketingPlatformAdminAPI_PropertyUsage;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -52,6 +58,56 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_Analytic
  *  Value: "LINK_VERIFICATION_STATE_VERIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_AnalyticsAccountLink_LinkVerificationState_LinkVerificationStateVerified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleMarketingPlatformAdminAPI_PropertyUsage.propertyType
+
+/**
+ *  Ordinary Google Analytics property
+ *
+ *  Value: "ANALYTICS_PROPERTY_TYPE_ORDINARY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeOrdinary;
+/**
+ *  Google Analytics rollup property
+ *
+ *  Value: "ANALYTICS_PROPERTY_TYPE_ROLLUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeRollup;
+/**
+ *  Google Analytics subproperty
+ *
+ *  Value: "ANALYTICS_PROPERTY_TYPE_SUBPROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeSubproperty;
+/**
+ *  Unknown or unspecified property type
+ *
+ *  Value: "ANALYTICS_PROPERTY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRGoogleMarketingPlatformAdminAPI_PropertyUsage.serviceLevel
+
+/**
+ *  The premium version of Google Analytics.
+ *
+ *  Value: "ANALYTICS_SERVICE_LEVEL_360"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_ServiceLevel_AnalyticsServiceLevel360;
+/**
+ *  The standard version of Google Analytics.
+ *
+ *  Value: "ANALYTICS_SERVICE_LEVEL_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_ServiceLevel_AnalyticsServiceLevelStandard;
+/**
+ *  Service level unspecified.
+ *
+ *  Value: "ANALYTICS_SERVICE_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_ServiceLevel_AnalyticsServiceLevelUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRGoogleMarketingPlatformAdminAPI_SetPropertyServiceLevelRequest.serviceLevel
@@ -120,12 +176,120 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPrope
 
 
 /**
+ *  Contains the bill amount.
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPI_BillInfo : GTLRObject
+
+/** The amount of the monthly base fee. */
+@property(nonatomic, strong, nullable) GTLRGoogleMarketingPlatformAdminAPI_Money *baseFee;
+
+/** The amount of the event fee. */
+@property(nonatomic, strong, nullable) GTLRGoogleMarketingPlatformAdminAPI_Money *eventFee;
+
+/**
+ *  The amount of the price protection credit, this is only available for
+ *  eligible customers.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleMarketingPlatformAdminAPI_Money *priceProtectionCredit;
+
+/** The total amount of the bill. */
+@property(nonatomic, strong, nullable) GTLRGoogleMarketingPlatformAdminAPI_Money *total;
+
+@end
+
+
+/**
+ *  Contains the client data.
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPI_ClientData : GTLRObject
+
+/** The end date of the contract between the sales org and the end client. */
+@property(nonatomic, strong, nullable) GTLRGoogleMarketingPlatformAdminAPI_Date *endDate;
+
+/** The end client that has/had contract with the requested sales org. */
+@property(nonatomic, strong, nullable) GTLRGoogleMarketingPlatformAdminAPI_Organization *organization;
+
+/**
+ *  The start date of the contract between the sales org and the end client.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleMarketingPlatformAdminAPI_Date *startDate;
+
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPI_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRGoogleMarketingPlatformAdminAPI_Empty : GTLRObject
+@end
+
+
+/**
+ *  Request message for FindSalesPartnerManagedClients RPC.
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPI_FindSalesPartnerManagedClientsRequest : GTLRObject
+
+/**
+ *  Optional. If set, only active and just ended clients will be returned.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isActive;
+
+@end
+
+
+/**
+ *  Response message for FindSalesPartnerManagedClients RPC.
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPI_FindSalesPartnerManagedClientsResponse : GTLRObject
+
+/** The clients managed by the sales org. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleMarketingPlatformAdminAPI_ClientData *> *clientData;
+
 @end
 
 
@@ -157,6 +321,64 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPrope
 
 
 /**
+ *  Response message for ListOrganizations RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "organizations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPI_ListOrganizationsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The Organization resource that the user has access to, which includes the
+ *  org id and display name.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleMarketingPlatformAdminAPI_Organization *> *organizations;
+
+@end
+
+
+/**
+ *  Represents an amount of money with its currency type.
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPI_Money : GTLRObject
+
+/** The three-letter currency code defined in ISO 4217. */
+@property(nonatomic, copy, nullable) NSString *currencyCode;
+
+/**
+ *  Number of nano (10^-9) units of the amount. The value must be between
+ *  -999,999,999 and +999,999,999 inclusive. If `units` is positive, `nanos`
+ *  must be positive or zero. If `units` is zero, `nanos` can be positive, zero,
+ *  or negative. If `units` is negative, `nanos` must be negative or zero. For
+ *  example $-1.75 is represented as `units`=-1 and `nanos`=-750,000,000.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  The whole units of the amount. For example if `currencyCode` is `"USD"`,
+ *  then 1 unit is one US dollar.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *units;
+
+@end
+
+
+/**
  *  A resource message representing a Google Marketing Platform organization.
  */
 @interface GTLRGoogleMarketingPlatformAdminAPI_Organization : GTLRObject
@@ -169,6 +391,113 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleMarketingPlatformAdminAPI_SetPrope
  *  organizations/{org_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Contains the count of events received by the property, along with metadata
+ *  that influences the volume of `billable` events.
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPI_PropertyUsage : GTLRObject
+
+/**
+ *  The ID of the property's parent account.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *accountId;
+
+/**
+ *  The number of events for which the property is billed in the requested
+ *  month.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *billableEventCount;
+
+/** The display name of the property. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The name of the Google Analytics Admin API property resource. Format:
+ *  analyticsadmin.googleapis.com/properties/{property_id}
+ */
+@property(nonatomic, copy, nullable) NSString *property;
+
+/**
+ *  The subtype of the analytics property. This affects the billable event
+ *  count.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeOrdinary
+ *        Ordinary Google Analytics property (Value:
+ *        "ANALYTICS_PROPERTY_TYPE_ORDINARY")
+ *    @arg @c kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeRollup
+ *        Google Analytics rollup property (Value:
+ *        "ANALYTICS_PROPERTY_TYPE_ROLLUP")
+ *    @arg @c kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeSubproperty
+ *        Google Analytics subproperty (Value:
+ *        "ANALYTICS_PROPERTY_TYPE_SUBPROPERTY")
+ *    @arg @c kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_PropertyType_AnalyticsPropertyTypeUnspecified
+ *        Unknown or unspecified property type (Value:
+ *        "ANALYTICS_PROPERTY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *propertyType;
+
+/**
+ *  The service level of the property.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_ServiceLevel_AnalyticsServiceLevel360
+ *        The premium version of Google Analytics. (Value:
+ *        "ANALYTICS_SERVICE_LEVEL_360")
+ *    @arg @c kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_ServiceLevel_AnalyticsServiceLevelStandard
+ *        The standard version of Google Analytics. (Value:
+ *        "ANALYTICS_SERVICE_LEVEL_STANDARD")
+ *    @arg @c kGTLRGoogleMarketingPlatformAdminAPI_PropertyUsage_ServiceLevel_AnalyticsServiceLevelUnspecified
+ *        Service level unspecified. (Value:
+ *        "ANALYTICS_SERVICE_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *serviceLevel;
+
+/**
+ *  Total event count that the property received during the requested month.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalEventCount;
+
+@end
+
+
+/**
+ *  Request message for ReportPropertyUsage RPC.
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageRequest : GTLRObject
+
+/**
+ *  Required. The target month to list property usages. Format: YYYY-MM. For
+ *  example, "2025-05"
+ */
+@property(nonatomic, copy, nullable) NSString *month;
+
+@end
+
+
+/**
+ *  Response message for ReportPropertyUsage RPC.
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageResponse : GTLRObject
+
+/**
+ *  Bill amount in the specified organization and month. Will be empty if user
+ *  only has access to usage data.
+ */
+@property(nonatomic, strong, nullable) GTLRGoogleMarketingPlatformAdminAPI_BillInfo *billInfo;
+
+/** Usage data for all properties in the specified organization and month. */
+@property(nonatomic, strong, nullable) NSArray<GTLRGoogleMarketingPlatformAdminAPI_PropertyUsage *> *propertyUsages;
 
 @end
 

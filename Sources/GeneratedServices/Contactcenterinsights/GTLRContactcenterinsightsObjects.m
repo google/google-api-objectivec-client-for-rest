@@ -48,9 +48,15 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1al
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension.dimensionKey
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Agent = @"AGENT";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentAssistSupervisorId = @"AGENT_ASSIST_SUPERVISOR_ID";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentDeploymentId = @"AGENT_DEPLOYMENT_ID";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentTeam = @"AGENT_TEAM";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentVersionId = @"AGENT_VERSION_ID";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ClientSentimentCategory = @"CLIENT_SENTIMENT_CATEGORY";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsPlaybookId = @"CONVERSATIONAL_AGENTS_PLAYBOOK_ID";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsPlaybookName = @"CONVERSATIONAL_AGENTS_PLAYBOOK_NAME";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsToolId = @"CONVERSATIONAL_AGENTS_TOOL_ID";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsToolName = @"CONVERSATIONAL_AGENTS_TOOL_NAME";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationProfileId = @"CONVERSATION_PROFILE_ID";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_DimensionKeyUnspecified = @"DIMENSION_KEY_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Issue = @"ISSUE";
@@ -203,9 +209,15 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Da
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension.dimensionKey
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Agent = @"AGENT";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentAssistSupervisorId = @"AGENT_ASSIST_SUPERVISOR_ID";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentDeploymentId = @"AGENT_DEPLOYMENT_ID";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentTeam = @"AGENT_TEAM";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentVersionId = @"AGENT_VERSION_ID";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ClientSentimentCategory = @"CLIENT_SENTIMENT_CATEGORY";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsPlaybookId = @"CONVERSATIONAL_AGENTS_PLAYBOOK_ID";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsPlaybookName = @"CONVERSATIONAL_AGENTS_PLAYBOOK_NAME";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsToolId = @"CONVERSATIONAL_AGENTS_TOOL_ID";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsToolName = @"CONVERSATIONAL_AGENTS_TOOL_NAME";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationProfileId = @"CONVERSATION_PROFILE_ID";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_DimensionKeyUnspecified = @"DIMENSION_KEY_UNSPECIFIED";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Issue = @"ISSUE";
@@ -312,8 +324,6 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Qa
 
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig.type
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcome = @"CONVERSATION_OUTCOME";
-NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeAgentHelpfulness = @"CONVERSATION_OUTCOME_AGENT_HELPFULNESS";
-NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeCustomerSatisfaction = @"CONVERSATION_OUTCOME_CUSTOMER_SATISFACTION";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationInitiatorRole = @"CONVERSATION_OUTCOME_ESCALATION_INITIATOR_ROLE";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_PredefinedQuestionTypeUnspecified = @"PREDEFINED_QUESTION_TYPE_UNSPECIFIED";
 
@@ -1086,7 +1096,11 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension
-@dynamic agentDimensionMetadata, dimensionKey, issueDimensionMetadata,
+@dynamic agentDimensionMetadata, clientSentimentCategoryDimensionMetadata,
+         conversationalAgentsPlaybookDimensionMetadata,
+         conversationalAgentsToolDimensionMetadata,
+         conversationProfileDimensionMetadata, dimensionKey,
+         issueDimensionMetadata, mediumDimensionMetadata,
          qaQuestionAnswerDimensionMetadata, qaQuestionDimensionMetadata,
          qaScorecardDimensionMetadata;
 @end
@@ -1105,11 +1119,61 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionClientSentimentCategoryDimensionMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionClientSentimentCategoryDimensionMetadata
+@dynamic sentimentCategory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationalAgentsPlaybookDimensionMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationalAgentsPlaybookDimensionMetadata
+@dynamic playbookDisplayName, playbookId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationalAgentsToolDimensionMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationalAgentsToolDimensionMetadata
+@dynamic toolDisplayName, toolId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationProfileDimensionMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationProfileDimensionMetadata
+@dynamic conversationProfileId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionIssueDimensionMetadata
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionIssueDimensionMetadata
 @dynamic issueDisplayName, issueId, issueModelId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionMediumDimensionMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionMediumDimensionMetadata
+@dynamic medium;
 @end
 
 
@@ -1732,17 +1796,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue
 @dynamic boolValue, key, naValue, normalizedScore, numValue, potentialScore,
-         rationale, score, skipValue, strValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValueQaAnswerRationale
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValueQaAnswerRationale
-@dynamic rationale;
+         score, skipValue, strValue;
 @end
 
 
@@ -3197,7 +3251,11 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension
-@dynamic agentDimensionMetadata, dimensionKey, issueDimensionMetadata,
+@dynamic agentDimensionMetadata, clientSentimentCategoryDimensionMetadata,
+         conversationalAgentsPlaybookDimensionMetadata,
+         conversationalAgentsToolDimensionMetadata,
+         conversationProfileDimensionMetadata, dimensionKey,
+         issueDimensionMetadata, mediumDimensionMetadata,
          qaQuestionAnswerDimensionMetadata, qaQuestionDimensionMetadata,
          qaScorecardDimensionMetadata;
 @end
@@ -3216,11 +3274,61 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionClientSentimentCategoryDimensionMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionClientSentimentCategoryDimensionMetadata
+@dynamic sentimentCategory;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationalAgentsPlaybookDimensionMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationalAgentsPlaybookDimensionMetadata
+@dynamic playbookDisplayName, playbookId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationalAgentsToolDimensionMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationalAgentsToolDimensionMetadata
+@dynamic toolDisplayName, toolId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationProfileDimensionMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationProfileDimensionMetadata
+@dynamic conversationProfileId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionIssueDimensionMetadata
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionIssueDimensionMetadata
 @dynamic issueDisplayName, issueId, issueModelId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionMediumDimensionMetadata
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionMediumDimensionMetadata
+@dynamic medium;
 @end
 
 
@@ -4335,17 +4443,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue
 @dynamic boolValue, key, naValue, normalizedScore, numValue, potentialScore,
-         rationale, score, skipValue, strValue;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValueQaAnswerRationale
-//
-
-@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValueQaAnswerRationale
-@dynamic rationale;
+         score, skipValue, strValue;
 @end
 
 
@@ -4832,7 +4930,8 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings
 @dynamic analysisConfig, conversationTtl, createTime, languageCode, name,
-         pubsubNotificationSettings, redactionConfig, speechConfig, updateTime;
+         pubsubNotificationSettings, redactionConfig, screenRecordingBucketUri,
+         speechConfig, updateTime;
 @end
 
 

@@ -85,6 +85,16 @@ NSString * const kGTLRCloudScheduler_Job_State_UpdateFailed    = @"UPDATE_FAILED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudScheduler_CmekConfig
+//
+
+@implementation GTLRCloudScheduler_CmekConfig
+@dynamic kmsKeyName, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudScheduler_Empty
 //
 

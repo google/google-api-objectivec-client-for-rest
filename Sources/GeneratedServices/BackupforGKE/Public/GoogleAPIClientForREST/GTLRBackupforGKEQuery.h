@@ -608,8 +608,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsPatch : GTLRBackupforGKEQuery
 
 /**
- *  Output only. The fully qualified name of the Backup. `projects/ *
- *  /locations/ * /backupPlans/ * /backups/ *`
+ *  Output only. Identifier. The fully qualified name of the Backup. `projects/
+ *  * /locations/ * /backupPlans/ * /backups/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -632,8 +632,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Update a Backup.
  *
  *  @param object The @c GTLRBackupforGKE_Backup to include in the query.
- *  @param name Output only. The fully qualified name of the Backup. `projects/
- *    * /locations/ * /backupPlans/ * /backups/ *`
+ *  @param name Output only. Identifier. The fully qualified name of the Backup.
+ *    `projects/ * /locations/ * /backupPlans/ * /backups/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansBackupsPatch
  */
@@ -1170,8 +1170,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansPatch : GTLRBackupforGKEQuery
 
 /**
- *  Output only. The full name of the BackupPlan resource. Format: `projects/ *
- *  /locations/ * /backupPlans/ *`
+ *  Output only. Identifier. The full name of the BackupPlan resource. Format:
+ *  `projects/ * /locations/ * /backupPlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1195,8 +1195,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Update a BackupPlan.
  *
  *  @param object The @c GTLRBackupforGKE_BackupPlan to include in the query.
- *  @param name Output only. The full name of the BackupPlan resource. Format:
- *    `projects/ * /locations/ * /backupPlans/ *`
+ *  @param name Output only. Identifier. The full name of the BackupPlan
+ *    resource. Format: `projects/ * /locations/ * /backupPlans/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansPatch
  */
@@ -1500,6 +1500,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRBackupforGKE_GoogleLongrunningListOperationsResponse.
@@ -2052,8 +2063,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansPatch : GTLRBackupforGKEQuery
 
 /**
- *  Output only. The full name of the RestorePlan resource. Format: `projects/ *
- *  /locations/ * /restorePlans/ *`.
+ *  Output only. Identifier. The full name of the RestorePlan resource. Format:
+ *  `projects/ * /locations/ * /restorePlans/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2077,8 +2088,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Update a RestorePlan.
  *
  *  @param object The @c GTLRBackupforGKE_RestorePlan to include in the query.
- *  @param name Output only. The full name of the RestorePlan resource. Format:
- *    `projects/ * /locations/ * /restorePlans/ *`.
+ *  @param name Output only. Identifier. The full name of the RestorePlan
+ *    resource. Format: `projects/ * /locations/ * /restorePlans/ *`.
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansPatch
  */
@@ -2318,8 +2329,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresPatch : GTLRBackupforGKEQuery
 
 /**
- *  Output only. The full name of the Restore resource. Format: `projects/ *
- *  /locations/ * /restorePlans/ * /restores/ *`
+ *  Output only. Identifier. The full name of the Restore resource. Format:
+ *  `projects/ * /locations/ * /restorePlans/ * /restores/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2342,8 +2353,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Update a Restore.
  *
  *  @param object The @c GTLRBackupforGKE_Restore to include in the query.
- *  @param name Output only. The full name of the Restore resource. Format:
- *    `projects/ * /locations/ * /restorePlans/ * /restores/ *`
+ *  @param name Output only. Identifier. The full name of the Restore resource.
+ *    Format: `projects/ * /locations/ * /restorePlans/ * /restores/ *`
  *
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansRestoresPatch
  */

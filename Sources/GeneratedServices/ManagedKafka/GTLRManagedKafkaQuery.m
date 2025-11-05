@@ -941,7 +941,7 @@ NSString * const kGTLRManagedKafkaViewSchemaRegistryViewUnspecified = @"SCHEMA_R
 
 @implementation GTLRManagedKafkaQuery_ProjectsLocationsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

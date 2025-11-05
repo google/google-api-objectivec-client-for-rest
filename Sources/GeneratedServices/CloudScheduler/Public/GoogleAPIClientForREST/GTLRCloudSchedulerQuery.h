@@ -60,6 +60,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the Scheduler config in the project/region.
+ *
+ *  Method: cloudscheduler.projects.locations.getCmekConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
+ */
+@interface GTLRCloudSchedulerQuery_ProjectsLocationsGetCmekConfig : GTLRCloudSchedulerQuery
+
+/**
+ *  Required. The config name. For example:
+ *  projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudScheduler_CmekConfig.
+ *
+ *  Gets the Scheduler config in the project/region.
+ *
+ *  @param name Required. The config name. For example:
+ *    projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig
+ *
+ *  @return GTLRCloudSchedulerQuery_ProjectsLocationsGetCmekConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a job.
  *
  *  Method: cloudscheduler.projects.locations.jobs.create
@@ -220,12 +250,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`. * `PROJECT_ID` can
  *  contain letters ([A-Za-z]), numbers ([0-9]), hyphens (-), colons (:), or
  *  periods (.). For more information, see [Identifying
- *  projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
+ *  projects](/resource-manager/docs/creating-managing-projects#identifying_projects)
  *  * `LOCATION_ID` is the canonical ID for the job's location. The list of
- *  available locations can be obtained by calling ListLocations. For more
- *  information, see https://cloud.google.com/about/locations/. * `JOB_ID` can
- *  contain only letters ([A-Za-z]), numbers ([0-9]), hyphens (-), or
- *  underscores (_). The maximum length is 500 characters.
+ *  available locations can be obtained by calling
+ *  [locations.list](/scheduler/docs/reference/rest/v1/projects.locations/list).
+ *  For more information, see [Cloud Scheduler
+ *  locations](/scheduler/docs/locations). * `JOB_ID` can contain only letters
+ *  ([A-Za-z]), numbers ([0-9]), hyphens (-), or underscores (_). The maximum
+ *  length is 500 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -251,12 +283,14 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/PROJECT_ID/locations/LOCATION_ID/jobs/JOB_ID`. * `PROJECT_ID`
  *    can contain letters ([A-Za-z]), numbers ([0-9]), hyphens (-), colons (:),
  *    or periods (.). For more information, see [Identifying
- *    projects](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects)
+ *    projects](/resource-manager/docs/creating-managing-projects#identifying_projects)
  *    * `LOCATION_ID` is the canonical ID for the job's location. The list of
- *    available locations can be obtained by calling ListLocations. For more
- *    information, see https://cloud.google.com/about/locations/. * `JOB_ID` can
- *    contain only letters ([A-Za-z]), numbers ([0-9]), hyphens (-), or
- *    underscores (_). The maximum length is 500 characters.
+ *    available locations can be obtained by calling
+ *    [locations.list](/scheduler/docs/reference/rest/v1/projects.locations/list).
+ *    For more information, see [Cloud Scheduler
+ *    locations](/scheduler/docs/locations). * `JOB_ID` can contain only letters
+ *    ([A-Za-z]), numbers ([0-9]), hyphens (-), or underscores (_). The maximum
+ *    length is 500 characters.
  *
  *  @return GTLRCloudSchedulerQuery_ProjectsLocationsJobsPatch
  */
@@ -389,8 +423,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudSchedulerQuery_ProjectsLocationsList : GTLRCloudSchedulerQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -589,6 +623,47 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Initializes or Updates the a scheduler config.
+ *
+ *  Method: cloudscheduler.projects.locations.updateCmekConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudSchedulerCloudPlatform
+ */
+@interface GTLRCloudSchedulerQuery_ProjectsLocationsUpdateCmekConfig : GTLRCloudSchedulerQuery
+
+/**
+ *  Identifier. The config resource name which includes the project and location
+ *  and must end in 'cmekConfig', in the format
+ *  projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. List of fields to be updated in this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudScheduler_Operation.
+ *
+ *  Initializes or Updates the a scheduler config.
+ *
+ *  @param object The @c GTLRCloudScheduler_CmekConfig to include in the query.
+ *  @param name Identifier. The config resource name which includes the project
+ *    and location and must end in 'cmekConfig', in the format
+ *    projects/PROJECT_ID/locations/LOCATION_ID/cmekConfig`
+ *
+ *  @return GTLRCloudSchedulerQuery_ProjectsLocationsUpdateCmekConfig
+ */
++ (instancetype)queryWithObject:(GTLRCloudScheduler_CmekConfig *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -2337,12 +2337,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 
 
 /**
- *  Describes a single Media Planner account.
+ *  Represents a media planner account.
  */
 @interface GTLRAuthorizedBuyersMarketplace_MediaPlanner : GTLRObject
 
 /** Output only. Account ID of the media planner. */
-@property(nonatomic, copy, nullable) NSString *accountId;
+@property(nonatomic, copy, nullable) NSString *accountId GTLR_DEPRECATED;
 
 @end
 

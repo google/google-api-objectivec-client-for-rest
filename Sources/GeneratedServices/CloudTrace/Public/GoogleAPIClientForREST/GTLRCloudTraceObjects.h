@@ -11,7 +11,7 @@
 //   instrument your application for Cloud Trace, we recommend using
 //   OpenTelemetry.
 // Documentation:
-//   https://cloud.google.com/trace
+//   https://cloud.google.com/trace/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 

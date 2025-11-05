@@ -426,7 +426,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesPatch : GTLRAIPlatformNotebooksQuery
 
 /**
- *  Output only. The name of this notebook instance. Format:
+ *  Output only. Identifier. The name of this notebook instance. Format:
  *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -465,7 +465,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRAIPlatformNotebooks_Instance to include in the
  *    query.
- *  @param name Output only. The name of this notebook instance. Format:
+ *  @param name Output only. Identifier. The name of this notebook instance.
+ *    Format:
  *    `projects/{project_id}/locations/{location}/instances/{instance_id}`
  *
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesPatch
@@ -873,8 +874,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAIPlatformNotebooksQuery_ProjectsLocationsList : GTLRAIPlatformNotebooksQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Unless explicitly documented otherwise, don't use this unsupported
+ *  field which is primarily intended for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1046,6 +1047,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRAIPlatformNotebooks_ListOperationsResponse.

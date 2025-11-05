@@ -13,8 +13,10 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
+NSString * const kGTLRAuthScopeDiscoveryEngineAssistReadwrite  = @"https://www.googleapis.com/auth/discoveryengine.assist.readwrite";
 NSString * const kGTLRAuthScopeDiscoveryEngineCloudPlatform    = @"https://www.googleapis.com/auth/cloud-platform";
 NSString * const kGTLRAuthScopeDiscoveryEngineCloudSearchQuery = @"https://www.googleapis.com/auth/cloud_search.query";
+NSString * const kGTLRAuthScopeDiscoveryEngineReadwrite        = @"https://www.googleapis.com/auth/discoveryengine.readwrite";
 
 // ----------------------------------------------------------------------------
 //   GTLRDiscoveryEngineService

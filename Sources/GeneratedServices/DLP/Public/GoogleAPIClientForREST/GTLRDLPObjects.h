@@ -5923,9 +5923,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2DataSourceType : GTLRObject
 
 /**
- *  Output only. An identifying string to the type of resource being profiled.
- *  Current values: * google/bigquery/table * google/project * google/sql/table
- *  * google/gcs/bucket
+ *  An identifying string to the type of resource being profiled. Current
+ *  values: * google/bigquery/table * google/project * google/sql/table *
+ *  google/gcs/bucket
  */
 @property(nonatomic, copy, nullable) NSString *dataSource;
 
@@ -7745,9 +7745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  tag filters. - If one or more patterns are specified, match at least one
  *  pattern. For a resource to match the tag filters, the resource must have all
  *  of the provided tags attached. Tags refer to Resource Manager tags bound to
- *  the resource or its ancestors. See
- *  https://cloud.google.com/sensitive-data-protection/docs/profile-project-cloud-storage#manage-schedules
- *  to learn more.
+ *  the resource or its ancestors. For more information, see [Manage
+ *  schedules](https://cloud.google.com/sensitive-data-protection/docs/profile-project-cloud-storage#manage-schedules).
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2TagFilters *includeTags;
 
@@ -10390,11 +10389,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Store findings in an existing Cloud Storage bucket. Files will be generated
- *  with the job ID and file part number as the filename, and will contain
- *  findings in textproto format as SaveToGcsFindingsOutput. The file name will
- *  use the naming convention -, for example: my-job-id-2. Supported for Inspect
- *  jobs. The bucket must not be the same as the bucket being inspected. If
- *  storing findings to Cloud Storage, the output schema field should not be
+ *  with the job ID and file part number as the filename and will contain
+ *  findings in textproto format as SaveToGcsFindingsOutput. The filename will
+ *  follow the naming convention `-`. Example: `my-job-id-2`. Supported for
+ *  Inspect jobs. The bucket must not be the same as the bucket being inspected.
+ *  If storing findings to Cloud Storage, the output schema field should not be
  *  set. If set, it will be ignored.
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2CloudStoragePath *storagePath;
@@ -10663,11 +10662,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Publish findings of a DlpJob to Dataplex Universal Catalog as a
- *  `sensitive-data-protection-job-result` aspect. To learn more about aspects,
- *  see [Send inspection results to Dataplex Universal Catalog as
+ *  `sensitive-data-protection-job-result` aspect. For more information, see
+ *  [Send inspection results to Dataplex Universal Catalog as
  *  aspects](https://cloud.google.com/sensitive-data-protection/docs/add-aspects-inspection-job).
- *  Aspects are persisted in Dataplex Universal Catalog storage and are governed
- *  by service-specific policies for Dataplex Universal Catalog. For more
+ *  Aspects are stored in Dataplex Universal Catalog storage and are governed by
+ *  service-specific policies for Dataplex Universal Catalog. For more
  *  information, see [Service Specific
  *  Terms](https://cloud.google.com/terms/service-terms). Only a single instance
  *  of this action can be specified. This action is allowed only if all
@@ -11091,6 +11090,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** The content must be PNG, JPEG, SVG or BMP. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ByteContentItem *byteItem;
 
+/**
+ *  The full resource name of the de-identification template to use. Settings in
+ *  the main `image_redaction_configs` field override the corresponding settings
+ *  in this de-identification template. The request fails if the type of the
+ *  template's deidentify_config is not image_transformations.
+ */
+@property(nonatomic, copy, nullable) NSString *deidentifyTemplate;
+
 /** The configuration for specifying what content to redact from images. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig *> *imageRedactionConfigs;
 
@@ -11103,6 +11110,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Configuration for the inspector. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2InspectConfig *inspectConfig;
+
+/**
+ *  The full resource name of the inspection template to use. Settings in the
+ *  main `inspect_config` field override the corresponding settings in this
+ *  inspection template. The merge behavior is as follows: - Singular field: The
+ *  main field's value replaces the value of the corresponding field in the
+ *  template. - Repeated fields: The field values are appended to the list
+ *  defined in the template. - Sub-messages and groups: The fields are
+ *  recursively merged.
+ */
+@property(nonatomic, copy, nullable) NSString *inspectTemplate;
 
 /** Deprecated. This field has no effect. */
 @property(nonatomic, copy, nullable) NSString *locationId;
@@ -13023,13 +13041,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Identifies a single Vertex AI dataset.
+ *  Identifies a single Vertex AI resource. Currently only datasets are
+ *  supported.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2VertexDatasetResourceReference : GTLRObject
 
 /**
- *  Required. The name of the dataset resource. If set within a project-level
- *  configuration, the specified resource must be within the project.
+ *  Required. The name of the Vertex AI resource. If set within a project-level
+ *  configuration, the specified resource must be within the project. Examples:
+ *  * `projects/{project}/locations/{location}/datasets/{dataset}`
  */
 @property(nonatomic, copy, nullable) NSString *datasetResourceName;
 

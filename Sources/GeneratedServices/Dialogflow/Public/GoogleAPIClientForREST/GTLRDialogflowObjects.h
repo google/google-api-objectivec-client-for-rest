@@ -121,6 +121,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_SecretVersionsForRequestHeaders;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceOAuthConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceSecretVersionHeaderValue;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceServiceAccountAuthConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequest_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestFulfillmentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookRequestIntentInfo;
@@ -136,6 +137,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecConditionBoostSpecBoostControlSpecControlPoint;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3BoostSpecs;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3CodeBlock;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ContinuousTestResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurn;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ConversationTurnUserInput;
@@ -293,6 +295,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationApiKeyConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationBearerTokenConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolCall;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolCall_InputParameters;
@@ -337,6 +340,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_SecretVersionsForRequestHeaders;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceOAuthConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequest_Payload;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestFulfillmentInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookRequestIntentInfo;
@@ -8493,6 +8497,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService_SecretVersionsForRequestHeaders *secretVersionsForRequestHeaders;
 
+/** Optional. Configuration for service account authentication. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceServiceAccountAuthConfig *serviceAccountAuthConfig;
+
 /**
  *  Optional. Indicate the auth token type generated from the [Diglogflow
  *  service
@@ -8633,6 +8640,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  value. Format: `projects/{project}/secrets/{secret}/versions/{version}`
  */
 @property(nonatomic, copy, nullable) NSString *secretVersion;
+
+@end
+
+
+/**
+ *  Configuration for authentication using a service account.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceServiceAccountAuthConfig : GTLRObject
+
+/**
+ *  Required. The email address of the service account used to authenticate the
+ *  webhook call. Dialogflow uses this service account to exchange an access
+ *  token and the access token is then sent in the `Authorization` header of the
+ *  webhook request. The service account must have the
+ *  `roles/iam.serviceAccountTokenCreator` role granted to the [Dialogflow
+ *  service
+ *  agent](https://cloud.google.com/iam/docs/service-agents#dialogflow-service-agent).
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 @end
 
@@ -9155,6 +9181,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** Email address of the authenticated user. */
 @property(nonatomic, copy, nullable) NSString *userEmail;
+
+@end
+
+
+/**
+ *  Represents a code block.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3CodeBlock : GTLRObject
+
+/** Optional. Source code of the block in Python. */
+@property(nonatomic, copy, nullable) NSString *code;
 
 @end
 
@@ -13916,6 +13953,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3Playbook : GTLRObject
 
+/**
+ *  Optional. The playbook's scoped code block, which may implement handlers and
+ *  actions.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3CodeBlock *codeBlock;
+
 /** Output only. The timestamp of initial playbook creation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -13936,6 +13979,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  triggers.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Handler *> *handlers;
+
+/**
+ *  Optional. Output only. Names of inline actions scoped to this playbook.
+ *  These actions are in addition to those belonging to referenced tools, child
+ *  playbooks, and flows, e.g. actions that are defined in the playbook's code
+ *  block.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *inlineActions;
 
 /** Optional. Defined structured input parameters for this playbook. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition *> *inputParameterDefinitions;
@@ -16104,6 +16155,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 /** Config for OAuth. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationOAuthConfig *oauthConfig;
 
+/** Configuration for service account authentication. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig *serviceAccountAuthConfig;
+
 /**
  *  Config for [Diglogflow service
  *  agent](https://cloud.google.com/iam/docs/service-agents#dialogflow-service-agent)
@@ -16223,6 +16277,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  token.
  */
 @property(nonatomic, copy, nullable) NSString *tokenEndpoint;
+
+@end
+
+
+/**
+ *  Configuration for authentication using a service account.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig : GTLRObject
+
+/**
+ *  Required. The email address of the service account used to authenticate the
+ *  tool call. Dialogflow uses this service account to exchange an access token
+ *  and the access token is then sent in the `Authorization` header of the tool
+ *  request. The service account must have the
+ *  `roles/iam.serviceAccountTokenCreator` role granted to the [Dialogflow
+ *  service
+ *  agent](https://cloud.google.com/iam/docs/service-agents#dialogflow-service-agent).
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 @end
 
@@ -17288,6 +17361,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService_SecretVersionsForRequestHeaders *secretVersionsForRequestHeaders;
 
+/** Optional. Configuration for service account authentication. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig *serviceAccountAuthConfig;
+
 /**
  *  Optional. Indicate the auth token type generated from the [Diglogflow
  *  service
@@ -17428,6 +17504,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  value. Format: `projects/{project}/secrets/{secret}/versions/{version}`
  */
 @property(nonatomic, copy, nullable) NSString *secretVersion;
+
+@end
+
+
+/**
+ *  Configuration for authentication using a service account.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig : GTLRObject
+
+/**
+ *  Required. The email address of the service account used to authenticate the
+ *  webhook call. Dialogflow uses this service account to exchange an access
+ *  token and the access token is then sent in the `Authorization` header of the
+ *  webhook request. The service account must have the
+ *  `roles/iam.serviceAccountTokenCreator` role granted to the [Dialogflow
+ *  service
+ *  agent](https://cloud.google.com/iam/docs/service-agents#dialogflow-service-agent).
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccount;
 
 @end
 

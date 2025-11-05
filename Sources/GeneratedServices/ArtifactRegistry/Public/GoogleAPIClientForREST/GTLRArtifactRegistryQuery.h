@@ -594,6 +594,39 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Exports an artifact.
+ *
+ *  Method: artifactregistry.projects.locations.repositories.exportArtifact
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesExportArtifact : GTLRArtifactRegistryQuery
+
+/**
+ *  Required. The repository of the artifact to export. Format:
+ *  projects/{project}/locations/{location}/repositories/{repository}
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Operation.
+ *
+ *  Exports an artifact.
+ *
+ *  @param object The @c GTLRArtifactRegistry_ExportArtifactRequest to include
+ *    in the query.
+ *  @param repository Required. The repository of the artifact to export.
+ *    Format: projects/{project}/locations/{location}/repositories/{repository}
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesExportArtifact
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_ExportArtifactRequest *)object
+                     repository:(NSString *)repository;
+
+@end
+
+/**
  *  Deletes a file and all of its content. It is only allowed on generic
  *  repositories. The returned operation will complete once the file has been
  *  deleted.

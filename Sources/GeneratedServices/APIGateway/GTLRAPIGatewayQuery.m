@@ -702,7 +702,7 @@ NSString * const kGTLRAPIGatewayViewFull                  = @"FULL";
 
 @implementation GTLRAPIGatewayQuery_ProjectsLocationsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

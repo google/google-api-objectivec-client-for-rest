@@ -27,6 +27,7 @@
 @class GTLRArtifactRegistry_DockerImage;
 @class GTLRArtifactRegistry_DockerRepository;
 @class GTLRArtifactRegistry_DockerRepositoryConfig;
+@class GTLRArtifactRegistry_ExportedFile;
 @class GTLRArtifactRegistry_Expr;
 @class GTLRArtifactRegistry_GoogetArtifact;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1File;
@@ -488,6 +489,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Npm;
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Python;
 /**
+ *  Ruby package format.
+ *
+ *  Value: "RUBY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Repository_Format_Ruby;
+/**
  *  YUM package format.
  *
  *  Value: "YUM"
@@ -570,7 +577,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VPCSCConfig_VpcscPolicy
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Disabled;
 /**
- *  Not set. This will be treated as INHERITED.
+ *  Not set. This will be treated as INHERITED for Docker repositories and
+ *  DISABLED for non-Docker repositories.
  *
  *  Value: "ENABLEMENT_CONFIG_UNSPECIFIED"
  */
@@ -1107,6 +1115,82 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRArtifactRegistry_Empty : GTLRObject
+@end
+
+
+/**
+ *  The LRO metadata for exporting an artifact.
+ */
+@interface GTLRArtifactRegistry_ExportArtifactMetadata : GTLRObject
+
+/** The exported artifact files. */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_ExportedFile *> *exportedFiles;
+
+@end
+
+
+/**
+ *  The request for exporting an artifact to a destination.
+ */
+@interface GTLRArtifactRegistry_ExportArtifactRequest : GTLRObject
+
+/**
+ *  The Cloud Storage path to export the artifact to. Should start with the
+ *  bucket name, and optionally have a directory path. Examples: `dst_bucket`,
+ *  `dst_bucket/sub_dir`. Existing objects with the same path will be
+ *  overwritten.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsPath;
+
+/**
+ *  The artifact tag to export.
+ *  Format:projects/{project}/locations/{location}/repositories/{repository}/packages/{package}/tags/{tag}
+ */
+@property(nonatomic, copy, nullable) NSString *sourceTag;
+
+/**
+ *  The artifact version to export. Format:
+ *  projects/{project}/locations/{location}/repositories/{repository}/packages/{package}/versions/{version}
+ */
+@property(nonatomic, copy, nullable) NSString *sourceVersion;
+
+@end
+
+
+/**
+ *  The response for exporting an artifact to a destination.
+ */
+@interface GTLRArtifactRegistry_ExportArtifactResponse : GTLRObject
+
+/**
+ *  The exported version. Should be the same as the request version with
+ *  fingerprint resource name.
+ */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_Version *exportedVersion;
+
+@end
+
+
+/**
+ *  The exported artifact file.
+ */
+@interface GTLRArtifactRegistry_ExportedFile : GTLRObject
+
+/**
+ *  Cloud Storage Object path of the exported file. Examples:
+ *  `dst_bucket/file1`, `dst_bucket/sub_dir/file1`
+ */
+@property(nonatomic, copy, nullable) NSString *gcsObjectPath;
+
+/** The hashes of the file content. */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Hash *> *hashes;
+
+/**
+ *  Name of the exported artifact file. Format:
+ *  `projects/p1/locations/us/repositories/repo1/files/file1`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
 @end
 
 
@@ -2694,6 +2778,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        (Value: "NPM")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Python Python package
  *        format. (Value: "PYTHON")
+ *    @arg @c kGTLRArtifactRegistry_Repository_Format_Ruby Ruby package format.
+ *        (Value: "RUBY")
  *    @arg @c kGTLRArtifactRegistry_Repository_Format_Yum YUM package format.
  *        (Value: "YUM")
  */
@@ -3381,7 +3467,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *        No automatic vulnerability scanning will be performed for this
  *        repository. (Value: "DISABLED")
  *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_EnablementConfigUnspecified
- *        Not set. This will be treated as INHERITED. (Value:
+ *        Not set. This will be treated as INHERITED for Docker repositories and
+ *        DISABLED for non-Docker repositories. (Value:
  *        "ENABLEMENT_CONFIG_UNSPECIFIED")
  *    @arg @c kGTLRArtifactRegistry_VulnerabilityScanningConfig_EnablementConfig_Inherited
  *        Scanning is Enabled, but dependent on API enablement. (Value:

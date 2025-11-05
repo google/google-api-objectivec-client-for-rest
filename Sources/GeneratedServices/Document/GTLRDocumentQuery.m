@@ -699,6 +699,255 @@
 
 @end
 
+@implementation GTLRDocumentQuery_ProjectsLocationsSchemasCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1NextSchema *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemas";
+  GTLRDocumentQuery_ProjectsLocationsSchemasCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1NextSchema class];
+  query.loggingName = @"documentai.projects.locations.schemas.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsSchemasDelete
+
+@dynamic force, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsSchemasDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
+  query.loggingName = @"documentai.projects.locations.schemas.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsSchemasGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsSchemasGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1NextSchema class];
+  query.loggingName = @"documentai.projects.locations.schemas.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsSchemasList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemas";
+  GTLRDocumentQuery_ProjectsLocationsSchemasList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1ListSchemasResponse class];
+  query.loggingName = @"documentai.projects.locations.schemas.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsSchemasPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1NextSchema *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsSchemasPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1NextSchema class];
+  query.loggingName = @"documentai.projects.locations.schemas.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemaVersions";
+  GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion class];
+  query.loggingName = @"documentai.projects.locations.schemas.schemaVersions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleLongrunningOperation class];
+  query.loggingName = @"documentai.projects.locations.schemas.schemaVersions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsGenerate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1GenerateSchemaVersionRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemaVersions:generate";
+  GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsGenerate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1GenerateSchemaVersionResponse class];
+  query.loggingName = @"documentai.projects.locations.schemas.schemaVersions.generate";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion class];
+  query.loggingName = @"documentai.projects.locations.schemas.schemaVersions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/schemaVersions";
+  GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1ListSchemaVersionsResponse class];
+  query.loggingName = @"documentai.projects.locations.schemas.schemaVersions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion class];
+  query.loggingName = @"documentai.projects.locations.schemas.schemaVersions.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDocumentQuery_ProjectsOperationsGet
 
 @dynamic name;

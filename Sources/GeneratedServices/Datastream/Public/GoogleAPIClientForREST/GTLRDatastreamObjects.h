@@ -33,6 +33,7 @@
 @class GTLRDatastream_EncryptionNotEnforced;
 @class GTLRDatastream_Error;
 @class GTLRDatastream_Error_Details;
+@class GTLRDatastream_EventFilter;
 @class GTLRDatastream_ForwardSshTunnelConnectivity;
 @class GTLRDatastream_GcsDestinationConfig;
 @class GTLRDatastream_GcsProfile;
@@ -999,6 +1000,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Represents a filter for included data on a stream object.
+ */
+@interface GTLRDatastream_EventFilter : GTLRObject
+
+/**
+ *  An SQL-query Where clause selecting which data should be included, not
+ *  including the "WHERE" keyword. E.g., "t.key1 = 'value1' AND t.key2 =
+ *  'value2'".
+ */
+@property(nonatomic, copy, nullable) NSString *sqlWhereClause;
+
+@end
+
+
+/**
  *  Response message for a 'FetchStaticIps' response.
  */
 @interface GTLRDatastream_FetchStaticIpsResponse : GTLRObject
@@ -1224,6 +1240,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -1448,7 +1471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_MongodbChangeStreamPosition : GTLRObject
 
-/** Required. The timestamp (in epoch seconds) to start change stream from. */
+/** Required. The timestamp to start change stream from. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
@@ -3319,6 +3342,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Request for manually initiating a backfill job for a specific stream object.
  */
 @interface GTLRDatastream_StartBackfillJobRequest : GTLRObject
+
+/**
+ *  Optional. Optional event filter. If not set, or empty, the backfill will be
+ *  performed on the entire object. This is currently used for partial backfill
+ *  and only supported for SQL Server sources.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_EventFilter *eventFilter;
+
 @end
 
 

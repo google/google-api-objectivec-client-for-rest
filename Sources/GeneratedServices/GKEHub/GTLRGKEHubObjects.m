@@ -837,7 +837,8 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabl
 
 @implementation GTLRGKEHub_ConfigManagementState
 @dynamic binauthzState, clusterName, configSyncState, hierarchyControllerState,
-         membershipSpec, operatorState, policyControllerState;
+         kubernetesApiServerVersion, membershipSpec, operatorState,
+         policyControllerState;
 @end
 
 

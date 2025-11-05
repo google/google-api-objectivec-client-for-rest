@@ -244,6 +244,10 @@ NSString * const kGTLRContainer_LoggingVariantConfig_Variant_Default = @"DEFAULT
 NSString * const kGTLRContainer_LoggingVariantConfig_Variant_MaxThroughput = @"MAX_THROUGHPUT";
 NSString * const kGTLRContainer_LoggingVariantConfig_Variant_VariantUnspecified = @"VARIANT_UNSPECIFIED";
 
+// GTLRContainer_MaintenanceExclusionOptions.endTimeBehavior
+NSString * const kGTLRContainer_MaintenanceExclusionOptions_EndTimeBehavior_EndTimeBehaviorUnspecified = @"END_TIME_BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRContainer_MaintenanceExclusionOptions_EndTimeBehavior_UntilEndOfSupport = @"UNTIL_END_OF_SUPPORT";
+
 // GTLRContainer_MaintenanceExclusionOptions.scope
 NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoMinorOrNodeUpgrades = @"NO_MINOR_OR_NODE_UPGRADES";
 NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoMinorUpgrades = @"NO_MINOR_UPGRADES";
@@ -310,6 +314,11 @@ NSString * const kGTLRContainer_NodeConfig_EffectiveCgroupMode_EffectiveCgroupMo
 NSString * const kGTLRContainer_NodeConfig_LocalSsdEncryptionMode_EphemeralKeyEncryption = @"EPHEMERAL_KEY_ENCRYPTION";
 NSString * const kGTLRContainer_NodeConfig_LocalSsdEncryptionMode_LocalSsdEncryptionModeUnspecified = @"LOCAL_SSD_ENCRYPTION_MODE_UNSPECIFIED";
 NSString * const kGTLRContainer_NodeConfig_LocalSsdEncryptionMode_StandardEncryption = @"STANDARD_ENCRYPTION";
+
+// GTLRContainer_NodeKernelModuleLoading.policy
+NSString * const kGTLRContainer_NodeKernelModuleLoading_Policy_DoNotEnforceSignedModules = @"DO_NOT_ENFORCE_SIGNED_MODULES";
+NSString * const kGTLRContainer_NodeKernelModuleLoading_Policy_EnforceSignedModules = @"ENFORCE_SIGNED_MODULES";
+NSString * const kGTLRContainer_NodeKernelModuleLoading_Policy_PolicyUnspecified = @"POLICY_UNSPECIFIED";
 
 // GTLRContainer_NodePool.status
 NSString * const kGTLRContainer_NodePool_Status_Error          = @"ERROR";
@@ -1258,7 +1267,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_DConfig
-@dynamic privateRegistryAccessConfig;
+@dynamic privateRegistryAccessConfig, writableCgroups;
 @end
 
 
@@ -1766,8 +1775,8 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_LinuxNodeConfig
-@dynamic cgroupMode, hugepages, sysctls, transparentHugepageDefrag,
-         transparentHugepageEnabled;
+@dynamic cgroupMode, hugepages, nodeKernelModuleLoading, sysctls,
+         transparentHugepageDefrag, transparentHugepageEnabled;
 @end
 
 
@@ -1927,7 +1936,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_MaintenanceExclusionOptions
-@dynamic scope;
+@dynamic endTimeBehavior, scope;
 @end
 
 
@@ -2253,6 +2262,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NodeConfigDefaults
 @dynamic containerdConfig, gcfsConfig, loggingConfig, nodeKubeletConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_NodeKernelModuleLoading
+//
+
+@implementation GTLRContainer_NodeKernelModuleLoading
+@dynamic policy;
 @end
 
 
@@ -3541,6 +3560,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_WorkloadPolicyConfig
 @dynamic allowNetAdmin, autopilotCompatibilityAuditingEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_WritableCgroups
+//
+
+@implementation GTLRContainer_WritableCgroups
+@dynamic enabled;
 @end
 
 #pragma clang diagnostic pop

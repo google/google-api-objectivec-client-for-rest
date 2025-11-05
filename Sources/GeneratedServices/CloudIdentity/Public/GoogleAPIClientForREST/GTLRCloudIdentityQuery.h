@@ -3084,7 +3084,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  Get a Policy
+ *  Get a policy.
  *
  *  Method: cloudidentity.policies.get
  *
@@ -3102,7 +3102,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_Policy.
  *
- *  Get a Policy
+ *  Get a policy.
  *
  *  @param name Required. The name of the policy to retrieve. Format:
  *    "policies/{policy}".
@@ -3114,7 +3114,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @end
 
 /**
- *  List Policies
+ *  List policies.
  *
  *  Method: cloudidentity.policies.list
  *
@@ -3160,7 +3160,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudIdentity_ListPoliciesResponse.
  *
- *  List Policies
+ *  List policies.
  *
  *  @return GTLRCloudIdentityQuery_PoliciesList
  *
