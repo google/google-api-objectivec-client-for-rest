@@ -345,6 +345,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_EventFilter
+//
+
+@implementation GTLRDatastream_EventFilter
+@dynamic sqlWhereClause;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_FetchStaticIpsResponse
 //
 
@@ -472,11 +482,12 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDatastream_Operation class]
+    @"operations" : [GTLRDatastream_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1648,6 +1659,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_StartBackfillJobRequest
+@dynamic eventFilter;
 @end
 
 

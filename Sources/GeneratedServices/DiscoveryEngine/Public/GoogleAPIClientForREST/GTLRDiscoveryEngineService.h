@@ -25,6 +25,14 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
+ *  Authorization scope: View your Agentspace chat history, including uploaded
+ *  files and generated reports and visualizations, and interact with the
+ *  Agentspace assistant on your behalf.
+ *
+ *  Value "https://www.googleapis.com/auth/discoveryengine.assist.readwrite"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDiscoveryEngineAssistReadwrite;
+/**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.
  *
@@ -38,6 +46,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDiscoveryEngineCloudPlatform;
  *  Value "https://www.googleapis.com/auth/cloud_search.query"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDiscoveryEngineCloudSearchQuery;
+/**
+ *  Authorization scope: View, edit, create, and delete all your data associated
+ *  with any Discovery Engine API product, such as Agentspace, Vertex AI Search,
+ *  or NotebookLM Enterprise, including both end user data and administration or
+ *  configuration data.
+ *
+ *  Value "https://www.googleapis.com/auth/discoveryengine.readwrite"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDiscoveryEngineReadwrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRDiscoveryEngineService

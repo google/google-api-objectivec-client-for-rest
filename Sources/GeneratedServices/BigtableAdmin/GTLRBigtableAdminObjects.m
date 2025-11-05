@@ -69,6 +69,11 @@ NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_CustomerManage
 NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_EncryptionTypeUnspecified = @"ENCRYPTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigtableAdmin_EncryptionInfo_EncryptionType_GoogleDefaultEncryption = @"GOOGLE_DEFAULT_ENCRYPTION";
 
+// GTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState.replicationState
+NSString * const kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_Initializing = @"INITIALIZING";
+NSString * const kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_Ready = @"READY";
+NSString * const kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_StateNotKnown = @"STATE_NOT_KNOWN";
+
 // GTLRBigtableAdmin_Instance.state
 NSString * const kGTLRBigtableAdmin_Instance_State_Creating    = @"CREATING";
 NSString * const kGTLRBigtableAdmin_Instance_State_Ready       = @"READY";
@@ -714,6 +719,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState
+@dynamic replicationState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate
 //
 
@@ -1303,11 +1318,12 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRBigtableAdmin_Operation class]
+    @"operations" : [GTLRBigtableAdmin_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1422,10 +1438,24 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_MaterializedView
-@dynamic deletionProtection, ETag, name, query;
+@dynamic clusterStates, deletionProtection, ETag, name, query;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_MaterializedView_ClusterStates
+//
+
+@implementation GTLRBigtableAdmin_MaterializedView_ClusterStates
+
++ (Class)classForAdditionalProperties {
+  return [GTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState class];
 }
 
 @end

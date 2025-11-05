@@ -937,8 +937,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
 
 /**
  *  Required. The names of the release resources to delete. Format:
- *  `projects/{project_number}/apps/{app_id}/releases/{release_id}` A maximum of
- *  100 releases can be deleted per request.
+ *  `projects/{project_number}/apps/{app}/releases/{release}` A maximum of 100
+ *  releases can be deleted per request.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *names;
 
@@ -1257,7 +1257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
 
 /**
  *  The name of the release resource. Format:
- *  `projects/{project_number}/apps/{app_id}/releases/{release_id}`
+ *  `projects/{project_number}/apps/{app}/releases/{release}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

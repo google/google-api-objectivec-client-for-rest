@@ -39,6 +39,7 @@
 @class GTLRAnalyticsHub_GoogleCloudBigqueryAnalyticshubV1SubscriptionCommercialInfoGoogleCloudMarketplaceInfo;
 @class GTLRAnalyticsHub_GooglePubsubV1Subscription;
 @class GTLRAnalyticsHub_GooglePubsubV1Subscription_Labels;
+@class GTLRAnalyticsHub_GooglePubsubV1Subscription_Tags;
 @class GTLRAnalyticsHub_JavaScriptUDF;
 @class GTLRAnalyticsHub_LinkedResource;
 @class GTLRAnalyticsHub_Listing;
@@ -63,6 +64,7 @@
 @class GTLRAnalyticsHub_SharingEnvironmentConfig;
 @class GTLRAnalyticsHub_Status;
 @class GTLRAnalyticsHub_Status_Details_Item;
+@class GTLRAnalyticsHub_StoredProcedureConfig;
 @class GTLRAnalyticsHub_Subscription;
 @class GTLRAnalyticsHub_Subscription_LinkedDatasetMap;
 @class GTLRAnalyticsHub_TextConfig;
@@ -343,6 +345,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Routine_RoutineType_Routine
  *  Value: "TABLE_VALUED_FUNCTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Routine_RoutineType_TableValuedFunction;
+
+// ----------------------------------------------------------------------------
+// GTLRAnalyticsHub_StoredProcedureConfig.allowedStoredProcedureTypes
+
+/**
+ *  SQL stored procedure.
+ *
+ *  Value: "SQL_PROCEDURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_StoredProcedureConfig_AllowedStoredProcedureTypes_SqlProcedure;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STORED_PROCEDURE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_StoredProcedureConfig_AllowedStoredProcedureTypes_StoredProcedureTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAnalyticsHub_Subscription.resourceType
@@ -1390,6 +1408,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_RetryPolicy *retryPolicy;
 
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_GooglePubsubV1Subscription_Tags *tags;
+
 @end
 
 
@@ -1403,6 +1428,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *        fetch them all at once.
  */
 @interface GTLRAnalyticsHub_GooglePubsubV1Subscription_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Input only. Immutable. Tag keys/values directly bound to this
+ *  resource. For example: "123/environment": "production", "123/costCenter":
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAnalyticsHub_GooglePubsubV1Subscription_Tags : GTLRObject
 @end
 
 
@@ -1628,6 +1667,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *        This value is unused. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. If set, stored procedure configuration will be propagated and
+ *  enforced on the linked dataset.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_StoredProcedureConfig *storedProcedureConfig;
 
 @end
 
@@ -2532,6 +2577,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRAnalyticsHub_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Stored procedure configuration, used to configure stored procedure sharing
+ *  on linked dataset.
+ */
+@interface GTLRAnalyticsHub_StoredProcedureConfig : GTLRObject
+
+/** Output only. Types of stored procedure supported to share. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedStoredProcedureTypes;
+
+/**
+ *  Optional. If true, enable sharing of stored procedure.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
 @end
 
 

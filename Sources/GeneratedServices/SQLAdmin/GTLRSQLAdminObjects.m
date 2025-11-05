@@ -638,6 +638,11 @@ NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_ConnectorEnforcemen
 NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_NotRequired = @"NOT_REQUIRED";
 NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_Required = @"REQUIRED";
 
+// GTLRSQLAdmin_Settings.dataApiAccess
+NSString * const kGTLRSQLAdmin_Settings_DataApiAccess_AllowDataApi = @"ALLOW_DATA_API";
+NSString * const kGTLRSQLAdmin_Settings_DataApiAccess_DataApiAccessUnspecified = @"DATA_API_ACCESS_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_Settings_DataApiAccess_DisallowDataApi = @"DISALLOW_DATA_API";
+
 // GTLRSQLAdmin_Settings.dataDiskType
 NSString * const kGTLRSQLAdmin_Settings_DataDiskType_HyperdiskBalanced = @"HYPERDISK_BALANCED";
 NSString * const kGTLRSQLAdmin_Settings_DataDiskType_ObsoleteLocalSsd = @"OBSOLETE_LOCAL_SSD";
@@ -662,6 +667,7 @@ NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchronous = @"SYNCHRON
 
 // GTLRSQLAdmin_SqlActiveDirectoryConfig.mode
 NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_ActiveDirectoryModeUnspecified = @"ACTIVE_DIRECTORY_MODE_UNSPECIFIED";
+NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_CustomerManagedActiveDirectory = @"CUSTOMER_MANAGED_ACTIVE_DIRECTORY";
 NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_ManagedActiveDirectory = @"MANAGED_ACTIVE_DIRECTORY";
 NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_SelfManagedActiveDirectory = @"SELF_MANAGED_ACTIVE_DIRECTORY";
 
@@ -2353,7 +2359,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_QueryResult
-@dynamic columns, message, partialResult, rows;
+@dynamic columns, message, partialResult, rows, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2508,13 +2514,13 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 @implementation GTLRSQLAdmin_Settings
 @dynamic activationPolicy, activeDirectoryConfig, advancedMachineFeatures,
-         authorizedGaeApplications, availabilityType, backupConfiguration,
-         collation, connectionPoolConfig, connectorEnforcement,
-         crashSafeReplicationEnabled, databaseFlags, databaseReplicationEnabled,
-         dataCacheConfig, dataDiskProvisionedIops,
-         dataDiskProvisionedThroughput, dataDiskSizeGb, dataDiskType,
-         deletionProtectionEnabled, denyMaintenancePeriods, edition,
-         enableDataplexIntegration, enableGoogleMlIntegration,
+         authorizedGaeApplications, autoUpgradeEnabled, availabilityType,
+         backupConfiguration, collation, connectionPoolConfig,
+         connectorEnforcement, crashSafeReplicationEnabled, dataApiAccess,
+         databaseFlags, databaseReplicationEnabled, dataCacheConfig,
+         dataDiskProvisionedIops, dataDiskProvisionedThroughput, dataDiskSizeGb,
+         dataDiskType, deletionProtectionEnabled, denyMaintenancePeriods,
+         edition, enableDataplexIntegration, enableGoogleMlIntegration,
          finalBackupConfig, insightsConfig, ipConfiguration, kind,
          locationPreference, maintenanceWindow, passwordValidationPolicy,
          pricingPlan, readPoolAutoScaleConfig, replicationLagMaxSeconds,
@@ -2612,7 +2618,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_SqlInstancesExecuteSqlResponse
-@dynamic messages, metadata, results;
+@dynamic messages, metadata, results, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2918,6 +2924,38 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_Status
+//
+
+@implementation GTLRSQLAdmin_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRSQLAdmin_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSQLAdmin_Status_Details_Item
+//
+
+@implementation GTLRSQLAdmin_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_SyncFlags
 //
 
@@ -3007,8 +3045,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_User
-@dynamic dualPasswordType, ETag, host, iamStatus, instance, kind, name,
-         password, passwordPolicy, project, sqlserverUserDetails, type;
+@dynamic dualPasswordType, ETag, host, iamEmail, iamStatus, instance, kind,
+         name, password, passwordPolicy, project, sqlserverUserDetails, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

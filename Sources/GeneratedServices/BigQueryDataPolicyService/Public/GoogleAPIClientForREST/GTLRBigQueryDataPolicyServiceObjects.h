@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Data Policy API (bigquerydatapolicy/v1)
+//   BigQuery Data Policy API (bigquerydatapolicy/v2)
 // Description:
 //   Allows users to manage BigQuery data policies.
 // Documentation:
@@ -76,7 +76,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPol
  *  : 2076-01-01T00:00:00 * TIMESTAMP : 2076-01-01 00:00:00 UTC Truncation
  *  occurs according to the UTC time zone. To change this, adjust the default
  *  time zone using the `time_zone` system variable. For more information, see
- *  the System variables reference.
+ *  [System variables
+ *  reference](https://cloud.google.com/bigquery/docs/reference/system-variables).
  *
  *  Value: "DATE_YEAR_MASK"
  */
@@ -96,7 +97,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPol
  *  Masking expression for email addresses. The masking behavior is as follows:
  *  * Syntax-valid email address: Replace username with XXXXX. For example,
  *  cloudysanfrancisco\@gmail.com becomes XXXXX\@gmail.com. * Syntax-invalid
- *  email address: Apply SHA-256 hash. For more information, see Email mask.
+ *  email address: Apply SHA-256 hash. For more information, see [Email
+ *  mask](https://cloud.google.com/bigquery/docs/column-data-masking-intro#masking_options).
  *
  *  Value: "EMAIL_MASK"
  */
@@ -127,6 +129,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPol
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_PredefinedExpressionUnspecified;
 /**
+ *  Masking expression that uses hashing to mask column data. It differs from
+ *  SHA256 in that a unique random value is generated for each query and is
+ *  added to the hash input, resulting in the hash / masked result to be
+ *  different for each query. Hence the name "random hash".
+ *
+ *  Value: "RANDOM_HASH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_RandomHash;
+/**
  *  Masking expression to replace data with SHA-256 hash.
  *
  *  Value: "SHA256"
@@ -138,7 +149,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPol
 
 /**
  *  Used to create a data policy for column-level security, without data
- *  masking.
+ *  masking. This is deprecated in V2 api and only present to support GET and
+ *  LIST operations for V1 data policies in V2 api.
  *
  *  Value: "COLUMN_LEVEL_SECURITY_POLICY"
  */
@@ -155,6 +167,52 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Dat
  *  Value: "DATA_POLICY_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_DataPolicyTypeUnspecified;
+/**
+ *  Used to create a data policy for raw data access.
+ *
+ *  Value: "RAW_DATA_ACCESS_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_RawDataAccessPolicy;
+
+// ----------------------------------------------------------------------------
+// GTLRBigQueryDataPolicyService_DataPolicy.version
+
+/**
+ *  V1 data policy version. V1 Data Policies will be present in V2 List api
+ *  response, but can not be created/updated/deleted from V2 api.
+ *
+ *  Value: "V1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Version_V1;
+/**
+ *  V2 data policy version.
+ *
+ *  Value: "V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Version_V2;
+/**
+ *  Default value for the data policy version. This should not be used.
+ *
+ *  Value: "VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Version_VersionUnspecified;
+
+/**
+ *  Request message for the AddGrantees method.
+ */
+@interface GTLRBigQueryDataPolicyService_AddGranteesRequest : GTLRObject
+
+/**
+ *  Required. IAM principal that should be granted Fine Grained Access to the
+ *  underlying data goverened by the data policy. The target data policy is
+ *  determined by the `data_policy` field. Uses the [IAM V2 principal
+ *  syntax](https://cloud.google.com/iam/docs/principal-identifiers#v2).
+ *  Supported principal types: * User * Group * Service account
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *grantees;
+
+@end
+
 
 /**
  *  Specifies the audit configuration for a service. The configuration
@@ -309,12 +367,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Dat
 
 
 /**
- *  The data masking policy that is used to specify data masking rule.
+ *  Request message for the CreateDataPolicy method.
+ */
+@interface GTLRBigQueryDataPolicyService_CreateDataPolicyRequest : GTLRObject
+
+/**
+ *  Required. The data policy to create. The `name` field does not need to be
+ *  provided for the data policy creation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataPolicyService_DataPolicy *dataPolicy;
+
+/**
+ *  Required. User-assigned (human readable) ID of the data policy that needs to
+ *  be unique within a project. Used as {data_policy_id} in part of the resource
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *dataPolicyId;
+
+@end
+
+
+/**
+ *  The policy used to specify data masking rule.
  */
 @interface GTLRBigQueryDataPolicyService_DataMaskingPolicy : GTLRObject
 
 /**
- *  A predefined masking expression.
+ *  Optional. A predefined masking expression.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_AlwaysNull
@@ -325,8 +404,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Dat
  *        DATETIME : 2076-01-01T00:00:00 * TIMESTAMP : 2076-01-01 00:00:00 UTC
  *        Truncation occurs according to the UTC time zone. To change this,
  *        adjust the default time zone using the `time_zone` system variable.
- *        For more information, see the System variables reference. (Value:
- *        "DATE_YEAR_MASK")
+ *        For more information, see [System variables
+ *        reference](https://cloud.google.com/bigquery/docs/reference/system-variables).
+ *        (Value: "DATE_YEAR_MASK")
  *    @arg @c kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_DefaultMaskingValue
  *        Masking expression to replace data with their default masking values.
  *        The default masking values for each type listed as below: * STRING: ""
@@ -340,7 +420,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Dat
  *        follows: * Syntax-valid email address: Replace username with XXXXX.
  *        For example, cloudysanfrancisco\@gmail.com becomes XXXXX\@gmail.com. *
  *        Syntax-invalid email address: Apply SHA-256 hash. For more
- *        information, see Email mask. (Value: "EMAIL_MASK")
+ *        information, see [Email
+ *        mask](https://cloud.google.com/bigquery/docs/column-data-masking-intro#masking_options).
+ *        (Value: "EMAIL_MASK")
  *    @arg @c kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_FirstFourCharacters
  *        Masking expression shows the first four characters of text. The
  *        masking behavior is as follows: * If text length > 4 characters:
@@ -357,6 +439,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Dat
  *        Default, unspecified predefined expression. No masking will take place
  *        since no expression is specified. (Value:
  *        "PREDEFINED_EXPRESSION_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_RandomHash
+ *        Masking expression that uses hashing to mask column data. It differs
+ *        from SHA256 in that a unique random value is generated for each query
+ *        and is added to the hash input, resulting in the hash / masked result
+ *        to be different for each query. Hence the name "random hash". (Value:
+ *        "RANDOM_HASH")
  *    @arg @c kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_Sha256
  *        Masking expression to replace data with SHA-256 hash. (Value:
  *        "SHA256")
@@ -364,8 +452,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Dat
 @property(nonatomic, copy, nullable) NSString *predefinedExpression;
 
 /**
- *  The name of the BigQuery routine that contains the custom masking routine,
- *  in the format of
+ *  Optional. The name of the BigQuery routine that contains the custom masking
+ *  routine, in the format of
  *  `projects/{project_number}/datasets/{dataset_id}/routines/{routine_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *routine;
@@ -378,42 +466,86 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Dat
  */
 @interface GTLRBigQueryDataPolicyService_DataPolicy : GTLRObject
 
-/** The data masking policy that specifies the data masking rule to use. */
+/**
+ *  Optional. The data masking policy that specifies the data masking rule to
+ *  use. It must be set if the data policy type is DATA_MASKING_POLICY.
+ */
 @property(nonatomic, strong, nullable) GTLRBigQueryDataPolicyService_DataMaskingPolicy *dataMaskingPolicy;
 
 /**
- *  User-assigned (human readable) ID of the data policy that needs to be unique
- *  within a project. Used as {data_policy_id} in part of the resource name.
+ *  Output only. User-assigned (human readable) ID of the data policy that needs
+ *  to be unique within a project. Used as {data_policy_id} in part of the
+ *  resource name.
  */
 @property(nonatomic, copy, nullable) NSString *dataPolicyId;
 
 /**
- *  Required. Data policy type. Type of data policy.
+ *  Required. Type of data policy.
  *
  *  Likely values:
  *    @arg @c kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_ColumnLevelSecurityPolicy
  *        Used to create a data policy for column-level security, without data
- *        masking. (Value: "COLUMN_LEVEL_SECURITY_POLICY")
+ *        masking. This is deprecated in V2 api and only present to support GET
+ *        and LIST operations for V1 data policies in V2 api. (Value:
+ *        "COLUMN_LEVEL_SECURITY_POLICY")
  *    @arg @c kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_DataMaskingPolicy
  *        Used to create a data policy for data masking. (Value:
  *        "DATA_MASKING_POLICY")
  *    @arg @c kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_DataPolicyTypeUnspecified
  *        Default value for the data policy type. This should not be used.
  *        (Value: "DATA_POLICY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_RawDataAccessPolicy
+ *        Used to create a data policy for raw data access. (Value:
+ *        "RAW_DATA_ACCESS_POLICY")
  */
 @property(nonatomic, copy, nullable) NSString *dataPolicyType;
 
 /**
- *  Output only. Resource name of this data policy, in the format of
+ *  The etag for this Data Policy. This field is used for UpdateDataPolicy
+ *  calls. If Data Policy exists, this field is required and must match the
+ *  server's etag. It will also be populated in the response of GetDataPolicy,
+ *  CreateDataPolicy, and UpdateDataPolicy calls.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. The list of IAM principals that have Fine Grained Access to the
+ *  underlying data goverened by this data policy. Uses the [IAM V2 principal
+ *  syntax](https://cloud.google.com/iam/docs/principal-identifiers#v2) Only
+ *  supports principal types users, groups, serviceaccounts, cloudidentity. This
+ *  field is supported in V2 Data Policy only. In case of V1 data policies (i.e.
+ *  verion = 1 and policy_tag is set), this field is not populated.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *grantees;
+
+/**
+ *  Identifier. Resource name of this data policy, in the format of
  *  `projects/{project_number}/locations/{location_id}/dataPolicies/{data_policy_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Policy tag resource name, in the format of
+ *  Output only. Policy tag resource name, in the format of
  *  `projects/{project_number}/locations/{location_id}/taxonomies/{taxonomy_id}/policyTags/{policyTag_id}`.
+ *  policy_tag is supported only for V1 data policies.
  */
 @property(nonatomic, copy, nullable) NSString *policyTag;
+
+/**
+ *  Output only. The version of the Data Policy resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryDataPolicyService_DataPolicy_Version_V1 V1 data
+ *        policy version. V1 Data Policies will be present in V2 List api
+ *        response, but can not be created/updated/deleted from V2 api. (Value:
+ *        "V1")
+ *    @arg @c kGTLRBigQueryDataPolicyService_DataPolicy_Version_V2 V2 data
+ *        policy version. (Value: "V2")
+ *    @arg @c kGTLRBigQueryDataPolicyService_DataPolicy_Version_VersionUnspecified
+ *        Default value for the data policy version. This should not be used.
+ *        (Value: "VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *version;
 
 @end
 
@@ -634,12 +766,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Dat
 
 
 /**
- *  Request message for the RenameDataPolicy method.
+ *  Request message for the RemoveGrantees method.
  */
-@interface GTLRBigQueryDataPolicyService_RenameDataPolicyRequest : GTLRObject
+@interface GTLRBigQueryDataPolicyService_RemoveGranteesRequest : GTLRObject
 
-/** Required. The new data policy id. */
-@property(nonatomic, copy, nullable) NSString *newDataPolicyId NS_RETURNS_NOT_RETAINED;
+/**
+ *  Required. IAM principal that should be revoked from Fine Grained Access to
+ *  the underlying data goverened by the data policy. The target data policy is
+ *  determined by the `data_policy` field. Uses the [IAM V2 principal
+ *  syntax](https://cloud.google.com/iam/docs/principal-identifiers#v2).
+ *  Supported principal types: * User * Group * Service account
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *grantees;
 
 @end
 

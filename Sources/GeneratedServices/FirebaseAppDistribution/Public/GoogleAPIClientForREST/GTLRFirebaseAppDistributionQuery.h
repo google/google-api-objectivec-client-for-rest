@@ -45,7 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the app resource. Format:
- *  `projects/{project_number}/apps/{app_id}`
+ *  `projects/{project_number}/apps/{app}`
  */
 @property(nonatomic, copy, nullable) NSString *app;
 
@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadReleaseRequest
  *    to include in the query.
  *  @param app Required. The name of the app resource. Format:
- *    `projects/{project_number}/apps/{app_id}`
+ *    `projects/{project_number}/apps/{app}`
  *  @param uploadParameters The media to include in this query. Accepted MIME
  *    type: * / *
  *
@@ -84,7 +84,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the `AabInfo` resource to retrieve. Format:
- *  `projects/{project_number}/apps/{app_id}/aabInfo`
+ *  `projects/{project_number}/apps/{app}/aabInfo`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -94,7 +94,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets Android App Bundle (AAB) information for a Firebase app.
  *
  *  @param name Required. The name of the `AabInfo` resource to retrieve.
- *    Format: `projects/{project_number}/apps/{app_id}/aabInfo`
+ *    Format: `projects/{project_number}/apps/{app}/aabInfo`
  *
  *  @return GTLRFirebaseAppDistributionQuery_ProjectsAppsGetAabInfo
  */
@@ -114,7 +114,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the app resource, which is the parent of the release
- *  resources. Format: `projects/{project_number}/apps/{app_id}`
+ *  resources. Format: `projects/{project_number}/apps/{app}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1BatchDeleteReleasesRequest
  *    to include in the query.
  *  @param parent Required. The name of the app resource, which is the parent of
- *    the release resources. Format: `projects/{project_number}/apps/{app_id}`
+ *    the release resources. Format: `projects/{project_number}/apps/{app}`
  *
  *  @return GTLRFirebaseAppDistributionQuery_ProjectsAppsReleasesBatchDelete
  */
@@ -152,7 +152,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the release resource to distribute. Format:
- *  `projects/{project_number}/apps/{app_id}/releases/{release_id}`
+ *  `projects/{project_number}/apps/{app}/releases/{release}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -170,7 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1DistributeReleaseRequest
  *    to include in the query.
  *  @param name Required. The name of the release resource to distribute.
- *    Format: `projects/{project_number}/apps/{app_id}/releases/{release_id}`
+ *    Format: `projects/{project_number}/apps/{app}/releases/{release}`
  *
  *  @return GTLRFirebaseAppDistributionQuery_ProjectsAppsReleasesDistribute
  */
@@ -307,7 +307,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the release resource to retrieve. Format:
- *  projects/{project_number}/apps/{app_id}/releases/{release_id}
+ *  projects/{project_number}/apps/{app}/releases/{release}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -317,7 +317,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a release.
  *
  *  @param name Required. The name of the release resource to retrieve. Format:
- *    projects/{project_number}/apps/{app_id}/releases/{release_id}
+ *    projects/{project_number}/apps/{app}/releases/{release}
  *
  *  @return GTLRFirebaseAppDistributionQuery_ProjectsAppsReleasesGet
  */
@@ -372,7 +372,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the app resource, which is the parent of the release
- *  resources. Format: `projects/{project_number}/apps/{app_id}`
+ *  resources. Format: `projects/{project_number}/apps/{app}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -383,7 +383,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists releases. By default, sorts by `createTime` in descending order.
  *
  *  @param parent Required. The name of the app resource, which is the parent of
- *    the release resources. Format: `projects/{project_number}/apps/{app_id}`
+ *    the release resources. Format: `projects/{project_number}/apps/{app}`
  *
  *  @return GTLRFirebaseAppDistributionQuery_ProjectsAppsReleasesList
  *
@@ -614,7 +614,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  The name of the release resource. Format:
- *  `projects/{project_number}/apps/{app_id}/releases/{release_id}`
+ *  `projects/{project_number}/apps/{app}/releases/{release}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -634,7 +634,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1Release to include in
  *    the query.
  *  @param name The name of the release resource. Format:
- *    `projects/{project_number}/apps/{app_id}/releases/{release_id}`
+ *    `projects/{project_number}/apps/{app}/releases/{release}`
  *
  *  @return GTLRFirebaseAppDistributionQuery_ProjectsAppsReleasesPatch
  */

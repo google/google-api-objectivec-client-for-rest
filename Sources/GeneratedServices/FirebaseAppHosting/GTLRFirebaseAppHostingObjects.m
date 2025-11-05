@@ -623,11 +623,12 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 //
 
 @implementation GTLRFirebaseAppHosting_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRFirebaseAppHosting_Operation class]
+    @"operations" : [GTLRFirebaseAppHosting_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

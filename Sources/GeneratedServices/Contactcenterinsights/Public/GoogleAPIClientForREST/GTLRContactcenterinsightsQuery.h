@@ -453,143 +453,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
- *  Creates an analysis. The long running operation is done when the analysis
- *  has completed.
- *
- *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.analyses.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
- */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesCreate : GTLRContactcenterinsightsQuery
-
-/** Required. The parent resource of the analysis. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
- *
- *  Creates an analysis. The long running operation is done when the analysis
- *  has completed.
- *
- *  @param object The @c
- *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis to
- *    include in the query.
- *  @param parent Required. The parent resource of the analysis.
- *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesCreate
- */
-+ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes an analysis.
- *
- *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.analyses.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
- */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesDelete : GTLRContactcenterinsightsQuery
-
-/** Required. The name of the analysis to delete. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
- *
- *  Deletes an analysis.
- *
- *  @param name Required. The name of the analysis to delete.
- *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets an analysis.
- *
- *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.analyses.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
- */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesGet : GTLRContactcenterinsightsQuery
-
-/** Required. The name of the analysis to get. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis.
- *
- *  Gets an analysis.
- *
- *  @param name Required. The name of the analysis to get.
- *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists analyses.
- *
- *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.analyses.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
- */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesList : GTLRContactcenterinsightsQuery
-
-/**
- *  A filter to reduce results to a specific subset. Useful for querying
- *  conversations with specific properties.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  The maximum number of analyses to return in the response. If this value is
- *  zero, the service will select a default size. A call might return fewer
- *  objects than requested. A non-empty `next_page_token` in the response
- *  indicates that more data is available.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  The value returned by the last `ListAnalysesResponse`; indicates that this
- *  is a continuation of a prior `ListAnalyses` call and the system should
- *  return the next page of data.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. The parent resource of the analyses. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAnalysesResponse.
- *
- *  Lists analyses.
- *
- *  @param parent Required. The parent resource of the analyses.
- *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
  *  Appeal an Assessment.
  *
  *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.appeal
@@ -972,36 +835,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1PublishAssessmentRequest *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Analyzes multiple conversations in a single request.
- *
- *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.bulkAnalyze
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
- */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsBulkAnalyze : GTLRContactcenterinsightsQuery
-
-/** Required. The parent resource to create analyses in. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
- *
- *  Analyzes multiple conversations in a single request.
- *
- *  @param object The @c
- *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest
- *    to include in the query.
- *  @param parent Required. The parent resource to create analyses in.
- *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsBulkAnalyze
- */
-+ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest *)object
-                         parent:(NSString *)parent;
 
 @end
 
@@ -3342,8 +3175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  passing `*`, or a subset of the following updateable fields can be provided:
  *  * `agent_id` * `language_code` * `labels` * `metadata` * `quality_metadata`
  *  * `call_metadata` * `start_time` * `expire_time` or `ttl` *
- *  `data_source.gcs_source.audio_uri` or
- *  `data_source.dialogflow_source.audio_uri`
+ *  `data_source.gcs_source.audio_uri` or *
+ *  `data_source.dialogflow_source.audio_uri` * `data_source.screen_recordings`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -3396,6 +3229,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsSample
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SampleConversationsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Analyzes multiple conversations in a single request.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.segments.bulkAnalyze
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsSegmentsBulkAnalyze : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource to create analyses in. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Analyzes multiple conversations in a single request.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource to create analyses in.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsSegmentsBulkAnalyze
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest *)object
                          parent:(NSString *)parent;
 
 @end
@@ -3526,173 +3389,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsBulkUploadFeedbackLabels
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequest *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Creates an analysis. The long running operation is done when the analysis
- *  has completed.
- *
- *  Method: contactcenterinsights.projects.locations.datasets.conversations.analyses.create
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
- */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesCreate : GTLRContactcenterinsightsQuery
-
-/** Required. The parent resource of the analysis. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
- *
- *  Creates an analysis. The long running operation is done when the analysis
- *  has completed.
- *
- *  @param object The @c
- *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis to
- *    include in the query.
- *  @param parent Required. The parent resource of the analysis.
- *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesCreate
- */
-+ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis *)object
-                         parent:(NSString *)parent;
-
-@end
-
-/**
- *  Deletes an analysis.
- *
- *  Method: contactcenterinsights.projects.locations.datasets.conversations.analyses.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
- */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesDelete : GTLRContactcenterinsightsQuery
-
-/** Required. The name of the analysis to delete. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
- *
- *  Deletes an analysis.
- *
- *  @param name Required. The name of the analysis to delete.
- *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets an analysis.
- *
- *  Method: contactcenterinsights.projects.locations.datasets.conversations.analyses.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
- */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesGet : GTLRContactcenterinsightsQuery
-
-/** Required. The name of the analysis to get. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c
- *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis.
- *
- *  Gets an analysis.
- *
- *  @param name Required. The name of the analysis to get.
- *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists analyses.
- *
- *  Method: contactcenterinsights.projects.locations.datasets.conversations.analyses.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
- */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesList : GTLRContactcenterinsightsQuery
-
-/**
- *  A filter to reduce results to a specific subset. Useful for querying
- *  conversations with specific properties.
- */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/**
- *  The maximum number of analyses to return in the response. If this value is
- *  zero, the service will select a default size. A call might return fewer
- *  objects than requested. A non-empty `next_page_token` in the response
- *  indicates that more data is available.
- */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/**
- *  The value returned by the last `ListAnalysesResponse`; indicates that this
- *  is a continuation of a prior `ListAnalyses` call and the system should
- *  return the next page of data.
- */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/** Required. The parent resource of the analyses. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c
- *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAnalysesResponse.
- *
- *  Lists analyses.
- *
- *  @param parent Required. The parent resource of the analyses.
- *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithParent:(NSString *)parent;
-
-@end
-
-/**
- *  Analyzes multiple conversations in a single request.
- *
- *  Method: contactcenterinsights.projects.locations.datasets.conversations.bulkAnalyze
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
- */
-@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsBulkAnalyze : GTLRContactcenterinsightsQuery
-
-/** Required. The parent resource to create analyses in. */
-@property(nonatomic, copy, nullable) NSString *parent;
-
-/**
- *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
- *
- *  Analyzes multiple conversations in a single request.
- *
- *  @param object The @c
- *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest
- *    to include in the query.
- *  @param parent Required. The parent resource to create analyses in.
- *
- *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsBulkAnalyze
- */
-+ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest *)object
                          parent:(NSString *)parent;
 
 @end

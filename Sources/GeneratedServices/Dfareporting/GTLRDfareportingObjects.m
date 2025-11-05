@@ -157,10 +157,15 @@ NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeMixed = @"ART
 
 // GTLRDfareporting_Creative.authoringSource
 NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAcs = @"CREATIVE_AUTHORING_SOURCE_ACS";
+NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAdobe = @"CREATIVE_AUTHORING_SOURCE_ADOBE";
+NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceBornlogic = @"CREATIVE_AUTHORING_SOURCE_BORNLOGIC";
 NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDbm = @"CREATIVE_AUTHORING_SOURCE_DBM";
 NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDcm = @"CREATIVE_AUTHORING_SOURCE_DCM";
 NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceGwd = @"CREATIVE_AUTHORING_SOURCE_GWD";
+NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceRembrand = @"CREATIVE_AUTHORING_SOURCE_REMBRAND";
 NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceStudio = @"CREATIVE_AUTHORING_SOURCE_STUDIO";
+NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceTracktoStudio = @"CREATIVE_AUTHORING_SOURCE_TRACKTO_STUDIO";
+NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceTypefaceAi = @"CREATIVE_AUTHORING_SOURCE_TYPEFACE_AI";
 
 // GTLRDfareporting_Creative.authoringTool
 NSString * const kGTLRDfareporting_Creative_AuthoringTool_Ninja = @"NINJA";
@@ -1339,6 +1344,28 @@ NSString * const kGTLRDfareporting_SiteVideoSettings_Orientation_Portrait = @"PO
 NSString * const kGTLRDfareporting_SortedDimension_SortOrder_Ascending = @"ASCENDING";
 NSString * const kGTLRDfareporting_SortedDimension_SortOrder_Descending = @"DESCENDING";
 
+// GTLRDfareporting_StudioCreative.format
+NSString * const kGTLRDfareporting_StudioCreative_Format_Banner = @"BANNER";
+NSString * const kGTLRDfareporting_StudioCreative_Format_Expanding = @"EXPANDING";
+NSString * const kGTLRDfareporting_StudioCreative_Format_Interstitial = @"INTERSTITIAL";
+NSString * const kGTLRDfareporting_StudioCreative_Format_Unknown = @"UNKNOWN";
+NSString * const kGTLRDfareporting_StudioCreative_Format_VpaidLinearVideo = @"VPAID_LINEAR_VIDEO";
+
+// GTLRDfareporting_StudioCreative.status
+NSString * const kGTLRDfareporting_StudioCreative_Status_InDevelopment = @"IN_DEVELOPMENT";
+NSString * const kGTLRDfareporting_StudioCreative_Status_Published = @"PUBLISHED";
+NSString * const kGTLRDfareporting_StudioCreative_Status_QaApproved = @"QA_APPROVED";
+NSString * const kGTLRDfareporting_StudioCreative_Status_QaRejected = @"QA_REJECTED";
+NSString * const kGTLRDfareporting_StudioCreative_Status_Trafficked = @"TRAFFICKED";
+NSString * const kGTLRDfareporting_StudioCreative_Status_UnknownStatus = @"UNKNOWN_STATUS";
+
+// GTLRDfareporting_StudioCreativeAsset.type
+NSString * const kGTLRDfareporting_StudioCreativeAsset_Type_Font = @"FONT";
+NSString * const kGTLRDfareporting_StudioCreativeAsset_Type_Html = @"HTML";
+NSString * const kGTLRDfareporting_StudioCreativeAsset_Type_Image = @"IMAGE";
+NSString * const kGTLRDfareporting_StudioCreativeAsset_Type_UnknownType = @"UNKNOWN_TYPE";
+NSString * const kGTLRDfareporting_StudioCreativeAsset_Type_Video = @"VIDEO";
+
 // GTLRDfareporting_TagData.format
 NSString * const kGTLRDfareporting_TagData_Format_PlacementTagClickCommands = @"PLACEMENT_TAG_CLICK_COMMANDS";
 NSString * const kGTLRDfareporting_TagData_Format_PlacementTagIframeIlayer = @"PLACEMENT_TAG_IFRAME_ILAYER";
@@ -1423,6 +1450,7 @@ NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksUnspecifi
 NSString * const kGTLRDfareporting_UniversalAdId_Registry_AdIdOfficial = @"AD_ID_OFFICIAL";
 NSString * const kGTLRDfareporting_UniversalAdId_Registry_Arpp = @"ARPP";
 NSString * const kGTLRDfareporting_UniversalAdId_Registry_Clearcast = @"CLEARCAST";
+NSString * const kGTLRDfareporting_UniversalAdId_Registry_Cusv = @"CUSV";
 NSString * const kGTLRDfareporting_UniversalAdId_Registry_Dcm  = @"DCM";
 NSString * const kGTLRDfareporting_UniversalAdId_Registry_Other = @"OTHER";
 
@@ -1546,6 +1574,12 @@ NSString * const kGTLRDfareporting_VideoFormat_FileType_M3u8   = @"M3U8";
 NSString * const kGTLRDfareporting_VideoFormat_FileType_Mp4    = @"MP4";
 NSString * const kGTLRDfareporting_VideoFormat_FileType_Threegpp = @"THREEGPP";
 NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm   = @"WEBM";
+
+// GTLRDfareporting_VideoProcessingData.processingState
+NSString * const kGTLRDfareporting_VideoProcessingData_ProcessingState_Failed = @"FAILED";
+NSString * const kGTLRDfareporting_VideoProcessingData_ProcessingState_Processing = @"PROCESSING";
+NSString * const kGTLRDfareporting_VideoProcessingData_ProcessingState_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRDfareporting_VideoProcessingData_ProcessingState_Unknown = @"UNKNOWN";
 
 // GTLRDfareporting_VideoSettings.orientation
 NSString * const kGTLRDfareporting_VideoSettings_Orientation_Any = @"ANY";
@@ -1842,14 +1876,14 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 @dynamic accountId, active, advertiserId, advertiserIdDimensionValue, archived,
          audienceSegmentId, campaignId, campaignIdDimensionValue,
          clickThroughUrl, clickThroughUrlSuffixProperties, comments,
-         compatibility, createInfo, creativeGroupAssignments, creativeRotation,
-         dayPartTargeting, defaultClickThroughEventTagProperties,
-         deliverySchedule, dynamicClickTracker, endTime, eventTagOverrides,
-         geoTargeting, identifier, idDimensionValue,
-         keyValueTargetingExpression, kind, languageTargeting, lastModifiedInfo,
-         name, placementAssignments, remarketingListExpression, size,
-         sslCompliant, sslRequired, startTime, subaccountId,
-         targetingTemplateId, technologyTargeting, type;
+         compatibility, contextualKeywordTargeting, createInfo,
+         creativeGroupAssignments, creativeRotation, dayPartTargeting,
+         defaultClickThroughEventTagProperties, deliverySchedule,
+         dynamicClickTracker, endTime, eventTagOverrides, geoTargeting,
+         identifier, idDimensionValue, keyValueTargetingExpression, kind,
+         languageTargeting, lastModifiedInfo, name, placementAssignments,
+         remarketingListExpression, size, sslCompliant, sslRequired, startTime,
+         subaccountId, targetingTemplateId, technologyTargeting, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -2747,6 +2781,34 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"fieldNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_ContextualKeyword
+//
+
+@implementation GTLRDfareporting_ContextualKeyword
+@dynamic keyword;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_ContextualKeywordTargeting
+//
+
+@implementation GTLRDfareporting_ContextualKeywordTargeting
+@dynamic keywords;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keywords" : [GTLRDfareporting_ContextualKeyword class]
   };
   return map;
 }
@@ -3869,6 +3931,16 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 
 @implementation GTLRDfareporting_DynamicProfileFeedSettings
 @dynamic dynamicFeedId, dynamicRules, quantity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_DynamicProfileGenerateCodeResponse
+//
+
+@implementation GTLRDfareporting_DynamicProfileGenerateCodeResponse
+@dynamic code;
 @end
 
 
@@ -6253,6 +6325,85 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDfareporting_StudioCreative
+//
+
+@implementation GTLRDfareporting_StudioCreative
+@dynamic assetIds, backupImageAssetId, createdInfo, dimension, dynamicProfileId,
+         format, identifier, lastModifiedInfo, name, status, studioAccountId,
+         studioAdvertiserId, studioCampaignId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assetIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_StudioCreativeAsset
+//
+
+@implementation GTLRDfareporting_StudioCreativeAsset
+@dynamic createInfo, filename, filesize, identifier, lastModifiedInfo,
+         studioAccountId, studioAdvertiserId, studioCreativeId, type,
+         videoProcessingData;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_StudioCreativeAssetsInsertRequest
+//
+
+@implementation GTLRDfareporting_StudioCreativeAssetsInsertRequest
+@dynamic studioAccountId, studioAdvertiserId, studioCreativeId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_StudioCreativeAssetsResponse
+//
+
+@implementation GTLRDfareporting_StudioCreativeAssetsResponse
+@dynamic assets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assets" : [GTLRDfareporting_StudioCreativeAsset class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_StudioCreativeDimension
+//
+
+@implementation GTLRDfareporting_StudioCreativeDimension
+@dynamic height, width;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDfareporting_Subaccount
 //
 
@@ -6399,10 +6550,10 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 //
 
 @implementation GTLRDfareporting_TargetingTemplate
-@dynamic accountId, advertiserId, advertiserIdDimensionValue, dayPartTargeting,
-         geoTargeting, identifier, keyValueTargetingExpression, kind,
-         languageTargeting, listTargetingExpression, name, subaccountId,
-         technologyTargeting;
+@dynamic accountId, advertiserId, advertiserIdDimensionValue,
+         contextualKeywordTargeting, dayPartTargeting, geoTargeting, identifier,
+         keyValueTargetingExpression, kind, languageTargeting,
+         listTargetingExpression, name, subaccountId, technologyTargeting;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -6886,6 +7037,16 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 
 @implementation GTLRDfareporting_VideoOffset
 @dynamic offsetPercentage, offsetSeconds;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDfareporting_VideoProcessingData
+//
+
+@implementation GTLRDfareporting_VideoProcessingData
+@dynamic errorReason, processingState;
 @end
 
 

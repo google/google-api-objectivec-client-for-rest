@@ -29,6 +29,7 @@ NSString * const kGTLRManagedKafka_Cluster_State_StateUnspecified = @"STATE_UNSP
 NSString * const kGTLRManagedKafka_ConnectCluster_State_Active = @"ACTIVE";
 NSString * const kGTLRManagedKafka_ConnectCluster_State_Creating = @"CREATING";
 NSString * const kGTLRManagedKafka_ConnectCluster_State_Deleting = @"DELETING";
+NSString * const kGTLRManagedKafka_ConnectCluster_State_Detached = @"DETACHED";
 NSString * const kGTLRManagedKafka_ConnectCluster_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRManagedKafka_Connector.state
@@ -686,11 +687,12 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 //
 
 @implementation GTLRManagedKafka_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRManagedKafka_Operation class]
+    @"operations" : [GTLRManagedKafka_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1075,7 +1077,7 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 //
 
 @implementation GTLRManagedKafka_TaskRetryPolicy
-@dynamic maximumBackoff, minimumBackoff;
+@dynamic maximumBackoff, minimumBackoff, taskRetryDisabled;
 @end
 
 

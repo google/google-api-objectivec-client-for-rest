@@ -17,6 +17,28 @@
 
 @end
 
+@implementation GTLRWorkspaceEventsQuery_MessageStream
+
++ (instancetype)queryWithObject:(GTLRWorkspaceEvents_SendMessageRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v1/message:stream";
+  GTLRWorkspaceEventsQuery_MessageStream *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_StreamResponse class];
+  query.loggingName = @"workspaceevents.message.stream";
+  return query;
+}
+
+@end
+
 @implementation GTLRWorkspaceEventsQuery_OperationsGet
 
 @dynamic name;
@@ -168,6 +190,170 @@
   query.name = name;
   query.expectedObjectClass = [GTLRWorkspaceEvents_Operation class];
   query.loggingName = @"workspaceevents.subscriptions.reactivate";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_TasksCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRWorkspaceEvents_CancelTaskRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRWorkspaceEventsQuery_TasksCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_Task class];
+  query.loggingName = @"workspaceevents.tasks.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_TasksGet
+
+@dynamic historyLength, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkspaceEventsQuery_TasksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_Task class];
+  query.loggingName = @"workspaceevents.tasks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsCreate
+
+@dynamic configId, parent;
+
++ (instancetype)queryWithObject:(GTLRWorkspaceEvents_TaskPushNotificationConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}";
+  GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_TaskPushNotificationConfig class];
+  query.loggingName = @"workspaceevents.tasks.pushNotificationConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_Empty class];
+  query.loggingName = @"workspaceevents.tasks.pushNotificationConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_TaskPushNotificationConfig class];
+  query.loggingName = @"workspaceevents.tasks.pushNotificationConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/pushNotificationConfigs";
+  GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_ListTaskPushNotificationConfigResponse class];
+  query.loggingName = @"workspaceevents.tasks.pushNotificationConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_TasksSubscribe
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:subscribe";
+  GTLRWorkspaceEventsQuery_TasksSubscribe *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkspaceEvents_StreamResponse class];
+  query.loggingName = @"workspaceevents.tasks.subscribe";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkspaceEventsQuery_V1GetCard
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/card";
+  GTLRWorkspaceEventsQuery_V1GetCard *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRWorkspaceEvents_AgentCard class];
+  query.loggingName = @"workspaceevents.getCard";
   return query;
 }
 

@@ -733,6 +733,16 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_ContentSecurityPolicy
+//
+
+@implementation GTLRServiceUsage_ContentSecurityPolicy
+@dynamic mcpContentSecurity, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_ContentSecurityProvider
 //
 
@@ -1385,7 +1395,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy
-@dynamic annotations, createTime, enableRules, ETag, name, updateTime;
+@dynamic createTime, enableRules, ETag, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1396,20 +1406,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
     @"enableRules" : [GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule class]
   };
   return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations
-//
-
-@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaConsumerPolicy_Annotations
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
 }
 
 @end
@@ -1663,11 +1659,12 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRServiceUsage_Operation class]
+    @"operations" : [GTLRServiceUsage_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1794,7 +1791,7 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_McpPolicy
-@dynamic contentSecurity, createTime, ETag, mcpEnableRules, name, updateTime;
+@dynamic createTime, ETag, mcpEnableRules, name, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -2465,6 +2462,15 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_UpdateConsumerPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_UpdateContentSecurityPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_UpdateContentSecurityPolicyMetadata
 @end
 
 

@@ -4135,11 +4135,12 @@ NSString * const kGTLRCloudRetail_GoogleCloudRetailV2ServingConfig_SolutionTypes
 //
 
 @implementation GTLRCloudRetail_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudRetail_GoogleLongrunningOperation class]
+    @"operations" : [GTLRCloudRetail_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

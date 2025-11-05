@@ -253,90 +253,6 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 
 @end
 
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/analyses";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
-  query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.analyses.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleProtobufEmpty class];
-  query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.analyses.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis class];
-  query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.analyses.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/analyses";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAnalysesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAnalysesResponse class];
-  query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.analyses.list";
-  return query;
-}
-
-@end
-
 @implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsAssessmentsAppeal
 
 @dynamic name;
@@ -589,33 +505,6 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment class];
   query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.assessments.publish";
-  return query;
-}
-
-@end
-
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsBulkAnalyze
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/conversations:bulkAnalyze";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsBulkAnalyze *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
-  query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.bulkAnalyze";
   return query;
 }
 
@@ -2008,6 +1897,33 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 
 @end
 
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsSegmentsBulkAnalyze
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/segments:bulkAnalyze";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsSegmentsBulkAnalyze *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
+  query.loggingName = @"contactcenterinsights.projects.locations.conversations.segments.bulkAnalyze";
+  return query;
+}
+
+@end
+
 @implementation GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsUpload
 
 @dynamic parent;
@@ -2111,117 +2027,6 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
   query.parent = parent;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
   query.loggingName = @"contactcenterinsights.projects.locations.datasets.bulkUploadFeedbackLabels";
-  return query;
-}
-
-@end
-
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesCreate
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/analyses";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
-  query.loggingName = @"contactcenterinsights.projects.locations.datasets.conversations.analyses.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleProtobufEmpty class];
-  query.loggingName = @"contactcenterinsights.projects.locations.datasets.conversations.analyses.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Analysis class];
-  query.loggingName = @"contactcenterinsights.projects.locations.datasets.conversations.analyses.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/analyses";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsAnalysesList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAnalysesResponse class];
-  query.loggingName = @"contactcenterinsights.projects.locations.datasets.conversations.analyses.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsBulkAnalyze
-
-@dynamic parent;
-
-+ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/conversations:bulkAnalyze";
-  GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsBulkAnalyze *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
-  query.loggingName = @"contactcenterinsights.projects.locations.datasets.conversations.bulkAnalyze";
   return query;
 }
 

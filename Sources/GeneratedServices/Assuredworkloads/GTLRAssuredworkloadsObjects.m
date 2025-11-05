@@ -789,11 +789,12 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 //
 
 @implementation GTLRAssuredworkloads_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRAssuredworkloads_GoogleLongrunningOperation class]
+    @"operations" : [GTLRAssuredworkloads_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

@@ -58,7 +58,12 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DialogflowSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionAgentDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionClientSentimentCategoryDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationalAgentsPlaybookDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationalAgentsToolDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationProfileDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionIssueDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionMediumDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionAnswerDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaScorecardDimensionMetadata;
@@ -99,7 +104,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswer;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValueQaAnswerRationale;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaQuestionTag;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaScorecardResultQaTagResult;
@@ -188,7 +192,12 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DialogflowSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionAgentDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionClientSentimentCategoryDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationalAgentsPlaybookDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationalAgentsToolDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationProfileDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionIssueDimensionMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionMediumDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionAnswerDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionDimensionMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaScorecardDimensionMetadata;
@@ -238,7 +247,6 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswer;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue;
-@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValueQaAnswerRationale;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestion;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionAnswerChoice;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionMetrics;
@@ -476,6 +484,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Agent;
 /**
+ *  The dimension is keyed by the supervisor ID of the assigned human supervisor
+ *  for virtual agents.
+ *
+ *  Value: "AGENT_ASSIST_SUPERVISOR_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentAssistSupervisorId;
+/**
  *  The dimension is keyed by the agent deployment ID.
  *
  *  Value: "AGENT_DEPLOYMENT_ID"
@@ -493,6 +508,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "AGENT_VERSION_ID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentVersionId;
+/**
+ *  The dimension is keyed by the client sentiment category.
+ *
+ *  Value: "CLIENT_SENTIMENT_CATEGORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ClientSentimentCategory;
+/**
+ *  The dimension is keyed by the Conversational Agents playbook ID.
+ *
+ *  Value: "CONVERSATIONAL_AGENTS_PLAYBOOK_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsPlaybookId;
+/**
+ *  The dimension is keyed by the Conversational Agents playbook display name.
+ *
+ *  Value: "CONVERSATIONAL_AGENTS_PLAYBOOK_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsPlaybookName;
+/**
+ *  The dimension is keyed by the Conversational Agents tool ID.
+ *
+ *  Value: "CONVERSATIONAL_AGENTS_TOOL_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsToolId;
+/**
+ *  The dimension is keyed by the Conversational Agents tool display name.
+ *
+ *  Value: "CONVERSATIONAL_AGENTS_TOOL_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsToolName;
 /**
  *  The dimension is keyed by the conversation profile ID.
  *
@@ -1254,6 +1299,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Agent;
 /**
+ *  The dimension is keyed by the supervisor ID of the assigned human supervisor
+ *  for virtual agents.
+ *
+ *  Value: "AGENT_ASSIST_SUPERVISOR_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentAssistSupervisorId;
+/**
  *  The dimension is keyed by the agent deployment ID.
  *
  *  Value: "AGENT_DEPLOYMENT_ID"
@@ -1271,6 +1323,36 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "AGENT_VERSION_ID"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentVersionId;
+/**
+ *  The dimension is keyed by the client sentiment category.
+ *
+ *  Value: "CLIENT_SENTIMENT_CATEGORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ClientSentimentCategory;
+/**
+ *  The dimension is keyed by the Conversational Agents playbook ID.
+ *
+ *  Value: "CONVERSATIONAL_AGENTS_PLAYBOOK_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsPlaybookId;
+/**
+ *  The dimension is keyed by the Conversational Agents playbook display name.
+ *
+ *  Value: "CONVERSATIONAL_AGENTS_PLAYBOOK_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsPlaybookName;
+/**
+ *  The dimension is keyed by the Conversational Agents tool ID.
+ *
+ *  Value: "CONVERSATIONAL_AGENTS_TOOL_ID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsToolId;
+/**
+ *  The dimension is keyed by the Conversational Agents tool display name.
+ *
+ *  Value: "CONVERSATIONAL_AGENTS_TOOL_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsToolName;
 /**
  *  The dimension is keyed by the conversation profile ID.
  *
@@ -1818,20 +1900,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "CONVERSATION_OUTCOME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcome;
-/**
- *  A prebuilt classifier classfying whether the agent is helpful to the
- *  customer.
- *
- *  Value: "CONVERSATION_OUTCOME_AGENT_HELPFULNESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeAgentHelpfulness;
-/**
- *  A prebuilt classifier classfying whether the customer is satisfied with the
- *  agent's response.
- *
- *  Value: "CONVERSATION_OUTCOME_CUSTOMER_SATISFACTION"
- */
-FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeCustomerSatisfaction;
 /**
  *  A prebuilt classifier classfying the initiator of the conversation
  *  escalation. For example, if it was initiated by the customer or the agent.
@@ -3552,12 +3620,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 /** Output only. Metadata about the agent dimension. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionAgentDimensionMetadata *agentDimensionMetadata;
 
+/** Output only. Metadata about the client sentiment category dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionClientSentimentCategoryDimensionMetadata *clientSentimentCategoryDimensionMetadata;
+
+/**
+ *  Output only. Metadata about the Conversational Agents playbook dimension.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationalAgentsPlaybookDimensionMetadata *conversationalAgentsPlaybookDimensionMetadata;
+
+/** Output only. Metadata about the Conversational Agents tool dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationalAgentsToolDimensionMetadata *conversationalAgentsToolDimensionMetadata;
+
+/** Output only. Metadata about the conversation profile dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationProfileDimensionMetadata *conversationProfileDimensionMetadata;
+
 /**
  *  The key of the dimension.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_Agent
  *        The dimension is keyed by agents. (Value: "AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentAssistSupervisorId
+ *        The dimension is keyed by the supervisor ID of the assigned human
+ *        supervisor for virtual agents. (Value: "AGENT_ASSIST_SUPERVISOR_ID")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentDeploymentId
  *        The dimension is keyed by the agent deployment ID. (Value:
  *        "AGENT_DEPLOYMENT_ID")
@@ -3566,6 +3651,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_AgentVersionId
  *        The dimension is keyed by the agent version ID. (Value:
  *        "AGENT_VERSION_ID")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ClientSentimentCategory
+ *        The dimension is keyed by the client sentiment category. (Value:
+ *        "CLIENT_SENTIMENT_CATEGORY")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsPlaybookId
+ *        The dimension is keyed by the Conversational Agents playbook ID.
+ *        (Value: "CONVERSATIONAL_AGENTS_PLAYBOOK_ID")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsPlaybookName
+ *        The dimension is keyed by the Conversational Agents playbook display
+ *        name. (Value: "CONVERSATIONAL_AGENTS_PLAYBOOK_NAME")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsToolId
+ *        The dimension is keyed by the Conversational Agents tool ID. (Value:
+ *        "CONVERSATIONAL_AGENTS_TOOL_ID")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationalAgentsToolName
+ *        The dimension is keyed by the Conversational Agents tool display name.
+ *        (Value: "CONVERSATIONAL_AGENTS_TOOL_NAME")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Dimension_DimensionKey_ConversationProfileId
  *        The dimension is keyed by the conversation profile ID. (Value:
  *        "CONVERSATION_PROFILE_ID")
@@ -3600,6 +3700,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** Output only. Metadata about the issue dimension. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionIssueDimensionMetadata *issueDimensionMetadata;
+
+/** Output only. Metadata about the conversation medium dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionMediumDimensionMetadata *mediumDimensionMetadata;
 
 /** Output only. Metadata about the QA question-answer dimension. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionQaQuestionAnswerDimensionMetadata *qaQuestionAnswerDimensionMetadata;
@@ -3663,6 +3766,56 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 
 /**
+ *  Metadata about the client sentiment category dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionClientSentimentCategoryDimensionMetadata : GTLRObject
+
+/** Optional. The client sentiment category. */
+@property(nonatomic, copy, nullable) NSString *sentimentCategory;
+
+@end
+
+
+/**
+ *  Metadata about the Conversational Agents playbook dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationalAgentsPlaybookDimensionMetadata : GTLRObject
+
+/** Optional. The dialogflow playbook display name. */
+@property(nonatomic, copy, nullable) NSString *playbookDisplayName;
+
+/** Optional. The dialogflow playbook ID. */
+@property(nonatomic, copy, nullable) NSString *playbookId;
+
+@end
+
+
+/**
+ *  Metadata about the Conversational Agents tool dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationalAgentsToolDimensionMetadata : GTLRObject
+
+/** Optional. The dialogflow tool display name. */
+@property(nonatomic, copy, nullable) NSString *toolDisplayName;
+
+/** Optional. The dialogflow tool ID. */
+@property(nonatomic, copy, nullable) NSString *toolId;
+
+@end
+
+
+/**
+ *  Metadata about the conversation profile dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionConversationProfileDimensionMetadata : GTLRObject
+
+/** Optional. The conversation profile ID. */
+@property(nonatomic, copy, nullable) NSString *conversationProfileId;
+
+@end
+
+
+/**
  *  Metadata about the issue dimension.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionIssueDimensionMetadata : GTLRObject
@@ -3675,6 +3828,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** The parent issue model ID. */
 @property(nonatomic, copy, nullable) NSString *issueModelId;
+
+@end
+
+
+/**
+ *  Metadata about the conversation medium dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1DimensionMediumDimensionMetadata : GTLRObject
+
+/**
+ *  Optional. The conversation medium. Currently supports : PHONE_CALL, CHAT.
+ */
+@property(nonatomic, copy, nullable) NSString *medium;
 
 @end
 
@@ -5031,13 +5197,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, strong, nullable) NSNumber *potentialScore;
 
 /**
- *  Output only. The rationale for the answer. This field is only populated for
- *  answers that are generated by the LLM. Manual edits currently do not have
- *  rationales.
- */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValueQaAnswerRationale *rationale;
-
-/**
  *  Output only. Numerical score of the answer.
  *
  *  Uses NSNumber of doubleValue.
@@ -5055,17 +5214,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** String value. */
 @property(nonatomic, copy, nullable) NSString *strValue;
-
-@end
-
-
-/**
- *  Wrapper for the rationale for the answer.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValueQaAnswerRationale : GTLRObject
-
-/** The rationale string for the answer. */
-@property(nonatomic, copy, nullable) NSString *rationale;
 
 @end
 
@@ -8108,12 +8256,29 @@ GTLR_DEPRECATED
 /** Output only. Metadata about the agent dimension. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionAgentDimensionMetadata *agentDimensionMetadata;
 
+/** Output only. Metadata about the client sentiment category dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionClientSentimentCategoryDimensionMetadata *clientSentimentCategoryDimensionMetadata;
+
+/**
+ *  Output only. Metadata about the Conversational Agents playbook dimension.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationalAgentsPlaybookDimensionMetadata *conversationalAgentsPlaybookDimensionMetadata;
+
+/** Output only. Metadata about the Conversational Agents tool dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationalAgentsToolDimensionMetadata *conversationalAgentsToolDimensionMetadata;
+
+/** Output only. Metadata about the conversation profile dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationProfileDimensionMetadata *conversationProfileDimensionMetadata;
+
 /**
  *  The key of the dimension.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_Agent
  *        The dimension is keyed by agents. (Value: "AGENT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentAssistSupervisorId
+ *        The dimension is keyed by the supervisor ID of the assigned human
+ *        supervisor for virtual agents. (Value: "AGENT_ASSIST_SUPERVISOR_ID")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentDeploymentId
  *        The dimension is keyed by the agent deployment ID. (Value:
  *        "AGENT_DEPLOYMENT_ID")
@@ -8122,6 +8287,21 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_AgentVersionId
  *        The dimension is keyed by the agent version ID. (Value:
  *        "AGENT_VERSION_ID")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ClientSentimentCategory
+ *        The dimension is keyed by the client sentiment category. (Value:
+ *        "CLIENT_SENTIMENT_CATEGORY")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsPlaybookId
+ *        The dimension is keyed by the Conversational Agents playbook ID.
+ *        (Value: "CONVERSATIONAL_AGENTS_PLAYBOOK_ID")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsPlaybookName
+ *        The dimension is keyed by the Conversational Agents playbook display
+ *        name. (Value: "CONVERSATIONAL_AGENTS_PLAYBOOK_NAME")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsToolId
+ *        The dimension is keyed by the Conversational Agents tool ID. (Value:
+ *        "CONVERSATIONAL_AGENTS_TOOL_ID")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationalAgentsToolName
+ *        The dimension is keyed by the Conversational Agents tool display name.
+ *        (Value: "CONVERSATIONAL_AGENTS_TOOL_NAME")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension_DimensionKey_ConversationProfileId
  *        The dimension is keyed by the conversation profile ID. (Value:
  *        "CONVERSATION_PROFILE_ID")
@@ -8156,6 +8336,9 @@ GTLR_DEPRECATED
 
 /** Output only. Metadata about the issue dimension. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionIssueDimensionMetadata *issueDimensionMetadata;
+
+/** Output only. Metadata about the conversation medium dimension. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionMediumDimensionMetadata *mediumDimensionMetadata;
 
 /** Output only. Metadata about the QA question-answer dimension. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionQaQuestionAnswerDimensionMetadata *qaQuestionAnswerDimensionMetadata;
@@ -8219,6 +8402,56 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Metadata about the client sentiment category dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionClientSentimentCategoryDimensionMetadata : GTLRObject
+
+/** Optional. The client sentiment category. */
+@property(nonatomic, copy, nullable) NSString *sentimentCategory;
+
+@end
+
+
+/**
+ *  Metadata about the Conversational Agents playbook dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationalAgentsPlaybookDimensionMetadata : GTLRObject
+
+/** Optional. The dialogflow playbook display name. */
+@property(nonatomic, copy, nullable) NSString *playbookDisplayName;
+
+/** Optional. The dialogflow playbook ID. */
+@property(nonatomic, copy, nullable) NSString *playbookId;
+
+@end
+
+
+/**
+ *  Metadata about the Conversational Agents tool dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationalAgentsToolDimensionMetadata : GTLRObject
+
+/** Optional. The dialogflow tool display name. */
+@property(nonatomic, copy, nullable) NSString *toolDisplayName;
+
+/** Optional. The dialogflow tool ID. */
+@property(nonatomic, copy, nullable) NSString *toolId;
+
+@end
+
+
+/**
+ *  Metadata about the conversation profile dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionConversationProfileDimensionMetadata : GTLRObject
+
+/** Optional. The conversation profile ID. */
+@property(nonatomic, copy, nullable) NSString *conversationProfileId;
+
+@end
+
+
+/**
  *  Metadata about the issue dimension.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionIssueDimensionMetadata : GTLRObject
@@ -8231,6 +8464,19 @@ GTLR_DEPRECATED
 
 /** The parent issue model ID. */
 @property(nonatomic, copy, nullable) NSString *issueModelId;
+
+@end
+
+
+/**
+ *  Metadata about the conversation medium dimension.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DimensionMediumDimensionMetadata : GTLRObject
+
+/**
+ *  Optional. The conversation medium. Currently supports : PHONE_CALL, CHAT.
+ */
+@property(nonatomic, copy, nullable) NSString *medium;
 
 @end
 
@@ -10273,13 +10519,6 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *potentialScore;
 
 /**
- *  Output only. The rationale for the answer. This field is only populated for
- *  answers that are generated by the LLM. Manual edits currently do not have
- *  rationales.
- */
-@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValueQaAnswerRationale *rationale;
-
-/**
  *  Output only. Numerical score of the answer.
  *
  *  Uses NSNumber of doubleValue.
@@ -10297,17 +10536,6 @@ GTLR_DEPRECATED
 
 /** String value. */
 @property(nonatomic, copy, nullable) NSString *strValue;
-
-@end
-
-
-/**
- *  Wrapper for the rationale for the answer.
- */
-@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValueQaAnswerRationale : GTLRObject
-
-/** The rationale string for the answer. */
-@property(nonatomic, copy, nullable) NSString *rationale;
 
 @end
 
@@ -10484,13 +10712,6 @@ GTLR_DEPRECATED
  *        A prebuilt classifier classfying the outcome of the conversation. For
  *        example, if the customer issue mentioned in a conversation has been
  *        resolved or not. (Value: "CONVERSATION_OUTCOME")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeAgentHelpfulness
- *        A prebuilt classifier classfying whether the agent is helpful to the
- *        customer. (Value: "CONVERSATION_OUTCOME_AGENT_HELPFULNESS")
- *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeCustomerSatisfaction
- *        A prebuilt classifier classfying whether the customer is satisfied
- *        with the agent's response. (Value:
- *        "CONVERSATION_OUTCOME_CUSTOMER_SATISFACTION")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig_Type_ConversationOutcomeEscalationInitiatorRole
  *        A prebuilt classifier classfying the initiator of the conversation
  *        escalation. For example, if it was initiated by the customer or the
@@ -11527,6 +11748,15 @@ GTLR_DEPRECATED
  *  Platform.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig *redactionConfig;
+
+/**
+ *  Optional. The path to a Cloud Storage bucket containing conversation screen
+ *  recordings. If provided, Insights will search in the bucket for a screen
+ *  recording file matching the conversation data source object name prefix. If
+ *  matches are found, these file URIs will be stored in the conversation screen
+ *  recordings field.
+ */
+@property(nonatomic, copy, nullable) NSString *screenRecordingBucketUri;
 
 /**
  *  Optional. Default Speech-to-Text resources to use while ingesting audio

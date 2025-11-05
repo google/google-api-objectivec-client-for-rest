@@ -86,6 +86,10 @@ NSString * const kGTLRAnalyticsHub_Replica_ReplicaState_Unavailable = @"UNAVAILA
 NSString * const kGTLRAnalyticsHub_Routine_RoutineType_RoutineTypeUnspecified = @"ROUTINE_TYPE_UNSPECIFIED";
 NSString * const kGTLRAnalyticsHub_Routine_RoutineType_TableValuedFunction = @"TABLE_VALUED_FUNCTION";
 
+// GTLRAnalyticsHub_StoredProcedureConfig.allowedStoredProcedureTypes
+NSString * const kGTLRAnalyticsHub_StoredProcedureConfig_AllowedStoredProcedureTypes_SqlProcedure = @"SQL_PROCEDURE";
+NSString * const kGTLRAnalyticsHub_StoredProcedureConfig_AllowedStoredProcedureTypes_StoredProcedureTypeUnspecified = @"STORED_PROCEDURE_TYPE_UNSPECIFIED";
+
 // GTLRAnalyticsHub_Subscription.resourceType
 NSString * const kGTLRAnalyticsHub_Subscription_ResourceType_BigqueryDataset = @"BIGQUERY_DATASET";
 NSString * const kGTLRAnalyticsHub_Subscription_ResourceType_PubsubTopic = @"PUBSUB_TOPIC";
@@ -432,7 +436,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
          deadLetterPolicy, detached, enableExactlyOnceDelivery,
          enableMessageOrdering, expirationPolicy, filter, labels,
          messageRetentionDuration, messageTransforms, name, pushConfig,
-         retainAckedMessages, retryPolicy;
+         retainAckedMessages, retryPolicy, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -450,6 +454,20 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_GooglePubsubV1Subscription_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_GooglePubsubV1Subscription_Tags
+//
+
+@implementation GTLRAnalyticsHub_GooglePubsubV1Subscription_Tags
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -510,7 +528,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
          dataProvider, descriptionProperty, discoveryType, displayName,
          documentation, icon, logLinkedDatasetQueryUserEmail, name,
          primaryContact, publisher, pubsubTopic, requestAccess, resourceType,
-         restrictedExportConfig, state;
+         restrictedExportConfig, state, storedProcedureConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -960,6 +978,24 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_StoredProcedureConfig
+//
+
+@implementation GTLRAnalyticsHub_StoredProcedureConfig
+@dynamic allowedStoredProcedureTypes, enabled;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedStoredProcedureTypes" : [NSString class]
+  };
+  return map;
 }
 
 @end

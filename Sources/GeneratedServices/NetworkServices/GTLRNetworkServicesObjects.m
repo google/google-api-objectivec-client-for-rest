@@ -23,7 +23,6 @@ NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_Interna
 NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified = @"LOAD_BALANCING_SCHEME_UNSPECIFIED";
 
 // GTLRNetworkServices_AuthzExtension.wireFormat
-NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtAuthzGrpc = @"EXT_AUTHZ_GRPC";
 NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtProcGrpc = @"EXT_PROC_GRPC";
 NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_WireFormatUnspecified = @"WIRE_FORMAT_UNSPECIFIED";
 
@@ -36,6 +35,16 @@ NSString * const kGTLRNetworkServices_EndpointMatcherMetadataLabelMatcher_Metada
 NSString * const kGTLRNetworkServices_EndpointPolicy_Type_EndpointPolicyTypeUnspecified = @"ENDPOINT_POLICY_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkServices_EndpointPolicy_Type_GrpcServer = @"GRPC_SERVER";
 NSString * const kGTLRNetworkServices_EndpointPolicy_Type_SidecarProxy = @"SIDECAR_PROXY";
+
+// GTLRNetworkServices_ExtensionChainExtension.requestBodySendMode
+NSString * const kGTLRNetworkServices_ExtensionChainExtension_RequestBodySendMode_BodySendModeFullDuplexStreamed = @"BODY_SEND_MODE_FULL_DUPLEX_STREAMED";
+NSString * const kGTLRNetworkServices_ExtensionChainExtension_RequestBodySendMode_BodySendModeStreamed = @"BODY_SEND_MODE_STREAMED";
+NSString * const kGTLRNetworkServices_ExtensionChainExtension_RequestBodySendMode_BodySendModeUnspecified = @"BODY_SEND_MODE_UNSPECIFIED";
+
+// GTLRNetworkServices_ExtensionChainExtension.responseBodySendMode
+NSString * const kGTLRNetworkServices_ExtensionChainExtension_ResponseBodySendMode_BodySendModeFullDuplexStreamed = @"BODY_SEND_MODE_FULL_DUPLEX_STREAMED";
+NSString * const kGTLRNetworkServices_ExtensionChainExtension_ResponseBodySendMode_BodySendModeStreamed = @"BODY_SEND_MODE_STREAMED";
+NSString * const kGTLRNetworkServices_ExtensionChainExtension_ResponseBodySendMode_BodySendModeUnspecified = @"BODY_SEND_MODE_UNSPECIFIED";
 
 // GTLRNetworkServices_ExtensionChainExtension.supportedEvents
 NSString * const kGTLRNetworkServices_ExtensionChainExtension_SupportedEvents_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
@@ -82,6 +91,11 @@ NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_PermanentRe
 NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_ResponseCodeUnspecified = @"RESPONSE_CODE_UNSPECIFIED";
 NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_SeeOther = @"SEE_OTHER";
 NSString * const kGTLRNetworkServices_HttpRouteRedirect_ResponseCode_TemporaryRedirect = @"TEMPORARY_REDIRECT";
+
+// GTLRNetworkServices_LbEdgeExtension.loadBalancingScheme
+NSString * const kGTLRNetworkServices_LbEdgeExtension_LoadBalancingScheme_ExternalManaged = @"EXTERNAL_MANAGED";
+NSString * const kGTLRNetworkServices_LbEdgeExtension_LoadBalancingScheme_InternalManaged = @"INTERNAL_MANAGED";
+NSString * const kGTLRNetworkServices_LbEdgeExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified = @"LOAD_BALANCING_SCHEME_UNSPECIFIED";
 
 // GTLRNetworkServices_LbRouteExtension.loadBalancingScheme
 NSString * const kGTLRNetworkServices_LbRouteExtension_LoadBalancingScheme_ExternalManaged = @"EXTERNAL_MANAGED";
@@ -367,8 +381,9 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ExtensionChainExtension
-@dynamic authority, failOpen, forwardHeaders, metadata, name, service,
-         supportedEvents, timeout;
+@dynamic authority, failOpen, forwardHeaders, metadata, name,
+         requestBodySendMode, responseBodySendMode, service, supportedEvents,
+         timeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -949,6 +964,44 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_LbEdgeExtension
+//
+
+@implementation GTLRNetworkServices_LbEdgeExtension
+@dynamic createTime, descriptionProperty, extensionChains, forwardingRules,
+         labels, loadBalancingScheme, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extensionChains" : [GTLRNetworkServices_ExtensionChain class],
+    @"forwardingRules" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkServices_LbEdgeExtension_Labels
+//
+
+@implementation GTLRNetworkServices_LbEdgeExtension_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_LbRouteExtension
 //
 
@@ -1191,6 +1244,29 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkServices_ListLbEdgeExtensionsResponse
+//
+
+@implementation GTLRNetworkServices_ListLbEdgeExtensionsResponse
+@dynamic lbEdgeExtensions, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"lbEdgeExtensions" : [GTLRNetworkServices_LbEdgeExtension class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"lbEdgeExtensions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkServices_ListLbRouteExtensionsResponse
 //
 
@@ -1309,11 +1385,12 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRNetworkServices_Operation class]
+    @"operations" : [GTLRNetworkServices_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

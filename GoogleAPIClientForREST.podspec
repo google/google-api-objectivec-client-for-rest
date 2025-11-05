@@ -370,6 +370,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/ChromeUXReport/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/ChromeUXReport/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'Chromewebstore' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/Chromewebstore/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/Chromewebstore/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'CivicInfo' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CivicInfo/**/*.{h,m}'
@@ -679,6 +684,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Datalineage/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Datalineage/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'DataManager' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/DataManager/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/DataManager/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Datapipelines' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

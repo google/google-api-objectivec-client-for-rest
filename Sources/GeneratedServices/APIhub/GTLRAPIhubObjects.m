@@ -2232,11 +2232,12 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 //
 
 @implementation GTLRAPIhub_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRAPIhub_GoogleLongrunningOperation class]
+    @"operations" : [GTLRAPIhub_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

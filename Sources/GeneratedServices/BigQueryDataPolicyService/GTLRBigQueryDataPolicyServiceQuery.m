@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Data Policy API (bigquerydatapolicy/v1)
+//   BigQuery Data Policy API (bigquerydatapolicy/v2)
 // Description:
 //   Allows users to manage BigQuery data policies.
 // Documentation:
@@ -16,11 +16,38 @@
 
 @end
 
+@implementation GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesAddGrantees
+
+@dynamic dataPolicy;
+
++ (instancetype)queryWithObject:(GTLRBigQueryDataPolicyService_AddGranteesRequest *)object
+                     dataPolicy:(NSString *)dataPolicy {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"dataPolicy" ];
+  NSString *pathURITemplate = @"v2/{+dataPolicy}:addGrantees";
+  GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesAddGrantees *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.dataPolicy = dataPolicy;
+  query.expectedObjectClass = [GTLRBigQueryDataPolicyService_DataPolicy class];
+  query.loggingName = @"bigquerydatapolicy.projects.locations.dataPolicies.addGrantees";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesCreate
 
 @dynamic parent;
 
-+ (instancetype)queryWithObject:(GTLRBigQueryDataPolicyService_DataPolicy *)object
++ (instancetype)queryWithObject:(GTLRBigQueryDataPolicyService_CreateDataPolicyRequest *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -29,7 +56,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/dataPolicies";
+  NSString *pathURITemplate = @"v2/{+parent}/dataPolicies";
   GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesCreate *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -45,11 +72,11 @@
 
 @implementation GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesDelete
 
-@dynamic force, name;
+@dynamic name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesDelete *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"DELETE"
@@ -68,7 +95,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -94,7 +121,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
   GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesGetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -114,7 +141,7 @@
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/dataPolicies";
+  NSString *pathURITemplate = @"v2/{+parent}/dataPolicies";
   GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -140,7 +167,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"PATCH"
@@ -154,28 +181,28 @@
 
 @end
 
-@implementation GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesRename
+@implementation GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesRemoveGrantees
 
-@dynamic name;
+@dynamic dataPolicy;
 
-+ (instancetype)queryWithObject:(GTLRBigQueryDataPolicyService_RenameDataPolicyRequest *)object
-                           name:(NSString *)name {
++ (instancetype)queryWithObject:(GTLRBigQueryDataPolicyService_RemoveGranteesRequest *)object
+                     dataPolicy:(NSString *)dataPolicy {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}:rename";
-  GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesRename *query =
+  NSArray *pathParams = @[ @"dataPolicy" ];
+  NSString *pathURITemplate = @"v2/{+dataPolicy}:removeGrantees";
+  GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesRemoveGrantees *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
-  query.name = name;
+  query.dataPolicy = dataPolicy;
   query.expectedObjectClass = [GTLRBigQueryDataPolicyService_DataPolicy class];
-  query.loggingName = @"bigquerydatapolicy.projects.locations.dataPolicies.rename";
+  query.loggingName = @"bigquerydatapolicy.projects.locations.dataPolicies.removeGrantees";
   return query;
 }
 
@@ -194,7 +221,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
   GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesSetIamPolicy *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
@@ -221,7 +248,7 @@
     return nil;
   }
   NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
   GTLRBigQueryDataPolicyServiceQuery_ProjectsLocationsDataPoliciesTestIamPermissions *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"

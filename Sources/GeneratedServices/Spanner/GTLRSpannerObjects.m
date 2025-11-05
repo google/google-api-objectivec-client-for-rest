@@ -233,6 +233,7 @@ NSString * const kGTLRSpanner_Type_Code_String              = @"STRING";
 NSString * const kGTLRSpanner_Type_Code_Struct              = @"STRUCT";
 NSString * const kGTLRSpanner_Type_Code_Timestamp           = @"TIMESTAMP";
 NSString * const kGTLRSpanner_Type_Code_TypeCodeUnspecified = @"TYPE_CODE_UNSPECIFIED";
+NSString * const kGTLRSpanner_Type_Code_Uuid                = @"UUID";
 
 // GTLRSpanner_Type.typeAnnotation
 NSString * const kGTLRSpanner_Type_TypeAnnotation_PgJsonb      = @"PG_JSONB";

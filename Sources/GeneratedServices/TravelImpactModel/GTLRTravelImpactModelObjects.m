@@ -24,6 +24,19 @@ NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Easa = @"EASA
 NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
 NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Tim = @"TIM";
 
+// GTLRTravelImpactModel_Scope3FlightEmissions.source
+NSString * const kGTLRTravelImpactModel_Scope3FlightEmissions_Source_DistanceBasedEmissions = @"DISTANCE_BASED_EMISSIONS";
+NSString * const kGTLRTravelImpactModel_Scope3FlightEmissions_Source_Scope3DataTypeUnspecified = @"SCOPE3_DATA_TYPE_UNSPECIFIED";
+NSString * const kGTLRTravelImpactModel_Scope3FlightEmissions_Source_TimEmissions = @"TIM_EMISSIONS";
+NSString * const kGTLRTravelImpactModel_Scope3FlightEmissions_Source_TypicalFlightEmissions = @"TYPICAL_FLIGHT_EMISSIONS";
+
+// GTLRTravelImpactModel_Scope3FlightSegment.cabinClass
+NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_Business = @"BUSINESS";
+NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_CabinClassUnspecified = @"CABIN_CLASS_UNSPECIFIED";
+NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_Economy = @"ECONOMY";
+NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_First = @"FIRST";
+NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_PremiumEconomy = @"PREMIUM_ECONOMY";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRTravelImpactModel_ComputeFlightEmissionsRequest
@@ -53,6 +66,42 @@ NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Tim = @"TIM";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"flightEmissions" : [GTLRTravelImpactModel_FlightWithEmissions class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_ComputeScope3FlightEmissionsRequest
+//
+
+@implementation GTLRTravelImpactModel_ComputeScope3FlightEmissionsRequest
+@dynamic flights, modelVersion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"flights" : [GTLRTravelImpactModel_Scope3FlightSegment class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_ComputeScope3FlightEmissionsResponse
+//
+
+@implementation GTLRTravelImpactModel_ComputeScope3FlightEmissionsResponse
+@dynamic flightEmissions, modelVersion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"flightEmissions" : [GTLRTravelImpactModel_Scope3FlightEmissions class]
   };
   return map;
 }
@@ -164,6 +213,28 @@ NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Tim = @"TIM";
 
 @implementation GTLRTravelImpactModel_ModelVersion
 @dynamic dated, major, minor, patch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_Scope3FlightEmissions
+//
+
+@implementation GTLRTravelImpactModel_Scope3FlightEmissions
+@dynamic flight, source, ttwEmissionsGramsPerPax, wttEmissionsGramsPerPax,
+         wtwEmissionsGramsPerPax;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_Scope3FlightSegment
+//
+
+@implementation GTLRTravelImpactModel_Scope3FlightSegment
+@dynamic cabinClass, carrierCode, departureDate, destination, distanceKm,
+         flightNumber, origin;
 @end
 
 

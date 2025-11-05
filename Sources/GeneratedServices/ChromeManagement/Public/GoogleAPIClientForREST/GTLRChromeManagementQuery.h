@@ -352,6 +352,236 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Claims a certificate provisioning process. For each certificate provisioning
+ *  process, this operation can succeed only for one `caller_instance_id`.
+ *
+ *  Method: chromemanagement.customers.certificateProvisioningProcesses.claim
+ */
+@interface GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesClaim : GTLRChromeManagementQuery
+
+/**
+ *  Required. Resource name of the `CertificateProvisioningProcess` to claim.
+ *  The name pattern is given as
+ *  `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *  with `{customer}` being the obfuscated customer id and
+ *  `{certificate_provisioning_process}` being the certificate provisioning
+ *  process id.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ClaimCertificateProvisioningProcessResponse.
+ *
+ *  Claims a certificate provisioning process. For each certificate provisioning
+ *  process, this operation can succeed only for one `caller_instance_id`.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1ClaimCertificateProvisioningProcessRequest
+ *    to include in the query.
+ *  @param name Required. Resource name of the `CertificateProvisioningProcess`
+ *    to claim. The name pattern is given as
+ *    `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *    with `{customer}` being the obfuscated customer id and
+ *    `{certificate_provisioning_process}` being the certificate provisioning
+ *    process id.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesClaim
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1ClaimCertificateProvisioningProcessRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a certificate provisioning process.
+ *
+ *  Method: chromemanagement.customers.certificateProvisioningProcesses.get
+ */
+@interface GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesGet : GTLRChromeManagementQuery
+
+/**
+ *  Required. Resource name of the `CertificateProvisioningProcess` to return.
+ *  The name pattern is given as
+ *  `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *  with `{customer}` being the obfuscated customer id and
+ *  `{certificate_provisioning_process}` being the certificate provisioning
+ *  process id.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess.
+ *
+ *  Retrieves a certificate provisioning process.
+ *
+ *  @param name Required. Resource name of the `CertificateProvisioningProcess`
+ *    to return. The name pattern is given as
+ *    `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *    with `{customer}` being the obfuscated customer id and
+ *    `{certificate_provisioning_process}` being the certificate provisioning
+ *    process id.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: chromemanagement.customers.certificateProvisioningProcesses.operations.get
+ */
+@interface GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesOperationsGet : GTLRChromeManagementQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Marks a certificate provisioning process as failed.
+ *
+ *  Method: chromemanagement.customers.certificateProvisioningProcesses.setFailure
+ */
+@interface GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesSetFailure : GTLRChromeManagementQuery
+
+/**
+ *  Required. Resource name of the `CertificateProvisioningProcess` to return.
+ *  The name pattern is given as
+ *  `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *  with `{customer}` being the obfuscated customer id and
+ *  `{certificate_provisioning_process}` being the certificate provisioning
+ *  process id.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1SetFailureResponse.
+ *
+ *  Marks a certificate provisioning process as failed.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1SetFailureRequest to
+ *    include in the query.
+ *  @param name Required. Resource name of the `CertificateProvisioningProcess`
+ *    to return. The name pattern is given as
+ *    `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *    with `{customer}` being the obfuscated customer id and
+ *    `{certificate_provisioning_process}` being the certificate provisioning
+ *    process id.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesSetFailure
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1SetFailureRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Requests the client that initiated a certificate provisioning process to
+ *  sign data. This should only be called after
+ *  `ClaimCertificateProvisioningProcess` has been successfully executed.
+ *
+ *  Method: chromemanagement.customers.certificateProvisioningProcesses.signData
+ */
+@interface GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesSignData : GTLRChromeManagementQuery
+
+/**
+ *  Required. Resource name of the `CertificateProvisioningProcess` to return.
+ *  The name pattern is given as
+ *  `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *  with `{customer}` being the obfuscated customer id and
+ *  `{certificate_provisioning_process}` being the certificate provisioning
+ *  process id.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleLongrunningOperation.
+ *
+ *  Requests the client that initiated a certificate provisioning process to
+ *  sign data. This should only be called after
+ *  `ClaimCertificateProvisioningProcess` has been successfully executed.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest to
+ *    include in the query.
+ *  @param name Required. Resource name of the `CertificateProvisioningProcess`
+ *    to return. The name pattern is given as
+ *    `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *    with `{customer}` being the obfuscated customer id and
+ *    `{certificate_provisioning_process}` being the certificate provisioning
+ *    process id.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesSignData
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Uploads a successfully issued certificate for a certificate provisioning
+ *  process.
+ *
+ *  Method: chromemanagement.customers.certificateProvisioningProcesses.uploadCertificate
+ */
+@interface GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesUploadCertificate : GTLRChromeManagementQuery
+
+/**
+ *  Required. Resource name of the `CertificateProvisioningProcess` to return.
+ *  The name pattern is given as
+ *  `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *  with `{customer}` being the obfuscated customer id and
+ *  `{certificate_provisioning_process}` being the certificate provisioning
+ *  process id.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateResponse.
+ *
+ *  Uploads a successfully issued certificate for a certificate provisioning
+ *  process.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateRequest
+ *    to include in the query.
+ *  @param name Required. Resource name of the `CertificateProvisioningProcess`
+ *    to return. The name pattern is given as
+ *    `customers/{customer}/certificateProvisioningProcesses/{certificate_provisioning_process}`
+ *    with `{customer}` being the obfuscated customer id and
+ *    `{certificate_provisioning_process}` being the certificate provisioning
+ *    process id.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesUploadCertificate
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a Chrome browser profile remote command.
  *
  *  Method: chromemanagement.customers.profiles.commands.create
@@ -1659,6 +1889,127 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  */
 + (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: chromemanagement.operations.cancel
+ */
+@interface GTLRChromeManagementQuery_OperationsCancel : GTLRChromeManagementQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleLongrunningCancelOperationRequest to include in
+ *    the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRChromeManagementQuery_OperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleLongrunningCancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: chromemanagement.operations.delete
+ */
+@interface GTLRChromeManagementQuery_OperationsDelete : GTLRChromeManagementQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRChromeManagementQuery_OperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: chromemanagement.operations.list
+ */
+@interface GTLRChromeManagementQuery_OperationsList : GTLRChromeManagementQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleLongrunningListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRChromeManagementQuery_OperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

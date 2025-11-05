@@ -108,6 +108,8 @@
 @class GTLRSQLAdmin_SqlSubOperationType;
 @class GTLRSQLAdmin_SslCert;
 @class GTLRSQLAdmin_SslCertDetail;
+@class GTLRSQLAdmin_Status;
+@class GTLRSQLAdmin_Status_Details_Item;
 @class GTLRSQLAdmin_SyncFlags;
 @class GTLRSQLAdmin_TargetMetric;
 @class GTLRSQLAdmin_Tier;
@@ -1994,13 +1996,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_Instanc
 
 /**
  *  Return a truncated result and set `partial_result` to true if the result
- *  exceeds 10 MB. Don't throw an error.
+ *  exceeds 10 MB or if only a partial result can be retrieved due to error.
+ *  Don't throw an error.
  *
  *  Value: "ALLOW_PARTIAL_RESULT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_AllowPartialResult;
 /**
- *  Throw an error if the result exceeds 10 MB. Don't return the result.
+ *  Throw an error if the result exceeds 10 MB or if only a partial result can
+ *  be retrieved. Don't return the result.
  *
  *  Value: "FAIL_PARTIAL_RESULT"
  */
@@ -3534,6 +3538,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_N
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_Required;
 
 // ----------------------------------------------------------------------------
+// GTLRSQLAdmin_Settings.dataApiAccess
+
+/**
+ *  Allow using Data API to connect to the instance. For private IP instances,
+ *  this will allow authorized users to access the instance from the public
+ *  internet.
+ *
+ *  Value: "ALLOW_DATA_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataApiAccess_AllowDataApi;
+/**
+ *  Unspecified, effectively the same as `DISALLOW_DATA_API`.
+ *
+ *  Value: "DATA_API_ACCESS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataApiAccess_DataApiAccessUnspecified;
+/**
+ *  Disallow using Data API to connect to the instance.
+ *
+ *  Value: "DISALLOW_DATA_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataApiAccess_DisallowDataApi;
+
+// ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Settings.dataDiskType
 
 /**
@@ -3649,17 +3677,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ReplicationType_Synchr
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_ActiveDirectoryModeUnspecified;
 /**
+ *  Customer-managed Active Directory mode.
+ *
+ *  Value: "CUSTOMER_MANAGED_ACTIVE_DIRECTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_CustomerManagedActiveDirectory;
+/**
  *  Managed Active Directory mode.
  *
  *  Value: "MANAGED_ACTIVE_DIRECTORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_ManagedActiveDirectory;
 /**
- *  Self-managed Active Directory mode.
+ *  Deprecated: Use CUSTOMER_MANAGED_ACTIVE_DIRECTORY instead.
  *
  *  Value: "SELF_MANAGED_ACTIVE_DIRECTORY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_SelfManagedActiveDirectory;
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_SelfManagedActiveDirectory GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_SqlExternalSyncSettingError.type
@@ -5311,7 +5345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *databaseNames;
 
-/** Name of the Cloud SQL instance to be created as a clone. */
+/** Required. Name of the Cloud SQL instance to be created as a clone. */
 @property(nonatomic, copy, nullable) NSString *destinationInstanceName;
 
 /** This is always `sql#cloneContext`. */
@@ -6534,16 +6568,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  Optional. Controls how the API should respond when the SQL execution result
- *  exceeds 10 MB. The default mode is to throw an error.
+ *  is incomplete due to the size limit or another error. The default mode is to
+ *  throw an error.
  *
  *  Likely values:
  *    @arg @c kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_AllowPartialResult
  *        Return a truncated result and set `partial_result` to true if the
- *        result exceeds 10 MB. Don't throw an error. (Value:
- *        "ALLOW_PARTIAL_RESULT")
+ *        result exceeds 10 MB or if only a partial result can be retrieved due
+ *        to error. Don't throw an error. (Value: "ALLOW_PARTIAL_RESULT")
  *    @arg @c kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_FailPartialResult
- *        Throw an error if the result exceeds 10 MB. Don't return the result.
- *        (Value: "FAIL_PARTIAL_RESULT")
+ *        Throw an error if the result exceeds 10 MB or if only a partial result
+ *        can be retrieved. Don't return the result. (Value:
+ *        "FAIL_PARTIAL_RESULT")
  *    @arg @c kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_PartialResultModeUnspecified
  *        Unspecified mode, effectively the same as `FAIL_PARTIAL_RESULT`.
  *        (Value: "PARTIAL_RESULT_MODE_UNSPECIFIED")
@@ -7503,7 +7539,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_InstancesCloneRequest : GTLRObject
 
-/** Contains details about the clone operation. */
+/** Required. Contains details about the clone operation. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_CloneContext *cloneContext;
 
 @end
@@ -9051,7 +9087,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *message;
 
 /**
- *  Set to true if the SQL execution's result is truncated due to size limits.
+ *  Set to true if the SQL execution's result is truncated due to size limits or
+ *  an error retrieving results.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9059,6 +9096,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** Rows returned by the SQL statement. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Row *> *rows;
+
+/** If results were truncated due to an error, details of that error. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_Status *status;
 
 @end
 
@@ -9355,6 +9395,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *authorizedGaeApplications GTLR_DEPRECATED;
 
 /**
+ *  Optional. Cloud SQL for MySQL auto-upgrade configuration. When this
+ *  parameter is set to true, auto-upgrade is enabled for MySQL 8.0 minor
+ *  versions. The MySQL version must be 8.0.35 or higher.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoUpgradeEnabled;
+
+/**
  *  Availability type. Potential values: * `ZONAL`: The instance serves data
  *  from only one zone. Outages in that zone affect data accessibility. *
  *  `REGIONAL`: The instance can serve data from more than one zone in a region
@@ -9414,6 +9463,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *crashSafeReplicationEnabled GTLR_DEPRECATED;
+
+/**
+ *  This parameter controls whether to allow using Data API to connect to the
+ *  instance. Not allowed by default.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_Settings_DataApiAccess_AllowDataApi Allow using Data
+ *        API to connect to the instance. For private IP instances, this will
+ *        allow authorized users to access the instance from the public
+ *        internet. (Value: "ALLOW_DATA_API")
+ *    @arg @c kGTLRSQLAdmin_Settings_DataApiAccess_DataApiAccessUnspecified
+ *        Unspecified, effectively the same as `DISALLOW_DATA_API`. (Value:
+ *        "DATA_API_ACCESS_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_Settings_DataApiAccess_DisallowDataApi Disallow
+ *        using Data API to connect to the instance. (Value:
+ *        "DISALLOW_DATA_API")
+ */
+@property(nonatomic, copy, nullable) NSString *dataApiAccess;
 
 /** The database flags passed to the instance at startup. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_DatabaseFlags *> *databaseFlags;
@@ -9694,10 +9761,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        Unspecified mode. Will default to MANAGED_ACTIVE_DIRECTORY if the mode
  *        is not specified to maintain backward compatibility. (Value:
  *        "ACTIVE_DIRECTORY_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_CustomerManagedActiveDirectory
+ *        Customer-managed Active Directory mode. (Value:
+ *        "CUSTOMER_MANAGED_ACTIVE_DIRECTORY")
  *    @arg @c kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_ManagedActiveDirectory
  *        Managed Active Directory mode. (Value: "MANAGED_ACTIVE_DIRECTORY")
  *    @arg @c kGTLRSQLAdmin_SqlActiveDirectoryConfig_Mode_SelfManagedActiveDirectory
- *        Self-managed Active Directory mode. (Value:
+ *        Deprecated: Use CUSTOMER_MANAGED_ACTIVE_DIRECTORY instead. (Value:
  *        "SELF_MANAGED_ACTIVE_DIRECTORY")
  */
 @property(nonatomic, copy, nullable) NSString *mode;
@@ -9961,6 +10031,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** The list of results after executing all the SQL statements. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_QueryResult *> *results;
+
+/** Contains the error from the database if the SQL execution failed. */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_Status *status;
 
 @end
 
@@ -10496,6 +10569,51 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRSQLAdmin_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRSQLAdmin_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSQLAdmin_Status_Details_Item : GTLRObject
+@end
+
+
+/**
  *  Initial sync flags for certain Cloud SQL APIs. Currently used for the MySQL
  *  external server initial dump.
  */
@@ -10640,6 +10758,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  instance, it's optional.
  */
 @property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Optional. The full email for an IAM user. For normal database users, this
+ *  will not be filled. Only applicable to MySQL database users.
+ */
+@property(nonatomic, copy, nullable) NSString *iamEmail;
 
 /**
  *  Indicates if a group is active or inactive for IAM database authentication.

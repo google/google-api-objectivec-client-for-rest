@@ -21,6 +21,41 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// cycleOptionsInitialCycleDurationUnit
+
+/**
+ *  Unit of a day.
+ *
+ *  Value: "DAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitDay;
+/**
+ *  Unit of an hour. It is used for testing.
+ *
+ *  Value: "HOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitHour;
+/**
+ *  Unit of a calendar month.
+ *
+ *  Value: "MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitMonth;
+/**
+ *  Default value, reserved as an invalid or an unexpected value.
+ *
+ *  Value: "UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitUnitUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Payments Reseller Subscription query classes.
  */
@@ -406,6 +441,50 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates a line item of a subscription. It should be autenticated with a
+ *  service account.
+ *
+ *  Method: paymentsresellersubscription.partners.subscriptions.lineItems.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
+ */
+@interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsLineItemsPatch : GTLRPaymentsResellerSubscriptionQuery
+
+/**
+ *  Identifier. Resource name of the line item. Format:
+ *  partners/{partner}/subscriptions/{subscription}/lineItems/{lineItem}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The list of fields to update. Only a limited set of fields can be
+ *  updated. The allowed fields are the following: -
+ *  `product_payload.googleHomePayload.googleStructureId`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRPaymentsResellerSubscription_SubscriptionLineItem.
+ *
+ *  Updates a line item of a subscription. It should be autenticated with a
+ *  service account.
+ *
+ *  @param object The @c GTLRPaymentsResellerSubscription_SubscriptionLineItem
+ *    to include in the query.
+ *  @param name Identifier. Resource name of the line item. Format:
+ *    partners/{partner}/subscriptions/{subscription}/lineItems/{lineItem}
+ *
+ *  @return GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsLineItemsPatch
+ */
++ (instancetype)queryWithObject:(GTLRPaymentsResellerSubscription_SubscriptionLineItem *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Used by partners to provision a subscription for their customers. This
  *  creates a subscription without associating it with the end user account.
  *  EntitleSubscription must be called separately using OAuth in order for the
@@ -418,6 +497,25 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopePaymentsResellerSubscriptionSdmService
  */
 @interface GTLRPaymentsResellerSubscriptionQuery_PartnersSubscriptionsProvision : GTLRPaymentsResellerSubscriptionQuery
+
+/** number of duration units to be included. */
+@property(nonatomic, assign) NSInteger cycleOptionsInitialCycleDurationCount;
+
+/**
+ *  The unit used for the duration
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitUnitUnspecified
+ *        Default value, reserved as an invalid or an unexpected value. (Value:
+ *        "UNIT_UNSPECIFIED")
+ *    @arg @c kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitMonth
+ *        Unit of a calendar month. (Value: "MONTH")
+ *    @arg @c kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitDay
+ *        Unit of a day. (Value: "DAY")
+ *    @arg @c kGTLRPaymentsResellerSubscriptionCycleOptionsInitialCycleDurationUnitHour
+ *        Unit of an hour. It is used for testing. (Value: "HOUR")
+ */
+@property(nonatomic, copy, nullable) NSString *cycleOptionsInitialCycleDurationUnit;
 
 /**
  *  Required. The parent resource name, which is the identifier of the partner.

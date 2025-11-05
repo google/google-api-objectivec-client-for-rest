@@ -378,6 +378,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo;
 
 // ----------------------------------------------------------------------------
+// youtubeAssetType
+
+/**
+ *  Affiliate location asset.
+ *
+ *  Value: "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation;
+/**
+ *  Location asset.
+ *
+ *  Value: "YOUTUBE_ASSET_TYPE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation;
+/**
+ *  Sitelink asset.
+ *
+ *  Value: "YOUTUBE_ASSET_TYPE_SITELINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink;
+/**
+ *  YouTube asset type is not specified or is unknown in this version.
+ *
+ *  Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -388,6 +416,216 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates multiple ad assets in a single request. Returns the newly-created ad
+ *  assets if successful. Only supports the creation of assets of AdAssetType
+ *  `AD_ASSET_TYPE_YOUTUBE_VIDEO`.
+ *
+ *  Method: displayvideo.advertisers.adAssets.bulkCreate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersAdAssetsBulkCreate : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser these ad assets belong to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_BulkCreateAdAssetsResponse.
+ *
+ *  Creates multiple ad assets in a single request. Returns the newly-created ad
+ *  assets if successful. Only supports the creation of assets of AdAssetType
+ *  `AD_ASSET_TYPE_YOUTUBE_VIDEO`.
+ *
+ *  @param object The @c GTLRDisplayVideo_BulkCreateAdAssetsRequest to include
+ *    in the query.
+ *  @param advertiserId Required. The ID of the advertiser these ad assets
+ *    belong to.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersAdAssetsBulkCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkCreateAdAssetsRequest *)object
+                   advertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Creates an ad asset. Returns the newly-created ad asset if successful. Only
+ *  supports the creation of assets of AdAssetType
+ *  `AD_ASSET_TYPE_YOUTUBE_VIDEO`.
+ *
+ *  Method: displayvideo.advertisers.adAssets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersAdAssetsCreate : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser this ad asset belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_AdAsset.
+ *
+ *  Creates an ad asset. Returns the newly-created ad asset if successful. Only
+ *  supports the creation of assets of AdAssetType
+ *  `AD_ASSET_TYPE_YOUTUBE_VIDEO`.
+ *
+ *  @param object The @c GTLRDisplayVideo_CreateAdAssetRequest to include in the
+ *    query.
+ *  @param advertiserId Required. The ID of the advertiser this ad asset belongs
+ *    to.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersAdAssetsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_CreateAdAssetRequest *)object
+                   advertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Gets an ad asset. Only supports the retrieval of assets of AdAssetType
+ *  `AD_ASSET_TYPE_YOUTUBE_VIDEO`.
+ *
+ *  Method: displayvideo.advertisers.adAssets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersAdAssetsGet : GTLRDisplayVideoQuery
+
+/**
+ *  Required. The ID of the ad asset to fetch. Only supports assets of
+ *  AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO`
+ */
+@property(nonatomic, assign) long long adAssetId;
+
+/** Required. The ID of the advertiser this ad asset belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_AdAsset.
+ *
+ *  Gets an ad asset. Only supports the retrieval of assets of AdAssetType
+ *  `AD_ASSET_TYPE_YOUTUBE_VIDEO`.
+ *
+ *  @param advertiserId Required. The ID of the advertiser this ad asset belongs
+ *    to.
+ *  @param adAssetId Required. The ID of the ad asset to fetch. Only supports
+ *    assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO`
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersAdAssetsGet
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                            adAssetId:(long long)adAssetId;
+
+@end
+
+/**
+ *  Lists ad assets under an advertiser ID. Only supports the retrieval of
+ *  assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO`.
+ *
+ *  Method: displayvideo.advertisers.adAssets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersAdAssetsList : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser the ad assets belong to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Optional. Allows filtering of the results by ad asset fields. Supported
+ *  syntax: * A restriction has the form of `{field} {operator} {value}`. * All
+ *  fields must use the `EQUALS (=)` operator. Supported fields: *
+ *  `youtubeVideoAsset.youtubeVideoId` * `entityStatus` Examples: * All active
+ *  YouTube video ad assets under an advertiser:
+ *  `entityStatus=ENTITY_STATUS_ACTIVE`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Field by which to sort the list. Acceptable values are: *
+ *  `entityStatus` * `youtubeVideoAsset.youtubeVideoId` * `adAssetId` (default)
+ *  The default sorting order is ascending. To specify descending order for a
+ *  field, a suffix "desc" should be added to the field name. Example:
+ *  `adAssetId desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Must be between `1` and `5000`. If
+ *  unspecified will default to `5000`. Returns error code `INVALID_ARGUMENT` if
+ *  an invalid value is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ *  Typically, this is the value of next_page_token returned from the previous
+ *  call to `ListAdAssets` method. If not specified, the first page of results
+ *  will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListAdAssetsResponse.
+ *
+ *  Lists ad assets under an advertiser ID. Only supports the retrieval of
+ *  assets of AdAssetType `AD_ASSET_TYPE_YOUTUBE_VIDEO`.
+ *
+ *  @param advertiserId Required. The ID of the advertiser the ad assets belong
+ *    to.
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersAdAssetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId;
+
+@end
+
+/**
+ *  Uploads and creates an ad asset. Returns the ID of the newly-created ad
+ *  asset if successful. Only supports the uploading of assets with the
+ *  AdAssetType `AD_ASSET_TYPE_IMAGE`.
+ *
+ *  Method: displayvideo.advertisers.adAssets.upload
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersAdAssetsUpload : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser this ad asset belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_UploadAdAssetResponse.
+ *
+ *  Uploads and creates an ad asset. Returns the ID of the newly-created ad
+ *  asset if successful. Only supports the uploading of assets with the
+ *  AdAssetType `AD_ASSET_TYPE_IMAGE`.
+ *
+ *  @param object The @c GTLRDisplayVideo_UploadAdAssetRequest to include in the
+ *    query.
+ *  @param advertiserId Required. The ID of the advertiser this ad asset belongs
+ *    to.
+ *  @param uploadParameters The media to include in this query. Accepted MIME
+ *    type: * / *
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersAdAssetsUpload
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_UploadAdAssetRequest *)object
+                   advertiserId:(long long)advertiserId
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
 
 @end
 
@@ -1502,6 +1740,266 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId
                             adGroupId:(long long)adGroupId
                         targetingType:(NSString *)targetingType;
+
+@end
+
+/**
+ *  Creates a new association between the identified resource and a YouTube
+ *  asset. Returns the newly-created association. *Warning:* This method is only
+ *  available to an informed subset of users.
+ *
+ *  Method: displayvideo.advertisers.adGroups.youtubeAssetTypes.youtubeAssetAssociations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsCreate : GTLRDisplayVideoQuery
+
+/** The ID of an ad group. */
+@property(nonatomic, assign) long long adGroupId;
+
+/** Required. The ID of the advertiser that the linked entity belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** The ID of a line item. */
+@property(nonatomic, assign) long long linkedEntityLineItemId;
+
+/**
+ *  Required. The type of YouTube asset associated with the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ */
+@property(nonatomic, copy, nullable) NSString *youtubeAssetType;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_YoutubeAssetAssociation.
+ *
+ *  Creates a new association between the identified resource and a YouTube
+ *  asset. Returns the newly-created association. *Warning:* This method is only
+ *  available to an informed subset of users.
+ *
+ *  @param object The @c GTLRDisplayVideo_YoutubeAssetAssociation to include in
+ *    the query.
+ *  @param advertiserId Required. The ID of the advertiser that the linked
+ *    entity belongs to.
+ *  @param adGroupId The ID of an ad group.
+ *  @param youtubeAssetType Required. The type of YouTube asset associated with
+ *    the resource.
+ *
+ *  Likely values for @c youtubeAssetType:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_YoutubeAssetAssociation *)object
+                   advertiserId:(long long)advertiserId
+                      adGroupId:(long long)adGroupId
+               youtubeAssetType:(NSString *)youtubeAssetType;
+
+@end
+
+/**
+ *  Deletes an existing association between the identified resource and a
+ *  YouTube asset. *Warning:* This method is only available to an informed
+ *  subset of users.
+ *
+ *  Method: displayvideo.advertisers.adGroups.youtubeAssetTypes.youtubeAssetAssociations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsDelete : GTLRDisplayVideoQuery
+
+/** The ID of an ad group. */
+@property(nonatomic, assign) long long adGroupId;
+
+/** Required. The ID of the advertiser that the linked entity belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** The ID of a line item. */
+@property(nonatomic, assign) long long linkedEntityLineItemId;
+
+/**
+ *  Required. The ID of the YouTube asset in the association. For
+ *  `YOUTUBE_ASSET_TYPE_LOCATION` and `YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION`
+ *  associations: This should be the ID of the asset set linked, or 0 if the
+ *  location_asset_filter or affiliate_location_asset_filter is `DISABLED`. For
+ *  `YOUTUBE_ASSET_TYPE_SITELINK` associations: This should be the ID of the
+ *  sitelink asset linked.
+ */
+@property(nonatomic, assign) long long youtubeAssetAssociationId;
+
+/**
+ *  Required. The type of YouTube asset associated with the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ */
+@property(nonatomic, copy, nullable) NSString *youtubeAssetType;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Empty.
+ *
+ *  Deletes an existing association between the identified resource and a
+ *  YouTube asset. *Warning:* This method is only available to an informed
+ *  subset of users.
+ *
+ *  @param advertiserId Required. The ID of the advertiser that the linked
+ *    entity belongs to.
+ *  @param adGroupId The ID of an ad group.
+ *  @param youtubeAssetType Required. The type of YouTube asset associated with
+ *    the resource.
+ *  @param youtubeAssetAssociationId Required. The ID of the YouTube asset in
+ *    the association. For `YOUTUBE_ASSET_TYPE_LOCATION` and
+ *    `YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION` associations: This should be the
+ *    ID of the asset set linked, or 0 if the location_asset_filter or
+ *    affiliate_location_asset_filter is `DISABLED`. For
+ *    `YOUTUBE_ASSET_TYPE_SITELINK` associations: This should be the ID of the
+ *    sitelink asset linked.
+ *
+ *  Likely values for @c youtubeAssetType:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsDelete
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                            adGroupId:(long long)adGroupId
+                     youtubeAssetType:(NSString *)youtubeAssetType
+            youtubeAssetAssociationId:(long long)youtubeAssetAssociationId;
+
+@end
+
+/**
+ *  Lists the YouTube asset associations linked to the given resource.
+ *
+ *  Method: displayvideo.advertisers.adGroups.youtubeAssetTypes.youtubeAssetAssociations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsList : GTLRDisplayVideoQuery
+
+/** The ID of an ad group. */
+@property(nonatomic, assign) long long adGroupId;
+
+/** Required. The ID of the advertiser that the linked entity belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** The ID of a line item. */
+@property(nonatomic, assign) long long linkedEntityLineItemId;
+
+/**
+ *  Optional. Field by which to sort the list. The only acceptable values are: *
+ *  `linkedYoutubeAsset.locationAssetFilter.assetSetId`, *
+ *  `linkedYoutubeAsset.affiliateLocationAssetFilter.assetSetId`, *
+ *  `linkedYoutubeAsset.sitelinkAsset.assetId` The default sorting order is
+ *  ascending. To specify descending order for a field, a suffix " desc" should
+ *  be added to the field name. Example:
+ *  `linkedYoutubeAsset.sitelinkAsset.assetId desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Must be between `1` and `10000`. If
+ *  unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if
+ *  an invalid value is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ *  Typically, this is the value of next_page_token returned from the previous
+ *  call to `ListYoutubeAssetAssociations` method. If not specified, the first
+ *  page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The type of YouTube asset being associated with the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ */
+@property(nonatomic, copy, nullable) NSString *youtubeAssetType;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListYoutubeAssetAssociationsResponse.
+ *
+ *  Lists the YouTube asset associations linked to the given resource.
+ *
+ *  @param advertiserId Required. The ID of the advertiser that the linked
+ *    entity belongs to.
+ *  @param adGroupId The ID of an ad group.
+ *  @param youtubeAssetType Required. The type of YouTube asset being associated
+ *    with the resource.
+ *
+ *  Likely values for @c youtubeAssetType:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                            adGroupId:(long long)adGroupId
+                     youtubeAssetType:(NSString *)youtubeAssetType;
 
 @end
 
@@ -7976,6 +8474,266 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYo
 + (instancetype)queryWithAdvertiserId:(long long)advertiserId
                            lineItemId:(long long)lineItemId
                         targetingType:(NSString *)targetingType;
+
+@end
+
+/**
+ *  Creates a new association between the identified resource and a YouTube
+ *  asset. Returns the newly-created association. *Warning:* This method is only
+ *  available to an informed subset of users.
+ *
+ *  Method: displayvideo.advertisers.lineItems.youtubeAssetTypes.youtubeAssetAssociations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsCreate : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser that the linked entity belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** The ID of a line item. */
+@property(nonatomic, assign) long long lineItemId;
+
+/** The ID of an ad group. */
+@property(nonatomic, assign) long long linkedEntityAdGroupId;
+
+/**
+ *  Required. The type of YouTube asset associated with the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ */
+@property(nonatomic, copy, nullable) NSString *youtubeAssetType;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_YoutubeAssetAssociation.
+ *
+ *  Creates a new association between the identified resource and a YouTube
+ *  asset. Returns the newly-created association. *Warning:* This method is only
+ *  available to an informed subset of users.
+ *
+ *  @param object The @c GTLRDisplayVideo_YoutubeAssetAssociation to include in
+ *    the query.
+ *  @param advertiserId Required. The ID of the advertiser that the linked
+ *    entity belongs to.
+ *  @param lineItemId The ID of a line item.
+ *  @param youtubeAssetType Required. The type of YouTube asset associated with
+ *    the resource.
+ *
+ *  Likely values for @c youtubeAssetType:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDisplayVideo_YoutubeAssetAssociation *)object
+                   advertiserId:(long long)advertiserId
+                     lineItemId:(long long)lineItemId
+               youtubeAssetType:(NSString *)youtubeAssetType;
+
+@end
+
+/**
+ *  Deletes an existing association between the identified resource and a
+ *  YouTube asset. *Warning:* This method is only available to an informed
+ *  subset of users.
+ *
+ *  Method: displayvideo.advertisers.lineItems.youtubeAssetTypes.youtubeAssetAssociations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsDelete : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser that the linked entity belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** The ID of a line item. */
+@property(nonatomic, assign) long long lineItemId;
+
+/** The ID of an ad group. */
+@property(nonatomic, assign) long long linkedEntityAdGroupId;
+
+/**
+ *  Required. The ID of the YouTube asset in the association. For
+ *  `YOUTUBE_ASSET_TYPE_LOCATION` and `YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION`
+ *  associations: This should be the ID of the asset set linked, or 0 if the
+ *  location_asset_filter or affiliate_location_asset_filter is `DISABLED`. For
+ *  `YOUTUBE_ASSET_TYPE_SITELINK` associations: This should be the ID of the
+ *  sitelink asset linked.
+ */
+@property(nonatomic, assign) long long youtubeAssetAssociationId;
+
+/**
+ *  Required. The type of YouTube asset associated with the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ */
+@property(nonatomic, copy, nullable) NSString *youtubeAssetType;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_Empty.
+ *
+ *  Deletes an existing association between the identified resource and a
+ *  YouTube asset. *Warning:* This method is only available to an informed
+ *  subset of users.
+ *
+ *  @param advertiserId Required. The ID of the advertiser that the linked
+ *    entity belongs to.
+ *  @param lineItemId The ID of a line item.
+ *  @param youtubeAssetType Required. The type of YouTube asset associated with
+ *    the resource.
+ *  @param youtubeAssetAssociationId Required. The ID of the YouTube asset in
+ *    the association. For `YOUTUBE_ASSET_TYPE_LOCATION` and
+ *    `YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION` associations: This should be the
+ *    ID of the asset set linked, or 0 if the location_asset_filter or
+ *    affiliate_location_asset_filter is `DISABLED`. For
+ *    `YOUTUBE_ASSET_TYPE_SITELINK` associations: This should be the ID of the
+ *    sitelink asset linked.
+ *
+ *  Likely values for @c youtubeAssetType:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsDelete
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                           lineItemId:(long long)lineItemId
+                     youtubeAssetType:(NSString *)youtubeAssetType
+            youtubeAssetAssociationId:(long long)youtubeAssetAssociationId;
+
+@end
+
+/**
+ *  Lists the YouTube asset associations linked to the given resource.
+ *
+ *  Method: displayvideo.advertisers.lineItems.youtubeAssetTypes.youtubeAssetAssociations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDisplayVideoDisplayVideo
+ */
+@interface GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsList : GTLRDisplayVideoQuery
+
+/** Required. The ID of the advertiser that the linked entity belongs to. */
+@property(nonatomic, assign) long long advertiserId;
+
+/** The ID of a line item. */
+@property(nonatomic, assign) long long lineItemId;
+
+/** The ID of an ad group. */
+@property(nonatomic, assign) long long linkedEntityAdGroupId;
+
+/**
+ *  Optional. Field by which to sort the list. The only acceptable values are: *
+ *  `linkedYoutubeAsset.locationAssetFilter.assetSetId`, *
+ *  `linkedYoutubeAsset.affiliateLocationAssetFilter.assetSetId`, *
+ *  `linkedYoutubeAsset.sitelinkAsset.assetId` The default sorting order is
+ *  ascending. To specify descending order for a field, a suffix " desc" should
+ *  be added to the field name. Example:
+ *  `linkedYoutubeAsset.sitelinkAsset.assetId desc`.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Must be between `1` and `10000`. If
+ *  unspecified will default to `100`. Returns error code `INVALID_ARGUMENT` if
+ *  an invalid value is specified.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ *  Typically, this is the value of next_page_token returned from the previous
+ *  call to `ListYoutubeAssetAssociations` method. If not specified, the first
+ *  page of results will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The type of YouTube asset being associated with the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ */
+@property(nonatomic, copy, nullable) NSString *youtubeAssetType;
+
+/**
+ *  Fetches a @c GTLRDisplayVideo_ListYoutubeAssetAssociationsResponse.
+ *
+ *  Lists the YouTube asset associations linked to the given resource.
+ *
+ *  @param advertiserId Required. The ID of the advertiser that the linked
+ *    entity belongs to.
+ *  @param lineItemId The ID of a line item.
+ *  @param youtubeAssetType Required. The type of YouTube asset being associated
+ *    with the resource.
+ *
+ *  Likely values for @c youtubeAssetType:
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation Location
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink Sitelink
+ *        asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ *
+ *  @return GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                           lineItemId:(long long)lineItemId
+                     youtubeAssetType:(NSString *)youtubeAssetType;
 
 @end
 

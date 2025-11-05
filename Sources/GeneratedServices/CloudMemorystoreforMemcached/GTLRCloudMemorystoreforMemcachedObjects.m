@@ -604,11 +604,12 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudMemorystoreforMemcached_Operation class]
+    @"operations" : [GTLRCloudMemorystoreforMemcached_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

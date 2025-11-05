@@ -35,6 +35,25 @@
 
 @end
 
+@implementation GTLRCloudSchedulerQuery_ProjectsLocationsGetCmekConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudSchedulerQuery_ProjectsLocationsGetCmekConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudScheduler_CmekConfig class];
+  query.loggingName = @"cloudscheduler.projects.locations.getCmekConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudSchedulerQuery_ProjectsLocationsJobsCreate
 
 @dynamic parent;
@@ -332,6 +351,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudScheduler_ListOperationsResponse class];
   query.loggingName = @"cloudscheduler.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudSchedulerQuery_ProjectsLocationsUpdateCmekConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudScheduler_CmekConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudSchedulerQuery_ProjectsLocationsUpdateCmekConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudScheduler_Operation class];
+  query.loggingName = @"cloudscheduler.projects.locations.updateCmekConfig";
   return query;
 }
 

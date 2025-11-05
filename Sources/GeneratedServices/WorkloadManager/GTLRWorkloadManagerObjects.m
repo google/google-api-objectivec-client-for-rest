@@ -749,11 +749,12 @@ NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeU
 //
 
 @implementation GTLRWorkloadManager_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRWorkloadManager_Operation class]
+    @"operations" : [GTLRWorkloadManager_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -859,6 +860,21 @@ NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeU
 //
 
 @implementation GTLRWorkloadManager_OpenShiftValidation
+@dynamic clusterId, validationDetails;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_OpenShiftValidation_ValidationDetails
+//
+
+@implementation GTLRWorkloadManager_OpenShiftValidation_ValidationDetails
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -988,9 +1004,9 @@ NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeU
 //
 
 @implementation GTLRWorkloadManager_Rule
-@dynamic descriptionProperty, displayName, errorMessage, name, primaryCategory,
-         remediation, revisionId, ruleType, secondaryCategory, severity, tags,
-         uri;
+@dynamic assetType, descriptionProperty, displayName, errorMessage, name,
+         primaryCategory, remediation, revisionId, ruleType, secondaryCategory,
+         severity, tags, uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

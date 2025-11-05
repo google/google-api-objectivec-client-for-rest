@@ -50,7 +50,7 @@ NSString * const kGTLRServiceManagementViewFull  = @"FULL";
 
 @implementation GTLRServiceManagementQuery_OperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)query {
   NSString *pathURITemplate = @"v1/operations";

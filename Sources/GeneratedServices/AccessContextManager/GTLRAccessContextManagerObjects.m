@@ -688,11 +688,12 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 //
 
 @implementation GTLRAccessContextManager_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRAccessContextManager_Operation class]
+    @"operations" : [GTLRAccessContextManager_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

@@ -147,6 +147,152 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesClaim
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1ClaimCertificateProvisioningProcessRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:claim";
+  GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesClaim *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ClaimCertificateProvisioningProcessResponse class];
+  query.loggingName = @"chromemanagement.customers.certificateProvisioningProcesses.claim";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1CertificateProvisioningProcess class];
+  query.loggingName = @"chromemanagement.customers.certificateProvisioningProcesses.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleLongrunningOperation class];
+  query.loggingName = @"chromemanagement.customers.certificateProvisioningProcesses.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesSetFailure
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1SetFailureRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:setFailure";
+  GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesSetFailure *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1SetFailureResponse class];
+  query.loggingName = @"chromemanagement.customers.certificateProvisioningProcesses.setFailure";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesSignData
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:signData";
+  GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesSignData *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleLongrunningOperation class];
+  query.loggingName = @"chromemanagement.customers.certificateProvisioningProcesses.signData";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesUploadCertificate
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:uploadCertificate";
+  GTLRChromeManagementQuery_CustomersCertificateProvisioningProcessesUploadCertificate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateResponse class];
+  query.loggingName = @"chromemanagement.customers.certificateProvisioningProcesses.uploadCertificate";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersProfilesCommandsCreate
 
 @dynamic parent;
@@ -661,6 +807,71 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
   query.name = name;
   query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserResponse class];
   query.loggingName = @"chromemanagement.customers.thirdPartyProfileUsers.move";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_OperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleLongrunningCancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRChromeManagementQuery_OperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleProtobufEmpty class];
+  query.loggingName = @"chromemanagement.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_OperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_OperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleProtobufEmpty class];
+  query.loggingName = @"chromemanagement.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_OperationsList
+
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_OperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleLongrunningListOperationsResponse class];
+  query.loggingName = @"chromemanagement.operations.list";
   return query;
 }
 

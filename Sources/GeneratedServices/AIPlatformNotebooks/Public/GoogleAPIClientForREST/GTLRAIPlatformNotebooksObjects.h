@@ -956,6 +956,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
+/** Optional. The resource policies to apply to the data disk. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourcePolicies;
+
 @end
 
 
@@ -1197,6 +1200,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 /** Optional. Configuration for GPU drivers. */
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_GPUDriverConfig *gpuDriverConfig;
+
+/** Output only. The unique ID of the Compute Engine instance resource. */
+@property(nonatomic, copy, nullable) NSString *instanceId;
 
 /**
  *  Optional. The machine type of the VM instance.
@@ -1450,7 +1456,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, strong, nullable) GTLRAIPlatformNotebooks_Instance_Labels *labels;
 
 /**
- *  Output only. The name of this notebook instance. Format:
+ *  Output only. Identifier. The name of this notebook instance. Format:
  *  `projects/{project_id}/locations/{location}/instances/{instance_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1625,6 +1631,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAIPlatformNotebooks_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

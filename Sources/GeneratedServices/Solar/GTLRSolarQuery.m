@@ -46,7 +46,8 @@ NSString * const kGTLRSolarViewImageryLayers              = @"IMAGERY_LAYERS";
 
 @implementation GTLRSolarQuery_BuildingInsightsFindClosest
 
-@dynamic experiments, locationLatitude, locationLongitude, requiredQuality;
+@dynamic exactQualityRequired, experiments, locationLatitude, locationLongitude,
+         requiredQuality;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -30,6 +30,106 @@ NSString * const kGTLRBigLakeServiceViewTableViewUnspecified = @"TABLE_VIEW_UNSP
 
 @end
 
+@implementation GTLRBigLakeServiceQuery_ProjectsCatalogsGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRBigLakeServiceQuery_ProjectsCatalogsGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigLakeService_Policy class];
+  query.loggingName = @"biglake.projects.catalogs.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigLakeService_Policy class];
+  query.loggingName = @"biglake.projects.catalogs.namespaces.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigLakeService_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigLakeService_Policy class];
+  query.loggingName = @"biglake.projects.catalogs.namespaces.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigLakeServiceQuery_ProjectsCatalogsSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRBigLakeService_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRBigLakeServiceQuery_ProjectsCatalogsSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRBigLakeService_Policy class];
+  query.loggingName = @"biglake.projects.catalogs.setIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigLakeServiceQuery_ProjectsLocationsCatalogsCreate
 
 @dynamic catalogId, parent;

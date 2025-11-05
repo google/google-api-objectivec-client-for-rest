@@ -592,16 +592,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
 /**
  *  The Realtime Updates feature is disabled by default.
  *
- *  Value: "REALTIME_UPDATES_DISABLED"
+ *  Value: "REALTIME_UPDATES_MODE_DISABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesDisabled;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesModeDisabled;
 /**
  *  The Realtime Updates feature is enabled by default. This could potentially
  *  degrade write performance for the database.
  *
- *  Value: "REALTIME_UPDATES_ENABLED"
+ *  Value: "REALTIME_UPDATES_MODE_ENABLED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesEnabled;
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesModeEnabled;
 /**
  *  The Realtime Updates feature is not specified.
  *
@@ -2963,13 +2963,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  Immutable. The default Realtime Updates mode to use for this database.
  *
  *  Likely values:
- *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesDisabled
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesModeDisabled
  *        The Realtime Updates feature is disabled by default. (Value:
- *        "REALTIME_UPDATES_DISABLED")
- *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesEnabled
+ *        "REALTIME_UPDATES_MODE_DISABLED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesModeEnabled
  *        The Realtime Updates feature is enabled by default. This could
  *        potentially degrade write performance for the database. (Value:
- *        "REALTIME_UPDATES_ENABLED")
+ *        "REALTIME_UPDATES_MODE_ENABLED")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesModeUnspecified
  *        The Realtime Updates feature is not specified. (Value:
  *        "REALTIME_UPDATES_MODE_UNSPECIFIED")
@@ -4305,6 +4305,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

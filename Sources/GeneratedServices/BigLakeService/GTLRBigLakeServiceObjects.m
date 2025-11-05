@@ -15,6 +15,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRBigLakeService_AuditLogConfig.logType
+NSString * const kGTLRBigLakeService_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRBigLakeService_AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRBigLakeService_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRBigLakeService_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
+
 // GTLRBigLakeService_Database.type
 NSString * const kGTLRBigLakeService_Database_Type_Hive        = @"HIVE";
 NSString * const kGTLRBigLakeService_Database_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
@@ -22,6 +28,60 @@ NSString * const kGTLRBigLakeService_Database_Type_TypeUnspecified = @"TYPE_UNSP
 // GTLRBigLakeService_Table.type
 NSString * const kGTLRBigLakeService_Table_Type_Hive           = @"HIVE";
 NSString * const kGTLRBigLakeService_Table_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigLakeService_AuditConfig
+//
+
+@implementation GTLRBigLakeService_AuditConfig
+@dynamic auditLogConfigs, service;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditLogConfigs" : [GTLRBigLakeService_AuditLogConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigLakeService_AuditLogConfig
+//
+
+@implementation GTLRBigLakeService_AuditLogConfig
+@dynamic exemptedMembers, logType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigLakeService_Binding
+//
+
+@implementation GTLRBigLakeService_Binding
+@dynamic condition, members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -41,6 +101,21 @@ NSString * const kGTLRBigLakeService_Table_Type_TypeUnspecified = @"TYPE_UNSPECI
 @implementation GTLRBigLakeService_Database
 @dynamic createTime, deleteTime, expireTime, hiveOptions, name, type,
          updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigLakeService_Expr
+//
+
+@implementation GTLRBigLakeService_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -160,6 +235,29 @@ NSString * const kGTLRBigLakeService_Table_Type_TypeUnspecified = @"TYPE_UNSPECI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigLakeService_Policy
+//
+
+@implementation GTLRBigLakeService_Policy
+@dynamic auditConfigs, bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRBigLakeService_AuditConfig class],
+    @"bindings" : [GTLRBigLakeService_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigLakeService_RenameTableRequest
 //
 
@@ -175,6 +273,16 @@ NSString * const kGTLRBigLakeService_Table_Type_TypeUnspecified = @"TYPE_UNSPECI
 
 @implementation GTLRBigLakeService_SerDeInfo
 @dynamic serializationLib;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigLakeService_SetIamPolicyRequest
+//
+
+@implementation GTLRBigLakeService_SetIamPolicyRequest
+@dynamic policy, updateMask;
 @end
 
 

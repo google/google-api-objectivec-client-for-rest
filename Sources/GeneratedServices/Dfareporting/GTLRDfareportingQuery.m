@@ -2833,6 +2833,66 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @end
 
+@implementation GTLRDfareportingQuery_DynamicFeedsRetransform
+
+@dynamic dynamicFeedId;
+
++ (instancetype)queryWithDynamicFeedId:(long long)dynamicFeedId {
+  NSArray *pathParams = @[ @"dynamicFeedId" ];
+  NSString *pathURITemplate = @"studio/dynamicFeeds/{+dynamicFeedId}/retransform";
+  GTLRDfareportingQuery_DynamicFeedsRetransform *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.dynamicFeedId = dynamicFeedId;
+  query.expectedObjectClass = [GTLRDfareporting_DynamicFeed class];
+  query.loggingName = @"dfareporting.dynamicFeeds.retransform";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_DynamicFeedsUpdate
+
++ (instancetype)queryWithObject:(GTLRDfareporting_DynamicFeed *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"studio/dynamicFeeds";
+  GTLRDfareportingQuery_DynamicFeedsUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PUT"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDfareporting_DynamicFeed class];
+  query.loggingName = @"dfareporting.dynamicFeeds.update";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_DynamicProfilesGenerateCode
+
+@dynamic dynamicProfileId;
+
++ (instancetype)queryWithDynamicProfileId:(long long)dynamicProfileId {
+  NSArray *pathParams = @[ @"dynamicProfileId" ];
+  NSString *pathURITemplate = @"studio/dynamicProfiles/{+dynamicProfileId}/generateCode";
+  GTLRDfareportingQuery_DynamicProfilesGenerateCode *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.dynamicProfileId = dynamicProfileId;
+  query.expectedObjectClass = [GTLRDfareporting_DynamicProfileGenerateCodeResponse class];
+  query.loggingName = @"dfareporting.dynamicProfiles.generateCode";
+  return query;
+}
+
+@end
+
 @implementation GTLRDfareportingQuery_DynamicProfilesGet
 
 @dynamic dynamicProfileId;
@@ -2869,6 +2929,24 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   query.bodyObject = object;
   query.expectedObjectClass = [GTLRDfareporting_DynamicProfile class];
   query.loggingName = @"dfareporting.dynamicProfiles.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_DynamicProfilesPublish
+
+@dynamic dynamicProfileId;
+
++ (instancetype)queryWithDynamicProfileId:(long long)dynamicProfileId {
+  NSArray *pathParams = @[ @"dynamicProfileId" ];
+  NSString *pathURITemplate = @"studio/dynamicProfiles/{+dynamicProfileId}/publish";
+  GTLRDfareportingQuery_DynamicProfilesPublish *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.dynamicProfileId = dynamicProfileId;
+  query.loggingName = @"dfareporting.dynamicProfiles.publish";
   return query;
 }
 
@@ -5143,6 +5221,89 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
   query.profileId = profileId;
   query.expectedObjectClass = [GTLRDfareporting_SizesListResponse class];
   query.loggingName = @"dfareporting.sizes.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_StudioCreativeAssetsInsert
+
++ (instancetype)queryWithObject:(GTLRDfareporting_StudioCreativeAssetsInsertRequest *)object
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"studio/creativeAssets";
+  GTLRDfareportingQuery_StudioCreativeAssetsInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRDfareporting_StudioCreativeAssetsResponse class];
+  query.loggingName = @"dfareporting.studioCreativeAssets.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_StudioCreativesGet
+
+@dynamic studioCreativeId;
+
++ (instancetype)queryWithStudioCreativeId:(long long)studioCreativeId {
+  NSArray *pathParams = @[ @"studioCreativeId" ];
+  NSString *pathURITemplate = @"studio/creatives/{+studioCreativeId}";
+  GTLRDfareportingQuery_StudioCreativesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.studioCreativeId = studioCreativeId;
+  query.expectedObjectClass = [GTLRDfareporting_StudioCreative class];
+  query.loggingName = @"dfareporting.studioCreatives.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_StudioCreativesInsert
+
++ (instancetype)queryWithObject:(GTLRDfareporting_StudioCreative *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"studio/creatives";
+  GTLRDfareportingQuery_StudioCreativesInsert *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDfareporting_StudioCreative class];
+  query.loggingName = @"dfareporting.studioCreatives.insert";
+  return query;
+}
+
+@end
+
+@implementation GTLRDfareportingQuery_StudioCreativesPublish
+
+@dynamic studioCreativeId;
+
++ (instancetype)queryWithStudioCreativeId:(long long)studioCreativeId {
+  NSArray *pathParams = @[ @"studioCreativeId" ];
+  NSString *pathURITemplate = @"studio/creatives/{+studioCreativeId}/publish";
+  GTLRDfareportingQuery_StudioCreativesPublish *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.studioCreativeId = studioCreativeId;
+  query.loggingName = @"dfareporting.studioCreatives.publish";
   return query;
 }
 

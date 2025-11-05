@@ -530,8 +530,9 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
          backupApplianceLocks, backupType, cloudSqlInstanceBackupProperties,
          computeInstanceBackupProperties, consistencyTime, createTime,
          descriptionProperty, diskBackupProperties, enforcedRetentionEndTime,
-         ETag, expireTime, gcpBackupPlanInfo, labels, name, resourceSizeBytes,
-         satisfiesPzi, satisfiesPzs, serviceLocks, state, updateTime;
+         ETag, expireTime, gcpBackupPlanInfo, gcpResource, labels, name,
+         resourceSizeBytes, satisfiesPzi, satisfiesPzs, serviceLocks, state,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -632,6 +633,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_BackupGcpResource
+//
+
+@implementation GTLRBackupdr_BackupGcpResource
+@dynamic gcpResourcename, location, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_BackupLocation
 //
 
@@ -657,9 +668,9 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_BackupPlan
 @dynamic backupRules, backupVault, backupVaultServiceAccount, createTime,
-         descriptionProperty, ETag, labels, logRetentionDays, name,
-         resourceType, revisionId, revisionName, state, supportedResourceTypes,
-         updateTime;
+         descriptionProperty, ETag, labels, logRetentionDays,
+         maxCustomOnDemandRetentionDays, name, resourceType, revisionId,
+         revisionName, state, supportedResourceTypes, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -838,7 +849,8 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_CloudSqlInstanceBackupProperties
-@dynamic databaseInstalledVersion, finalBackup, instanceTier, sourceInstance;
+@dynamic databaseInstalledVersion, finalBackup, instanceCreateTime,
+         instanceDeleteTime, instanceTier, sourceInstance;
 @end
 
 
@@ -1094,7 +1106,7 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 @implementation GTLRBackupdr_DataSourceReference
 @dynamic createTime, dataSource, dataSourceBackupConfigInfo,
          dataSourceBackupConfigState, dataSourceBackupCount,
-         dataSourceGcpResourceInfo, name;
+         dataSourceGcpResourceInfo, name, totalStoredBytes;
 @end
 
 
@@ -1309,6 +1321,28 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 + (NSString *)collectionItemsKey {
   return @"backupPlanAssociations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_FetchBackupsForResourceTypeResponse
+//
+
+@implementation GTLRBackupdr_FetchBackupsForResourceTypeResponse
+@dynamic backups, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"backups" : [GTLRBackupdr_Backup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"backups";
 }
 
 @end
@@ -1634,6 +1668,29 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_ListDataSourceReferencesResponse
+//
+
+@implementation GTLRBackupdr_ListDataSourceReferencesResponse
+@dynamic dataSourceReferences, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataSourceReferences" : [GTLRBackupdr_DataSourceReference class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dataSourceReferences";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_ListDataSourcesResponse
 //
 
@@ -1706,11 +1763,12 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRBackupdr_Operation class]
+    @"operations" : [GTLRBackupdr_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -2396,7 +2454,7 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_TriggerBackupRequest
-@dynamic requestId, ruleId;
+@dynamic customRetentionDays, requestId, ruleId;
 @end
 
 

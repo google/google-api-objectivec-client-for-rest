@@ -1257,7 +1257,8 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_FhirStoreMetric
-@dynamic count, resourceType, structuredStorageSizeBytes;
+@dynamic count, resourceType, structuredStorageSizeBytes,
+         versionedStorageSizeBytes;
 @end
 
 
@@ -1991,11 +1992,12 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudHealthcare_Operation class]
+    @"operations" : [GTLRCloudHealthcare_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

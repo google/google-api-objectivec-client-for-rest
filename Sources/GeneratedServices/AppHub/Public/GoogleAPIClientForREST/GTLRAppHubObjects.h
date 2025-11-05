@@ -23,6 +23,7 @@
 @class GTLRAppHub_DiscoveredWorkload;
 @class GTLRAppHub_Environment;
 @class GTLRAppHub_Expr;
+@class GTLRAppHub_FunctionalType;
 @class GTLRAppHub_Location;
 @class GTLRAppHub_Location_Labels;
 @class GTLRAppHub_Location_Metadata;
@@ -174,6 +175,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Environment_Type_Test;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppHub_Environment_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAppHub_FunctionalType.type
+
+/**
+ *  Agent type.
+ *
+ *  Value: "AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_FunctionalType_Type_Agent;
+/**
+ *  MCP Server type.
+ *
+ *  Value: "MCP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_FunctionalType_Type_McpServer;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_FunctionalType_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppHub_ReconciliationOperationMetadata.exclusiveAction
@@ -765,6 +788,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 
 /**
+ *  The functional type of a service or workload.
+ */
+@interface GTLRAppHub_FunctionalType : GTLRObject
+
+/**
+ *  Output only. The functional type of a service or workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppHub_FunctionalType_Type_Agent Agent type. (Value: "AGENT")
+ *    @arg @c kGTLRAppHub_FunctionalType_Type_McpServer MCP Server type. (Value:
+ *        "MCP_SERVER")
+ *    @arg @c kGTLRAppHub_FunctionalType_Type_TypeUnspecified Unspecified type.
+ *        (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Response for ListApplications.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -889,6 +932,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAppHub_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1464,6 +1514,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  */
 @interface GTLRAppHub_ServiceProperties : GTLRObject
 
+/** Output only. The type of the service. */
+@property(nonatomic, strong, nullable) GTLRAppHub_FunctionalType *functionalType;
+
 /**
  *  Output only. The service project identifier that the underlying cloud
  *  resource resides in.
@@ -1682,6 +1735,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  *  Properties of an underlying compute resource represented by the Workload.
  */
 @interface GTLRAppHub_WorkloadProperties : GTLRObject
+
+/** Output only. The type of the workload. */
+@property(nonatomic, strong, nullable) GTLRAppHub_FunctionalType *functionalType;
 
 /**
  *  Output only. The service project identifier that the underlying cloud

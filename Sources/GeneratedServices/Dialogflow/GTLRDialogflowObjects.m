@@ -2628,8 +2628,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebService
 @dynamic allowedCaCerts, httpMethod, oauthConfig, parameterMapping, password,
          requestBody, requestHeaders, secretVersionForUsernamePassword,
-         secretVersionsForRequestHeaders, serviceAgentAuth, uri, username,
-         webhookType;
+         secretVersionsForRequestHeaders, serviceAccountAuthConfig,
+         serviceAgentAuth, uri, username, webhookType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2709,6 +2709,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceSecretVersionHeaderValue
 @dynamic secretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceServiceAccountAuthConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1WebhookGenericWebServiceServiceAccountAuthConfig
+@dynamic serviceAccount;
 @end
 
 
@@ -2947,6 +2957,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Changelog
 @dynamic action, createTime, displayName, languageCode, name, resource, type,
          userEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3CodeBlock
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3CodeBlock
+@dynamic code;
 @end
 
 
@@ -5256,14 +5276,15 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Playbook
-@dynamic createTime, displayName, goal, handlers, inputParameterDefinitions,
-         instruction, llmModelSettings, name, outputParameterDefinitions,
-         playbookType, referencedFlows, referencedPlaybooks, referencedTools,
-         tokenCount, updateTime;
+@dynamic codeBlock, createTime, displayName, goal, handlers, inlineActions,
+         inputParameterDefinitions, instruction, llmModelSettings, name,
+         outputParameterDefinitions, playbookType, referencedFlows,
+         referencedPlaybooks, referencedTools, tokenCount, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"handlers" : [GTLRDialogflow_GoogleCloudDialogflowCxV3Handler class],
+    @"inlineActions" : [NSString class],
     @"inputParameterDefinitions" : [GTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition class],
     @"outputParameterDefinitions" : [GTLRDialogflow_GoogleCloudDialogflowCxV3ParameterDefinition class],
     @"referencedFlows" : [NSString class],
@@ -6235,7 +6256,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthentication
-@dynamic apiKeyConfig, bearerTokenConfig, oauthConfig, serviceAgentAuthConfig;
+@dynamic apiKeyConfig, bearerTokenConfig, oauthConfig, serviceAccountAuthConfig,
+         serviceAgentAuthConfig;
 @end
 
 
@@ -6275,6 +6297,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationServiceAccountAuthConfig
+@dynamic serviceAccount;
 @end
 
 
@@ -6807,8 +6839,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebService
 @dynamic allowedCaCerts, httpMethod, oauthConfig, parameterMapping, password,
          requestBody, requestHeaders, secretVersionForUsernamePassword,
-         secretVersionsForRequestHeaders, serviceAgentAuth, uri, username,
-         webhookType;
+         secretVersionsForRequestHeaders, serviceAccountAuthConfig,
+         serviceAgentAuth, uri, username, webhookType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -6888,6 +6920,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceSecretVersionHeaderValue
 @dynamic secretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3WebhookGenericWebServiceServiceAccountAuthConfig
+@dynamic serviceAccount;
 @end
 
 

@@ -2870,6 +2870,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -5132,6 +5139,15 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  `services/serviceconsumermanagement.googleapis.com/projects/123/serviceIdentities/default`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The project-level IAM role defined in the service agent's grant
+ *  configuration. This is the standard role intended for this service agent.
+ *  This field is populated regardless of the `skip_role_attach` option in the
+ *  request. If `skip_role_attach` is true, the caller can use this value to
+ *  know which role they are responsible for granting.
+ */
+@property(nonatomic, copy, nullable) NSString *projectRole;
 
 /**
  *  The P4 service identity configuration tag. This must be defined in

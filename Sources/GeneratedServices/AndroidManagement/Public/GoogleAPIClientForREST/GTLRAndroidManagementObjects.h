@@ -53,6 +53,11 @@
 @class GTLRAndroidManagement_CryptoSelfTestCompletedEvent;
 @class GTLRAndroidManagement_CustomAppConfig;
 @class GTLRAndroidManagement_Date;
+@class GTLRAndroidManagement_DefaultApplication;
+@class GTLRAndroidManagement_DefaultApplicationContext;
+@class GTLRAndroidManagement_DefaultApplicationInfo;
+@class GTLRAndroidManagement_DefaultApplicationSetting;
+@class GTLRAndroidManagement_DefaultApplicationSettingAttempt;
 @class GTLRAndroidManagement_Device;
 @class GTLRAndroidManagement_Device_SystemProperties;
 @class GTLRAndroidManagement_DeviceConnectivityManagement;
@@ -1650,7 +1655,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_ClearAppD
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Command_Type_CommandTypeUnspecified;
 /**
- *  Lock the device, as if the lock screen timeout had expired.
+ *  Lock the device, as if the lock screen timeout had expired. For a work
+ *  profile, if there is a separate work profile lock, this only locks the work
+ *  profile, with one exception: on work profiles on an organization-owned
+ *  device running Android 8, 9, or 10, this locks the entire device.
  *
  *  Value: "LOCK"
  */
@@ -1955,6 +1963,290 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CustomAppConfig_UserUn
  *  Value: "USER_UNINSTALL_SETTINGS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_UserUninstallSettingsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DefaultApplicationContext.defaultApplicationScope
+
+/**
+ *  Unspecified. This value must not be used.
+ *
+ *  Value: "DEFAULT_APPLICATION_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_DefaultApplicationScopeUnspecified;
+/**
+ *  Sets the application as the default on fully managed devices.
+ *
+ *  Value: "SCOPE_FULLY_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_ScopeFullyManaged;
+/**
+ *  Sets the application as the personal profile default on company-owned
+ *  devices with a work profile. Only pre-installed system apps can be set as
+ *  the default.Only supported for DEFAULT_BROWSER, DEFAULT_DIALER, DEFAULT_SMS
+ *  and DEFAULT_WALLET.
+ *
+ *  Value: "SCOPE_PERSONAL_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_ScopePersonalProfile;
+/**
+ *  Sets the application as the work profile default.Only supported for
+ *  DEFAULT_BROWSER, DEFAULT_CALL_REDIRECTION, DEFAULT_CALL_SCREENING,
+ *  DEFAULT_DIALER and DEFAULT_WALLET.
+ *
+ *  Value: "SCOPE_WORK_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_ScopeWorkProfile;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DefaultApplicationInfo.defaultApplicationType
+
+/**
+ *  Unspecified. This value must not be used.
+ *
+ *  Value: "DEFAULT_APPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultApplicationTypeUnspecified;
+/**
+ *  The assistant app type. This app type is only allowed to be set for
+ *  SCOPE_FULLY_MANAGED.Supported on fully managed devices on Android 16 and
+ *  above. A NonComplianceDetail with MANAGEMENT_MODE is reported for other
+ *  management modes. A NonComplianceDetail with API_LEVEL is reported if the
+ *  Android version is less than 16.
+ *
+ *  Value: "DEFAULT_ASSISTANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultAssistant;
+/**
+ *  The browser app type.Supported on Android 16 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 16.
+ *
+ *  Value: "DEFAULT_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultBrowser;
+/**
+ *  The call redirection app type. This app type cannot be set for
+ *  SCOPE_PERSONAL_PROFILE.Supported on Android 16 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 16.
+ *
+ *  Value: "DEFAULT_CALL_REDIRECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultCallRedirection;
+/**
+ *  The call screening app type. This app type cannot be set for
+ *  SCOPE_PERSONAL_PROFILE.Supported on Android 16 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 16.
+ *
+ *  Value: "DEFAULT_CALL_SCREENING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultCallScreening;
+/**
+ *  The dialer app type.Supported on fully managed devices on Android 14 and 15.
+ *  A NonComplianceDetail with MANAGEMENT_MODE is reported for other management
+ *  modes. A NonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is less than 14.Supported on all management modes on Android 16 and
+ *  above.
+ *
+ *  Value: "DEFAULT_DIALER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultDialer;
+/**
+ *  The home app type. This app type is only allowed to be set for
+ *  SCOPE_FULLY_MANAGED.Supported on fully managed devices on Android 16 and
+ *  above. A NonComplianceDetail with MANAGEMENT_MODE is reported for other
+ *  management modes. A NonComplianceDetail with API_LEVEL is reported if the
+ *  Android version is less than 16.
+ *
+ *  Value: "DEFAULT_HOME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultHome;
+/**
+ *  The SMS app type. This app type cannot be set for
+ *  SCOPE_WORK_PROFILE.Supported on company-owned devices on Android 16 and
+ *  above. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  personally-owned devices. A NonComplianceDetail with API_LEVEL is reported
+ *  if the Android version is less than 16.
+ *
+ *  Value: "DEFAULT_SMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultSms;
+/**
+ *  The wallet app type. The default application of this type applies across
+ *  profiles.On a company-owned device with a work profile, admins can set the
+ *  scope to SCOPE_PERSONAL_PROFILE to set a personal profile pre-installed
+ *  system app as the default, or to SCOPE_WORK_PROFILE to set a work profile
+ *  app as the default. It is not allowed to specify both scopes at the same
+ *  time.Due to a known issue, the user may be able to change the default wallet
+ *  even when this is set on a fully managed device.Supported on company-owned
+ *  devices on Android 16 and above. A NonComplianceDetail with MANAGEMENT_MODE
+ *  is reported for personally-owned devices. A NonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 16.
+ *
+ *  Value: "DEFAULT_WALLET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultWallet;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DefaultApplicationSetting.defaultApplicationScopes
+
+/**
+ *  Unspecified. This value must not be used.
+ *
+ *  Value: "DEFAULT_APPLICATION_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationScopes_DefaultApplicationScopeUnspecified;
+/**
+ *  Sets the application as the default on fully managed devices.
+ *
+ *  Value: "SCOPE_FULLY_MANAGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationScopes_ScopeFullyManaged;
+/**
+ *  Sets the application as the personal profile default on company-owned
+ *  devices with a work profile. Only pre-installed system apps can be set as
+ *  the default.Only supported for DEFAULT_BROWSER, DEFAULT_DIALER, DEFAULT_SMS
+ *  and DEFAULT_WALLET.
+ *
+ *  Value: "SCOPE_PERSONAL_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationScopes_ScopePersonalProfile;
+/**
+ *  Sets the application as the work profile default.Only supported for
+ *  DEFAULT_BROWSER, DEFAULT_CALL_REDIRECTION, DEFAULT_CALL_SCREENING,
+ *  DEFAULT_DIALER and DEFAULT_WALLET.
+ *
+ *  Value: "SCOPE_WORK_PROFILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationScopes_ScopeWorkProfile;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DefaultApplicationSetting.defaultApplicationType
+
+/**
+ *  Unspecified. This value must not be used.
+ *
+ *  Value: "DEFAULT_APPLICATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultApplicationTypeUnspecified;
+/**
+ *  The assistant app type. This app type is only allowed to be set for
+ *  SCOPE_FULLY_MANAGED.Supported on fully managed devices on Android 16 and
+ *  above. A NonComplianceDetail with MANAGEMENT_MODE is reported for other
+ *  management modes. A NonComplianceDetail with API_LEVEL is reported if the
+ *  Android version is less than 16.
+ *
+ *  Value: "DEFAULT_ASSISTANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultAssistant;
+/**
+ *  The browser app type.Supported on Android 16 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 16.
+ *
+ *  Value: "DEFAULT_BROWSER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultBrowser;
+/**
+ *  The call redirection app type. This app type cannot be set for
+ *  SCOPE_PERSONAL_PROFILE.Supported on Android 16 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 16.
+ *
+ *  Value: "DEFAULT_CALL_REDIRECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultCallRedirection;
+/**
+ *  The call screening app type. This app type cannot be set for
+ *  SCOPE_PERSONAL_PROFILE.Supported on Android 16 and above. A
+ *  NonComplianceDetail with API_LEVEL is reported if the Android version is
+ *  less than 16.
+ *
+ *  Value: "DEFAULT_CALL_SCREENING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultCallScreening;
+/**
+ *  The dialer app type.Supported on fully managed devices on Android 14 and 15.
+ *  A NonComplianceDetail with MANAGEMENT_MODE is reported for other management
+ *  modes. A NonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is less than 14.Supported on all management modes on Android 16 and
+ *  above.
+ *
+ *  Value: "DEFAULT_DIALER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultDialer;
+/**
+ *  The home app type. This app type is only allowed to be set for
+ *  SCOPE_FULLY_MANAGED.Supported on fully managed devices on Android 16 and
+ *  above. A NonComplianceDetail with MANAGEMENT_MODE is reported for other
+ *  management modes. A NonComplianceDetail with API_LEVEL is reported if the
+ *  Android version is less than 16.
+ *
+ *  Value: "DEFAULT_HOME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultHome;
+/**
+ *  The SMS app type. This app type cannot be set for
+ *  SCOPE_WORK_PROFILE.Supported on company-owned devices on Android 16 and
+ *  above. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  personally-owned devices. A NonComplianceDetail with API_LEVEL is reported
+ *  if the Android version is less than 16.
+ *
+ *  Value: "DEFAULT_SMS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultSms;
+/**
+ *  The wallet app type. The default application of this type applies across
+ *  profiles.On a company-owned device with a work profile, admins can set the
+ *  scope to SCOPE_PERSONAL_PROFILE to set a personal profile pre-installed
+ *  system app as the default, or to SCOPE_WORK_PROFILE to set a work profile
+ *  app as the default. It is not allowed to specify both scopes at the same
+ *  time.Due to a known issue, the user may be able to change the default wallet
+ *  even when this is set on a fully managed device.Supported on company-owned
+ *  devices on Android 16 and above. A NonComplianceDetail with MANAGEMENT_MODE
+ *  is reported for personally-owned devices. A NonComplianceDetail with
+ *  API_LEVEL is reported if the Android version is less than 16.
+ *
+ *  Value: "DEFAULT_WALLET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultWallet;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DefaultApplicationSettingAttempt.attemptOutcome
+
+/**
+ *  Attempt failed as the app is not installed.
+ *
+ *  Value: "APP_NOT_INSTALLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_AppNotInstalled;
+/**
+ *  Attempt failed as the signing key certificate fingerprint of the app from
+ *  Play Store or from ApplicationPolicy.signingKeyCerts does not match the one
+ *  on the device.
+ *
+ *  Value: "APP_SIGNING_CERT_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_AppSigningCertMismatch;
+/**
+ *  Attempt outcome is unspecified. This is not used.
+ *
+ *  Value: "ATTEMPT_OUTCOME_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_AttemptOutcomeUnspecified;
+/**
+ *  Attempt failed due to other reasons.
+ *
+ *  Value: "OTHER_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_OtherFailure;
+/**
+ *  App is successfully set as the default.
+ *
+ *  Value: "SUCCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_Success;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Device.appliedState
@@ -3586,6 +3878,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_No
 // GTLRAndroidManagement_NonComplianceDetail.specificNonComplianceReason
 
 /**
+ *  The default application setting failed to apply for a specific scope.
+ *  defaultApplicationContext is set. nonComplianceReason is set to
+ *  INVALID_VALUE or APP_NOT_INSTALLED.
+ *
+ *  Value: "DEFAULT_APPLICATION_SETTING_FAILED_FOR_SCOPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_DefaultApplicationSettingFailedForScope;
+/**
+ *  The default application setting is applied to the scopes that are not
+ *  supported by the management mode, even if the management mode itself is
+ *  supported for the app type (e.g., a policy with DEFAULT_BROWSER app type and
+ *  SCOPE_PERSONAL_PROFILE list sent to a fully managed device results in the
+ *  scopes being inapplicable for the management mode). If the management mode
+ *  is not supported for the app type, a NonComplianceDetail with
+ *  MANAGEMENT_MODE is reported, without a
+ *  specificNonComplianceReason.nonComplianceReason is set to MANAGEMENT_MODE.
+ *
+ *  Value: "DEFAULT_APPLICATION_SETTING_UNSUPPORTED_SCOPES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_DefaultApplicationSettingUnsupportedScopes;
+/**
  *  Work account added by the user is not part of the enterprise.
  *  nonComplianceReason is set to USER_ACTION.
  *
@@ -3664,6 +3977,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_Sp
  *  Value: "PERMISSIBLE_USAGE_RESTRICTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PermissibleUsageRestriction;
+/**
+ *  The specified host for private DNS is a valid hostname but was found to not
+ *  be a private DNS server. nonComplianceReason is set to INVALID_VALUE.
+ *
+ *  Value: "PRIVATE_DNS_HOST_NOT_SERVING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PrivateDnsHostNotServing;
 /**
  *  Work account required by the workAccountSetupConfig policy setting is not
  *  part of the enterprise anymore. nonComplianceReason is set to USER_ACTION.
@@ -6195,6 +6515,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig
  *  Optional. Controls Memory Tagging Extension (MTE)
  *  (https://source.android.com/docs/security/test/memory-safety/arm-mte) on the
  *  device. The device needs to be rebooted to apply changes to the MTE policy.
+ *  On Android 15 and above, a NonComplianceDetail with PENDING is reported if
+ *  the policy change is pending a device reboot.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_AdvancedSecurityOverrides_MtePolicy_MteDisabled
@@ -7877,7 +8199,10 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRAndroidManagement_Command_Type_CommandTypeUnspecified This
  *        value is disallowed. (Value: "COMMAND_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Command_Type_Lock Lock the device, as if
- *        the lock screen timeout had expired. (Value: "LOCK")
+ *        the lock screen timeout had expired. For a work profile, if there is a
+ *        separate work profile lock, this only locks the work profile, with one
+ *        exception: on work profiles on an organization-owned device running
+ *        Android 8, 9, or 10, this locks the entire device. (Value: "LOCK")
  *    @arg @c kGTLRAndroidManagement_Command_Type_Reboot Reboot the device. Only
  *        supported on fully managed devices running Android 7.0 (API level 24)
  *        or higher. (Value: "REBOOT")
@@ -8349,6 +8674,271 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Information about the application to be set as the default.
+ */
+@interface GTLRAndroidManagement_DefaultApplication : GTLRObject
+
+/**
+ *  Required. The package name that should be set as the default application.
+ *  The policy is rejected if the package name is invalid.
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
+ *  Additional context for non-compliance related to default application
+ *  settings.
+ */
+@interface GTLRAndroidManagement_DefaultApplicationContext : GTLRObject
+
+/**
+ *  Output only. The scope of non-compliant default application setting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_DefaultApplicationScopeUnspecified
+ *        Unspecified. This value must not be used. (Value:
+ *        "DEFAULT_APPLICATION_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_ScopeFullyManaged
+ *        Sets the application as the default on fully managed devices. (Value:
+ *        "SCOPE_FULLY_MANAGED")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_ScopePersonalProfile
+ *        Sets the application as the personal profile default on company-owned
+ *        devices with a work profile. Only pre-installed system apps can be set
+ *        as the default.Only supported for DEFAULT_BROWSER, DEFAULT_DIALER,
+ *        DEFAULT_SMS and DEFAULT_WALLET. (Value: "SCOPE_PERSONAL_PROFILE")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_ScopeWorkProfile
+ *        Sets the application as the work profile default.Only supported for
+ *        DEFAULT_BROWSER, DEFAULT_CALL_REDIRECTION, DEFAULT_CALL_SCREENING,
+ *        DEFAULT_DIALER and DEFAULT_WALLET. (Value: "SCOPE_WORK_PROFILE")
+ */
+@property(nonatomic, copy, nullable) NSString *defaultApplicationScope;
+
+@end
+
+
+/**
+ *  The default application information for a specific DefaultApplicationType.
+ */
+@interface GTLRAndroidManagement_DefaultApplicationInfo : GTLRObject
+
+/**
+ *  Output only. Details on the default application setting attempts, in the
+ *  same order as listed in defaultApplications.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_DefaultApplicationSettingAttempt *> *defaultApplicationSettingAttempts;
+
+/**
+ *  Output only. The default application type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultApplicationTypeUnspecified
+ *        Unspecified. This value must not be used. (Value:
+ *        "DEFAULT_APPLICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultAssistant
+ *        The assistant app type. This app type is only allowed to be set for
+ *        SCOPE_FULLY_MANAGED.Supported on fully managed devices on Android 16
+ *        and above. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *        other management modes. A NonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 16. (Value:
+ *        "DEFAULT_ASSISTANT")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultBrowser
+ *        The browser app type.Supported on Android 16 and above. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 16. (Value: "DEFAULT_BROWSER")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultCallRedirection
+ *        The call redirection app type. This app type cannot be set for
+ *        SCOPE_PERSONAL_PROFILE.Supported on Android 16 and above. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 16. (Value: "DEFAULT_CALL_REDIRECTION")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultCallScreening
+ *        The call screening app type. This app type cannot be set for
+ *        SCOPE_PERSONAL_PROFILE.Supported on Android 16 and above. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 16. (Value: "DEFAULT_CALL_SCREENING")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultDialer
+ *        The dialer app type.Supported on fully managed devices on Android 14
+ *        and 15. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *        other management modes. A NonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 14.Supported on all
+ *        management modes on Android 16 and above. (Value: "DEFAULT_DIALER")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultHome
+ *        The home app type. This app type is only allowed to be set for
+ *        SCOPE_FULLY_MANAGED.Supported on fully managed devices on Android 16
+ *        and above. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *        other management modes. A NonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 16. (Value:
+ *        "DEFAULT_HOME")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultSms
+ *        The SMS app type. This app type cannot be set for
+ *        SCOPE_WORK_PROFILE.Supported on company-owned devices on Android 16
+ *        and above. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *        personally-owned devices. A NonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 16. (Value:
+ *        "DEFAULT_SMS")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultWallet
+ *        The wallet app type. The default application of this type applies
+ *        across profiles.On a company-owned device with a work profile, admins
+ *        can set the scope to SCOPE_PERSONAL_PROFILE to set a personal profile
+ *        pre-installed system app as the default, or to SCOPE_WORK_PROFILE to
+ *        set a work profile app as the default. It is not allowed to specify
+ *        both scopes at the same time.Due to a known issue, the user may be
+ *        able to change the default wallet even when this is set on a fully
+ *        managed device.Supported on company-owned devices on Android 16 and
+ *        above. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *        personally-owned devices. A NonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 16. (Value:
+ *        "DEFAULT_WALLET")
+ */
+@property(nonatomic, copy, nullable) NSString *defaultApplicationType;
+
+/** Output only. The package name of the current default application. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
+ *  The default application setting for a DefaultApplicationType.
+ */
+@interface GTLRAndroidManagement_DefaultApplicationSetting : GTLRObject
+
+/**
+ *  Required. The list of applications that can be set as the default app for a
+ *  given type. This list must not be empty or contain duplicates. The first app
+ *  in the list that is installed and qualified for the defaultApplicationType
+ *  (e.g. SMS app for DEFAULT_SMS) is set as the default app. The signing key
+ *  certificate fingerprint of the app on the device must also match one of the
+ *  signing key certificate fingerprints obtained from Play Store or one of the
+ *  entries in ApplicationPolicy.signingKeyCerts in order to be set as the
+ *  default.If the defaultApplicationScopes contains SCOPE_FULLY_MANAGED or
+ *  SCOPE_WORK_PROFILE, the app must have an entry in applications with
+ *  installType set to a value other than BLOCKED.A NonComplianceDetail with
+ *  APP_NOT_INSTALLED reason and DEFAULT_APPLICATION_SETTING_FAILED_FOR_SCOPE
+ *  specific reason is reported if none of the apps in the list are installed. A
+ *  NonComplianceDetail with INVALID_VALUE reason and
+ *  DEFAULT_APPLICATION_SETTING_FAILED_FOR_SCOPE specific reason is reported if
+ *  at least one app is installed but the policy fails to apply due to other
+ *  reasons (e.g. the app is not of the right type).When applying to
+ *  SCOPE_PERSONAL_PROFILE on a company-owned device with a work profile, only
+ *  pre-installed system apps can be set as the default. A NonComplianceDetail
+ *  with INVALID_VALUE reason and DEFAULT_APPLICATION_SETTING_FAILED_FOR_SCOPE
+ *  specific reason is reported if the policy fails to apply to the personal
+ *  profile.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_DefaultApplication *> *defaultApplications;
+
+/**
+ *  Required. The scopes to which the policy should be applied. This list must
+ *  not be empty or contain duplicates.A NonComplianceDetail with
+ *  MANAGEMENT_MODE reason and DEFAULT_APPLICATION_SETTING_UNSUPPORTED_SCOPES
+ *  specific reason is reported if none of the specified scopes can be applied
+ *  to the management mode (e.g. a fully managed device receives a policy with
+ *  only SCOPE_PERSONAL_PROFILE in the list).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *defaultApplicationScopes;
+
+/**
+ *  Required. The app type to set the default application.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultApplicationTypeUnspecified
+ *        Unspecified. This value must not be used. (Value:
+ *        "DEFAULT_APPLICATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultAssistant
+ *        The assistant app type. This app type is only allowed to be set for
+ *        SCOPE_FULLY_MANAGED.Supported on fully managed devices on Android 16
+ *        and above. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *        other management modes. A NonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 16. (Value:
+ *        "DEFAULT_ASSISTANT")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultBrowser
+ *        The browser app type.Supported on Android 16 and above. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 16. (Value: "DEFAULT_BROWSER")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultCallRedirection
+ *        The call redirection app type. This app type cannot be set for
+ *        SCOPE_PERSONAL_PROFILE.Supported on Android 16 and above. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 16. (Value: "DEFAULT_CALL_REDIRECTION")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultCallScreening
+ *        The call screening app type. This app type cannot be set for
+ *        SCOPE_PERSONAL_PROFILE.Supported on Android 16 and above. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 16. (Value: "DEFAULT_CALL_SCREENING")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultDialer
+ *        The dialer app type.Supported on fully managed devices on Android 14
+ *        and 15. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *        other management modes. A NonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 14.Supported on all
+ *        management modes on Android 16 and above. (Value: "DEFAULT_DIALER")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultHome
+ *        The home app type. This app type is only allowed to be set for
+ *        SCOPE_FULLY_MANAGED.Supported on fully managed devices on Android 16
+ *        and above. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *        other management modes. A NonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 16. (Value:
+ *        "DEFAULT_HOME")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultSms
+ *        The SMS app type. This app type cannot be set for
+ *        SCOPE_WORK_PROFILE.Supported on company-owned devices on Android 16
+ *        and above. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *        personally-owned devices. A NonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 16. (Value:
+ *        "DEFAULT_SMS")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultWallet
+ *        The wallet app type. The default application of this type applies
+ *        across profiles.On a company-owned device with a work profile, admins
+ *        can set the scope to SCOPE_PERSONAL_PROFILE to set a personal profile
+ *        pre-installed system app as the default, or to SCOPE_WORK_PROFILE to
+ *        set a work profile app as the default. It is not allowed to specify
+ *        both scopes at the same time.Due to a known issue, the user may be
+ *        able to change the default wallet even when this is set on a fully
+ *        managed device.Supported on company-owned devices on Android 16 and
+ *        above. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *        personally-owned devices. A NonComplianceDetail with API_LEVEL is
+ *        reported if the Android version is less than 16. (Value:
+ *        "DEFAULT_WALLET")
+ */
+@property(nonatomic, copy, nullable) NSString *defaultApplicationType;
+
+@end
+
+
+/**
+ *  Details on a default application setting attempt.
+ */
+@interface GTLRAndroidManagement_DefaultApplicationSettingAttempt : GTLRObject
+
+/**
+ *  Output only. The outcome of setting the app as the default.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_AppNotInstalled
+ *        Attempt failed as the app is not installed. (Value:
+ *        "APP_NOT_INSTALLED")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_AppSigningCertMismatch
+ *        Attempt failed as the signing key certificate fingerprint of the app
+ *        from Play Store or from ApplicationPolicy.signingKeyCerts does not
+ *        match the one on the device. (Value: "APP_SIGNING_CERT_MISMATCH")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_AttemptOutcomeUnspecified
+ *        Attempt outcome is unspecified. This is not used. (Value:
+ *        "ATTEMPT_OUTCOME_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_OtherFailure
+ *        Attempt failed due to other reasons. (Value: "OTHER_FAILURE")
+ *    @arg @c kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_Success
+ *        App is successfully set as the default. (Value: "SUCCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *attemptOutcome;
+
+/** Output only. The package name of the attempted application. */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+@end
+
+
+/**
  *  A device owned by an enterprise. Unless otherwise noted, all fields are
  *  read-only and can't be modified by enterprises.devices.patch.
  */
@@ -8433,6 +9023,19 @@ GTLR_DEPRECATED
  *  the device's policy the device is company-owned.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_CommonCriteriaModeInfo *commonCriteriaModeInfo;
+
+/**
+ *  Output only. The default application information for the
+ *  DefaultApplicationType. This information is only available if
+ *  defaultApplicationInfoReportingEnabled is true in the device's policy.
+ *  Available on Android 16 and above.All app types are reported on fully
+ *  managed devices. DEFAULT_BROWSER, DEFAULT_CALL_REDIRECTION,
+ *  DEFAULT_CALL_SCREENING and DEFAULT_DIALER types are reported for the work
+ *  profiles on company-owned devices with a work profile and personally-owned
+ *  devices. DEFAULT_WALLET is also reported for company-owned devices with a
+ *  work profile, but will only include work profile information.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_DefaultApplicationInfo *> *defaultApplicationInfo;
 
 /**
  *  Device settings information. This information is only available if
@@ -11183,6 +11786,22 @@ GTLR_DEPRECATED
  *  The policy-specific reason the device is not in compliance with the setting.
  *
  *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_DefaultApplicationSettingFailedForScope
+ *        The default application setting failed to apply for a specific scope.
+ *        defaultApplicationContext is set. nonComplianceReason is set to
+ *        INVALID_VALUE or APP_NOT_INSTALLED. (Value:
+ *        "DEFAULT_APPLICATION_SETTING_FAILED_FOR_SCOPE")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_DefaultApplicationSettingUnsupportedScopes
+ *        The default application setting is applied to the scopes that are not
+ *        supported by the management mode, even if the management mode itself
+ *        is supported for the app type (e.g., a policy with DEFAULT_BROWSER app
+ *        type and SCOPE_PERSONAL_PROFILE list sent to a fully managed device
+ *        results in the scopes being inapplicable for the management mode). If
+ *        the management mode is not supported for the app type, a
+ *        NonComplianceDetail with MANAGEMENT_MODE is reported, without a
+ *        specificNonComplianceReason.nonComplianceReason is set to
+ *        MANAGEMENT_MODE. (Value:
+ *        "DEFAULT_APPLICATION_SETTING_UNSUPPORTED_SCOPES")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_NewAccountNotInEnterprise
  *        Work account added by the user is not part of the enterprise.
  *        nonComplianceReason is set to USER_ACTION. (Value:
@@ -11233,6 +11852,10 @@ GTLR_DEPRECATED
  *        (https://developers.google.com/android/management/permissible-usage).
  *        nonComplianceReason is set to PROJECT_NOT_PERMITTED. (Value:
  *        "PERMISSIBLE_USAGE_RESTRICTION")
+ *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PrivateDnsHostNotServing
+ *        The specified host for private DNS is a valid hostname but was found
+ *        to not be a private DNS server. nonComplianceReason is set to
+ *        INVALID_VALUE. (Value: "PRIVATE_DNS_HOST_NOT_SERVING")
  *    @arg @c kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_RequiredAccountNotInEnterprise
  *        Work account required by the workAccountSetupConfig policy setting is
  *        not part of the enterprise anymore. nonComplianceReason is set to
@@ -12256,6 +12879,17 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *debuggingFeaturesAllowed GTLR_DEPRECATED;
+
+/**
+ *  Optional. The default application setting for supported types. If the
+ *  default application is successfully set for at least one app type on a
+ *  profile, users are prevented from changing any default applications on that
+ *  profile.Only one DefaultApplicationSetting is allowed for each
+ *  DefaultApplicationType.See Default application settings
+ *  (https://developers.google.com/android/management/default-application-settings)
+ *  guide for more details.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_DefaultApplicationSetting *> *defaultApplicationSettings;
 
 /**
  *  The default permission policy for runtime permission requests.
@@ -13820,6 +14454,12 @@ GTLR_DEPRECATED
 @interface GTLRAndroidManagement_SpecificNonComplianceContext : GTLRObject
 
 /**
+ *  Output only. Additional context for non-compliance related to default
+ *  application settings. See DEFAULT_APPLICATION_SETTING_FAILED_FOR_SCOPE.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_DefaultApplicationContext *defaultApplicationContext;
+
+/**
  *  Additional context for non-compliance related to Wi-Fi configuration. See
  *  ONC_WIFI_INVALID_VALUE and ONC_WIFI_API_LEVEL
  */
@@ -13967,6 +14607,13 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *commonCriteriaModeEnabled;
+
+/**
+ *  Optional. Whether defaultApplicationInfo reporting is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultApplicationInfoReportingEnabled;
 
 /**
  *  Whether device settings reporting is enabled.

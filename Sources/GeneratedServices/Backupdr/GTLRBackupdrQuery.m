@@ -408,6 +408,25 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @end
 
+@implementation GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsFetchForResourceType
+
+@dynamic filter, orderBy, pageSize, pageToken, parent, resourceType, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/backups:fetchForResourceType";
+  GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsFetchForResourceType *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_FetchBackupsForResourceTypeResponse class];
+  query.loggingName = @"backupdr.projects.locations.backupVaults.dataSources.backups.fetchForResourceType";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupdrQuery_ProjectsLocationsBackupVaultsDataSourcesBackupsGet
 
 @dynamic name, view;
@@ -874,6 +893,25 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @end
 
+@implementation GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dataSourceReferences";
+  GTLRBackupdrQuery_ProjectsLocationsDataSourceReferencesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_ListDataSourceReferencesResponse class];
+  query.loggingName = @"backupdr.projects.locations.dataSourceReferences.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupdrQuery_ProjectsLocationsGet
 
 @dynamic name;
@@ -1193,7 +1231,7 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @implementation GTLRBackupdrQuery_ProjectsLocationsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

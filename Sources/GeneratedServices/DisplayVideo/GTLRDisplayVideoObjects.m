@@ -59,10 +59,22 @@ NSString * const kGTLRDisplayVideo_ActiveViewVideoViewabilityMetricConfig_Minimu
 NSString * const kGTLRDisplayVideo_ActiveViewVideoViewabilityMetricConfig_MinimumVolume_VideoVolumePercent10 = @"VIDEO_VOLUME_PERCENT_10";
 NSString * const kGTLRDisplayVideo_ActiveViewVideoViewabilityMetricConfig_MinimumVolume_VideoVolumePercentUnspecified = @"VIDEO_VOLUME_PERCENT_UNSPECIFIED";
 
+// GTLRDisplayVideo_AdAsset.adAssetType
+NSString * const kGTLRDisplayVideo_AdAsset_AdAssetType_AdAssetTypeImage = @"AD_ASSET_TYPE_IMAGE";
+NSString * const kGTLRDisplayVideo_AdAsset_AdAssetType_AdAssetTypeUnspecified = @"AD_ASSET_TYPE_UNSPECIFIED";
+NSString * const kGTLRDisplayVideo_AdAsset_AdAssetType_AdAssetTypeYoutubeVideo = @"AD_ASSET_TYPE_YOUTUBE_VIDEO";
+
+// GTLRDisplayVideo_AdAsset.entityStatus
+NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusActive = @"ENTITY_STATUS_ACTIVE";
+NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusArchived = @"ENTITY_STATUS_ARCHIVED";
+NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusDraft = @"ENTITY_STATUS_DRAFT";
+NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusPaused = @"ENTITY_STATUS_PAUSED";
+NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusScheduledForDeletion = @"ENTITY_STATUS_SCHEDULED_FOR_DELETION";
+NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusUnspecified = @"ENTITY_STATUS_UNSPECIFIED";
+
 // GTLRDisplayVideo_AdGroup.adGroupFormat
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatAudio = @"AD_GROUP_FORMAT_AUDIO";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper = @"AD_GROUP_FORMAT_BUMPER";
-NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatDemandGen = @"AD_GROUP_FORMAT_DEMAND_GEN";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatInStream = @"AD_GROUP_FORMAT_IN_STREAM";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatMasthead = @"AD_GROUP_FORMAT_MASTHEAD";
 NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatNonSkippableInStream = @"AD_GROUP_FORMAT_NON_SKIPPABLE_IN_STREAM";
@@ -201,6 +213,69 @@ NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewabilit
 NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability50 = @"VIDEO_IAB_VIEWABILITY_50";
 NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewability75 = @"VIDEO_IAB_VIEWABILITY_75";
 NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewabilityUnspecified = @"VIDEO_IAB_VIEWABILITY_UNSPECIFIED";
+
+// GTLRDisplayVideo_AdPolicy.adPolicyApprovalStatus
+NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_AdPolicyApprovalStatusUnknown = @"AD_POLICY_APPROVAL_STATUS_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_Approved = @"APPROVED";
+NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_ApprovedLimited = @"APPROVED_LIMITED";
+NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_AreaOfInterestOnly = @"AREA_OF_INTEREST_ONLY";
+NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_Disapproved = @"DISAPPROVED";
+
+// GTLRDisplayVideo_AdPolicy.adPolicyReviewStatus
+NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_AdPolicyReviewStatusUnknown = @"AD_POLICY_REVIEW_STATUS_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_EligibleMayServe = @"ELIGIBLE_MAY_SERVE";
+NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_Reviewed = @"REVIEWED";
+NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_ReviewInProgress = @"REVIEW_IN_PROGRESS";
+NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_UnderAppeal = @"UNDER_APPEAL";
+
+// GTLRDisplayVideo_AdPolicyTopicAppealInfo.appealType
+NSString * const kGTLRDisplayVideo_AdPolicyTopicAppealInfo_AppealType_AdPolicyAppealTypeUnknown = @"AD_POLICY_APPEAL_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicAppealInfo_AppealType_AppealForm = @"APPEAL_FORM";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicAppealInfo_AppealType_SelfServiceAppeal = @"SELF_SERVICE_APPEAL";
+
+// GTLRDisplayVideo_AdPolicyTopicEntry.policyDecisionType
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyDecisionType_AdPolicyDecisionTypeUnknown = @"AD_POLICY_DECISION_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyDecisionType_GoogleInvestigation = @"GOOGLE_INVESTIGATION";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyDecisionType_PursuantToNotice = @"PURSUANT_TO_NOTICE";
+
+// GTLRDisplayVideo_AdPolicyTopicEntry.policyEnforcementMeans
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyEnforcementMeans_AdPolicyEnforcementMeansUnknown = @"AD_POLICY_ENFORCEMENT_MEANS_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyEnforcementMeans_Automated = @"AUTOMATED";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyEnforcementMeans_HumanReview = @"HUMAN_REVIEW";
+
+// GTLRDisplayVideo_AdPolicyTopicEntry.policyTopicType
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_AdPolicyTopicEntryTypeUnknown = @"AD_POLICY_TOPIC_ENTRY_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_AreaOfInterestOnly = @"AREA_OF_INTEREST_ONLY";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Broadening = @"BROADENING";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Descriptive = @"DESCRIPTIVE";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_FullyLimited = @"FULLY_LIMITED";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Limited = @"LIMITED";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Prohibited = @"PROHIBITED";
+
+// GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch.uriTypes
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_AdPolicyTopicEvidenceDestinationMismatchUrlTypeUnknown = @"AD_POLICY_TOPIC_EVIDENCE_DESTINATION_MISMATCH_URL_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_DisplayUrl = @"DISPLAY_URL";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_FinalMobileUrl = @"FINAL_MOBILE_URL";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_FinalUrl = @"FINAL_URL";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_MobileTrackingUrl = @"MOBILE_TRACKING_URL";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_TrackingUrl = @"TRACKING_URL";
+
+// GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking.device
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_AdPolicyTopicEvidenceDestinationNotWorkingDeviceTypeUnknown = @"AD_POLICY_TOPIC_EVIDENCE_DESTINATION_NOT_WORKING_DEVICE_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_Android = @"ANDROID";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_Desktop = @"DESKTOP";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_Ios = @"IOS";
+
+// GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking.dnsErrorType
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_DnsErrorType_AdPolicyTopicEvidenceDestinationNotWorkingDnsErrorTypeUnknown = @"AD_POLICY_TOPIC_EVIDENCE_DESTINATION_NOT_WORKING_DNS_ERROR_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_DnsErrorType_GoogleCrawlerDnsIssue = @"GOOGLE_CRAWLER_DNS_ISSUE";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_DnsErrorType_HostnameNotFound = @"HOSTNAME_NOT_FOUND";
+
+// GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval.complaintType
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_AdPolicyTopicEvidenceLegalRemovalComplaintTypeUnknown = @"AD_POLICY_TOPIC_EVIDENCE_LEGAL_REMOVAL_COMPLAINT_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_Copyright = @"COPYRIGHT";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_CourtOrder = @"COURT_ORDER";
+NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_LocalLegal = @"LOCAL_LEGAL";
 
 // GTLRDisplayVideo_AdUrl.type
 NSString * const kGTLRDisplayVideo_AdUrl_Type_AdUrlTypeBeaconClick = @"AD_URL_TYPE_BEACON_CLICK";
@@ -861,6 +936,7 @@ NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersi
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion81 = @"SDF_VERSION_8_1";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion9 = @"SDF_VERSION_9";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion91 = @"SDF_VERSION_9_1";
+NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion92 = @"SDF_VERSION_9_2";
 NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_Creative.creativeAttributes
@@ -1986,6 +2062,7 @@ NSString * const kGTLRDisplayVideo_IntegralAdScience_DisplayViewability_Performa
 NSString * const kGTLRDisplayVideo_IntegralAdScience_DisplayViewability_PerformanceViewabilityUnspecified = @"PERFORMANCE_VIEWABILITY_UNSPECIFIED";
 
 // GTLRDisplayVideo_IntegralAdScience.excludedAdFraudRisk
+NSString * const kGTLRDisplayVideo_IntegralAdScience_ExcludedAdFraudRisk_SuspiciousActivityFd = @"SUSPICIOUS_ACTIVITY_FD";
 NSString * const kGTLRDisplayVideo_IntegralAdScience_ExcludedAdFraudRisk_SuspiciousActivityHmr = @"SUSPICIOUS_ACTIVITY_HMR";
 NSString * const kGTLRDisplayVideo_IntegralAdScience_ExcludedAdFraudRisk_SuspiciousActivityHr = @"SUSPICIOUS_ACTIVITY_HR";
 NSString * const kGTLRDisplayVideo_IntegralAdScience_ExcludedAdFraudRisk_SuspiciousActivityUnspecified = @"SUSPICIOUS_ACTIVITY_UNSPECIFIED";
@@ -2563,6 +2640,7 @@ NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion8 = @"SDF_VERSION
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion81 = @"SDF_VERSION_8_1";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion9 = @"SDF_VERSION_9";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion91 = @"SDF_VERSION_9_1";
+NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion92 = @"SDF_VERSION_9_2";
 NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SdfDownloadTaskMetadata.version
@@ -2583,6 +2661,7 @@ NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion8 =
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion81 = @"SDF_VERSION_8_1";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion9 = @"SDF_VERSION_9";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion91 = @"SDF_VERSION_9_1";
+NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion92 = @"SDF_VERSION_9_2";
 NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified = @"SDF_VERSION_UNSPECIFIED";
 
 // GTLRDisplayVideo_SensitiveCategoryAssignedTargetingOptionDetails.excludedSensitiveCategory
@@ -2741,6 +2820,11 @@ NSString * const kGTLRDisplayVideo_UniversalAdId_Registry_UniversalAdRegistryDv3
 NSString * const kGTLRDisplayVideo_UniversalAdId_Registry_UniversalAdRegistryOther = @"UNIVERSAL_AD_REGISTRY_OTHER";
 NSString * const kGTLRDisplayVideo_UniversalAdId_Registry_UniversalAdRegistryUnspecified = @"UNIVERSAL_AD_REGISTRY_UNSPECIFIED";
 
+// GTLRDisplayVideo_UploadAdAssetRequest.adAssetType
+NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_AdAssetType_AdAssetTypeImage = @"AD_ASSET_TYPE_IMAGE";
+NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_AdAssetType_AdAssetTypeUnspecified = @"AD_ASSET_TYPE_UNSPECIFIED";
+NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_AdAssetType_AdAssetTypeYoutubeVideo = @"AD_ASSET_TYPE_YOUTUBE_VIDEO";
+
 // GTLRDisplayVideo_UserRewardedContentAssignedTargetingOptionDetails.userRewardedContent
 NSString * const kGTLRDisplayVideo_UserRewardedContentAssignedTargetingOptionDetails_UserRewardedContent_UserRewardedContentNotUserRewarded = @"USER_REWARDED_CONTENT_NOT_USER_REWARDED";
 NSString * const kGTLRDisplayVideo_UserRewardedContentAssignedTargetingOptionDetails_UserRewardedContent_UserRewardedContentUnspecified = @"USER_REWARDED_CONTENT_UNSPECIFIED";
@@ -2838,6 +2922,25 @@ NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCa
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryStandard = @"YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_STANDARD";
 NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryUnspecified = @"YOUTUBE_AND_PARTNERS_CONTENT_CATEGORY_UNSPECIFIED";
 
+// GTLRDisplayVideo_YoutubeAssetAssociation.youtubeAssetType
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeAffiliateLocation = @"YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION";
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeLocation = @"YOUTUBE_ASSET_TYPE_LOCATION";
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeSitelink = @"YOUTUBE_ASSET_TYPE_SITELINK";
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeUnspecified = @"YOUTUBE_ASSET_TYPE_UNSPECIFIED";
+
+// GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter.affiliateLocationMatchingType
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_AffiliateLocationMatchingTypeUnspecified = @"AFFILIATE_LOCATION_MATCHING_TYPE_UNSPECIFIED";
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_Disabled = @"DISABLED";
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_SelectAll = @"SELECT_ALL";
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_SelectedChains = @"SELECTED_CHAINS";
+
+// GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter.locationMatchingType
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_Disabled = @"DISABLED";
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_Filter = @"FILTER";
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_LocationMatchingTypeUnspecified = @"LOCATION_MATCHING_TYPE_UNSPECIFIED";
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_SelectAll = @"SELECT_ALL";
+NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_SelectedAssets = @"SELECTED_ASSETS";
+
 // GTLRDisplayVideo_YoutubeVideoDetails.unavailableReason
 NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUnavailableReasonDeleted = @"VIDEO_UNAVAILABLE_REASON_DELETED";
 NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUnavailableReasonPrivate = @"VIDEO_UNAVAILABLE_REASON_PRIVATE";
@@ -2851,6 +2954,16 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 @implementation GTLRDisplayVideo_ActiveViewVideoViewabilityMetricConfig
 @dynamic displayName, minimumDuration, minimumQuartile, minimumViewability,
          minimumVolume;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdAsset
+//
+
+@implementation GTLRDisplayVideo_AdAsset
+@dynamic adAssetId, adAssetType, entityStatus, name, youtubeVideoAsset;
 @end
 
 
@@ -2871,8 +2984,8 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_AdGroupAd
-@dynamic adGroupAdId, adGroupId, adUrls, advertiserId, audioAd, bumperAd,
-         displayName, displayVideoSourceAd, entityStatus, inStreamAd,
+@dynamic adGroupAdId, adGroupId, adPolicy, adUrls, advertiserId, audioAd,
+         bumperAd, displayName, displayVideoSourceAd, entityStatus, inStreamAd,
          mastheadAd, name, nonSkippableAd, videoDiscoverAd, videoPerformanceAd;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -2914,6 +3027,328 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
   NSDictionary<NSString *, Class> *map = @{
     @"excludedAdlooxCategories" : [NSString class],
     @"excludedFraudIvtMfaCategories" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicy
+//
+
+@implementation GTLRDisplayVideo_AdPolicy
+@dynamic adPolicyApprovalStatus, adPolicyReviewStatus, adPolicyTopicEntry;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adPolicyTopicEntry" : [GTLRDisplayVideo_AdPolicyTopicEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyCriterionRestriction
+//
+
+@implementation GTLRDisplayVideo_AdPolicyCriterionRestriction
+@dynamic countryCriterionId, countryLabel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicAppealInfo
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicAppealInfo
+@dynamic appealFormLink, appealType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicConstraint
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicConstraint
+@dynamic certificateDomainMismatchCountryList, certificateMissingCountryList,
+         countryConstraint, globalCertificateDomainMismatch,
+         globalCertificateMissing, requestCertificateFormLink,
+         resellerConstraint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyCountryConstraintList
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyCountryConstraintList
+@dynamic countries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"countries" : [GTLRDisplayVideo_AdPolicyCriterionRestriction class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyGlobalCertificateDomainMismatchConstraint
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyGlobalCertificateDomainMismatchConstraint
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyGlobalCertificateMissingConstraint
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyGlobalCertificateMissingConstraint
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyResellerConstraint
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyResellerConstraint
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEntry
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEntry
+@dynamic appealInfo, helpCenterLink, policyDecisionType, policyEnforcementMeans,
+         policyLabel, policyTopic, policyTopicConstraints,
+         policyTopicDescription, policyTopicEvidences, policyTopicType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"policyTopicConstraints" : [GTLRDisplayVideo_AdPolicyTopicConstraint class],
+    @"policyTopicEvidences" : [GTLRDisplayVideo_AdPolicyTopicEvidence class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidence
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidence
+@dynamic counterfeit, destinationMismatch, destinationNotWorking,
+         destinationTextList, httpCode, languageCode, legalRemoval,
+         regionalRequirements, textList, trademark, websiteList;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceCounterfeit
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceCounterfeit
+@dynamic owners;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"owners" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch
+@dynamic uriTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"uriTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking
+@dynamic device, dnsErrorType, expandedUri, httpErrorCode, lastCheckedTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationTextList
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationTextList
+@dynamic destinationTexts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinationTexts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval
+@dynamic complaintType, countryRestrictions, dmca, localLegal, restrictedUris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"countryRestrictions" : [GTLRDisplayVideo_AdPolicyCriterionRestriction class],
+    @"restrictedUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemovalDmca
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemovalDmca
+@dynamic complainant;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemovalLocalLegal
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemovalLocalLegal
+@dynamic lawType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceRegionalRequirements
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceRegionalRequirements
+@dynamic regionalRequirementsEntries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionalRequirementsEntries" : [GTLRDisplayVideo_AdPolicyTopicEvidenceRegionalRequirementsRegionalRequirementsEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceRegionalRequirementsRegionalRequirementsEntry
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceRegionalRequirementsRegionalRequirementsEntry
+@dynamic countryRestrictions, legalPolicy;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"countryRestrictions" : [GTLRDisplayVideo_AdPolicyCriterionRestriction class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceTextList
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceTextList
+@dynamic texts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"texts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceTrademark
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceTrademark
+@dynamic countryRestrictions, owner, term;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"countryRestrictions" : [GTLRDisplayVideo_AdPolicyCriterionRestriction class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_AdPolicyTopicEvidenceWebsiteList
+//
+
+@implementation GTLRDisplayVideo_AdPolicyTopicEvidenceWebsiteList
+@dynamic websites;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"websites" : [NSString class]
   };
   return map;
 }
@@ -3394,6 +3829,42 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 @implementation GTLRDisplayVideo_BudgetSummary
 @dynamic externalBudgetId, preTaxAmountMicros, prismaCpeCode, taxAmountMicros,
          totalAmountMicros;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_BulkCreateAdAssetsRequest
+//
+
+@implementation GTLRDisplayVideo_BulkCreateAdAssetsRequest
+@dynamic adAssets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adAssets" : [GTLRDisplayVideo_AdAsset class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_BulkCreateAdAssetsResponse
+//
+
+@implementation GTLRDisplayVideo_BulkCreateAdAssetsResponse
+@dynamic adAssets;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adAssets" : [GTLRDisplayVideo_AdAsset class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -4274,6 +4745,16 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 @implementation GTLRDisplayVideo_CounterEvent
 @dynamic name, reportingName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_CreateAdAssetRequest
+//
+
+@implementation GTLRDisplayVideo_CreateAdAssetRequest
+@dynamic adAsset;
 @end
 
 
@@ -5609,6 +6090,28 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_ListAdAssetsResponse
+//
+
+@implementation GTLRDisplayVideo_ListAdAssetsResponse
+@dynamic adAssets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"adAssets" : [GTLRDisplayVideo_AdAsset class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"adAssets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_ListAdGroupAdsResponse
 //
 
@@ -6372,6 +6875,28 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 + (NSString *)collectionItemsKey {
   return @"users";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_ListYoutubeAssetAssociationsResponse
+//
+
+@implementation GTLRDisplayVideo_ListYoutubeAssetAssociationsResponse
+@dynamic nextPageToken, youtubeAssetAssociations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"youtubeAssetAssociations" : [GTLRDisplayVideo_YoutubeAssetAssociation class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"youtubeAssetAssociations";
 }
 
 @end
@@ -7367,6 +7892,26 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_UploadAdAssetRequest
+//
+
+@implementation GTLRDisplayVideo_UploadAdAssetRequest
+@dynamic adAssetType, filename;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_UploadAdAssetResponse
+//
+
+@implementation GTLRDisplayVideo_UploadAdAssetResponse
+@dynamic adAsset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_UrlAssignedTargetingOptionDetails
 //
 
@@ -7584,11 +8129,119 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_YoutubeAssetAssociation
+//
+
+@implementation GTLRDisplayVideo_YoutubeAssetAssociation
+@dynamic linkedYoutubeAsset, name, youtubeAssetType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter
+//
+
+@implementation GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter
+@dynamic affiliateLocationMatchingFunction, affiliateLocationMatchingType,
+         assetSetId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationChain
+//
+
+@implementation GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationChain
+@dynamic chainId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationMatchingFunction
+//
+
+@implementation GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationMatchingFunction
+@dynamic chains;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"chains" : [GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationChain class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_YoutubeAssetAssociationLinkedYouTubeAsset
+//
+
+@implementation GTLRDisplayVideo_YoutubeAssetAssociationLinkedYouTubeAsset
+@dynamic affiliateLocationAssetFilter, locationAssetFilter, sitelinkAsset;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter
+//
+
+@implementation GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter
+@dynamic assetSetId, locationMatchingFunction, locationMatchingType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilterLocationMatchingFunction
+//
+
+@implementation GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilterLocationMatchingFunction
+@dynamic business, labels, locationAssetIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [NSString class],
+    @"locationAssetIds" : [NSNumber class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_YoutubeAssetAssociationSitelinkAsset
+//
+
+@implementation GTLRDisplayVideo_YoutubeAssetAssociationSitelinkAsset
+@dynamic assetId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_YoutubeChannelAssignedTargetingOptionDetails
 //
 
 @implementation GTLRDisplayVideo_YoutubeChannelAssignedTargetingOptionDetails
 @dynamic channelId, negative;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDisplayVideo_YoutubeVideoAsset
+//
+
+@implementation GTLRDisplayVideo_YoutubeVideoAsset
+@dynamic youtubeVideoId;
 @end
 
 

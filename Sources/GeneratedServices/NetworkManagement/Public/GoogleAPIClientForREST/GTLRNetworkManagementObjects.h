@@ -791,6 +791,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridN
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicRouteMatched;
 /**
+ *  Packet is dropped because the region of the hybrid subnet is different from
+ *  the region of the next hop of the route matched within this hybrid subnet.
+ *
+ *  Value: "HYBRID_SUBNET_REGION_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridSubnetRegionMismatch;
+/**
  *  Matching ingress firewall rules by network tags for packets sent via
  *  serverless VPC direct egress is unsupported. Behavior is undefined.
  *  https://cloud.google.com/run/docs/configuring/vpc-direct-vpc#limitations
@@ -847,6 +854,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBal
  *  Value: "LOAD_BALANCER_HAS_NO_PROXY_SUBNET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet;
+/**
+ *  Packet could be dropped because it matches a route associated with an NCC
+ *  spoke in the hybrid subnet context, but such a configuration is not
+ *  supported.
+ *
+ *  Value: "NCC_ROUTE_WITHIN_HYBRID_SUBNET_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NccRouteWithinHybridSubnetUnsupported;
 /**
  *  Packet from the non-GCP (on-prem) or unknown GCP network is dropped due to
  *  the destination IP address not belonging to any IP prefix advertised via BGP
@@ -3567,6 +3582,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        The packet sent from the hybrid NEG proxy matches a dynamic route with
  *        a next hop in a different region, but such a configuration is not
  *        supported. (Value: "HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_HybridSubnetRegionMismatch
+ *        Packet is dropped because the region of the hybrid subnet is different
+ *        from the region of the next hop of the route matched within this
+ *        hybrid subnet. (Value: "HYBRID_SUBNET_REGION_MISMATCH")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_IngressFirewallTagsUnsupportedByDirectVpcEgress
  *        Matching ingress firewall rules by network tags for packets sent via
  *        serverless VPC direct egress is unsupported. Behavior is undefined.
@@ -3597,6 +3616,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet
  *        Packet sent to a load balancer, which requires a proxy-only subnet and
  *        the subnet is not found. (Value: "LOAD_BALANCER_HAS_NO_PROXY_SUBNET")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NccRouteWithinHybridSubnetUnsupported
+ *        Packet could be dropped because it matches a route associated with an
+ *        NCC spoke in the hybrid subnet context, but such a configuration is
+ *        not supported. (Value: "NCC_ROUTE_WITHIN_HYBRID_SUBNET_UNSUPPORTED")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoAdvertisedRouteToGcpDestination
  *        Packet from the non-GCP (on-prem) or unknown GCP network is dropped
  *        due to the destination IP address not belonging to any IP prefix

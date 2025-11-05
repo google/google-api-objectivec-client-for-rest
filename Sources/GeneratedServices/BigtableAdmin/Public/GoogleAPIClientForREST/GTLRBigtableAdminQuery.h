@@ -45,11 +45,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewFull;
  *  Value: "NAME_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewNameOnly;
-/**
- *  Only populates `name` and fields related to the table's replication state.
- *
- *  Value: "REPLICATION_VIEW"
- */
+/** Value: "REPLICATION_VIEW" */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewReplicationView;
 /**
  *  Uses the default view for each method as documented in the request.
@@ -63,11 +59,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewResponseViewUnspecified
  *  Value: "SCHEMA_BUNDLE_VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewSchemaBundleViewUnspecified;
-/**
- *  Only populates `name` and fields related to the table's schema.
- *
- *  Value: "SCHEMA_VIEW"
- */
+/** Value: "SCHEMA_VIEW" */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewSchemaView;
 /**
  *  Only populates `name` and fields related to the table's stats (e.g.
@@ -161,6 +153,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRBigtableAdmin_ListOperationsResponse.
@@ -1854,6 +1857,22 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Describes which of the materialized view's fields should be
+ *  populated in the response. Defaults to SCHEMA_VIEW.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdminViewViewUnspecified Uses the default view for
+ *        each method as documented in its request. (Value: "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdminViewSchemaView Only populates fields related to
+ *        the materialized view's schema. (Value: "SCHEMA_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewReplicationView Only populates fields
+ *        related to the materialized view's replication state. (Value:
+ *        "REPLICATION_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewFull Populates all fields. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Fetches a @c GTLRBigtableAdmin_MaterializedView.
  *
  *  Gets information about a materialized view.
@@ -1946,6 +1965,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Describes which of the materialized view's fields should be
+ *  populated in the response. For now, only the default value SCHEMA_VIEW is
+ *  supported.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdminViewViewUnspecified Uses the default view for
+ *        each method as documented in its request. (Value: "VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdminViewSchemaView Only populates fields related to
+ *        the materialized view's schema. (Value: "SCHEMA_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewReplicationView Only populates fields
+ *        related to the materialized view's replication state. (Value:
+ *        "REPLICATION_VIEW")
+ *    @arg @c kGTLRBigtableAdminViewFull Populates all fields. (Value: "FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRBigtableAdmin_ListMaterializedViewsResponse.
@@ -3702,8 +3738,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @interface GTLRBigtableAdminQuery_ProjectsLocationsList : GTLRBigtableAdminQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

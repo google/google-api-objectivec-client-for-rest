@@ -653,6 +653,17 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_Missing;
 /**
+ *  The action provided at token generation was different than the
+ *  `expected_action` in the assessment request. The comparison is
+ *  case-insensitive. This reason can only be returned if all of the following
+ *  are true: - your `site_key` has the POLICY_BASED_CHALLENGE integration type
+ *  - you set an action score threshold higher than 0.0 - you provided a
+ *  non-empty `expected_action`
+ *
+ *  Value: "UNEXPECTED_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_UnexpectedAction;
+/**
  *  If the failure reason was not accounted for.
  *
  *  Value: "UNKNOWN_INVALID_REASON"
@@ -1085,9 +1096,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
- *  Optional. The annotation that is assigned to the Event. This field can be
- *  left empty to provide reasons that apply to an event without concluding
- *  whether the event is legitimate or fraudulent.
+ *  annotation
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Annotation_AnnotationUnspecified
@@ -1128,7 +1137,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneAuthenticationEvent *phoneAuthenticationEvent;
 
-/** Optional. Reasons for the annotation that are assigned to the event. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reasons;
 
 /**
@@ -1257,8 +1265,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  request. This can be the link to the client module's project. Examples
  *  include: -
  *  "github.com/GoogleCloudPlatform/recaptcha-enterprise-google-tag-manager" -
- *  "cloud.google.com/recaptcha/docs/implement-waf-akamai" -
- *  "cloud.google.com/recaptcha/docs/implement-waf-cloudflare" -
  *  "wordpress.org/plugins/recaptcha-something"
  */
 @property(nonatomic, copy, nullable) NSString *client;
@@ -1488,8 +1494,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *userIpAddress;
 
 /**
- *  Optional. Flag for running WAF token assessment. If enabled, the token must
- *  be specified, and have been created by a WAF-enabled key.
+ *  Optional. Flag for running Web Application Firewall (WAF) token assessment.
+ *  If enabled, the token must be specified, and have been created by a
+ *  WAF-enabled key.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1954,7 +1961,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 /** Optional. Options for user acceptance testing. */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TestingOptions *testingOptions;
 
-/** Optional. Settings for WAF */
+/** Optional. Settings for Web Application Firewall (WAF). */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings *wafSettings;
 
 /** Settings for keys that can be used by websites. */
@@ -2624,6 +2631,14 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *        "MALFORMED")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_Missing
  *        The user verification token was not present. (Value: "MISSING")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_UnexpectedAction
+ *        The action provided at token generation was different than the
+ *        `expected_action` in the assessment request. The comparison is
+ *        case-insensitive. This reason can only be returned if all of the
+ *        following are true: - your `site_key` has the POLICY_BASED_CHALLENGE
+ *        integration type - you set an action score threshold higher than 0.0 -
+ *        you provided a non-empty `expected_action` (Value:
+ *        "UNEXPECTED_ACTION")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_UnknownInvalidReason
  *        If the failure reason was not accounted for. (Value:
  *        "UNKNOWN_INVALID_REASON")
@@ -3059,7 +3074,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings : GTLRObject
 
 /**
- *  Required. The WAF feature for which this key is enabled.
+ *  Required. The Web Application Firewall (WAF) feature for which this key is
+ *  enabled.
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafFeature_ActionToken
@@ -3078,7 +3094,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *wafFeature;
 
 /**
- *  Required. The WAF service that uses this key.
+ *  Required. The Web Application Firewall (WAF) service that uses this key.
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WafSettings_WafService_Akamai

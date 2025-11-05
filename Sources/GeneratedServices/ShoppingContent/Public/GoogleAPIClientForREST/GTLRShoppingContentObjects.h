@@ -3918,25 +3918,28 @@ FOUNDATION_EXTERN NSString * const kGTLRShoppingContent_VerifyPhoneNumberRequest
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /**
- *  Whether user is an order manager.
+ *  This role is deprecated and can no longer be assigned. Any value set will be
+ *  ignored.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *orderManager;
+@property(nonatomic, strong, nullable) NSNumber *orderManager GTLR_DEPRECATED;
 
 /**
- *  Whether user can access payment statements.
+ *  This role is deprecated and can no longer be assigned. Any value set will be
+ *  ignored.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *paymentsAnalyst;
+@property(nonatomic, strong, nullable) NSNumber *paymentsAnalyst GTLR_DEPRECATED;
 
 /**
- *  Whether user can manage payment settings.
+ *  This role is deprecated and can no longer be assigned. Any value set will be
+ *  ignored.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *paymentsManager;
+@property(nonatomic, strong, nullable) NSNumber *paymentsManager GTLR_DEPRECATED;
 
 /**
  *  Optional. Whether user has standard read-only access.

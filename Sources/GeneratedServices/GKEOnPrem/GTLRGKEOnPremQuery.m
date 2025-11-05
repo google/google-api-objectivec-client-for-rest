@@ -163,7 +163,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsBareMetalAdminClustersOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -466,7 +466,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsBareMetalClustersBareMetalNodePoolsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -746,7 +746,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsBareMetalClustersOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1008,7 +1008,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1161,7 +1161,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1441,7 +1441,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareClustersOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1750,7 +1750,7 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareClustersVmwareNodePoolsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

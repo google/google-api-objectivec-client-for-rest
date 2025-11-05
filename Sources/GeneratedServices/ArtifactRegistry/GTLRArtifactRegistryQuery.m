@@ -355,6 +355,33 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesExportArtifact
+
+@dynamic repository;
+
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_ExportArtifactRequest *)object
+                     repository:(NSString *)repository {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"repository" ];
+  NSString *pathURITemplate = @"v1/{+repository}:exportArtifact";
+  GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesExportArtifact *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.repository = repository;
+  query.expectedObjectClass = [GTLRArtifactRegistry_Operation class];
+  query.loggingName = @"artifactregistry.projects.locations.repositories.exportArtifact";
+  return query;
+}
+
+@end
+
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsRepositoriesFilesDelete
 
 @dynamic name;

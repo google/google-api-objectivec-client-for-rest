@@ -94,7 +94,8 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 //
 
 @implementation GTLRBigQueryReservation_Assignment
-@dynamic assignee, enableGeminiInBigquery, jobType, name, state;
+@dynamic assignee, enableGeminiInBigquery, jobType, name, schedulingPolicy,
+         state;
 @end
 
 
@@ -384,7 +385,7 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 @dynamic autoscale, concurrency, creationTime, edition, ignoreIdleSlots, labels,
          maxSlots, multiRegionAuxiliary, name, originalPrimaryLocation,
          primaryLocation, replicationStatus, reservationGroup, scalingMode,
-         secondaryLocation, slotCapacity, updateTime;
+         schedulingPolicy, secondaryLocation, slotCapacity, updateTime;
 @end
 
 
@@ -409,6 +410,16 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 
 @implementation GTLRBigQueryReservation_ReservationGroup
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryReservation_SchedulingPolicy
+//
+
+@implementation GTLRBigQueryReservation_SchedulingPolicy
+@dynamic concurrency, maxSlots;
 @end
 
 

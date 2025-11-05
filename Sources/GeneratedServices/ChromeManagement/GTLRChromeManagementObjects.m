@@ -492,6 +492,11 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfi
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageSigning = @"KEY_USAGE_SIGNING";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageUnspecified = @"KEY_USAGE_UNSPECIFIED";
 
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest.signatureAlgorithm
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest_SignatureAlgorithm_SignatureAlgorithmEcdsaSha256 = @"SIGNATURE_ALGORITHM_ECDSA_SHA256";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest_SignatureAlgorithm_SignatureAlgorithmRsaPkcs1V15Sha256 = @"SIGNATURE_ALGORITHM_RSA_PKCS1_V1_5_SHA256";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest_SignatureAlgorithm_SignatureAlgorithmUnspecified = @"SIGNATURE_ALGORITHM_UNSPECIFIED";
+
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName.type
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_DnsName = @"DNS_NAME";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName_Type_OtherNameUserPrincipalName = @"OTHER_NAME_USER_PRINCIPAL_NAME";
@@ -1378,10 +1383,19 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1NetworkStatusReport
-@dynamic connectionState, connectionType, encryptionOn, gatewayIpAddress, guid,
-         lanIpAddress, receivingBitRateMbps, reportTime, sampleFrequency,
+@dynamic connectionState, connectionType, encryptionOn, gatewayIpAddress,
+         gatewayIpv6Address, guid, ipv6Address, lanIpAddress, linkDownSpeedKbps,
+         metered, receivingBitRateMbps, reportTime, sampleFrequency,
          signalStrengthDbm, transmissionBitRateMbps, transmissionPowerDbm,
          wifiLinkQuality, wifiPowerManagementEnabled;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ipv6Address" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1635,9 +1649,9 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryEvent
 @dynamic appInstallEvent, appLaunchEvent, appUninstallEvent,
-         audioSevereUnderrunEvent, device, eventType, httpsLatencyChangeEvent,
-         name, networkStateChangeEvent, osCrashEvent, reportTime,
-         usbPeripheralsEvent, user, vpnConnectionStateChangeEvent,
+         audioSevereUnderrunEvent, device, eventType, externalDisplaysEvent,
+         httpsLatencyChangeEvent, name, networkStateChangeEvent, osCrashEvent,
+         reportTime, usbPeripheralsEvent, user, vpnConnectionStateChangeEvent,
          wifiSignalStrengthEvent;
 @end
 
@@ -1653,6 +1667,35 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"eventTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryExternalDisplayData
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryExternalDisplayData
+@dynamic displayName, edidVersion, refreshRate, resolutionHorizontal,
+         resolutionVertical, serialNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1TelemetryExternalDisplayEvent
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1TelemetryExternalDisplayEvent
+@dynamic externalDisplayData;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"externalDisplayData" : [GTLRChromeManagement_GoogleChromeManagementV1TelemetryExternalDisplayData class]
   };
   return map;
 }
@@ -1912,7 +1955,8 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
          identityProvider, lastActivityTime, lastPolicyFetchTime,
          lastPolicySyncTime, lastStatusReportTime, name, osPlatformType,
          osPlatformVersion, osVersion, policyCount, profileId,
-         profilePermanentId, reportingData, userEmail, userId;
+         profilePermanentId, reportingData, supportsFcmNotifications, userEmail,
+         userId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1973,6 +2017,25 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession
 @dynamic chromeOsDevice, userDirectoryApiId, userPrimaryEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ClaimCertificateProvisioningProcessRequest
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ClaimCertificateProvisioningProcessRequest
+@dynamic callerInstanceId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ClaimCertificateProvisioningProcessResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ClaimCertificateProvisioningProcessResponse
 @end
 
 
@@ -2194,11 +2257,40 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1SetFailureRequest
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1SetFailureRequest
+@dynamic errorMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1SetFailureResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1SetFailureResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataMetadata
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataMetadata
 @dynamic startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1SignDataRequest
+@dynamic signatureAlgorithm, signData;
 @end
 
 
@@ -2229,6 +2321,95 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser
 @dynamic name, orgUnitId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateRequest
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateRequest
+@dynamic certificatePem;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleLongrunningCancelOperationRequest
+//
+
+@implementation GTLRChromeManagement_GoogleLongrunningCancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleLongrunningListOperationsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleLongrunningListOperationsResponse
+@dynamic nextPageToken, operations, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRChromeManagement_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleLongrunningOperation
+//
+
+@implementation GTLRChromeManagement_GoogleLongrunningOperation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleLongrunningOperation_Metadata
+//
+
+@implementation GTLRChromeManagement_GoogleLongrunningOperation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleLongrunningOperation_Response
+//
+
+@implementation GTLRChromeManagement_GoogleLongrunningOperation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

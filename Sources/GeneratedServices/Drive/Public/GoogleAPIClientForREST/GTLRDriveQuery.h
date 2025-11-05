@@ -2256,9 +2256,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Creates a permission for a file or shared drive. **Warning:** Concurrent
- *  permissions operations on the same file are not supported; only the last
- *  update is applied.
+ *  Creates a permission for a file or shared drive. For more information, see
+ *  [Share files, folders, and
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
+ *  **Warning:** Concurrent permissions operations on the same file aren't
+ *  supported; only the last update is applied.
  *
  *  Method: drive.permissions.create
  *
@@ -2289,10 +2291,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
- *  This parameter will only take effect if the item is not in a shared drive
- *  and the request is attempting to transfer the ownership of the item. If set
- *  to `true`, the item will be moved to the new owner's My Drive root folder
- *  and all prior parents removed. If set to `false`, parents are not changed.
+ *  This parameter only takes effect if the item isn't in a shared drive and the
+ *  request is attempting to transfer the ownership of the item. If set to
+ *  `true`, the item is moved to the new owner's My Drive root folder and all
+ *  prior parents removed. If set to `false`, parents aren't changed.
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -2323,17 +2325,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Whether to transfer ownership to the specified user and downgrade the
  *  current owner to a writer. This parameter is required as an acknowledgement
- *  of the side effect.
+ *  of the side effect. For more information, see [Transfer file
+ *  ownership](https://developers.google.com/workspace/drive/api/guides/transfer-file).
  *
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL transferOwnership;
 
 /**
- *  Issue the request as a domain administrator; if set to true, then the
- *  requester will be granted access if the file ID parameter refers to a shared
- *  drive and the requester is an administrator of the domain to which the
- *  shared drive belongs.
+ *  Issue the request as a domain administrator. If set to `true`, and if the
+ *  following additional conditions are met, the requester is granted access: 1.
+ *  The file ID parameter refers to a shared drive. 2. The requester is an
+ *  administrator of the domain to which the shared drive belongs. For more
+ *  information, see [Manage shared drives as domain
+ *  administrators](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives#manage-administrators).
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -2342,9 +2347,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Permission.
  *
- *  Creates a permission for a file or shared drive. **Warning:** Concurrent
- *  permissions operations on the same file are not supported; only the last
- *  update is applied.
+ *  Creates a permission for a file or shared drive. For more information, see
+ *  [Share files, folders, and
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
+ *  **Warning:** Concurrent permissions operations on the same file aren't
+ *  supported; only the last update is applied.
  *
  *  @param object The @c GTLRDrive_Permission to include in the query.
  *  @param fileId The ID of the file or shared drive.
@@ -2357,8 +2364,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Deletes a permission. **Warning:** Concurrent permissions operations on the
- *  same file are not supported; only the last update is applied.
+ *  Deletes a permission. For more information, see [Share files, folders, and
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
+ *  **Warning:** Concurrent permissions operations on the same file aren't
+ *  supported; only the last update is applied.
  *
  *  Method: drive.permissions.delete
  *
@@ -2397,10 +2406,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
- *  Issue the request as a domain administrator; if set to true, then the
- *  requester will be granted access if the file ID parameter refers to a shared
- *  drive and the requester is an administrator of the domain to which the
- *  shared drive belongs.
+ *  Issue the request as a domain administrator. If set to `true`, and if the
+ *  following additional conditions are met, the requester is granted access: 1.
+ *  The file ID parameter refers to a shared drive. 2. The requester is an
+ *  administrator of the domain to which the shared drive belongs. For more
+ *  information, see [Manage shared drives as domain
+ *  administrators](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives#manage-administrators).
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -2410,8 +2421,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a permission. **Warning:** Concurrent permissions operations on the
- *  same file are not supported; only the last update is applied.
+ *  Deletes a permission. For more information, see [Share files, folders, and
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
+ *  **Warning:** Concurrent permissions operations on the same file aren't
+ *  supported; only the last update is applied.
  *
  *  @param fileId The ID of the file or shared drive.
  *  @param permissionId The ID of the permission.
@@ -2424,7 +2437,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Gets a permission by ID.
+ *  Gets a permission by ID. For more information, see [Share files, folders,
+ *  and
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
  *
  *  Method: drive.permissions.get
  *
@@ -2461,10 +2476,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
- *  Issue the request as a domain administrator; if set to true, then the
- *  requester will be granted access if the file ID parameter refers to a shared
- *  drive and the requester is an administrator of the domain to which the
- *  shared drive belongs.
+ *  Issue the request as a domain administrator. If set to `true`, and if the
+ *  following additional conditions are met, the requester is granted access: 1.
+ *  The file ID parameter refers to a shared drive. 2. The requester is an
+ *  administrator of the domain to which the shared drive belongs. For more
+ *  information, see [Manage shared drives as domain
+ *  administrators](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives#manage-administrators).
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -2473,7 +2490,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Permission.
  *
- *  Gets a permission by ID.
+ *  Gets a permission by ID. For more information, see [Share files, folders,
+ *  and
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
  *
  *  @param fileId The ID of the file.
  *  @param permissionId The ID of the permission.
@@ -2486,7 +2505,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Lists a file's or shared drive's permissions.
+ *  Lists a file's or shared drive's permissions. For more information, see
+ *  [Share files, folders, and
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
  *
  *  Method: drive.permissions.list
  *
@@ -2506,7 +2527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Specifies which additional view's permissions to include in the response.
- *  Only 'published' is supported.
+ *  Only `published` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *includePermissionsForView;
 
@@ -2521,7 +2542,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  The token for continuing a previous list request on the next page. This
- *  should be set to the value of 'nextPageToken' from the previous response.
+ *  should be set to the value of `nextPageToken` from the previous response.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2541,10 +2562,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, assign) BOOL supportsTeamDrives GTLR_DEPRECATED;
 
 /**
- *  Issue the request as a domain administrator; if set to true, then the
- *  requester will be granted access if the file ID parameter refers to a shared
- *  drive and the requester is an administrator of the domain to which the
- *  shared drive belongs.
+ *  Issue the request as a domain administrator. If set to `true`, and if the
+ *  following additional conditions are met, the requester is granted access: 1.
+ *  The file ID parameter refers to a shared drive. 2. The requester is an
+ *  administrator of the domain to which the shared drive belongs. For more
+ *  information, see [Manage shared drives as domain
+ *  administrators](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives#manage-administrators).
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -2553,7 +2576,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_PermissionList.
  *
- *  Lists a file's or shared drive's permissions.
+ *  Lists a file's or shared drive's permissions. For more information, see
+ *  [Share files, folders, and
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
  *
  *  @param fileId The ID of the file or shared drive.
  *
@@ -2568,9 +2593,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Updates a permission with patch semantics. **Warning:** Concurrent
- *  permissions operations on the same file are not supported; only the last
- *  update is applied.
+ *  Updates a permission with patch semantics. For more information, see [Share
+ *  files, folders, and
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
+ *  **Warning:** Concurrent permissions operations on the same file aren't
+ *  supported; only the last update is applied.
  *
  *  Method: drive.permissions.update
  *
@@ -2618,17 +2645,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Whether to transfer ownership to the specified user and downgrade the
  *  current owner to a writer. This parameter is required as an acknowledgement
- *  of the side effect.
+ *  of the side effect. For more information, see [Transfer file
+ *  ownership](https://developers.google.com//workspace/drive/api/guides/transfer-file).
  *
  *  @note If not set, the documented server-side default will be false.
  */
 @property(nonatomic, assign) BOOL transferOwnership;
 
 /**
- *  Issue the request as a domain administrator; if set to true, then the
- *  requester will be granted access if the file ID parameter refers to a shared
- *  drive and the requester is an administrator of the domain to which the
- *  shared drive belongs.
+ *  Issue the request as a domain administrator. If set to `true`, and if the
+ *  following additional conditions are met, the requester is granted access: 1.
+ *  The file ID parameter refers to a shared drive. 2. The requester is an
+ *  administrator of the domain to which the shared drive belongs. For more
+ *  information, see [Manage shared drives as domain
+ *  administrators](https://developers.google.com/workspace/drive/api/guides/manage-shareddrives#manage-administrators).
  *
  *  @note If not set, the documented server-side default will be false.
  */
@@ -2637,9 +2667,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Permission.
  *
- *  Updates a permission with patch semantics. **Warning:** Concurrent
- *  permissions operations on the same file are not supported; only the last
- *  update is applied.
+ *  Updates a permission with patch semantics. For more information, see [Share
+ *  files, folders, and
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
+ *  **Warning:** Concurrent permissions operations on the same file aren't
+ *  supported; only the last update is applied.
  *
  *  @param object The @c GTLRDrive_Permission to include in the query.
  *  @param fileId The ID of the file or shared drive.

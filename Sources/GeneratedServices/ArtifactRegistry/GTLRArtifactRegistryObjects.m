@@ -99,6 +99,7 @@ NSString * const kGTLRArtifactRegistry_Repository_Format_Kfp   = @"KFP";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Maven = @"MAVEN";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Npm   = @"NPM";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Python = @"PYTHON";
+NSString * const kGTLRArtifactRegistry_Repository_Format_Ruby  = @"RUBY";
 NSString * const kGTLRArtifactRegistry_Repository_Format_Yum   = @"YUM";
 
 // GTLRArtifactRegistry_Repository.mode
@@ -355,6 +356,62 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ExportArtifactMetadata
+//
+
+@implementation GTLRArtifactRegistry_ExportArtifactMetadata
+@dynamic exportedFiles;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exportedFiles" : [GTLRArtifactRegistry_ExportedFile class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ExportArtifactRequest
+//
+
+@implementation GTLRArtifactRegistry_ExportArtifactRequest
+@dynamic gcsPath, sourceTag, sourceVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ExportArtifactResponse
+//
+
+@implementation GTLRArtifactRegistry_ExportArtifactResponse
+@dynamic exportedVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ExportedFile
+//
+
+@implementation GTLRArtifactRegistry_ExportedFile
+@dynamic gcsObjectPath, hashes, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hashes" : [GTLRArtifactRegistry_Hash class]
+  };
+  return map;
+}
+
 @end
 
 

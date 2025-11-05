@@ -29,6 +29,7 @@
 @class GTLRBackupdr_BackupApplianceLockInfo;
 @class GTLRBackupdr_BackupConfigDetails;
 @class GTLRBackupdr_BackupConfigInfo;
+@class GTLRBackupdr_BackupGcpResource;
 @class GTLRBackupdr_BackupLocation;
 @class GTLRBackupdr_BackupLock;
 @class GTLRBackupdr_BackupPlan;
@@ -2362,6 +2363,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) GTLRBackupdr_GCPBackupPlanInfo *gcpBackupPlanInfo;
 
 /**
+ *  Output only. Unique identifier of the GCP resource that is being backed up.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_BackupGcpResource *gcpResource;
+
+/**
  *  Optional. Resource labels to represent user provided metadata. No labels
  *  currently defined.
  */
@@ -2690,6 +2696,26 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Minimum details to identify a Google Cloud resource for a backup.
+ */
+@interface GTLRBackupdr_BackupGcpResource : GTLRObject
+
+/** Name of the Google Cloud resource. */
+@property(nonatomic, copy, nullable) NSString *gcpResourcename;
+
+/** Location of the resource: //"global"/"unspecified". */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Type of the resource. Use the Unified Resource Type, eg.
+ *  compute.googleapis.com/Instance.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  BackupLocation represents a cloud location where a backup can be stored.
  */
 @interface GTLRBackupdr_BackupLocation : GTLRObject
@@ -2803,6 +2829,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *logRetentionDays;
+
+/**
+ *  Optional. Optional field to configure the maximum number of days for which a
+ *  backup can be retained. This field is only applicable for on-demand backups
+ *  taken with custom retention value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxCustomOnDemandRetentionDays;
 
 /**
  *  Output only. Identifier. The resource name of the `BackupPlan`. Format:
@@ -3352,6 +3387,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *finalBackup;
+
+/** Output only. The instance creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *instanceCreateTime;
+
+/** Output only. The instance delete timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *instanceDeleteTime;
 
 /**
  *  Output only. The tier (or machine type) for this instance. Example:
@@ -4173,6 +4214,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Output only. Total size of the storage used by all backup resources for the
+ *  referenced datasource.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalStoredBytes;
+
 @end
 
 
@@ -4647,6 +4696,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 /**
  *  Output only. A token, which can be sent as `page_token` to retrieve the next
  *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response for the FetchBackupsForResourceType method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "backups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBackupdr_FetchBackupsForResourceTypeResponse : GTLRCollectionObject
+
+/**
+ *  The Backups from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_Backup *> *backups;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -5223,6 +5299,36 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Response for the ListDataSourceReferences method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataSourceReferences" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_ListDataSourceReferencesResponse : GTLRCollectionObject
+
+/**
+ *  The DataSourceReferences from the specified parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_DataSourceReference *> *dataSourceReferences;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response message for listing DataSources.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5329,6 +5435,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -6796,6 +6909,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Request message for triggering a backup.
  */
 @interface GTLRBackupdr_TriggerBackupRequest : GTLRObject
+
+/**
+ *  Optional. The duration for which backup data will be kept, while taking an
+ *  on-demand backup with custom retention. It is defined in "days". It is
+ *  mutually exclusive with rule_id. This field is required if rule_id is not
+ *  provided.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *customRetentionDays;
 
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique

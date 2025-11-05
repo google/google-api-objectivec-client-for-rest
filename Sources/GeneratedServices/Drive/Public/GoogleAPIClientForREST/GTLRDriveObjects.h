@@ -739,6 +739,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, copy, nullable) NSString *anchor;
 
 /**
+ *  Output only. The email of the user who is assigned to this comment, if none
+ *  is assigned this will be unset.
+ */
+@property(nonatomic, copy, nullable) NSString *assigneeEmailAddress;
+
+/**
  *  Output only. The author of the comment. The author's email address and
  *  permission ID will not be populated.
  */
@@ -776,6 +782,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  string `"drive#comment"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Output only. The emails of the users who were mentioned in this comment, if
+ *  none were mentioned this will be an empty list.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mentionedEmailAddresses;
 
 /**
  *  The last time the comment or any of its replies was modified (RFC 3339
@@ -2886,10 +2898,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  A permission for a file. A permission grants a user, group, domain, or the
- *  world access to a file or a folder hierarchy. By default, permissions
- *  requests only return a subset of fields. Permission kind, ID, type, and role
- *  are always returned. To retrieve specific fields, see
- *  https://developers.google.com/workspace/drive/api/guides/fields-parameter.
+ *  world access to a file or a folder hierarchy. For more information, see
+ *  [Share files, folders, and
+ *  drives](https://developers.google.com/workspace/drive/api/guides/manage-sharing).
+ *  By default, permission requests only return a subset of fields. Permission
+ *  `kind`, `ID`, `type`, and `role` are always returned. To retrieve specific
+ *  fields, see [Return specific
+ *  fields](https://developers.google.com/workspace/drive/api/guides/fields-parameter).
  *  Some resource methods (such as `permissions.update`) require a
  *  `permissionId`. Use the `permissions.list` method to retrieve the ID for a
  *  file, folder, or shared drive.
@@ -2906,7 +2921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Whether the account associated with this permission has been
- *  deleted. This field only pertains to user and group permissions.
+ *  deleted. This field only pertains to permissions of type `user` or `group`.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2915,9 +2930,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 /**
  *  Output only. The "pretty" name of the value of the permission. The following
  *  is a list of examples for each type of permission: * `user` - User's full
- *  name, as defined for their Google account, such as "Joe Smith." * `group` -
+ *  name, as defined for their Google Account, such as "Dana A." * `group` -
  *  Name of the Google Group, such as "The Company Administrators." * `domain` -
- *  String domain name, such as "thecompany.com." * `anyone` - No `displayName`
+ *  String domain name, such as "cymbalgroup.com." * `anyone` - No `displayName`
  *  is present.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
@@ -2938,15 +2953,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. The ID of this permission. This is a unique identifier for the
- *  grantee, and is published in User resources as `permissionId`. IDs should be
- *  treated as opaque values.
+ *  grantee, and is published in the [User
+ *  resource](https://developers.google.com/workspace/drive/api/reference/rest/v3/User)
+ *  as `permissionId`. IDs should be treated as opaque values.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
- *  When true, only organizers, owners, and users with permissions added
+ *  When `true`, only organizers, owners, and users with permissions added
  *  directly on the item can access it.
  *
  *  Uses NSNumber of boolValue.
@@ -2961,7 +2977,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Whether the account associated with this permission is a pending owner. Only
- *  populated for `user` type permissions for files that are not in a shared
+ *  populated for permissions of type `user` for files that aren't in a shared
  *  drive.
  *
  *  Uses NSNumber of boolValue.
@@ -2970,7 +2986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 /**
  *  Output only. Details of whether the permissions on this item are inherited
- *  or directly on this item.
+ *  or are directly on this item.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission_PermissionDetails_Item *> *permissionDetails;
 
@@ -2978,9 +2994,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, copy, nullable) NSString *photoLink;
 
 /**
- *  The role granted by this permission. While new values may be supported in
- *  the future, the following are currently allowed: * `owner` * `organizer` *
- *  `fileOrganizer` * `writer` * `commenter` * `reader`
+ *  The role granted by this permission. Supported values include: * `owner` *
+ *  `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader` For more
+ *  information, see [Roles and
+ *  permissions](https://developers.google.com/workspace/drive/api/guides/ref-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -2988,21 +3005,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_Permission_TeamDrivePermissionDetails_Item *> *teamDrivePermissionDetails GTLR_DEPRECATED;
 
 /**
- *  The type of the grantee. Valid values are: * `user` * `group` * `domain` *
- *  `anyone` When creating a permission, if `type` is `user` or `group`, you
- *  must provide an `emailAddress` for the user or group. When `type` is
- *  `domain`, you must provide a `domain`. There isn't extra information
- *  required for an `anyone` type.
+ *  The type of the grantee. Supported values include: * `user` * `group` *
+ *  `domain` * `anyone` When creating a permission, if `type` is `user` or
+ *  `group`, you must provide an `emailAddress` for the user or group. If `type`
+ *  is `domain`, you must provide a `domain`. If `type` is `anyone`, no extra
+ *  information is required.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Indicates the view for this permission. Only populated for permissions that
- *  belong to a view. published and metadata are the only supported values. -
- *  published: The permission's role is published_reader. - metadata: The item
- *  is only visible to the metadata view because the item has limited access and
- *  the scope has at least read access to the parent. Note: The metadata view is
- *  currently only supported on folders.
+ *  belong to a view. The only supported values are `published` and `metadata`:
+ *  * `published`: The permission's role is `publishedReader`. * `metadata`: The
+ *  item is only visible to the `metadata` view because the item has limited
+ *  access and the scope has at least read access to the parent. The `metadata`
+ *  view is only supported on folders. For more information, see
+ *  [Views](https://developers.google.com/workspace/drive/api/guides/ref-roles#views).
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -3029,15 +3047,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, copy, nullable) NSString *inheritedFrom;
 
 /**
- *  Output only. The permission type for this user. While new values may be
- *  added in future, the following are currently possible: * `file` * `member`
+ *  Output only. The permission type for this user. Supported values include: *
+ *  `file` * `member`
  */
 @property(nonatomic, copy, nullable) NSString *permissionType;
 
 /**
- *  Output only. The primary role for this user. While new values may be added
- *  in the future, the following are currently possible: * `owner` * `organizer`
- *  * `fileOrganizer` * `writer` * `commenter` * `reader`
+ *  Output only. The primary role for this user. Supported values include: *
+ *  `owner` * `organizer` * `fileOrganizer` * `writer` * `commenter` * `reader`
+ *  For more information, see [Roles and
+ *  permissions](https://developers.google.com/workspace/drive/api/guides/ref-roles).
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
@@ -3097,7 +3116,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The list of permissions. If nextPageToken is populated, then this list may
+ *  The list of permissions. If `nextPageToken` is populated, then this list may
  *  be incomplete and an additional page of results should be fetched.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
@@ -3120,6 +3139,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  `resolve` * `reopen`
  */
 @property(nonatomic, copy, nullable) NSString *action;
+
+/**
+ *  Output only. The email of the user who is assigned to this reply, if none is
+ *  assigned this will be unset.
+ */
+@property(nonatomic, copy, nullable) NSString *assigneeEmailAddress;
 
 /**
  *  Output only. The author of the reply. The author's email address and
@@ -3160,6 +3185,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  string `"drive#reply"`.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Output only. The emails of the users who were mentioned in this reply, if
+ *  none were mentioned this will be an empty list.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *mentionedEmailAddresses;
 
 /** The last time the reply was modified (RFC 3339 date-time). */
 @property(nonatomic, strong, nullable) GTLRDateTime *modifiedTime;

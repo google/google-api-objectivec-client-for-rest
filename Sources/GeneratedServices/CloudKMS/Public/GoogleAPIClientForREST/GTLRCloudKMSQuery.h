@@ -120,7 +120,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Returns the AutokeyConfig for a folder or project.
+ *  Returns the AutokeyConfig for a folder.
  *
  *  Method: cloudkms.folders.getAutokeyConfig
  *
@@ -132,19 +132,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Required. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRCloudKMS_AutokeyConfig.
  *
- *  Returns the AutokeyConfig for a folder or project.
+ *  Returns the AutokeyConfig for a folder.
  *
  *  @param name Required. Name of the AutokeyConfig resource, e.g.
- *    `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *    `projects/{PROJECT_NUMBER}/autokeyConfig`.
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig`.
  *
  *  @return GTLRCloudKMSQuery_FoldersGetAutokeyConfig
  */
@@ -348,39 +346,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Returns the AutokeyConfig for a folder or project.
- *
- *  Method: cloudkms.projects.getAutokeyConfig
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudKMS
- *    @c kGTLRAuthScopeCloudKMSCloudPlatform
- */
-@interface GTLRCloudKMSQuery_ProjectsGetAutokeyConfig : GTLRCloudKMSQuery
-
-/**
- *  Required. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudKMS_AutokeyConfig.
- *
- *  Returns the AutokeyConfig for a folder or project.
- *
- *  @param name Required. Name of the AutokeyConfig resource, e.g.
- *    `folders/{FOLDER_NUMBER}/autokeyConfig` or
- *    `projects/{PROJECT_NUMBER}/autokeyConfig`.
- *
- *  @return GTLRCloudKMSQuery_ProjectsGetAutokeyConfig
- */
-+ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2698,8 +2663,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsList : GTLRCloudKMSQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2912,57 +2877,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsPolicyConfig
  */
 + (instancetype)queryWithProject:(NSString *)project;
-
-@end
-
-/**
- *  Updates the AutokeyConfig for a folder. The caller must have both
- *  `cloudkms.autokeyConfigs.update` permission on the parent folder and
- *  `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A
- *  KeyHandle creation in the folder's descendant projects will use this
- *  configuration to determine where to create the resulting CryptoKey.
- *
- *  Method: cloudkms.projects.updateAutokeyConfig
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudKMS
- *    @c kGTLRAuthScopeCloudKMSCloudPlatform
- */
-@interface GTLRCloudKMSQuery_ProjectsUpdateAutokeyConfig : GTLRCloudKMSQuery
-
-/**
- *  Identifier. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig`
- *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Required. Masks which fields of the AutokeyConfig to update, e.g.
- *  `keyProject`.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRCloudKMS_AutokeyConfig.
- *
- *  Updates the AutokeyConfig for a folder. The caller must have both
- *  `cloudkms.autokeyConfigs.update` permission on the parent folder and
- *  `cloudkms.cryptoKeys.setIamPolicy` permission on the provided key project. A
- *  KeyHandle creation in the folder's descendant projects will use this
- *  configuration to determine where to create the resulting CryptoKey.
- *
- *  @param object The @c GTLRCloudKMS_AutokeyConfig to include in the query.
- *  @param name Identifier. Name of the AutokeyConfig resource, e.g.
- *    `folders/{FOLDER_NUMBER}/autokeyConfig`
- *    `projects/{PROJECT_NUMBER}/autokeyConfig`.
- *
- *  @return GTLRCloudKMSQuery_ProjectsUpdateAutokeyConfig
- */
-+ (instancetype)queryWithObject:(GTLRCloudKMS_AutokeyConfig *)object
-                           name:(NSString *)name;
 
 @end
 

@@ -343,11 +343,12 @@ NSString * const kGTLRSecurityPosture_Violation_Severity_SeverityUnspecified = @
 //
 
 @implementation GTLRSecurityPosture_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRSecurityPosture_Operation class]
+    @"operations" : [GTLRSecurityPosture_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

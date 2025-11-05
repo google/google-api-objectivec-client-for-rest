@@ -72,6 +72,12 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeViewability = @"TARG
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeChannel = @"TARGETING_TYPE_YOUTUBE_CHANNEL";
 NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TARGETING_TYPE_YOUTUBE_VIDEO";
 
+// youtubeAssetType
+NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeAffiliateLocation = @"YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION";
+NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeLocation = @"YOUTUBE_ASSET_TYPE_LOCATION";
+NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeSitelink = @"YOUTUBE_ASSET_TYPE_SITELINK";
+NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAssetTypeUnspecified = @"YOUTUBE_ASSET_TYPE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -79,6 +85,131 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
 @implementation GTLRDisplayVideoQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersAdAssetsBulkCreate
+
+@dynamic advertiserId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_BulkCreateAdAssetsRequest *)object
+                   advertiserId:(long long)advertiserId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adAssets:bulkCreate";
+  GTLRDisplayVideoQuery_AdvertisersAdAssetsBulkCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_BulkCreateAdAssetsResponse class];
+  query.loggingName = @"displayvideo.advertisers.adAssets.bulkCreate";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersAdAssetsCreate
+
+@dynamic advertiserId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_CreateAdAssetRequest *)object
+                   advertiserId:(long long)advertiserId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adAssets";
+  GTLRDisplayVideoQuery_AdvertisersAdAssetsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_AdAsset class];
+  query.loggingName = @"displayvideo.advertisers.adAssets.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersAdAssetsGet
+
+@dynamic adAssetId, advertiserId;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                            adAssetId:(long long)adAssetId {
+  NSArray *pathParams = @[
+    @"adAssetId", @"advertiserId"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adAssets/{+adAssetId}";
+  GTLRDisplayVideoQuery_AdvertisersAdAssetsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.adAssetId = adAssetId;
+  query.expectedObjectClass = [GTLRDisplayVideo_AdAsset class];
+  query.loggingName = @"displayvideo.advertisers.adAssets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersAdAssetsList
+
+@dynamic advertiserId, filter, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId {
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adAssets";
+  GTLRDisplayVideoQuery_AdvertisersAdAssetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListAdAssetsResponse class];
+  query.loggingName = @"displayvideo.advertisers.adAssets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersAdAssetsUpload
+
+@dynamic advertiserId;
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_UploadAdAssetRequest *)object
+                   advertiserId:(long long)advertiserId
+               uploadParameters:(GTLRUploadParameters *)uploadParameters {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"advertiserId" ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adAssets:uploadAdAsset";
+  GTLRDisplayVideoQuery_AdvertisersAdAssetsUpload *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.uploadParameters = uploadParameters;
+  query.expectedObjectClass = [GTLRDisplayVideo_UploadAdAssetResponse class];
+  query.loggingName = @"displayvideo.advertisers.adAssets.upload";
+  return query;
+}
 
 @end
 
@@ -241,6 +372,106 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   query.targetingType = targetingType;
   query.expectedObjectClass = [GTLRDisplayVideo_ListAdGroupAssignedTargetingOptionsResponse class];
   query.loggingName = @"displayvideo.advertisers.adGroups.targetingTypes.assignedTargetingOptions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsCreate
+
+@dynamic adGroupId, advertiserId, linkedEntityLineItemId, youtubeAssetType;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"linkedEntityLineItemId" : @"linkedEntity.lineItemId" };
+}
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_YoutubeAssetAssociation *)object
+                   advertiserId:(long long)advertiserId
+                      adGroupId:(long long)adGroupId
+               youtubeAssetType:(NSString *)youtubeAssetType {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"adGroupId", @"advertiserId", @"youtubeAssetType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adGroups/{+adGroupId}/youtubeAssetTypes/{+youtubeAssetType}/youtubeAssetAssociations";
+  GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.adGroupId = adGroupId;
+  query.youtubeAssetType = youtubeAssetType;
+  query.expectedObjectClass = [GTLRDisplayVideo_YoutubeAssetAssociation class];
+  query.loggingName = @"displayvideo.advertisers.adGroups.youtubeAssetTypes.youtubeAssetAssociations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsDelete
+
+@dynamic adGroupId, advertiserId, linkedEntityLineItemId,
+         youtubeAssetAssociationId, youtubeAssetType;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"linkedEntityLineItemId" : @"linkedEntity.lineItemId" };
+}
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                            adGroupId:(long long)adGroupId
+                     youtubeAssetType:(NSString *)youtubeAssetType
+            youtubeAssetAssociationId:(long long)youtubeAssetAssociationId {
+  NSArray *pathParams = @[
+    @"adGroupId", @"advertiserId", @"youtubeAssetAssociationId",
+    @"youtubeAssetType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adGroups/{+adGroupId}/youtubeAssetTypes/{+youtubeAssetType}/youtubeAssetAssociations/{+youtubeAssetAssociationId}";
+  GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.adGroupId = adGroupId;
+  query.youtubeAssetType = youtubeAssetType;
+  query.youtubeAssetAssociationId = youtubeAssetAssociationId;
+  query.expectedObjectClass = [GTLRDisplayVideo_Empty class];
+  query.loggingName = @"displayvideo.advertisers.adGroups.youtubeAssetTypes.youtubeAssetAssociations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsList
+
+@dynamic adGroupId, advertiserId, linkedEntityLineItemId, orderBy, pageSize,
+         pageToken, youtubeAssetType;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"linkedEntityLineItemId" : @"linkedEntity.lineItemId" };
+}
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                            adGroupId:(long long)adGroupId
+                     youtubeAssetType:(NSString *)youtubeAssetType {
+  NSArray *pathParams = @[
+    @"adGroupId", @"advertiserId", @"youtubeAssetType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/adGroups/{+adGroupId}/youtubeAssetTypes/{+youtubeAssetType}/youtubeAssetAssociations";
+  GTLRDisplayVideoQuery_AdvertisersAdGroupsYoutubeAssetTypesYoutubeAssetAssociationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.adGroupId = adGroupId;
+  query.youtubeAssetType = youtubeAssetType;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListYoutubeAssetAssociationsResponse class];
+  query.loggingName = @"displayvideo.advertisers.adGroups.youtubeAssetTypes.youtubeAssetAssociations.list";
   return query;
 }
 
@@ -1618,6 +1849,106 @@ NSString * const kGTLRDisplayVideoTargetingTypeTargetingTypeYoutubeVideo = @"TAR
   query.targetingType = targetingType;
   query.expectedObjectClass = [GTLRDisplayVideo_ListLineItemAssignedTargetingOptionsResponse class];
   query.loggingName = @"displayvideo.advertisers.lineItems.targetingTypes.assignedTargetingOptions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsCreate
+
+@dynamic advertiserId, lineItemId, linkedEntityAdGroupId, youtubeAssetType;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"linkedEntityAdGroupId" : @"linkedEntity.adGroupId" };
+}
+
++ (instancetype)queryWithObject:(GTLRDisplayVideo_YoutubeAssetAssociation *)object
+                   advertiserId:(long long)advertiserId
+                     lineItemId:(long long)lineItemId
+               youtubeAssetType:(NSString *)youtubeAssetType {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"advertiserId", @"lineItemId", @"youtubeAssetType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems/{+lineItemId}/youtubeAssetTypes/{+youtubeAssetType}/youtubeAssetAssociations";
+  GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.advertiserId = advertiserId;
+  query.lineItemId = lineItemId;
+  query.youtubeAssetType = youtubeAssetType;
+  query.expectedObjectClass = [GTLRDisplayVideo_YoutubeAssetAssociation class];
+  query.loggingName = @"displayvideo.advertisers.lineItems.youtubeAssetTypes.youtubeAssetAssociations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsDelete
+
+@dynamic advertiserId, lineItemId, linkedEntityAdGroupId,
+         youtubeAssetAssociationId, youtubeAssetType;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"linkedEntityAdGroupId" : @"linkedEntity.adGroupId" };
+}
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                           lineItemId:(long long)lineItemId
+                     youtubeAssetType:(NSString *)youtubeAssetType
+            youtubeAssetAssociationId:(long long)youtubeAssetAssociationId {
+  NSArray *pathParams = @[
+    @"advertiserId", @"lineItemId", @"youtubeAssetAssociationId",
+    @"youtubeAssetType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems/{+lineItemId}/youtubeAssetTypes/{+youtubeAssetType}/youtubeAssetAssociations/{+youtubeAssetAssociationId}";
+  GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.lineItemId = lineItemId;
+  query.youtubeAssetType = youtubeAssetType;
+  query.youtubeAssetAssociationId = youtubeAssetAssociationId;
+  query.expectedObjectClass = [GTLRDisplayVideo_Empty class];
+  query.loggingName = @"displayvideo.advertisers.lineItems.youtubeAssetTypes.youtubeAssetAssociations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsList
+
+@dynamic advertiserId, lineItemId, linkedEntityAdGroupId, orderBy, pageSize,
+         pageToken, youtubeAssetType;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"linkedEntityAdGroupId" : @"linkedEntity.adGroupId" };
+}
+
++ (instancetype)queryWithAdvertiserId:(long long)advertiserId
+                           lineItemId:(long long)lineItemId
+                     youtubeAssetType:(NSString *)youtubeAssetType {
+  NSArray *pathParams = @[
+    @"advertiserId", @"lineItemId", @"youtubeAssetType"
+  ];
+  NSString *pathURITemplate = @"v4/advertisers/{+advertiserId}/lineItems/{+lineItemId}/youtubeAssetTypes/{+youtubeAssetType}/youtubeAssetAssociations";
+  GTLRDisplayVideoQuery_AdvertisersLineItemsYoutubeAssetTypesYoutubeAssetAssociationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.advertiserId = advertiserId;
+  query.lineItemId = lineItemId;
+  query.youtubeAssetType = youtubeAssetType;
+  query.expectedObjectClass = [GTLRDisplayVideo_ListYoutubeAssetAssociationsResponse class];
+  query.loggingName = @"displayvideo.advertisers.lineItems.youtubeAssetTypes.youtubeAssetAssociations.list";
   return query;
 }
 

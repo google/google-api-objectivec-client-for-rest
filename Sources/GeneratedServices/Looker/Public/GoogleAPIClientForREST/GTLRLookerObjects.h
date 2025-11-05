@@ -13,6 +13,7 @@
 #endif
 
 @class GTLRLooker_AdminSettings;
+@class GTLRLooker_ControlledEgressConfig;
 @class GTLRLooker_CustomDomain;
 @class GTLRLooker_Date;
 @class GTLRLooker_DenyMaintenancePeriod;
@@ -440,6 +441,27 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 
 
 /**
+ *  Controlled egress configuration.
+ */
+@interface GTLRLooker_ControlledEgressConfig : GTLRObject
+
+/**
+ *  Optional. List of fully qualified domain names to be added to the allowlist
+ *  for outbound traffic.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *egressFqdns;
+
+/**
+ *  Optional. Whether marketplace is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *marketplaceEnabled;
+
+@end
+
+
+/**
  *  Custom domain information.
  */
 @interface GTLRLooker_CustomDomain : GTLRObject
@@ -706,6 +728,16 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  *  hosting the Looker Instance.
  */
 @property(nonatomic, copy, nullable) NSString *consumerNetwork;
+
+/** Optional. Controlled egress configuration. */
+@property(nonatomic, strong, nullable) GTLRLooker_ControlledEgressConfig *controlledEgressConfig;
+
+/**
+ *  Optional. Whether controlled egress is enabled on the Looker instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *controlledEgressEnabled;
 
 /**
  *  Output only. The time when the Looker instance provisioning was first
@@ -1045,6 +1077,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLooker_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

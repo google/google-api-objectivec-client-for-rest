@@ -248,6 +248,15 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  */
 @property(nonatomic, strong, nullable) NSNumber *lowLatencyJourneySynthesis;
 
+/**
+ *  Optional. Input only. If true, relaxes safety filters for Gemini TTS. Only
+ *  supported for accounts linked to Invoiced (Offline) Cloud billing accounts.
+ *  Otherwise, will return result google.rpc.Code.INVALID_ARGUMENT.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *relaxSafetyFilters;
+
 @end
 
 
@@ -499,6 +508,13 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTexttospeech_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

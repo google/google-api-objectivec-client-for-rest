@@ -45,6 +45,7 @@
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData;
 @class GTLRCloudRedis_DatabaseResourceRecommendationSignalData_AdditionalMetadata;
 @class GTLRCloudRedis_DatabaseResourceSignalData;
+@class GTLRCloudRedis_Date;
 @class GTLRCloudRedis_DiscoveryEndpoint;
 @class GTLRCloudRedis_EncryptionInfo;
 @class GTLRCloudRedis_Entitlement;
@@ -85,6 +86,9 @@
 @class GTLRCloudRedis_PscServiceAttachment;
 @class GTLRCloudRedis_RDBConfig;
 @class GTLRCloudRedis_RemoteCluster;
+@class GTLRCloudRedis_ResourceMaintenanceDenySchedule;
+@class GTLRCloudRedis_ResourceMaintenanceInfo;
+@class GTLRCloudRedis_ResourceMaintenanceSchedule;
 @class GTLRCloudRedis_RetentionSettings;
 @class GTLRCloudRedis_StateInfo;
 @class GTLRCloudRedis_Status;
@@ -510,6 +514,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalT
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeExposedToPublicAccess;
 /**
+ *  Represents if a resource version is in extended support.
+ *
+ *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeExtendedSupport;
+/**
  *  Represents if a database has a password configured for the root account or
  *  not.
  *
@@ -780,6 +790,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeDatabaseNamesExposed;
 /**
+ *  Databoost is disabled.
+ *
+ *  Value: "SIGNAL_TYPE_DATABOOST_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeDataboostDisabled;
+/**
  *  Detects if database instance data exported to a Cloud Storage bucket outside
  *  of the organization.
  *
@@ -875,6 +891,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_EXPOSED_TO_REMOTE_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeExposedToRemoteAccess;
+/**
+ *  Resource version is in extended support.
+ *
+ *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeExtendedSupport;
 /**
  *  Represents if a group is replicating across regions. Checks for resources
  *  that are configured to have redundancy, and ongoing replication, across
@@ -1175,6 +1197,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeReadIntensiveWorkload;
+/**
+ *  Recommended maintenance policy.
+ *
+ *  Value: "SIGNAL_TYPE_RECOMMENDED_MAINTENANCE_POLICIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeRecommendedMaintenancePolicies;
 /**
  *  Replication delay.
  *
@@ -1773,6 +1801,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeDatabaseNamesExposed;
 /**
+ *  Databoost is disabled.
+ *
+ *  Value: "SIGNAL_TYPE_DATABOOST_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataboostDisabled;
+/**
  *  Detects if database instance data exported to a Cloud Storage bucket outside
  *  of the organization.
  *
@@ -1868,6 +1902,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_EXPOSED_TO_REMOTE_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeExposedToRemoteAccess;
+/**
+ *  Resource version is in extended support.
+ *
+ *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeExtendedSupport;
 /**
  *  Represents if a group is replicating across regions. Checks for resources
  *  that are configured to have redundancy, and ongoing replication, across
@@ -2169,6 +2209,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeReadIntensiveWorkload;
 /**
+ *  Recommended maintenance policy.
+ *
+ *  Value: "SIGNAL_TYPE_RECOMMENDED_MAINTENANCE_POLICIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeRecommendedMaintenancePolicies;
+/**
  *  Replication delay.
  *
  *  Value: "SIGNAL_TYPE_REPLICATION_LAG"
@@ -2436,6 +2482,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_Si
  *  Value: "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess;
+/**
+ *  Represents if a resource version is in extended support.
+ *
+ *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport;
 /**
  *  Represents if a database has a password configured for the root account or
  *  not.
@@ -3135,6 +3187,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_OnPrem GTLR_DEPR
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeAlloydb;
 /**
+ *  BigQuery product area in GCP
+ *
+ *  Value: "PRODUCT_TYPE_BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Product_Type_ProductTypeBigquery;
+/**
  *  Bigtable product area in GCP
  *
  *  Value: "PRODUCT_TYPE_BIGTABLE"
@@ -3435,6 +3493,92 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_
  *  Value: "SPECIFIC_TIME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_SpecificTime;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_ResourceMaintenanceSchedule.day
+
+/**
+ *  The day of the week is unspecified.
+ *
+ *  Value: "DAY_OF_WEEK_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_DayOfWeekUnspecified;
+/**
+ *  Friday
+ *
+ *  Value: "FRIDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Friday;
+/**
+ *  Monday
+ *
+ *  Value: "MONDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Monday;
+/**
+ *  Saturday
+ *
+ *  Value: "SATURDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Saturday;
+/**
+ *  Sunday
+ *
+ *  Value: "SUNDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Sunday;
+/**
+ *  Thursday
+ *
+ *  Value: "THURSDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Thursday;
+/**
+ *  Tuesday
+ *
+ *  Value: "TUESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Tuesday;
+/**
+ *  Wednesday
+ *
+ *  Value: "WEDNESDAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Wednesday;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_ResourceMaintenanceSchedule.phase
+
+/**
+ *  Any phase.
+ *
+ *  Value: "ANY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Phase_Any;
+/**
+ *  Phase is unspecified.
+ *
+ *  Value: "PHASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Phase_PhaseUnspecified;
+/**
+ *  Week 1.
+ *
+ *  Value: "WEEK1"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Phase_Week1;
+/**
+ *  Week 2.
+ *
+ *  Value: "WEEK2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Phase_Week2;
+/**
+ *  Week 5.
+ *
+ *  Value: "WEEK5"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Phase_Week5;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_RetentionSettings.retentionUnit
@@ -4074,6 +4218,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, strong, nullable) GTLRCloudRedis_AutomatedBackupConfig *automatedBackupConfig;
 
 /**
+ *  Output only. This field is used to determine the available maintenance
+ *  versions for the self service update.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableMaintenanceVersions;
+
+/**
  *  Optional. Output only. The backup collection full resource name. Example:
  *  projects/{project}/locations/{location}/backupCollections/{collection}
  */
@@ -4103,6 +4253,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_DiscoveryEndpoint *> *discoveryEndpoints;
 
+/**
+ *  Output only. This field represents the actual maintenance version of the
+ *  cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveMaintenanceVersion;
+
 /** Output only. Encryption information of the data at rest of the cluster. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_EncryptionInfo *encryptionInfo;
 
@@ -4129,6 +4285,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  schedule.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_ClusterMaintenanceSchedule *maintenanceSchedule;
+
+/**
+ *  Optional. This field can be used to trigger self service update to indicate
+ *  the desired maintenance version. The input to this field can be determined
+ *  by the available_maintenance_versions field.
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceVersion;
 
 /** Optional. Backups generated and managed by memorystore service. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_ManagedBackupSource *managedBackupSource;
@@ -4498,6 +4661,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeExposedToPublicAccess
  *        Represents if a resource is exposed to public access. (Value:
  *        "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS")
+ *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeExtendedSupport
+ *        Represents if a resource version is in extended support. (Value:
+ *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
  *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeNoRootPassword
  *        Represents if a database has a password configured for the root
  *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -4854,6 +5020,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if the skip_show_database database flag for a Cloud SQL for
  *        MySQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_DATABASE_NAMES_EXPOSED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeDataboostDisabled
+ *        Databoost is disabled. (Value: "SIGNAL_TYPE_DATABOOST_DISABLED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket
  *        Detects if database instance data exported to a Cloud Storage bucket
  *        outside of the organization. (Value:
@@ -4908,6 +5076,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if the remote access database flag for a Cloud SQL for SQL
  *        Server instance is not set to off. (Value:
  *        "SIGNAL_TYPE_EXPOSED_TO_REMOTE_ACCESS")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeExtendedSupport
+ *        Resource version is in extended support. (Value:
+ *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeGroupNotReplicatingAcrossRegions
  *        Represents if a group is replicating across regions. Checks for
  *        resources that are configured to have redundancy, and ongoing
@@ -5060,6 +5231,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeReadIntensiveWorkload
  *        Indicates that the instance has read intensive workload. (Value:
  *        "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeRecommendedMaintenancePolicies
+ *        Recommended maintenance policy. (Value:
+ *        "SIGNAL_TYPE_RECOMMENDED_MAINTENANCE_POLICIES")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeReplicationLag
  *        Replication delay. (Value: "SIGNAL_TYPE_REPLICATION_LAG")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeResourceSuspended
@@ -5266,7 +5440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 27
+ *  Common model for database resource instance metadata. Next ID: 29
  */
 @interface GTLRCloudRedis_DatabaseResourceMetadata : GTLRObject
 
@@ -5404,6 +5578,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** Machine configuration for this resource. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_MachineConfiguration *machineConfiguration;
+
+/** Optional. Maintenance info for the resource. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_ResourceMaintenanceInfo *maintenanceInfo;
 
 /**
  *  Identifier for this resource's immediate parent/primary resource if the
@@ -5576,6 +5753,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if the skip_show_database database flag for a Cloud SQL for
  *        MySQL instance is not set to on. (Value:
  *        "SIGNAL_TYPE_DATABASE_NAMES_EXPOSED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataboostDisabled
+ *        Databoost is disabled. (Value: "SIGNAL_TYPE_DATABOOST_DISABLED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeDataExportToExternalCloudStorageBucket
  *        Detects if database instance data exported to a Cloud Storage bucket
  *        outside of the organization. (Value:
@@ -5630,6 +5809,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if the remote access database flag for a Cloud SQL for SQL
  *        Server instance is not set to off. (Value:
  *        "SIGNAL_TYPE_EXPOSED_TO_REMOTE_ACCESS")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeExtendedSupport
+ *        Resource version is in extended support. (Value:
+ *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeGroupNotReplicatingAcrossRegions
  *        Represents if a group is replicating across regions. Checks for
  *        resources that are configured to have redundancy, and ongoing
@@ -5782,6 +5964,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeReadIntensiveWorkload
  *        Indicates that the instance has read intensive workload. (Value:
  *        "SIGNAL_TYPE_READ_INTENSIVE_WORKLOAD")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeRecommendedMaintenancePolicies
+ *        Recommended maintenance policy. (Value:
+ *        "SIGNAL_TYPE_RECOMMENDED_MAINTENANCE_POLICIES")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeReplicationLag
  *        Replication delay. (Value: "SIGNAL_TYPE_REPLICATION_LAG")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeResourceSuspended
@@ -5960,6 +6145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess
  *        Represents if a resource is exposed to public access. (Value:
  *        "SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport
+ *        Represents if a resource version is in extended support. (Value:
+ *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword
  *        Represents if a database has a password configured for the root
  *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -5972,6 +6160,46 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Unspecified signal type. (Value: "SIGNAL_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *signalType;
+
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+ */
+@interface GTLRCloudRedis_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
 
 @end
 
@@ -6935,6 +7163,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -7563,6 +7798,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        (Value: "ON_PREM")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeAlloydb AlloyDB product
  *        area in GCP (Value: "PRODUCT_TYPE_ALLOYDB")
+ *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeBigquery BigQuery product
+ *        area in GCP (Value: "PRODUCT_TYPE_BIGQUERY")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeBigtable Bigtable product
  *        area in GCP (Value: "PRODUCT_TYPE_BIGTABLE")
  *    @arg @c kGTLRCloudRedis_Product_Type_ProductTypeCloudSql Cloud SQL product
@@ -7958,6 +8195,110 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  `2012-11-15T16:19:00.094Z`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *scheduleTime;
+
+@end
+
+
+/**
+ *  Deny maintenance period for the database resource. It specifies the time
+ *  range during which the maintenance cannot start. This is configured by the
+ *  customer.
+ */
+@interface GTLRCloudRedis_ResourceMaintenanceDenySchedule : GTLRObject
+
+/** Optional. Deny period end date. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_Date *endDate;
+
+/** Optional. The start date of the deny maintenance period. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_Date *startDate;
+
+/**
+ *  Optional. Time in UTC when the deny period starts on start_date and ends on
+ *  end_date.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_TimeOfDay *time;
+
+@end
+
+
+/**
+ *  MaintenanceInfo to capture the maintenance details of database resource.
+ */
+@interface GTLRCloudRedis_ResourceMaintenanceInfo : GTLRObject
+
+/** Optional. List of Deny maintenance period for the database resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_ResourceMaintenanceDenySchedule *> *denyMaintenanceSchedules;
+
+/** Optional. Maintenance window for the database resource. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_ResourceMaintenanceSchedule *maintenanceSchedule;
+
+/**
+ *  Optional. Current Maintenance version of the database resource. Example:
+ *  "MYSQL_8_0_41.R20250531.01_15"
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceVersion;
+
+@end
+
+
+/**
+ *  Maintenance window for the database resource. It specifies preferred time
+ *  and day of the week and phase in some cases, when the maintenance can start.
+ *  This is configured by the customer.
+ */
+@interface GTLRCloudRedis_ResourceMaintenanceSchedule : GTLRObject
+
+/**
+ *  Optional. Preferred day of the week for maintenance, e.g. MONDAY, TUESDAY,
+ *  etc.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_DayOfWeekUnspecified
+ *        The day of the week is unspecified. (Value: "DAY_OF_WEEK_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Friday Friday
+ *        (Value: "FRIDAY")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Monday Monday
+ *        (Value: "MONDAY")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Saturday Saturday
+ *        (Value: "SATURDAY")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Sunday Sunday
+ *        (Value: "SUNDAY")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Thursday Thursday
+ *        (Value: "THURSDAY")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Tuesday Tuesday
+ *        (Value: "TUESDAY")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_Wednesday
+ *        Wednesday (Value: "WEDNESDAY")
+ */
+@property(nonatomic, copy, nullable) NSString *day;
+
+/**
+ *  Optional. Phase of the maintenance window. This is to capture order of
+ *  maintenance. For example, for Cloud SQL resources, this can be used to
+ *  capture if the maintenance window is in Week1, Week2, Week5, etc. Non
+ *  production resources are usually part of early phase. For more details,
+ *  refer to Cloud SQL resources -
+ *  https://cloud.google.com/sql/docs/mysql/maintenance
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Phase_Any Any phase.
+ *        (Value: "ANY")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Phase_PhaseUnspecified
+ *        Phase is unspecified. (Value: "PHASE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Phase_Week1 Week 1.
+ *        (Value: "WEEK1")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Phase_Week2 Week 2.
+ *        (Value: "WEEK2")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceSchedule_Phase_Week5 Week 5.
+ *        (Value: "WEEK5")
+ */
+@property(nonatomic, copy, nullable) NSString *phase;
+
+/**
+ *  Optional. Preferred time to start the maintenance operation on the specified
+ *  day.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_TimeOfDay *time;
 
 @end
 

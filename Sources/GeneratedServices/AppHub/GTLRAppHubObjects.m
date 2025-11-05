@@ -37,6 +37,11 @@ NSString * const kGTLRAppHub_Environment_Type_Staging         = @"STAGING";
 NSString * const kGTLRAppHub_Environment_Type_Test            = @"TEST";
 NSString * const kGTLRAppHub_Environment_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRAppHub_FunctionalType.type
+NSString * const kGTLRAppHub_FunctionalType_Type_Agent         = @"AGENT";
+NSString * const kGTLRAppHub_FunctionalType_Type_McpServer     = @"MCP_SERVER";
+NSString * const kGTLRAppHub_FunctionalType_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRAppHub_ReconciliationOperationMetadata.exclusiveAction
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
@@ -261,6 +266,16 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppHub_FunctionalType
+//
+
+@implementation GTLRAppHub_FunctionalType
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppHub_ListApplicationsResponse
 //
 
@@ -356,11 +371,12 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 //
 
 @implementation GTLRAppHub_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRAppHub_Operation class]
+    @"operations" : [GTLRAppHub_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -634,7 +650,7 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 //
 
 @implementation GTLRAppHub_ServiceProperties
-@dynamic gcpProject, location, zoneProperty;
+@dynamic functionalType, gcpProject, location, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
@@ -754,7 +770,7 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 //
 
 @implementation GTLRAppHub_WorkloadProperties
-@dynamic gcpProject, location, zoneProperty;
+@dynamic functionalType, gcpProject, location, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

@@ -869,6 +869,117 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
 
 @end
 
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsCreate
+
+@dynamic lbEdgeExtensionId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_LbEdgeExtension *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/lbEdgeExtensions";
+  GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.lbEdgeExtensions.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.lbEdgeExtensions.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_LbEdgeExtension class];
+  query.loggingName = @"networkservices.projects.locations.lbEdgeExtensions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/lbEdgeExtensions";
+  GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkServices_ListLbEdgeExtensionsResponse class];
+  query.loggingName = @"networkservices.projects.locations.lbEdgeExtensions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkServices_LbEdgeExtension *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkServicesQuery_ProjectsLocationsLbEdgeExtensionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkServices_Operation class];
+  query.loggingName = @"networkservices.projects.locations.lbEdgeExtensions.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsLbRouteExtensionsCreate
 
 @dynamic lbRouteExtensionId, parent, requestId;
@@ -1333,7 +1444,7 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

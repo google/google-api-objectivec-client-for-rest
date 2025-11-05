@@ -46,6 +46,7 @@
 @class GTLRWorkloadManager_Location_Metadata;
 @class GTLRWorkloadManager_Notice;
 @class GTLRWorkloadManager_OpenShiftValidation;
+@class GTLRWorkloadManager_OpenShiftValidation_ValidationDetails;
 @class GTLRWorkloadManager_Operation;
 @class GTLRWorkloadManager_Operation_Metadata;
 @class GTLRWorkloadManager_Operation_Response;
@@ -2314,6 +2315,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -2435,6 +2443,30 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
  *  workloads validation related data.
  */
 @interface GTLRWorkloadManager_OpenShiftValidation : GTLRObject
+
+/**
+ *  Required. The OpenShift cluster ID (e.g.
+ *  8371bb05-7cac-4d38-82c0-0f58c4f6f936).
+ */
+@property(nonatomic, copy, nullable) NSString *clusterId;
+
+/**
+ *  Required. The validation details of the OpenShift cluster in JSON format.
+ */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_OpenShiftValidation_ValidationDetails *validationDetails;
+
+@end
+
+
+/**
+ *  Required. The validation details of the OpenShift cluster in JSON format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRWorkloadManager_OpenShiftValidation_ValidationDetails : GTLRObject
 @end
 
 
@@ -2651,6 +2683,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
  *  Message represent a rule
  */
 @interface GTLRWorkloadManager_Rule : GTLRObject
+
+/**
+ *  The CAI asset type of the rule is evaluating, for joined asset types, it
+ *  will be the corresponding primary asset types.
+ */
+@property(nonatomic, copy, nullable) NSString *assetType;
 
 /**
  *  descrite rule in plain language
@@ -3854,7 +3892,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 /** The name of the asset. */
 @property(nonatomic, copy, nullable) NSString *asset;
 
-/** Details of the violation. */
+/** Details of the violation. TODO(b/452163887) */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_ViolationDetails_Observed *observed;
 
 /** The service account associated with the resource. */
@@ -3864,7 +3902,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 
 /**
- *  Details of the violation.
+ *  Details of the violation. TODO(b/452163887)
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

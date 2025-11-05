@@ -410,11 +410,12 @@ NSString * const kGTLRTPU_UpcomingMaintenance_Type_Unscheduled = @"UNSCHEDULED";
 //
 
 @implementation GTLRTPU_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRTPU_Operation class]
+    @"operations" : [GTLRTPU_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

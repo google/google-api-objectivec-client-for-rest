@@ -29,12 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // view
 
-/**
- *  Returns all aspects. If the number of aspects exceeds 100, the first 100
- *  will be returned.
- *
- *  Value: "ALL"
- */
+/** Value: "ALL" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewAll;
 /** Value: "BASIC" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewBasic;
@@ -3162,8 +3157,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudDataplexViewCustom Returns aspects matching custom
  *        fields in GetEntryRequest. If the number of aspects exceeds 100, the
  *        first 100 will be returned. (Value: "CUSTOM")
- *    @arg @c kGTLRCloudDataplexViewAll Returns all aspects. If the number of
- *        aspects exceeds 100, the first 100 will be returned. (Value: "ALL")
+ *    @arg @c kGTLRCloudDataplexViewAll Value "ALL"
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -8610,8 +8604,8 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsList : GTLRCloudDataplexQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -8705,8 +8699,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudDataplexViewCustom Returns aspects matching custom
  *        fields in GetEntryRequest. If the number of aspects exceeds 100, the
  *        first 100 will be returned. (Value: "CUSTOM")
- *    @arg @c kGTLRCloudDataplexViewAll Returns all aspects. If the number of
- *        aspects exceeds 100, the first 100 will be returned. (Value: "ALL")
+ *    @arg @c kGTLRCloudDataplexViewAll Value "ALL"
  */
 @property(nonatomic, copy, nullable) NSString *view;
 

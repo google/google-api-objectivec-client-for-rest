@@ -29,6 +29,10 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ActionInvalidDataPartit
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ActionInvalidDataPartition_ExpectedStructure_HiveStyleKeys = @"HIVE_STYLE_KEYS";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ActionInvalidDataPartition_ExpectedStructure_PartitionStructureUnspecified = @"PARTITION_STRUCTURE_UNSPECIFIED";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1AspectType.dataClassification
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_DataClassification_DataClassificationUnspecified = @"DATA_CLASSIFICATION_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_DataClassification_MetadataAndData = @"METADATA_AND_DATA";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1AspectType.transferStatus
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_TransferStatus_TransferStatusMigrated = @"TRANSFER_STATUS_MIGRATED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1AspectType_TransferStatus_TransferStatusTransferred = @"TRANSFER_STATUS_TRANSFERRED";
@@ -168,7 +172,6 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_State_Suc
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent.trigger
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OnDemand = @"ON_DEMAND";
-NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OneTime = @"ONE_TIME";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_Schedule = @"SCHEDULE";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_TriggerUnspecified = @"TRIGGER_UNSPECIFIED";
 
@@ -677,8 +680,9 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1AspectType
-@dynamic authorization, createTime, descriptionProperty, displayName, ETag,
-         labels, metadataTemplate, name, transferStatus, uid, updateTime;
+@dynamic authorization, createTime, dataClassification, descriptionProperty,
+         displayName, ETag, labels, metadataTemplate, name, transferStatus, uid,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1509,8 +1513,9 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResult
-@dynamic catalogPublishingStatus, columns, dimensions, passed,
-         postScanActionsResult, rowCount, rules, scannedData, score;
+@dynamic anomalyDetectionGeneratedAssets, catalogPublishingStatus, columns,
+         dimensions, passed, postScanActionsResult, rowCount, rules,
+         scannedData, score;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1521,6 +1526,17 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultAnomalyDetectionGeneratedAssets
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultAnomalyDetectionGeneratedAssets
+@dynamic dataIntermediateTable, freshnessIntermediateTable, resultTable,
+         volumeIntermediateTable;
 @end
 
 

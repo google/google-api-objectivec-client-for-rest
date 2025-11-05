@@ -1738,12 +1738,135 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_S
 // GTLRContainerAnalysis_SecretOccurrence.kind
 
 /**
- *  A GCP service account key per:
+ *  An Anthropic Admin API key.
+ *
+ *  Value: "SECRET_KIND_ANTHROPIC_ADMIN_API_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAnthropicAdminApiKey;
+/**
+ *  An Anthropic API key.
+ *
+ *  Value: "SECRET_KIND_ANTHROPIC_API_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAnthropicApiKey;
+/**
+ *  An Azure access token.
+ *
+ *  Value: "SECRET_KIND_AZURE_ACCESS_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAzureAccessToken;
+/**
+ *  An Azure Identity Platform ID token.
+ *
+ *  Value: "SECRET_KIND_AZURE_IDENTITY_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAzureIdentityToken;
+/**
+ *  A Docker Hub personal access token.
+ *
+ *  Value: "SECRET_KIND_DOCKER_HUB_PERSONAL_ACCESS_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindDockerHubPersonalAccessToken;
+/**
+ *  A Google Cloud API key per:
+ *  https://cloud.google.com/docs/authentication/api-keys
+ *
+ *  Value: "SECRET_KIND_GCP_API_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpApiKey;
+/**
+ *  A Google Cloud OAuth2 access token per:
+ *  https://cloud.google.com/docs/authentication/token-types#access
+ *
+ *  Value: "SECRET_KIND_GCP_OAUTH2_ACCESS_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpOauth2AccessToken;
+/**
+ *  A Google Cloud OAuth2 client credentials per:
+ *  https://developers.google.com/identity/protocols/oauth2
+ *
+ *  Value: "SECRET_KIND_GCP_OAUTH2_CLIENT_CREDENTIALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpOauth2ClientCredentials;
+/**
+ *  A Google Cloud service account key per:
  *  https://cloud.google.com/iam/docs/creating-managing-service-account-keys
  *
  *  Value: "SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey;
+/**
+ *  A GitHub App refresh token.
+ *
+ *  Value: "SECRET_KIND_GITHUB_APP_REFRESH_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubAppRefreshToken;
+/**
+ *  A GitHub App server-to-server token.
+ *
+ *  Value: "SECRET_KIND_GITHUB_APP_SERVER_TO_SERVER_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubAppServerToServerToken;
+/**
+ *  A GitHub App user-to-server token.
+ *
+ *  Value: "SECRET_KIND_GITHUB_APP_USER_TO_SERVER_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubAppUserToServerToken;
+/**
+ *  A GitHub personal access token (classic).
+ *
+ *  Value: "SECRET_KIND_GITHUB_CLASSIC_PERSONAL_ACCESS_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubClassicPersonalAccessToken;
+/**
+ *  A GitHub fine-grained personal access token.
+ *
+ *  Value: "SECRET_KIND_GITHUB_FINE_GRAINED_PERSONAL_ACCESS_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubFineGrainedPersonalAccessToken;
+/**
+ *  A GitHub OAuth token.
+ *
+ *  Value: "SECRET_KIND_GITHUB_OAUTH_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubOauthToken;
+/**
+ *  A Hugging Face API key.
+ *
+ *  Value: "SECRET_KIND_HUGGINGFACE_API_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindHuggingfaceApiKey;
+/**
+ *  An OpenAI API key.
+ *
+ *  Value: "SECRET_KIND_OPENAI_API_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindOpenaiApiKey;
+/**
+ *  A Perplexity API key.
+ *
+ *  Value: "SECRET_KIND_PERPLEXITY_API_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindPerplexityApiKey;
+/**
+ *  A Stripe restricted key.
+ *
+ *  Value: "SECRET_KIND_STRIPE_RESTRICTED_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindStripeRestrictedKey;
+/**
+ *  A Stripe secret key.
+ *
+ *  Value: "SECRET_KIND_STRIPE_SECRET_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindStripeSecretKey;
+/**
+ *  A Stripe webhook secret.
+ *
+ *  Value: "SECRET_KIND_STRIPE_WEBHOOK_SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindStripeWebhookSecret;
 /**
  *  The secret kind is unknown.
  *
@@ -5025,6 +5148,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage : GTLRObject
 
+/** Output only. Path to the artifact in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
+
 /** Docker Registry 2.0 digest. */
 @property(nonatomic, copy, nullable) NSString *digest;
 
@@ -5710,6 +5836,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedGoModule : GTLRObject
 
+/** Output only. Path to the artifact in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
+
 /** Hash types and values of the Go Module Artifact. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
 
@@ -5728,6 +5857,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  A Maven artifact uploaded using the MavenArtifact directive.
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact : GTLRObject
+
+/** Output only. Path to the artifact in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
 
 /** Hash types and values of the Maven Artifact. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
@@ -5748,6 +5880,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedNpmPackage : GTLRObject
 
+/** Output only. Path to the artifact in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
+
 /** Hash types and values of the npm package. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
 
@@ -5766,6 +5901,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Artifact uploaded using the PythonPackage directive.
  */
 @interface GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedPythonPackage : GTLRObject
+
+/** Output only. Path to the artifact in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
 
 /** Hash types and values of the Python Artifact. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
@@ -7493,10 +7631,64 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  Required. Type of secret.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAnthropicAdminApiKey
+ *        An Anthropic Admin API key. (Value:
+ *        "SECRET_KIND_ANTHROPIC_ADMIN_API_KEY")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAnthropicApiKey
+ *        An Anthropic API key. (Value: "SECRET_KIND_ANTHROPIC_API_KEY")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAzureAccessToken
+ *        An Azure access token. (Value: "SECRET_KIND_AZURE_ACCESS_TOKEN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAzureIdentityToken
+ *        An Azure Identity Platform ID token. (Value:
+ *        "SECRET_KIND_AZURE_IDENTITY_TOKEN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindDockerHubPersonalAccessToken
+ *        A Docker Hub personal access token. (Value:
+ *        "SECRET_KIND_DOCKER_HUB_PERSONAL_ACCESS_TOKEN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpApiKey A
+ *        Google Cloud API key per:
+ *        https://cloud.google.com/docs/authentication/api-keys (Value:
+ *        "SECRET_KIND_GCP_API_KEY")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpOauth2AccessToken
+ *        A Google Cloud OAuth2 access token per:
+ *        https://cloud.google.com/docs/authentication/token-types#access
+ *        (Value: "SECRET_KIND_GCP_OAUTH2_ACCESS_TOKEN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpOauth2ClientCredentials
+ *        A Google Cloud OAuth2 client credentials per:
+ *        https://developers.google.com/identity/protocols/oauth2 (Value:
+ *        "SECRET_KIND_GCP_OAUTH2_CLIENT_CREDENTIALS")
  *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey
- *        A GCP service account key per:
+ *        A Google Cloud service account key per:
  *        https://cloud.google.com/iam/docs/creating-managing-service-account-keys
  *        (Value: "SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubAppRefreshToken
+ *        A GitHub App refresh token. (Value:
+ *        "SECRET_KIND_GITHUB_APP_REFRESH_TOKEN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubAppServerToServerToken
+ *        A GitHub App server-to-server token. (Value:
+ *        "SECRET_KIND_GITHUB_APP_SERVER_TO_SERVER_TOKEN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubAppUserToServerToken
+ *        A GitHub App user-to-server token. (Value:
+ *        "SECRET_KIND_GITHUB_APP_USER_TO_SERVER_TOKEN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubClassicPersonalAccessToken
+ *        A GitHub personal access token (classic). (Value:
+ *        "SECRET_KIND_GITHUB_CLASSIC_PERSONAL_ACCESS_TOKEN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubFineGrainedPersonalAccessToken
+ *        A GitHub fine-grained personal access token. (Value:
+ *        "SECRET_KIND_GITHUB_FINE_GRAINED_PERSONAL_ACCESS_TOKEN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubOauthToken
+ *        A GitHub OAuth token. (Value: "SECRET_KIND_GITHUB_OAUTH_TOKEN")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindHuggingfaceApiKey
+ *        A Hugging Face API key. (Value: "SECRET_KIND_HUGGINGFACE_API_KEY")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindOpenaiApiKey
+ *        An OpenAI API key. (Value: "SECRET_KIND_OPENAI_API_KEY")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindPerplexityApiKey
+ *        A Perplexity API key. (Value: "SECRET_KIND_PERPLEXITY_API_KEY")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindStripeRestrictedKey
+ *        A Stripe restricted key. (Value: "SECRET_KIND_STRIPE_RESTRICTED_KEY")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindStripeSecretKey
+ *        A Stripe secret key. (Value: "SECRET_KIND_STRIPE_SECRET_KEY")
+ *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindStripeWebhookSecret
+ *        A Stripe webhook secret. (Value: "SECRET_KIND_STRIPE_WEBHOOK_SECRET")
  *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnknown The
  *        secret kind is unknown. (Value: "SECRET_KIND_UNKNOWN")
  *    @arg @c kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnspecified

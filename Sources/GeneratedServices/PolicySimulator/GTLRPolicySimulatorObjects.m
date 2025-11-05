@@ -756,11 +756,12 @@ NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfig_LogType_LogTypeU
 //
 
 @implementation GTLRPolicySimulator_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRPolicySimulator_GoogleLongrunningOperation class]
+    @"operations" : [GTLRPolicySimulator_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

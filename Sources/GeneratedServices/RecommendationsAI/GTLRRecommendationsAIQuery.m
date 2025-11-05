@@ -181,7 +181,7 @@
 
 @implementation GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsEventStoresOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -476,7 +476,7 @@
 
 @implementation GTLRRecommendationsAIQuery_ProjectsLocationsCatalogsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

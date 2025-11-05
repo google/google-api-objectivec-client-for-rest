@@ -515,11 +515,12 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 //
 
 @implementation GTLRBackupforGKE_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRBackupforGKE_GoogleLongrunningOperation class]
+    @"operations" : [GTLRBackupforGKE_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

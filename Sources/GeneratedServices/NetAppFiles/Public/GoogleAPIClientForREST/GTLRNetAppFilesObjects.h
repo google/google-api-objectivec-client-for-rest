@@ -1034,6 +1034,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_ServiceLevel_Sta
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_State_Creating;
 /**
+ *  Storage Pool State is Degraded The storage pool is operational, but with
+ *  reduced performance.
+ *
+ *  Value: "DEGRADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_State_Degraded;
+/**
  *  Storage Pool State is Deleting
  *
  *  Value: "DELETING"
@@ -2340,7 +2347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /**
  *  Required. Customer managed crypto key resource full name. Format:
- *  projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}.
+ *  projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}.
  */
 @property(nonatomic, copy, nullable) NSString *cryptoKeyName;
 
@@ -2605,6 +2612,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetAppFiles_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -3865,6 +3879,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Likely values:
  *    @arg @c kGTLRNetAppFiles_StoragePool_State_Creating Storage Pool State is
  *        Creating (Value: "CREATING")
+ *    @arg @c kGTLRNetAppFiles_StoragePool_State_Degraded Storage Pool State is
+ *        Degraded The storage pool is operational, but with reduced
+ *        performance. (Value: "DEGRADED")
  *    @arg @c kGTLRNetAppFiles_StoragePool_State_Deleting Storage Pool State is
  *        Deleting (Value: "DELETING")
  *    @arg @c kGTLRNetAppFiles_StoragePool_State_Disabled Storage Pool State is

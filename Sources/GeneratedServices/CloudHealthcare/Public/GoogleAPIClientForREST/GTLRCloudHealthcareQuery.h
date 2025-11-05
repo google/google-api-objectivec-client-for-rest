@@ -2517,8 +2517,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Required. The path of the SearchForInstancesRequest DICOMweb request. For
- *  example, `instances`, `series/{series_uid}/instances`, or
- *  `studies/{study_uid}/instances`.
+ *  example, `instances`, `studies/{study_uid}/series/{series_uid}/instances`,
+ *  or `studies/{study_uid}/instances`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -2545,7 +2545,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  *  @param dicomWebPath Required. The path of the SearchForInstancesRequest
  *    DICOMweb request. For example, `instances`,
- *    `series/{series_uid}/instances`, or `studies/{study_uid}/instances`.
+ *    `studies/{study_uid}/series/{series_uid}/instances`, or
+ *    `studies/{study_uid}/instances`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresSearchForInstances
  */
@@ -2988,8 +2989,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Required. The path of the SearchForInstancesRequest DICOMweb request. For
- *  example, `instances`, `series/{series_uid}/instances`, or
- *  `studies/{study_uid}/instances`.
+ *  example, `instances`, `studies/{study_uid}/series/{series_uid}/instances`,
+ *  or `studies/{study_uid}/instances`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -3016,7 +3017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  *  @param dicomWebPath Required. The path of the SearchForInstancesRequest
  *    DICOMweb request. For example, `instances`,
- *    `series/{series_uid}/instances`, or `studies/{study_uid}/instances`.
+ *    `studies/{study_uid}/series/{series_uid}/instances`, or
+ *    `studies/{study_uid}/instances`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSearchForInstances
  */
@@ -3679,8 +3681,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /**
  *  Required. The path of the SearchForInstancesRequest DICOMweb request. For
- *  example, `instances`, `series/{series_uid}/instances`, or
- *  `studies/{study_uid}/instances`.
+ *  example, `instances`, `studies/{study_uid}/series/{series_uid}/instances`,
+ *  or `studies/{study_uid}/instances`.
  */
 @property(nonatomic, copy, nullable) NSString *dicomWebPath;
 
@@ -3707,7 +3709,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
  *  @param dicomWebPath Required. The path of the SearchForInstancesRequest
  *    DICOMweb request. For example, `instances`,
- *    `series/{series_uid}/instances`, or `studies/{study_uid}/instances`.
+ *    `studies/{study_uid}/series/{series_uid}/instances`, or
+ *    `studies/{study_uid}/instances`.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsDicomStoresStudiesSeriesSearchForInstances
  */
@@ -4004,17 +4007,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Required. The FHIR resource type used to organize exported
- *  resources. Only supports "Patient". When organized by Patient resource,
- *  output files are grouped as follows: * Patient file(s) containing the
- *  Patient resources. Each Patient is sequentially followed by all resources
- *  the Patient references, and all resources that reference the Patient
- *  (equivalent to a GetPatientEverything request). * Individual files grouped
- *  by resource type for resources in the Group's member field and the Group
- *  resource itself. Resources may be duplicated across multiple Patients. For
- *  example, if two Patient resources reference the same Organization resource,
- *  it will appear twice, once after each Patient. The Group resource from the
- *  request does not appear in the Patient files.
+ *  Required. The FHIR resource type used to organize exported resources. Only
+ *  supports "Patient". When organized by Patient resource, output files are
+ *  grouped as follows: * Patient file(s) containing the Patient resources. Each
+ *  Patient is sequentially followed by all resources the Patient references,
+ *  and all resources that reference the Patient (equivalent to a
+ *  GetPatientEverything request). * Individual files grouped by resource type
+ *  for resources in the Group's member field and the Group resource itself.
+ *  Resources may be duplicated across multiple Patients. For example, if two
+ *  Patient resources reference the same Organization resource, it will appear
+ *  twice, once after each Patient. The Group resource from the request does not
+ *  appear in the Patient files.
  */
 @property(nonatomic, copy, nullable) NSString *organizeOutputBy;
 
@@ -4219,9 +4222,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Export resources from the FHIR store to the specified destination. This
  *  method returns an Operation that can be used to track the status of the
- *  export by calling GetOperation. Immediate fatal errors appear in the error
- *  field, errors are also logged to Cloud Logging (see [Viewing error logs in
- *  Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  export by calling GetOperation. To improve performance, it is recommended to
+ *  make the `type` filter as specific as possible, including only the resource
+ *  types that are absolutely needed. This minimizes the size of the initial
+ *  dataset to be processed and is the most effective way to improve
+ *  performance. While post-filters like `_since` are useful for refining
+ *  results, they do not speed up the initial data retrieval phase, which is
+ *  primarily governed by the `type` filter. Immediate fatal errors appear in
+ *  the error field, errors are also logged to Cloud Logging (see [Viewing error
+ *  logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
  *  Otherwise, when the operation finishes, a detailed response of type
  *  ExportResourcesResponse is returned in the response field. The metadata
  *  field type for this operation is OperationMetadata.
@@ -4246,9 +4256,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Export resources from the FHIR store to the specified destination. This
  *  method returns an Operation that can be used to track the status of the
- *  export by calling GetOperation. Immediate fatal errors appear in the error
- *  field, errors are also logged to Cloud Logging (see [Viewing error logs in
- *  Cloud Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
+ *  export by calling GetOperation. To improve performance, it is recommended to
+ *  make the `type` filter as specific as possible, including only the resource
+ *  types that are absolutely needed. This minimizes the size of the initial
+ *  dataset to be processed and is the most effective way to improve
+ *  performance. While post-filters like `_since` are useful for refining
+ *  results, they do not speed up the initial data retrieval phase, which is
+ *  primarily governed by the `type` filter. Immediate fatal errors appear in
+ *  the error field, errors are also logged to Cloud Logging (see [Viewing error
+ *  logs in Cloud
+ *  Logging](https://cloud.google.com/healthcare/docs/how-tos/logging)).
  *  Otherwise, when the operation finishes, a detailed response of type
  *  ExportResourcesResponse is returned in the response field. The metadata
  *  field type for this operation is OperationMetadata.
@@ -4764,15 +4781,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  identifier should be in the pattern `identifier=system|value` or
  *  `identifier=value` - similar to the `search` method on resources with a
  *  specific identifier. If the search criteria identify more than one match,
- *  the request returns a `412 Precondition Failed` error. The request body must
- *  contain a JSON Patch document, and the request headers must contain
- *  `Content-Type: application/json-patch+json`. On success, the response body
- *  contains a JSON-encoded representation of the updated resource, including
- *  the server-assigned version ID. Errors generated by the FHIR store contain a
- *  JSON-encoded `OperationOutcome` resource describing the reason for the
- *  error. If the request cannot be mapped to a valid API method on a FHIR
- *  store, a generic GCP error might be returned instead. For samples that show
- *  how to call `conditionalPatch`, see [Conditionally patching a FHIR
+ *  the request returns a `412 Precondition Failed` error. If the search
+ *  criteria doesn't identify any matches, the request returns a `404 Not Found`
+ *  error. The request body must contain a JSON Patch document, and the request
+ *  headers must contain `Content-Type: application/json-patch+json`. On
+ *  success, the response body contains a JSON-encoded representation of the
+ *  updated resource, including the server-assigned version ID. Errors generated
+ *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
+ *  describing the reason for the error. If the request cannot be mapped to a
+ *  valid API method on a FHIR store, a generic GCP error might be returned
+ *  instead. For samples that show how to call `conditionalPatch`, see
+ *  [Conditionally patching a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#conditionally_patching_a_fhir_resource).
  *
  *  Method: healthcare.projects.locations.datasets.fhirStores.fhir.conditionalPatch
@@ -4808,15 +4827,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  identifier should be in the pattern `identifier=system|value` or
  *  `identifier=value` - similar to the `search` method on resources with a
  *  specific identifier. If the search criteria identify more than one match,
- *  the request returns a `412 Precondition Failed` error. The request body must
- *  contain a JSON Patch document, and the request headers must contain
- *  `Content-Type: application/json-patch+json`. On success, the response body
- *  contains a JSON-encoded representation of the updated resource, including
- *  the server-assigned version ID. Errors generated by the FHIR store contain a
- *  JSON-encoded `OperationOutcome` resource describing the reason for the
- *  error. If the request cannot be mapped to a valid API method on a FHIR
- *  store, a generic GCP error might be returned instead. For samples that show
- *  how to call `conditionalPatch`, see [Conditionally patching a FHIR
+ *  the request returns a `412 Precondition Failed` error. If the search
+ *  criteria doesn't identify any matches, the request returns a `404 Not Found`
+ *  error. The request body must contain a JSON Patch document, and the request
+ *  headers must contain `Content-Type: application/json-patch+json`. On
+ *  success, the response body contains a JSON-encoded representation of the
+ *  updated resource, including the server-assigned version ID. Errors generated
+ *  by the FHIR store contain a JSON-encoded `OperationOutcome` resource
+ *  describing the reason for the error. If the request cannot be mapped to a
+ *  valid API method on a FHIR store, a generic GCP error might be returned
+ *  instead. For samples that show how to call `conditionalPatch`, see
+ *  [Conditionally patching a FHIR
  *  resource](https://cloud.google.com/healthcare/docs/how-tos/fhir-resources#conditionally_patching_a_fhir_resource).
  *
  *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
@@ -7894,6 +7915,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 
 /** The standard list page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  [ListOperationsResponse.unreachable] field. This can only be `true` when
+ *  reading across collections e.g. when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
  *  Fetches a @c GTLRCloudHealthcare_ListOperationsResponse.

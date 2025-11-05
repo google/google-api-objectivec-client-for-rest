@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Data Policy API (bigquerydatapolicy/v1)
+//   BigQuery Data Policy API (bigquerydatapolicy/v2)
 // Description:
 //   Allows users to manage BigQuery data policies.
 // Documentation:
@@ -27,12 +27,37 @@ NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpr
 NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_FirstFourCharacters = @"FIRST_FOUR_CHARACTERS";
 NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_LastFourCharacters = @"LAST_FOUR_CHARACTERS";
 NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_PredefinedExpressionUnspecified = @"PREDEFINED_EXPRESSION_UNSPECIFIED";
+NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_RandomHash = @"RANDOM_HASH";
 NSString * const kGTLRBigQueryDataPolicyService_DataMaskingPolicy_PredefinedExpression_Sha256 = @"SHA256";
 
 // GTLRBigQueryDataPolicyService_DataPolicy.dataPolicyType
 NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_ColumnLevelSecurityPolicy = @"COLUMN_LEVEL_SECURITY_POLICY";
 NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_DataMaskingPolicy = @"DATA_MASKING_POLICY";
 NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_DataPolicyTypeUnspecified = @"DATA_POLICY_TYPE_UNSPECIFIED";
+NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_RawDataAccessPolicy = @"RAW_DATA_ACCESS_POLICY";
+
+// GTLRBigQueryDataPolicyService_DataPolicy.version
+NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Version_V1 = @"V1";
+NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Version_V2 = @"V2";
+NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Version_VersionUnspecified = @"VERSION_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataPolicyService_AddGranteesRequest
+//
+
+@implementation GTLRBigQueryDataPolicyService_AddGranteesRequest
+@dynamic grantees;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"grantees" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -90,6 +115,16 @@ NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_DataPo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataPolicyService_CreateDataPolicyRequest
+//
+
+@implementation GTLRBigQueryDataPolicyService_CreateDataPolicyRequest
+@dynamic dataPolicy, dataPolicyId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataPolicyService_DataMaskingPolicy
 //
 
@@ -104,7 +139,20 @@ NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_DataPo
 //
 
 @implementation GTLRBigQueryDataPolicyService_DataPolicy
-@dynamic dataMaskingPolicy, dataPolicyId, dataPolicyType, name, policyTag;
+@dynamic dataMaskingPolicy, dataPolicyId, dataPolicyType, ETag, grantees, name,
+         policyTag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"grantees" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -199,11 +247,19 @@ NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_DataPolicyType_DataPo
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRBigQueryDataPolicyService_RenameDataPolicyRequest
+//   GTLRBigQueryDataPolicyService_RemoveGranteesRequest
 //
 
-@implementation GTLRBigQueryDataPolicyService_RenameDataPolicyRequest
-@dynamic newDataPolicyId;
+@implementation GTLRBigQueryDataPolicyService_RemoveGranteesRequest
+@dynamic grantees;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"grantees" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

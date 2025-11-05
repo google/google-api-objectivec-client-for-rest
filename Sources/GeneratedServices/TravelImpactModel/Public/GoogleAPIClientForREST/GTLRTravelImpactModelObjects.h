@@ -21,6 +21,8 @@
 @class GTLRTravelImpactModel_FlightWithEmissions;
 @class GTLRTravelImpactModel_Market;
 @class GTLRTravelImpactModel_ModelVersion;
+@class GTLRTravelImpactModel_Scope3FlightEmissions;
+@class GTLRTravelImpactModel_Scope3FlightSegment;
 @class GTLRTravelImpactModel_TypicalFlightEmissions;
 
 // Generated comments include content from the discovery document; avoid them
@@ -83,6 +85,69 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_So
  */
 FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Tim;
 
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_Scope3FlightEmissions.source
+
+/**
+ *  Distance-based emissions based on the distance traveled and year.
+ *
+ *  Value: "DISTANCE_BASED_EMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightEmissions_Source_DistanceBasedEmissions;
+/**
+ *  Unspecified data type.
+ *
+ *  Value: "SCOPE3_DATA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightEmissions_Source_Scope3DataTypeUnspecified;
+/**
+ *  TIM-based emissions given origin, destination, carrier, flight number,
+ *  departure date, and year.
+ *
+ *  Value: "TIM_EMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightEmissions_Source_TimEmissions;
+/**
+ *  Typical flight emissions given origin, destination, and year.
+ *
+ *  Value: "TYPICAL_FLIGHT_EMISSIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightEmissions_Source_TypicalFlightEmissions;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_Scope3FlightSegment.cabinClass
+
+/**
+ *  Business class.
+ *
+ *  Value: "BUSINESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_Business;
+/**
+ *  Unspecified cabin class.
+ *
+ *  Value: "CABIN_CLASS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_CabinClassUnspecified;
+/**
+ *  Economy class.
+ *
+ *  Value: "ECONOMY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_Economy;
+/**
+ *  First class.
+ *
+ *  Value: "FIRST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_First;
+/**
+ *  Premium economy class.
+ *
+ *  Value: "PREMIUM_ECONOMY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_PremiumEconomy;
+
 /**
  *  Input definition for the ComputeFlightEmissions request.
  */
@@ -101,6 +166,40 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_So
 
 /** List of flight legs with emission estimates. */
 @property(nonatomic, strong, nullable) NSArray<GTLRTravelImpactModel_FlightWithEmissions *> *flightEmissions;
+
+/**
+ *  The model version under which emission estimates for all flights in this
+ *  response were computed.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_ModelVersion *modelVersion;
+
+@end
+
+
+/**
+ *  A list of flight segments to request the Scope 3 emissions for.
+ */
+@interface GTLRTravelImpactModel_ComputeScope3FlightEmissionsRequest : GTLRObject
+
+/** Required. Flights to return emission estimates for. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTravelImpactModel_Scope3FlightSegment *> *flights;
+
+/**
+ *  Optional. The model version under which emission estimates for all flights
+ *  in this request were computed.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_ModelVersion *modelVersion;
+
+@end
+
+
+/**
+ *  A list of flights with Scope 3 emission estimates.
+ */
+@interface GTLRTravelImpactModel_ComputeScope3FlightEmissionsResponse : GTLRObject
+
+/** List of flight segments with emission estimates. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTravelImpactModel_Scope3FlightEmissions *> *flightEmissions;
 
 /**
  *  The model version under which emission estimates for all flights in this
@@ -401,6 +500,151 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_So
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *patch;
+
+@end
+
+
+/**
+ *  Scope 3 flight with emission estimates.
+ */
+@interface GTLRTravelImpactModel_Scope3FlightEmissions : GTLRObject
+
+/** Required. Matches the flight identifiers in the request. */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_Scope3FlightSegment *flight;
+
+/**
+ *  Optional. The source of the emissions data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_Scope3FlightEmissions_Source_DistanceBasedEmissions
+ *        Distance-based emissions based on the distance traveled and year.
+ *        (Value: "DISTANCE_BASED_EMISSIONS")
+ *    @arg @c kGTLRTravelImpactModel_Scope3FlightEmissions_Source_Scope3DataTypeUnspecified
+ *        Unspecified data type. (Value: "SCOPE3_DATA_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRTravelImpactModel_Scope3FlightEmissions_Source_TimEmissions
+ *        TIM-based emissions given origin, destination, carrier, flight number,
+ *        departure date, and year. (Value: "TIM_EMISSIONS")
+ *    @arg @c kGTLRTravelImpactModel_Scope3FlightEmissions_Source_TypicalFlightEmissions
+ *        Typical flight emissions given origin, destination, and year. (Value:
+ *        "TYPICAL_FLIGHT_EMISSIONS")
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Optional. Tank-to-wake flight emissions per passenger based on the requested
+ *  info.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ttwEmissionsGramsPerPax;
+
+/**
+ *  Optional. Well-to-tank flight emissions per passenger based on the requested
+ *  info.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wttEmissionsGramsPerPax;
+
+/**
+ *  Optional. Total flight emissions (sum of well-to-tank and tank-to-wake) per
+ *  passenger based on the requested info. This is the total emissions and
+ *  unless you have specific reasons for using TTW or WTT emissions, you should
+ *  use this number.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *wtwEmissionsGramsPerPax;
+
+@end
+
+
+/**
+ *  Flight parameters with which the Scope 3 emissions are fetched.
+ */
+@interface GTLRTravelImpactModel_Scope3FlightSegment : GTLRObject
+
+/**
+ *  Required. The cabin class of the flight.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_Business
+ *        Business class. (Value: "BUSINESS")
+ *    @arg @c kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_CabinClassUnspecified
+ *        Unspecified cabin class. (Value: "CABIN_CLASS_UNSPECIFIED")
+ *    @arg @c kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_Economy
+ *        Economy class. (Value: "ECONOMY")
+ *    @arg @c kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_First First
+ *        class. (Value: "FIRST")
+ *    @arg @c kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_PremiumEconomy
+ *        Premium economy class. (Value: "PREMIUM_ECONOMY")
+ */
+@property(nonatomic, copy, nullable) NSString *cabinClass;
+
+/**
+ *  Optional. 2-character [IATA carrier
+ *  code](https://www.iata.org/en/publications/directories/code-search/), e.g.
+ *  `KE`. This is required if specific flight matching is desired. Otherwise,
+ *  this is unused for typical flight and distance-based emissions models. This
+ *  could be both operating and marketing carrier code (i.e. codeshare is
+ *  covered).
+ */
+@property(nonatomic, copy, nullable) NSString *carrierCode;
+
+/**
+ *  Required. Date of the flight in the time zone of the origin airport. Only
+ *  year is required for typical flight and distance-based emissions models
+ *  (month and day values are ignored and therefore, can be either omitted, set
+ *  to 0, or set to a valid date for those cases). Correspondingly, if a
+ *  specific date is not provided for TIM emissions, we will fallback to typical
+ *  flight (or distance-based) emissions.
+ */
+@property(nonatomic, strong, nullable) GTLRTravelImpactModel_Date *departureDate;
+
+/**
+ *  Optional. 3-character [IATA airport
+ *  code](https://www.iata.org/en/publications/directories/code-search/) for
+ *  flight destination, e.g. `ICN`. This is used to match specific flight if
+ *  provided alongside origin, carrier, and flight number. If there is no match,
+ *  we will first try to match the flight to a typical flight between the
+ *  provided origin and destination airports. Otherwise, we will use the
+ *  distance-based emissions model if the flight distance is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/**
+ *  Optional. Distance in kilometers, e.g. `2423`, from [1, 2.5e16) km. This is
+ *  used to match a flight to distance-based emissions when origin and
+ *  destination are not provided or there are no matching typical flights.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distanceKm;
+
+/**
+ *  Optional. Up to 4-digit [flight
+ *  number](https://en.wikipedia.org/wiki/Flight_number), e.g. `71`, from [1,
+ *  9999]. This is first used to match a specific flight if a flight number is
+ *  specified alongside origin, destination, and carrier. If a flight number is
+ *  not specified, we will first try to match the flight to a typical flight
+ *  between the provided origin and destination airports. If that fails and/or
+ *  origin & destination are not provided, we will use the distance-based
+ *  emissions model based on the flight distance provided.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *flightNumber;
+
+/**
+ *  Optional. 3-character [IATA airport
+ *  code](https://www.iata.org/en/publications/directories/code-search/) for
+ *  flight origin, e.g. `YVR`. This is used to match specific flight if provided
+ *  alongside destination, carrier, and flight number. If there is no match, we
+ *  will first try to match the flight to a typical flight between the provided
+ *  origin and destination airports. Otherwise, we will use the distance-based
+ *  emissions model if the flight distance is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *origin;
 
 @end
 

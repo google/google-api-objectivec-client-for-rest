@@ -46,6 +46,11 @@ NSString * const kGTLRStorageBatchOperations_LoggingConfig_LogActionStates_Faile
 NSString * const kGTLRStorageBatchOperations_LoggingConfig_LogActionStates_LoggableActionStateUnspecified = @"LOGGABLE_ACTION_STATE_UNSPECIFIED";
 NSString * const kGTLRStorageBatchOperations_LoggingConfig_LogActionStates_Succeeded = @"SUCCEEDED";
 
+// GTLRStorageBatchOperations_ObjectRetention.retentionMode
+NSString * const kGTLRStorageBatchOperations_ObjectRetention_RetentionMode_Locked = @"LOCKED";
+NSString * const kGTLRStorageBatchOperations_ObjectRetention_RetentionMode_RetentionModeUnspecified = @"RETENTION_MODE_UNSPECIFIED";
+NSString * const kGTLRStorageBatchOperations_ObjectRetention_RetentionMode_Unlocked = @"UNLOCKED";
+
 // GTLRStorageBatchOperations_PutObjectHold.eventBasedHold
 NSString * const kGTLRStorageBatchOperations_PutObjectHold_EventBasedHold_HoldStatusUnspecified = @"HOLD_STATUS_UNSPECIFIED";
 NSString * const kGTLRStorageBatchOperations_PutObjectHold_EventBasedHold_Set = @"SET";
@@ -118,7 +123,8 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 //
 
 @implementation GTLRStorageBatchOperations_Counters
-@dynamic failedObjectCount, succeededObjectCount, totalObjectCount;
+@dynamic failedObjectCount, succeededObjectCount, totalBytesFound,
+         totalObjectCount;
 @end
 
 
@@ -184,8 +190,8 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 
 @implementation GTLRStorageBatchOperations_Job
 @dynamic bucketList, completeTime, counters, createTime, deleteObject,
-         descriptionProperty, errorSummaries, loggingConfig, name, putMetadata,
-         putObjectHold, rewriteObject, scheduleTime, state;
+         descriptionProperty, dryRun, errorSummaries, loggingConfig, name,
+         putMetadata, putObjectHold, rewriteObject, scheduleTime, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -338,6 +344,16 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageBatchOperations_ObjectRetention
+//
+
+@implementation GTLRStorageBatchOperations_ObjectRetention
+@dynamic retainUntilTime, retentionMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageBatchOperations_Operation
 //
 
@@ -409,7 +425,7 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 
 @implementation GTLRStorageBatchOperations_PutMetadata
 @dynamic cacheControl, contentDisposition, contentEncoding, contentLanguage,
-         contentType, customMetadata, customTime;
+         contentType, customMetadata, customTime, objectRetention;
 @end
 
 

@@ -329,6 +329,47 @@ NSString * const kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_Al
 NSString * const kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_DisallowUninstallByUser = @"DISALLOW_UNINSTALL_BY_USER";
 NSString * const kGTLRAndroidManagement_CustomAppConfig_UserUninstallSettings_UserUninstallSettingsUnspecified = @"USER_UNINSTALL_SETTINGS_UNSPECIFIED";
 
+// GTLRAndroidManagement_DefaultApplicationContext.defaultApplicationScope
+NSString * const kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_DefaultApplicationScopeUnspecified = @"DEFAULT_APPLICATION_SCOPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_ScopeFullyManaged = @"SCOPE_FULLY_MANAGED";
+NSString * const kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_ScopePersonalProfile = @"SCOPE_PERSONAL_PROFILE";
+NSString * const kGTLRAndroidManagement_DefaultApplicationContext_DefaultApplicationScope_ScopeWorkProfile = @"SCOPE_WORK_PROFILE";
+
+// GTLRAndroidManagement_DefaultApplicationInfo.defaultApplicationType
+NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultApplicationTypeUnspecified = @"DEFAULT_APPLICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultAssistant = @"DEFAULT_ASSISTANT";
+NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultBrowser = @"DEFAULT_BROWSER";
+NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultCallRedirection = @"DEFAULT_CALL_REDIRECTION";
+NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultCallScreening = @"DEFAULT_CALL_SCREENING";
+NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultDialer = @"DEFAULT_DIALER";
+NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultHome = @"DEFAULT_HOME";
+NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultSms = @"DEFAULT_SMS";
+NSString * const kGTLRAndroidManagement_DefaultApplicationInfo_DefaultApplicationType_DefaultWallet = @"DEFAULT_WALLET";
+
+// GTLRAndroidManagement_DefaultApplicationSetting.defaultApplicationScopes
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationScopes_DefaultApplicationScopeUnspecified = @"DEFAULT_APPLICATION_SCOPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationScopes_ScopeFullyManaged = @"SCOPE_FULLY_MANAGED";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationScopes_ScopePersonalProfile = @"SCOPE_PERSONAL_PROFILE";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationScopes_ScopeWorkProfile = @"SCOPE_WORK_PROFILE";
+
+// GTLRAndroidManagement_DefaultApplicationSetting.defaultApplicationType
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultApplicationTypeUnspecified = @"DEFAULT_APPLICATION_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultAssistant = @"DEFAULT_ASSISTANT";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultBrowser = @"DEFAULT_BROWSER";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultCallRedirection = @"DEFAULT_CALL_REDIRECTION";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultCallScreening = @"DEFAULT_CALL_SCREENING";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultDialer = @"DEFAULT_DIALER";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultHome = @"DEFAULT_HOME";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultSms = @"DEFAULT_SMS";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSetting_DefaultApplicationType_DefaultWallet = @"DEFAULT_WALLET";
+
+// GTLRAndroidManagement_DefaultApplicationSettingAttempt.attemptOutcome
+NSString * const kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_AppNotInstalled = @"APP_NOT_INSTALLED";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_AppSigningCertMismatch = @"APP_SIGNING_CERT_MISMATCH";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_AttemptOutcomeUnspecified = @"ATTEMPT_OUTCOME_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_OtherFailure = @"OTHER_FAILURE";
+NSString * const kGTLRAndroidManagement_DefaultApplicationSettingAttempt_AttemptOutcome_Success = @"SUCCESS";
+
 // GTLRAndroidManagement_Device.appliedState
 NSString * const kGTLRAndroidManagement_Device_AppliedState_Active = @"ACTIVE";
 NSString * const kGTLRAndroidManagement_Device_AppliedState_DeactivatedByDeviceFinance = @"DEACTIVATED_BY_DEVICE_FINANCE";
@@ -620,6 +661,8 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_NonComplianceReason_UserAction = @"USER_ACTION";
 
 // GTLRAndroidManagement_NonComplianceDetail.specificNonComplianceReason
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_DefaultApplicationSettingFailedForScope = @"DEFAULT_APPLICATION_SETTING_FAILED_FOR_SCOPE";
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_DefaultApplicationSettingUnsupportedScopes = @"DEFAULT_APPLICATION_SETTING_UNSUPPORTED_SCOPES";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_NewAccountNotInEnterprise = @"NEW_ACCOUNT_NOT_IN_ENTERPRISE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiApiLevel = @"ONC_WIFI_API_LEVEL";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_OncWifiInvalidEnterpriseConfig = @"ONC_WIFI_INVALID_ENTERPRISE_CONFIG";
@@ -630,6 +673,7 @@ NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianc
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesPasswordNotSufficient = @"PASSWORD_POLICIES_PASSWORD_NOT_SUFFICIENT";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PasswordPoliciesUserCredentialsConfirmationRequired = @"PASSWORD_POLICIES_USER_CREDENTIALS_CONFIRMATION_REQUIRED";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PermissibleUsageRestriction = @"PERMISSIBLE_USAGE_RESTRICTION";
+NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_PrivateDnsHostNotServing = @"PRIVATE_DNS_HOST_NOT_SERVING";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_RequiredAccountNotInEnterprise = @"REQUIRED_ACCOUNT_NOT_IN_ENTERPRISE";
 NSString * const kGTLRAndroidManagement_NonComplianceDetail_SpecificNonComplianceReason_SpecificNonComplianceReasonUnspecified = @"SPECIFIC_NON_COMPLIANCE_REASON_UNSPECIFIED";
 
@@ -1648,25 +1692,94 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_DefaultApplication
+//
+
+@implementation GTLRAndroidManagement_DefaultApplication
+@dynamic packageName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_DefaultApplicationContext
+//
+
+@implementation GTLRAndroidManagement_DefaultApplicationContext
+@dynamic defaultApplicationScope;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_DefaultApplicationInfo
+//
+
+@implementation GTLRAndroidManagement_DefaultApplicationInfo
+@dynamic defaultApplicationSettingAttempts, defaultApplicationType, packageName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"defaultApplicationSettingAttempts" : [GTLRAndroidManagement_DefaultApplicationSettingAttempt class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_DefaultApplicationSetting
+//
+
+@implementation GTLRAndroidManagement_DefaultApplicationSetting
+@dynamic defaultApplications, defaultApplicationScopes, defaultApplicationType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"defaultApplications" : [GTLRAndroidManagement_DefaultApplication class],
+    @"defaultApplicationScopes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidManagement_DefaultApplicationSettingAttempt
+//
+
+@implementation GTLRAndroidManagement_DefaultApplicationSettingAttempt
+@dynamic attemptOutcome, packageName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_Device
 //
 
 @implementation GTLRAndroidManagement_Device
 @dynamic apiLevel, applicationReports, appliedPasswordPolicies,
          appliedPolicyName, appliedPolicyVersion, appliedState,
-         commonCriteriaModeInfo, deviceSettings, disabledReason, displays,
-         dpcMigrationInfo, enrollmentTime, enrollmentTokenData,
-         enrollmentTokenName, hardwareInfo, hardwareStatusSamples,
-         lastPolicyComplianceReportTime, lastPolicySyncTime,
-         lastStatusReportTime, managementMode, memoryEvents, memoryInfo, name,
-         networkInfo, nonComplianceDetails, ownership, policyCompliant,
-         policyName, powerManagementEvents, previousDeviceNames,
-         securityPosture, softwareInfo, state, systemProperties, user, userName;
+         commonCriteriaModeInfo, defaultApplicationInfo, deviceSettings,
+         disabledReason, displays, dpcMigrationInfo, enrollmentTime,
+         enrollmentTokenData, enrollmentTokenName, hardwareInfo,
+         hardwareStatusSamples, lastPolicyComplianceReportTime,
+         lastPolicySyncTime, lastStatusReportTime, managementMode, memoryEvents,
+         memoryInfo, name, networkInfo, nonComplianceDetails, ownership,
+         policyCompliant, policyName, powerManagementEvents,
+         previousDeviceNames, securityPosture, softwareInfo, state,
+         systemProperties, user, userName;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"applicationReports" : [GTLRAndroidManagement_ApplicationReport class],
     @"appliedPasswordPolicies" : [GTLRAndroidManagement_PasswordRequirements class],
+    @"defaultApplicationInfo" : [GTLRAndroidManagement_DefaultApplicationInfo class],
     @"displays" : [GTLRAndroidManagement_Display class],
     @"hardwareStatusSamples" : [GTLRAndroidManagement_HardwareStatus class],
     @"memoryEvents" : [GTLRAndroidManagement_MemoryEvent class],
@@ -2777,12 +2890,13 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
          complianceRules, createWindowsDisabled,
          credentialProviderPolicyDefault, credentialsConfigDisabled,
          crossProfilePolicies, dataRoamingDisabled, debuggingFeaturesAllowed,
-         defaultPermissionPolicy, deviceConnectivityManagement,
-         deviceOwnerLockScreenInfo, deviceRadioState, displaySettings,
-         encryptionPolicy, ensureVerifyAppsEnabled,
-         enterpriseDisplayNameVisibility, factoryResetDisabled, frpAdminEmails,
-         funDisabled, installAppsDisabled, installUnknownSourcesAllowed,
-         keyguardDisabled, keyguardDisabledFeatures, kioskCustomization,
+         defaultApplicationSettings, defaultPermissionPolicy,
+         deviceConnectivityManagement, deviceOwnerLockScreenInfo,
+         deviceRadioState, displaySettings, encryptionPolicy,
+         ensureVerifyAppsEnabled, enterpriseDisplayNameVisibility,
+         factoryResetDisabled, frpAdminEmails, funDisabled, installAppsDisabled,
+         installUnknownSourcesAllowed, keyguardDisabled,
+         keyguardDisabledFeatures, kioskCustomization,
          kioskCustomLauncherEnabled, locationMode, longSupportMessage,
          maximumTimeToLock, microphoneAccess, minimumApiLevel,
          mobileNetworksConfigDisabled, modifyAccountsDisabled,
@@ -2810,6 +2924,7 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
     @"applications" : [GTLRAndroidManagement_ApplicationPolicy class],
     @"choosePrivateKeyRules" : [GTLRAndroidManagement_ChoosePrivateKeyRule class],
     @"complianceRules" : [GTLRAndroidManagement_ComplianceRule class],
+    @"defaultApplicationSettings" : [GTLRAndroidManagement_DefaultApplicationSetting class],
     @"frpAdminEmails" : [NSString class],
     @"keyguardDisabledFeatures" : [NSString class],
     @"oncCertificateProviders" : [GTLRAndroidManagement_OncCertificateProvider class],
@@ -3108,7 +3223,7 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 //
 
 @implementation GTLRAndroidManagement_SpecificNonComplianceContext
-@dynamic oncWifiContext, passwordPoliciesContext;
+@dynamic defaultApplicationContext, oncWifiContext, passwordPoliciesContext;
 @end
 
 
@@ -3172,10 +3287,10 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_StatusReportingSettings
 @dynamic applicationReportingSettings, applicationReportsEnabled,
-         commonCriteriaModeEnabled, deviceSettingsEnabled, displayInfoEnabled,
-         hardwareStatusEnabled, memoryInfoEnabled, networkInfoEnabled,
-         powerManagementEventsEnabled, softwareInfoEnabled,
-         systemPropertiesEnabled;
+         commonCriteriaModeEnabled, defaultApplicationInfoReportingEnabled,
+         deviceSettingsEnabled, displayInfoEnabled, hardwareStatusEnabled,
+         memoryInfoEnabled, networkInfoEnabled, powerManagementEventsEnabled,
+         softwareInfoEnabled, systemPropertiesEnabled;
 @end
 
 

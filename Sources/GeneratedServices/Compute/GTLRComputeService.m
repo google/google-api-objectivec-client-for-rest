@@ -60,6 +60,9 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#commitment" : [GTLRCompute_Commitment class],
     @"compute#commitmentAggregatedList" : [GTLRCompute_CommitmentAggregatedList class],
     @"compute#commitmentList" : [GTLRCompute_CommitmentList class],
+    // Skipping "compute#crossSiteNetwork", was used on multiple classes:
+    //     GTLRCompute_CrossSiteNetwork
+    //     GTLRCompute_CrossSiteNetworkList
     @"compute#disk" : [GTLRCompute_Disk class],
     @"compute#diskAggregatedList" : [GTLRCompute_DiskAggregatedList class],
     @"compute#diskList" : [GTLRCompute_DiskList class],
@@ -78,6 +81,9 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#forwardingRule" : [GTLRCompute_ForwardingRule class],
     @"compute#forwardingRuleAggregatedList" : [GTLRCompute_ForwardingRuleAggregatedList class],
     @"compute#forwardingRuleList" : [GTLRCompute_ForwardingRuleList class],
+    @"compute#futureReservation" : [GTLRCompute_FutureReservation class],
+    @"compute#futureReservationsAggregatedListResponse" : [GTLRCompute_FutureReservationsAggregatedListResponse class],
+    @"compute#futureReservationsListResponse" : [GTLRCompute_FutureReservationsListResponse class],
     @"compute#guestAttributes" : [GTLRCompute_GuestAttributes class],
     @"compute#healthCheck" : [GTLRCompute_HealthCheck class],
     @"compute#healthCheckList" : [GTLRCompute_HealthCheckList class],
@@ -270,6 +276,9 @@ NSString * const kGTLRAuthScopeComputeReadonly              = @"https://www.goog
     @"compute#vpnTunnel" : [GTLRCompute_VpnTunnel class],
     @"compute#vpnTunnelAggregatedList" : [GTLRCompute_VpnTunnelAggregatedList class],
     @"compute#vpnTunnelList" : [GTLRCompute_VpnTunnelList class],
+    // Skipping "compute#wireGroup", was used on multiple classes:
+    //     GTLRCompute_WireGroup
+    //     GTLRCompute_WireGroupList
     @"compute#xpnHostList" : [GTLRCompute_XpnHostList class],
     @"compute#zone" : [GTLRCompute_Zone class],
     @"compute#zoneList" : [GTLRCompute_ZoneList class],

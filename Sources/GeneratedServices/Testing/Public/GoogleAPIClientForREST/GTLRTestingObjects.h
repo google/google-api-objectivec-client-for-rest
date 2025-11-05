@@ -3571,7 +3571,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  APKs to install in addition to those being directly tested. These will be
- *  installed after the app under test. Currently capped at 100.
+ *  installed after the app under test. Limited to a combined total of 100
+ *  initial setup and additional files.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_Apk *> *additionalApks;
 
@@ -3604,7 +3605,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
 
 /**
  *  Optional. Initial setup APKs to install before the app under test is
- *  installed. Currently capped at 100.
+ *  installed. Limited to a combined total of 100 initial setup and additional
+ *  files.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTesting_Apk *> *initialSetupApks;
 

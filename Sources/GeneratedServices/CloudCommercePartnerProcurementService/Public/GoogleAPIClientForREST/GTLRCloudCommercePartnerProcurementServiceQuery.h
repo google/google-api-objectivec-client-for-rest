@@ -44,8 +44,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudCommercePartnerProcurementServiceVi
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudCommercePartnerProcurementServiceViewAccountViewFull;
 /**
- *  The default / unset value. For `GetAccount`, it defaults to the FULL view.
- *  For `ListAccounts`, it only supports BASIC view.
+ *  The default / unset value. For `GetAccount` and `ListAccounts`, they default
+ *  to the BASIC view. For `ListAccounts`, it only supports the BASIC view.
  *
  *  Value: "ACCOUNT_VIEW_UNSPECIFIED"
  */
@@ -118,9 +118,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudCommercePartnerProcurementServiceVi
  *
  *  Likely values:
  *    @arg @c kGTLRCloudCommercePartnerProcurementServiceViewAccountViewUnspecified
- *        The default / unset value. For `GetAccount`, it defaults to the FULL
- *        view. For `ListAccounts`, it only supports BASIC view. (Value:
- *        "ACCOUNT_VIEW_UNSPECIFIED")
+ *        The default / unset value. For `GetAccount` and `ListAccounts`, they
+ *        default to the BASIC view. For `ListAccounts`, it only supports the
+ *        BASIC view. (Value: "ACCOUNT_VIEW_UNSPECIFIED")
  *    @arg @c kGTLRCloudCommercePartnerProcurementServiceViewAccountViewBasic
  *        Include base account information. This is the default view. All fields
  *        from Account are included except for the

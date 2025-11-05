@@ -1993,7 +1993,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_IndexPruningStats
-@dynamic baseTable, postIndexPruningParallelInputCount,
+@dynamic baseTable, indexId, postIndexPruningParallelInputCount,
          preIndexPruningParallelInputCount;
 @end
 

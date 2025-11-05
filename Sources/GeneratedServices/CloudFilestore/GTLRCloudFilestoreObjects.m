@@ -240,6 +240,16 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFilestore_DirectoryServicesConfig
+//
+
+@implementation GTLRCloudFilestore_DirectoryServicesConfig
+@dynamic ldap;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFilestore_Empty
 //
 
@@ -253,7 +263,7 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_FileShareConfig
-@dynamic capacityGb, name, nfsExportOptions, sourceBackup;
+@dynamic capacityGb, name, nfsExportOptions, sourceBackup, sourceBackupdrBackup;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -514,10 +524,11 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 @implementation GTLRCloudFilestore_Instance
 @dynamic capacityStepSizeGb, createTime, customPerformanceSupported,
          deletionProtectionEnabled, deletionProtectionReason,
-         descriptionProperty, ETag, fileShares, kmsKeyName, labels,
-         maxCapacityGb, minCapacityGb, name, networks, performanceConfig,
-         performanceLimits, protocol, replication, satisfiesPzi, satisfiesPzs,
-         state, statusMessage, suspensionReasons, tags, tier;
+         descriptionProperty, directoryServices, ETag, fileShares, kmsKeyName,
+         labels, maxCapacityGb, minCapacityGb, name, networks,
+         performanceConfig, performanceLimits, protocol, replication,
+         satisfiesPzi, satisfiesPzs, state, statusMessage, suspensionReasons,
+         tags, tier;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -574,6 +585,24 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 @implementation GTLRCloudFilestore_IOPSPerTB
 @dynamic maxIopsPerTb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_LdapConfig
+//
+
+@implementation GTLRCloudFilestore_LdapConfig
+@dynamic domain, groupsOu, servers, usersOu;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servers" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -651,11 +680,12 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 //
 
 @implementation GTLRCloudFilestore_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudFilestore_Operation class]
+    @"operations" : [GTLRCloudFilestore_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

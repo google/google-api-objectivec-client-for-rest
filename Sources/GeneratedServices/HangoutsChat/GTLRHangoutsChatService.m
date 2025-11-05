@@ -8,7 +8,7 @@
 //   with Google Chat and manage Chat resources such as spaces, members, and
 //   messages.
 // Documentation:
-//   https://developers.google.com/hangouts/chat
+//   https://developers.google.com/workspace/chat
 
 #import <GoogleAPIClientForREST/GTLRHangoutsChat.h>
 
@@ -22,6 +22,7 @@ NSString * const kGTLRAuthScopeHangoutsChatAdminSpaces         = @"https://www.g
 NSString * const kGTLRAuthScopeHangoutsChatAdminSpacesReadonly = @"https://www.googleapis.com/auth/chat.admin.spaces.readonly";
 NSString * const kGTLRAuthScopeHangoutsChatAppDelete           = @"https://www.googleapis.com/auth/chat.app.delete";
 NSString * const kGTLRAuthScopeHangoutsChatAppMemberships      = @"https://www.googleapis.com/auth/chat.app.memberships";
+NSString * const kGTLRAuthScopeHangoutsChatAppMessagesReadonly = @"https://www.googleapis.com/auth/chat.app.messages.readonly";
 NSString * const kGTLRAuthScopeHangoutsChatAppSpaces           = @"https://www.googleapis.com/auth/chat.app.spaces";
 NSString * const kGTLRAuthScopeHangoutsChatAppSpacesCreate     = @"https://www.googleapis.com/auth/chat.app.spaces.create";
 NSString * const kGTLRAuthScopeHangoutsChatBot                 = @"https://www.googleapis.com/auth/chat.bot";

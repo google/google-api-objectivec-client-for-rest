@@ -2235,8 +2235,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /**
  *  The service controller environment to use. If empty, no control plane
- *  feature (like quota and billing) will be enabled. The recommended value for
- *  most services is servicecontrol.googleapis.com
+ *  features (like quota and billing) will be enabled. The recommended value for
+ *  most services is servicecontrol.googleapis.com.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
@@ -3434,6 +3434,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

@@ -8,7 +8,7 @@
 //   with Google Chat and manage Chat resources such as spaces, members, and
 //   messages.
 // Documentation:
-//   https://developers.google.com/hangouts/chat
+//   https://developers.google.com/workspace/chat
 
 #import <GoogleAPIClientForREST/GTLRHangoutsChatObjects.h>
 
@@ -344,6 +344,7 @@ NSString * const kGTLRHangoutsChat_MeetSpaceLinkData_Type_TypeUnspecified = @"TY
 
 // GTLRHangoutsChat_Membership.role
 NSString * const kGTLRHangoutsChat_Membership_Role_MembershipRoleUnspecified = @"MEMBERSHIP_ROLE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_Membership_Role_RoleAssistantManager = @"ROLE_ASSISTANT_MANAGER";
 NSString * const kGTLRHangoutsChat_Membership_Role_RoleManager = @"ROLE_MANAGER";
 NSString * const kGTLRHangoutsChat_Membership_Role_RoleMember  = @"ROLE_MEMBER";
 
@@ -1986,7 +1987,7 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 //
 
 @implementation GTLRHangoutsChat_PermissionSetting
-@dynamic managersAllowed, membersAllowed;
+@dynamic assistantManagersAllowed, managersAllowed, membersAllowed;
 @end
 
 

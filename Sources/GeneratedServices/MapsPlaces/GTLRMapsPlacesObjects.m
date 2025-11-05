@@ -546,17 +546,17 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
          formattedAddress, fuelOptions, generativeSummary, goodForChildren,
          goodForGroups, goodForWatchingSports, googleMapsLinks, googleMapsUri,
          iconBackgroundColor, iconMaskBaseUri, identifier,
-         internationalPhoneNumber, liveMusic, location, menuForChildren, name,
-         nationalPhoneNumber, neighborhoodSummary, outdoorSeating,
-         parkingOptions, paymentOptions, photos, plusCode, postalAddress,
-         priceLevel, priceRange, primaryType, primaryTypeDisplayName,
-         pureServiceAreaBusiness, rating, regularOpeningHours,
-         regularSecondaryOpeningHours, reservable, restroom, reviews,
-         reviewSummary, servesBeer, servesBreakfast, servesBrunch,
-         servesCocktails, servesCoffee, servesDessert, servesDinner,
-         servesLunch, servesVegetarianFood, servesWine, shortFormattedAddress,
-         subDestinations, takeout, timeZone, types, userRatingCount,
-         utcOffsetMinutes, viewport, websiteUri;
+         internationalPhoneNumber, liveMusic, location, menuForChildren,
+         movedPlace, movedPlaceId, name, nationalPhoneNumber,
+         neighborhoodSummary, outdoorSeating, parkingOptions, paymentOptions,
+         photos, plusCode, postalAddress, priceLevel, priceRange, primaryType,
+         primaryTypeDisplayName, pureServiceAreaBusiness, rating,
+         regularOpeningHours, regularSecondaryOpeningHours, reservable,
+         restroom, reviews, reviewSummary, servesBeer, servesBreakfast,
+         servesBrunch, servesCocktails, servesCoffee, servesDessert,
+         servesDinner, servesLunch, servesVegetarianFood, servesWine,
+         shortFormattedAddress, subDestinations, takeout, timeZone, types,
+         userRatingCount, utcOffsetMinutes, viewport, websiteUri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

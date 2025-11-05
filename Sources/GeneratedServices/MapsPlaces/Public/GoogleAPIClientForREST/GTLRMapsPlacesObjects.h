@@ -1909,6 +1909,22 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSNumber *menuForChildren;
 
 /**
+ *  If this Place is permanently closed and has moved to a new Place, this field
+ *  contains the new Place's resource name, in `places/{place_id}` format. If
+ *  this Place moved multiple times, this field will represent the first moved
+ *  place. This field will not be populated if this Place has not moved.
+ */
+@property(nonatomic, copy, nullable) NSString *movedPlace;
+
+/**
+ *  If this Place is permanently closed and has moved to a new Place, this field
+ *  contains the new Place's place ID. If this Place moved multiple times, this
+ *  field will represent the first moved Place. This field will not be populated
+ *  if this Place has not moved.
+ */
+@property(nonatomic, copy, nullable) NSString *movedPlaceId;
+
+/**
  *  This Place's resource name, in `places/{place_id}` format. Can be used to
  *  look up the Place.
  */
@@ -2273,7 +2289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @interface GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlert : GTLRObject
 
-/** The details of the consumer alert message.ƒ */
+/** The details of the consumer alert message. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceConsumerAlertDetails *details;
 
 /**
@@ -2409,7 +2425,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  */
 @property(nonatomic, copy, nullable) NSString *directionsUri;
 
-/** A link to show reviews of this place on Google Maps. */
+/** A link to show photos of this place on Google Maps. */
 @property(nonatomic, copy, nullable) NSString *photosUri;
 
 /** A link to show this place. */
@@ -2880,8 +2896,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *text;
 
 /**
- *  The date when the author visited the place. This is trucated to the year and
- *  month of the visit.
+ *  The date when the author visited the place. This is truncated to the year
+ *  and month of the visit.
  */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeDate *visitDate;
 

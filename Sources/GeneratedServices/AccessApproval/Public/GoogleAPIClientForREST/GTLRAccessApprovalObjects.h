@@ -325,11 +325,25 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignHashSlhDsaSha2128sSha256;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 1. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignMlDsa44;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 3. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_65"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignMlDsa65;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 5. Randomized version.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_87"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignMlDsa87;
 /**
  *  The post-quantum stateless hash-based digital signature algorithm, at
  *  security level 1. Randomized version.
@@ -1080,9 +1094,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
  *        The post-quantum stateless hash-based digital signature algorithm, at
  *        security level 1. Randomized pre-hash version supporting SHA256
  *        digests. (Value: "PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignMlDsa44
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 1. Randomized version. (Value: "PQ_SIGN_ML_DSA_44")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignMlDsa65
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignMlDsa87
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 5. Randomized version. (Value: "PQ_SIGN_ML_DSA_87")
  *    @arg @c kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_PqSignSlhDsaSha2128s
  *        The post-quantum stateless hash-based digital signature algorithm, at
  *        security level 1. Randomized version. (Value:

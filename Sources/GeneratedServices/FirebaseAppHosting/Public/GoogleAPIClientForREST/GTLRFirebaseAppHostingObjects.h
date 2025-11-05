@@ -1233,7 +1233,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
  */
 @interface GTLRFirebaseAppHosting_Config : GTLRObject
 
-/** Optional. Environment variables for this build. */
+/**
+ *  Optional. Supplied environment variables for a specific build. Provided at
+ *  Build creation time and immutable afterwards. This field is only applicable
+ *  for Builds using a build image - (e.g., ContainerSource or ArchiveSource
+ *  with locally_build_source) Attempts to set this for other build types will
+ *  result in an error
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseAppHosting_EnvironmentVariable *> *env;
 
 /**
@@ -2026,6 +2032,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseAppHosting_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

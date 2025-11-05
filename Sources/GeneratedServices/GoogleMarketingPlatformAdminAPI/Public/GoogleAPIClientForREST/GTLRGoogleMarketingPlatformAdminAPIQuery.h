@@ -206,6 +206,46 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns a list of clients managed by the sales partner organization. User
+ *  needs to be an OrgAdmin/BillingAdmin on the sales partner organization in
+ *  order to view the end clients.
+ *
+ *  Method: marketingplatformadmin.organizations.findSalesPartnerManagedClients
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsRead
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsFindSalesPartnerManagedClients : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Required. The name of the sales partner organization. Format:
+ *  organizations/{org_id}
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleMarketingPlatformAdminAPI_FindSalesPartnerManagedClientsResponse.
+ *
+ *  Returns a list of clients managed by the sales partner organization. User
+ *  needs to be an OrgAdmin/BillingAdmin on the sales partner organization in
+ *  order to view the end clients.
+ *
+ *  @param object The @c
+ *    GTLRGoogleMarketingPlatformAdminAPI_FindSalesPartnerManagedClientsRequest
+ *    to include in the query.
+ *  @param organization Required. The name of the sales partner organization.
+ *    Format: organizations/{org_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsFindSalesPartnerManagedClients
+ */
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_FindSalesPartnerManagedClientsRequest *)object
+                   organization:(NSString *)organization;
+
+@end
+
+/**
  *  Lookup for a single organization.
  *
  *  Method: marketingplatformadmin.organizations.get
@@ -233,6 +273,96 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of organizations that the user has access to.
+ *
+ *  Method: marketingplatformadmin.organizations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsRead
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsList : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Optional. The maximum number of organizations to return in one call. The
+ *  service may return fewer than this value. If unspecified, at most 50
+ *  organizations will be returned. The maximum value is 1000; values above 1000
+ *  will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListOrganizations call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListOrganizations` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_ListOrganizationsResponse.
+ *
+ *  Returns a list of organizations that the user has access to.
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Get the usage and billing data for properties within the organization for
+ *  the specified month. Per direct client org, user needs to be
+ *  OrgAdmin/BillingAdmin on the organization in order to view the billing and
+ *  usage data. Per sales partner client org, user needs to be
+ *  OrgAdmin/BillingAdmin on the sales partner org in order to view the billing
+ *  and usage data, or OrgAdmin/BillingAdmin on the sales partner client org in
+ *  order to view the usage data only.
+ *
+ *  Method: marketingplatformadmin.organizations.reportPropertyUsage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsRead
+ *    @c kGTLRAuthScopeGoogleMarketingPlatformAdminAPIAnalyticsUpdate
+ */
+@interface GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsReportPropertyUsage : GTLRGoogleMarketingPlatformAdminAPIQuery
+
+/**
+ *  Required. Specifies the organization whose property usage will be listed.
+ *  Format: organizations/{org_id}
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
+
+/**
+ *  Fetches a @c
+ *  GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageResponse.
+ *
+ *  Get the usage and billing data for properties within the organization for
+ *  the specified month. Per direct client org, user needs to be
+ *  OrgAdmin/BillingAdmin on the organization in order to view the billing and
+ *  usage data. Per sales partner client org, user needs to be
+ *  OrgAdmin/BillingAdmin on the sales partner org in order to view the billing
+ *  and usage data, or OrgAdmin/BillingAdmin on the sales partner client org in
+ *  order to view the usage data only.
+ *
+ *  @param object The @c
+ *    GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageRequest to include
+ *    in the query.
+ *  @param organization Required. Specifies the organization whose property
+ *    usage will be listed. Format: organizations/{org_id}
+ *
+ *  @return GTLRGoogleMarketingPlatformAdminAPIQuery_OrganizationsReportPropertyUsage
+ */
++ (instancetype)queryWithObject:(GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageRequest *)object
+                   organization:(NSString *)organization;
 
 @end
 

@@ -66,11 +66,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyCon
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment_EnrollState_Enrolled = @"ENROLLED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyConfigAlertEnrollment_EnrollState_EnrollStatesUnspecified = @"ENROLL_STATES_UNSPECIFIED";
 
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment.enrollState
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_EnrollState_Declined = @"DECLINED";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_EnrollState_Enrolled = @"ENROLLED";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_EnrollState_EnrollStateUnspecified = @"ENROLL_STATE_UNSPECIFIED";
-
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyConfigAlertEnrollment.enrollState
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyConfigAlertEnrollment_EnrollState_Declined = @"DECLINED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAlertPolicyConfigAlertEnrollment_EnrollState_Enrolled = @"ENROLLED";
@@ -745,11 +740,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocume
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata_State_NotInIndex = @"NOT_IN_INDEX";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata_State_NotInTargetSite = @"NOT_IN_TARGET_SITE";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1BatchGetDocumentsMetadataResponseDocumentMetadata_State_StateUnspecified = @"STATE_UNSPECIFIED";
-
-// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment.enrollState
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_EnrollState_Declined = @"DECLINED";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_EnrollState_Enrolled = @"ENROLLED";
-NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_EnrollState_EnrollStateUnspecified = @"ENROLL_STATE_UNSPECIFIED";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig.notebooklmState
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaCmekConfig_NotebooklmState_NotebookLmNotEnabled = @"NOTEBOOK_LM_NOT_ENABLED";
@@ -2134,49 +2124,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfig
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfig
-@dynamic alertEnrollments, alertPolicy, contactDetails, languageCode;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"alertEnrollments" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment class],
-    @"contactDetails" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ContactDetails class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment
-@dynamic alertId, enrollState, notificationParams;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_NotificationParams
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlertPolicyResourceConfigAlertEnrollment_NotificationParams
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AlloyDbSource
 //
 
@@ -2806,7 +2753,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaAssistantGroundedContent
-@dynamic content, textGroundingMetadata;
+@dynamic citationMetadata, content, textGroundingMetadata;
 @end
 
 
@@ -2936,6 +2883,34 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
   NSDictionary<NSString *, Class> *map = @{
     @"errorSamples" : [GTLRDiscoveryEngine_GoogleRpcStatus class],
     @"userLicenses" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaUserLicense class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCitation
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCitation
+@dynamic endIndex, license, publicationDate, startIndex, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCitationMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCitationMetadata
+@dynamic citations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"citations" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaCitation class]
   };
   return map;
 }
@@ -3459,12 +3434,12 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataStore
 @dynamic aclEnabled, advancedSiteSearchConfig, billingEstimation, cmekConfig,
-         configurableBillingApproach, contentConfig, createTime,
-         defaultSchemaId, displayName, documentProcessingConfig,
-         healthcareFhirConfig, identityMappingStore, idpConfig,
-         industryVertical, isInfobotFaqDataStore, kmsKeyName, languageInfo,
-         name, naturalLanguageQueryUnderstandingConfig, servingConfigDataStore,
-         solutionTypes, startingSchema, workspaceConfig;
+         configurableBillingApproach, configurableBillingApproachUpdateTime,
+         contentConfig, createTime, defaultSchemaId, displayName,
+         documentProcessingConfig, healthcareFhirConfig, identityMappingStore,
+         idpConfig, industryVertical, isInfobotFaqDataStore, kmsKeyName,
+         languageInfo, name, naturalLanguageQueryUnderstandingConfig,
+         servingConfigDataStore, solutionTypes, startingSchema, workspaceConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3505,6 +3480,16 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDedicatedCrawlRateTimeSeries
 @dynamic autoRefreshCrawlErrorRate, autoRefreshCrawlRate,
          userTriggeredCrawlErrorRate, userTriggeredCrawlRate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDeleteAgentMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDeleteAgentMetadata
+@dynamic createTime, updateTime;
 @end
 
 
@@ -3595,6 +3580,16 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDeleteTargetSiteMetadata
 @dynamic createTime, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDeleteUserStoreMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDeleteUserStoreMetadata
+@dynamic failureCount, successCount;
 @end
 
 
@@ -4338,8 +4333,9 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaLicenseConfig
-@dynamic alertPolicyResourceConfig, autoRenew, endDate, freeTrial, licenseCount,
-         name, startDate, state, subscriptionTerm, subscriptionTier;
+@dynamic alertPolicyResourceConfig, autoRenew, endDate, freeTrial, geminiBundle,
+         licenseCount, name, startDate, state, subscriptionTerm,
+         subscriptionTier;
 @end
 
 
@@ -4411,8 +4407,8 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProject
-@dynamic createTime, customerProvidedConfig, name, provisionCompletionTime,
-         serviceTermsMap;
+@dynamic configurableBillingStatus, createTime, customerProvidedConfig, name,
+         provisionCompletionTime, serviceTermsMap;
 @end
 
 
@@ -4432,6 +4428,16 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectConfigurableBillingStatus
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectConfigurableBillingStatus
+@dynamic effectiveIndexingCoreThreshold, effectiveSearchQpmThreshold, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectCustomerProvidedConfig
 //
 
@@ -4446,7 +4452,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaProjectCustomerProvidedConfigNotebooklmConfig
-@dynamic modelArmorConfig;
+@dynamic modelArmorConfig, optOutNotebookSharing;
 @end
 
 
@@ -5166,11 +5172,12 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSession
-@dynamic displayName, endTime, isPinned, name, startTime, state, turns,
+@dynamic displayName, endTime, isPinned, labels, name, startTime, state, turns,
          userPseudoId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [NSString class],
     @"turns" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSessionTurn class]
   };
   return map;
@@ -6380,7 +6387,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantGroundedContent
-@dynamic content, textGroundingMetadata;
+@dynamic citationMetadata, content, textGroundingMetadata;
 @end
 
 
@@ -6670,49 +6677,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfig
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfig
-@dynamic alertEnrollments, alertPolicy, contactDetails, languageCode;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"alertEnrollments" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment class],
-    @"contactDetails" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaContactDetails class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment
-@dynamic alertId, enrollState, notificationParams;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_NotificationParams
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaAlertPolicyResourceConfigAlertEnrollment_NotificationParams
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaBatchCreateTargetSiteMetadata
 //
 
@@ -6823,16 +6787,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaConditionTimeRange
 @dynamic endTime, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaContactDetails
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaContactDetails
-@dynamic emailAddress;
 @end
 
 
@@ -7020,11 +6974,11 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaDataStore
 @dynamic aclEnabled, advancedSiteSearchConfig, billingEstimation, cmekConfig,
-         configurableBillingApproach, contentConfig, createTime,
-         defaultSchemaId, displayName, documentProcessingConfig,
-         healthcareFhirConfig, identityMappingStore, industryVertical,
-         isInfobotFaqDataStore, kmsKeyName, languageInfo, name,
-         naturalLanguageQueryUnderstandingConfig, servingConfigDataStore,
+         configurableBillingApproach, configurableBillingApproachUpdateTime,
+         contentConfig, createTime, defaultSchemaId, displayName,
+         documentProcessingConfig, healthcareFhirConfig, identityMappingStore,
+         industryVertical, isInfobotFaqDataStore, kmsKeyName, languageInfo,
+         name, naturalLanguageQueryUnderstandingConfig, servingConfigDataStore,
          solutionTypes, startingSchema, workspaceConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -7689,8 +7643,8 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaLicenseConfig
-@dynamic alertPolicyResourceConfig, autoRenew, endDate, freeTrial, licenseCount,
-         name, startDate, state, subscriptionTerm, subscriptionTier;
+@dynamic autoRenew, endDate, freeTrial, geminiBundle, licenseCount, name,
+         startDate, state, subscriptionTerm, subscriptionTier;
 @end
 
 
@@ -7730,8 +7684,8 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProject
-@dynamic createTime, customerProvidedConfig, name, provisionCompletionTime,
-         serviceTermsMap;
+@dynamic configurableBillingStatus, createTime, customerProvidedConfig, name,
+         provisionCompletionTime, serviceTermsMap;
 @end
 
 
@@ -7751,6 +7705,16 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectConfigurableBillingStatus
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectConfigurableBillingStatus
+@dynamic effectiveIndexingCoreThreshold, effectiveSearchQpmThreshold, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectCustomerProvidedConfig
 //
 
@@ -7765,7 +7729,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaProjectCustomerProvidedConfigNotebooklmConfig
-@dynamic modelArmorConfig;
+@dynamic modelArmorConfig, optOutNotebookSharing;
 @end
 
 
@@ -8517,6 +8481,17 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserStore
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaUserStore
+@dynamic defaultLicenseConfig, displayName, enableExpiredLicenseAutoUpdate,
+         enableLicenseAutoRegister, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaWorkspaceConfig
 //
 
@@ -8805,6 +8780,34 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Citation
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Citation
+@dynamic endIndex, license, publicationDate, startIndex, title, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CitationMetadata
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CitationMetadata
+@dynamic citations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"citations" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Citation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1CloudSqlSource
 //
 
@@ -8943,16 +8946,6 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ConditionTimeRange
 @dynamic endTime, startTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ContactDetails
-//
-
-@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ContactDetails
-@dynamic emailAddress;
 @end
 
 
@@ -9453,11 +9446,11 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataStore
 @dynamic aclEnabled, advancedSiteSearchConfig, billingEstimation, cmekConfig,
-         configurableBillingApproach, contentConfig, createTime,
-         defaultSchemaId, displayName, documentProcessingConfig,
-         healthcareFhirConfig, identityMappingStore, industryVertical,
-         isInfobotFaqDataStore, kmsKeyName, name, servingConfigDataStore,
-         solutionTypes, startingSchema, workspaceConfig;
+         configurableBillingApproach, configurableBillingApproachUpdateTime,
+         contentConfig, createTime, defaultSchemaId, displayName,
+         documentProcessingConfig, healthcareFhirConfig, identityMappingStore,
+         industryVertical, isInfobotFaqDataStore, kmsKeyName, name,
+         servingConfigDataStore, solutionTypes, startingSchema, workspaceConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -10579,8 +10572,8 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig
-@dynamic alertPolicyResourceConfig, autoRenew, endDate, freeTrial, licenseCount,
-         name, startDate, state, subscriptionTerm, subscriptionTier;
+@dynamic autoRenew, endDate, freeTrial, geminiBundle, licenseCount, name,
+         startDate, state, subscriptionTerm, subscriptionTier;
 @end
 
 
@@ -10798,6 +10791,28 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListServingConfigsResponse
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListServingConfigsResponse
+@dynamic nextPageToken, servingConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servingConfigs" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"servingConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListSessionsResponse
 //
 
@@ -10916,8 +10931,8 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Project
-@dynamic createTime, customerProvidedConfig, name, provisionCompletionTime,
-         serviceTermsMap;
+@dynamic configurableBillingStatus, createTime, customerProvidedConfig, name,
+         provisionCompletionTime, serviceTermsMap;
 @end
 
 
@@ -10937,6 +10952,16 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectConfigurableBillingStatus
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectConfigurableBillingStatus
+@dynamic effectiveIndexingCoreThreshold, effectiveSearchQpmThreshold, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectCustomerProvidedConfig
 //
 
@@ -10951,7 +10976,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ProjectCustomerProvidedConfigNotebooklmConfig
-@dynamic modelArmorConfig;
+@dynamic modelArmorConfig, optOutNotebookSharing;
 @end
 
 
@@ -12077,11 +12102,12 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Session
-@dynamic displayName, endTime, isPinned, name, startTime, state, turns,
+@dynamic displayName, endTime, isPinned, labels, name, startTime, state, turns,
          userPseudoId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"labels" : [NSString class],
     @"turns" : [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SessionTurn class]
   };
   return map;
@@ -12504,6 +12530,17 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserLicense
 @dynamic createTime, lastLoginTime, licenseAssignmentState, licenseConfig,
          updateTime, userPrincipal, userProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserStore
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1UserStore
+@dynamic defaultLicenseConfig, displayName, enableExpiredLicenseAutoUpdate,
+         enableLicenseAutoRegister, name;
 @end
 
 

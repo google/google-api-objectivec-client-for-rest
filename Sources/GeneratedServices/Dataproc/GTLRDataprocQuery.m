@@ -818,7 +818,7 @@ NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified = @"TASK_STATUS_UN
 
 @implementation GTLRDataprocQuery_ProjectsLocationsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -2776,7 +2776,7 @@ NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified = @"TASK_STATUS_UN
 
 @implementation GTLRDataprocQuery_ProjectsRegionsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

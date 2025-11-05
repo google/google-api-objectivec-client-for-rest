@@ -146,6 +146,8 @@
 @class GTLRAndroidPublisher_PausedStateContext;
 @class GTLRAndroidPublisher_PendingCancellation;
 @class GTLRAndroidPublisher_PointsDetails;
+@class GTLRAndroidPublisher_PreorderDetails;
+@class GTLRAndroidPublisher_PreorderOfferDetails;
 @class GTLRAndroidPublisher_PrepaidBasePlanType;
 @class GTLRAndroidPublisher_PrepaidPlan;
 @class GTLRAndroidPublisher_Price;
@@ -1438,6 +1440,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseO
  *  Value: "AVAILABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_Available;
+/**
+ *  The purchase option is unavailable but offers linked to it (i.e. Play Points
+ *  offer) are available.
+ *
+ *  Value: "AVAILABLE_FOR_OFFERS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableForOffersOnly;
 /**
  *  The purchase option is initially unavailable, but made available via a
  *  released pre-order offer.
@@ -6937,6 +6946,9 @@ GTLR_DEPRECATED
  *        "AVAILABILITY_UNSPECIFIED")
  *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_Available
  *        The purchase option is available to users. (Value: "AVAILABLE")
+ *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableForOffersOnly
+ *        The purchase option is unavailable but offers linked to it (i.e. Play
+ *        Points offer) are available. (Value: "AVAILABLE_FOR_OFFERS_ONLY")
  *    @arg @c kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableIfReleased
  *        The purchase option is initially unavailable, but made available via a
  *        released pre-order offer. (Value: "AVAILABLE_IF_RELEASED")
@@ -7009,6 +7021,12 @@ GTLR_DEPRECATED
 
 /** The offer ID of the one-time purchase offer. */
 @property(nonatomic, copy, nullable) NSString *offerId;
+
+/**
+ *  The details of a pre-order purchase. Only set if it is a pre-order purchase.
+ *  Note that this field will be set even after pre-order is fulfilled.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PreorderDetails *preorderDetails;
 
 /**
  *  ID of the purchase option. This field is set for both purchase options and
@@ -7429,6 +7447,24 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details of a pre-order purchase.
+ */
+@interface GTLRAndroidPublisher_PreorderDetails : GTLRObject
+@end
+
+
+/**
+ *  Offer details information related to a preorder line item.
+ */
+@interface GTLRAndroidPublisher_PreorderOfferDetails : GTLRObject
+
+/** The time when a preordered item is released for a preorder purchase. */
+@property(nonatomic, strong, nullable) GTLRDateTime *preorderReleaseTime;
+
+@end
+
+
+/**
  *  Represents a base plan that does not automatically renew at the end of the
  *  base plan, and must be manually renewed by the user.
  */
@@ -7580,6 +7616,11 @@ GTLR_DEPRECATED
 
 /** The per-transaction offer token used to make this purchase line item. */
 @property(nonatomic, copy, nullable) NSString *offerToken;
+
+/**
+ *  Offer details for a preorder offer. This will only be set for preorders.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_PreorderOfferDetails *preorderOfferDetails;
 
 /** The purchase option ID. */
 @property(nonatomic, copy, nullable) NSString *purchaseOptionId;

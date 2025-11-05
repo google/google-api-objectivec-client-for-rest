@@ -129,6 +129,7 @@
 @class GTLRContainer_NodeConfig_Metadata;
 @class GTLRContainer_NodeConfig_ResourceLabels;
 @class GTLRContainer_NodeConfigDefaults;
+@class GTLRContainer_NodeKernelModuleLoading;
 @class GTLRContainer_NodeKubeletConfig;
 @class GTLRContainer_NodeLabels;
 @class GTLRContainer_NodeLabels_Labels;
@@ -202,6 +203,7 @@
 @class GTLRContainer_WorkloadIdentityConfig;
 @class GTLRContainer_WorkloadMetadataConfig;
 @class GTLRContainer_WorkloadPolicyConfig;
+@class GTLRContainer_WritableCgroups;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -539,7 +541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterNetworkPerformanceConfi
 /**
  *  Use the eBPF based GKE Dataplane V2 with additional features. See the [GKE
  *  Dataplane V2
- *  documentation](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/dataplane-v2)
+ *  documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
  *  for more.
  *
  *  Value: "ADVANCED_DATAPATH"
@@ -1324,6 +1326,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingVariantConfig_Variant_M
 FOUNDATION_EXTERN NSString * const kGTLRContainer_LoggingVariantConfig_Variant_VariantUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_MaintenanceExclusionOptions.endTimeBehavior
+
+/**
+ *  END_TIME_BEHAVIOR_UNSPECIFIED is the default behavior, which is fixed end
+ *  time.
+ *
+ *  Value: "END_TIME_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MaintenanceExclusionOptions_EndTimeBehavior_EndTimeBehaviorUnspecified;
+/**
+ *  UNTIL_END_OF_SUPPORT means the exclusion will be in effect until the end of
+ *  the support of the cluster's current version.
+ *
+ *  Value: "UNTIL_END_OF_SUPPORT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_MaintenanceExclusionOptions_EndTimeBehavior_UntilEndOfSupport;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_MaintenanceExclusionOptions.scope
 
 /**
@@ -1449,7 +1469,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_MonitoringComponentConfig_Enab
 /**
  *  Use the eBPF based GKE Dataplane V2 with additional features. See the [GKE
  *  Dataplane V2
- *  documentation](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/dataplane-v2)
+ *  documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
  *  for more.
  *
  *  Value: "ADVANCED_DATAPATH"
@@ -1658,6 +1678,35 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeConfig_LocalSsdEncryptionM
 FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeConfig_LocalSsdEncryptionMode_StandardEncryption;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_NodeKernelModuleLoading.policy
+
+/**
+ *  Mirrors existing DEFAULT behavior: For CPU and TPU nodes, the image will not
+ *  allow loading external kernel modules. For GPU nodes, the image will allow
+ *  loading any module, whether it is signed or not.
+ *
+ *  Value: "DO_NOT_ENFORCE_SIGNED_MODULES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeKernelModuleLoading_Policy_DoNotEnforceSignedModules;
+/**
+ *  Enforced signature verification: Node pools will use a Container-Optimized
+ *  OS image configured to allow loading of *Google-signed* external kernel
+ *  modules. Loadpin is enabled but configured to exclude modules, and kernel
+ *  module signature checking is enforced.
+ *
+ *  Value: "ENFORCE_SIGNED_MODULES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeKernelModuleLoading_Policy_EnforceSignedModules;
+/**
+ *  Default behavior. GKE selects the image based on node type. For CPU and TPU
+ *  nodes, the image will not allow loading external kernel modules. For GPU
+ *  nodes, the image will allow loading any module, whether it is signed or not.
+ *
+ *  Value: "POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeKernelModuleLoading_Policy_PolicyUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_NodePool.status
 
 /**
@@ -1830,7 +1879,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_NodeTaint_Effect_PreferNoSched
 
 /**
  *  A problem has been detected with nodes and [they are being
- *  repaired](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-repair).
+ *  repaired](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-repair).
  *  This operation type is initiated by GKE, typically automatically. This
  *  operation may be concurrent with other operations and there may be multiple
  *  repairs occurring on the same node pool.
@@ -1856,7 +1905,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_Create
  *  A node pool is being created. The node pool should be assumed to be unusable
  *  until this operation finishes. In the event of an error, the node pool may
  *  be partially created. If enabled, [node
- *  autoprovisioning](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-provisioning)
+ *  autoprovisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)
  *  may have automatically initiated such operations.
  *
  *  Value: "CREATE_NODE_POOL"
@@ -1889,7 +1938,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_FleetF
  *  A problem has been detected with the control plane and is being repaired.
  *  This operation type is initiated by GKE. For more details, see
  *  [documentation on
- *  repairs](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
+ *  repairs](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
  *
  *  Value: "REPAIR_CLUSTER"
  */
@@ -1899,7 +1948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_Repair
  *  These operations are often performed preemptively to ensure that the control
  *  plane has sufficient resources and is not typically an indication of issues.
  *  For more details, see [documentation on
- *  resizes](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
+ *  resizes](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
  *
  *  Value: "RESIZE_CLUSTER"
  */
@@ -1956,7 +2005,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_TypeUn
  *  recreating the nodes as well. Those will be recreated as separate operations
  *  and the update may not be completely functional until the node pools
  *  recreations finish. Node recreations will generally follow [maintenance
- *  policies](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions).
+ *  policies](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions).
  *  Some GKE-initiated operations use this type. This includes certain types of
  *  auto-upgrades and incident mitigations.
  *
@@ -1966,9 +2015,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_Update
 /**
  *  The cluster version is being updated. Note that this includes "upgrades" to
  *  the same version, which are simply a recreation. This also includes
- *  [auto-upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically).
+ *  [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically).
  *  For more details, see [documentation on cluster
- *  upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/cluster-upgrades#cluster_upgrades).
+ *  upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#cluster_upgrades).
  *
  *  Value: "UPGRADE_MASTER"
  */
@@ -1976,10 +2025,10 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Operation_OperationType_Upgrad
 /**
  *  A node pool is being updated. Despite calling this an "upgrade", this
  *  includes most forms of updates to node pools. This also includes
- *  [auto-upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-upgrades).
+ *  [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades).
  *  This operation sets the progress field and may be canceled. The upgrade
  *  strategy depends on [node pool
- *  configuration](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/node-pool-upgrade-strategies).
+ *  configuration](https://cloud.google.com/kubernetes-engine/docs/concepts/node-pool-upgrade-strategies).
  *  The nodes are generally still usable during this operation.
  *
  *  Value: "UPGRADE_NODES"
@@ -2865,7 +2914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The accelerator type resource name. List of supported accelerators
- *  [here](https://{$universe.dns_names.final_documentation_domain}/compute/docs/gpus)
+ *  [here](https://cloud.google.com/compute/docs/gpus)
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
 
@@ -3020,7 +3069,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  will be disabled in 1.15. It is recommended to use the Cloud Console to
  *  manage and monitor your Kubernetes clusters, workloads and applications. For
  *  more information, see:
- *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/dashboards
+ *  https://cloud.google.com/kubernetes-engine/docs/concepts/dashboards
  */
 @property(nonatomic, strong, nullable) GTLRContainer_KubernetesDashboard *kubernetesDashboard GTLR_DEPRECATED;
 
@@ -3308,8 +3357,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  to each node in the node pool. This should be of the form
  *  projects/[KEY_PROJECT_ID]/locations/[LOCATION]/keyRings/[RING_NAME]/cryptoKeys/[KEY_NAME].
  *  For more information about protecting resources with Cloud KMS Keys please
- *  see:
- *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/customer-managed-encryption
+ *  see: https://cloud.google.com/compute/docs/disks/customer-managed-encryption
  */
 @property(nonatomic, copy, nullable) NSString *bootDiskKmsKey;
 
@@ -3329,8 +3377,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The image type to use for NAP created node. Please see
- *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/node-images
- *  for available image types.
+ *  https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for
+ *  available image types.
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
@@ -3350,7 +3398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  values are the friendly names of CPU platforms, such as minCpuPlatform:
  *  Intel Haswell or minCpuPlatform: Intel Sandy Bridge. For more information,
  *  read [how to specify min CPU
- *  platform](https://{$universe.dns_names.final_documentation_domain}/compute/docs/instances/specify-min-cpu-platform).
+ *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform).
  *  This field is deprecated, min_cpu_platform should be specified using
  *  `cloud.google.com/requested-min-cpu-platform` label selector on the pod. To
  *  unset the min cpu platform field pass "automatic" as field value.
@@ -3609,16 +3657,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the operation resides. This field has been deprecated and replaced
- *  by the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  operation resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -3797,7 +3845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Output only. Deprecated, use
- *  [NodePools.version](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools)
+ *  [NodePools.version](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools)
  *  instead. The current version of the node software components. If they are
  *  currently at multiple versions because they're in the process of being
  *  upgraded, this reflects the minimum version of all nodes.
@@ -3902,9 +3950,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The number of nodes to create in this cluster. You must ensure that your
- *  Compute Engine [resource
- *  quota](https://{$universe.dns_names.final_documentation_domain}/compute/quotas)
- *  is sufficient for this number of instances. You must also have available
+ *  Compute Engine [resource quota](https://cloud.google.com/compute/quotas) is
+ *  sufficient for this number of instances. You must also have available
  *  firewall and routes quota. For requests, this field should only be used in
  *  lieu of a "node_pool" object, since this configuration (along with the
  *  "node_config") will be used to create a "NodePool" object with an
@@ -3929,22 +3976,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Output only. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/regions-zones/regions-zones#available)
+ *  [zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
  *  or
- *  [region](https://{$universe.dns_names.final_documentation_domain}/compute/docs/regions-zones/regions-zones#available)
+ *  [region](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
  *  in which the cluster resides.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
  *  The list of Google Compute Engine
- *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster's nodes should be located. This field provides a
- *  default value if
- *  [NodePool.Locations](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations)
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster's nodes should be located. This field provides a default value if
+ *  [NodePool.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations)
  *  are not specified during node pool creation. Warning: changing cluster
  *  locations will update the
- *  [NodePool.Locations](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations)
+ *  [NodePool.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters.nodePools#NodePool.FIELDS.locations)
  *  of all node pools and will result in nodes being added and/or removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
@@ -4012,7 +4058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name of the Google Compute Engine
- *  [network](https://{$universe.dns_names.final_documentation_domain}/compute/docs/networks-and-firewalls#networks)
+ *  [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks)
  *  to which the cluster is connected. If left unspecified, the `default`
  *  network will be used.
  */
@@ -4176,8 +4222,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The name of the Google Compute Engine
- *  [subnetwork](https://{$universe.dns_names.final_documentation_domain}/compute/docs/subnetworks)
- *  to which the cluster is connected.
+ *  [subnetwork](https://cloud.google.com/compute/docs/subnetworks) to which the
+ *  cluster is connected.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
@@ -4202,9 +4248,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Output only. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field is deprecated, use location
- *  instead.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field is deprecated, use location instead.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -4235,8 +4280,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The list of Google Compute Engine
- *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the NodePool's nodes can be created by NAP.
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  NodePool's nodes can be created by NAP.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoprovisioningLocations;
 
@@ -4362,7 +4407,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_AdvancedDatapath
  *        Use the eBPF based GKE Dataplane V2 with additional features. See the
  *        [GKE Dataplane V2
- *        documentation](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/dataplane-v2)
+ *        documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
  *        for more. (Value: "ADVANCED_DATAPATH")
  *    @arg @c kGTLRContainer_ClusterUpdate_DesiredDatapathProvider_DatapathProviderUnspecified
  *        Default value. (Value: "DATAPATH_PROVIDER_UNSPECIFIED")
@@ -4476,11 +4521,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The desired list of Google Compute Engine
- *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster's nodes should be located. This list must always
- *  include the cluster's primary zone. Warning: changing cluster locations will
- *  update the locations of all node pools and will result in nodes being added
- *  and/or removed.
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster's nodes should be located. This list must always include the
+ *  cluster's primary zone. Warning: changing cluster locations will update the
+ *  locations of all node pools and will result in nodes being added and/or
+ *  removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *desiredLocations;
 
@@ -4772,16 +4817,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -4934,7 +4979,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Required. A [cluster
- *  resource](https://{$universe.dns_names.final_documentation_domain}/container-engine/reference/rest/v1/projects.locations.clusters)
+ *  resource](https://cloud.google.com/container-engine/reference/rest/v1/projects.locations.clusters)
  */
 @property(nonatomic, strong, nullable) GTLRContainer_Cluster *cluster;
 
@@ -4946,16 +4991,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the parent
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -4986,16 +5031,16 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the parent field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the parent field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the parent
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -5104,6 +5149,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  private container registries.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateRegistryAccessConfig *privateRegistryAccessConfig;
+
+/**
+ *  Optional. WritableCgroups defines writable cgroups configuration for the
+ *  node pool.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_WritableCgroups *writableCgroups;
 
 @end
 
@@ -5344,13 +5395,13 @@ GTLR_DEPRECATED
  *  local ssds, zero (or unset) means to disable using local SSDs as ephemeral
  *  storage. The limit for this value is dependent upon the maximum number of
  *  disk available on a machine per zone. See:
- *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/local-ssd
- *  for more information. 2. For Gen3 machines which dictate a specific number
- *  of local ssds, zero (or unset) means to use the default number of local ssds
- *  that goes with that machine type. For example, for a c3-standard-8-lssd
- *  machine, 2 local ssds would be provisioned. For c3-standard-8 (which doesn't
- *  support local ssds), 0 will be provisioned. See
- *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/local-ssd#choose_number_local_ssds
+ *  https://cloud.google.com/compute/docs/disks/local-ssd for more information.
+ *  2. For Gen3 machines which dictate a specific number of local ssds, zero (or
+ *  unset) means to use the default number of local ssds that goes with that
+ *  machine type. For example, for a c3-standard-8-lssd machine, 2 local ssds
+ *  would be provisioned. For c3-standard-8 (which doesn't support local ssds),
+ *  0 will be provisioned. See
+ *  https://cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds
  *  for more info.
  *
  *  Uses NSNumber of intValue.
@@ -5675,8 +5726,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  GCPSecretManagerCertificateConfig configures a secret from [Google Secret
- *  Manager](https://{$universe.dns_names.final_documentation_domain}/secret-manager).
+ *  GCPSecretManagerCertificateConfig configures a secret from [Secret
+ *  Manager](https://cloud.google.com/secret-manager).
  */
 @interface GTLRContainer_GCPSecretManagerCertificateConfig : GTLRObject
 
@@ -6359,6 +6410,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRContainer_HugepagesConfig *hugepages;
 
 /**
+ *  Optional. Configuration for kernel module loading on nodes. When enabled,
+ *  the node pool will be provisioned with a Container-Optimized OS image that
+ *  enforces kernel module signature verification.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeKernelModuleLoading *nodeKernelModuleLoading;
+
+/**
  *  The Linux kernel parameters to be applied to the nodes and all pods running
  *  on the nodes. The following parameters are supported. net.core.busy_poll
  *  net.core.busy_read net.core.netdev_max_backlog net.core.rmem_max
@@ -6559,16 +6617,16 @@ GTLR_DEPRECATED
 /**
  *  Number of local NVMe SSDs to use. The limit for this value is dependent upon
  *  the maximum number of disk available on a machine per zone. See:
- *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/local-ssd
- *  for more information. A zero (or unset) value has different meanings
- *  depending on machine type being used: 1. For pre-Gen3 machines, which
- *  support flexible numbers of local ssds, zero (or unset) means to disable
- *  using local SSDs as ephemeral storage. 2. For Gen3 machines which dictate a
- *  specific number of local ssds, zero (or unset) means to use the default
- *  number of local ssds that goes with that machine type. For example, for a
- *  c3-standard-8-lssd machine, 2 local ssds would be provisioned. For
- *  c3-standard-8 (which doesn't support local ssds), 0 will be provisioned. See
- *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/local-ssd#choose_number_local_ssds
+ *  https://cloud.google.com/compute/docs/disks/local-ssd for more information.
+ *  A zero (or unset) value has different meanings depending on machine type
+ *  being used: 1. For pre-Gen3 machines, which support flexible numbers of
+ *  local ssds, zero (or unset) means to disable using local SSDs as ephemeral
+ *  storage. 2. For Gen3 machines which dictate a specific number of local ssds,
+ *  zero (or unset) means to use the default number of local ssds that goes with
+ *  that machine type. For example, for a c3-standard-8-lssd machine, 2 local
+ *  ssds would be provisioned. For c3-standard-8 (which doesn't support local
+ *  ssds), 0 will be provisioned. See
+ *  https://cloud.google.com/compute/docs/disks/local-ssd#choose_number_local_ssds
  *  for more info.
  *
  *  Uses NSNumber of intValue.
@@ -6654,6 +6712,20 @@ GTLR_DEPRECATED
  *  Represents the Maintenance exclusion option.
  */
 @interface GTLRContainer_MaintenanceExclusionOptions : GTLRObject
+
+/**
+ *  EndTimeBehavior specifies the behavior of the exclusion end time.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_MaintenanceExclusionOptions_EndTimeBehavior_EndTimeBehaviorUnspecified
+ *        END_TIME_BEHAVIOR_UNSPECIFIED is the default behavior, which is fixed
+ *        end time. (Value: "END_TIME_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_MaintenanceExclusionOptions_EndTimeBehavior_UntilEndOfSupport
+ *        UNTIL_END_OF_SUPPORT means the exclusion will be in effect until the
+ *        end of the support of the cluster's current version. (Value:
+ *        "UNTIL_END_OF_SUPPORT")
+ */
+@property(nonatomic, copy, nullable) NSString *endTimeBehavior;
 
 /**
  *  Scope specifies the upgrade scope which upgrades are blocked by the
@@ -6793,7 +6865,7 @@ GTLR_DEPRECATED
  *  must be non-empty. Warning: basic authentication is deprecated, and will be
  *  removed in GKE control plane versions 1.19 and newer. For a list of
  *  recommended authentication methods, see:
- *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/api-server-authentication
+ *  https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication
  */
 @property(nonatomic, copy, nullable) NSString *password GTLR_DEPRECATED;
 
@@ -6804,7 +6876,7 @@ GTLR_DEPRECATED
  *  basic authentication is deprecated, and will be removed in GKE control plane
  *  versions 1.19 and newer. For a list of recommended authentication methods,
  *  see:
- *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/api-server-authentication
+ *  https://cloud.google.com/kubernetes-engine/docs/how-to/api-server-authentication
  */
 @property(nonatomic, copy, nullable) NSString *username GTLR_DEPRECATED;
 
@@ -6973,7 +7045,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_AdvancedDatapath Use
  *        the eBPF based GKE Dataplane V2 with additional features. See the [GKE
  *        Dataplane V2
- *        documentation](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/dataplane-v2)
+ *        documentation](https://cloud.google.com/kubernetes-engine/docs/how-to/dataplane-v2)
  *        for more. (Value: "ADVANCED_DATAPATH")
  *    @arg @c kGTLRContainer_NetworkConfig_DatapathProvider_DatapathProviderUnspecified
  *        Default value. (Value: "DATAPATH_PROVIDER_UNSPECIFIED")
@@ -7072,7 +7144,7 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. The relative name of the Google Compute Engine
- *  [network](https://{$universe.dns_names.final_documentation_domain}/compute/docs/networks-and-firewalls#networks)
+ *  [network](https://cloud.google.com/compute/docs/networks-and-firewalls#networks)
  *  to which the cluster is connected. Example:
  *  projects/my-project/global/networks/my-network
  */
@@ -7109,8 +7181,8 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. The relative name of the Google Compute Engine
- *  [subnetwork](https://{$universe.dns_names.final_documentation_domain}/compute/docs/vpc)
- *  to which the cluster is connected. Example:
+ *  [subnetwork](https://cloud.google.com/compute/docs/vpc) to which the cluster
+ *  is connected. Example:
  *  projects/my-project/regions/us-central1/subnetworks/my-subnet
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
@@ -7226,7 +7298,7 @@ GTLR_DEPRECATED
 /**
  *  Specifies the NodeAffinity key, values, and affinity operator according to
  *  [shared sole tenant node group
- *  affinities](https://{$universe.dns_names.final_documentation_domain}/compute/docs/nodes/sole-tenant-nodes#node_affinity_and_anti-affinity).
+ *  affinities](https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes#node_affinity_and_anti-affinity).
  */
 @interface GTLRContainer_NodeAffinity : GTLRObject
 
@@ -7264,8 +7336,8 @@ GTLR_DEPRECATED
 
 /**
  *  A list of hardware accelerators to be attached to each node. See
- *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/gpus
- *  for more information about support for GPUs.
+ *  https://cloud.google.com/compute/docs/gpus for more information about
+ *  support for GPUs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_AcceleratorConfig *> *accelerators;
 
@@ -7280,8 +7352,7 @@ GTLR_DEPRECATED
  *  to each node in the node pool. This should be of the form
  *  projects/[KEY_PROJECT_ID]/locations/[LOCATION]/keyRings/[RING_NAME]/cryptoKeys/[KEY_NAME].
  *  For more information about protecting resources with Cloud KMS Keys please
- *  see:
- *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/customer-managed-encryption
+ *  see: https://cloud.google.com/compute/docs/disks/customer-managed-encryption
  */
 @property(nonatomic, copy, nullable) NSString *bootDiskKmsKey;
 
@@ -7360,8 +7431,8 @@ GTLR_DEPRECATED
 /**
  *  The image type to use for this node. Note that for a given image type, the
  *  latest version of it will be used. Please see
- *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/node-images
- *  for available image types.
+ *  https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for
+ *  available image types.
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
@@ -7388,9 +7459,8 @@ GTLR_DEPRECATED
 /**
  *  The number of local SSD disks to be attached to the node. The limit for this
  *  value is dependent upon the maximum number of disks available on a machine
- *  per zone. See:
- *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/disks/local-ssd
- *  for more information.
+ *  per zone. See: https://cloud.google.com/compute/docs/disks/local-ssd for
+ *  more information.
  *
  *  Uses NSNumber of intValue.
  */
@@ -7421,8 +7491,8 @@ GTLR_DEPRECATED
 
 /**
  *  The name of a Google Compute Engine [machine
- *  type](https://{$universe.dns_names.final_documentation_domain}/compute/docs/machine-types)
- *  If unspecified, the default machine type is `e2-medium`.
+ *  type](https://cloud.google.com/compute/docs/machine-types) If unspecified,
+ *  the default machine type is `e2-medium`.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
@@ -7456,14 +7526,14 @@ GTLR_DEPRECATED
  *  friendly names of CPU platforms, such as `minCpuPlatform: "Intel Haswell"`
  *  or `minCpuPlatform: "Intel Sandy Bridge"`. For more information, read [how
  *  to specify min CPU
- *  platform](https://{$universe.dns_names.final_documentation_domain}/compute/docs/instances/specify-min-cpu-platform)
+ *  platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform)
  */
 @property(nonatomic, copy, nullable) NSString *minCpuPlatform;
 
 /**
  *  Setting this field will assign instances of this pool to run on the
  *  specified node group. This is useful for running workloads on [sole tenant
- *  nodes](https://{$universe.dns_names.final_documentation_domain}/compute/docs/nodes/sole-tenant-nodes).
+ *  nodes](https://cloud.google.com/compute/docs/nodes/sole-tenant-nodes).
  */
 @property(nonatomic, copy, nullable) NSString *nodeGroup;
 
@@ -7474,17 +7544,17 @@ GTLR_DEPRECATED
  *  `https://www.googleapis.com/auth/compute` is required for mounting
  *  persistent storage on your nodes. *
  *  `https://www.googleapis.com/auth/devstorage.read_only` is required for
- *  communicating with **gcr.io** (the [Google Container
- *  Registry](https://{$universe.dns_names.final_documentation_domain}/container-registry/)).
- *  If unspecified, no scopes are added, unless Cloud Logging or Cloud
- *  Monitoring are enabled, in which case their required scopes will be added.
+ *  communicating with **gcr.io** (the [Artifact
+ *  Registry](https://cloud.google.com/artifact-registry/)). If unspecified, no
+ *  scopes are added, unless Cloud Logging or Cloud Monitoring are enabled, in
+ *  which case their required scopes will be added.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *oauthScopes;
 
 /**
  *  Whether the nodes are created as preemptible VM instances. See:
- *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/instances/preemptible
- *  for more information about preemptible VM instances.
+ *  https://cloud.google.com/compute/docs/instances/preemptible for more
+ *  information about preemptible VM instances.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7493,7 +7563,7 @@ GTLR_DEPRECATED
 /**
  *  The optional reservation affinity. Setting this field will apply the
  *  specified [Zonal Compute
- *  Reservation](https://{$universe.dns_names.final_documentation_domain}/compute/docs/instances/reserving-zonal-resources)
+ *  Reservation](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
  *  to this node pool.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ReservationAffinity *reservationAffinity;
@@ -7648,6 +7718,37 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for kernel module loading on nodes.
+ */
+@interface GTLRContainer_NodeKernelModuleLoading : GTLRObject
+
+/**
+ *  Set the node module loading policy for nodes in the node pool.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_NodeKernelModuleLoading_Policy_DoNotEnforceSignedModules
+ *        Mirrors existing DEFAULT behavior: For CPU and TPU nodes, the image
+ *        will not allow loading external kernel modules. For GPU nodes, the
+ *        image will allow loading any module, whether it is signed or not.
+ *        (Value: "DO_NOT_ENFORCE_SIGNED_MODULES")
+ *    @arg @c kGTLRContainer_NodeKernelModuleLoading_Policy_EnforceSignedModules
+ *        Enforced signature verification: Node pools will use a
+ *        Container-Optimized OS image configured to allow loading of
+ *        *Google-signed* external kernel modules. Loadpin is enabled but
+ *        configured to exclude modules, and kernel module signature checking is
+ *        enforced. (Value: "ENFORCE_SIGNED_MODULES")
+ *    @arg @c kGTLRContainer_NodeKernelModuleLoading_Policy_PolicyUnspecified
+ *        Default behavior. GKE selects the image based on node type. For CPU
+ *        and TPU nodes, the image will not allow loading external kernel
+ *        modules. For GPU nodes, the image will allow loading any module,
+ *        whether it is signed or not. (Value: "POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *policy;
+
+@end
+
+
+/**
  *  Node kubelet configs.
  */
 @interface GTLRContainer_NodeKubeletConfig : GTLRObject
@@ -7705,7 +7806,8 @@ GTLR_DEPRECATED
  *  Set the CPU CFS quota period value 'cpu.cfs_period_us'. The string must be a
  *  sequence of decimal numbers, each with optional fraction and a unit suffix,
  *  such as "300ms". Valid time units are "ns", "us" (or "µs"), "ms", "s", "m",
- *  "h". The value must be a positive duration.
+ *  "h". The value must be a positive duration between 1ms and 1 second,
+ *  inclusive.
  */
 @property(nonatomic, copy, nullable) NSString *cpuCfsQuotaPeriod;
 
@@ -8046,9 +8148,8 @@ GTLR_DEPRECATED
 
 /**
  *  The initial node count for the pool. You must ensure that your Compute
- *  Engine [resource
- *  quota](https://{$universe.dns_names.final_documentation_domain}/compute/quotas)
- *  is sufficient for this number of instances. You must also have available
+ *  Engine [resource quota](https://cloud.google.com/compute/quotas) is
+ *  sufficient for this number of instances. You must also have available
  *  firewall and routes quota.
  *
  *  Uses NSNumber of intValue.
@@ -8057,7 +8158,7 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. The resource URLs of the [managed instance
- *  groups](https://{$universe.dns_names.final_documentation_domain}/compute/docs/instance-groups/creating-groups-of-managed-instances)
+ *  groups](https://cloud.google.com/compute/docs/instance-groups/creating-groups-of-managed-instances)
  *  associated with this node pool. During the node pool blue-green upgrade
  *  operation, the URLs contain both blue and green resources.
  */
@@ -8065,10 +8166,10 @@ GTLR_DEPRECATED
 
 /**
  *  The list of Google Compute Engine
- *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the NodePool's nodes should be located. If this value is
- *  unspecified during node pool creation, the
- *  [Cluster.Locations](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters#Cluster.FIELDS.locations)
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  NodePool's nodes should be located. If this value is unspecified during node
+ *  pool creation, the
+ *  [Cluster.Locations](https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.locations.clusters#Cluster.FIELDS.locations)
  *  value will be used, instead. Warning: changing node pool locations will
  *  result in nodes being added and/or removed.
  */
@@ -8153,7 +8254,7 @@ GTLR_DEPRECATED
 /**
  *  The version of Kubernetes running on this NodePool's nodes. If unspecified,
  *  it defaults as described
- *  [here](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/versioning#specifying_node_version).
+ *  [here](https://cloud.google.com/kubernetes-engine/versioning#specifying_node_version).
  */
 @property(nonatomic, copy, nullable) NSString *version;
 
@@ -8401,9 +8502,9 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/regions-zones/regions-zones#available)
+ *  [zone](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
  *  or
- *  [region](https://{$universe.dns_names.final_documentation_domain}/compute/docs/regions-zones/regions-zones#available)
+ *  [region](https://cloud.google.com/compute/docs/regions-zones/regions-zones#available)
  *  in which the cluster resides.
  */
 @property(nonatomic, copy, nullable) NSString *location;
@@ -8423,7 +8524,7 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRContainer_Operation_OperationType_AutoRepairNodes A problem
  *        has been detected with nodes and [they are being
- *        repaired](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-repair).
+ *        repaired](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-repair).
  *        This operation type is initiated by GKE, typically automatically. This
  *        operation may be concurrent with other operations and there may be
  *        multiple repairs occurring on the same node pool. (Value:
@@ -8440,7 +8541,7 @@ GTLR_DEPRECATED
  *        is being created. The node pool should be assumed to be unusable until
  *        this operation finishes. In the event of an error, the node pool may
  *        be partially created. If enabled, [node
- *        autoprovisioning](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-provisioning)
+ *        autoprovisioning](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-provisioning)
  *        may have automatically initiated such operations. (Value:
  *        "CREATE_NODE_POOL")
  *    @arg @c kGTLRContainer_Operation_OperationType_DeleteCluster The cluster
@@ -8459,14 +8560,14 @@ GTLR_DEPRECATED
  *        been detected with the control plane and is being repaired. This
  *        operation type is initiated by GKE. For more details, see
  *        [documentation on
- *        repairs](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
+ *        repairs](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
  *        (Value: "REPAIR_CLUSTER")
  *    @arg @c kGTLRContainer_Operation_OperationType_ResizeCluster The control
  *        plane is being resized. This operation type is initiated by GKE. These
  *        operations are often performed preemptively to ensure that the control
  *        plane has sufficient resources and is not typically an indication of
  *        issues. For more details, see [documentation on
- *        resizes](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
+ *        resizes](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions#repairs).
  *        (Value: "RESIZE_CLUSTER")
  *    @arg @c kGTLRContainer_Operation_OperationType_SetLabels Unused. Updating
  *        labels uses UPDATE_CLUSTER. (Value: "SET_LABELS")
@@ -8497,24 +8598,24 @@ GTLR_DEPRECATED
  *        separate operations and the update may not be completely functional
  *        until the node pools recreations finish. Node recreations will
  *        generally follow [maintenance
- *        policies](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions).
+ *        policies](https://cloud.google.com/kubernetes-engine/docs/concepts/maintenance-windows-and-exclusions).
  *        Some GKE-initiated operations use this type. This includes certain
  *        types of auto-upgrades and incident mitigations. (Value:
  *        "UPDATE_CLUSTER")
  *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeMaster The cluster
  *        version is being updated. Note that this includes "upgrades" to the
  *        same version, which are simply a recreation. This also includes
- *        [auto-upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically).
+ *        [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#upgrading_automatically).
  *        For more details, see [documentation on cluster
- *        upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/cluster-upgrades#cluster_upgrades).
+ *        upgrades](https://cloud.google.com/kubernetes-engine/docs/concepts/cluster-upgrades#cluster_upgrades).
  *        (Value: "UPGRADE_MASTER")
  *    @arg @c kGTLRContainer_Operation_OperationType_UpgradeNodes A node pool is
  *        being updated. Despite calling this an "upgrade", this includes most
  *        forms of updates to node pools. This also includes
- *        [auto-upgrades](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/how-to/node-auto-upgrades).
+ *        [auto-upgrades](https://cloud.google.com/kubernetes-engine/docs/how-to/node-auto-upgrades).
  *        This operation sets the progress field and may be canceled. The
  *        upgrade strategy depends on [node pool
- *        configuration](https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/node-pool-upgrade-strategies).
+ *        configuration](https://cloud.google.com/kubernetes-engine/docs/concepts/node-pool-upgrade-strategies).
  *        The nodes are generally still usable during this operation. (Value:
  *        "UPGRADE_NODES")
  */
@@ -8572,9 +8673,8 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the operation is taking place. This field is deprecated, use
- *  location instead.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  operation is taking place. This field is deprecated, use location instead.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -8701,7 +8801,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. TPU placement topology for pod slice node pool.
- *  https://{$universe.dns_names.final_documentation_domain}/tpu/docs/types-topologies#tpu_topologies
+ *  https://cloud.google.com/tpu/docs/types-topologies#tpu_topologies
  */
 @property(nonatomic, copy, nullable) NSString *tpuTopology;
 
@@ -9133,7 +9233,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  [ReservationAffinity](https://{$universe.dns_names.final_documentation_domain}/compute/docs/instances/reserving-zonal-resources)
+ *  [ReservationAffinity](https://cloud.google.com/compute/docs/instances/reserving-zonal-resources)
  *  is the configuration of desired reservation which instances could take
  *  capacity from.
  */
@@ -9172,7 +9272,7 @@ GTLR_DEPRECATED
 
 /**
  *  Collection of [Resource Manager
- *  labels](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-labels).
+ *  labels](https://cloud.google.com/resource-manager/docs/creating-managing-labels).
  */
 @interface GTLRContainer_ResourceLabels : GTLRObject
 
@@ -9224,8 +9324,8 @@ GTLR_DEPRECATED
  *  A map of resource manager tag keys and values to be attached to the nodes
  *  for managing Compute Engine firewalls using Network Firewall Policies. Tags
  *  must be according to specifications in
- *  https://{$universe.dns_names.final_documentation_domain}/vpc/docs/tags-firewalls-overview#specifications.
- *  A maximum of 5 tag key-value pairs can be specified. Existing tags will be
+ *  https://cloud.google.com/vpc/docs/tags-firewalls-overview#specifications. A
+ *  maximum of 5 tag key-value pairs can be specified. Existing tags will be
  *  replaced with new values.
  */
 @interface GTLRContainer_ResourceManagerTags : GTLRObject
@@ -9306,7 +9406,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
@@ -9321,9 +9421,9 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -9591,16 +9691,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -9640,7 +9740,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
@@ -9650,9 +9750,9 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -9700,16 +9800,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -9731,11 +9831,11 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The desired list of Google Compute Engine
- *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster's nodes should be located. Changing the locations a
- *  cluster is in will result in nodes being either created or removed from the
- *  cluster, depending on whether locations are being added or removed. This
- *  list must always include the cluster's primary zone.
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster's nodes should be located. Changing the locations a cluster is in
+ *  will result in nodes being either created or removed from the cluster,
+ *  depending on whether locations are being added or removed. This list must
+ *  always include the cluster's primary zone.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
@@ -9747,16 +9847,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -9795,16 +9895,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -9835,14 +9935,14 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 
 /**
  *  Required. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -9889,7 +9989,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
@@ -9899,9 +9999,9 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -9941,16 +10041,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -9981,16 +10081,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -10028,16 +10128,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -10076,16 +10176,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -10127,16 +10227,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -10256,7 +10356,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
@@ -10270,9 +10370,9 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -10569,7 +10669,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
@@ -10579,9 +10679,9 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -10632,16 +10732,16 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -10657,8 +10757,8 @@ GTLR_DEPRECATED
 
 /**
  *  A list of hardware accelerators to be attached to each node. See
- *  https://{$universe.dns_names.final_documentation_domain}/compute/docs/gpus
- *  for more information about support for GPUs.
+ *  https://cloud.google.com/compute/docs/gpus for more information about
+ *  support for GPUs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_AcceleratorConfig *> *accelerators;
 
@@ -10728,8 +10828,8 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The desired image type for the node pool. Please see
- *  https://{$universe.dns_names.final_documentation_domain}/kubernetes-engine/docs/concepts/node-images
- *  for available image types.
+ *  https://cloud.google.com/kubernetes-engine/docs/concepts/node-images for
+ *  available image types.
  */
 @property(nonatomic, copy, nullable) NSString *imageType;
 
@@ -10748,10 +10848,17 @@ GTLR_DEPRECATED
 
 /**
  *  The desired list of Google Compute Engine
- *  [zones](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the node pool's nodes should be located. Changing the locations for
- *  a node pool will result in nodes being either created or removed from the
- *  node pool, depending on whether locations are being added or removed.
+ *  [zones](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  node pool's nodes should be located. Changing the locations for a node pool
+ *  will result in nodes being either created or removed from the node pool,
+ *  depending on whether locations are being added or removed. Warning: It is
+ *  recommended to update node pool locations in a standalone API call. Do not
+ *  combine a location update with changes to other fields (such as `tags`,
+ *  `labels`, `taints`, etc.) in the same request. Otherwise, the API performs a
+ *  structural modification where changes to other fields will only apply to
+ *  newly created nodes and will not be applied to existing nodes in the node
+ *  pool. To ensure all nodes are updated consistently, use a separate API call
+ *  for location changes.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
@@ -10760,9 +10867,9 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. The desired [Google Compute Engine machine
- *  type](https://{$universe.dns_names.final_documentation_domain}/compute/docs/machine-types)
- *  for nodes in the node pool. Initiates an upgrade operation that migrates the
- *  nodes in the node pool to the specified machine type.
+ *  type](https://cloud.google.com/compute/docs/machine-types) for nodes in the
+ *  node pool. Initiates an upgrade operation that migrates the nodes in the
+ *  node pool to the specified machine type.
  */
 @property(nonatomic, copy, nullable) NSString *machineType;
 
@@ -10801,7 +10908,7 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The Google Developers Console [project ID or project
- *  number](https://{$universe.dns_names.final_documentation_domain}/resource-manager/docs/creating-managing-projects).
+ *  number](https://cloud.google.com/resource-manager/docs/creating-managing-projects).
  *  This field has been deprecated and replaced by the name field.
  */
 @property(nonatomic, copy, nullable) NSString *projectId GTLR_DEPRECATED;
@@ -10853,9 +10960,9 @@ GTLR_DEPRECATED
 
 /**
  *  Deprecated. The name of the Google Compute Engine
- *  [zone](https://{$universe.dns_names.final_documentation_domain}/compute/docs/zones#available)
- *  in which the cluster resides. This field has been deprecated and replaced by
- *  the name field.
+ *  [zone](https://cloud.google.com/compute/docs/zones#available) in which the
+ *  cluster resides. This field has been deprecated and replaced by the name
+ *  field.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
  */
@@ -11409,6 +11516,21 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *autopilotCompatibilityAuditingEnabled;
+
+@end
+
+
+/**
+ *  Defines writable cgroups configuration.
+ */
+@interface GTLRContainer_WritableCgroups : GTLRObject
+
+/**
+ *  Optional. Whether writable cgroups is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 

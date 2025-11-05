@@ -26,6 +26,7 @@
 @class GTLRBigQueryReservation_Reservation;
 @class GTLRBigQueryReservation_Reservation_Labels;
 @class GTLRBigQueryReservation_ReservationGroup;
+@class GTLRBigQueryReservation_SchedulingPolicy;
 @class GTLRBigQueryReservation_Status;
 @class GTLRBigQueryReservation_Status_Details_Item;
 @class GTLRBigQueryReservation_TableReference;
@@ -572,6 +573,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *  dashes and the max length is 64 characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The scheduling policy to use for jobs and queries of this assignee
+ *  when running under the associated reservation. The scheduling policy
+ *  controls how the reservation's resources are distributed. This overrides the
+ *  default scheduling policy specified on the reservation. This feature is not
+ *  yet generally available.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryReservation_SchedulingPolicy *schedulingPolicy;
 
 /**
  *  Output only. State of the assignment.
@@ -1578,6 +1588,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @property(nonatomic, copy, nullable) NSString *scalingMode;
 
 /**
+ *  Optional. The scheduling policy to use for jobs and queries running under
+ *  this reservation. The scheduling policy controls how the reservation's
+ *  resources are distributed. This feature is not yet generally available.
+ */
+@property(nonatomic, strong, nullable) GTLRBigQueryReservation_SchedulingPolicy *schedulingPolicy;
+
+/**
  *  Optional. The current location of the reservation's secondary replica. This
  *  field is only set for reservations using the managed disaster recovery
  *  feature. Users can set this in create reservation calls to create a failover
@@ -1636,6 +1653,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *  characters.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  The scheduling policy controls how a reservation's resources are
+ *  distributed.
+ */
+@interface GTLRBigQueryReservation_SchedulingPolicy : GTLRObject
+
+/**
+ *  Optional. If present and > 0, the reservation will attempt to limit the
+ *  concurrency of jobs running for any particular project within it to the
+ *  given value. This feature is not yet generally available.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *concurrency;
+
+/**
+ *  Optional. If present and > 0, the reservation will attempt to limit the slot
+ *  consumption of queries running for any particular project within it to the
+ *  given value. This feature is not yet generally available.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSlots;
 
 @end
 

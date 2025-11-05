@@ -824,6 +824,25 @@
 
 @end
 
+@implementation GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDbNodesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dbNodes";
+  GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDbNodesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLROracleDatabase_ListDbNodesResponse class];
+  query.loggingName = @"oracledatabase.projects.locations.exadbVmClusters.dbNodes.list";
+  return query;
+}
+
+@end
+
 @implementation GTLROracleDatabaseQuery_ProjectsLocationsExadbVmClustersDelete
 
 @dynamic name, requestId;

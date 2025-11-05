@@ -71,8 +71,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_OrganizationsLocationsList : GTLRNetworkManagementQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1131,8 +1131,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkManagementQuery_ProjectsLocationsList : GTLRNetworkManagementQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

@@ -55,6 +55,33 @@
 
 @end
 
+@implementation GTLRAuthorizedBuyersMarketplaceQuery_BiddersFinalizedDealsSetReadyToServe
+
+@dynamic deal;
+
++ (instancetype)queryWithObject:(GTLRAuthorizedBuyersMarketplace_SetReadyToServeRequest *)object
+                           deal:(NSString *)deal {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"deal" ];
+  NSString *pathURITemplate = @"v1/{+deal}:setReadyToServe";
+  GTLRAuthorizedBuyersMarketplaceQuery_BiddersFinalizedDealsSetReadyToServe *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.deal = deal;
+  query.expectedObjectClass = [GTLRAuthorizedBuyersMarketplace_FinalizedDeal class];
+  query.loggingName = @"authorizedbuyersmarketplace.bidders.finalizedDeals.setReadyToServe";
+  return query;
+}
+
+@end
+
 @implementation GTLRAuthorizedBuyersMarketplaceQuery_BuyersAuctionPackagesGet
 
 @dynamic name;

@@ -137,8 +137,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDocumentQuery_ProjectsLocationsList : GTLRDocumentQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1116,6 +1116,409 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a schema.
+ *
+ *  Method: documentai.projects.locations.schemas.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsSchemasCreate : GTLRDocumentQuery
+
+/**
+ *  Required. The parent (project and location) under which to create the
+ *  Schema. Format: `projects/{project}/locations/{location}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1NextSchema.
+ *
+ *  Creates a schema.
+ *
+ *  @param object The @c GTLRDocument_GoogleCloudDocumentaiV1NextSchema to
+ *    include in the query.
+ *  @param parent Required. The parent (project and location) under which to
+ *    create the Schema. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsSchemasCreate
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1NextSchema *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a schema.
+ *
+ *  Method: documentai.projects.locations.schemas.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsSchemasDelete : GTLRDocumentQuery
+
+/**
+ *  Optional. If set to true, any child resources of this Schema will also be
+ *  deleted. (Otherwise, the request will only work if the Schema has no child
+ *  resources.)
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the Schema to be deleted. Format:
+ *  `projects/{project}/locations/{location}/schemas/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
+ *
+ *  Deletes a schema.
+ *
+ *  @param name Required. The name of the Schema to be deleted. Format:
+ *    `projects/{project}/locations/{location}/schemas/{schema}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsSchemasDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a schema.
+ *
+ *  Method: documentai.projects.locations.schemas.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsSchemasGet : GTLRDocumentQuery
+
+/**
+ *  Required. The name of the Schema to get. Format:
+ *  `projects/{project}/locations/{location}/schemas/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1NextSchema.
+ *
+ *  Gets a schema.
+ *
+ *  @param name Required. The name of the Schema to get. Format:
+ *    `projects/{project}/locations/{location}/schemas/{schema}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsSchemasGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Schemas.
+ *
+ *  Method: documentai.projects.locations.schemas.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsSchemasList : GTLRDocumentQuery
+
+/**
+ *  Optional. The maximum number of schema groups to return. If unspecified, at
+ *  most `10` Schema will be returned. The maximum value is `20`. Values above
+ *  `20` will be coerced to `20`.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. We will return the schema groups sorted by creation time. The page
+ *  token will point to the next Schema.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Format: `projects/{project}/locations/{location}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1ListSchemasResponse.
+ *
+ *  Lists Schemas.
+ *
+ *  @param parent Required. Format: `projects/{project}/locations/{location}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsSchemasList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a schema. Editable fields are: - `display_name` - `labels`
+ *
+ *  Method: documentai.projects.locations.schemas.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsSchemasPatch : GTLRDocumentQuery
+
+/**
+ *  Identifier. The resource name of the Schema. Format:
+ *  `projects/{project}/locations/{location}/schemas/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The update mask to apply to the resource. **Note:** Only the
+ *  following fields can be updated: - display_name. - labels.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1NextSchema.
+ *
+ *  Updates a schema. Editable fields are: - `display_name` - `labels`
+ *
+ *  @param object The @c GTLRDocument_GoogleCloudDocumentaiV1NextSchema to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the Schema. Format:
+ *    `projects/{project}/locations/{location}/schemas/{schema}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsSchemasPatch
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1NextSchema *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a schema version.
+ *
+ *  Method: documentai.projects.locations.schemas.schemaVersions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsCreate : GTLRDocumentQuery
+
+/**
+ *  Required. The parent (project and location) under which to create the
+ *  SchemaVersion. Format:
+ *  `projects/{project}/locations/{location}/schemas/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion.
+ *
+ *  Creates a schema version.
+ *
+ *  @param object The @c GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion to
+ *    include in the query.
+ *  @param parent Required. The parent (project and location) under which to
+ *    create the SchemaVersion. Format:
+ *    `projects/{project}/locations/{location}/schemas/{schema}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a schema version.
+ *
+ *  Method: documentai.projects.locations.schemas.schemaVersions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsDelete : GTLRDocumentQuery
+
+/**
+ *  Required. The name of the SchemaVersion to delete. Format:
+ *  `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleLongrunningOperation.
+ *
+ *  Deletes a schema version.
+ *
+ *  @param name Required. The name of the SchemaVersion to delete. Format:
+ *    `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Generates a schema version.
+ *
+ *  Method: documentai.projects.locations.schemas.schemaVersions.generate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsGenerate : GTLRDocumentQuery
+
+/**
+ *  Required. The parent (project, location and schema) under which to generate
+ *  the SchemaVersion. Format:
+ *  `projects/{project}/locations/{location}/schemas/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDocument_GoogleCloudDocumentaiV1GenerateSchemaVersionResponse.
+ *
+ *  Generates a schema version.
+ *
+ *  @param object The @c
+ *    GTLRDocument_GoogleCloudDocumentaiV1GenerateSchemaVersionRequest to
+ *    include in the query.
+ *  @param parent Required. The parent (project, location and schema) under
+ *    which to generate the SchemaVersion. Format:
+ *    `projects/{project}/locations/{location}/schemas/{schema}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsGenerate
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1GenerateSchemaVersionRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets a schema version.
+ *
+ *  Method: documentai.projects.locations.schemas.schemaVersions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsGet : GTLRDocumentQuery
+
+/**
+ *  Required. The name of the SchemaVersion to get. Format:
+ *  `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion.
+ *
+ *  Gets a schema version.
+ *
+ *  @param name Required. The name of the SchemaVersion to get. Format:
+ *    `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists SchemaVersions.
+ *
+ *  Method: documentai.projects.locations.schemas.schemaVersions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsList : GTLRDocumentQuery
+
+/**
+ *  Optional. The maximum number of SchemaVersion to return. If unspecified, at
+ *  most `10` SchemaVersion will be returned. The maximum value is `20`. Values
+ *  above `20` will be coerced to `20`.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. We will return the SchemaVersion sorted by creation time. The page
+ *  token will point to the next SchemaVersion.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Format: `projects/{project}/locations/{location}/schemas/{schema}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1ListSchemaVersionsResponse.
+ *
+ *  Lists SchemaVersions.
+ *
+ *  @param parent Required. Format:
+ *    `projects/{project}/locations/{location}/schemas/{schema}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a schema version. Editable fields are: - `display_name` - `labels`
+ *
+ *  Method: documentai.projects.locations.schemas.schemaVersions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDocumentCloudPlatform
+ */
+@interface GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsPatch : GTLRDocumentQuery
+
+/**
+ *  Identifier. The resource name of the SchemaVersion. Format:
+ *  `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The update mask to apply to the resource. **Note:** Only the
+ *  following fields can be updated: - display_name. - labels.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion.
+ *
+ *  Updates a schema version. Editable fields are: - `display_name` - `labels`
+ *
+ *  @param object The @c GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the SchemaVersion. Format:
+ *    `projects/{project}/locations/{location}/schemas/{schema}/schemaVersions/{schema_version}`
+ *
+ *  @return GTLRDocumentQuery_ProjectsLocationsSchemasSchemaVersionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -67,8 +67,8 @@
 //
 
 @implementation GTLRCalendar_Calendar
-@dynamic conferenceProperties, descriptionProperty, ETag, identifier, kind,
-         location, summary, timeZone;
+@dynamic conferenceProperties, dataOwner, descriptionProperty, ETag, identifier,
+         kind, location, summary, timeZone;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -110,7 +110,7 @@
 //
 
 @implementation GTLRCalendar_CalendarListEntry
-@dynamic accessRole, backgroundColor, colorId, conferenceProperties,
+@dynamic accessRole, backgroundColor, colorId, conferenceProperties, dataOwner,
          defaultReminders, deleted, descriptionProperty, ETag, foregroundColor,
          hidden, identifier, kind, location, notificationSettings, primary,
          selected, summary, summaryOverride, timeZone;

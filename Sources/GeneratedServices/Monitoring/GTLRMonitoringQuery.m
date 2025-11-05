@@ -315,6 +315,44 @@ NSString * const kGTLRMonitoringViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @end
 
+@implementation GTLRMonitoringQuery_ProjectsAlertsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v3/{+name}";
+  GTLRMonitoringQuery_ProjectsAlertsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMonitoring_Alert class];
+  query.loggingName = @"monitoring.projects.alerts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMonitoringQuery_ProjectsAlertsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}/alerts";
+  GTLRMonitoringQuery_ProjectsAlertsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMonitoring_ListAlertsResponse class];
+  query.loggingName = @"monitoring.projects.alerts.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRMonitoringQuery_ProjectsCollectdTimeSeriesCreate
 
 @dynamic name;

@@ -1757,6 +1757,99 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Get the key value map scoped to an organization, environment, or API proxy.
+ *
+ *  Method: apigee.organizations.apis.keyvaluemaps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to fetch the key value map.
+ *  Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap.
+ *
+ *  Get the key value map scoped to an organization, environment, or API proxy.
+ *
+ *  @param name Required. Scope as indicated by the URI in which to fetch the
+ *    key value map. Use **one** of the following structures in your request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update the key value map scoped to an organization, environment, or API
+ *  proxy.
+ *
+ *  Method: apigee.organizations.apis.keyvaluemaps.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApisKeyvaluemapsUpdate : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to fetch the key value map.
+ *  Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap.
+ *
+ *  Update the key value map scoped to an organization, environment, or API
+ *  proxy.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap to include in
+ *    the query.
+ *  @param name Required. Scope as indicated by the URI in which to fetch the
+ *    key value map. Use **one** of the following structures in your request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApisKeyvaluemapsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueMap *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists the names of all API proxies in an organization. The names returned
  *  correspond to the names defined in the configuration files for each API
  *  proxy. If the resource has the `space` attribute set, the response may not
@@ -7993,6 +8086,99 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Get the key value map scoped to an organization, environment, or API proxy.
+ *
+ *  Method: apigee.organizations.environments.keyvaluemaps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to fetch the key value map.
+ *  Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap.
+ *
+ *  Get the key value map scoped to an organization, environment, or API proxy.
+ *
+ *  @param name Required. Scope as indicated by the URI in which to fetch the
+ *    key value map. Use **one** of the following structures in your request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update the key value map scoped to an organization, environment, or API
+ *  proxy.
+ *
+ *  Method: apigee.organizations.environments.keyvaluemaps.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsUpdate : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to fetch the key value map.
+ *  Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap.
+ *
+ *  Update the key value map scoped to an organization, environment, or API
+ *  proxy.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap to include in
+ *    the query.
+ *  @param name Required. Scope as indicated by the URI in which to fetch the
+ *    key value map. Use **one** of the following structures in your request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ *
+ *  @return GTLRApigeeQuery_OrganizationsEnvironmentsKeyvaluemapsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueMap *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates properties for an Apigee environment with patch semantics using a
  *  field mask. **Note:** Not supported for Apigee hybrid.
  *
@@ -12262,6 +12448,99 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsEntriesUpdate
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueEntry *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get the key value map scoped to an organization, environment, or API proxy.
+ *
+ *  Method: apigee.organizations.keyvaluemaps.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsKeyvaluemapsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to fetch the key value map.
+ *  Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap.
+ *
+ *  Get the key value map scoped to an organization, environment, or API proxy.
+ *
+ *  @param name Required. Scope as indicated by the URI in which to fetch the
+ *    key value map. Use **one** of the following structures in your request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ *
+ *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update the key value map scoped to an organization, environment, or API
+ *  proxy.
+ *
+ *  Method: apigee.organizations.keyvaluemaps.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsKeyvaluemapsUpdate : GTLRApigeeQuery
+
+/**
+ *  Required. Scope as indicated by the URI in which to fetch the key value map.
+ *  Use **one** of the following structures in your request: *
+ *  `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *  `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *  * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *  KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *  set, IAM permissions are checked against the Space resource path. To learn
+ *  more, read the [Apigee Spaces
+ *  Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap.
+ *
+ *  Update the key value map scoped to an organization, environment, or API
+ *  proxy.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1KeyValueMap to include in
+ *    the query.
+ *  @param name Required. Scope as indicated by the URI in which to fetch the
+ *    key value map. Use **one** of the following structures in your request: *
+ *    `organizations/{organization}/apis/{api}/keyvaluemaps/{keyvaluemap}`. *
+ *    `organizations/{organization}/environments/{environment}/keyvaluemaps/{keyvaluemap}`
+ *    * `organizations/{organization}/keyvaluemaps/{keyvaluemap}`. If the
+ *    KeyValueMap is under an API Proxy resource that has the `space` attribute
+ *    set, IAM permissions are checked against the Space resource path. To learn
+ *    more, read the [Apigee Spaces
+ *    Overview](https://cloud.google.com/apigee/docs/api-platform/system-administration/spaces/apigee-spaces-overview).
+ *
+ *  @return GTLRApigeeQuery_OrganizationsKeyvaluemapsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1KeyValueMap *)object
                            name:(NSString *)name;
 
 @end

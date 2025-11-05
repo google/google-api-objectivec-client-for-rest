@@ -4948,6 +4948,81 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
+ *  Retransforms a dynamic feed.
+ *
+ *  Method: dfareporting.dynamicFeeds.retransform
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicFeedsRetransform : GTLRDfareportingQuery
+
+/** Required. Dynamic feed ID. */
+@property(nonatomic, assign) long long dynamicFeedId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicFeed.
+ *
+ *  Retransforms a dynamic feed.
+ *
+ *  @param dynamicFeedId Required. Dynamic feed ID.
+ *
+ *  @return GTLRDfareportingQuery_DynamicFeedsRetransform
+ */
++ (instancetype)queryWithDynamicFeedId:(long long)dynamicFeedId;
+
+@end
+
+/**
+ *  Updates a new dynamic feed.
+ *
+ *  Method: dfareporting.dynamicFeeds.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicFeedsUpdate : GTLRDfareportingQuery
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicFeed.
+ *
+ *  Updates a new dynamic feed.
+ *
+ *  @param object The @c GTLRDfareporting_DynamicFeed to include in the query.
+ *
+ *  @return GTLRDfareportingQuery_DynamicFeedsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_DynamicFeed *)object;
+
+@end
+
+/**
+ *  Generates code for a dynamic profile.
+ *
+ *  Method: dfareporting.dynamicProfiles.generateCode
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicProfilesGenerateCode : GTLRDfareportingQuery
+
+/** Required. Dynamic profile ID. */
+@property(nonatomic, assign) long long dynamicProfileId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_DynamicProfileGenerateCodeResponse.
+ *
+ *  Generates code for a dynamic profile.
+ *
+ *  @param dynamicProfileId Required. Dynamic profile ID.
+ *
+ *  @return GTLRDfareportingQuery_DynamicProfilesGenerateCode
+ */
++ (instancetype)queryWithDynamicProfileId:(long long)dynamicProfileId;
+
+@end
+
+/**
  *  Gets a dynamic profile by ID.
  *
  *  Method: dfareporting.dynamicProfiles.get
@@ -4994,6 +5069,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @return GTLRDfareportingQuery_DynamicProfilesInsert
  */
 + (instancetype)queryWithObject:(GTLRDfareporting_DynamicProfile *)object;
+
+@end
+
+/**
+ *  Publish for a dynamic profile.
+ *
+ *  Method: dfareporting.dynamicProfiles.publish
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_DynamicProfilesPublish : GTLRDfareportingQuery
+
+/** Required. Dynamic profile ID. */
+@property(nonatomic, assign) long long dynamicProfileId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Publish for a dynamic profile.
+ *
+ *  @param dynamicProfileId Required. Dynamic profile ID.
+ *
+ *  @return GTLRDfareportingQuery_DynamicProfilesPublish
+ */
++ (instancetype)queryWithDynamicProfileId:(long long)dynamicProfileId;
 
 @end
 
@@ -8920,6 +9022,110 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  @return GTLRDfareportingQuery_SizesList
  */
 + (instancetype)queryWithProfileId:(long long)profileId;
+
+@end
+
+/**
+ *  Inserts a new studio creative asset.
+ *
+ *  Method: dfareporting.studioCreativeAssets.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_StudioCreativeAssetsInsert : GTLRDfareportingQuery
+
+/**
+ *  Fetches a @c GTLRDfareporting_StudioCreativeAssetsResponse.
+ *
+ *  Inserts a new studio creative asset.
+ *
+ *  @param object The @c GTLRDfareporting_StudioCreativeAssetsInsertRequest to
+ *    include in the query.
+ *  @param uploadParameters The media to include in this query. Maximum size
+ *    1073741824. Accepted MIME type: * / *
+ *
+ *  @return GTLRDfareportingQuery_StudioCreativeAssetsInsert
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_StudioCreativeAssetsInsertRequest *)object
+               uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Gets a studio creative by ID.
+ *
+ *  Method: dfareporting.studioCreatives.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_StudioCreativesGet : GTLRDfareportingQuery
+
+/** Required. Studio creative ID. */
+@property(nonatomic, assign) long long studioCreativeId;
+
+/**
+ *  Fetches a @c GTLRDfareporting_StudioCreative.
+ *
+ *  Gets a studio creative by ID.
+ *
+ *  @param studioCreativeId Required. Studio creative ID.
+ *
+ *  @return GTLRDfareportingQuery_StudioCreativesGet
+ */
++ (instancetype)queryWithStudioCreativeId:(long long)studioCreativeId;
+
+@end
+
+/**
+ *  Inserts a new studio creative.
+ *
+ *  Method: dfareporting.studioCreatives.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_StudioCreativesInsert : GTLRDfareportingQuery
+
+/**
+ *  Fetches a @c GTLRDfareporting_StudioCreative.
+ *
+ *  Inserts a new studio creative.
+ *
+ *  @param object The @c GTLRDfareporting_StudioCreative to include in the
+ *    query.
+ *
+ *  @return GTLRDfareportingQuery_StudioCreativesInsert
+ */
++ (instancetype)queryWithObject:(GTLRDfareporting_StudioCreative *)object;
+
+@end
+
+/**
+ *  Publish for a studio creative.
+ *
+ *  Method: dfareporting.studioCreatives.publish
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDfareportingDfatrafficking
+ */
+@interface GTLRDfareportingQuery_StudioCreativesPublish : GTLRDfareportingQuery
+
+/** Required. Studio creative ID. */
+@property(nonatomic, assign) long long studioCreativeId;
+
+/**
+ *  Upon successful completion, the callback's object and error parameters will
+ *  be nil. This query does not fetch an object.
+ *
+ *  Publish for a studio creative.
+ *
+ *  @param studioCreativeId Required. Studio creative ID.
+ *
+ *  @return GTLRDfareportingQuery_StudioCreativesPublish
+ */
++ (instancetype)queryWithStudioCreativeId:(long long)studioCreativeId;
 
 @end
 

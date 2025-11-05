@@ -380,7 +380,27 @@ NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_Pending = @"PENDING
 NSString * const kGTLRContainerAnalysis_SBOMStatus_SbomState_SbomStateUnspecified = @"SBOM_STATE_UNSPECIFIED";
 
 // GTLRContainerAnalysis_SecretOccurrence.kind
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAnthropicAdminApiKey = @"SECRET_KIND_ANTHROPIC_ADMIN_API_KEY";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAnthropicApiKey = @"SECRET_KIND_ANTHROPIC_API_KEY";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAzureAccessToken = @"SECRET_KIND_AZURE_ACCESS_TOKEN";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindAzureIdentityToken = @"SECRET_KIND_AZURE_IDENTITY_TOKEN";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindDockerHubPersonalAccessToken = @"SECRET_KIND_DOCKER_HUB_PERSONAL_ACCESS_TOKEN";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpApiKey = @"SECRET_KIND_GCP_API_KEY";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpOauth2AccessToken = @"SECRET_KIND_GCP_OAUTH2_ACCESS_TOKEN";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpOauth2ClientCredentials = @"SECRET_KIND_GCP_OAUTH2_CLIENT_CREDENTIALS";
 NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGcpServiceAccountKey = @"SECRET_KIND_GCP_SERVICE_ACCOUNT_KEY";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubAppRefreshToken = @"SECRET_KIND_GITHUB_APP_REFRESH_TOKEN";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubAppServerToServerToken = @"SECRET_KIND_GITHUB_APP_SERVER_TO_SERVER_TOKEN";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubAppUserToServerToken = @"SECRET_KIND_GITHUB_APP_USER_TO_SERVER_TOKEN";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubClassicPersonalAccessToken = @"SECRET_KIND_GITHUB_CLASSIC_PERSONAL_ACCESS_TOKEN";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubFineGrainedPersonalAccessToken = @"SECRET_KIND_GITHUB_FINE_GRAINED_PERSONAL_ACCESS_TOKEN";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindGithubOauthToken = @"SECRET_KIND_GITHUB_OAUTH_TOKEN";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindHuggingfaceApiKey = @"SECRET_KIND_HUGGINGFACE_API_KEY";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindOpenaiApiKey = @"SECRET_KIND_OPENAI_API_KEY";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindPerplexityApiKey = @"SECRET_KIND_PERPLEXITY_API_KEY";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindStripeRestrictedKey = @"SECRET_KIND_STRIPE_RESTRICTED_KEY";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindStripeSecretKey = @"SECRET_KIND_STRIPE_SECRET_KEY";
+NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindStripeWebhookSecret = @"SECRET_KIND_STRIPE_WEBHOOK_SECRET";
 NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnknown = @"SECRET_KIND_UNKNOWN";
 NSString * const kGTLRContainerAnalysis_SecretOccurrence_Kind_SecretKindUnspecified = @"SECRET_KIND_UNSPECIFIED";
 
@@ -1572,7 +1592,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuiltImage
-@dynamic digest, name, pushTiming;
+@dynamic artifactRegistryPackage, digest, name, pushTiming;
 @end
 
 
@@ -1889,7 +1909,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedGoModule
-@dynamic fileHashes, pushTiming, uri;
+@dynamic artifactRegistryPackage, fileHashes, pushTiming, uri;
 @end
 
 
@@ -1899,7 +1919,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact
-@dynamic fileHashes, pushTiming, uri;
+@dynamic artifactRegistryPackage, fileHashes, pushTiming, uri;
 @end
 
 
@@ -1909,7 +1929,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedNpmPackage
-@dynamic fileHashes, pushTiming, uri;
+@dynamic artifactRegistryPackage, fileHashes, pushTiming, uri;
 @end
 
 
@@ -1919,7 +1939,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1UploadedPythonPackage
-@dynamic fileHashes, pushTiming, uri;
+@dynamic artifactRegistryPackage, fileHashes, pushTiming, uri;
 @end
 
 

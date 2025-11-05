@@ -125,6 +125,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPee
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPscEndpoint = @"GOOGLE_MANAGED_SERVICE_NO_PSC_ENDPOINT";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonDynamicRouteMatched = @"HYBRID_NEG_NON_DYNAMIC_ROUTE_MATCHED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicRouteMatched = @"HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridSubnetRegionMismatch = @"HYBRID_SUBNET_REGION_MISMATCH";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_IngressFirewallTagsUnsupportedByDirectVpcEgress = @"INGRESS_FIREWALL_TAGS_UNSUPPORTED_BY_DIRECT_VPC_EGRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning = @"INSTANCE_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_L2InterconnectDestinationIpMismatch = @"L2_INTERCONNECT_DESTINATION_IP_MISMATCH";
@@ -133,6 +134,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_L2InterconnectUnsupported
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendInvalidNetwork = @"LOAD_BALANCER_BACKEND_INVALID_NETWORK";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerBackendIpVersionMismatch = @"LOAD_BALANCER_BACKEND_IP_VERSION_MISMATCH";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_LoadBalancerHasNoProxySubnet = @"LOAD_BALANCER_HAS_NO_PROXY_SUBNET";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_NccRouteWithinHybridSubnetUnsupported = @"NCC_ROUTE_WITHIN_HYBRID_SUBNET_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoAdvertisedRouteToGcpDestination = @"NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress = @"NO_EXTERNAL_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoKnownRouteFromNccNetworkToDestination = @"NO_KNOWN_ROUTE_FROM_NCC_NETWORK_TO_DESTINATION";

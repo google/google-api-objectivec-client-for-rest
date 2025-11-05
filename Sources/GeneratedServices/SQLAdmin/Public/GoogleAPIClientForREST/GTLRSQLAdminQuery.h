@@ -949,12 +949,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 @interface GTLRSQLAdminQuery_InstancesClone : GTLRSQLAdminQuery
 
 /**
- *  The ID of the Cloud SQL instance to be cloned (source). This does not
- *  include the project ID.
+ *  Required. The ID of the Cloud SQL instance to be cloned (source). This does
+ *  not include the project ID.
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** Project ID of the source as well as the clone Cloud SQL instance. */
+/**
+ *  Required. Project ID of the source as well as the clone Cloud SQL instance.
+ */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
@@ -965,10 +967,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *
  *  @param object The @c GTLRSQLAdmin_InstancesCloneRequest to include in the
  *    query.
- *  @param project Project ID of the source as well as the clone Cloud SQL
- *    instance.
- *  @param instance The ID of the Cloud SQL instance to be cloned (source). This
- *    does not include the project ID.
+ *  @param project Required. Project ID of the source as well as the clone Cloud
+ *    SQL instance.
+ *  @param instance Required. The ID of the Cloud SQL instance to be cloned
+ *    (source). This does not include the project ID.
  *
  *  @return GTLRSQLAdminQuery_InstancesClone
  */
@@ -1229,10 +1231,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  */
 @interface GTLRSQLAdminQuery_InstancesGet : GTLRSQLAdminQuery
 
-/** Database instance ID. This does not include the project ID. */
+/** Required. Database instance ID. This does not include the project ID. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/** Project ID of the project that contains the instance. */
+/** Required. Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
@@ -1240,8 +1242,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *
  *  Retrieves a resource containing information about a Cloud SQL instance.
  *
- *  @param project Project ID of the project that contains the instance.
- *  @param instance Database instance ID. This does not include the project ID.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Database instance ID. This does not include the
+ *    project ID.
  *
  *  @return GTLRSQLAdminQuery_InstancesGet
  */
@@ -2105,10 +2109,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  */
 @interface GTLRSQLAdminQuery_OperationsGet : GTLRSQLAdminQuery
 
-/** Instance operation ID. */
+/** Required. Instance operation ID. */
 @property(nonatomic, copy, nullable) NSString *operation;
 
-/** Project ID of the project that contains the instance. */
+/** Required. Project ID of the project that contains the instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
@@ -2116,8 +2120,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *
  *  Retrieves an instance operation that has been performed on an instance.
  *
- *  @param project Project ID of the project that contains the instance.
- *  @param operation Instance operation ID.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param operation Required. Instance operation ID.
  *
  *  @return GTLRSQLAdminQuery_OperationsGet
  */

@@ -105,8 +105,8 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecove
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_PointInTimeRecoveryEnablement_PointInTimeRecoveryEnablementUnspecified = @"POINT_IN_TIME_RECOVERY_ENABLEMENT_UNSPECIFIED";
 
 // GTLRFirestore_GoogleFirestoreAdminV1Database.realtimeUpdatesMode
-NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesDisabled = @"REALTIME_UPDATES_DISABLED";
-NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesEnabled = @"REALTIME_UPDATES_ENABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesModeDisabled = @"REALTIME_UPDATES_MODE_DISABLED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesModeEnabled = @"REALTIME_UPDATES_MODE_ENABLED";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_RealtimeUpdatesMode_RealtimeUpdatesModeUnspecified = @"REALTIME_UPDATES_MODE_UNSPECIFIED";
 
 // GTLRFirestore_GoogleFirestoreAdminV1Database.type
@@ -1499,11 +1499,12 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRFirestore_GoogleLongrunningOperation class]
+    @"operations" : [GTLRFirestore_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

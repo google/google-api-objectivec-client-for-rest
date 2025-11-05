@@ -54,7 +54,7 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_AdvancedVoiceOptions
-@dynamic lowLatencyJourneySynthesis;
+@dynamic lowLatencyJourneySynthesis, relaxSafetyFilters;
 @end
 
 
@@ -149,11 +149,12 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRTexttospeech_Operation class]
+    @"operations" : [GTLRTexttospeech_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

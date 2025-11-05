@@ -1804,12 +1804,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedba
 // GTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext.attribute
 
 /**
- *  Values will be a list of API keys.
- *
- *  Value: "ATTRIBUTE_API_KEYS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeApiKeys;
-/**
  *  Values will be a list of environments.
  *
  *  Value: "ATTRIBUTE_ENVIRONMENTS"
@@ -10991,8 +10985,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Required. The attribute the user is providing feedback about.
  *
  *  Likely values:
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeApiKeys
- *        Values will be a list of API keys. (Value: "ATTRIBUTE_API_KEYS")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeEnvironments
  *        Values will be a list of environments. (Value:
  *        "ATTRIBUTE_ENVIRONMENTS")

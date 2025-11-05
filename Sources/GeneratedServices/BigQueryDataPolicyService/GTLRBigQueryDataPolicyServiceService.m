@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   BigQuery Data Policy API (bigquerydatapolicy/v1)
+//   BigQuery Data Policy API (bigquerydatapolicy/v2)
 // Description:
 //   Allows users to manage BigQuery data policies.
 // Documentation:

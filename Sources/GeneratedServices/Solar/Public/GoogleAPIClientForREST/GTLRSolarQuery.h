@@ -147,6 +147,16 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
 @interface GTLRSolarQuery_BuildingInsightsFindClosest : GTLRSolarQuery
 
 /**
+ *  Optional. Whether to require exact quality of the imagery. If set to false,
+ *  the `required_quality` field is interpreted as the minimum required quality,
+ *  such that HIGH quality imagery may be returned when `required_quality` is
+ *  set to MEDIUM. If set to true, `required_quality` is interpreted as the
+ *  exact required quality and only `MEDIUM` quality imagery is returned if
+ *  `required_quality` is set to `MEDIUM`.
+ */
+@property(nonatomic, assign) BOOL exactQualityRequired;
+
+/**
  *  Optional. Specifies the pre-GA features to enable.
  *
  *  Likely values:

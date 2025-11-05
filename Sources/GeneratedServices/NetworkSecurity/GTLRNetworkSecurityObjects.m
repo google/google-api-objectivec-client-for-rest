@@ -161,6 +161,7 @@ NSString * const kGTLRNetworkSecurity_MirroringDeployment_State_StateUnspecified
 
 // GTLRNetworkSecurity_MirroringDeploymentGroup.state
 NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Closed = @"CLOSED";
 NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Creating = @"CREATING";
 NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_Deleting = @"DELETING";
 NSString * const kGTLRNetworkSecurity_MirroringDeploymentGroup_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -878,6 +879,7 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 //
 
 @implementation GTLRNetworkSecurity_FirewallEndpointEndpointSettings
+@dynamic jumboFramesEnabled;
 @end
 
 

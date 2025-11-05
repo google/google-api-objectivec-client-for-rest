@@ -35,6 +35,29 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  SendStreamingMessage is a streaming call that will return a stream of task
+ *  update events until the Task is in an interrupted or terminal state.
+ *
+ *  Method: workspaceevents.message.stream
+ */
+@interface GTLRWorkspaceEventsQuery_MessageStream : GTLRWorkspaceEventsQuery
+
+/**
+ *  Fetches a @c GTLRWorkspaceEvents_StreamResponse.
+ *
+ *  SendStreamingMessage is a streaming call that will return a stream of task
+ *  update events until the Task is in an interrupted or terminal state.
+ *
+ *  @param object The @c GTLRWorkspaceEvents_SendMessageRequest to include in
+ *    the query.
+ *
+ *  @return GTLRWorkspaceEventsQuery_MessageStream
+ */
++ (instancetype)queryWithObject:(GTLRWorkspaceEvents_SendMessageRequest *)object;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -520,6 +543,236 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRWorkspaceEvents_ReactivateSubscriptionRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Cancel a task from the agent. If supported one should expect no more task
+ *  updates for the task.
+ *
+ *  Method: workspaceevents.tasks.cancel
+ */
+@interface GTLRWorkspaceEventsQuery_TasksCancel : GTLRWorkspaceEventsQuery
+
+/** The resource name of the task to cancel. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkspaceEvents_Task.
+ *
+ *  Cancel a task from the agent. If supported one should expect no more task
+ *  updates for the task.
+ *
+ *  @param object The @c GTLRWorkspaceEvents_CancelTaskRequest to include in the
+ *    query.
+ *  @param name The resource name of the task to cancel. Format: tasks/{task_id}
+ *
+ *  @return GTLRWorkspaceEventsQuery_TasksCancel
+ */
++ (instancetype)queryWithObject:(GTLRWorkspaceEvents_CancelTaskRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get the current state of a task from the agent.
+ *
+ *  Method: workspaceevents.tasks.get
+ */
+@interface GTLRWorkspaceEventsQuery_TasksGet : GTLRWorkspaceEventsQuery
+
+/** The number of most recent messages from the task's history to retrieve. */
+@property(nonatomic, assign) NSInteger historyLength;
+
+/** Required. The resource name of the task. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkspaceEvents_Task.
+ *
+ *  Get the current state of a task from the agent.
+ *
+ *  @param name Required. The resource name of the task. Format: tasks/{task_id}
+ *
+ *  @return GTLRWorkspaceEventsQuery_TasksGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Set a push notification config for a task.
+ *
+ *  Method: workspaceevents.tasks.pushNotificationConfigs.create
+ */
+@interface GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsCreate : GTLRWorkspaceEventsQuery
+
+/** Required. The ID for the new config. */
+@property(nonatomic, copy, nullable) NSString *configId;
+
+/**
+ *  Required. The parent task resource for this config. Format: tasks/{task_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRWorkspaceEvents_TaskPushNotificationConfig.
+ *
+ *  Set a push notification config for a task.
+ *
+ *  @param object The @c GTLRWorkspaceEvents_TaskPushNotificationConfig to
+ *    include in the query.
+ *  @param parent Required. The parent task resource for this config. Format:
+ *    tasks/{task_id}
+ *
+ *  @return GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRWorkspaceEvents_TaskPushNotificationConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a push notification config for a task.
+ *
+ *  Method: workspaceevents.tasks.pushNotificationConfigs.delete
+ */
+@interface GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsDelete : GTLRWorkspaceEventsQuery
+
+/**
+ *  The resource name of the config to delete. Format:
+ *  tasks/{task_id}/pushNotificationConfigs/{config_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkspaceEvents_Empty.
+ *
+ *  Delete a push notification config for a task.
+ *
+ *  @param name The resource name of the config to delete. Format:
+ *    tasks/{task_id}/pushNotificationConfigs/{config_id}
+ *
+ *  @return GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a push notification config for a task.
+ *
+ *  Method: workspaceevents.tasks.pushNotificationConfigs.get
+ */
+@interface GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsGet : GTLRWorkspaceEventsQuery
+
+/**
+ *  The resource name of the config to retrieve. Format:
+ *  tasks/{task_id}/pushNotificationConfigs/{config_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkspaceEvents_TaskPushNotificationConfig.
+ *
+ *  Get a push notification config for a task.
+ *
+ *  @param name The resource name of the config to retrieve. Format:
+ *    tasks/{task_id}/pushNotificationConfigs/{config_id}
+ *
+ *  @return GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a list of push notifications configured for a task.
+ *
+ *  Method: workspaceevents.tasks.pushNotificationConfigs.list
+ */
+@interface GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsList : GTLRWorkspaceEventsQuery
+
+/**
+ *  For AIP-158 these fields are present. Usually not used/needed. The maximum
+ *  number of configurations to return. If unspecified, all configs will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from a previous ListTaskPushNotificationConfigRequest
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListTaskPushNotificationConfigRequest` must
+ *  match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The parent task resource. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRWorkspaceEvents_ListTaskPushNotificationConfigResponse.
+ *
+ *  Get a list of push notifications configured for a task.
+ *
+ *  @param parent The parent task resource. Format: tasks/{task_id}
+ *
+ *  @return GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  TaskSubscription is a streaming call that will return a stream of task
+ *  update events. This attaches the stream to an existing in process task. If
+ *  the task is complete the stream will return the completed task (like
+ *  GetTask) and close the stream.
+ *
+ *  Method: workspaceevents.tasks.subscribe
+ */
+@interface GTLRWorkspaceEventsQuery_TasksSubscribe : GTLRWorkspaceEventsQuery
+
+/** The resource name of the task to subscribe to. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkspaceEvents_StreamResponse.
+ *
+ *  TaskSubscription is a streaming call that will return a stream of task
+ *  update events. This attaches the stream to an existing in process task. If
+ *  the task is complete the stream will return the completed task (like
+ *  GetTask) and close the stream.
+ *
+ *  @param name The resource name of the task to subscribe to. Format:
+ *    tasks/{task_id}
+ *
+ *  @return GTLRWorkspaceEventsQuery_TasksSubscribe
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  GetAgentCard returns the agent card for the agent.
+ *
+ *  Method: workspaceevents.getCard
+ */
+@interface GTLRWorkspaceEventsQuery_V1GetCard : GTLRWorkspaceEventsQuery
+
+/**
+ *  Fetches a @c GTLRWorkspaceEvents_AgentCard.
+ *
+ *  GetAgentCard returns the agent card for the agent.
+ *
+ *  @return GTLRWorkspaceEventsQuery_V1GetCard
+ */
++ (instancetype)query;
 
 @end
 

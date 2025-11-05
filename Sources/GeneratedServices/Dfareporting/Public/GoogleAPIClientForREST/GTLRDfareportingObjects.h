@@ -47,6 +47,8 @@
 @class GTLRDfareporting_ContentCategory;
 @class GTLRDfareporting_ContentSource;
 @class GTLRDfareporting_ContentSourceMetaData;
+@class GTLRDfareporting_ContextualKeyword;
+@class GTLRDfareporting_ContextualKeywordTargeting;
 @class GTLRDfareporting_Conversion;
 @class GTLRDfareporting_ConversionError;
 @class GTLRDfareporting_ConversionStatus;
@@ -181,6 +183,8 @@
 @class GTLRDfareporting_Size;
 @class GTLRDfareporting_SkippableSetting;
 @class GTLRDfareporting_SortedDimension;
+@class GTLRDfareporting_StudioCreativeAsset;
+@class GTLRDfareporting_StudioCreativeDimension;
 @class GTLRDfareporting_Subaccount;
 @class GTLRDfareporting_TagData;
 @class GTLRDfareporting_TagSetting;
@@ -203,6 +207,7 @@
 @class GTLRDfareporting_UserRolePermissionGroup;
 @class GTLRDfareporting_VideoFormat;
 @class GTLRDfareporting_VideoOffset;
+@class GTLRDfareporting_VideoProcessingData;
 @class GTLRDfareporting_VideoSettings;
 @class GTLRDfareporting_YoutubeSettings;
 
@@ -623,6 +628,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_ArtworkType_Artwor
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAcs;
 /**
+ *  Creative authoring source is Adobe.
+ *
+ *  Value: "CREATIVE_AUTHORING_SOURCE_ADOBE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAdobe;
+/**
+ *  Creative authoring source is Bornlogic.
+ *
+ *  Value: "CREATIVE_AUTHORING_SOURCE_BORNLOGIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceBornlogic;
+/**
  *  DBM-UI used to author the creative.
  *
  *  Value: "CREATIVE_AUTHORING_SOURCE_DBM"
@@ -641,11 +658,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_Cr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceGwd;
 /**
+ *  Creative authoring source is Rembrand.
+ *
+ *  Value: "CREATIVE_AUTHORING_SOURCE_REMBRAND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceRembrand;
+/**
  *  Studio-UI used to author the creative.
  *
  *  Value: "CREATIVE_AUTHORING_SOURCE_STUDIO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceStudio;
+/**
+ *  Creative authoring source is Trackto.
+ *
+ *  Value: "CREATIVE_AUTHORING_SOURCE_TRACKTO_STUDIO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceTracktoStudio;
+/**
+ *  Creative authoring source is Typeface.ai.
+ *
+ *  Value: "CREATIVE_AUTHORING_SOURCE_TYPEFACE_AI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceTypefaceAi;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.authoringTool
@@ -2964,9 +2999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_CacheBus
 // GTLRDfareporting_FloodlightActivity.conversionCategory
 
 /**
- *  The following are conversion categories added as part of
- *  go/new-categories-prd. The addition of items to a shopping cart or bag on an
- *  advertiser site.
+ *  . The addition of items to a shopping cart or bag on an advertiser site.
  *
  *  Value: "CONVERSION_CATEGORY_ADD_TO_CART"
  */
@@ -3016,10 +3049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Conversi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryDownload;
 /**
- *  A website engagement event such as long site time or a GA Smart Goal,
- *  intended to be used for GA, Firebase, GA Gold goal imports. This will also
- *  be used for YouTube Hosted engagements like Add To Playlist, Likes etc. See
- *  go/add-to-playlist-conversion-buyside
+ *  A website engagement event
  *
  *  Value: "CONVERSION_CATEGORY_ENGAGEMENT"
  */
@@ -3038,7 +3068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Conversi
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryImportedLead;
 /**
  *  Conversion event that provides the revenue value of impressions that were
- *  shown in-app to users. See go/ad-impression-type.
+ *  shown in-app to users.
  *
  *  Value: "CONVERSION_CATEGORY_IN_APP_AD_REVENUE"
  */
@@ -3075,9 +3105,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_Conversi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryPurchase;
 /**
- *  End of new conversion categories from go/new-categories-prd. A lead
- *  conversion imported from an external source into Google Ads, that has been
- *  further qualified by the advertiser.
+ *  A lead conversion imported from an external source into Google Ads, that has
+ *  been further qualified by the advertiser.
  *
  *  Value: "CONVERSION_CATEGORY_QUALIFIED_LEAD"
  */
@@ -4244,6 +4273,114 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SortedDimension_SortOrder_A
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_SortedDimension_SortOrder_Descending;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_StudioCreative.format
+
+/**
+ *  Banner format.
+ *
+ *  Value: "BANNER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreative_Format_Banner;
+/**
+ *  Expanding format.
+ *
+ *  Value: "EXPANDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreative_Format_Expanding;
+/**
+ *  Intertitial format.
+ *
+ *  Value: "INTERSTITIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreative_Format_Interstitial;
+/**
+ *  The format of the studio creative is unknown. This value is unused.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreative_Format_Unknown;
+/**
+ *  VPAID linear video creative format.
+ *
+ *  Value: "VPAID_LINEAR_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreative_Format_VpaidLinearVideo;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_StudioCreative.status
+
+/**
+ *  The creative is still being developed.
+ *
+ *  Value: "IN_DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreative_Status_InDevelopment;
+/**
+ *  The creative has been published and is ready for QA.
+ *
+ *  Value: "PUBLISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreative_Status_Published;
+/**
+ *  The creative has passed QA and is ready to be trafficked.
+ *
+ *  Value: "QA_APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreative_Status_QaApproved;
+/**
+ *  The creative has failed QA and must be corrected.
+ *
+ *  Value: "QA_REJECTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreative_Status_QaRejected;
+/**
+ *  The creative has been trafficked to an adserver.
+ *
+ *  Value: "TRAFFICKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreative_Status_Trafficked;
+/**
+ *  The status of the studio creative is unknown. This value is unused.
+ *
+ *  Value: "UNKNOWN_STATUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreative_Status_UnknownStatus;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_StudioCreativeAsset.type
+
+/**
+ *  The asset is a font file.
+ *
+ *  Value: "FONT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreativeAsset_Type_Font;
+/**
+ *  The asset is an HTML file.
+ *
+ *  Value: "HTML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreativeAsset_Type_Html;
+/**
+ *  The asset is an image file.
+ *
+ *  Value: "IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreativeAsset_Type_Image;
+/**
+ *  Unknown type of asset.
+ *
+ *  Value: "UNKNOWN_TYPE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreativeAsset_Type_UnknownType;
+/**
+ *  The asset is a video file.
+ *
+ *  Value: "VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_StudioCreativeAsset_Type_Video;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_TagData.format
 
 /** Value: "PLACEMENT_TAG_CLICK_COMMANDS" */
@@ -4610,6 +4747,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_AdId
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Arpp;
 /** Value: "CLEARCAST" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Clearcast;
+/** Value: "CUSV" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Cusv;
 /** Value: "DCM" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_UniversalAdId_Registry_Dcm;
 /** Value: "OTHER" */
@@ -4880,6 +5019,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Mp4;
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Threegpp;
 /** Value: "WEBM" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoFormat_FileType_Webm;
+
+// ----------------------------------------------------------------------------
+// GTLRDfareporting_VideoProcessingData.processingState
+
+/**
+ *  The asset failed to be processed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoProcessingData_ProcessingState_Failed;
+/**
+ *  The asset is being processed.
+ *
+ *  Value: "PROCESSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoProcessingData_ProcessingState_Processing;
+/**
+ *  The asset was successfully processed.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoProcessingData_ProcessingState_Succeeded;
+/**
+ *  The processing state is unknown.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_VideoProcessingData_ProcessingState_Unknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_VideoSettings.orientation
@@ -5597,6 +5764,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *        "IN_STREAM_VIDEO"
  */
 @property(nonatomic, copy, nullable) NSString *compatibility;
+
+/** Optional. Contextual keyword targeting information for this ad. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_ContextualKeywordTargeting *contextualKeywordTargeting;
 
 /** Information about the creation of this ad. This is a read-only field. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *createInfo;
@@ -7563,6 +7733,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 
 
 /**
+ *  Contains information about a Contextual Keyword that can be targeted by ads.
+ */
+@interface GTLRDfareporting_ContextualKeyword : GTLRObject
+
+/** The keyword that can be targeted by ads. */
+@property(nonatomic, copy, nullable) NSString *keyword;
+
+@end
+
+
+/**
+ *  Contextual Keyword Targeting.
+ */
+@interface GTLRDfareporting_ContextualKeywordTargeting : GTLRObject
+
+/** Contextual keywords that this ad targets */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_ContextualKeyword *> *keywords;
+
+@end
+
+
+/**
  *  A Conversion represents when a user successfully performs a desired action
  *  after seeing an ad.
  */
@@ -8045,6 +8237,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAcs
  *        ACS-UI used to author the creative. (Value:
  *        "CREATIVE_AUTHORING_SOURCE_ACS")
+ *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceAdobe
+ *        Creative authoring source is Adobe. (Value:
+ *        "CREATIVE_AUTHORING_SOURCE_ADOBE")
+ *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceBornlogic
+ *        Creative authoring source is Bornlogic. (Value:
+ *        "CREATIVE_AUTHORING_SOURCE_BORNLOGIC")
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceDbm
  *        DBM-UI used to author the creative. (Value:
  *        "CREATIVE_AUTHORING_SOURCE_DBM")
@@ -8054,9 +8252,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceGwd
  *        Google Web Designer used to author the creative. (Value:
  *        "CREATIVE_AUTHORING_SOURCE_GWD")
+ *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceRembrand
+ *        Creative authoring source is Rembrand. (Value:
+ *        "CREATIVE_AUTHORING_SOURCE_REMBRAND")
  *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceStudio
  *        Studio-UI used to author the creative. (Value:
  *        "CREATIVE_AUTHORING_SOURCE_STUDIO")
+ *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceTracktoStudio
+ *        Creative authoring source is Trackto. (Value:
+ *        "CREATIVE_AUTHORING_SOURCE_TRACKTO_STUDIO")
+ *    @arg @c kGTLRDfareporting_Creative_AuthoringSource_CreativeAuthoringSourceTypefaceAi
+ *        Creative authoring source is Typeface.ai. (Value:
+ *        "CREATIVE_AUTHORING_SOURCE_TYPEFACE_AI")
  */
 @property(nonatomic, copy, nullable) NSString *authoringSource;
 
@@ -10857,7 +11064,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *  Dynamic profile ID is required for dynamic feed insert as the current GPA
  *  API only can create a dynamic feed under profile context,even though the
  *  dynnamic feed itself don't need the dynamic profile id. See
- *  go/cm3-dco-display-api-interface
  */
 @interface GTLRDfareporting_DynamicFeedsInsertRequest : GTLRObject
 
@@ -10991,6 +11197,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *quantity;
+
+@end
+
+
+/**
+ *  Response message for DfareportingDynamicProfiles.GenerateCode.
+ */
+@interface GTLRDfareporting_DynamicProfileGenerateCodeResponse : GTLRObject
+
+/** Generated code for the dynamic profile. */
+@property(nonatomic, copy, nullable) NSString *code;
 
 @end
 
@@ -12245,9 +12462,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *
  *  Likely values:
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryAddToCart
- *        The following are conversion categories added as part of
- *        go/new-categories-prd. The addition of items to a shopping cart or bag
- *        on an advertiser site. (Value: "CONVERSION_CATEGORY_ADD_TO_CART")
+ *        . The addition of items to a shopping cart or bag on an advertiser
+ *        site. (Value: "CONVERSION_CATEGORY_ADD_TO_CART")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryBeginCheckout
  *        When someone enters the checkout flow on an advertiser site. (Value:
  *        "CONVERSION_CATEGORY_BEGIN_CHECKOUT")
@@ -12272,11 +12488,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *        created as a download type may not have its category changed. (Value:
  *        "CONVERSION_CATEGORY_DOWNLOAD")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryEngagement
- *        A website engagement event such as long site time or a GA Smart Goal,
- *        intended to be used for GA, Firebase, GA Gold goal imports. This will
- *        also be used for YouTube Hosted engagements like Add To Playlist,
- *        Likes etc. See go/add-to-playlist-conversion-buyside (Value:
- *        "CONVERSION_CATEGORY_ENGAGEMENT")
+ *        A website engagement event (Value: "CONVERSION_CATEGORY_ENGAGEMENT")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryGetDirections
  *        A search for an advertiser's business location. (Value:
  *        "CONVERSION_CATEGORY_GET_DIRECTIONS")
@@ -12285,7 +12497,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *        (Value: "CONVERSION_CATEGORY_IMPORTED_LEAD")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryInAppAdRevenue
  *        Conversion event that provides the revenue value of impressions that
- *        were shown in-app to users. See go/ad-impression-type. (Value:
+ *        were shown in-app to users. (Value:
  *        "CONVERSION_CATEGORY_IN_APP_AD_REVENUE")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryMessageLead
  *        Message exchanges which indicate an interest in an advertiser's
@@ -12303,9 +12515,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *        Purchase, sales, or "order placed" event. (Value:
  *        "CONVERSION_CATEGORY_PURCHASE")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryQualifiedLead
- *        End of new conversion categories from go/new-categories-prd. A lead
- *        conversion imported from an external source into Google Ads, that has
- *        been further qualified by the advertiser. (Value:
+ *        A lead conversion imported from an external source into Google Ads,
+ *        that has been further qualified by the advertiser. (Value:
  *        "CONVERSION_CATEGORY_QUALIFIED_LEAD")
  *    @arg @c kGTLRDfareporting_FloodlightActivity_ConversionCategory_ConversionCategoryRequestQuote
  *        A quote or price estimate request. (Value:
@@ -14342,7 +14553,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *  `8`, DV360 (DBM) * `9`, Innovid * `10`, MediaMath * `11`, Roku OneView DSP *
  *  `12`, TabMo Hawk * `13`, The Trade Desk * `14`, Xandr Invest DSP * `15`,
  *  Yahoo DSP * `16`, Zeta Global * `17`, Scaleout * `18`, Bidtellect * `19`,
- *  Unicorn * `20`, Teads * `21`, Quantcast * `22`, Cognitiv
+ *  Unicorn * `20`, Teads * `21`, Quantcast * `22`, Cognitiv * `23`, AdTheorent
+ *  * `24`, DeepIntent * `25`, Pulsepoint
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -16499,7 +16711,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *  * `9`, Innovid * `10`, MediaMath * `11`, Roku OneView DSP * `12`, TabMo Hawk
  *  * `13`, The Trade Desk * `14`, Xandr Invest DSP * `15`, Yahoo DSP * `16`,
  *  Zeta Global * `17`, Scaleout * `18`, Bidtellect * `19`, Unicorn * `20`,
- *  Teads * `21`, Quantcast * `22`, Cognitiv
+ *  Teads * `21`, Quantcast * `22`, Cognitiv * `23`, AdTheorent * `24`,
+ *  DeepIntent * `25`, Pulsepoint
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -17013,6 +17226,285 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 
 
 /**
+ *  Contains studio creative information.
+ */
+@interface GTLRDfareporting_StudioCreative : GTLRObject
+
+/**
+ *  List of assets associated with this studio creative. It is a required field
+ *  on insertion.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *assetIds;
+
+/**
+ *  Backup image asset ID of this studio creative.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupImageAssetId;
+
+/**
+ *  The timestamp when the studio creative was created. This is a read-only,
+ *  auto-generated field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *createdInfo;
+
+/**
+ *  Dimension of this studio creative. This is a required field on insertion if
+ *  format is BANNER or EXPANDING.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_StudioCreativeDimension *dimension;
+
+/**
+ *  Dynamic profile ID of this studio creative.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dynamicProfileId;
+
+/**
+ *  Format of this studio creative. This is a required field on insertion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_StudioCreative_Format_Banner Banner format.
+ *        (Value: "BANNER")
+ *    @arg @c kGTLRDfareporting_StudioCreative_Format_Expanding Expanding
+ *        format. (Value: "EXPANDING")
+ *    @arg @c kGTLRDfareporting_StudioCreative_Format_Interstitial Intertitial
+ *        format. (Value: "INTERSTITIAL")
+ *    @arg @c kGTLRDfareporting_StudioCreative_Format_Unknown The format of the
+ *        studio creative is unknown. This value is unused. (Value: "UNKNOWN")
+ *    @arg @c kGTLRDfareporting_StudioCreative_Format_VpaidLinearVideo VPAID
+ *        linear video creative format. (Value: "VPAID_LINEAR_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  Output only. Unique ID of this studio creative. This is a read-only,
+ *  auto-generated field.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  The timestamp when the studio creative was last modified. This is a
+ *  read-only, auto-generated field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *lastModifiedInfo;
+
+/**
+ *  Identifier. Name of this studio creative. This is a required field on
+ *  insertion.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Status of this studio creative. It is a read-only field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_StudioCreative_Status_InDevelopment The creative
+ *        is still being developed. (Value: "IN_DEVELOPMENT")
+ *    @arg @c kGTLRDfareporting_StudioCreative_Status_Published The creative has
+ *        been published and is ready for QA. (Value: "PUBLISHED")
+ *    @arg @c kGTLRDfareporting_StudioCreative_Status_QaApproved The creative
+ *        has passed QA and is ready to be trafficked. (Value: "QA_APPROVED")
+ *    @arg @c kGTLRDfareporting_StudioCreative_Status_QaRejected The creative
+ *        has failed QA and must be corrected. (Value: "QA_REJECTED")
+ *    @arg @c kGTLRDfareporting_StudioCreative_Status_Trafficked The creative
+ *        has been trafficked to an adserver. (Value: "TRAFFICKED")
+ *    @arg @c kGTLRDfareporting_StudioCreative_Status_UnknownStatus The status
+ *        of the studio creative is unknown. This value is unused. (Value:
+ *        "UNKNOWN_STATUS")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Studio account ID of this creative. This field, if left unset, will be
+ *  auto-populated.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studioAccountId;
+
+/**
+ *  Studio advertiser ID of this studio creative. This is a required field on
+ *  insertion.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studioAdvertiserId;
+
+/**
+ *  Studio campaign ID of this studio creative. This is a required field on
+ *  insertion.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studioCampaignId;
+
+@end
+
+
+/**
+ *  Contains studio creative asset information.
+ */
+@interface GTLRDfareporting_StudioCreativeAsset : GTLRObject
+
+/**
+ *  Output only. The creation timestamp of the studio creative asset. This is a
+ *  read-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *createInfo;
+
+/**
+ *  The filename of the studio creative asset. It is default to the original
+ *  filename of the asset.
+ */
+@property(nonatomic, copy, nullable) NSString *filename;
+
+/**
+ *  The filesize of the studio creative asset. This is a read-only field.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *filesize;
+
+/**
+ *  Output only. Unique ID of this studio creative asset. This is a read-only,
+ *  auto-generated field.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *identifier;
+
+/**
+ *  Output only. The last modified timestamp of the studio creative asset. This
+ *  is a read-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_LastModifiedInfo *lastModifiedInfo;
+
+/**
+ *  Studio account ID of this studio creative asset. This field, if left unset,
+ *  will be auto-populated..
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studioAccountId;
+
+/**
+ *  Studio advertiser ID of this studio creative asset. This is a required field
+ *  on insertion.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studioAdvertiserId;
+
+/**
+ *  Studio creative ID of this studio creative asset. The asset will be
+ *  associated to the creative if creative id is set.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studioCreativeId;
+
+/**
+ *  The type of the studio creative asset. It is a auto-generated, read-only
+ *  field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_StudioCreativeAsset_Type_Font The asset is a
+ *        font file. (Value: "FONT")
+ *    @arg @c kGTLRDfareporting_StudioCreativeAsset_Type_Html The asset is an
+ *        HTML file. (Value: "HTML")
+ *    @arg @c kGTLRDfareporting_StudioCreativeAsset_Type_Image The asset is an
+ *        image file. (Value: "IMAGE")
+ *    @arg @c kGTLRDfareporting_StudioCreativeAsset_Type_UnknownType Unknown
+ *        type of asset. (Value: "UNKNOWN_TYPE")
+ *    @arg @c kGTLRDfareporting_StudioCreativeAsset_Type_Video The asset is a
+ *        video file. (Value: "VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  The processing data of the studio creative asset. This is a read-only field.
+ */
+@property(nonatomic, strong, nullable) GTLRDfareporting_VideoProcessingData *videoProcessingData;
+
+@end
+
+
+/**
+ *  Request message for DfareportingStudioCreativeAssets.Insert.
+ */
+@interface GTLRDfareporting_StudioCreativeAssetsInsertRequest : GTLRObject
+
+/**
+ *  Optional. Studio account ID of the studio creative asset. It is a optional.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studioAccountId;
+
+/**
+ *  Required. Studio advertiser ID of the studio creative asset. It is a
+ *  required field on insertion.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studioAdvertiserId;
+
+/**
+ *  Optional. Studio creative ID of the studio creative asset. It is a optional
+ *  field. If it is set, the asset will be associated to the creative.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *studioCreativeId;
+
+@end
+
+
+/**
+ *  Response message for DfareportingStudioCreativeAssets.Insert.
+ */
+@interface GTLRDfareporting_StudioCreativeAssetsResponse : GTLRObject
+
+/** The list of studio creative assets. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDfareporting_StudioCreativeAsset *> *assets;
+
+@end
+
+
+/**
+ *  Dimension information for a studio creative.
+ */
+@interface GTLRDfareporting_StudioCreativeDimension : GTLRObject
+
+/**
+ *  Height of the studio creative.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *height;
+
+/**
+ *  Width of the studio creative.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
  *  Contains properties of a Campaign Manager subaccount.
  */
 @interface GTLRDfareporting_Subaccount : GTLRObject
@@ -17429,6 +17921,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *  auto-generated field.
  */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DimensionValue *advertiserIdDimensionValue;
+
+/** Optional. Contextual keyword targeting criteria. */
+@property(nonatomic, strong, nullable) GTLRDfareporting_ContextualKeywordTargeting *contextualKeywordTargeting;
 
 /** Time and day targeting criteria. */
 @property(nonatomic, strong, nullable) GTLRDfareporting_DayPartTargeting *dayPartTargeting;
@@ -17878,6 +18373,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_Arpp Value "ARPP"
  *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_Clearcast Value
  *        "CLEARCAST"
+ *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_Cusv Value "CUSV"
  *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_Dcm Value "DCM"
  *    @arg @c kGTLRDfareporting_UniversalAdId_Registry_Other Value "OTHER"
  */
@@ -18519,6 +19015,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *offsetSeconds;
+
+@end
+
+
+/**
+ *  Contains processing data for a video asset.
+ */
+@interface GTLRDfareporting_VideoProcessingData : GTLRObject
+
+/** For a FAILED processing state, the error reason discovered. */
+@property(nonatomic, copy, nullable) NSString *errorReason;
+
+/**
+ *  Output only. The processing state of the studio creative asset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareporting_VideoProcessingData_ProcessingState_Failed The
+ *        asset failed to be processed. (Value: "FAILED")
+ *    @arg @c kGTLRDfareporting_VideoProcessingData_ProcessingState_Processing
+ *        The asset is being processed. (Value: "PROCESSING")
+ *    @arg @c kGTLRDfareporting_VideoProcessingData_ProcessingState_Succeeded
+ *        The asset was successfully processed. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRDfareporting_VideoProcessingData_ProcessingState_Unknown The
+ *        processing state is unknown. (Value: "UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *processingState;
 
 @end
 

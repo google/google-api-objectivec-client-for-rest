@@ -185,6 +185,61 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Sets the given finalized deal as ready to serve. By default, deals are set
+ *  as ready to serve as soon as they're finalized. If you want to opt out of
+ *  the default behavior, and manually indicate that deals are ready to serve,
+ *  ask your Technical Account Manager to add you to the allowlist. If you
+ *  choose to use this method, finalized deals belonging to the bidder and its
+ *  child seats don't start serving until after you call `setReadyToServe`, and
+ *  after the deals become active. For example, you can use this method to delay
+ *  receiving bid requests until your creative is ready. In addition, bidders
+ *  can use the URL path "/v1/bidders/{accountId}/finalizedDeals/{dealId}" to
+ *  set ready to serve for the finalized deals belong to itself, its child seats
+ *  and all their clients. This method only applies to programmatic guaranteed
+ *  deals.
+ *
+ *  Method: authorizedbuyersmarketplace.bidders.finalizedDeals.setReadyToServe
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAuthorizedBuyersMarketplaceAuthorizedBuyersMarketplace
+ */
+@interface GTLRAuthorizedBuyersMarketplaceQuery_BiddersFinalizedDealsSetReadyToServe : GTLRAuthorizedBuyersMarketplaceQuery
+
+/**
+ *  Required. Format: `buyers/{accountId}/finalizedDeals/{dealId}` or
+ *  `bidders/{accountId}/finalizedDeals/{dealId}`
+ */
+@property(nonatomic, copy, nullable) NSString *deal;
+
+/**
+ *  Fetches a @c GTLRAuthorizedBuyersMarketplace_FinalizedDeal.
+ *
+ *  Sets the given finalized deal as ready to serve. By default, deals are set
+ *  as ready to serve as soon as they're finalized. If you want to opt out of
+ *  the default behavior, and manually indicate that deals are ready to serve,
+ *  ask your Technical Account Manager to add you to the allowlist. If you
+ *  choose to use this method, finalized deals belonging to the bidder and its
+ *  child seats don't start serving until after you call `setReadyToServe`, and
+ *  after the deals become active. For example, you can use this method to delay
+ *  receiving bid requests until your creative is ready. In addition, bidders
+ *  can use the URL path "/v1/bidders/{accountId}/finalizedDeals/{dealId}" to
+ *  set ready to serve for the finalized deals belong to itself, its child seats
+ *  and all their clients. This method only applies to programmatic guaranteed
+ *  deals.
+ *
+ *  @param object The @c GTLRAuthorizedBuyersMarketplace_SetReadyToServeRequest
+ *    to include in the query.
+ *  @param deal Required. Format: `buyers/{accountId}/finalizedDeals/{dealId}`
+ *    or `bidders/{accountId}/finalizedDeals/{dealId}`
+ *
+ *  @return GTLRAuthorizedBuyersMarketplaceQuery_BiddersFinalizedDealsSetReadyToServe
+ */
++ (instancetype)queryWithObject:(GTLRAuthorizedBuyersMarketplace_SetReadyToServeRequest *)object
+                           deal:(NSString *)deal;
+
+@end
+
+/**
  *  Gets an auction package given its name.
  *
  *  Method: authorizedbuyersmarketplace.buyers.auctionPackages.get
@@ -1125,8 +1180,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  choose to use this method, finalized deals belonging to the bidder and its
  *  child seats don't start serving until after you call `setReadyToServe`, and
  *  after the deals become active. For example, you can use this method to delay
- *  receiving bid requests until your creative is ready. This method only
- *  applies to programmatic guaranteed deals.
+ *  receiving bid requests until your creative is ready. In addition, bidders
+ *  can use the URL path "/v1/bidders/{accountId}/finalizedDeals/{dealId}" to
+ *  set ready to serve for the finalized deals belong to itself, its child seats
+ *  and all their clients. This method only applies to programmatic guaranteed
+ *  deals.
  *
  *  Method: authorizedbuyersmarketplace.buyers.finalizedDeals.setReadyToServe
  *
@@ -1135,7 +1193,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRAuthorizedBuyersMarketplaceQuery_BuyersFinalizedDealsSetReadyToServe : GTLRAuthorizedBuyersMarketplaceQuery
 
-/** Required. Format: `buyers/{accountId}/finalizedDeals/{dealId}` */
+/**
+ *  Required. Format: `buyers/{accountId}/finalizedDeals/{dealId}` or
+ *  `bidders/{accountId}/finalizedDeals/{dealId}`
+ */
 @property(nonatomic, copy, nullable) NSString *deal;
 
 /**
@@ -1148,12 +1209,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  choose to use this method, finalized deals belonging to the bidder and its
  *  child seats don't start serving until after you call `setReadyToServe`, and
  *  after the deals become active. For example, you can use this method to delay
- *  receiving bid requests until your creative is ready. This method only
- *  applies to programmatic guaranteed deals.
+ *  receiving bid requests until your creative is ready. In addition, bidders
+ *  can use the URL path "/v1/bidders/{accountId}/finalizedDeals/{dealId}" to
+ *  set ready to serve for the finalized deals belong to itself, its child seats
+ *  and all their clients. This method only applies to programmatic guaranteed
+ *  deals.
  *
  *  @param object The @c GTLRAuthorizedBuyersMarketplace_SetReadyToServeRequest
  *    to include in the query.
  *  @param deal Required. Format: `buyers/{accountId}/finalizedDeals/{dealId}`
+ *    or `bidders/{accountId}/finalizedDeals/{dealId}`
  *
  *  @return GTLRAuthorizedBuyersMarketplaceQuery_BuyersFinalizedDealsSetReadyToServe
  */

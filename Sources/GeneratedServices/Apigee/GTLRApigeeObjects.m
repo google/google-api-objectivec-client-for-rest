@@ -349,7 +349,6 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_Penetrat
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedback_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext.attribute
-NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeApiKeys = @"ATTRIBUTE_API_KEYS";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeEnvironments = @"ATTRIBUTE_ENVIRONMENTS";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeIpAddressRanges = @"ATTRIBUTE_IP_ADDRESS_RANGES";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityFeedbackFeedbackContext_Attribute_AttributeUnspecified = @"ATTRIBUTE_UNSPECIFIED";

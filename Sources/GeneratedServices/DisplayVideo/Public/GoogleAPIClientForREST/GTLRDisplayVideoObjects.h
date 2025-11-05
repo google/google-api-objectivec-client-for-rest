@@ -17,10 +17,33 @@
 #endif
 
 @class GTLRDisplayVideo_ActiveViewVideoViewabilityMetricConfig;
+@class GTLRDisplayVideo_AdAsset;
 @class GTLRDisplayVideo_AdGroup;
 @class GTLRDisplayVideo_AdGroupAd;
 @class GTLRDisplayVideo_AdGroupAssignedTargetingOption;
 @class GTLRDisplayVideo_Adloox;
+@class GTLRDisplayVideo_AdPolicy;
+@class GTLRDisplayVideo_AdPolicyCriterionRestriction;
+@class GTLRDisplayVideo_AdPolicyTopicAppealInfo;
+@class GTLRDisplayVideo_AdPolicyTopicConstraint;
+@class GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyCountryConstraintList;
+@class GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyGlobalCertificateDomainMismatchConstraint;
+@class GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyGlobalCertificateMissingConstraint;
+@class GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyResellerConstraint;
+@class GTLRDisplayVideo_AdPolicyTopicEntry;
+@class GTLRDisplayVideo_AdPolicyTopicEvidence;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceCounterfeit;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationTextList;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemovalDmca;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemovalLocalLegal;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceRegionalRequirements;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceRegionalRequirementsRegionalRequirementsEntry;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceTextList;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceTrademark;
+@class GTLRDisplayVideo_AdPolicyTopicEvidenceWebsiteList;
 @class GTLRDisplayVideo_AdUrl;
 @class GTLRDisplayVideo_Advertiser;
 @class GTLRDisplayVideo_AdvertiserAdServerConfig;
@@ -276,7 +299,16 @@
 @class GTLRDisplayVideo_YoutubeAndPartnersBiddingStrategy;
 @class GTLRDisplayVideo_YoutubeAndPartnersInventorySourceConfig;
 @class GTLRDisplayVideo_YoutubeAndPartnersSettings;
+@class GTLRDisplayVideo_YoutubeAssetAssociation;
+@class GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter;
+@class GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationChain;
+@class GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationMatchingFunction;
+@class GTLRDisplayVideo_YoutubeAssetAssociationLinkedYouTubeAsset;
+@class GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter;
+@class GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilterLocationMatchingFunction;
+@class GTLRDisplayVideo_YoutubeAssetAssociationSitelinkAsset;
 @class GTLRDisplayVideo_YoutubeChannelAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_YoutubeVideoAsset;
 @class GTLRDisplayVideo_YoutubeVideoAssignedTargetingOptionDetails;
 @class GTLRDisplayVideo_YoutubeVideoDetails;
 
@@ -523,6 +555,69 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ActiveViewVideoViewabilityM
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ActiveViewVideoViewabilityMetricConfig_MinimumVolume_VideoVolumePercentUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdAsset.adAssetType
+
+/**
+ *  The ad asset is a YouTube/DemandGen image.
+ *
+ *  Value: "AD_ASSET_TYPE_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_AdAssetType_AdAssetTypeImage;
+/**
+ *  The ad asset type is unspecified.
+ *
+ *  Value: "AD_ASSET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_AdAssetType_AdAssetTypeUnspecified;
+/**
+ *  The ad asset is a YouTube video.
+ *
+ *  Value: "AD_ASSET_TYPE_YOUTUBE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_AdAssetType_AdAssetTypeYoutubeVideo;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdAsset.entityStatus
+
+/**
+ *  The entity is enabled to bid and spend budget.
+ *
+ *  Value: "ENTITY_STATUS_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusActive;
+/**
+ *  The entity is archived. Bidding and budget spending are disabled. An entity
+ *  can be deleted after archived. Deleted entities cannot be retrieved.
+ *
+ *  Value: "ENTITY_STATUS_ARCHIVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusArchived;
+/**
+ *  The entity is under draft. Bidding and budget spending are disabled.
+ *
+ *  Value: "ENTITY_STATUS_DRAFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusDraft;
+/**
+ *  Bidding and budget spending are paused for the entity.
+ *
+ *  Value: "ENTITY_STATUS_PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusPaused;
+/**
+ *  The entity is scheduled for deletion.
+ *
+ *  Value: "ENTITY_STATUS_SCHEDULED_FOR_DELETION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusScheduledForDeletion;
+/**
+ *  Default value when status is not specified or is unknown in this version.
+ *
+ *  Value: "ENTITY_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AdGroup.adGroupFormat
 
 /**
@@ -537,12 +632,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGro
  *  Value: "AD_GROUP_FORMAT_BUMPER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper;
-/**
- *  Demand Gen ads.
- *
- *  Value: "AD_GROUP_FORMAT_DEMAND_GEN"
- */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatDemandGen;
 /**
  *  In-stream ads.
  *
@@ -1245,6 +1334,307 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_
  *  Value: "VIDEO_IAB_VIEWABILITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_Adloox_VideoIabViewability_VideoIabViewabilityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdPolicy.adPolicyApprovalStatus
+
+/**
+ *  Unknown or not specified.
+ *
+ *  Value: "AD_POLICY_APPROVAL_STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_AdPolicyApprovalStatusUnknown;
+/**
+ *  Will serve without restrictions.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_Approved;
+/**
+ *  Will serve with restrictions.
+ *
+ *  Value: "APPROVED_LIMITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_ApprovedLimited;
+/**
+ *  Will not serve in targeted countries, but may serve for users who are
+ *  searching for information about the targeted countries.
+ *
+ *  Value: "AREA_OF_INTEREST_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_AreaOfInterestOnly;
+/**
+ *  Will not serve.
+ *
+ *  Value: "DISAPPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_Disapproved;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdPolicy.adPolicyReviewStatus
+
+/**
+ *  Unknown or not specified.
+ *
+ *  Value: "AD_POLICY_REVIEW_STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_AdPolicyReviewStatusUnknown;
+/**
+ *  Deemed eligible and may be serving. Further review could still follow.
+ *
+ *  Value: "ELIGIBLE_MAY_SERVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_EligibleMayServe;
+/**
+ *  Primary review complete. Other reviews may still be in progress.
+ *
+ *  Value: "REVIEWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_Reviewed;
+/**
+ *  Currently under review.
+ *
+ *  Value: "REVIEW_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_ReviewInProgress;
+/**
+ *  Resubmitted for approval or a policy decision has been appealed.
+ *
+ *  Value: "UNDER_APPEAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_UnderAppeal;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdPolicyTopicAppealInfo.appealType
+
+/**
+ *  Unknown or not specified.
+ *
+ *  Value: "AD_POLICY_APPEAL_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicAppealInfo_AppealType_AdPolicyAppealTypeUnknown;
+/**
+ *  The decision can be appealed using an appeal form.
+ *
+ *  Value: "APPEAL_FORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicAppealInfo_AppealType_AppealForm;
+/**
+ *  The decision can be appealed through a self-service appeal.
+ *
+ *  Value: "SELF_SERVICE_APPEAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicAppealInfo_AppealType_SelfServiceAppeal;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdPolicyTopicEntry.policyDecisionType
+
+/**
+ *  Unknown or not specified.
+ *
+ *  Value: "AD_POLICY_DECISION_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyDecisionType_AdPolicyDecisionTypeUnknown;
+/**
+ *  The decision is from a Google-owned investigation.
+ *
+ *  Value: "GOOGLE_INVESTIGATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyDecisionType_GoogleInvestigation;
+/**
+ *  The decision is from a legal notice, court order, or trademark content owner
+ *  complaint, etc.
+ *
+ *  Value: "PURSUANT_TO_NOTICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyDecisionType_PursuantToNotice;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdPolicyTopicEntry.policyEnforcementMeans
+
+/**
+ *  Unknown or not specified.
+ *
+ *  Value: "AD_POLICY_ENFORCEMENT_MEANS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyEnforcementMeans_AdPolicyEnforcementMeansUnknown;
+/**
+ *  The enforcement process was fully automated.
+ *
+ *  Value: "AUTOMATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyEnforcementMeans_Automated;
+/**
+ *  A human was partially or fully involved in the decision enforcement process.
+ *
+ *  Value: "HUMAN_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyEnforcementMeans_HumanReview;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdPolicyTopicEntry.policyTopicType
+
+/**
+ *  Unknown or not specified.
+ *
+ *  Value: "AD_POLICY_TOPIC_ENTRY_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_AdPolicyTopicEntryTypeUnknown;
+/**
+ *  The resource is constrained for all targeted countries, but may serve for
+ *  users who are searching for information about the targeted countries.
+ *
+ *  Value: "AREA_OF_INTEREST_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_AreaOfInterestOnly;
+/**
+ *  The resource can serve, and may serve beyond normal coverage.
+ *
+ *  Value: "BROADENING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Broadening;
+/**
+ *  The resource can serve.
+ *
+ *  Value: "DESCRIPTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Descriptive;
+/**
+ *  The resource will not serve in all targeted countries.
+ *
+ *  Value: "FULLY_LIMITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_FullyLimited;
+/**
+ *  The resource cannot serve in some countries.
+ *
+ *  Value: "LIMITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Limited;
+/**
+ *  The resource will not serve.
+ *
+ *  Value: "PROHIBITED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Prohibited;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch.uriTypes
+
+/**
+ *  Not specified or unknown.
+ *
+ *  Value: "AD_POLICY_TOPIC_EVIDENCE_DESTINATION_MISMATCH_URL_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_AdPolicyTopicEvidenceDestinationMismatchUrlTypeUnknown;
+/**
+ *  The display URL.
+ *
+ *  Value: "DISPLAY_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_DisplayUrl;
+/**
+ *  The final mobile URL.
+ *
+ *  Value: "FINAL_MOBILE_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_FinalMobileUrl;
+/**
+ *  The final URL.
+ *
+ *  Value: "FINAL_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_FinalUrl;
+/**
+ *  The mobile tracking URL.
+ *
+ *  Value: "MOBILE_TRACKING_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_MobileTrackingUrl;
+/**
+ *  The tracking URL.
+ *
+ *  Value: "TRACKING_URL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch_UriTypes_TrackingUrl;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking.device
+
+/**
+ *  Not specified or unknown.
+ *
+ *  Value: "AD_POLICY_TOPIC_EVIDENCE_DESTINATION_NOT_WORKING_DEVICE_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_AdPolicyTopicEvidenceDestinationNotWorkingDeviceTypeUnknown;
+/**
+ *  Android device.
+ *
+ *  Value: "ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_Android;
+/**
+ *  Desktop device.
+ *
+ *  Value: "DESKTOP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_Desktop;
+/**
+ *  iOS device.
+ *
+ *  Value: "IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_Ios;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking.dnsErrorType
+
+/**
+ *  Not specified or unknown.
+ *
+ *  Value: "AD_POLICY_TOPIC_EVIDENCE_DESTINATION_NOT_WORKING_DNS_ERROR_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_DnsErrorType_AdPolicyTopicEvidenceDestinationNotWorkingDnsErrorTypeUnknown;
+/**
+ *  Google could not crawl the landing page when communicating with DNS.
+ *
+ *  Value: "GOOGLE_CRAWLER_DNS_ISSUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_DnsErrorType_GoogleCrawlerDnsIssue;
+/**
+ *  Host name not found in DNS when fetching landing page.
+ *
+ *  Value: "HOSTNAME_NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_DnsErrorType_HostnameNotFound;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval.complaintType
+
+/**
+ *  Not specified or unknown.
+ *
+ *  Value: "AD_POLICY_TOPIC_EVIDENCE_LEGAL_REMOVAL_COMPLAINT_TYPE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_AdPolicyTopicEvidenceLegalRemovalComplaintTypeUnknown;
+/**
+ *  Copyright. Only applies to DMCA.
+ *
+ *  Value: "COPYRIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_Copyright;
+/**
+ *  Court order. Only applies to local legal.
+ *
+ *  Value: "COURT_ORDER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_CourtOrder;
+/**
+ *  Local legal regulation. Only applies to local legal.
+ *
+ *  Value: "LOCAL_LEGAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_LocalLegal;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_AdUrl.type
@@ -2616,8 +3006,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_Impres
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_VideoDeliveryType;
 /**
- *  Video genre id. Value is stored in the int64Value field of the comparison
- *  value. The comparisonOperator field must be set to `LIST_CONTAINS`.
+ *  Video genre id. Value is stored in the contentGenreIdValue field of the
+ *  comparison value. The comparisonOperator field must be set to
+ *  `LIST_CONTAINS`.
  *
  *  Value: "VIDEO_GENRE_ID"
  */
@@ -5030,6 +5421,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  *  Value: "SDF_VERSION_9_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion91;
+/**
+ *  SDF version 9.2.
+ *
+ *  Value: "SDF_VERSION_9_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion92;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -11392,6 +11789,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_IntegralAdScience_DisplayVi
 // GTLRDisplayVideo_IntegralAdScience.excludedAdFraudRisk
 
 /**
+ *  Ad Fraud - Exclude Fraudulent Device.
+ *
+ *  Value: "SUSPICIOUS_ACTIVITY_FD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_IntegralAdScience_ExcludedAdFraudRisk_SuspiciousActivityFd;
+/**
  *  Ad Fraud - Exclude High and Moderate Risk.
  *
  *  Value: "SUSPICIOUS_ACTIVITY_HMR"
@@ -14481,6 +14884,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion91;
 /**
+ *  SDF version 9.2.
+ *
+ *  Value: "SDF_VERSION_9_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion92;
+/**
  *  SDF version value is not specified or is unknown in this version.
  *
  *  Value: "SDF_VERSION_UNSPECIFIED"
@@ -14600,6 +15009,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *  Value: "SDF_VERSION_9_1"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion91;
+/**
+ *  SDF version 9.2.
+ *
+ *  Value: "SDF_VERSION_9_2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion92;
 /**
  *  SDF version value is not specified or is unknown in this version.
  *
@@ -15546,6 +15961,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UniversalAdId_Registry_Univ
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UniversalAdId_Registry_UniversalAdRegistryUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_UploadAdAssetRequest.adAssetType
+
+/**
+ *  The ad asset is a YouTube/DemandGen image.
+ *
+ *  Value: "AD_ASSET_TYPE_IMAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_AdAssetType_AdAssetTypeImage;
+/**
+ *  The ad asset type is unspecified.
+ *
+ *  Value: "AD_ASSET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_AdAssetType_AdAssetTypeUnspecified;
+/**
+ *  The ad asset is a YouTube video.
+ *
+ *  Value: "AD_ASSET_TYPE_YOUTUBE_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_UploadAdAssetRequest_AdAssetType_AdAssetTypeYoutubeVideo;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_UserRewardedContentAssignedTargetingOptionDetails.userRewardedContent
 
 /**
@@ -16051,6 +16488,98 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAndPartnersSettings_EffectiveContentCategory_YoutubeAndPartnersContentCategoryUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDisplayVideo_YoutubeAssetAssociation.youtubeAssetType
+
+/**
+ *  Affiliate location asset.
+ *
+ *  Value: "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeAffiliateLocation;
+/**
+ *  Location asset.
+ *
+ *  Value: "YOUTUBE_ASSET_TYPE_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeLocation;
+/**
+ *  Sitelink asset.
+ *
+ *  Value: "YOUTUBE_ASSET_TYPE_SITELINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeSitelink;
+/**
+ *  YouTube asset type is not specified or is unknown in this version.
+ *
+ *  Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter.affiliateLocationMatchingType
+
+/**
+ *  Affiliate location matching type is not specified or is unknown in this
+ *  version.
+ *
+ *  Value: "AFFILIATE_LOCATION_MATCHING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_AffiliateLocationMatchingTypeUnspecified;
+/**
+ *  No affiliate location assets can serve.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_Disabled;
+/**
+ *  All available affiliate location assets are eligible for serving.
+ *
+ *  Value: "SELECT_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_SelectAll;
+/**
+ *  The selected affiliate location assets can serve.
+ *
+ *  Value: "SELECTED_CHAINS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_SelectedChains;
+
+// ----------------------------------------------------------------------------
+// GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter.locationMatchingType
+
+/**
+ *  No location assets can serve.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_Disabled;
+/**
+ *  The location assets that match a provided business name and/or label filters
+ *  can serve.
+ *
+ *  Value: "FILTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_Filter;
+/**
+ *  Location matching type is not specified or is unknown in this version.
+ *
+ *  Value: "LOCATION_MATCHING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_LocationMatchingTypeUnspecified;
+/**
+ *  All available location assets are eligible for serving.
+ *
+ *  Value: "SELECT_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_SelectAll;
+/**
+ *  Only the selected location assets can serve.
+ *
+ *  Value: "SELECTED_ASSETS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_SelectedAssets;
+
+// ----------------------------------------------------------------------------
 // GTLRDisplayVideo_YoutubeVideoDetails.unavailableReason
 
 /**
@@ -16198,6 +16727,67 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  A single ad asset.
+ */
+@interface GTLRDisplayVideo_AdAsset : GTLRObject
+
+/**
+ *  Output only. The ID of the ad asset. Referred to as the asset ID when
+ *  assigned to an ad.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *adAssetId;
+
+/**
+ *  Required. The type of the ad asset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdAsset_AdAssetType_AdAssetTypeImage The ad
+ *        asset is a YouTube/DemandGen image. (Value: "AD_ASSET_TYPE_IMAGE")
+ *    @arg @c kGTLRDisplayVideo_AdAsset_AdAssetType_AdAssetTypeUnspecified The
+ *        ad asset type is unspecified. (Value: "AD_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_AdAsset_AdAssetType_AdAssetTypeYoutubeVideo The
+ *        ad asset is a YouTube video. (Value: "AD_ASSET_TYPE_YOUTUBE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *adAssetType;
+
+/**
+ *  Output only. The entity status of the ad asset.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusActive The
+ *        entity is enabled to bid and spend budget. (Value:
+ *        "ENTITY_STATUS_ACTIVE")
+ *    @arg @c kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusArchived The
+ *        entity is archived. Bidding and budget spending are disabled. An
+ *        entity can be deleted after archived. Deleted entities cannot be
+ *        retrieved. (Value: "ENTITY_STATUS_ARCHIVED")
+ *    @arg @c kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusDraft The
+ *        entity is under draft. Bidding and budget spending are disabled.
+ *        (Value: "ENTITY_STATUS_DRAFT")
+ *    @arg @c kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusPaused Bidding
+ *        and budget spending are paused for the entity. (Value:
+ *        "ENTITY_STATUS_PAUSED")
+ *    @arg @c kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusScheduledForDeletion
+ *        The entity is scheduled for deletion. (Value:
+ *        "ENTITY_STATUS_SCHEDULED_FOR_DELETION")
+ *    @arg @c kGTLRDisplayVideo_AdAsset_EntityStatus_EntityStatusUnspecified
+ *        Default value when status is not specified or is unknown in this
+ *        version. (Value: "ENTITY_STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *entityStatus;
+
+/** Identifier. The resource name of the ad asset. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Youtube video asset data. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeVideoAsset *youtubeVideoAsset;
+
+@end
+
+
+/**
  *  A single ad group associated with a line item.
  */
 @interface GTLRDisplayVideo_AdGroup : GTLRObject
@@ -16210,8 +16800,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        Non-skippable in-stream audio ads. (Value: "AD_GROUP_FORMAT_AUDIO")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper Bumper
  *        ads. (Value: "AD_GROUP_FORMAT_BUMPER")
- *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatDemandGen
- *        Demand Gen ads. (Value: "AD_GROUP_FORMAT_DEMAND_GEN")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatInStream
  *        In-stream ads. (Value: "AD_GROUP_FORMAT_IN_STREAM")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatMasthead
@@ -16323,11 +16911,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *adGroupAdId;
 
 /**
- *  The unique ID of the ad group that the ad belongs to.
+ *  The unique ID of the ad group that the ad belongs to. *Caution*: Parent ad
+ *  groups for Demand Gen ads are not currently retrieveable using
+ *  `advertisers.adGroups.list` or `advertisers.adGroups.get`. Demand Gen ads
+ *  can be identified by the absence of the `ad_details` union field.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adGroupId;
+
+/** The policy approval status of the ad. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicy *adPolicy;
 
 /** List of URLs used by the ad. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdUrl *> *adUrls;
@@ -16770,6 +17364,532 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        (Value: "VIDEO_IAB_VIEWABILITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *videoIabViewability;
+
+@end
+
+
+/**
+ *  A single ad policy associated with an ad group ad.
+ */
+@interface GTLRDisplayVideo_AdPolicy : GTLRObject
+
+/**
+ *  The policy approval status of an ad, indicating the approval decision.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_AdPolicyApprovalStatusUnknown
+ *        Unknown or not specified. (Value: "AD_POLICY_APPROVAL_STATUS_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_Approved Will
+ *        serve without restrictions. (Value: "APPROVED")
+ *    @arg @c kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_ApprovedLimited
+ *        Will serve with restrictions. (Value: "APPROVED_LIMITED")
+ *    @arg @c kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_AreaOfInterestOnly
+ *        Will not serve in targeted countries, but may serve for users who are
+ *        searching for information about the targeted countries. (Value:
+ *        "AREA_OF_INTEREST_ONLY")
+ *    @arg @c kGTLRDisplayVideo_AdPolicy_AdPolicyApprovalStatus_Disapproved Will
+ *        not serve. (Value: "DISAPPROVED")
+ */
+@property(nonatomic, copy, nullable) NSString *adPolicyApprovalStatus;
+
+/**
+ *  The policy review status of an ad, indicating where in the review process
+ *  the ad is currently.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_AdPolicyReviewStatusUnknown
+ *        Unknown or not specified. (Value: "AD_POLICY_REVIEW_STATUS_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_EligibleMayServe
+ *        Deemed eligible and may be serving. Further review could still follow.
+ *        (Value: "ELIGIBLE_MAY_SERVE")
+ *    @arg @c kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_Reviewed Primary
+ *        review complete. Other reviews may still be in progress. (Value:
+ *        "REVIEWED")
+ *    @arg @c kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_ReviewInProgress
+ *        Currently under review. (Value: "REVIEW_IN_PROGRESS")
+ *    @arg @c kGTLRDisplayVideo_AdPolicy_AdPolicyReviewStatus_UnderAppeal
+ *        Resubmitted for approval or a policy decision has been appealed.
+ *        (Value: "UNDER_APPEAL")
+ */
+@property(nonatomic, copy, nullable) NSString *adPolicyReviewStatus;
+
+/**
+ *  The entries for each policy topic identified as relating to the ad. Each
+ *  entry includes the topic, restriction level, and guidance on how to fix
+ *  policy issues.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdPolicyTopicEntry *> *adPolicyTopicEntry;
+
+@end
+
+
+/**
+ *  Represents a country restriction.
+ */
+@interface GTLRDisplayVideo_AdPolicyCriterionRestriction : GTLRObject
+
+/**
+ *  The country criterion id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *countryCriterionId;
+
+/** Localized name for the country. May be empty. */
+@property(nonatomic, copy, nullable) NSString *countryLabel;
+
+@end
+
+
+/**
+ *  Information on how to appeal a policy decision.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicAppealInfo : GTLRObject
+
+/** Only available when appeal_type is `APPEAL_FORM`. */
+@property(nonatomic, copy, nullable) NSString *appealFormLink;
+
+/**
+ *  Whether the decision can be appealed through a self-service appeal or an
+ *  appeal form.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicAppealInfo_AppealType_AdPolicyAppealTypeUnknown
+ *        Unknown or not specified. (Value: "AD_POLICY_APPEAL_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicAppealInfo_AppealType_AppealForm
+ *        The decision can be appealed using an appeal form. (Value:
+ *        "APPEAL_FORM")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicAppealInfo_AppealType_SelfServiceAppeal
+ *        The decision can be appealed through a self-service appeal. (Value:
+ *        "SELF_SERVICE_APPEAL")
+ */
+@property(nonatomic, copy, nullable) NSString *appealType;
+
+@end
+
+
+/**
+ *  Details on ad serving constraints.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicConstraint : GTLRObject
+
+/**
+ *  Countries where the resource's domain is not covered by the certificates
+ *  associated with it.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyCountryConstraintList *certificateDomainMismatchCountryList;
+
+/** Countries where a certificate is required for serving. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyCountryConstraintList *certificateMissingCountryList;
+
+/** Countries where the ad cannot serve. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyCountryConstraintList *countryConstraint;
+
+/**
+ *  Certificate is required to serve in any country and the existing certificate
+ *  does not cover the ad's domain.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyGlobalCertificateDomainMismatchConstraint *globalCertificateDomainMismatch;
+
+/** Certificate is required to serve in any country. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyGlobalCertificateMissingConstraint *globalCertificateMissing;
+
+/** Link to the form to request a certificate for the constraint. */
+@property(nonatomic, copy, nullable) NSString *requestCertificateFormLink;
+
+/** Reseller constraint. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyResellerConstraint *resellerConstraint;
+
+@end
+
+
+/**
+ *  A list of countries where the ad cannot serve due to policy constraints.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyCountryConstraintList : GTLRObject
+
+/** Countries where the ad cannot serve. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdPolicyCriterionRestriction *> *countries;
+
+@end
+
+
+/**
+ *  Certificate is required to serve in any country and the existing certificate
+ *  does not cover the ad's domain.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyGlobalCertificateDomainMismatchConstraint : GTLRObject
+@end
+
+
+/**
+ *  Certificate is required to serve in any country.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyGlobalCertificateMissingConstraint : GTLRObject
+@end
+
+
+/**
+ *  Policy topic was constrained due to disapproval of the website for reseller
+ *  purposes.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicConstraintAdPolicyResellerConstraint : GTLRObject
+@end
+
+
+/**
+ *  An entry describing how an ad has been identified as relating to an ad
+ *  policy.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEntry : GTLRObject
+
+/** Information on how to appeal the policy decision. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicAppealInfo *appealInfo;
+
+/** Ad policy help center link for the policy topic. */
+@property(nonatomic, copy, nullable) NSString *helpCenterLink;
+
+/**
+ *  The source of the policy decision.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyDecisionType_AdPolicyDecisionTypeUnknown
+ *        Unknown or not specified. (Value: "AD_POLICY_DECISION_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyDecisionType_GoogleInvestigation
+ *        The decision is from a Google-owned investigation. (Value:
+ *        "GOOGLE_INVESTIGATION")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyDecisionType_PursuantToNotice
+ *        The decision is from a legal notice, court order, or trademark content
+ *        owner complaint, etc. (Value: "PURSUANT_TO_NOTICE")
+ */
+@property(nonatomic, copy, nullable) NSString *policyDecisionType;
+
+/**
+ *  The policy enforcement means used in the policy review.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyEnforcementMeans_AdPolicyEnforcementMeansUnknown
+ *        Unknown or not specified. (Value:
+ *        "AD_POLICY_ENFORCEMENT_MEANS_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyEnforcementMeans_Automated
+ *        The enforcement process was fully automated. (Value: "AUTOMATED")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyEnforcementMeans_HumanReview
+ *        A human was partially or fully involved in the decision enforcement
+ *        process. (Value: "HUMAN_REVIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *policyEnforcementMeans;
+
+/**
+ *  Localized label text for policy. Examples include "Trademarks in text",
+ *  "Contains Alcohol", etc.
+ */
+@property(nonatomic, copy, nullable) NSString *policyLabel;
+
+/** The policy topic. Examples include "TRADEMARKS", "ALCOHOL", etc. */
+@property(nonatomic, copy, nullable) NSString *policyTopic;
+
+/** The serving constraints relevant to the policy decision. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdPolicyTopicConstraint *> *policyTopicConstraints;
+
+/** A short summary description of the policy topic. */
+@property(nonatomic, copy, nullable) NSString *policyTopicDescription;
+
+/** The evidence used in the policy decision. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdPolicyTopicEvidence *> *policyTopicEvidences;
+
+/**
+ *  How ad serving will be affected due to the relation to the ad policy topic.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_AdPolicyTopicEntryTypeUnknown
+ *        Unknown or not specified. (Value:
+ *        "AD_POLICY_TOPIC_ENTRY_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_AreaOfInterestOnly
+ *        The resource is constrained for all targeted countries, but may serve
+ *        for users who are searching for information about the targeted
+ *        countries. (Value: "AREA_OF_INTEREST_ONLY")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Broadening
+ *        The resource can serve, and may serve beyond normal coverage. (Value:
+ *        "BROADENING")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Descriptive
+ *        The resource can serve. (Value: "DESCRIPTIVE")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_FullyLimited
+ *        The resource will not serve in all targeted countries. (Value:
+ *        "FULLY_LIMITED")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Limited The
+ *        resource cannot serve in some countries. (Value: "LIMITED")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEntry_PolicyTopicType_Prohibited
+ *        The resource will not serve. (Value: "PROHIBITED")
+ */
+@property(nonatomic, copy, nullable) NSString *policyTopicType;
+
+@end
+
+
+/**
+ *  Evidence information used in the policy decision.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidence : GTLRObject
+
+/** Counterfeit enforcement that caused a policy violation. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicEvidenceCounterfeit *counterfeit;
+
+/** A mismatch between the ad destination URLs. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch *destinationMismatch;
+
+/** Information on HTTP or DNS errors related to the ad destination. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking *destinationNotWorking;
+
+/**
+ *  The text in the destination of the ad that is causing a policy violation.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationTextList *destinationTextList;
+
+/**
+ *  HTTP code returned when the final URL was crawled.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpCode;
+
+/**
+ *  The language the ad was detected to be written in. This field uses IETF
+ *  language tags, such as "en-US".
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Legal related regulation enforcement that caused a policy violation. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval *legalRemoval;
+
+/** T&S proactive enforcement that caused a policy violation. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicEvidenceRegionalRequirements *regionalRequirements;
+
+/** List of evidence found in the text of the ad. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicEvidenceTextList *textList;
+
+/** Trademark terms that caused a policy violation. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicEvidenceTrademark *trademark;
+
+/** List of websites linked with the ad. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicEvidenceWebsiteList *websiteList;
+
+@end
+
+
+/**
+ *  Details on the counterfeit enforcement that caused a policy violation.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceCounterfeit : GTLRObject
+
+/** The content or product owners that made a complaint. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *owners;
+
+@end
+
+
+/**
+ *  Details on a mismatch between destination URL types.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationMismatch : GTLRObject
+
+/**
+ *  The set of URLs that do not match. The list can include single or multiple
+ *  uri types. Example 1: [`DISPLAY_URL`, `FINAL_URL`] means ad display URL does
+ *  not match with the ad final URL. Example 2: [`FINAL_URL`] means ad final URL
+ *  did not match the crawled url, which is also considered as destination
+ *  mismatch.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *uriTypes;
+
+@end
+
+
+/**
+ *  Details for on HTTP or DNS errors related to the ad destination.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking : GTLRObject
+
+/**
+ *  The device where visiting the URL resulted in the error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_AdPolicyTopicEvidenceDestinationNotWorkingDeviceTypeUnknown
+ *        Not specified or unknown. (Value:
+ *        "AD_POLICY_TOPIC_EVIDENCE_DESTINATION_NOT_WORKING_DEVICE_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_Android
+ *        Android device. (Value: "ANDROID")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_Desktop
+ *        Desktop device. (Value: "DESKTOP")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_Device_Ios
+ *        iOS device. (Value: "IOS")
+ */
+@property(nonatomic, copy, nullable) NSString *device;
+
+/**
+ *  The type of DNS error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_DnsErrorType_AdPolicyTopicEvidenceDestinationNotWorkingDnsErrorTypeUnknown
+ *        Not specified or unknown. (Value:
+ *        "AD_POLICY_TOPIC_EVIDENCE_DESTINATION_NOT_WORKING_DNS_ERROR_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_DnsErrorType_GoogleCrawlerDnsIssue
+ *        Google could not crawl the landing page when communicating with DNS.
+ *        (Value: "GOOGLE_CRAWLER_DNS_ISSUE")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEvidenceDestinationNotWorking_DnsErrorType_HostnameNotFound
+ *        Host name not found in DNS when fetching landing page. (Value:
+ *        "HOSTNAME_NOT_FOUND")
+ */
+@property(nonatomic, copy, nullable) NSString *dnsErrorType;
+
+/** The full URL that didn't work. */
+@property(nonatomic, copy, nullable) NSString *expandedUri;
+
+/**
+ *  The HTTP error code.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpErrorCode;
+
+/** The last time the error was seen when navigating to URL. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastCheckedTime;
+
+@end
+
+
+/**
+ *  A list of destination text that violated the policy.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceDestinationTextList : GTLRObject
+
+/** Destination text that caused the policy finding. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinationTexts;
+
+@end
+
+
+/**
+ *  Legal related regulation enforcement, either from DMCA or local legal
+ *  regulation.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval : GTLRObject
+
+/**
+ *  The type of complaint causing the legal removal.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_AdPolicyTopicEvidenceLegalRemovalComplaintTypeUnknown
+ *        Not specified or unknown. (Value:
+ *        "AD_POLICY_TOPIC_EVIDENCE_LEGAL_REMOVAL_COMPLAINT_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_Copyright
+ *        Copyright. Only applies to DMCA. (Value: "COPYRIGHT")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_CourtOrder
+ *        Court order. Only applies to local legal. (Value: "COURT_ORDER")
+ *    @arg @c kGTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemoval_ComplaintType_LocalLegal
+ *        Local legal regulation. Only applies to local legal. (Value:
+ *        "LOCAL_LEGAL")
+ */
+@property(nonatomic, copy, nullable) NSString *complaintType;
+
+/** The countries restricted due to the legal removal. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdPolicyCriterionRestriction *> *countryRestrictions;
+
+/** Details on the DMCA regulation legal removal. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemovalDmca *dmca;
+
+/** Details on the local legal regulation legal removal. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemovalLocalLegal *localLegal;
+
+/** The urls restricted due to the legal removal. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *restrictedUris;
+
+@end
+
+
+/**
+ *  DMCA complaint details.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemovalDmca : GTLRObject
+
+/** The entity who made the legal complaint. */
+@property(nonatomic, copy, nullable) NSString *complainant;
+
+@end
+
+
+/**
+ *  Local legal regulation details.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceLegalRemovalLocalLegal : GTLRObject
+
+/** Type of law for the legal notice. */
+@property(nonatomic, copy, nullable) NSString *lawType;
+
+@end
+
+
+/**
+ *  Trust & Safety (T&S) proactive enforcement for policies meant to address
+ *  regional requirements. This is considered a Google-owned investigation
+ *  instead of a regulation notice since it's proactive T&S enforcement.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceRegionalRequirements : GTLRObject
+
+/** List of regional requirements. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdPolicyTopicEvidenceRegionalRequirementsRegionalRequirementsEntry *> *regionalRequirementsEntries;
+
+@end
+
+
+/**
+ *  Policy level regional legal violation details.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceRegionalRequirementsRegionalRequirementsEntry : GTLRObject
+
+/** The countries restricted due to the legal policy. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdPolicyCriterionRestriction *> *countryRestrictions;
+
+/** The legal policy that is being violated. */
+@property(nonatomic, copy, nullable) NSString *legalPolicy;
+
+@end
+
+
+/**
+ *  A list of fragments of text that violated the policy.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceTextList : GTLRObject
+
+/** The fragments of text from the resource that caused the policy finding. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *texts;
+
+@end
+
+
+/**
+ *  Trademark terms that caused a policy violation.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceTrademark : GTLRObject
+
+/** Countries where the policy violation is relevant. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdPolicyCriterionRestriction *> *countryRestrictions;
+
+/** The trademark content owner. */
+@property(nonatomic, copy, nullable) NSString *owner;
+
+/** The trademark term. */
+@property(nonatomic, copy, nullable) NSString *term;
+
+@end
+
+
+/**
+ *  A list of websites that violated the policy.
+ */
+@interface GTLRDisplayVideo_AdPolicyTopicEvidenceWebsiteList : GTLRObject
+
+/** Websites that caused the policy finding. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *websites;
 
 @end
 
@@ -17900,8 +19020,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        field of the comparison value. The comparisonOperator field must be
  *        set to `LIST_CONTAINS`. (Value: "VIDEO_DELIVERY_TYPE")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesSignal_ImpressionSignal_VideoGenreId
- *        Video genre id. Value is stored in the int64Value field of the
- *        comparison value. The comparisonOperator field must be set to
+ *        Video genre id. Value is stored in the contentGenreIdValue field of
+ *        the comparison value. The comparisonOperator field must be set to
  *        `LIST_CONTAINS`. (Value: "VIDEO_GENRE_ID")
  */
 @property(nonatomic, copy, nullable) NSString *impressionSignal;
@@ -19406,6 +20526,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalAmountMicros;
+
+@end
+
+
+/**
+ *  A request message for BulkCreateAdAssets.
+ */
+@interface GTLRDisplayVideo_BulkCreateAdAssetsRequest : GTLRObject
+
+/**
+ *  Required. Ad assets to create. Only supports assets of AdAssetType
+ *  `AD_ASSET_TYPE_YOUTUBE_VIDEO`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdAsset *> *adAssets;
+
+@end
+
+
+/**
+ *  A response message for BulkCreateAdAssets.
+ */
+@interface GTLRDisplayVideo_BulkCreateAdAssetsResponse : GTLRObject
+
+/** The created ad assets. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdAsset *> *adAssets;
 
 @end
 
@@ -21467,6 +22612,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  A request message for CreateAdAsset.
+ */
+@interface GTLRDisplayVideo_CreateAdAssetRequest : GTLRObject
+
+/**
+ *  Required. The ad asset to create. Only supports assets of AdAssetType
+ *  `AD_ASSET_TYPE_YOUTUBE_VIDEO`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdAsset *adAsset;
+
+@end
+
+
+/**
  *  A request message for CreateAsset.
  */
 @interface GTLRDisplayVideo_CreateAssetRequest : GTLRObject
@@ -21757,6 +22916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        before migrating to this version. (Value: "SDF_VERSION_9")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion91
  *        SDF version 9.1. (Value: "SDF_VERSION_9_1")
+ *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion92
+ *        SDF version 9.2. (Value: "SDF_VERSION_9_2")
  *    @arg @c kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -26930,6 +28091,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Ad Fraud settings.
  *
  *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_IntegralAdScience_ExcludedAdFraudRisk_SuspiciousActivityFd
+ *        Ad Fraud - Exclude Fraudulent Device. (Value:
+ *        "SUSPICIOUS_ACTIVITY_FD")
  *    @arg @c kGTLRDisplayVideo_IntegralAdScience_ExcludedAdFraudRisk_SuspiciousActivityHmr
  *        Ad Fraud - Exclude High and Moderate Risk. (Value:
  *        "SUSPICIOUS_ACTIVITY_HMR")
@@ -28494,6 +29658,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  A response message for ListAdAssets.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "adAssets" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDisplayVideo_ListAdAssetsResponse : GTLRCollectionObject
+
+/**
+ *  The list of ad assets. The list will only contain assets of AdAssetType
+ *  `AD_ASSET_TYPE_YOUTUBE_VIDEO`. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdAsset *> *adAssets;
+
+/**
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  page_token field in the subsequent call to `ListAdAssets` method to retrieve
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  GTLRDisplayVideo_ListAdGroupAdsResponse
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -29487,6 +30680,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_User *> *users;
+
+@end
+
+
+/**
+ *  Response message for
+ *  YoutubeAssetAssociationService.ListYoutubeAssetAssociations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "youtubeAssetAssociations" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRDisplayVideo_ListYoutubeAssetAssociationsResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results. Pass this value in the
+ *  page_token field in the subsequent call to `ListYoutubeAssetAssociations`
+ *  method to retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of asset associations. This list will be absent if empty.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_YoutubeAssetAssociation *> *youtubeAssetAssociations;
 
 @end
 
@@ -31651,6 +32873,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        before migrating to this version. (Value: "SDF_VERSION_9")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion91 SDF version 9.1.
  *        (Value: "SDF_VERSION_9_1")
+ *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersion92 SDF version 9.2.
+ *        (Value: "SDF_VERSION_9_2")
  *    @arg @c kGTLRDisplayVideo_SdfConfig_Version_SdfVersionUnspecified SDF
  *        version value is not specified or is unknown in this version. (Value:
  *        "SDF_VERSION_UNSPECIFIED")
@@ -31735,6 +32959,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        before migrating to this version. (Value: "SDF_VERSION_9")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion91 SDF
  *        version 9.1. (Value: "SDF_VERSION_9_1")
+ *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion92 SDF
+ *        version 9.2. (Value: "SDF_VERSION_9_2")
  *    @arg @c kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersionUnspecified
  *        SDF version value is not specified or is unknown in this version.
  *        (Value: "SDF_VERSION_UNSPECIFIED")
@@ -32909,6 +34135,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  A request message for UploadAdAsset.
+ */
+@interface GTLRDisplayVideo_UploadAdAssetRequest : GTLRObject
+
+/**
+ *  Required. The type of the ad asset. Only `AD_ASSET_TYPE_IMAGE` is supported.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_UploadAdAssetRequest_AdAssetType_AdAssetTypeImage
+ *        The ad asset is a YouTube/DemandGen image. (Value:
+ *        "AD_ASSET_TYPE_IMAGE")
+ *    @arg @c kGTLRDisplayVideo_UploadAdAssetRequest_AdAssetType_AdAssetTypeUnspecified
+ *        The ad asset type is unspecified. (Value: "AD_ASSET_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_UploadAdAssetRequest_AdAssetType_AdAssetTypeYoutubeVideo
+ *        The ad asset is a YouTube video. (Value:
+ *        "AD_ASSET_TYPE_YOUTUBE_VIDEO")
+ */
+@property(nonatomic, copy, nullable) NSString *adAssetType;
+
+/**
+ *  Required. The filename of the ad asset, including the file extension. The
+ *  filename must be UTF-8 encoded with a maximum size of 240 bytes.
+ */
+@property(nonatomic, copy, nullable) NSString *filename;
+
+@end
+
+
+/**
+ *  A response message for UploadAdAsset.
+ */
+@interface GTLRDisplayVideo_UploadAdAssetResponse : GTLRObject
+
+/** The created ad asset. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_AdAsset *adAsset;
+
+@end
+
+
+/**
  *  Details for assigned URL targeting option. This will be populated in the
  *  details field of an AssignedTargetingOption when targeting_type is
  *  `TARGETING_TYPE_URL`.
@@ -33642,6 +34908,234 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
+ *  An association between a resource and a YouTube asset.
+ */
+@interface GTLRDisplayVideo_YoutubeAssetAssociation : GTLRObject
+
+/** Required. The YouTube asset associated with the resource. */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeAssetAssociationLinkedYouTubeAsset *linkedYoutubeAsset;
+
+/**
+ *  Identifier. The resource name of the association. For line item-level
+ *  associations: The name pattern is
+ *  `advertisers/{advertiser_id}/lineItems/{line_item_id}/youtubeAssetTypes/{youtube_asset_type}/youtubeAssetAssociations/{youtube_asset_association_id}`.
+ *  For ad group-level associations: The name pattern is
+ *  `advertisers/{advertiser_id}/adGroups/{ad_group_id}/youtubeAssetTypes/{youtube_asset_type}/youtubeAssetAssociations/{youtube_asset_association_id}`.
+ *  For `YOUTUBE_ASSET_TYPE_LOCATION` and
+ *  `YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION` associations:
+ *  `youtube_asset_association_id` is the ID of the asset set linked, or 0 if
+ *  the location_matching_type or affiliate_location_matching_type is
+ *  `DISABLED`. For `YOUTUBE_ASSET_TYPE_SITELINK` associations:
+ *  `youtube_asset_association_id` is be the ID of the sitelink asset linked.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The type of YouTube asset associated with the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeAffiliateLocation
+ *        Affiliate location asset. (Value:
+ *        "YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeLocation
+ *        Location asset. (Value: "YOUTUBE_ASSET_TYPE_LOCATION")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeSitelink
+ *        Sitelink asset. (Value: "YOUTUBE_ASSET_TYPE_SITELINK")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociation_YoutubeAssetType_YoutubeAssetTypeUnspecified
+ *        YouTube asset type is not specified or is unknown in this version.
+ *        (Value: "YOUTUBE_ASSET_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *youtubeAssetType;
+
+@end
+
+
+/**
+ *  An asset filter that matches eligible affiliate location assets for serving.
+ */
+@interface GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter : GTLRObject
+
+/**
+ *  Optional. The matching function that determines how the affiliate location
+ *  asset filter matches affiliate location assets. This field is required and
+ *  can only be set for if affiliate_location_matching_type is
+ *  `SELECTED_CHAINS`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationMatchingFunction *affiliateLocationMatchingFunction;
+
+/**
+ *  Required. The matching type of this affiliate location asset filter.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_AffiliateLocationMatchingTypeUnspecified
+ *        Affiliate location matching type is not specified or is unknown in
+ *        this version. (Value: "AFFILIATE_LOCATION_MATCHING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_Disabled
+ *        No affiliate location assets can serve. (Value: "DISABLED")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_SelectAll
+ *        All available affiliate location assets are eligible for serving.
+ *        (Value: "SELECT_ALL")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter_AffiliateLocationMatchingType_SelectedChains
+ *        The selected affiliate location assets can serve. (Value:
+ *        "SELECTED_CHAINS")
+ */
+@property(nonatomic, copy, nullable) NSString *affiliateLocationMatchingType;
+
+/**
+ *  Output only. The ID of the asset set that matches the affiliate location
+ *  assets eligible for serving.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assetSetId;
+
+@end
+
+
+/**
+ *  A chain of affiliate locations.
+ */
+@interface GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationChain : GTLRObject
+
+/**
+ *  Required. ID of the affiliate location chain.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *chainId;
+
+@end
+
+
+/**
+ *  The matching function for an affiliate location asset filter.
+ */
+@interface GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationMatchingFunction : GTLRObject
+
+/**
+ *  Optional. The selected affiliate location chain IDs. This field is required
+ *  if affiliate_location_matching_type is `SELECTED_CHAINS`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilterAffiliateLocationChain *> *chains;
+
+@end
+
+
+/**
+ *  A YouTube asset linked to a resource in a YoutubeAssetAssociation.
+ */
+@interface GTLRDisplayVideo_YoutubeAssetAssociationLinkedYouTubeAsset : GTLRObject
+
+/**
+ *  An affiliate location asset filter. This can be set only when
+ *  youtube_asset_type is `YOUTUBE_ASSET_TYPE_AFFILIATE_LOCATION`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeAssetAssociationAffiliateLocationAssetFilter *affiliateLocationAssetFilter;
+
+/**
+ *  A location asset filter. This can be set only when youtube_asset_type is
+ *  `YOUTUBE_ASSET_TYPE_LOCATION`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter *locationAssetFilter;
+
+/**
+ *  A sitelink asset. This can be set only when youtube_asset_type is
+ *  `YOUTUBE_ASSET_TYPE_SITELINK`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeAssetAssociationSitelinkAsset *sitelinkAsset;
+
+@end
+
+
+/**
+ *  An asset filter that matches eligible location assets for serving.
+ */
+@interface GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter : GTLRObject
+
+/**
+ *  Output only. The ID of the asset set that matches the location assets
+ *  eligible for serving.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assetSetId;
+
+/**
+ *  Optional. The matching function that determines how the location asset
+ *  filter matches location assets. This field is required and can only be set
+ *  for if location_matching_type is `FILTER` or `SELECTED_ASSETS`.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilterLocationMatchingFunction *locationMatchingFunction;
+
+/**
+ *  Required. The matching type of this location asset filter.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_Disabled
+ *        No location assets can serve. (Value: "DISABLED")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_Filter
+ *        The location assets that match a provided business name and/or label
+ *        filters can serve. (Value: "FILTER")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_LocationMatchingTypeUnspecified
+ *        Location matching type is not specified or is unknown in this version.
+ *        (Value: "LOCATION_MATCHING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_SelectAll
+ *        All available location assets are eligible for serving. (Value:
+ *        "SELECT_ALL")
+ *    @arg @c kGTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilter_LocationMatchingType_SelectedAssets
+ *        Only the selected location assets can serve. (Value:
+ *        "SELECTED_ASSETS")
+ */
+@property(nonatomic, copy, nullable) NSString *locationMatchingType;
+
+@end
+
+
+/**
+ *  The matching function for a location asset filter.
+ */
+@interface GTLRDisplayVideo_YoutubeAssetAssociationLocationAssetFilterLocationMatchingFunction : GTLRObject
+
+/**
+ *  Optional. The business name to match with. This field is optional and can
+ *  only be set if location_matching_type is `FILTER`.
+ */
+@property(nonatomic, copy, nullable) NSString *business;
+
+/**
+ *  Optional. The labels to match with. Labels are logically OR'ed together.
+ *  This field is optional and can only be set if location_matching_type is
+ *  `FILTER`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
+
+/**
+ *  Optional. The selected location asset IDs. This field is required if
+ *  location_matching_type is `SELECTED_ASSETS`.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *locationAssetIds;
+
+@end
+
+
+/**
+ *  A sitelink asset.
+ */
+@interface GTLRDisplayVideo_YoutubeAssetAssociationSitelinkAsset : GTLRObject
+
+/**
+ *  Required. ID of the sitelink asset.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assetId;
+
+@end
+
+
+/**
  *  Details for YouTube channel assigned targeting option. This will be
  *  populated in the youtube_channel_details field when targeting_type is
  *  `TARGETING_TYPE_YOUTUBE_CHANNEL`.
@@ -33659,6 +35153,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *negative;
+
+@end
+
+
+/**
+ *  Data for a YouTube video ad asset.
+ */
+@interface GTLRDisplayVideo_YoutubeVideoAsset : GTLRObject
+
+/**
+ *  Required. The YouTube video id of the asset. This is the 11 char string
+ *  value used in the YouTube video URL.
+ */
+@property(nonatomic, copy, nullable) NSString *youtubeVideoId;
 
 @end
 

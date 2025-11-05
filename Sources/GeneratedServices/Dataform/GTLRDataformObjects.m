@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Dataform API (dataform/v1beta1)
+//   Dataform API (dataform/v1)
 // Description:
 //   Service to develop, version control, and operationalize SQL pipelines in
 //   BigQuery.
@@ -25,6 +25,11 @@ NSString * const kGTLRDataform_GitRemoteSettings_TokenStatus_Invalid = @"INVALID
 NSString * const kGTLRDataform_GitRemoteSettings_TokenStatus_NotFound = @"NOT_FOUND";
 NSString * const kGTLRDataform_GitRemoteSettings_TokenStatus_TokenStatusUnspecified = @"TOKEN_STATUS_UNSPECIFIED";
 NSString * const kGTLRDataform_GitRemoteSettings_TokenStatus_Valid = @"VALID";
+
+// GTLRDataform_InvocationConfig.queryPriority
+NSString * const kGTLRDataform_InvocationConfig_QueryPriority_Batch = @"BATCH";
+NSString * const kGTLRDataform_InvocationConfig_QueryPriority_Interactive = @"INTERACTIVE";
+NSString * const kGTLRDataform_InvocationConfig_QueryPriority_QueryPriorityUnspecified = @"QUERY_PRIORITY_UNSPECIFIED";
 
 // GTLRDataform_Relation.relationType
 NSString * const kGTLRDataform_Relation_RelationType_IncrementalTable = @"INCREMENTAL_TABLE";
@@ -133,6 +138,24 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_BigQueryAction
 @dynamic jobId, sqlScript;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_Binding
+//
+
+@implementation GTLRDataform_Binding
+@dynamic condition, members, role;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -360,7 +383,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Config
-@dynamic defaultKmsKeyName, name;
+@dynamic defaultKmsKeyName, internalMetadata, name;
 @end
 
 
@@ -458,6 +481,21 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_ErrorTable
 @dynamic retentionDays, target;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_Expr
+//
+
+@implementation GTLRDataform_Expr
+@dynamic descriptionProperty, expression, location, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -647,7 +685,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_InvocationConfig
 @dynamic fullyRefreshIncrementalTablesEnabled, includedTags, includedTargets,
-         serviceAccount, transitiveDependenciesIncluded,
+         queryPriority, serviceAccount, transitiveDependenciesIncluded,
          transitiveDependentsIncluded;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -712,11 +750,12 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDataform_Operation class]
+    @"operations" : [GTLRDataform_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1050,6 +1089,28 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
     @"dependencyTargets" : [GTLRDataform_Target class],
     @"queries" : [NSString class],
     @"tags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_Policy
+//
+
+@implementation GTLRDataform_Policy
+@dynamic bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bindings" : [GTLRDataform_Binding class]
   };
   return map;
 }
@@ -1459,6 +1520,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_SetIamPolicyRequest
+//
+
+@implementation GTLRDataform_SetIamPolicyRequest
+@dynamic policy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_SimpleLoadMode
 //
 
@@ -1525,6 +1596,42 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_Target
 @dynamic database, name, schema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_TestIamPermissionsRequest
+//
+
+@implementation GTLRDataform_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_TestIamPermissionsResponse
+//
+
+@implementation GTLRDataform_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

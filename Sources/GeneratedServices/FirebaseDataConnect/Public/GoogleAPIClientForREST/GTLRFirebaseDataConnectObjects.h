@@ -53,6 +53,7 @@
 @class GTLRFirebaseDataConnect_SourceLocation;
 @class GTLRFirebaseDataConnect_Status;
 @class GTLRFirebaseDataConnect_Status_Details_Item;
+@class GTLRFirebaseDataConnect_Workaround;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -227,6 +228,40 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensio
  *  Value: "UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Unknown;
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseDataConnect_GraphqlErrorExtensions.warningLevel
+
+/**
+ *  Request a confirmation in interactive deployment flow.
+ *
+ *  Value: "INTERACTIVE_ACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_InteractiveAck;
+/**
+ *  Display a warning without action needed.
+ *
+ *  Value: "LOG_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_LogOnly;
+/**
+ *  Require an explicit confirmation in all deployment flows.
+ *
+ *  Value: "REQUIRE_ACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_RequireAck;
+/**
+ *  Require --force in all deployment flows.
+ *
+ *  Value: "REQUIRE_FORCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_RequireForce;
+/**
+ *  Warning level is not specified.
+ *
+ *  Value: "WARNING_LEVEL_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_WarningLevelUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDataConnect_PostgreSql.schemaMigration
@@ -540,10 +575,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  *  surfaces `GraphqlError` in various APIs: - Upon compile error,
  *  `UpdateSchema` and `UpdateConnector` return Code.Invalid_Argument with a
  *  list of `GraphqlError` in error details. - Upon query compile error,
- *  `ExecuteGraphql` and `ExecuteGraphqlRead` return Code.OK with a list of
- *  `GraphqlError` in response body. - Upon query execution error,
- *  `ExecuteGraphql`, `ExecuteGraphqlRead`, `ExecuteMutation` and `ExecuteQuery`
- *  all return Code.OK with a list of `GraphqlError` in response body.
+ *  `ExecuteGraphql`, `ExecuteGraphqlRead` and `IntrospectGraphql` return
+ *  Code.OK with a list of `GraphqlError` in response body. - Upon query
+ *  execution error, `ExecuteGraphql`, `ExecuteGraphqlRead`, `ExecuteMutation`,
+ *  `ExecuteQuery`, `IntrospectGraphql`, `ImpersonateQuery` and
+ *  `ImpersonateMutation` all return Code.OK with a list of `GraphqlError` in
+ *  response body.
  */
 @interface GTLRFirebaseDataConnect_GraphqlError : GTLRObject
 
@@ -553,10 +590,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 /**
  *  The source locations where the error occurred. Locations should help
  *  developers and toolings identify the source of error quickly. Included in
- *  admin endpoints (`ExecuteGraphql`, `ExecuteGraphqlRead`, `UpdateSchema` and
- *  `UpdateConnector`) to reference the provided GraphQL GQL document. Omitted
- *  in `ExecuteMutation` and `ExecuteQuery` since the caller shouldn't have
- *  access access the underlying GQL source.
+ *  admin endpoints (`ExecuteGraphql`, `ExecuteGraphqlRead`,
+ *  `IntrospectGraphql`, `ImpersonateQuery`, `ImpersonateMutation`,
+ *  `UpdateSchema` and `UpdateConnector`) to reference the provided GraphQL GQL
+ *  document. Omitted in `ExecuteMutation` and `ExecuteQuery` since the caller
+ *  shouldn't have access access the underlying GQL source.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDataConnect_SourceLocation *> *locations;
 
@@ -713,11 +751,29 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 @property(nonatomic, copy, nullable) NSString *file;
 
 /**
- *  Distinguish which schema or connector the error originates from. It should
- *  be set on errors from control plane APIs (e.g. `UpdateSchema`,
- *  `UpdateConnector`).
+ *  Warning level describes the severity and required action to suppress this
+ *  warning when Firebase CLI run into it.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_InteractiveAck
+ *        Request a confirmation in interactive deployment flow. (Value:
+ *        "INTERACTIVE_ACK")
+ *    @arg @c kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_LogOnly
+ *        Display a warning without action needed. (Value: "LOG_ONLY")
+ *    @arg @c kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_RequireAck
+ *        Require an explicit confirmation in all deployment flows. (Value:
+ *        "REQUIRE_ACK")
+ *    @arg @c kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_RequireForce
+ *        Require --force in all deployment flows. (Value: "REQUIRE_FORCE")
+ *    @arg @c kGTLRFirebaseDataConnect_GraphqlErrorExtensions_WarningLevel_WarningLevelUnknown
+ *        Warning level is not specified. (Value: "WARNING_LEVEL_UNKNOWN")
  */
-@property(nonatomic, copy, nullable) NSString *resource;
+@property(nonatomic, copy, nullable) NSString *warningLevel;
+
+/**
+ *  Workarounds provide suggestions to address the compile errors or warnings.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDataConnect_Workaround *> *workarounds;
 
 @end
 
@@ -979,6 +1035,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDataConnect_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1541,6 +1604,27 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRFirebaseDataConnect_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Workaround provides suggestions to address errors and warnings.
+ */
+@interface GTLRFirebaseDataConnect_Workaround : GTLRObject
+
+/**
+ *  Description of this workaround.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Why would this workaround address the error and warning. */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/** A suggested code snippet to fix the error and warning. */
+@property(nonatomic, copy, nullable) NSString *replace;
+
 @end
 
 NS_ASSUME_NONNULL_END
