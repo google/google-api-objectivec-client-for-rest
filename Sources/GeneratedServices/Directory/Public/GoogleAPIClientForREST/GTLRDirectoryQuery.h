@@ -4884,6 +4884,36 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Create a guest user with access to a [subset of Workspace
+ *  capabilities](https://support.google.com/a/answer/16558545?hl=en). This
+ *  feature is currently in Alpha. Please reach out to support if you are
+ *  interested in trying this feature.
+ *
+ *  Method: directory.users.createGuest
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryUser
+ */
+@interface GTLRDirectoryQuery_UsersCreateGuest : GTLRDirectoryQuery
+
+/**
+ *  Fetches a @c GTLRDirectory_User.
+ *
+ *  Create a guest user with access to a [subset of Workspace
+ *  capabilities](https://support.google.com/a/answer/16558545?hl=en). This
+ *  feature is currently in Alpha. Please reach out to support if you are
+ *  interested in trying this feature.
+ *
+ *  @param object The @c GTLRDirectory_UsersCreateGuestRequest to include in the
+ *    query.
+ *
+ *  @return GTLRDirectoryQuery_UsersCreateGuest
+ */
++ (instancetype)queryWithObject:(GTLRDirectory_UsersCreateGuestRequest *)object;
+
+@end
+
+/**
  *  Deletes a user.
  *
  *  Method: directory.users.delete

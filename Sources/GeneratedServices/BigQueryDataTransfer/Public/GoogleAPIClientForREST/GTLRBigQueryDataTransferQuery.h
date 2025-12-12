@@ -525,8 +525,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsList : GTLRBigQueryDataTransferQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

@@ -211,6 +211,12 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1EvaluationSet;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Event;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Event_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EventActions;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EventActions_ArtifactDelta;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EventActions_RequestedAuthConfigs;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EventActions_StateDelta;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EventMetadata;
+@class GTLRAiplatform_GoogleCloudAiplatformV1EventMetadata_CustomMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchInstance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ExactMatchMetricValue;
@@ -338,6 +344,13 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentRequest_Labels;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponsePromptFeedback;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateContentResponseUsageMetadata;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequest_RevisionLabels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequest_Scope;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectContentsSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectContentsSourceEvent;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectMemoriesSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectMemoriesSourceDirectMemory;
+@class GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestVertexSessionSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerateVideoResponseVideo;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfig;
@@ -388,6 +401,7 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1InputDataConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Int64Array;
 @class GTLRAiplatform_GoogleCloudAiplatformV1IntegratedGradientsAttribution;
+@class GTLRAiplatform_GoogleCloudAiplatformV1IntermediateExtractedMemory;
 @class GTLRAiplatform_GoogleCloudAiplatformV1JiraSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1JiraSourceJiraQueries;
 @class GTLRAiplatform_GoogleCloudAiplatformV1LargeModelReference;
@@ -401,6 +415,20 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ManualBatchTuningParameters;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Measurement;
 @class GTLRAiplatform_GoogleCloudAiplatformV1MeasurementMetric;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Memory;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Memory_RevisionLabels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Memory_Scope;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExample;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSourceEvent;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExampleGeneratedMemory;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopic;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MemoryRevision;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MemoryRevision_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId;
 @class GTLRAiplatform_GoogleCloudAiplatformV1MetadataSchema;
 @class GTLRAiplatform_GoogleCloudAiplatformV1MetadataStore;
 @class GTLRAiplatform_GoogleCloudAiplatformV1MetadataStoreDataplexConfig;
@@ -522,6 +550,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualitySpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Part;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PartialArg;
+@class GTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PersistentDiskSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource_Labels;
@@ -647,14 +677,23 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReadTensorboardUsageResponsePerUserUsageData;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigGenerationConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigSimilaritySearchConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigTtlConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigTtlConfigGranularTtlConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_ClassMethods_Item;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec_ResourceLimits;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecPackageSpec;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecDeveloperConnectConfig;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecDeveloperConnectSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecInlineSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecPythonSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1ReplicatedVoiceConfig;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourcePool;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ResourcePoolAutoscalingSpec;
@@ -667,6 +706,10 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1RetrievalMetadata;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsRequestVertexRagStore;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RetrieveContextsRequestVertexRagStoreRagResource;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesRequest_Scope;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesRequestSimilaritySearchParams;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesRequestSimpleRetrievalParams;
+@class GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesResponseRetrievedMemory;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RougeInput;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RougeInstance;
 @class GTLRAiplatform_GoogleCloudAiplatformV1RougeMetricValue;
@@ -727,6 +770,8 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstancePromptExecution;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstancePromptExecution_Arguments;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptInstanceVariableValue;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecAppBuilderData;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecAppBuilderDataLinkedResource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecMultimodalPrompt;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPartList;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecPromptMessage;
@@ -813,6 +858,10 @@
 @class GTLRAiplatform_GoogleCloudAiplatformV1SecretRef;
 @class GTLRAiplatform_GoogleCloudAiplatformV1Segment;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ServiceAccountSpec;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Session;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Session_Labels;
+@class GTLRAiplatform_GoogleCloudAiplatformV1Session_SessionState;
+@class GTLRAiplatform_GoogleCloudAiplatformV1SessionEvent;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SharePointSources;
 @class GTLRAiplatform_GoogleCloudAiplatformV1SharePointSourcesSharePointSource;
 @class GTLRAiplatform_GoogleCloudAiplatformV1ShieldedVmConfig;
@@ -3045,6 +3094,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Genera
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigRoutingConfigAutoRoutingMode_ModelRoutingPreference_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigThinkingConfig.thinkingLevel
+
+/**
+ *  High thinking level.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigThinkingConfig_ThinkingLevel_High;
+/**
+ *  Low thinking level.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigThinkingConfig_ThinkingLevel_Low;
+/**
+ *  Unspecified thinking level.
+ *
+ *  Value: "THINKING_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigThinkingConfig_ThinkingLevel_ThinkingLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1GoogleDriveSourceResourceId.resourceType
 
 /**
@@ -3363,6 +3434,76 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Machin
  *  Value: "TPU_V5_LITEPOD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MachineSpec_AcceleratorType_TpuV5Litepod;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic.managedTopicEnum
+
+/**
+ *  Information that the user explicitly requested to remember or forget.
+ *
+ *  Value: "EXPLICIT_INSTRUCTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic_ManagedTopicEnum_ExplicitInstructions;
+/**
+ *  Important milestones or conclusions within the dialogue.
+ *
+ *  Value: "KEY_CONVERSATION_DETAILS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic_ManagedTopicEnum_KeyConversationDetails;
+/**
+ *  Unspecified topic. This value should not be used.
+ *
+ *  Value: "MANAGED_TOPIC_ENUM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic_ManagedTopicEnum_ManagedTopicEnumUnspecified;
+/**
+ *  Significant personal information about the User like first names,
+ *  relationships, hobbies, important dates.
+ *
+ *  Value: "USER_PERSONAL_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic_ManagedTopicEnum_UserPersonalInfo;
+/**
+ *  Stated or implied likes, dislikes, preferred styles, or patterns.
+ *
+ *  Value: "USER_PREFERENCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic_ManagedTopicEnum_UserPreferences;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId.managedMemoryTopic
+
+/**
+ *  Information that the user explicitly requested to remember or forget.
+ *
+ *  Value: "EXPLICIT_INSTRUCTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId_ManagedMemoryTopic_ExplicitInstructions;
+/**
+ *  Important milestones or conclusions within the dialogue.
+ *
+ *  Value: "KEY_CONVERSATION_DETAILS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId_ManagedMemoryTopic_KeyConversationDetails;
+/**
+ *  Unspecified topic. This value should not be used.
+ *
+ *  Value: "MANAGED_TOPIC_ENUM_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId_ManagedMemoryTopic_ManagedTopicEnumUnspecified;
+/**
+ *  Significant personal information about the User like first names,
+ *  relationships, hobbies, important dates.
+ *
+ *  Value: "USER_PERSONAL_INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId_ManagedMemoryTopic_UserPersonalInfo;
+/**
+ *  Stated or implied likes, dislikes, preferred styles, or patterns.
+ *
+ *  Value: "USER_PREFERENCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId_ManagedMemoryTopic_UserPreferences;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1MetadataSchema.schemaType
@@ -4536,6 +4677,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Pairwi
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PairwiseSummarizationQualityResult_PairwiseChoice_Tie;
 
 // ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1PartialArg.nullValue
+
+/**
+ *  Null value.
+ *
+ *  Value: "NULL_VALUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PartialArg_NullValue_NullValue;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution.level
+
+/**
+ *  Media resolution set to high.
+ *
+ *  Value: "MEDIA_RESOLUTION_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution_Level_MediaResolutionHigh;
+/**
+ *  Media resolution set to low.
+ *
+ *  Value: "MEDIA_RESOLUTION_LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution_Level_MediaResolutionLow;
+/**
+ *  Media resolution set to medium.
+ *
+ *  Value: "MEDIA_RESOLUTION_MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution_Level_MediaResolutionMedium;
+/**
+ *  Media resolution has not been set.
+ *
+ *  Value: "MEDIA_RESOLUTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution_Level_MediaResolutionUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1PersistentResource.state
 
 /**
@@ -5044,6 +5223,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1Publis
  *  Value: "VERSION_STATE_UNSTABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1PublisherModel_VersionState_VersionStateUnstable;
+
+// ----------------------------------------------------------------------------
+// GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec.identityType
+
+/**
+ *  Use Agent Identity. The `service_account` field must not be set.
+ *
+ *  Value: "AGENT_IDENTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_IdentityType_AgentIdentity;
+/**
+ *  Default value. Use a custom service account if the `service_account` field
+ *  is set, otherwise use the default Vertex AI Reasoning Engine Service Agent
+ *  in the project. Same behavior as SERVICE_ACCOUNT.
+ *
+ *  Value: "IDENTITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_IdentityType_IdentityTypeUnspecified;
+/**
+ *  Use a custom service account if the `service_account` field is set,
+ *  otherwise use the default Vertex AI Reasoning Engine Service Agent in the
+ *  project.
+ *
+ *  Value: "SERVICE_ACCOUNT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_IdentityType_ServiceAccount;
 
 // ----------------------------------------------------------------------------
 // GTLRAiplatform_GoogleCloudAiplatformV1ReservationAffinity.reservationAffinityType
@@ -7590,6 +7795,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 
 /**
+ *  Response message for SessionService.AppendEvent.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1AppendEventResponse : GTLRObject
+@end
+
+
+/**
  *  Instance of a general artifact.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Artifact : GTLRObject
@@ -8163,7 +8375,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  Prediction: *
  *  `aiplatform.googleapis.com/prediction/online/accelerator/duty_cycle` *
  *  `aiplatform.googleapis.com/prediction/online/cpu/utilization` *
- *  `aiplatform.googleapis.com/prediction/online/request_count`
+ *  `aiplatform.googleapis.com/prediction/online/request_count` *
+ *  `pubsub.googleapis.com/subscription/num_undelivered_messages`
  */
 @property(nonatomic, copy, nullable) NSString *metricName;
 
@@ -8563,8 +8776,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  The name of the Model resource that produces the predictions via this job,
  *  must share the same ancestor Location. Starting this job has no impact on
  *  any existing deployments of the Model and their resources. Exactly one of
- *  model and unmanaged_container_model must be set. The model resource name may
- *  contain version id or version alias to specify the version. Example:
+ *  model, unmanaged_container_model, or endpoint must be set. The model
+ *  resource name may contain version id or version alias to specify the
+ *  version. Example:
  *  `projects/{project}/locations/{location}/models/{model}\@2` or
  *  `projects/{project}/locations/{location}/models/{model}\@golden` if no
  *  version is specified, the default version will be deployed. The model
@@ -8687,8 +8901,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 /**
  *  Contains model information necessary to perform batch prediction without
- *  requiring uploading to model registry. Exactly one of model and
- *  unmanaged_container_model must be set.
+ *  requiring uploading to model registry. Exactly one of model,
+ *  unmanaged_container_model, or endpoint must be set.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1UnmanagedContainerModel *unmanagedContainerModel;
 
@@ -10991,7 +11205,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  Example converted input: ``` { 'response': {'text': 'The answer is 4.'},
  *  'reference': {'text': '4'} } ``` Example python function: ``` def
  *  evaluate(instance: dict[str, Any]) -> float: if instance'response' ==
- *  instance'reference': return 1.0 return 0.0 ```
+ *  instance'reference': return 1.0 return 0.0 ``` CustomCodeExecutionSpec is
+ *  also supported in Batch Evaluation (EvalDataset RPC) and Tuning Evaluation.
+ *  Each line in the input jsonl file will be converted to dict[str, Any] and
+ *  passed to the evaluation function.
  */
 @property(nonatomic, copy, nullable) NSString *evaluationFunction;
 
@@ -14219,7 +14436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceInstanceData *reference;
 
 /**
- *  Required. Data used to populate placeholder `response` in a metric prompt
+ *  Optional. Data used to populate placeholder `response` in a metric prompt
  *  template.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceInstanceData *response;
@@ -14299,9 +14516,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 /** A list of events. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceAgentDataEvents *events;
-
-/** A JSON string containing a sequence of events. */
-@property(nonatomic, copy, nullable) NSString *eventsText;
 
 /** List of tools. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EvaluationInstanceAgentDataTools *tools GTLR_DEPRECATED;
@@ -15155,6 +15369,158 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *        fetch them all at once.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1Event_Labels : GTLRObject
+@end
+
+
+/**
+ *  Actions are parts of events that are executed by the agent.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EventActions : GTLRObject
+
+/**
+ *  Optional. Indicates that the event is updating an artifact. key is the
+ *  filename, value is the version.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EventActions_ArtifactDelta *artifactDelta;
+
+/**
+ *  Optional. The agent is escalating to a higher level agent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *escalate;
+
+/**
+ *  Optional. Will only be set by a tool response indicating tool request euc.
+ *  Struct key is the function call id since one function call response (from
+ *  model) could correspond to multiple function calls. Struct value is the
+ *  required auth config, which can be another struct.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EventActions_RequestedAuthConfigs *requestedAuthConfigs;
+
+/**
+ *  Optional. If true, it won't call model to summarize function response. Only
+ *  used for function_response event.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipSummarization;
+
+/**
+ *  Optional. Indicates that the event is updating the state with the given
+ *  delta.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EventActions_StateDelta *stateDelta;
+
+/** Optional. If set, the event transfers to the specified agent. */
+@property(nonatomic, copy, nullable) NSString *transferAgent;
+
+@end
+
+
+/**
+ *  Optional. Indicates that the event is updating an artifact. key is the
+ *  filename, value is the version.
+ *
+ *  @note This class is documented as having more properties of NSNumber (Uses
+ *        NSNumber of intValue.). Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EventActions_ArtifactDelta : GTLRObject
+@end
+
+
+/**
+ *  Optional. Will only be set by a tool response indicating tool request euc.
+ *  Struct key is the function call id since one function call response (from
+ *  model) could correspond to multiple function calls. Struct value is the
+ *  required auth config, which can be another struct.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EventActions_RequestedAuthConfigs : GTLRObject
+@end
+
+
+/**
+ *  Optional. Indicates that the event is updating the state with the given
+ *  delta.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EventActions_StateDelta : GTLRObject
+@end
+
+
+/**
+ *  Metadata relating to a LLM response event.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EventMetadata : GTLRObject
+
+/**
+ *  Optional. The branch of the event. The format is like
+ *  agent_1.agent_2.agent_3, where agent_1 is the parent of agent_2, and agent_2
+ *  is the parent of agent_3. Branch is used when multiple child agents
+ *  shouldn't see their siblings' conversation history.
+ */
+@property(nonatomic, copy, nullable) NSString *branch;
+
+/** The custom metadata of the LlmResponse. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EventMetadata_CustomMetadata *customMetadata;
+
+/** Optional. Metadata returned to client when grounding is enabled. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GroundingMetadata *groundingMetadata;
+
+/**
+ *  Optional. Flag indicating that LLM was interrupted when generating the
+ *  content. Usually it's due to user interruption during a bidi streaming.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *interrupted;
+
+/**
+ *  Optional. Set of ids of the long running function calls. Agent client will
+ *  know from this field about which function call is long running. Only valid
+ *  for function call event.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *longRunningToolIds;
+
+/**
+ *  Optional. Indicates whether the text content is part of a unfinished text
+ *  stream. Only used for streaming mode and when the content is plain text.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partial;
+
+/**
+ *  Optional. Indicates whether the response from the model is complete. Only
+ *  used for streaming mode.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *turnComplete;
+
+@end
+
+
+/**
+ *  The custom metadata of the LlmResponse.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1EventMetadata_CustomMetadata : GTLRObject
 @end
 
 
@@ -17252,6 +17618,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  */
 @property(nonatomic, strong, nullable) NSNumber *enableDirectBigtableAccess;
 
+/**
+ *  Optional. The zone where the underlying Bigtable cluster for the primary
+ *  Bigtable instance will be provisioned. Only the zone must be provided. For
+ *  example, only "us-central1-a" should be provided.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
 @end
 
 
@@ -18980,6 +19355,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. The partial argument value of the function call. If provided,
+ *  represents the arguments/fields that are streamed incrementally.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1PartialArg *> *partialArgs;
+
+/**
+ *  Optional. Whether this is the last part of the FunctionCall. If true,
+ *  another partial message for the current FunctionCall is expected to follow.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *willContinue;
+
 @end
 
 
@@ -19030,6 +19419,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  */
 @property(nonatomic, copy, nullable) NSString *mode;
 
+/**
+ *  Optional. When set to true, arguments of a single function call will be
+ *  streamed out in multiple parts/contents/responses. Partial parameter results
+ *  will be returned in the [FunctionCall.partial_args] field.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *streamFunctionCallArguments;
+
 @end
 
 
@@ -19052,8 +19450,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 /**
  *  Required. The name of the function to call. Must start with a letter or an
- *  underscore. Must be a-z, A-Z, 0-9, or contain underscores, dots and dashes,
- *  with a maximum length of 64.
+ *  underscore. Must be a-z, A-Z, 0-9, or contain underscores, dots, colons and
+ *  dashes, with a maximum length of 64.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -19658,6 +20056,192 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 
 /**
+ *  Request message for MemoryBankService.GenerateMemories. Maximum size is 8
+ *  MB.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequest : GTLRObject
+
+/**
+ *  Defines a direct source of content as the source content from which to
+ *  generate memories.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectContentsSource *directContentsSource;
+
+/**
+ *  Defines a direct source of memories that should be uploaded to Memory Bank.
+ *  This is similar to `CreateMemory`, but it allows for consolidation between
+ *  these new memories and existing memories for the same scope.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectMemoriesSource *directMemoriesSource;
+
+/**
+ *  Optional. If true, generated memories will not be consolidated with existing
+ *  memories; all generated memories will be added as new memories regardless of
+ *  whether they are duplicates of or contradictory to existing memories. By
+ *  default, memory consolidation is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableConsolidation;
+
+/**
+ *  Optional. If true, no revisions will be created for this request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableMemoryRevisions;
+
+/**
+ *  Optional. Timestamp of when the revision is considered expired. If not set,
+ *  the memory revision will be kept until manually deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *revisionExpireTime;
+
+/**
+ *  Optional. Labels to be applied to the generated memory revisions. For
+ *  example, you can use this to label a revision with its data source.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequest_RevisionLabels *revisionLabels;
+
+/**
+ *  Optional. The TTL for the revision. The expiration time is computed: now +
+ *  TTL.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *revisionTtl;
+
+/**
+ *  Optional. The scope of the memories that should be generated. Memories will
+ *  be consolidated across memories with the same scope. Must be provided unless
+ *  the scope is defined in the source content. If `scope` is provided, it will
+ *  override the scope defined in the source content. Scope values cannot
+ *  contain the wildcard character '*'.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequest_Scope *scope;
+
+/**
+ *  Defines a Vertex Session as the source content from which to generate
+ *  memories.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestVertexSessionSource *vertexSessionSource;
+
+@end
+
+
+/**
+ *  Optional. Labels to be applied to the generated memory revisions. For
+ *  example, you can use this to label a revision with its data source.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequest_RevisionLabels : GTLRObject
+@end
+
+
+/**
+ *  Optional. The scope of the memories that should be generated. Memories will
+ *  be consolidated across memories with the same scope. Must be provided unless
+ *  the scope is defined in the source content. If `scope` is provided, it will
+ *  override the scope defined in the source content. Scope values cannot
+ *  contain the wildcard character '*'.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequest_Scope : GTLRObject
+@end
+
+
+/**
+ *  Defines a direct source of content from which to generate the memories.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectContentsSource : GTLRObject
+
+/**
+ *  Required. The source content (i.e. chat history) to generate memories from.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectContentsSourceEvent *> *events;
+
+@end
+
+
+/**
+ *  A single piece of conversation from which to generate memories.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectContentsSourceEvent : GTLRObject
+
+/** Required. A single piece of content from which to generate memories. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Content *content;
+
+@end
+
+
+/**
+ *  Defines a direct source of memories that should be uploaded to Memory Bank
+ *  with consolidation.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectMemoriesSource : GTLRObject
+
+/**
+ *  Required. The direct memories to upload to Memory Bank. At most 5 direct
+ *  memories are allowed per request.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectMemoriesSourceDirectMemory *> *directMemories;
+
+@end
+
+
+/**
+ *  A direct memory to upload to Memory Bank.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestDirectMemoriesSourceDirectMemory : GTLRObject
+
+/** Required. The fact to consolidate with existing memories. */
+@property(nonatomic, copy, nullable) NSString *fact;
+
+/**
+ *  Optional. The topics that the consolidated memories should be associated
+ *  with.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId *> *topics;
+
+@end
+
+
+/**
+ *  Defines an Agent Engine Session from which to generate the memories. If
+ *  `scope` is not provided, the scope will be extracted from the Session (i.e.
+ *  {"user_id": sesison.user_id}).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateMemoriesRequestVertexSessionSource : GTLRObject
+
+/**
+ *  Optional. End time (exclusive) of the time range. If not set, the end time
+ *  is unbounded.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Required. The resource name of the Session to generate memories for. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sessions/{session}`
+ */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/**
+ *  Optional. Time range to define which session events should be used to
+ *  generate memories. Start time (inclusive) of the time range. If not set, the
+ *  start time is unbounded.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  Request message for DataFoundryService.GenerateSyntheticData.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1GenerateSyntheticDataRequest : GTLRObject
@@ -20040,6 +20624,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *thinkingBudget;
+
+/**
+ *  Optional. The number of thoughts tokens that the model should generate.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigThinkingConfig_ThinkingLevel_High
+ *        High thinking level. (Value: "HIGH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigThinkingConfig_ThinkingLevel_Low
+ *        Low thinking level. (Value: "LOW")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1GenerationConfigThinkingConfig_ThinkingLevel_ThinkingLevelUnspecified
+ *        Unspecified thinking level. (Value: "THINKING_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *thinkingLevel;
 
 @end
 
@@ -20659,6 +21256,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 /** Optional. The image output format for generated images. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ImageConfigImageOutputOptions *imageOutputOptions;
+
+/**
+ *  Optional. Specifies the size of generated images. Supported values are `1K`,
+ *  `2K`, `4K`. If not specified, the model will use default value `1K`.
+ */
+@property(nonatomic, copy, nullable) NSString *imageSize;
 
 /**
  *  Optional. Controls whether the model can generate people.
@@ -21790,6 +22393,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 
 /**
+ *  An extracted memory that is the intermediate result before consolidation.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1IntermediateExtractedMemory : GTLRObject
+
+/** Output only. The fact of the extracted memory. */
+@property(nonatomic, copy, nullable) NSString *fact;
+
+@end
+
+
+/**
  *  Request message for PredictionService.Invoke.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest : GTLRObject
@@ -22291,6 +22905,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 
 /**
+ *  Response message for SessionService.ListEvents.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sessionEvents" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListEventsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as ListEventsRequest.page_token to retrieve the
+ *  next page. Absence of this field indicates there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of events matching the request. Ordered by timestamp in ascending
+ *  order.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SessionEvent *> *sessionEvents;
+
+@end
+
+
+/**
  *  Response message for MetadataService.ListExecutions.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -22561,6 +23203,60 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 /**
  *  A token to retrieve next page of results. Pass to
  *  ListIndexesRequest.page_token to obtain that page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for MemoryBankService.ListMemories.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "memories" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListMemoriesResponse : GTLRCollectionObject
+
+/**
+ *  List of Memories in the requested page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Memory *> *memories;
+
+/**
+ *  A token to retrieve the next page of results. Pass to
+ *  ListMemoriesRequest.page_token to obtain that page.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Response message for MemoryBankService.ListMemoryRevisions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "memoryRevisions" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListMemoryRevisionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of Memory Revisions in the request page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1MemoryRevision *> *memoryRevisions;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -23129,6 +23825,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 
 
 /**
+ *  Response message for SessionService.ListSessions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sessions" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ListSessionsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as ListSessionsRequest.page_token to retrieve the
+ *  next page. Absence of this field indicates there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of sessions matching the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1Session *> *sessions;
+
+@end
+
+
+/**
  *  Response message for SpecialistPoolService.ListSpecialistPools.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -23528,7 +24251,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 @interface GTLRAiplatform_GoogleCloudAiplatformV1MachineSpec : GTLRObject
 
 /**
- *  The number of accelerators to attach to the machine.
+ *  The number of accelerators to attach to the machine. For accelerator
+ *  optimized machine types
+ *  (https://cloud.google.com/compute/docs/accelerator-optimized-machines), One
+ *  may set the accelerator_count from 1 to N for machine with N GPUs. If
+ *  accelerator_count is less than or equal to N / 2, Vertex will co-schedule
+ *  the replicas of the model into the same VM to save cost. For example, if the
+ *  machine type is a3-highgpu-8g, which has 8 H100 GPUs, one can set
+ *  accelerator_count to 1 to 8. If accelerator_count is 1, 2, 3, or 4, Vertex
+ *  will co-schedule 8, 4, 2, or 2 replicas of the model into the same VM to
+ *  save cost. When co-scheduling, CPU, memory and storage on the VM will be
+ *  distributed to replicas on the VM. For example, one can expect a
+ *  co-scheduled replica requesting 2 GPUs out of a 8-GPU VM will receive 25% of
+ *  the CPU, memory and storage of the VM. Note that the feature is not
+ *  compatible with multihost_gpu_node_count. When multihost_gpu_node_count is
+ *  set, the co-scheduling will not be enabled.
  *
  *  Uses NSNumber of intValue.
  */
@@ -23582,6 +24319,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *        TPU v5. (Value: "TPU_V5_LITEPOD")
  */
 @property(nonatomic, copy, nullable) NSString *acceleratorType;
+
+/**
+ *  Optional. Immutable. The Nvidia GPU partition size. When specified, the
+ *  requested accelerators will be partitioned into smaller GPU partitions. For
+ *  example, if the request is for 8 units of NVIDIA A100 GPUs, and
+ *  gpu_partition_size="1g.10gb", the service will create 8 * 7 = 56 partitioned
+ *  MIG instances. The partition size must be a value supported by the requested
+ *  accelerator. Refer to [Nvidia GPU
+ *  Partitioning](https://cloud.google.com/kubernetes-engine/docs/how-to/gpus-multi#multi-instance_gpu_partitions)
+ *  for the available partition sizes. If set, the accelerator_count should be
+ *  set to 1.
+ */
+@property(nonatomic, copy, nullable) NSString *gpuPartitionSize;
 
 /**
  *  Immutable. The type of the machine. See the [list of machine types supported
@@ -23676,6 +24426,352 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *value;
+
+@end
+
+
+/**
+ *  A memory.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Memory : GTLRObject
+
+/** Output only. Timestamp when this Memory was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the Memory.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Input only. If true, no revision will be created for this request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableMemoryRevisions;
+
+/** Optional. Display name of the Memory. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Timestamp of when this resource is considered expired. This is
+ *  *always* provided on output when `expiration` is set on input, regardless of
+ *  whether `expire_time` or `ttl` was provided.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/** Required. Semantic knowledge extracted from the source content. */
+@property(nonatomic, copy, nullable) NSString *fact;
+
+/**
+ *  Identifier. The resource name of the Memory. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/memories/{memory}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Input only. Timestamp of when the revision is considered expired.
+ *  If not set, the memory revision will be kept until manually deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *revisionExpireTime;
+
+/**
+ *  Optional. Input only. The labels to apply to the Memory Revision created as
+ *  a result of this request.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Memory_RevisionLabels *revisionLabels;
+
+/**
+ *  Optional. Input only. The TTL for the revision. The expiration time is
+ *  computed: now + TTL.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *revisionTtl;
+
+/**
+ *  Required. Immutable. The scope of the Memory. Memories are isolated within
+ *  their scope. The scope is defined when creating or generating memories.
+ *  Scope values cannot contain the wildcard character '*'.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Memory_Scope *scope;
+
+/** Optional. The Topics of the Memory. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId *> *topics;
+
+/**
+ *  Optional. Input only. The TTL for this resource. The expiration time is
+ *  computed: now + TTL.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+/** Output only. Timestamp when this Memory was most recently updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Input only. The labels to apply to the Memory Revision created as
+ *  a result of this request.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Memory_RevisionLabels : GTLRObject
+@end
+
+
+/**
+ *  Required. Immutable. The scope of the Memory. Memories are isolated within
+ *  their scope. The scope is defined when creating or generating memories.
+ *  Scope values cannot contain the wildcard character '*'.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Memory_Scope : GTLRObject
+@end
+
+
+/**
+ *  Configuration for organizing memories for a particular scope.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfig : GTLRObject
+
+/** Optional. Examples of how to generate memories for a particular scope. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExample *> *generateMemoriesExamples;
+
+/**
+ *  Optional. Topics of information that should be extracted from conversations
+ *  and stored as memories. If not set, then Memory Bank's default topics will
+ *  be used.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopic *> *memoryTopics;
+
+/**
+ *  Optional. The scope keys (i.e. 'user_id') for which to use this config. A
+ *  request's scope must include all of the provided keys for the config to be
+ *  used (order does not matter). If empty, then the config will be used for all
+ *  requests that do not have a more specific config. Only one default config is
+ *  allowed per Memory Bank.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scopeKeys;
+
+@end
+
+
+/**
+ *  An example of how to generate memories for a particular scope.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExample : GTLRObject
+
+/** A conversation source for the example. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSource *conversationSource;
+
+/**
+ *  Optional. The memories that are expected to be generated from the input
+ *  conversation. An empty list indicates that no memories are expected to be
+ *  generated for the input conversation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExampleGeneratedMemory *> *generatedMemories;
+
+@end
+
+
+/**
+ *  A conversation source for the example. This is similar to
+ *  `DirectContentsSource`.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSource : GTLRObject
+
+/** Optional. The input conversation events for the example. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSourceEvent *> *events;
+
+@end
+
+
+/**
+ *  A single conversation event.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExampleConversationSourceEvent : GTLRObject
+
+/** Required. The content of the event. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Content *content;
+
+@end
+
+
+/**
+ *  A memory generated by the operation.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigGenerateMemoriesExampleGeneratedMemory : GTLRObject
+
+/** Required. The fact to generate a memory from. */
+@property(nonatomic, copy, nullable) NSString *fact;
+
+/**
+ *  Optional. The list of topics that the memory should be associated with. For
+ *  example, use `custom_memory_topic_label = "jargon"` if the extracted memory
+ *  is an example of memory extraction for the custom topic `jargon`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId *> *topics;
+
+@end
+
+
+/**
+ *  A topic of information that should be extracted from conversations and
+ *  stored as memories.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopic : GTLRObject
+
+/** A custom memory topic defined by the developer. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic *customMemoryTopic;
+
+/** A managed memory topic defined by Memory Bank. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic *managedMemoryTopic;
+
+@end
+
+
+/**
+ *  A custom memory topic defined by the developer.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicCustomMemoryTopic : GTLRObject
+
+/**
+ *  Required. Description of the memory topic. This should explain what
+ *  information should be extracted for this topic.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. The label of the topic. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+@end
+
+
+/**
+ *  A managed memory topic defined by the system.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic : GTLRObject
+
+/**
+ *  Required. The managed topic.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic_ManagedTopicEnum_ExplicitInstructions
+ *        Information that the user explicitly requested to remember or forget.
+ *        (Value: "EXPLICIT_INSTRUCTIONS")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic_ManagedTopicEnum_KeyConversationDetails
+ *        Important milestones or conclusions within the dialogue. (Value:
+ *        "KEY_CONVERSATION_DETAILS")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic_ManagedTopicEnum_ManagedTopicEnumUnspecified
+ *        Unspecified topic. This value should not be used. (Value:
+ *        "MANAGED_TOPIC_ENUM_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic_ManagedTopicEnum_UserPersonalInfo
+ *        Significant personal information about the User like first names,
+ *        relationships, hobbies, important dates. (Value: "USER_PERSONAL_INFO")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfigMemoryTopicManagedMemoryTopic_ManagedTopicEnum_UserPreferences
+ *        Stated or implied likes, dislikes, preferred styles, or patterns.
+ *        (Value: "USER_PREFERENCES")
+ */
+@property(nonatomic, copy, nullable) NSString *managedTopicEnum;
+
+@end
+
+
+/**
+ *  A revision of a Memory.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MemoryRevision : GTLRObject
+
+/** Output only. Timestamp when this Memory Revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. Timestamp of when this resource is considered expired. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. The extracted memories from the source content before
+ *  consolidation when the memory was updated via GenerateMemories. This
+ *  information was used to modify an existing Memory via Consolidation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1IntermediateExtractedMemory *> *extractedMemories;
+
+/**
+ *  Output only. The fact of the Memory Revision. This corresponds to the `fact`
+ *  field of the parent Memory at the time of revision creation.
+ */
+@property(nonatomic, copy, nullable) NSString *fact;
+
+/**
+ *  Output only. The labels of the Memory Revision. These labels are applied to
+ *  the MemoryRevision when it is created based on
+ *  `GenerateMemoriesRequest.revision_labels`.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1MemoryRevision_Labels *labels;
+
+/**
+ *  Identifier. The resource name of the Memory Revision. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/memories/{memory}/revisions/{memory_revision}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Output only. The labels of the Memory Revision. These labels are applied to
+ *  the MemoryRevision when it is created based on
+ *  `GenerateMemoriesRequest.revision_labels`.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MemoryRevision_Labels : GTLRObject
+@end
+
+
+/**
+ *  A memory topic identifier. This will be used to label a Memory and to
+ *  restrict which topics are eligible for generation or retrieval.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId : GTLRObject
+
+/** Optional. The custom memory topic label. */
+@property(nonatomic, copy, nullable) NSString *customMemoryTopicLabel;
+
+/**
+ *  Optional. The managed memory topic.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId_ManagedMemoryTopic_ExplicitInstructions
+ *        Information that the user explicitly requested to remember or forget.
+ *        (Value: "EXPLICIT_INSTRUCTIONS")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId_ManagedMemoryTopic_KeyConversationDetails
+ *        Important milestones or conclusions within the dialogue. (Value:
+ *        "KEY_CONVERSATION_DETAILS")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId_ManagedMemoryTopic_ManagedTopicEnumUnspecified
+ *        Unspecified topic. This value should not be used. (Value:
+ *        "MANAGED_TOPIC_ENUM_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId_ManagedMemoryTopic_UserPersonalInfo
+ *        Significant personal information about the User like first names,
+ *        relationships, hobbies, important dates. (Value: "USER_PERSONAL_INFO")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1MemoryTopicId_ManagedMemoryTopic_UserPreferences
+ *        Stated or implied likes, dislikes, preferred styles, or patterns.
+ *        (Value: "USER_PREFERENCES")
+ */
+@property(nonatomic, copy, nullable) NSString *managedMemoryTopic;
 
 @end
 
@@ -28032,6 +29128,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Blob *inlineData;
 
+/** per part media resolution. Media resolution for the input media. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution *mediaResolution;
+
 /** Optional. The text content of the part. */
 @property(nonatomic, copy, nullable) NSString *text;
 
@@ -28057,6 +29156,78 @@ GTLR_DEPRECATED
  *  video data is presented in inline_data or file_data.
  */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1VideoMetadata *videoMetadata;
+
+@end
+
+
+/**
+ *  Partial argument value of the function call.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PartialArg : GTLRObject
+
+/**
+ *  Optional. Represents a boolean value.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  Required. A JSON Path (RFC 9535) to the argument being streamed.
+ *  https://datatracker.ietf.org/doc/html/rfc9535. e.g. "$.foo.bar[0].data".
+ */
+@property(nonatomic, copy, nullable) NSString *jsonPath;
+
+/**
+ *  Optional. Represents a null value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PartialArg_NullValue_NullValue
+ *        Null value. (Value: "NULL_VALUE")
+ */
+@property(nonatomic, copy, nullable) NSString *nullValue;
+
+/**
+ *  Optional. Represents a double value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numberValue;
+
+/** Optional. Represents a string value. */
+@property(nonatomic, copy, nullable) NSString *stringValue;
+
+/**
+ *  Optional. Whether this is not the last part of the same json_path. If true,
+ *  another PartialArg message for the current json_path is expected to follow.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *willContinue;
+
+@end
+
+
+/**
+ *  per part media resolution. Media resolution for the input media.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution : GTLRObject
+
+/**
+ *  The tokenization quality used for given media.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution_Level_MediaResolutionHigh
+ *        Media resolution set to high. (Value: "MEDIA_RESOLUTION_HIGH")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution_Level_MediaResolutionLow
+ *        Media resolution set to low. (Value: "MEDIA_RESOLUTION_LOW")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution_Level_MediaResolutionMedium
+ *        Media resolution set to medium. (Value: "MEDIA_RESOLUTION_MEDIUM")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1PartMediaResolution_Level_MediaResolutionUnspecified
+ *        Media resolution has not been set. (Value:
+ *        "MEDIA_RESOLUTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *level;
 
 @end
 
@@ -30379,6 +31550,28 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request message for MemoryBankService.PurgeMemories.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1PurgeMemoriesRequest : GTLRObject
+
+/**
+ *  Required. The standard list filter to determine which memories to purge.
+ *  More detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. If true, the memories will actually be purged. If false, the purge
+ *  request will be validated but not executed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+@end
+
+
+/**
  *  The spec of a Python packaged code.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1PythonPackageSpec : GTLRObject
@@ -31840,6 +33033,12 @@ GTLR_DEPRECATED
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngine : GTLRObject
 
+/**
+ *  Optional. Configuration for how Agent Engine sub-resources should manage
+ *  context.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpec *contextSpec;
+
 /** Output only. Timestamp when this ReasoningEngine was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -31899,6 +33098,144 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for how Agent Engine sub-resources should manage context.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpec : GTLRObject
+
+/**
+ *  Optional. Specification for a Memory Bank, which manages memories for the
+ *  Agent Engine.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfig *memoryBankConfig;
+
+@end
+
+
+/**
+ *  Specification for a Memory Bank.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfig : GTLRObject
+
+/**
+ *  Optional. Configuration for how to customize Memory Bank behavior for a
+ *  particular scope.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1MemoryBankCustomizationConfig *> *customizationConfigs;
+
+/**
+ *  If true, no memory revisions will be created for any requests to the Memory
+ *  Bank.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableMemoryRevisions;
+
+/**
+ *  Optional. Configuration for how to generate memories for the Memory Bank.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigGenerationConfig *generationConfig;
+
+/**
+ *  Optional. Configuration for how to perform similarity search on memories. If
+ *  not set, the Memory Bank will use the default embedding model
+ *  `text-embedding-005`.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigSimilaritySearchConfig *similaritySearchConfig;
+
+/**
+ *  Optional. Configuration for automatic TTL ("time-to-live") of the memories
+ *  in the Memory Bank. If not set, TTL will not be applied automatically. The
+ *  TTL can be explicitly set by modifying the `expire_time` of each Memory
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigTtlConfig *ttlConfig;
+
+@end
+
+
+/**
+ *  Configuration for how to generate memories.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigGenerationConfig : GTLRObject
+
+/**
+ *  Required. The model used to generate memories. Format:
+ *  `projects/{project}/locations/{location}/publishers/google/models/{model}`.
+ */
+@property(nonatomic, copy, nullable) NSString *model;
+
+@end
+
+
+/**
+ *  Configuration for how to perform similarity search on memories.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigSimilaritySearchConfig : GTLRObject
+
+/**
+ *  Required. The model used to generate embeddings to lookup similar memories.
+ *  Format:
+ *  `projects/{project}/locations/{location}/publishers/google/models/{model}`.
+ */
+@property(nonatomic, copy, nullable) NSString *embeddingModel;
+
+@end
+
+
+/**
+ *  Configuration for automatically setting the TTL ("time-to-live") of the
+ *  memories in the Memory Bank.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigTtlConfig : GTLRObject
+
+/**
+ *  Optional. The default TTL duration of the memories in the Memory Bank. This
+ *  applies to all operations that create or update a memory.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *defaultTtl;
+
+/**
+ *  Optional. The granular TTL configuration of the memories in the Memory Bank.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigTtlConfigGranularTtlConfig *granularTtlConfig;
+
+/**
+ *  Optional. The default TTL duration of the memory revisions in the Memory
+ *  Bank. This applies to all operations that create a memory revision. If not
+ *  set, a default TTL of 365 days will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *memoryRevisionDefaultTtl;
+
+@end
+
+
+/**
+ *  Configuration for TTL of the memories in the Memory Bank based on the action
+ *  that created or updated the memory.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineContextSpecMemoryBankConfigTtlConfigGranularTtlConfig : GTLRObject
+
+/** Optional. The TTL duration for memories uploaded via CreateMemory. */
+@property(nonatomic, strong, nullable) GTLRDuration *createTtl;
+
+/**
+ *  Optional. The TTL duration for memories newly generated via GenerateMemories
+ *  (GenerateMemoriesResponse.GeneratedMemory.Action.CREATED).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *generateCreatedTtl;
+
+/**
+ *  Optional. The TTL duration for memories updated via GenerateMemories
+ *  (GenerateMemoriesResponse.GeneratedMemory.Action.UPDATED). In the case of an
+ *  UPDATE action, the `expire_time` of the existing memory will be updated to
+ *  the new value (now + TTL).
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *generateUpdatedTtl;
+
+@end
+
+
+/**
  *  ReasoningEngine configurations
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec : GTLRObject
@@ -31918,6 +33255,39 @@ GTLR_DEPRECATED
 
 /** Optional. The specification of a Reasoning Engine deployment. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecDeploymentSpec *deploymentSpec;
+
+/**
+ *  Output only. The identity to use for the Reasoning Engine. It can contain
+ *  one of the following values: *
+ *  service-{project}\@gcp-sa-aiplatform-re.googleapis.com (for SERVICE_AGENT
+ *  identity type) * {name}\@{project}.gserviceaccount.com (for SERVICE_ACCOUNT
+ *  identity type) *
+ *  agents.global.{org}.system.id.goog/resources/aiplatform/projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}
+ *  (for AGENT_IDENTITY identity type)
+ */
+@property(nonatomic, copy, nullable) NSString *effectiveIdentity;
+
+/**
+ *  Optional. The identity type to use for the Reasoning Engine. If not
+ *  specified, the `service_account` field will be used if set, otherwise the
+ *  default Vertex AI Reasoning Engine Service Agent in the project will be
+ *  used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_IdentityType_AgentIdentity
+ *        Use Agent Identity. The `service_account` field must not be set.
+ *        (Value: "AGENT_IDENTITY")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_IdentityType_IdentityTypeUnspecified
+ *        Default value. Use a custom service account if the `service_account`
+ *        field is set, otherwise use the default Vertex AI Reasoning Engine
+ *        Service Agent in the project. Same behavior as SERVICE_ACCOUNT.
+ *        (Value: "IDENTITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpec_IdentityType_ServiceAccount
+ *        Use a custom service account if the `service_account` field is set,
+ *        otherwise use the default Vertex AI Reasoning Engine Service Agent in
+ *        the project. (Value: "SERVICE_ACCOUNT")
+ */
+@property(nonatomic, copy, nullable) NSString *identityType;
 
 /**
  *  Optional. User provided package spec of the ReasoningEngine. Ignored when
@@ -32066,6 +33436,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpec : GTLRObject
 
+/** Source code is in a Git repository managed by Developer Connect. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecDeveloperConnectSource *developerConnectSource;
+
 /** Source code is provided directly in the request. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecInlineSource *inlineSource;
 
@@ -32076,12 +33449,54 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Specifies the configuration for fetching source code from a Git repository
+ *  that is managed by Developer Connect. This includes the repository,
+ *  revision, and directory to use.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecDeveloperConnectConfig : GTLRObject
+
+/**
+ *  Required. Directory, relative to the source root, in which to run the build.
+ */
+@property(nonatomic, copy, nullable) NSString *dir;
+
+/**
+ *  Required. The Developer Connect Git repository link, formatted as `projects/
+ *  * /locations/ * /connections/ * /gitRepositoryLink/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *gitRepositoryLink;
+
+/**
+ *  Required. The revision to fetch from the Git repository such as a branch, a
+ *  tag, a commit SHA, or any Git ref.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
+
+@end
+
+
+/**
+ *  Specifies source code to be fetched from a Git repository managed through
+ *  the Developer Connect service.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecDeveloperConnectSource : GTLRObject
+
+/**
+ *  Required. The Developer Connect configuration that defines the specific
+ *  repository, revision, and directory to use as the source code root.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecDeveloperConnectConfig *config;
+
+@end
+
+
+/**
  *  Specifies source code provided as a byte stream.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1ReasoningEngineSpecSourceCodeSpecInlineSource : GTLRObject
 
 /**
- *  Required. Input only. The application source code archive, provided as a
+ *  Required. Input only. The application source code archive. It must be a
  *  compressed tarball (.tar.gz) file.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
@@ -32211,6 +33626,30 @@ GTLR_DEPRECATED
  *  Response message for IndexService.RemoveDatapoints
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1RemoveDatapointsResponse : GTLRObject
+@end
+
+
+/**
+ *  The configuration for the replicated voice to use.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1ReplicatedVoiceConfig : GTLRObject
+
+/**
+ *  Optional. The mimetype of the voice sample. The only currently supported
+ *  value is `audio/wav`. This represents 16-bit signed little-endian wav data,
+ *  with a 24kHz sampling rate. `mime_type` will default to `audio/wav` if not
+ *  set.
+ */
+@property(nonatomic, copy, nullable) NSString *mimeType;
+
+/**
+ *  Optional. The sample of the custom voice.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *voiceSampleAudio;
+
 @end
 
 
@@ -32558,6 +33997,160 @@ GTLR_DEPRECATED
 
 /** The contexts of the query. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RagContexts *contexts;
+
+@end
+
+
+/**
+ *  Request message for MemoryBankService.RetrieveMemories.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesRequest : GTLRObject
+
+/**
+ *  Optional. The standard list filter that will be applied to the retrieved
+ *  memories. More detail in [AIP-160](https://google.aip.dev/160). Supported
+ *  fields: * `fact` * `create_time` * `update_time` * `topics` (i.e.
+ *  `topics.custom_memory_topic_label: "example topic" OR
+ *  topics.managed_memory_topic: USER_PREFERENCES`)
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. The scope of the memories to retrieve. A memory must have exactly
+ *  the same scope (`Memory.scope`) as the scope provided here to be retrieved
+ *  (same keys and values). Order does not matter, but it is case-sensitive.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesRequest_Scope *scope;
+
+/** Parameters for semantic similarity search based retrieval. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesRequestSimilaritySearchParams *similaritySearchParams;
+
+/** Parameters for simple (non-similarity search) retrieval. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesRequestSimpleRetrievalParams *simpleRetrievalParams;
+
+@end
+
+
+/**
+ *  Required. The scope of the memories to retrieve. A memory must have exactly
+ *  the same scope (`Memory.scope`) as the scope provided here to be retrieved
+ *  (same keys and values). Order does not matter, but it is case-sensitive.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesRequest_Scope : GTLRObject
+@end
+
+
+/**
+ *  Parameters for semantic similarity search based retrieval.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesRequestSimilaritySearchParams : GTLRObject
+
+/**
+ *  Required. Query to use for similarity search retrieval. If provided, then
+ *  the parent ReasoningEngine must have
+ *  ReasoningEngineContextSpec.MemoryBankConfig.SimilaritySearchConfig set.
+ */
+@property(nonatomic, copy, nullable) NSString *searchQuery;
+
+/**
+ *  Optional. The maximum number of memories to return. The service may return
+ *  fewer than this value. If unspecified, at most 3 memories will be returned.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *topK;
+
+@end
+
+
+/**
+ *  Parameters for simple (non-similarity search) retrieval.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesRequestSimpleRetrievalParams : GTLRObject
+
+/**
+ *  Optional. The maximum number of memories to return. The service may return
+ *  fewer than this value. If unspecified, at most 3 memories will be returned.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `RetrieveMemories` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+@end
+
+
+/**
+ *  Response message for MemoryBankService.RetrieveMemories.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "retrievedMemories" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesResponse : GTLRCollectionObject
+
+/**
+ *  A token that can be sent as `page_token` to retrieve the next page. If this
+ *  field is omitted, there are no subsequent pages. This token is not set if
+ *  similarity search was used for retrieval.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The retrieved memories.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesResponseRetrievedMemory *> *retrievedMemories;
+
+@end
+
+
+/**
+ *  A retrieved memory.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RetrieveMemoriesResponseRetrievedMemory : GTLRObject
+
+/**
+ *  The distance between the query and the retrieved Memory. Smaller values
+ *  indicate more similar memories. This is only set if similarity search was
+ *  used for retrieval.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *distance;
+
+/** The retrieved Memory. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Memory *memory;
+
+@end
+
+
+/**
+ *  Request message for MemoryBankService.RollbackMemory.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1RollbackMemoryRequest : GTLRObject
+
+/**
+ *  Required. The ID of the revision to rollback to.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *targetRevisionId;
 
 @end
 
@@ -36247,6 +37840,51 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Defines data for an application builder.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecAppBuilderData : GTLRObject
+
+/**
+ *  Serialized state of the code repository. This string will typically contain
+ *  a JSON representation of the UI's CodeRepositoryService state (files,
+ *  folders, content, and any metadata). The UI is responsible for serialization
+ *  and deserialization.
+ */
+@property(nonatomic, copy, nullable) NSString *codeRepositoryState;
+
+/** Linked resources attached to the application by the user. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecAppBuilderDataLinkedResource *> *linkedResources;
+
+@end
+
+
+/**
+ *  A linked resource attached to the application by the user.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecAppBuilderDataLinkedResource : GTLRObject
+
+/** A user-friendly name for the data source shown in the UI. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The unique resource name of the data source. The format is determined by the
+ *  'type' field. For type "SAVED_PROMPT":
+ *  projects/{project}/locations/{location}/datasets/{dataset} For type
+ *  "AI_AGENT": projects/{project}/locations/{location}/agents/{agent}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The type of the linked resource. e.g., "SAVED_PROMPT", "AI_AGENT" This
+ *  string corresponds to the name of the LinkedResourceType enum member. See:
+ *  google3/cloud/console/web/ai/platform/llm/prompts/build/services/specs_repository_service/linked_resources/linked_resource.ts
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Prompt variation that embeds preambles to prompt string.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecMultimodalPrompt : GTLRObject
@@ -36344,6 +37982,9 @@ GTLR_DEPRECATED
  *  Prompt variation that stores preambles in separate fields.
  */
 @interface GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecStructuredPrompt : GTLRObject
+
+/** Data for app builder use case. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1SchemaPromptSpecAppBuilderData *appBuilderData;
 
 /** Preamble: The context of the prompt. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Content *context;
@@ -39620,6 +41261,126 @@ GTLR_DEPRECATED
  *  after creation, but only specify the `service_account` inside the job.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
+
+@end
+
+
+/**
+ *  A session contains a set of actions between users and Vertex agents.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Session : GTLRObject
+
+/** Output only. Timestamp when the session was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The display name of the session. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Timestamp of when this session is considered expired. This is
+ *  *always* provided on output, regardless of what was sent on input. The
+ *  minimum value is 24 hours from the time of creation.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  The labels with user-defined metadata to organize your Sessions. Label keys
+ *  and values can be no longer than 64 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. See https://goo.gl/xmQnxf for more
+ *  information and examples of labels.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Session_Labels *labels;
+
+/**
+ *  Identifier. The resource name of the session. Format:
+ *  'projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sessions/{session}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Session specific memory which stores key conversation points. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Session_SessionState *sessionState;
+
+/**
+ *  Optional. Input only. The TTL for this session. The minimum value is 24
+ *  hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+/** Output only. Timestamp when the session was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** Required. Immutable. String id provided by the user */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  The labels with user-defined metadata to organize your Sessions. Label keys
+ *  and values can be no longer than 64 characters (Unicode codepoints), can
+ *  only contain lowercase letters, numeric characters, underscores and dashes.
+ *  International characters are allowed. See https://goo.gl/xmQnxf for more
+ *  information and examples of labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Session_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Session specific memory which stores key conversation points.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1Session_SessionState : GTLRObject
+@end
+
+
+/**
+ *  An event represents a message from either the user or agent.
+ */
+@interface GTLRAiplatform_GoogleCloudAiplatformV1SessionEvent : GTLRObject
+
+/** Optional. Actions executed by the agent. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EventActions *actions;
+
+/** Required. The name of the agent that sent the event, or user. */
+@property(nonatomic, copy, nullable) NSString *author;
+
+/** Optional. Content of the event provided by the author. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1Content *content;
+
+/** Optional. Error code if the response is an error. Code varies by model. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Optional. Error message if the response is an error. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/** Optional. Metadata relating to this event. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1EventMetadata *eventMetadata;
+
+/**
+ *  Required. The invocation id of the event, multiple events can have the same
+ *  invocation id.
+ */
+@property(nonatomic, copy, nullable) NSString *invocationId;
+
+/**
+ *  Identifier. The resource name of the event.
+ *  Format:`projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sessions/{session}/events/{event}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Timestamp when the event was created on client side. */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
 @end
 
@@ -44485,6 +46246,12 @@ GTLR_DEPRECATED
 /** The configuration for a prebuilt voice. */
 @property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1PrebuiltVoiceConfig *prebuiltVoiceConfig;
 
+/**
+ *  Optional. The configuration for a replicated voice. This enables users to
+ *  replicate a voice from an audio sample.
+ */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleCloudAiplatformV1ReplicatedVoiceConfig *replicatedVoiceConfig;
+
 @end
 
 
@@ -44974,8 +46741,9 @@ GTLR_DEPRECATED
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

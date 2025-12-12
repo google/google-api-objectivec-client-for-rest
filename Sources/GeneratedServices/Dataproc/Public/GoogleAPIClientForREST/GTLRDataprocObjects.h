@@ -2812,6 +2812,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** Optional. The config for Dataproc metrics. */
 @property(nonatomic, strong, nullable) GTLRDataproc_MetricConfig *dataprocMetricConfig;
 
+/**
+ *  Optional. A Cloud Storage bucket used to collect checkpoint diagnostic data
+ *  (https://cloud.google.com/dataproc/docs/support/diagnose-clusters#checkpoint_diagnostic_data).
+ *  If you do not specify a diagnostic bucket, Cloud Dataproc will use the
+ *  Dataproc temp bucket to collect the checkpoint diagnostic data. This field
+ *  requires a Cloud Storage bucket name, not a gs://... URI to a Cloud Storage
+ *  bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *diagnosticBucket;
+
 /** Optional. Encryption settings for the cluster. */
 @property(nonatomic, strong, nullable) GTLRDataproc_EncryptionConfig *encryptionConfig;
 

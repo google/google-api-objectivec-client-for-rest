@@ -429,7 +429,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource of the VpcFlowLogsConfig, in one of the
- *  following formats: - For project-level resourcs:
+ *  following formats: - For project-level resources:
  *  `projects/{project_id}/locations/global` - For organization-level resources:
  *  `organizations/{organization_id}/locations/global`
  */
@@ -441,7 +441,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all `VpcFlowLogsConfigs` in a given organization.
  *
  *  @param parent Required. The parent resource of the VpcFlowLogsConfig, in one
- *    of the following formats: - For project-level resourcs:
+ *    of the following formats: - For project-level resources:
  *    `projects/{project_id}/locations/global` - For organization-level
  *    resources: `organizations/{organization_id}/locations/global`
  *
@@ -1330,7 +1330,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The parent resource of the VpcFlowLogsConfig, in one of the
- *  following formats: - For project-level resourcs:
+ *  following formats: - For project-level resources:
  *  `projects/{project_id}/locations/global` - For organization-level resources:
  *  `organizations/{organization_id}/locations/global`
  */
@@ -1342,7 +1342,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Lists all `VpcFlowLogsConfigs` in a given project.
  *
  *  @param parent Required. The parent resource of the VpcFlowLogsConfig, in one
- *    of the following formats: - For project-level resourcs:
+ *    of the following formats: - For project-level resources:
  *    `projects/{project_id}/locations/global` - For organization-level
  *    resources: `organizations/{organization_id}/locations/global`
  *

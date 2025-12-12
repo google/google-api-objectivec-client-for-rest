@@ -183,6 +183,44 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Adds a POSIX account and returns the profile information. Default POSIX
+ *  account information is set when no username and UID exist as part of the
+ *  login profile.
+ *
+ *  Method: oslogin.users.projects.provisionPosixAccount
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudOSLoginCloudPlatform
+ *    @c kGTLRAuthScopeCloudOSLoginCompute
+ */
+@interface GTLRCloudOSLoginQuery_UsersProjectsProvisionPosixAccount : GTLRCloudOSLoginQuery
+
+/**
+ *  Required. The unique ID for the user in format
+ *  `users/{user}/projects/{project}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudOSLogin_PosixAccount.
+ *
+ *  Adds a POSIX account and returns the profile information. Default POSIX
+ *  account information is set when no username and UID exist as part of the
+ *  login profile.
+ *
+ *  @param object The @c GTLRCloudOSLogin_ProvisionPosixAccountRequest to
+ *    include in the query.
+ *  @param name Required. The unique ID for the user in format
+ *    `users/{user}/projects/{project}`.
+ *
+ *  @return GTLRCloudOSLoginQuery_UsersProjectsProvisionPosixAccount
+ */
++ (instancetype)queryWithObject:(GTLRCloudOSLogin_ProvisionPosixAccountRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Create an SSH public key
  *
  *  Method: oslogin.users.sshPublicKeys.create

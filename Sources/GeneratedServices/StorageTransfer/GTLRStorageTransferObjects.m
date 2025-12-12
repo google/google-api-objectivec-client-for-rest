@@ -190,7 +190,7 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 
 @implementation GTLRStorageTransfer_AwsS3Data
 @dynamic awsAccessKey, bucketName, cloudfrontDomain, credentialsSecret,
-         managedPrivateNetwork, path, roleArn;
+         managedPrivateNetwork, path, privateNetworkService, roleArn;
 @end
 
 
@@ -201,7 +201,7 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 
 @implementation GTLRStorageTransfer_AzureBlobStorageData
 @dynamic azureCredentials, container, credentialsSecret,
-         federatedIdentityConfig, path, storageAccount;
+         federatedIdentityConfig, path, privateNetworkService, storageAccount;
 @end
 
 
@@ -471,7 +471,7 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
 
 @implementation GTLRStorageTransfer_ObjectConditions
 @dynamic excludePrefixes, includePrefixes, lastModifiedBefore,
-         lastModifiedSince, maxTimeElapsedSinceLastModification,
+         lastModifiedSince, matchGlob, maxTimeElapsedSinceLastModification,
          minTimeElapsedSinceLastModification;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

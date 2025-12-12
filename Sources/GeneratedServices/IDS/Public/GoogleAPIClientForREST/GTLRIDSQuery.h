@@ -307,8 +307,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRIDSQuery_ProjectsLocationsList : GTLRIDSQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -483,9 +483,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

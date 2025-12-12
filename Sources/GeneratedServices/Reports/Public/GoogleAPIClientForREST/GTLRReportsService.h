@@ -27,13 +27,13 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scopes
 
 /**
- *  Authorization scope: View audit reports for your G Suite domain
+ *  Authorization scope: View audit reports for your Google Workspace domain
  *
  *  Value "https://www.googleapis.com/auth/admin.reports.audit.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeReportsReportsAuditReadonly;
 /**
- *  Authorization scope: View usage reports for your G Suite domain
+ *  Authorization scope: View usage reports for your Google Workspace domain
  *
  *  Value "https://www.googleapis.com/auth/admin.reports.usage.readonly"
  */

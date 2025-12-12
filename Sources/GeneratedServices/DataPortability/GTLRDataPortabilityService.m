@@ -70,6 +70,7 @@ NSString * const kGTLRAuthScopeDataPortabilityStreetviewImagery = @"https://www.
 NSString * const kGTLRAuthScopeDataPortabilityYoutubeChannel   = @"https://www.googleapis.com/auth/dataportability.youtube.channel";
 NSString * const kGTLRAuthScopeDataPortabilityYoutubeClips     = @"https://www.googleapis.com/auth/dataportability.youtube.clips";
 NSString * const kGTLRAuthScopeDataPortabilityYoutubeComments  = @"https://www.googleapis.com/auth/dataportability.youtube.comments";
+NSString * const kGTLRAuthScopeDataPortabilityYoutubeConversations = @"https://www.googleapis.com/auth/dataportability.youtube.conversations";
 NSString * const kGTLRAuthScopeDataPortabilityYoutubeLiveChat  = @"https://www.googleapis.com/auth/dataportability.youtube.live_chat";
 NSString * const kGTLRAuthScopeDataPortabilityYoutubeMusic     = @"https://www.googleapis.com/auth/dataportability.youtube.music";
 NSString * const kGTLRAuthScopeDataPortabilityYoutubePlayable  = @"https://www.googleapis.com/auth/dataportability.youtube.playable";

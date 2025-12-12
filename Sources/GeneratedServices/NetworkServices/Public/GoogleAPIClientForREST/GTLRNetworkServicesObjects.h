@@ -180,6 +180,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalan
 // GTLRNetworkServices_AuthzExtension.wireFormat
 
 /**
+ *  The extension service uses Envoy's `ext_authz` gRPC API. The backend service
+ *  for the extension must use HTTP2 or H2C as the protocol. `EXT_AUTHZ_GRPC` is
+ *  only supported for regional `AuthzExtension` resources.
+ *
+ *  Value: "EXT_AUTHZ_GRPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtAuthzGrpc;
+/**
  *  The extension service uses ext_proc gRPC API over a gRPC stream. This is the
  *  default value if the wire format is not specified. The backend service for
  *  the extension must use HTTP2 or H2C as the protocol. All `supported_events`
@@ -360,8 +368,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_ExtensionChainExtension_
 
 /**
  *  Envoy will insert default internal debug headers into upstream requests:
- *  x-envoy-attempt-count x-envoy-is-timeout-retry
- *  x-envoy-expected-rq-timeout-ms x-envoy-original-path
+ *  x-envoy-attempt-count, x-envoy-is-timeout-retry,
+ *  x-envoy-expected-rq-timeout-ms, x-envoy-original-path,
  *  x-envoy-upstream-stream-duration-ms
  *
  *  Value: "DEBUG_HEADERS"
@@ -668,8 +676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_LoggingConfig_LogSeverit
 
 /**
  *  Envoy will insert default internal debug headers into upstream requests:
- *  x-envoy-attempt-count x-envoy-is-timeout-retry
- *  x-envoy-expected-rq-timeout-ms x-envoy-original-path
+ *  x-envoy-attempt-count, x-envoy-is-timeout-retry,
+ *  x-envoy-expected-rq-timeout-ms, x-envoy-original-path,
  *  x-envoy-upstream-stream-duration-ms
  *
  *  Value: "DEBUG_HEADERS"
@@ -992,10 +1000,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
- *  Optional. The format of communication supported by the callout extension. If
- *  not specified, the default value `EXT_PROC_GRPC` is used.
+ *  Optional. The format of communication supported by the callout extension.
+ *  This field is supported only for regional `AuthzExtension` resources. If not
+ *  specified, the default value `EXT_PROC_GRPC` is used. Global
+ *  `AuthzExtension` resources use the `EXT_PROC_GRPC` wire format.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetworkServices_AuthzExtension_WireFormat_ExtAuthzGrpc The
+ *        extension service uses Envoy's `ext_authz` gRPC API. The backend
+ *        service for the extension must use HTTP2 or H2C as the protocol.
+ *        `EXT_AUTHZ_GRPC` is only supported for regional `AuthzExtension`
+ *        resources. (Value: "EXT_AUTHZ_GRPC")
  *    @arg @c kGTLRNetworkServices_AuthzExtension_WireFormat_ExtProcGrpc The
  *        extension service uses ext_proc gRPC API over a gRPC stream. This is
  *        the default value if the wire format is not specified. The backend
@@ -1269,7 +1284,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 /**
  *  Identifier. Name of the EndpointPolicy resource. It matches pattern
- *  `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
+ *  `projects/{project}/locations/ * /endpointPolicies/{endpoint_policy}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1462,6 +1477,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  last a letter or a number. This field is required except for AuthzExtension.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. When set to `TRUE`, enables `observability_mode` on the `ext_proc`
+ *  filter. This makes `ext_proc` calls asynchronous. Envoy doesn't check for
+ *  the response from `ext_proc` calls. For more information about the filter,
+ *  see:
+ *  https://www.envoyproxy.io/docs/envoy/v1.32.3/api-v3/extensions/filters/http/ext_proc/v3/ext_proc.proto#extensions-filters-http-ext-proc-v3-externalprocessor
+ *  This field is helpful when you want to try out the extension in async
+ *  log-only mode. Supported by regional `LbTrafficExtension` and
+ *  `LbRouteExtension` resources. Only `STREAMED` (default) body processing mode
+ *  is supported.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *observabilityMode;
 
 /**
  *  Optional. Configures the send mode for request body processing. The field
@@ -1657,8 +1687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  Likely values:
  *    @arg @c kGTLRNetworkServices_Gateway_EnvoyHeaders_DebugHeaders Envoy will
  *        insert default internal debug headers into upstream requests:
- *        x-envoy-attempt-count x-envoy-is-timeout-retry
- *        x-envoy-expected-rq-timeout-ms x-envoy-original-path
+ *        x-envoy-attempt-count, x-envoy-is-timeout-retry,
+ *        x-envoy-expected-rq-timeout-ms, x-envoy-original-path,
  *        x-envoy-upstream-stream-duration-ms (Value: "DEBUG_HEADERS")
  *    @arg @c kGTLRNetworkServices_Gateway_EnvoyHeaders_EnvoyHeadersUnspecified
  *        Defaults to NONE. (Value: "ENVOY_HEADERS_UNSPECIFIED")
@@ -1849,8 +1879,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. Gateways defines a list of gateways this GrpcRoute is attached to,
  *  as one of the routing rules to route the requests served by the gateway.
- *  Each gateway reference should match the pattern: `projects/ *
- *  /locations/global/gateways/`
+ *  Each gateway reference should match the pattern: `projects/ * /locations/ *
+ *  /gateways/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *gateways;
 
@@ -1883,13 +1913,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. Meshes defines a list of meshes this GrpcRoute is attached to, as
  *  one of the routing rules to route the requests served by the mesh. Each mesh
- *  reference should match the pattern: `projects/ * /locations/global/meshes/`
+ *  reference should match the pattern: `projects/ * /locations/ * /meshes/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
  *  Identifier. Name of the GrpcRoute resource. It matches pattern `projects/ *
- *  /locations/global/grpcRoutes/`
+ *  /locations/ * /grpcRoutes/`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2247,8 +2277,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. Gateways defines a list of gateways this HttpRoute is attached to,
  *  as one of the routing rules to route the requests served by the gateway.
- *  Each gateway reference should match the pattern: `projects/ *
- *  /locations/global/gateways/`
+ *  Each gateway reference should match the pattern: `projects/ * /locations/ *
+ *  /gateways/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *gateways;
 
@@ -2279,14 +2309,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. Meshes defines a list of meshes this HttpRoute is attached to, as
  *  one of the routing rules to route the requests served by the mesh. Each mesh
- *  reference should match the pattern: `projects/ * /locations/global/meshes/`
- *  The attached Mesh should be of a type SIDECAR
+ *  reference should match the pattern: `projects/ * /locations/ * /meshes/` The
+ *  attached Mesh should be of a type SIDECAR
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
  *  Identifier. Name of the HttpRoute resource. It matches pattern `projects/ *
- *  /locations/global/httpRoutes/http_route_name>`.
+ *  /locations/ * /httpRoutes/http_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3744,8 +3774,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -4091,8 +4122,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  Likely values:
  *    @arg @c kGTLRNetworkServices_Mesh_EnvoyHeaders_DebugHeaders Envoy will
  *        insert default internal debug headers into upstream requests:
- *        x-envoy-attempt-count x-envoy-is-timeout-retry
- *        x-envoy-expected-rq-timeout-ms x-envoy-original-path
+ *        x-envoy-attempt-count, x-envoy-is-timeout-retry,
+ *        x-envoy-expected-rq-timeout-ms, x-envoy-original-path,
  *        x-envoy-upstream-stream-duration-ms (Value: "DEBUG_HEADERS")
  *    @arg @c kGTLRNetworkServices_Mesh_EnvoyHeaders_EnvoyHeadersUnspecified
  *        Defaults to NONE. (Value: "ENVOY_HEADERS_UNSPECIFIED")
@@ -4118,7 +4149,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 
 /**
  *  Identifier. Name of the Mesh resource. It matches pattern `projects/ *
- *  /locations/global/meshes/`.
+ *  /locations/ * /meshes/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4715,8 +4746,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. Gateways defines a list of gateways this TcpRoute is attached to,
  *  as one of the routing rules to route the requests served by the gateway.
- *  Each gateway reference should match the pattern: `projects/ *
- *  /locations/global/gateways/`
+ *  Each gateway reference should match the pattern: `projects/ * /locations/ *
+ *  /gateways/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *gateways;
 
@@ -4726,14 +4757,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. Meshes defines a list of meshes this TcpRoute is attached to, as
  *  one of the routing rules to route the requests served by the mesh. Each mesh
- *  reference should match the pattern: `projects/ * /locations/global/meshes/`
- *  The attached Mesh should be of a type SIDECAR
+ *  reference should match the pattern: `projects/ * /locations/ * /meshes/` The
+ *  attached Mesh should be of a type SIDECAR
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
  *  Identifier. Name of the TcpRoute resource. It matches pattern `projects/ *
- *  /locations/global/tcpRoutes/tcp_route_name>`.
+ *  /locations/ * /tcpRoutes/tcp_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4915,8 +4946,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. Gateways defines a list of gateways this TlsRoute is attached to,
  *  as one of the routing rules to route the requests served by the gateway.
- *  Each gateway reference should match the pattern: `projects/ *
- *  /locations/global/gateways/`
+ *  Each gateway reference should match the pattern: `projects/ * /locations/ *
+ *  /gateways/`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *gateways;
 
@@ -4926,14 +4957,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /**
  *  Optional. Meshes defines a list of meshes this TlsRoute is attached to, as
  *  one of the routing rules to route the requests served by the mesh. Each mesh
- *  reference should match the pattern: `projects/ * /locations/global/meshes/`
- *  The attached Mesh should be of a type SIDECAR
+ *  reference should match the pattern: `projects/ * /locations/ * /meshes/` The
+ *  attached Mesh should be of a type SIDECAR
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *meshes;
 
 /**
  *  Identifier. Name of the TlsRoute resource. It matches pattern `projects/ *
- *  /locations/global/tlsRoutes/tls_route_name>`.
+ *  /locations/ * /tlsRoutes/tls_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

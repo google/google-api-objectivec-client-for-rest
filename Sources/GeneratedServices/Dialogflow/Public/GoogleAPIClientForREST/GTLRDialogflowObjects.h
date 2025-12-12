@@ -271,6 +271,8 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPhrase;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPromptSecuritySettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SearchConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettings;
@@ -2494,6 +2496,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Safe
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettings_DefaultBannedPhraseMatchStrategy_WordMatch;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter.category
+
+/**
+ *  Dangerous content.
+ *
+ *  Value: "DANGEROUS_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_DangerousContent;
+/**
+ *  Harassment.
+ *
+ *  Value: "HARASSMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_Harassment;
+/**
+ *  Hate speech.
+ *
+ *  Value: "HATE_SPEECH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_HateSpeech;
+/**
+ *  Unspecified.
+ *
+ *  Value: "SAFETY_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_SafetyCategoryUnspecified;
+/**
+ *  Sexually explicit content.
+ *
+ *  Value: "SEXUALLY_EXPLICIT_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_SexuallyExplicitContent;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter.filterLevel
+
+/**
+ *  Block a few suspicious texts.
+ *
+ *  Value: "BLOCK_FEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockFew;
+/**
+ *  Block most suspicious texts.
+ *
+ *  Value: "BLOCK_MOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockMost;
+/**
+ *  Block no text -- effectively disables the category.
+ *
+ *  Value: "BLOCK_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockNone;
+/**
+ *  Block some suspicious texts.
+ *
+ *  Value: "BLOCK_SOME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockSome;
+/**
+ *  Unspecified -- uses default sensitivity levels.
+ *
+ *  Value: "SAFETY_FILTER_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_SafetyFilterLevelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings.purgeDataTypes
 
 /**
@@ -3212,7 +3282,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1C
 
 /**
  *  An existing conversation has closed. This is fired when a telephone call is
- *  terminated, or a conversation is closed via the API.
+ *  terminated, or a conversation is closed via the API. The event is fired for
+ *  every CompleteConversation call, even if the conversation is already closed.
  *
  *  Value: "CONVERSATION_FINISHED"
  */
@@ -4150,7 +4221,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ClearS
 
 /**
  *  An existing conversation has closed. This is fired when a telephone call is
- *  terminated, or a conversation is closed via the API.
+ *  terminated, or a conversation is closed via the API. The event is fired for
+ *  every CompleteConversation call, even if the conversation is already closed.
  *
  *  Value: "CONVERSATION_FINISHED"
  */
@@ -15372,8 +15444,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  */
 @property(nonatomic, copy, nullable) NSString *defaultBannedPhraseMatchStrategy;
 
+/**
+ *  Optional. Immutable. Default RAI settings to be annotated on the agent, so
+ *  that users will be able to restore their RAI configurations to the default
+ *  settings. Read-only field for the API proto only.
+ */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettings *defaultRaiSettings;
+
 /** Optional. Settings for prompt security checks. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPromptSecuritySettings *promptSecuritySettings;
+
+/** Optional. Settings for Responsible AI checks. */
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettings *raiSettings;
 
 @end
 
@@ -15403,6 +15485,61 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enablePromptSecurity;
+
+@end
+
+
+/**
+ *  Settings for Responsible AI.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettings : GTLRObject
+
+/** Optional. RAI blocking configurations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter *> *categoryFilters;
+
+@end
+
+
+/**
+ *  Configuration of the sensitivity level for blocking an RAI category.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter : GTLRObject
+
+/**
+ *  RAI category to configure.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_DangerousContent
+ *        Dangerous content. (Value: "DANGEROUS_CONTENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_Harassment
+ *        Harassment. (Value: "HARASSMENT")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_HateSpeech
+ *        Hate speech. (Value: "HATE_SPEECH")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_SafetyCategoryUnspecified
+ *        Unspecified. (Value: "SAFETY_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_SexuallyExplicitContent
+ *        Sexually explicit content. (Value: "SEXUALLY_EXPLICIT_CONTENT")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  Blocking sensitivity level to configure for the RAI category.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockFew
+ *        Block a few suspicious texts. (Value: "BLOCK_FEW")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockMost
+ *        Block most suspicious texts. (Value: "BLOCK_MOST")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockNone
+ *        Block no text -- effectively disables the category. (Value:
+ *        "BLOCK_NONE")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockSome
+ *        Block some suspicious texts. (Value: "BLOCK_SOME")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_SafetyFilterLevelUnspecified
+ *        Unspecified -- uses default sensitivity levels. (Value:
+ *        "SAFETY_FILTER_LEVEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *filterLevel;
 
 @end
 
@@ -18598,8 +18735,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationFinished
  *        An existing conversation has closed. This is fired when a telephone
- *        call is terminated, or a conversation is closed via the API. (Value:
- *        "CONVERSATION_FINISHED")
+ *        call is terminated, or a conversation is closed via the API. The event
+ *        is fired for every CompleteConversation call, even if the conversation
+ *        is already closed. (Value: "CONVERSATION_FINISHED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2beta1ConversationEvent_Type_ConversationStarted
  *        A new conversation has been opened. This is fired when a telephone
  *        call is answered, or a conversation is created via the API. (Value:
@@ -22139,8 +22277,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
  *  Likely values:
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationFinished
  *        An existing conversation has closed. This is fired when a telephone
- *        call is terminated, or a conversation is closed via the API. (Value:
- *        "CONVERSATION_FINISHED")
+ *        call is terminated, or a conversation is closed via the API. The event
+ *        is fired for every CompleteConversation call, even if the conversation
+ *        is already closed. (Value: "CONVERSATION_FINISHED")
  *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowV2ConversationEvent_Type_ConversationStarted
  *        A new conversation has been opened. This is fired when a telephone
  *        call is answered, or a conversation is created via the API. (Value:
@@ -25321,8 +25460,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

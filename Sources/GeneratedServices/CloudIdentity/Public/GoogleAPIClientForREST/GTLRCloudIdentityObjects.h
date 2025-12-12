@@ -1519,12 +1519,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentity_UserInvitation_State_State
 @property(nonatomic, strong, nullable) NSNumber *isBulkDataEntryAnalysisEnabled;
 
 /**
- *  Current state of [Chrome
+ *  Deprecated: This field is not used for Chrome version 118 and later. Current
+ *  state of [Chrome
  *  Cleanup](https://chromeenterprise.google/policies/#ChromeCleanupEnabled).
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *isChromeCleanupEnabled;
+@property(nonatomic, strong, nullable) NSNumber *isChromeCleanupEnabled GTLR_DEPRECATED;
 
 /**
  *  Current state of [Chrome Remote Desktop

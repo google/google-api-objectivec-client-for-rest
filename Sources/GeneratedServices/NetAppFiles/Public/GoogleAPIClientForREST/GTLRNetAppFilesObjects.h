@@ -26,11 +26,15 @@
 @class GTLRNetAppFiles_BackupRetentionPolicy;
 @class GTLRNetAppFiles_BackupVault;
 @class GTLRNetAppFiles_BackupVault_Labels;
+@class GTLRNetAppFiles_BlockDevice;
 @class GTLRNetAppFiles_CacheConfig;
 @class GTLRNetAppFiles_CacheParameters;
+@class GTLRNetAppFiles_CachePrePopulate;
 @class GTLRNetAppFiles_DailySchedule;
 @class GTLRNetAppFiles_DestinationVolumeParameters;
 @class GTLRNetAppFiles_ExportPolicy;
+@class GTLRNetAppFiles_HostGroup;
+@class GTLRNetAppFiles_HostGroup_Labels;
 @class GTLRNetAppFiles_HourlySchedule;
 @class GTLRNetAppFiles_HybridPeeringDetails;
 @class GTLRNetAppFiles_HybridReplicationParameters;
@@ -262,6 +266,40 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_BackupVaultType_
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_BackupVaultType_InRegion;
 
 // ----------------------------------------------------------------------------
+// GTLRNetAppFiles_BackupVault.encryptionState
+
+/**
+ *  Encryption is complete.
+ *
+ *  Value: "ENCRYPTION_STATE_COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateCompleted;
+/**
+ *  Encryption has failed.
+ *
+ *  Value: "ENCRYPTION_STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateFailed;
+/**
+ *  Encryption is in progress.
+ *
+ *  Value: "ENCRYPTION_STATE_IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateInProgress;
+/**
+ *  Encryption state is pending.
+ *
+ *  Value: "ENCRYPTION_STATE_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStatePending;
+/**
+ *  Encryption state not set.
+ *
+ *  Value: "ENCRYPTION_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetAppFiles_BackupVault.state
 
 /**
@@ -302,6 +340,72 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_State_StateUnspe
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BackupVault_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRNetAppFiles_BlockDevice.osType
+
+/**
+ *  OS Type is VMware ESXi
+ *
+ *  Value: "ESXI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BlockDevice_OsType_Esxi;
+/**
+ *  OS Type is Linux
+ *
+ *  Value: "LINUX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BlockDevice_OsType_Linux;
+/**
+ *  Unspecified OS Type
+ *
+ *  Value: "OS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BlockDevice_OsType_OsTypeUnspecified;
+/**
+ *  OS Type is Windows
+ *
+ *  Value: "WINDOWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_BlockDevice_OsType_Windows;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_CacheConfig.cachePrePopulateState
+
+/**
+ *  Default unspecified state.
+ *
+ *  Value: "CACHE_PRE_POPULATE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_CachePrePopulateStateUnspecified;
+/**
+ *  State representing when the most recent update request requested a
+ *  prepopulation job and it has completed successfully.
+ *
+ *  Value: "COMPLETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_Complete;
+/**
+ *  State representing when the most recent update request requested a
+ *  prepopulation job but the prepopulate job failed.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_Error;
+/**
+ *  State representing when the most recent update request requested a
+ *  prepopulation job but it has not yet completed.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_InProgress;
+/**
+ *  State representing when the most recent create or update request did not
+ *  require a prepopulation job.
+ *
+ *  Value: "NOT_NEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_NotNeeded;
+
+// ----------------------------------------------------------------------------
 // GTLRNetAppFiles_CacheParameters.cacheState
 
 /**
@@ -336,6 +440,90 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_P
  *  Value: "PENDING_SVM_PEERING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_PendingSvmPeering;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_HostGroup.osType
+
+/**
+ *  OS Type is VMware ESXi
+ *
+ *  Value: "ESXI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_OsType_Esxi;
+/**
+ *  OS Type is Linux
+ *
+ *  Value: "LINUX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_OsType_Linux;
+/**
+ *  Unspecified OS Type
+ *
+ *  Value: "OS_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_OsType_OsTypeUnspecified;
+/**
+ *  OS Type is Windows
+ *
+ *  Value: "WINDOWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_OsType_Windows;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_HostGroup.state
+
+/**
+ *  Host group is creating.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_State_Creating;
+/**
+ *  Host group is deleting.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_State_Deleting;
+/**
+ *  Host group is disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_State_Disabled;
+/**
+ *  Host group is ready.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_State_Ready;
+/**
+ *  Unspecified state for host group.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_State_StateUnspecified;
+/**
+ *  Host group is updating.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_HostGroup.type
+
+/**
+ *  iSCSI initiator host group.
+ *
+ *  Value: "ISCSI_INITIATOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_Type_IscsiInitiator;
+/**
+ *  Unspecified type for host group.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_HostGroup_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_HybridReplicationParameters.hybridReplicationType
@@ -536,6 +724,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedSe
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_MountOption.protocol
 
+/**
+ *  ISCSI protocol
+ *
+ *  Value: "ISCSI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_MountOption_Protocol_Iscsi;
 /**
  *  NFS V3 protocol
  *
@@ -894,7 +1088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_Squas
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_RootSquash;
 /**
- *  Defaults to NO_ROOT_SQUASH.
+ *  Defaults to `NO_ROOT_SQUASH`.
  *
  *  Value: "SQUASH_MODE_UNSPECIFIED"
  */
@@ -1034,13 +1228,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_ServiceLevel_Sta
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_State_Creating;
 /**
- *  Storage Pool State is Degraded The storage pool is operational, but with
- *  reduced performance.
- *
- *  Value: "DEGRADED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_State_Degraded;
-/**
  *  Storage Pool State is Deleting
  *
  *  Value: "DELETING"
@@ -1082,6 +1269,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_State_StateUnspe
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_StoragePool.type
+
+/**
+ *  Storage pool type is file.
+ *
+ *  Value: "FILE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_Type_File;
+/**
+ *  Storage pool type is not specified.
+ *
+ *  Value: "STORAGE_POOL_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_Type_StoragePoolTypeUnspecified;
+/**
+ *  Storage pool type is unified.
+ *
+ *  Value: "UNIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_Type_Unified;
+/**
+ *  Storage pool type is unified large capacity.
+ *
+ *  Value: "UNIFIED_LARGE_CAPACITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_Type_UnifiedLargeCapacity;
 
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_TieringPolicy.tierAction
@@ -1147,6 +1362,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_EncryptionType_Servic
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_Volume.protocols
 
+/**
+ *  ISCSI protocol
+ *
+ *  Value: "ISCSI"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_Protocols_Iscsi;
 /**
  *  NFS V3 protocol
  *
@@ -1859,6 +2080,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_BackupRetentionPolicy *backupRetentionPolicy;
 
 /**
+ *  Output only. The crypto key version used to encrypt the backup vault.
+ *  Format:
+ *  projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}/cryptoKeyVersions/{crypto_key_version}
+ */
+@property(nonatomic, copy, nullable) NSString *backupsCryptoKeyVersion;
+
+/**
  *  Optional. Type of backup vault to be created. Default is IN_REGION.
  *
  *  Likely values:
@@ -1886,6 +2114,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  `projects/{project_id}/locations/{location}/backupVaults/{backup_vault_id}`
  */
 @property(nonatomic, copy, nullable) NSString *destinationBackupVault;
+
+/**
+ *  Output only. Field indicating encryption state of CMEK backups.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateCompleted
+ *        Encryption is complete. (Value: "ENCRYPTION_STATE_COMPLETED")
+ *    @arg @c kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateFailed
+ *        Encryption has failed. (Value: "ENCRYPTION_STATE_FAILED")
+ *    @arg @c kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateInProgress
+ *        Encryption is in progress. (Value: "ENCRYPTION_STATE_IN_PROGRESS")
+ *    @arg @c kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStatePending
+ *        Encryption state is pending. (Value: "ENCRYPTION_STATE_PENDING")
+ *    @arg @c kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateUnspecified
+ *        Encryption state not set. (Value: "ENCRYPTION_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionState;
+
+/**
+ *  Optional. Specifies the KMS config to be used for backup encryption. Format:
+ *  projects/{project}/locations/{location}/kmsConfigs/{kms_config}
+ */
+@property(nonatomic, copy, nullable) NSString *kmsConfig;
 
 /** Resource labels to represent user provided metadata. */
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_BackupVault_Labels *labels;
@@ -1943,9 +2194,97 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 
 /**
+ *  Block device represents the device(s) which are stored in the block volume.
+ */
+@interface GTLRNetAppFiles_BlockDevice : GTLRObject
+
+/**
+ *  Optional. A list of host groups that identify hosts that can mount the block
+ *  volume. Format:
+ *  `projects/{project_id}/locations/{location}/hostGroups/{host_group_id}` This
+ *  field can be updated after the block device is created.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hostGroups;
+
+/**
+ *  Output only. Device identifier of the block volume. This represents
+ *  `lun_serial_number` for iSCSI volumes.
+ *
+ *  identifierProperty property maps to 'identifier' in the JSON ('identifier'
+ *  is reserved for remapping 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifierProperty;
+
+/**
+ *  Optional. User-defined name for the block device, unique within the volume.
+ *  In case no user input is provided, name will be autogenerated in the
+ *  backend. The name must meet the following requirements: * Be between 1 and
+ *  255 characters long. * Contain only uppercase or lowercase letters (A-Z,
+ *  a-z), numbers (0-9), and the following special characters: "-", "_", "}",
+ *  "{", ".". * Spaces are not allowed.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. The OS type of the volume. This field can't be changed
+ *  after the block device is created.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_BlockDevice_OsType_Esxi OS Type is VMware ESXi
+ *        (Value: "ESXI")
+ *    @arg @c kGTLRNetAppFiles_BlockDevice_OsType_Linux OS Type is Linux (Value:
+ *        "LINUX")
+ *    @arg @c kGTLRNetAppFiles_BlockDevice_OsType_OsTypeUnspecified Unspecified
+ *        OS Type (Value: "OS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetAppFiles_BlockDevice_OsType_Windows OS Type is Windows
+ *        (Value: "WINDOWS")
+ */
+@property(nonatomic, copy, nullable) NSString *osType;
+
+/**
+ *  Optional. The size of the block device in GiB. Any value provided for the
+ *  `size_gib` field during volume creation is ignored. The block device's size
+ *  is system-managed and will be set to match the parent Volume's
+ *  `capacity_gib`.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGib;
+
+@end
+
+
+/**
  *  Configuration of the cache volume.
  */
 @interface GTLRNetAppFiles_CacheConfig : GTLRObject
+
+/** Optional. Pre-populate cache volume with data from the origin volume. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_CachePrePopulate *cachePrePopulate;
+
+/**
+ *  Output only. State of the prepopulation job indicating how the prepopulation
+ *  is progressing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_CachePrePopulateStateUnspecified
+ *        Default unspecified state. (Value:
+ *        "CACHE_PRE_POPULATE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_Complete State
+ *        representing when the most recent update request requested a
+ *        prepopulation job and it has completed successfully. (Value:
+ *        "COMPLETE")
+ *    @arg @c kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_Error State
+ *        representing when the most recent update request requested a
+ *        prepopulation job but the prepopulate job failed. (Value: "ERROR")
+ *    @arg @c kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_InProgress
+ *        State representing when the most recent update request requested a
+ *        prepopulation job but it has not yet completed. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_NotNeeded State
+ *        representing when the most recent create or update request did not
+ *        require a prepopulation job. (Value: "NOT_NEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *cachePrePopulateState;
 
 /**
  *  Optional. Flag indicating whether a CIFS change notification is enabled for
@@ -1954,6 +2293,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cifsChangeNotifyEnabled;
+
+/**
+ *  Optional. Flag indicating whether writeback is enabled for the FlexCache
+ *  volume.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writebackEnabled;
 
 @end
 
@@ -1994,7 +2341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, copy, nullable) NSString *command;
 
 /**
- *  Optional. Field indicating whether cache volume as global file lock enabled.
+ *  Optional. Indicates whether the cache volume has global file lock enabled.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2028,6 +2375,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /** Output only. Detailed description of the current cache state. */
 @property(nonatomic, copy, nullable) NSString *stateDetails;
+
+@end
+
+
+/**
+ *  Pre-populate cache volume with data from the origin volume.
+ */
+@interface GTLRNetAppFiles_CachePrePopulate : GTLRObject
+
+/**
+ *  Optional. List of directory-paths to be excluded for pre-population for the
+ *  FlexCache volume.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludePathList;
+
+/**
+ *  Optional. List of directory-paths to be pre-populated for the FlexCache
+ *  volume.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pathList;
+
+/**
+ *  Optional. Flag indicating whether the directories listed with the pathList
+ *  need to be recursively pre-populated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *recursion;
 
 @end
 
@@ -2160,6 +2535,96 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRNetAppFiles_GoogleProtobufEmpty : GTLRObject
+@end
+
+
+/**
+ *  Host group is a collection of hosts that can be used for accessing a Block
+ *  Volume.
+ */
+@interface GTLRNetAppFiles_HostGroup : GTLRObject
+
+/** Output only. Create time of the host group. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the host group.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. The list of hosts associated with the host group. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *hosts;
+
+/** Optional. Labels of the host group. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_HostGroup_Labels *labels;
+
+/**
+ *  Identifier. The resource name of the host group. Format:
+ *  `projects/{project_number}/locations/{location_id}/hostGroups/{host_group_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The OS type of the host group. It indicates the type of operating
+ *  system used by all of the hosts in the HostGroup. All hosts in a HostGroup
+ *  must be of the same OS type. This can be set only when creating a HostGroup.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_HostGroup_OsType_Esxi OS Type is VMware ESXi
+ *        (Value: "ESXI")
+ *    @arg @c kGTLRNetAppFiles_HostGroup_OsType_Linux OS Type is Linux (Value:
+ *        "LINUX")
+ *    @arg @c kGTLRNetAppFiles_HostGroup_OsType_OsTypeUnspecified Unspecified OS
+ *        Type (Value: "OS_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetAppFiles_HostGroup_OsType_Windows OS Type is Windows
+ *        (Value: "WINDOWS")
+ */
+@property(nonatomic, copy, nullable) NSString *osType;
+
+/**
+ *  Output only. State of the host group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_HostGroup_State_Creating Host group is creating.
+ *        (Value: "CREATING")
+ *    @arg @c kGTLRNetAppFiles_HostGroup_State_Deleting Host group is deleting.
+ *        (Value: "DELETING")
+ *    @arg @c kGTLRNetAppFiles_HostGroup_State_Disabled Host group is disabled.
+ *        (Value: "DISABLED")
+ *    @arg @c kGTLRNetAppFiles_HostGroup_State_Ready Host group is ready.
+ *        (Value: "READY")
+ *    @arg @c kGTLRNetAppFiles_HostGroup_State_StateUnspecified Unspecified
+ *        state for host group. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRNetAppFiles_HostGroup_State_Updating Host group is updating.
+ *        (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Required. Type of the host group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_HostGroup_Type_IscsiInitiator iSCSI initiator
+ *        host group. (Value: "ISCSI_INITIATOR")
+ *    @arg @c kGTLRNetAppFiles_HostGroup_Type_TypeUnspecified Unspecified type
+ *        for host group. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Optional. Labels of the host group.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetAppFiles_HostGroup_Labels : GTLRObject
 @end
 
 
@@ -2347,7 +2812,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /**
  *  Required. Customer managed crypto key resource full name. Format:
- *  projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}.
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}`.
  */
 @property(nonatomic, copy, nullable) NSString *cryptoKeyName;
 
@@ -2542,6 +3007,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 
 /**
+ *  ListHostGroupsResponse is the response to a ListHostGroupsRequest.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "hostGroups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetAppFiles_ListHostGroupsResponse : GTLRCollectionObject
+
+/**
+ *  The list of host groups.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetAppFiles_HostGroup *> *hostGroups;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  ListKmsConfigsResponse is the response to a ListKmsConfigsRequest.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2615,8 +3107,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -2907,6 +3400,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Protocol to mount with.
  *
  *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_MountOption_Protocol_Iscsi ISCSI protocol (Value:
+ *        "ISCSI")
  *    @arg @c kGTLRNetAppFiles_MountOption_Protocol_Nfsv3 NFS V3 protocol
  *        (Value: "NFSV3")
  *    @arg @c kGTLRNetAppFiles_MountOption_Protocol_Nfsv4 NFS V4 protocol
@@ -3335,12 +3830,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, copy, nullable) NSString *backup;
 
 /**
- *  Required. List of files to be restored in the form of their absolute path as
- *  in source volume.
+ *  Required. List of files to be restored, specified by their absolute path in
+ *  the source volume.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fileList;
 
-/** Optional. Absolute directory path in the destination volume. */
+/**
+ *  Optional. Absolute directory path in the destination volume. This is
+ *  required if the `file_list` is provided.
+ */
 @property(nonatomic, copy, nullable) NSString *restoreDestinationPath;
 
 @end
@@ -3421,7 +3919,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /**
  *  Optional. An integer representing the anonymous user ID. Range is 0 to
- *  4294967295. Required when squash_mode is ROOT_SQUASH or ALL_SQUASH.
+ *  4294967295. Required when `squash_mode` is `ROOT_SQUASH` or `ALL_SQUASH`.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -3516,7 +4014,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *        root user (UID 0) is squashed to anonymous user ID. Other users are
  *        unaffected. (Value: "ROOT_SQUASH")
  *    @arg @c kGTLRNetAppFiles_SimpleExportPolicyRule_SquashMode_SquashModeUnspecified
- *        Defaults to NO_ROOT_SQUASH. (Value: "SQUASH_MODE_UNSPECIFIED")
+ *        Defaults to `NO_ROOT_SQUASH`. (Value: "SQUASH_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *squashMode;
 
@@ -3879,9 +4377,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Likely values:
  *    @arg @c kGTLRNetAppFiles_StoragePool_State_Creating Storage Pool State is
  *        Creating (Value: "CREATING")
- *    @arg @c kGTLRNetAppFiles_StoragePool_State_Degraded Storage Pool State is
- *        Degraded The storage pool is operational, but with reduced
- *        performance. (Value: "DEGRADED")
  *    @arg @c kGTLRNetAppFiles_StoragePool_State_Deleting Storage Pool State is
  *        Deleting (Value: "DELETING")
  *    @arg @c kGTLRNetAppFiles_StoragePool_State_Disabled Storage Pool State is
@@ -3916,6 +4411,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalThroughputMibps;
+
+/**
+ *  Optional. Type of the storage pool. This field is used to control whether
+ *  the pool supports `FILE` based volumes only or `UNIFIED` (both `FILE` and
+ *  `BLOCK`) volumes or `UNIFIED_LARGE_CAPACITY` (both `FILE` and `BLOCK`)
+ *  volumes with large capacity. If not specified during creation, it defaults
+ *  to `FILE`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_StoragePool_Type_File Storage pool type is file.
+ *        (Value: "FILE")
+ *    @arg @c kGTLRNetAppFiles_StoragePool_Type_StoragePoolTypeUnspecified
+ *        Storage pool type is not specified. (Value:
+ *        "STORAGE_POOL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetAppFiles_StoragePool_Type_Unified Storage pool type is
+ *        unified. (Value: "UNIFIED")
+ *    @arg @c kGTLRNetAppFiles_StoragePool_Type_UnifiedLargeCapacity Storage
+ *        pool type is unified large capacity. (Value: "UNIFIED_LARGE_CAPACITY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Output only. Allocated size of all volumes in GIB in the storage pool
@@ -4127,6 +4642,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /** BackupConfig of the volume. */
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_BackupConfig *backupConfig;
+
+/**
+ *  Optional. Block devices for the volume. Currently, only one block device is
+ *  permitted per Volume.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetAppFiles_BlockDevice *> *blockDevices;
 
 /** Optional. Cache parameters for the volume. */
 @property(nonatomic, strong, nullable) GTLRNetAppFiles_CacheParameters *cacheParameters;

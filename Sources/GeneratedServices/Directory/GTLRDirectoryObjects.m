@@ -1251,6 +1251,16 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_GuestAccountInfo
+//
+
+@implementation GTLRDirectory_GuestAccountInfo
+@dynamic primaryGuestEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_ListPrinterModelsResponse
 //
 
@@ -1871,14 +1881,14 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 @implementation GTLRDirectory_User
 @dynamic addresses, agreedToTerms, aliases, archived, changePasswordAtNextLogin,
          creationTime, customerId, customSchemas, deletionTime, emails, ETag,
-         externalIds, gender, hashFunction, identifier, ims,
+         externalIds, gender, guestAccountInfo, hashFunction, identifier, ims,
          includeInGlobalAddressList, ipWhitelisted, isAdmin, isDelegatedAdmin,
-         isEnforcedIn2Sv, isEnrolledIn2Sv, isMailboxSetup, keywords, kind,
-         languages, lastLoginTime, locations, name, nonEditableAliases, notes,
-         organizations, orgUnitPath, password, phones, posixAccounts,
-         primaryEmail, recoveryEmail, recoveryPhone, relations, sshPublicKeys,
-         suspended, suspensionReason, thumbnailPhotoEtag, thumbnailPhotoUrl,
-         websites;
+         isEnforcedIn2Sv, isEnrolledIn2Sv, isGuestUser, isMailboxSetup,
+         keywords, kind, languages, lastLoginTime, locations, name,
+         nonEditableAliases, notes, organizations, orgUnitPath, password,
+         phones, posixAccounts, primaryEmail, recoveryEmail, recoveryPhone,
+         relations, sshPublicKeys, suspended, suspensionReason,
+         thumbnailPhotoEtag, thumbnailPhotoUrl, websites;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2178,6 +2188,16 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
   return @"users";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDirectory_UsersCreateGuestRequest
+//
+
+@implementation GTLRDirectory_UsersCreateGuestRequest
+@dynamic primaryGuestEmail;
 @end
 
 

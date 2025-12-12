@@ -96,6 +96,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_FeatureGrou
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_FeatureOnlineStore = @"FEATURE_ONLINE_STORE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_FeatureView = @"FEATURE_VIEW";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Fileset = @"FILESET";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Graph = @"GRAPH";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Lake = @"LAKE";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Look = @"LOOK";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Model = @"MODEL";
@@ -116,6 +117,16 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveTyp
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Richtext = @"RICHTEXT";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_String = @"STRING";
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Timestamp = @"TIMESTAMP";
+
+// GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable.inputSource
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_InputSource_InputSourceUnspecified = @"INPUT_SOURCE_UNSPECIFIED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_InputSource_Table = @"TABLE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_InputSource_View = @"VIEW";
+
+// GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable.kind
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_Kind_Edge = @"EDGE";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
+NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_Kind_Node = @"NODE";
 
 // GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata.state
 NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata_State_ImportDone = @"IMPORT_DONE";
@@ -605,7 +616,7 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
          cloudBigtableSystemSpec, databaseTableSpec, datasetSpec, dataSource,
          dataSourceConnectionSpec, descriptionProperty, displayName,
          featureOnlineStoreSpec, filesetSpec, fullyQualifiedName,
-         gcsFilesetSpec, integratedSystem, labels, linkedResource,
+         gcsFilesetSpec, graphSpec, integratedSystem, labels, linkedResource,
          lookerSystemSpec, modelSpec, name, personalDetails, routineSpec,
          schema, serviceSpec, sourceSystemTimestamps, sqlDatabaseSystemSpec,
          type, usageSignal, userSpecifiedSystem, userSpecifiedType;
@@ -759,6 +770,99 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec
 @dynamic filePath, gcsTimestamps, sizeBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpec
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpec
+@dynamic edgeTables, name, nodeTables;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"edgeTables" : [GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable class],
+    @"nodeTables" : [GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable
+@dynamic alias, dataSource, destinationNodeReference, dynamicLabelColumn,
+         dynamicPropertiesColumn, elementKeys, inputSource, kind,
+         labelAndProperties, sourceNodeReference;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"elementKeys" : [NSString class],
+    @"labelAndProperties" : [GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableLabelAndProperties class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableGraphNodeReference
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableGraphNodeReference
+@dynamic edgeTableColumns, nodeAlias, nodeTableColumns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"edgeTableColumns" : [NSString class],
+    @"nodeTableColumns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableLabelAndProperties
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableLabelAndProperties
+@dynamic label, properties;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"properties" : [GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableProperty class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableProperty
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableProperty
+@dynamic name, type;
 @end
 
 

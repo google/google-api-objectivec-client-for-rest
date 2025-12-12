@@ -892,7 +892,22 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_ViolationInfo
-@dynamic checkedValue, constraint, errorMessage, policyType;
+@dynamic checkedValue, constraint, constraintViolationInfo, errorMessage,
+         policyType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceControl_ViolationInfo_ConstraintViolationInfo
+//
+
+@implementation GTLRServiceControl_ViolationInfo_ConstraintViolationInfo
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 #pragma clang diagnostic pop

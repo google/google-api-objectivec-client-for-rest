@@ -1072,6 +1072,15 @@ NSString * const kGTLRVMMigrationService_VmwareVmDetails_PowerState_Suspended = 
 //
 
 @implementation GTLRVMMigrationService_DataDiskImageImport
+@dynamic guestOsFeatures;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"guestOsFeatures" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

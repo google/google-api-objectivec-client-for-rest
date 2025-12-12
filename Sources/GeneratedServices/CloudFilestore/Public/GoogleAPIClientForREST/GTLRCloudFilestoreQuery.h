@@ -476,6 +476,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Pause the standby instance (replica). WARNING: This operation makes the
+ *  standby instance's NFS filesystem writable. Any data written to the standby
+ *  instance while paused will be lost when the replica is resumed or promoted.
+ *
+ *  Method: file.projects.locations.instances.pauseReplica
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPauseReplica : GTLRCloudFilestoreQuery
+
+/**
+ *  Required. The resource name of the instance, in the format
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Operation.
+ *
+ *  Pause the standby instance (replica). WARNING: This operation makes the
+ *  standby instance's NFS filesystem writable. Any data written to the standby
+ *  instance while paused will be lost when the replica is resumed or promoted.
+ *
+ *  @param object The @c GTLRCloudFilestore_PauseReplicaRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the instance, in the format
+ *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPauseReplica
+ */
++ (instancetype)queryWithObject:(GTLRCloudFilestore_PauseReplicaRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Promote the standby instance (replica).
  *
  *  Method: file.projects.locations.instances.promoteReplica
@@ -541,6 +578,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesRestore
  */
 + (instancetype)queryWithObject:(GTLRCloudFilestore_RestoreInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Resume the standby instance (replica). WARNING: Any data written to the
+ *  standby instance while paused will be lost when the replica is resumed.
+ *
+ *  Method: file.projects.locations.instances.resumeReplica
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFilestoreCloudPlatform
+ */
+@interface GTLRCloudFilestoreQuery_ProjectsLocationsInstancesResumeReplica : GTLRCloudFilestoreQuery
+
+/**
+ *  Required. The resource name of the instance, in the format
+ *  `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFilestore_Operation.
+ *
+ *  Resume the standby instance (replica). WARNING: Any data written to the
+ *  standby instance while paused will be lost when the replica is resumed.
+ *
+ *  @param object The @c GTLRCloudFilestore_ResumeReplicaRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the instance, in the format
+ *    `projects/{project_id}/locations/{location_id}/instances/{instance_id}`.
+ *
+ *  @return GTLRCloudFilestoreQuery_ProjectsLocationsInstancesResumeReplica
+ */
++ (instancetype)queryWithObject:(GTLRCloudFilestore_ResumeReplicaRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -790,8 +862,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudFilestoreQuery_ProjectsLocationsList : GTLRCloudFilestoreQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -967,9 +1039,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

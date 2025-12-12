@@ -343,18 +343,3 @@
 }
 
 @end
-
-@implementation GTLRWorkspaceEventsQuery_V1GetCard
-
-+ (instancetype)query {
-  NSString *pathURITemplate = @"v1/card";
-  GTLRWorkspaceEventsQuery_V1GetCard *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:nil];
-  query.expectedObjectClass = [GTLRWorkspaceEvents_AgentCard class];
-  query.loggingName = @"workspaceevents.getCard";
-  return query;
-}
-
-@end

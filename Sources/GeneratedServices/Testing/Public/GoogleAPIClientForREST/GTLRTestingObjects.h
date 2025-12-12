@@ -248,11 +248,12 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboMod
  */
 FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion1;
 /**
- *  Runs Robo in standard Espresso with UIAutomator fallback
+ *  Deprecated: Use ROBO_VERSION_1 instead for all use cases. Runs Robo in
+ *  standard Espresso with UIAutomator fallback
  *
  *  Value: "ROBO_VERSION_2"
  */
-FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion2;
+FOUNDATION_EXTERN NSString * const kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion2 GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRTesting_CancelTestMatrixResponse.testState
@@ -1492,8 +1493,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTesting_TestMatrix_State_Validating;
  *        "ROBO_MODE_UNSPECIFIED")
  *    @arg @c kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion1 Runs Robo in
  *        UIAutomator-only mode without app resigning (Value: "ROBO_VERSION_1")
- *    @arg @c kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion2 Runs Robo in
- *        standard Espresso with UIAutomator fallback (Value: "ROBO_VERSION_2")
+ *    @arg @c kGTLRTesting_AndroidRoboTest_RoboMode_RoboVersion2 Deprecated: Use
+ *        ROBO_VERSION_1 instead for all use cases. Runs Robo in standard
+ *        Espresso with UIAutomator fallback (Value: "ROBO_VERSION_2")
  */
 @property(nonatomic, copy, nullable) NSString *roboMode;
 

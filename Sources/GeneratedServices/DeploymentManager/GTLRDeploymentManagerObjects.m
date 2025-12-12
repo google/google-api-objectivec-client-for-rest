@@ -433,6 +433,16 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata
+//
+
+@implementation GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata
+@dynamic allocatedPriority;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_GlobalSetPolicyRequest
 //
 
@@ -582,7 +592,8 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 @implementation GTLRDeploymentManager_Operation
 @dynamic clientOperationId, creationTimestamp, descriptionProperty, endTime,
-         error, httpErrorMessage, httpErrorStatusCode, identifier, insertTime,
+         error, firewallPolicyRuleOperationMetadata, httpErrorMessage,
+         httpErrorStatusCode, identifier, insertTime,
          instancesBulkInsertOperationMetadata, kind, name, operationGroupId,
          operationType, progress, region, selfLink, selfLinkWithId,
          setAutoscalerLinkOperationMetadata,

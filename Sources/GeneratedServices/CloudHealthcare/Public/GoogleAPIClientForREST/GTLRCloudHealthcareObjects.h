@@ -117,7 +117,9 @@
 @class GTLRCloudHealthcare_Result_ConsentDetails;
 @class GTLRCloudHealthcare_RollbackFhirResourceFilteringFields;
 @class GTLRCloudHealthcare_RollbackHL7MessagesFilteringFields;
+@class GTLRCloudHealthcare_Schema;
 @class GTLRCloudHealthcare_SchemaConfig;
+@class GTLRCloudHealthcare_SchemaFlattened;
 @class GTLRCloudHealthcare_SchemaGroup;
 @class GTLRCloudHealthcare_SchemaPackage;
 @class GTLRCloudHealthcare_SchemaSegment;
@@ -4088,6 +4090,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) NSNumber *force;
 
 /**
+ *  Optional. If true, the source store name will be included as a column in the
+ *  BigQuery schema.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeSourceStore;
+
+/**
+ *  Optional. Setting this field will use flattened DICOM instances schema for
+ *  the BigQuery table. The flattened schema will have one column for each DICOM
+ *  tag.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_SchemaFlattened *schemaFlattened;
+
+/**
+ *  Optional. Setting this field will store all the DICOM tags as a JSON type in
+ *  a single column.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_Schema *schemaJson;
+
+/**
  *  Optional. BigQuery URI to a table, up to 2000 characters long, in the format
  *  `bq://projectId.bqDatasetId.tableId`
  */
@@ -5205,8 +5228,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -5747,6 +5771,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) NSNumber *pending;
 
 /**
+ *  The number of secondary units that failed in the operation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *secondaryFailure;
+
+/**
+ *  The number of secondary units that succeeded in the operation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *secondarySuccess;
+
+/**
  *  The number of units that succeeded in the operation.
  *
  *  Uses NSNumber of longLongValue.
@@ -6137,6 +6175,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  Using this field will set the schema such that all DICOM tags will be
+ *  included in the BigQuery table as a single JSON type column. The BigQuery
+ *  table schema will include the following columns: * `StudyInstanceUID` (Type:
+ *  STRING): DICOM Tag 0020000D. * `SeriesInstanceUID` (Type: STRING): DICOM Tag
+ *  0020000E. * `SOPInstanceUID` (Type: STRING): DICOM Tag 00080018. *
+ *  `SourceDicomStore` (Type: STRING): The name of the source DICOM store. This
+ *  field is only included if the `include_source_store` option is set to true.
+ *  * `Metadata` (Type: JSON): All DICOM tags for the instance, stored in a
+ *  single JSON object. * `StructuredStorageSize` (Type: INTEGER): Size of the
+ *  structured storage in bytes. * `DroppedTags` (Type: STRING, Repeated: Yes):
+ *  List of tags that were dropped during the conversion. * `StorageClass`
+ *  (Type: STRING): The storage class of the instance. * `LastUpdated` (Type:
+ *  TIMESTAMP): Timestamp of the last update to the instance. *
+ *  `BlobStorageSize` (Type: INTEGER): Size of the blob storage in bytes. *
+ *  `Type` (Type: STRING): Indicates the type of operation (e.g., INSERT,
+ *  DELETE).
+ */
+@interface GTLRCloudHealthcare_Schema : GTLRObject
+@end
+
+
+/**
  *  Configuration for the FHIR BigQuery schema. Determines how the server
  *  generates the schema.
  */
@@ -6190,6 +6250,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, copy, nullable) NSString *schemaType;
 
+@end
+
+
+/**
+ *  Using this field will flatten the DICOM instances into a BigQuery table. The
+ *  table will have one column for each DICOM tag. The column name will be the
+ *  DICOM tag's textual representation.
+ */
+@interface GTLRCloudHealthcare_SchemaFlattened : GTLRObject
 @end
 
 
@@ -6336,24 +6405,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 /** The error output of the parser. */
 @property(nonatomic, copy, nullable) NSString *error;
-
-@end
-
-
-/**
- *  Request to search the resources in the specified FHIR store.
- */
-@interface GTLRCloudHealthcare_SearchResourcesRequest : GTLRObject
-
-/**
- *  Optional. The FHIR resource type to search, such as Patient or Observation.
- *  For a complete list, see the FHIR Resource Index
- *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
- *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
- *  [R4](https://hl7.org/fhir/R4/resourcelist.html)),
- *  [R5](https://hl7.org/fhir/R5/resourcelist.html)).
- */
-@property(nonatomic, copy, nullable) NSString *resourceType;
 
 @end
 
@@ -7008,8 +7059,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  API does not currently enforce all of the rules in a StructureDefinition.
  *  The following rules are supported: - min/max - minValue/maxValue - maxLength
  *  - type - fixed[x] - pattern[x] on simple types - slicing, when using "value"
- *  as the discriminator type When a URL cannot be resolved (for example, in a
- *  type assertion), the server does not return an error.
+ *  as the discriminator type - FHIRPath constraints (only when
+ *  `enable_fhirpath_profile_validation` is true) When a URL cannot be resolved
+ *  (for example, in a type assertion), the server does not return an error.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enabledImplementationGuides;
 

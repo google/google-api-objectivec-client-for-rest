@@ -51,8 +51,8 @@ NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_Path = @"PATH";
 //
 
 @implementation GTLRYouTubeReporting_GdataBlobstore2Info
-@dynamic blobGeneration, blobId, downloadReadHandle, readToken,
-         uploadMetadataContainer;
+@dynamic blobGeneration, blobId, downloadExternalReadToken, downloadReadHandle,
+         readToken, uploadMetadataContainer;
 @end
 
 

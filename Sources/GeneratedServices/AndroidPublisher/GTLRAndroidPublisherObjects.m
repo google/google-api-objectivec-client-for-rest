@@ -132,6 +132,16 @@ NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Deobfuscatio
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_NativeCode = @"nativeCode";
 NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Proguard = @"proguard";
 
+// GTLRAndroidPublisher_ExternalOfferDetails.installedAppCategory
+NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_App = @"APP";
+NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_ExternalOfferAppCategoryUnspecified = @"EXTERNAL_OFFER_APP_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_Game = @"GAME";
+
+// GTLRAndroidPublisher_ExternalOfferDetails.linkType
+NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_LinkType_ExternalOfferLinkTypeUnspecified = @"EXTERNAL_OFFER_LINK_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_LinkType_LinkToAppDownload = @"LINK_TO_APP_DOWNLOAD";
+NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_LinkType_LinkToDigitalContentOffer = @"LINK_TO_DIGITAL_CONTENT_OFFER";
+
 // GTLRAndroidPublisher_ExternalSubscription.subscriptionType
 NSString * const kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_Prepaid = @"PREPAID";
 NSString * const kGTLRAndroidPublisher_ExternalSubscription_SubscriptionType_Recurring = @"RECURRING";
@@ -202,6 +212,15 @@ NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ResubscribeState
 NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ResubscribeState_ResubscribeStateInactive = @"RESUBSCRIBE_STATE_INACTIVE";
 NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ResubscribeState_ResubscribeStateUnspecified = @"RESUBSCRIBE_STATE_UNSPECIFIED";
 
+// GTLRAndroidPublisher_ItemReplacement.replacementMode
+NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_ChargeFullPrice = @"CHARGE_FULL_PRICE";
+NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_ChargeProratedPrice = @"CHARGE_PRORATED_PRICE";
+NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_Deferred = @"DEFERRED";
+NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_KeepExisting = @"KEEP_EXISTING";
+NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_ReplacementModeUnspecified = @"REPLACEMENT_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_WithoutProration = @"WITHOUT_PRORATION";
+NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_WithTimeProration = @"WITH_TIME_PRORATION";
+
 // GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings.eeaWithdrawalRightType
 NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightDigitalContent = @"WITHDRAWAL_RIGHT_DIGITAL_CONTENT";
 NSString * const kGTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings_EeaWithdrawalRightType_WithdrawalRightService = @"WITHDRAWAL_RIGHT_SERVICE";
@@ -258,6 +277,14 @@ NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPrici
 NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_AvailableIfReleased = @"AVAILABLE_IF_RELEASED";
 NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_NoLongerAvailable = @"NO_LONGER_AVAILABLE";
 
+// GTLRAndroidPublisher_Order.salesChannel
+NSString * const kGTLRAndroidPublisher_Order_SalesChannel_InApp = @"IN_APP";
+NSString * const kGTLRAndroidPublisher_Order_SalesChannel_NativePc = @"NATIVE_PC";
+NSString * const kGTLRAndroidPublisher_Order_SalesChannel_OutsidePlayStore = @"OUTSIDE_PLAY_STORE";
+NSString * const kGTLRAndroidPublisher_Order_SalesChannel_PcEmulator = @"PC_EMULATOR";
+NSString * const kGTLRAndroidPublisher_Order_SalesChannel_PlayStore = @"PLAY_STORE";
+NSString * const kGTLRAndroidPublisher_Order_SalesChannel_SalesChannelUnspecified = @"SALES_CHANNEL_UNSPECIFIED";
+
 // GTLRAndroidPublisher_Order.state
 NSString * const kGTLRAndroidPublisher_Order_State_Canceled    = @"CANCELED";
 NSString * const kGTLRAndroidPublisher_Order_State_PartiallyRefunded = @"PARTIALLY_REFUNDED";
@@ -292,6 +319,12 @@ NSString * const kGTLRAndroidPublisher_ProductOfferDetails_ConsumptionState_Cons
 NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateAcknowledged = @"ACKNOWLEDGEMENT_STATE_ACKNOWLEDGED";
 NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStatePending = @"ACKNOWLEDGEMENT_STATE_PENDING";
 NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateUnspecified = @"ACKNOWLEDGEMENT_STATE_UNSPECIFIED";
+
+// GTLRAndroidPublisher_ProrationPeriodDetails.originalOfferPhase
+NSString * const kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_Base = @"BASE";
+NSString * const kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_FreeTrial = @"FREE_TRIAL";
+NSString * const kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_Introductory = @"INTRODUCTORY";
+NSString * const kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_OfferPhaseUnspecified = @"OFFER_PHASE_UNSPECIFIED";
 
 // GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings.withdrawalRightType
 NSString * const kGTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings_WithdrawalRightType_WithdrawalRightDigitalContent = @"WITHDRAWAL_RIGHT_DIGITAL_CONTENT";
@@ -848,6 +881,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @implementation GTLRAndroidPublisher_AutoRenewingPlan
 @dynamic autoRenewEnabled, installmentDetails, priceChangeDetails,
          priceStepUpConsentDetails, recurringPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_BaseDetails
+//
+
+@implementation GTLRAndroidPublisher_BaseDetails
 @end
 
 
@@ -1946,6 +1988,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ExternalAccountIds
+//
+
+@implementation GTLRAndroidPublisher_ExternalAccountIds
+@dynamic obfuscatedAccountId, obfuscatedProfileId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ExternallyHostedApk
 //
 
@@ -1970,6 +2022,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ExternalOfferDetails
+//
+
+@implementation GTLRAndroidPublisher_ExternalOfferDetails
+@dynamic appDownloadEventExternalTransactionId, installedAppCategory,
+         installedAppPackage, linkType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ExternalSubscription
 //
 
@@ -1985,10 +2048,10 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_ExternalTransaction
 @dynamic createTime, currentPreTaxAmount, currentTaxAmount,
-         externalTransactionId, oneTimeTransaction, originalPreTaxAmount,
-         originalTaxAmount, packageName, recurringTransaction, testPurchase,
-         transactionProgramCode, transactionState, transactionTime,
-         userTaxAddress;
+         externalOfferDetails, externalTransactionId, oneTimeTransaction,
+         originalPreTaxAmount, originalTaxAmount, packageName,
+         recurringTransaction, testPurchase, transactionProgramCode,
+         transactionState, transactionTime, userTaxAddress;
 @end
 
 
@@ -2008,6 +2071,15 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_ExternalTransactionTestPurchase
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_FreeTrialDetails
+//
+
+@implementation GTLRAndroidPublisher_FreeTrialDetails
 @end
 
 
@@ -2424,12 +2496,31 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_IntroductoryPriceDetails
+//
+
+@implementation GTLRAndroidPublisher_IntroductoryPriceDetails
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_IntroductoryPriceInfo
 //
 
 @implementation GTLRAndroidPublisher_IntroductoryPriceInfo
 @dynamic introductoryPriceAmountMicros, introductoryPriceCurrencyCode,
          introductoryPriceCycles, introductoryPricePeriod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ItemReplacement
+//
+
+@implementation GTLRAndroidPublisher_ItemReplacement
+@dynamic basePlanId, offerId, productId, replacementMode;
 @end
 
 
@@ -2664,7 +2755,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings
 @dynamic eeaWithdrawalRightType, isTokenizedDigitalAsset,
-         taxRateInfoByRegionCode;
+         productTaxCategoryCode, taxRateInfoByRegionCode;
 @end
 
 
@@ -2808,6 +2899,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OfferPhaseDetails
+//
+
+@implementation GTLRAndroidPublisher_OfferPhaseDetails
+@dynamic baseDetails, freeTrialDetails, introductoryPriceDetails,
+         prorationPeriodDetails;
 @end
 
 
@@ -3004,7 +3106,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_OneTimeProductTaxAndComplianceSettings
-@dynamic isTokenizedDigitalAsset, regionalTaxConfigs;
+@dynamic isTokenizedDigitalAsset, productTaxCategoryCode, regionalTaxConfigs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3034,7 +3136,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @implementation GTLRAndroidPublisher_Order
 @dynamic buyerAddress, createTime, developerRevenueInBuyerCurrency,
          lastEventTime, lineItems, orderDetails, orderHistory, orderId,
-         pointsDetails, purchaseToken, state, tax, total;
+         pointsDetails, purchaseToken, salesChannel, state, tax, total;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3129,6 +3231,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhasePrices
 @dynamic eurPrice, usdPrice;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_OutOfAppPurchaseContext
+//
+
+@implementation GTLRAndroidPublisher_OutOfAppPurchaseContext
+@dynamic expiredExternalAccountIdentifiers, expiredPurchaseToken;
 @end
 
 
@@ -3353,6 +3465,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ProrationPeriodDetails
+//
+
+@implementation GTLRAndroidPublisher_ProrationPeriodDetails
+@dynamic linkedOrderId, originalOfferPhase;
 @end
 
 
@@ -3911,8 +4033,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_SubscriptionDetails
-@dynamic basePlanId, offerId, offerPhase, servicePeriodEndTime,
-         servicePeriodStartTime;
+@dynamic basePlanId, offerId, offerPhase, offerPhaseDetails,
+         servicePeriodEndTime, servicePeriodStartTime;
 @end
 
 
@@ -4039,8 +4161,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchaseLineItem
 @dynamic autoRenewingPlan, deferredItemRemoval, deferredItemReplacement,
-         expiryTime, latestSuccessfulOrderId, offerDetails, prepaidPlan,
-         productId, signupPromotion;
+         expiryTime, itemReplacement, latestSuccessfulOrderId, offerDetails,
+         prepaidPlan, productId, signupPromotion;
 @end
 
 
@@ -4050,7 +4172,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_SubscriptionPurchasesAcknowledgeRequest
-@dynamic developerPayload;
+@dynamic developerPayload, externalAccountIds;
 @end
 
 
@@ -4082,8 +4204,8 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @implementation GTLRAndroidPublisher_SubscriptionPurchaseV2
 @dynamic acknowledgementState, canceledStateContext, externalAccountIdentifiers,
          kind, latestOrderId, lineItems, linkedPurchaseToken,
-         pausedStateContext, regionCode, startTime, subscribeWithGoogleInfo,
-         subscriptionState, testPurchase;
+         outOfAppPurchaseContext, pausedStateContext, regionCode, startTime,
+         subscribeWithGoogleInfo, subscriptionState, testPurchase;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4108,7 +4230,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings
 @dynamic eeaWithdrawalRightType, isTokenizedDigitalAsset,
-         taxRateInfoByRegionCode;
+         productTaxCategoryCode, taxRateInfoByRegionCode;
 @end
 
 

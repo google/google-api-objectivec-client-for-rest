@@ -1894,7 +1894,8 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 //
 
 @implementation GTLRMigrationCenterAPI_MachineNetworkDetails
-@dynamic adapters, primaryIpAddress, primaryMacAddress, publicIpAddress;
+@dynamic adapters, defaultGateway, primaryIpAddress, primaryMacAddress,
+         publicIpAddress;
 @end
 
 
@@ -2477,8 +2478,9 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 
 @implementation GTLRMigrationCenterAPI_ReportSummaryAssetAggregateStats
 @dynamic coreCountHistogram, memoryBytesHistogram, memoryUtilizationChart,
-         operatingSystem, storageBytesHistogram, storageUtilizationChart,
-         totalAssets, totalCores, totalMemoryBytes, totalStorageBytes;
+         operatingSystem, softwareInstances, storageBytesHistogram,
+         storageUtilizationChart, totalAssets, totalCores, totalMemoryBytes,
+         totalStorageBytes;
 @end
 
 

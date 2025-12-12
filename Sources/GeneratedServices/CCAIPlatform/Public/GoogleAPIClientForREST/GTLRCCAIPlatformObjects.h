@@ -17,7 +17,12 @@
 @class GTLRCCAIPlatform_ContactCenter;
 @class GTLRCCAIPlatform_ContactCenter_Labels;
 @class GTLRCCAIPlatform_Critical;
+@class GTLRCCAIPlatform_Date;
+@class GTLRCCAIPlatform_DateList;
+@class GTLRCCAIPlatform_DateTime;
 @class GTLRCCAIPlatform_Early;
+@class GTLRCCAIPlatform_EmployeeInfo;
+@class GTLRCCAIPlatform_EventTemplate;
 @class GTLRCCAIPlatform_FeatureConfig;
 @class GTLRCCAIPlatform_InstanceConfig;
 @class GTLRCCAIPlatform_Location;
@@ -27,15 +32,22 @@
 @class GTLRCCAIPlatform_Operation;
 @class GTLRCCAIPlatform_Operation_Metadata;
 @class GTLRCCAIPlatform_Operation_Response;
+@class GTLRCCAIPlatform_PlanningHorizon;
 @class GTLRCCAIPlatform_PrivateAccess;
 @class GTLRCCAIPlatform_PscSetting;
 @class GTLRCCAIPlatform_Quota;
 @class GTLRCCAIPlatform_SAMLParams;
+@class GTLRCCAIPlatform_ShiftTemplate;
+@class GTLRCCAIPlatform_SolverConfig;
 @class GTLRCCAIPlatform_Status;
 @class GTLRCCAIPlatform_Status_Details_Item;
 @class GTLRCCAIPlatform_TimeOfDay;
+@class GTLRCCAIPlatform_TimeZone;
+@class GTLRCCAIPlatform_UnwantedEventInterval;
 @class GTLRCCAIPlatform_URIs;
 @class GTLRCCAIPlatform_WeeklySchedule;
+@class GTLRCCAIPlatform_WorkforceDemand;
+@class GTLRCCAIPlatform_WorkforceDemandList;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -540,6 +552,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationCo
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TimeSyncToken;
 
 // ----------------------------------------------------------------------------
+// GTLRCCAIPlatform_SolverConfig.scheduleType
+
+/**
+ *  Unspecified schedule type. Should not be used.
+ *
+ *  Value: "SCHEDULE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SolverConfig_ScheduleType_ScheduleTypeUnspecified;
+/**
+ *  Each `EmployeeSchedule` will include exactly one shift.
+ *
+ *  Value: "SINGLE_SHIFT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SolverConfig_ScheduleType_SingleShift;
+/**
+ *  `EmployeeSchedule`s will include several shifts to generate a week-long
+ *  schedule. The start and end time of events in a particular
+ *  `EmployeeSchedule` will be identical. All the shifts have the same start and
+ *  end time.
+ *
+ *  Value: "WEEKLY_WITH_FIXED_EVENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SolverConfig_ScheduleType_WeeklyWithFixedEvents;
+/**
+ *  `EmployeeSchedule`s will include several shifts to generate a week-long
+ *  schedule. The start and end time of events in a particular
+ *  `EmployeeSchedule` can vary. All the shifts have the same start and end
+ *  time. This option may result in longer solve times.
+ *
+ *  Value: "WEEKLY_WITH_VARIABLE_EVENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_SolverConfig_ScheduleType_WeeklyWithVariableEvents;
+
+// ----------------------------------------------------------------------------
 // GTLRCCAIPlatform_WeeklySchedule.days
 
 /**
@@ -812,10 +858,168 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 
 /**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+ */
+@interface GTLRCCAIPlatform_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
+ *  List of dates.
+ */
+@interface GTLRCCAIPlatform_DateList : GTLRObject
+
+/** Optional. Values in the list. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_Date *> *values;
+
+@end
+
+
+/**
+ *  Represents civil time (or occasionally physical time). This type can
+ *  represent a civil time in one of a few possible ways: * When utc_offset is
+ *  set and time_zone is unset: a civil time on a calendar day with a particular
+ *  offset from UTC. * When time_zone is set and utc_offset is unset: a civil
+ *  time on a calendar day in a particular time zone. * When neither time_zone
+ *  nor utc_offset is set: a civil time on a calendar day in local time. The
+ *  date is relative to the Proleptic Gregorian Calendar. If year, month, or day
+ *  are 0, the DateTime is considered not to have a specific year, month, or day
+ *  respectively. This type may also be used to represent a physical time if all
+ *  the date and time fields are set and either case of the `time_offset` oneof
+ *  is set. Consider using `Timestamp` message for physical time instead. If
+ *  your use case also would like to store the user's timezone, that can be done
+ *  in another field. This type is more flexible than some applications may
+ *  want. Make sure to document and validate your application's limitations.
+ */
+@interface GTLRCCAIPlatform_DateTime : GTLRObject
+
+/**
+ *  Optional. Day of month. Must be from 1 to 31 and valid for the year and
+ *  month, or 0 if specifying a datetime without a day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Optional. Hours of day in 24 hour format. Should be from 0 to 23, defaults
+ *  to 0 (midnight). An API may choose to allow the value "24:00:00" for
+ *  scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Optional. Minutes of hour of day. Must be from 0 to 59, defaults to 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Optional. Month of year. Must be from 1 to 12, or 0 if specifying a datetime
+ *  without a month.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Optional. Fractions of seconds in nanoseconds. Must be from 0 to
+ *  999,999,999, defaults to 0.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Optional. Seconds of minutes of the time. Must normally be from 0 to 59,
+ *  defaults to 0. An API may allow the value 60 if it allows leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
+
+/** Time zone. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_TimeZone *timeZone;
+
+/**
+ *  UTC offset. Must be whole seconds, between -18 hours and +18 hours. For
+ *  example, a UTC offset of -4:00 would be represented as { seconds: -14400 }.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *utcOffset;
+
+/**
+ *  Optional. Year of date. Must be from 1 to 9999, or 0 if specifying a
+ *  datetime without a year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
+
+@end
+
+
+/**
  *  LINT.IfChange First Channel to receive the updates. Meant to dev/test
  *  instances
  */
 @interface GTLRCCAIPlatform_Early : GTLRObject
+@end
+
+
+/**
+ *  Information about a particular employee for planning purposes.
+ */
+@interface GTLRCCAIPlatform_EmployeeInfo : GTLRObject
+
+/**
+ *  Required. Unique ID of this employee.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. A list of unwanted event intervals for this employee. The start
+ *  time of the interval must be in the planning horizon.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_UnwantedEventInterval *> *unwantedEventIntervals;
+
 @end
 
 
@@ -830,6 +1034,57 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 
 /**
+ *  Template specifying rules for generating a single event that occurs during a
+ *  shift. An event may represent a meeting, break, lunch, etc.
+ */
+@interface GTLRCCAIPlatform_EventTemplate : GTLRObject
+
+/**
+ *  Required. Fixed duration in minutes of this event.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationMinutes;
+
+/**
+ *  Required. Unique ID of this template.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. Maximum number of minutes after the beginning of a shift that this
+ *  event can start.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximumMinutesAfterShiftStart;
+
+/**
+ *  Optional. Minimum number of minutes after the beginning of a shift that this
+ *  event can start.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumMinutesAfterShiftStart;
+
+/**
+ *  Required. The time increment (in minutes) used to generate the set of
+ *  possible event start times between `minimum_minutes_after_shift_start` and
+ *  `maximum_minutes_after_shift_start`. For example, if the minimum minutes
+ *  after shift start are 30, maximum minutes after shift start are 45, and the
+ *  start time increment is 5 minutes, the event can take place 30, 35, 40, or
+ *  45 minutes after the start of the shift.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTimeIncrementMinutes;
+
+@end
+
+
+/**
  *  GTLRCCAIPlatform_FeatureConfig
  */
 @interface GTLRCCAIPlatform_FeatureConfig : GTLRObject
@@ -840,6 +1095,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *agentDesktopEnabled;
+
+@end
+
+
+/**
+ *  Request with constraints for generating shifts. The shifts generated must
+ *  adhere to these constraints.
+ */
+@interface GTLRCCAIPlatform_GenerateShiftsRequest : GTLRObject
+
+/**
+ *  Optional. Employee information that should be considered when generating
+ *  shifts.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_EmployeeInfo *> *employeeInfo;
+
+/**
+ *  Required. The solver will generate the maximum number of shifts per shift
+ *  template.
+ */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_PlanningHorizon *planningHorizon;
+
+/**
+ *  Required. Set of shift templates specifying rules for generating shifts. A
+ *  shift template can be used for generating multiple shifts.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_ShiftTemplate *> *shiftTemplates;
+
+/** Optional. Parameters for the solver. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_SolverConfig *solverConfig;
+
+/**
+ *  Required. All the workforce demands that the generated shifts need to cover.
+ *  The planning horizon is defined between the earliest start time and the
+ *  latest end time across all the entries. This field cannot be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_WorkforceDemandList *workforceDemands;
 
 @end
 
@@ -1007,8 +1299,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1206,6 +1499,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 
 /**
+ *  Specifies the time interval during which the solver should generate shifts.
+ *  The start time must be before the end time.
+ */
+@interface GTLRCCAIPlatform_PlanningHorizon : GTLRObject
+
+/**
+ *  Required. End of the time interval for the given demand (exclusive). These
+ *  values are read down to the minute; seconds and all smaller units are
+ *  ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_DateTime *endTime;
+
+/**
+ *  Required. Start of the time interval for the given demand (inclusive). These
+ *  values are read down to the minute; seconds and all smaller units are
+ *  ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_DateTime *startTime;
+
+@end
+
+
+/**
  *  Defines ingress and egress private traffic settings for CCAIP instances.
  */
 @interface GTLRCCAIPlatform_PrivateAccess : GTLRObject
@@ -1337,6 +1653,157 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 
 /**
+ *  Template specifying rules for generating shifts. A shift is a unit of work
+ *  that specifies a start time, end time, and may contain events (e.g. lunch,
+ *  breaks etc.). Shifts will be assigned to specific dates in the response.
+ */
+@interface GTLRCCAIPlatform_ShiftTemplate : GTLRObject
+
+/**
+ *  Optional. A list of specific employee IDs that can be assigned to shifts
+ *  generated by this template. If this field is present, there will be
+ *  `EmployeeSchedule`s in the response for which the
+ *  `EmployeeSchedule.employee_id` field is set to one of the IDs in this list.
+ *  The number of employee schedules with an assigned employee ID will be
+ *  between `minimum_employee_count` and `maximum_employee_count`. If this field
+ *  is empty, between `minimum_employee_count` and `maximum_employee_count`
+ *  employees can be assigned to shifts generated by this template and the
+ *  employee schedules won't have an assigned employee ID. Currently, only one
+ *  assignable employee ID is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *assignableEmployeeIds;
+
+/**
+ *  Fixed number of days off per week. An employee has a given day off if they
+ *  are not assigned to a shift that starts on that day. A week is 7 days and
+ *  begins on Sunday.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *daysOffCountPerWeek;
+
+/** Fixed dates when shifts from this template should not be generated. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_DateList *daysOffDates;
+
+/**
+ *  Required. Fixed duration of a shift generated by this template.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationMinutes;
+
+/**
+ *  Required. Earliest time in the day that a shift can start. This value is
+ *  specified with hours and minutes; seconds and nanos are ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_TimeOfDay *earliestStartTime;
+
+/**
+ *  Optional. Rules for generating events for each shift. Exactly one event will
+ *  be included in each shift for each `EventTemplate` specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_EventTemplate *> *eventTemplates;
+
+/**
+ *  Required. Unique ID of this template.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Required. Latest time in the day that a shift can start. This value is
+ *  specified with hours and minutes; seconds and nanos are ignored. If this
+ *  value is less than the `earliest_start_time`, it may imply an overnight
+ *  shift.
+ */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_TimeOfDay *latestStartTime;
+
+/**
+ *  Required. Maximum number of employees that can be assigned to all shifts
+ *  generated by this template on working days.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maximumEmployeeCount;
+
+/**
+ *  Optional. Minimum number of employees that can be assigned to all shifts
+ *  generated by this template on working days.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumEmployeeCount;
+
+/**
+ *  Optional. Minimum minutes between the end of one event and the start of the
+ *  next.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minimumIntereventGapMinutes;
+
+/**
+ *  Optional. The time increment (in minutes) used to generate the set of
+ *  possible start times between `earliest_start_time` and `latest_start_time`.
+ *  For example, if the earliest start time is 8:00, the latest start time is
+ *  8:30, and the start time increment is 10 minutes, then all possible start
+ *  times for this shift template are: 8:00, 8:10, 8:20, and 8:30.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTimeIncrementMinutes;
+
+@end
+
+
+/**
+ *  Specifies additional parameters for the solver generating shifts.
+ */
+@interface GTLRCCAIPlatform_SolverConfig : GTLRObject
+
+/**
+ *  Optional. Maximum time the solver should spend on the problem. If not set,
+ *  defaults to 1 minute. The choice of a time limit should depend on the size
+ *  of the problem. To give an example, when solving a 7-day instance with 2
+ *  `ShiftTemplates`, each with ~20 possible start times and holding 2 events
+ *  with ~30 possible start times, and two days off per week, recommended values
+ *  are: <10s for fast solutions (and likely suboptimal), (10s, 300s) for good
+ *  quality solutions, and >300s for an exhaustive search. Larger instances may
+ *  require longer time limits. This value is not a hard limit and it does not
+ *  account for the communication overhead. The expected latency to solve the
+ *  problem may slightly exceed this value.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *maximumProcessingDuration;
+
+/**
+ *  Required. Specifies the type of schedule to generate.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCCAIPlatform_SolverConfig_ScheduleType_ScheduleTypeUnspecified
+ *        Unspecified schedule type. Should not be used. (Value:
+ *        "SCHEDULE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCCAIPlatform_SolverConfig_ScheduleType_SingleShift Each
+ *        `EmployeeSchedule` will include exactly one shift. (Value:
+ *        "SINGLE_SHIFT")
+ *    @arg @c kGTLRCCAIPlatform_SolverConfig_ScheduleType_WeeklyWithFixedEvents
+ *        `EmployeeSchedule`s will include several shifts to generate a
+ *        week-long schedule. The start and end time of events in a particular
+ *        `EmployeeSchedule` will be identical. All the shifts have the same
+ *        start and end time. (Value: "WEEKLY_WITH_FIXED_EVENTS")
+ *    @arg @c kGTLRCCAIPlatform_SolverConfig_ScheduleType_WeeklyWithVariableEvents
+ *        `EmployeeSchedule`s will include several shifts to generate a
+ *        week-long schedule. The start and end time of events in a particular
+ *        `EmployeeSchedule` can vary. All the shifts have the same start and
+ *        end time. This option may result in longer solve times. (Value:
+ *        "WEEKLY_WITH_VARIABLE_EVENTS")
+ */
+@property(nonatomic, copy, nullable) NSString *scheduleType;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -1426,6 +1893,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 
 /**
+ *  Represents a time zone from the [IANA Time Zone
+ *  Database](https://www.iana.org/time-zones).
+ */
+@interface GTLRCCAIPlatform_TimeZone : GTLRObject
+
+/**
+ *  IANA Time Zone Database time zone. For example "America/New_York".
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Optional. IANA Time Zone Database version number. For example "2019a". */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Specifies a time interval during which the overlap with events (generated
+ *  from event templates) should be minimal.
+ */
+@interface GTLRCCAIPlatform_UnwantedEventInterval : GTLRObject
+
+/**
+ *  Required. Duration of the event.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *durationMinutes;
+
+/** Required. Start time of the event. */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_DateTime *startTime;
+
+@end
+
+
+/**
  *  Message storing the URIs of the ContactCenter.
  */
 @interface GTLRCCAIPlatform_URIs : GTLRObject
@@ -1464,6 +1969,47 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 /** Required. Daily start time of the schedule. */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_TimeOfDay *startTime;
+
+@end
+
+
+/**
+ *  Specifies the number of employees required to cover the demand in the given
+ *  time interval. The length of the interval must be strictly positive.
+ */
+@interface GTLRCCAIPlatform_WorkforceDemand : GTLRObject
+
+/**
+ *  Optional. Number of employees needed to cover the demand for this interval.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *employeeCount;
+
+/**
+ *  Required. End of the time interval for the given demand (exclusive). These
+ *  values are read down to the minute; seconds and all smaller units are
+ *  ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_DateTime *endTime;
+
+/**
+ *  Required. Start of the time interval for the given demand (inclusive). These
+ *  values are read down to the minute; seconds and all smaller units are
+ *  ignored.
+ */
+@property(nonatomic, strong, nullable) GTLRCCAIPlatform_DateTime *startTime;
+
+@end
+
+
+/**
+ *  List of workforce demands.
+ */
+@interface GTLRCCAIPlatform_WorkforceDemandList : GTLRObject
+
+/** Optional. Values in the list. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_WorkforceDemand *> *values;
 
 @end
 

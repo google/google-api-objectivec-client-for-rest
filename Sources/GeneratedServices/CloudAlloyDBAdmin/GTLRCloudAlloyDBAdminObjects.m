@@ -62,6 +62,11 @@ NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres15 = @"P
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres17 = @"POSTGRES_17";
 
+// GTLRCloudAlloyDBAdmin_Cluster.maintenanceVersionSelectionPolicy
+NSString * const kGTLRCloudAlloyDBAdmin_Cluster_MaintenanceVersionSelectionPolicy_MaintenanceVersionSelectionPolicyDefault = @"MAINTENANCE_VERSION_SELECTION_POLICY_DEFAULT";
+NSString * const kGTLRCloudAlloyDBAdmin_Cluster_MaintenanceVersionSelectionPolicy_MaintenanceVersionSelectionPolicyLatest = @"MAINTENANCE_VERSION_SELECTION_POLICY_LATEST";
+NSString * const kGTLRCloudAlloyDBAdmin_Cluster_MaintenanceVersionSelectionPolicy_MaintenanceVersionSelectionPolicyUnspecified = @"MAINTENANCE_VERSION_SELECTION_POLICY_UNSPECIFIED";
+
 // GTLRCloudAlloyDBAdmin_Cluster.state
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_Bootstrapping = @"BOOTSTRAPPING";
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_Creating = @"CREATING";
@@ -246,6 +251,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBac
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeDatabaseAuditingDisabled = @"SIGNAL_TYPE_DATABASE_AUDITING_DISABLED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExposedToPublicAccess = @"SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExtendedSupport = @"SIGNAL_TYPE_EXTENDED_SUPPORT";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy = @"SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNoRootPassword = @"SIGNAL_TYPE_NO_ROOT_PASSWORD";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeOutdatedMinorVersion = @"SIGNAL_TYPE_OUTDATED_MINOR_VERSION";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeUnencryptedConnections = @"SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS";
@@ -253,6 +259,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCon
 
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed.feedType
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BackupdrMetadata = @"BACKUPDR_METADATA";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BigqueryResourceMetadata = @"BIGQUERY_RESOURCE_METADATA";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ConfigBasedSignalData = @"CONFIG_BASED_SIGNAL_DATA";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_DatabaseResourceSignalData = @"DATABASE_RESOURCE_SIGNAL_DATA";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_FeedtypeUnspecified = @"FEEDTYPE_UNSPECIFIED";
@@ -576,6 +583,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeDatabaseAuditingDisabled = @"SIGNAL_TYPE_DATABASE_AUDITING_DISABLED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExposedToPublicAccess = @"SIGNAL_TYPE_EXPOSED_TO_PUBLIC_ACCESS";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport = @"SIGNAL_TYPE_EXTENDED_SUPPORT";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy = @"SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword = @"SIGNAL_TYPE_NO_ROOT_PASSWORD";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeOutdatedMinorVersion = @"SIGNAL_TYPE_OUTDATED_MINOR_VERSION";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeUnencryptedConnections = @"SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS";
@@ -972,10 +980,11 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
          continuousBackupConfig, continuousBackupInfo, createTime,
          databaseVersion, dataplexConfig, deleteTime, displayName,
          encryptionConfig, encryptionInfo, ETag, initialUser, labels,
-         maintenanceSchedule, maintenanceUpdatePolicy, migrationSource, name,
-         network, networkConfig, primaryConfig, pscConfig, reconciling,
-         satisfiesPzs, secondaryConfig, sslConfig, state, subscriptionType,
-         tags, trialMetadata, uid, updateTime;
+         maintenanceSchedule, maintenanceUpdatePolicy,
+         maintenanceVersionSelectionPolicy, migrationSource, name, network,
+         networkConfig, primaryConfig, pscConfig, reconciling, satisfiesPzs,
+         secondaryConfig, sslConfig, state, subscriptionType, tags,
+         trialMetadata, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1362,10 +1371,11 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 @dynamic activationPolicy, annotations, availabilityType,
          clientConnectionConfig, connectionPoolConfig, createTime,
          databaseFlags, deleteTime, displayName, ETag, gceZone, instanceType,
-         ipAddress, labels, machineConfig, name, networkConfig, nodes,
-         observabilityConfig, outboundPublicIpAddresses, pscInstanceConfig,
-         publicIpAddress, queryInsightsConfig, readPoolConfig, reconciling,
-         satisfiesPzs, state, uid, updateTime, writableNode;
+         ipAddress, labels, machineConfig, maintenanceVersionName, name,
+         networkConfig, nodes, observabilityConfig, outboundPublicIpAddresses,
+         pscInstanceConfig, publicIpAddress, queryInsightsConfig,
+         readPoolConfig, reconciling, satisfiesPzs, state, uid, updateTime,
+         writableNode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -2085,6 +2095,17 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBigQueryResourceMetadata
+//
+
+@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBigQueryResourceMetadata
+@dynamic createTime, fullResourceName, location, product, resourceContainer,
+         resourceId, updateTime, userLabelSet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCompliance
 //
 
@@ -2128,10 +2149,10 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed
-@dynamic backupdrMetadata, configBasedSignalData, databaseResourceSignalData,
-         feedTimestamp, feedType, observabilityMetricData,
-         recommendationSignalData, resourceHealthSignalData, resourceId,
-         resourceMetadata, skipIngestion;
+@dynamic backupdrMetadata, bigqueryResourceMetadata, configBasedSignalData,
+         databaseResourceSignalData, feedTimestamp, feedType,
+         observabilityMetricData, recommendationSignalData,
+         resourceHealthSignalData, resourceId, resourceMetadata, skipIngestion;
 @end
 
 
@@ -2192,10 +2213,10 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 @dynamic availabilityConfiguration, backupConfiguration, backupdrConfiguration,
          backupRun, creationTime, currentState, customMetadata, edition,
          entitlements, expectedState, gcbdrConfiguration, identifier,
-         instanceType, location, machineConfiguration, maintenanceInfo,
-         primaryResourceId, primaryResourceLocation, product, resourceContainer,
-         resourceName, suspensionReason, tagsSet, updationTime, userLabelSet,
-         zoneProperty;
+         instanceType, isDeletionProtectionEnabled, location,
+         machineConfiguration, maintenanceInfo, primaryResourceId,
+         primaryResourceLocation, product, resourceContainer, resourceName,
+         suspensionReason, tagsSet, updationTime, userLabelSet, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

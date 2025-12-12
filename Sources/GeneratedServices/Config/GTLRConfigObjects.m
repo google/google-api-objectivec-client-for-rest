@@ -26,6 +26,7 @@ NSString * const kGTLRConfig_Deployment_ErrorCode_CloudBuildPermissionDenied = @
 NSString * const kGTLRConfig_Deployment_ErrorCode_DeleteBuildApiFailed = @"DELETE_BUILD_API_FAILED";
 NSString * const kGTLRConfig_Deployment_ErrorCode_DeleteBuildRunFailed = @"DELETE_BUILD_RUN_FAILED";
 NSString * const kGTLRConfig_Deployment_ErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
+NSString * const kGTLRConfig_Deployment_ErrorCode_ExternalValueSourceImportFailed = @"EXTERNAL_VALUE_SOURCE_IMPORT_FAILED";
 NSString * const kGTLRConfig_Deployment_ErrorCode_RevisionFailed = @"REVISION_FAILED";
 
 // GTLRConfig_Deployment.lockState
@@ -73,6 +74,7 @@ NSString * const kGTLRConfig_Preview_ErrorCode_BucketCreationPermissionDenied = 
 NSString * const kGTLRConfig_Preview_ErrorCode_CloudBuildPermissionDenied = @"CLOUD_BUILD_PERMISSION_DENIED";
 NSString * const kGTLRConfig_Preview_ErrorCode_DeploymentLockAcquireFailed = @"DEPLOYMENT_LOCK_ACQUIRE_FAILED";
 NSString * const kGTLRConfig_Preview_ErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
+NSString * const kGTLRConfig_Preview_ErrorCode_ExternalValueSourceImportFailed = @"EXTERNAL_VALUE_SOURCE_IMPORT_FAILED";
 NSString * const kGTLRConfig_Preview_ErrorCode_PreviewBuildApiFailed = @"PREVIEW_BUILD_API_FAILED";
 NSString * const kGTLRConfig_Preview_ErrorCode_PreviewBuildRunFailed = @"PREVIEW_BUILD_RUN_FAILED";
 
@@ -142,6 +144,7 @@ NSString * const kGTLRConfig_Revision_ErrorCode_ApplyBuildApiFailed = @"APPLY_BU
 NSString * const kGTLRConfig_Revision_ErrorCode_ApplyBuildRunFailed = @"APPLY_BUILD_RUN_FAILED";
 NSString * const kGTLRConfig_Revision_ErrorCode_CloudBuildPermissionDenied = @"CLOUD_BUILD_PERMISSION_DENIED";
 NSString * const kGTLRConfig_Revision_ErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
+NSString * const kGTLRConfig_Revision_ErrorCode_ExternalValueSourceImportFailed = @"EXTERNAL_VALUE_SOURCE_IMPORT_FAILED";
 NSString * const kGTLRConfig_Revision_ErrorCode_QuotaValidationFailed = @"QUOTA_VALIDATION_FAILED";
 
 // GTLRConfig_Revision.quotaValidation
@@ -218,6 +221,16 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_AutoMigrationConfig
+//
+
+@implementation GTLRConfig_AutoMigrationConfig
+@dynamic autoMigrationEnabled, name, updateTime;
 @end
 
 

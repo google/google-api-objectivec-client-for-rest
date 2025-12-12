@@ -415,6 +415,34 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersReportsCountActiveDevices
+
+@dynamic customer, dateDay, dateMonth, dateYear;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"dateDay" : @"date.day",
+    @"dateMonth" : @"date.month",
+    @"dateYear" : @"date.year"
+  };
+  return map;
+}
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:countActiveDevices";
+  GTLRChromeManagementQuery_CustomersReportsCountActiveDevices *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountActiveDevicesResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.countActiveDevices";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersReportsCountChromeBrowsersNeedingAttention
 
 @dynamic customer, orgUnitId;
@@ -524,6 +552,62 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
   query.customer = customer;
   query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountChromeVersionsResponse class];
   query.loggingName = @"chromemanagement.customers.reports.countChromeVersions";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersReportsCountDevicesPerBootType
+
+@dynamic customer, dateDay, dateMonth, dateYear;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"dateDay" : @"date.day",
+    @"dateMonth" : @"date.month",
+    @"dateYear" : @"date.year"
+  };
+  return map;
+}
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:countDevicesPerBootType";
+  GTLRChromeManagementQuery_CustomersReportsCountDevicesPerBootType *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountDevicesPerBootTypeResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.countDevicesPerBootType";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersReportsCountDevicesPerReleaseChannel
+
+@dynamic customer, dateDay, dateMonth, dateYear;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"dateDay" : @"date.day",
+    @"dateMonth" : @"date.month",
+    @"dateYear" : @"date.year"
+  };
+  return map;
+}
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:countDevicesPerReleaseChannel";
+  GTLRChromeManagementQuery_CustomersReportsCountDevicesPerReleaseChannel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1CountDevicesPerReleaseChannelResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.countDevicesPerReleaseChannel";
   return query;
 }
 

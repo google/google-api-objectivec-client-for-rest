@@ -24,6 +24,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2BuildpacksBuild;
 @class GTLRCloudRun_GoogleCloudRunV2BuildpacksBuild_EnvironmentVariables;
 @class GTLRCloudRun_GoogleCloudRunV2CloudSqlInstance;
+@class GTLRCloudRun_GoogleCloudRunV2CloudStorageSource;
 @class GTLRCloudRun_GoogleCloudRunV2Condition;
 @class GTLRCloudRun_GoogleCloudRunV2Container;
 @class GTLRCloudRun_GoogleCloudRunV2ContainerOverride;
@@ -72,6 +73,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2Service_Labels;
 @class GTLRCloudRun_GoogleCloudRunV2ServiceMesh;
 @class GTLRCloudRun_GoogleCloudRunV2ServiceScaling;
+@class GTLRCloudRun_GoogleCloudRunV2SourceCode;
 @class GTLRCloudRun_GoogleCloudRunV2StorageSource;
 @class GTLRCloudRun_GoogleCloudRunV2Task;
 @class GTLRCloudRun_GoogleCloudRunV2Task_Annotations;
@@ -179,6 +181,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_Execu
  *  Value: "CANCELLING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelling;
+/**
+ *  A delayed execution is waiting for a start time.
+ *
+ *  Value: "DELAYED_START_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_DelayedStartPending;
 /**
  *  The execution was deleted.
  *
@@ -2071,6 +2079,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Cloud Storage source.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2CloudStorageSource : GTLRObject
+
+/** Required. The Cloud Storage bucket name. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/**
+ *  Optional. The Cloud Storage object generation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *generation;
+
+/** Required. The Cloud Storage object name. */
+@property(nonatomic, copy, nullable) NSString *object;
+
+@end
+
+
+/**
  *  Defines a status condition for a resource.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2Condition : GTLRObject
@@ -2084,6 +2113,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelling
  *        The execution is in the process of being cancelled. (Value:
  *        "CANCELLING")
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_DelayedStartPending
+ *        A delayed execution is waiting for a start time. (Value:
+ *        "DELAYED_START_PENDING")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Deleted
  *        The execution was deleted. (Value: "DELETED")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_ExecutionReasonUndefined
@@ -2310,6 +2342,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Compute Resource requirements by this container. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2ResourceRequirements *resources;
+
+/** Optional. Location of the source. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2SourceCode *sourceCode;
 
 /**
  *  Startup probe of application within the container. All other probes are
@@ -3505,6 +3540,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Service *> *services;
+
+/**
+ *  Output only. For global requests, returns the list of regions that could not
+ *  be reached within the deadline.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -4859,6 +4900,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Source type for the container.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2SourceCode : GTLRObject
+
+/** The source is a Cloud Storage bucket. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2CloudStorageSource *cloudStorageSource;
+
+@end
+
+
+/**
  *  Location of the source in an archive file in Google Cloud Storage.
  */
 @interface GTLRCloudRun_GoogleCloudRunV2StorageSource : GTLRObject
@@ -5643,13 +5695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Output only. Email address of the authenticated creator. */
 @property(nonatomic, copy, nullable) NSString *creator;
 
-/**
- *  One or more custom audiences that you want this worker pool to support.
- *  Specify each custom audience as the full URL in a string. The custom
- *  audiences are encoded in the token and used to authenticate requests. For
- *  more information, see
- *  https://cloud.google.com/run/docs/configuring/custom-audiences.
- */
+/** Not supported, and ignored by Cloud Run. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *customAudiences;
 
 /**
@@ -5855,6 +5901,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  reconciliation process in Cloud Run.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2Condition *terminalCondition;
+
+/**
+ *  Output only. Indicates whether Cloud Run Threat Detection monitoring is
+ *  enabled for the parent project of this worker pool.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *threatDetectionEnabled;
 
 /**
  *  Output only. Server assigned unique identifier for the trigger. The value is
@@ -6870,6 +6924,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage : GTLRObject
 
+/** Output only. Path to the artifact in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
+
 /** Docker Registry 2.0 digest. */
 @property(nonatomic, copy, nullable) NSString *digest;
 
@@ -7237,6 +7294,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Registry.
  */
 @property(nonatomic, copy, nullable) NSString *artifactId;
+
+/**
+ *  Optional. Path to a folder containing the files to upload to Artifact
+ *  Registry. This can be either an absolute path, e.g.
+ *  `/workspace/my-app/target/`, or a relative path from /workspace, e.g.
+ *  `my-app/target/`. This field is mutually exclusive with the `path` field.
+ */
+@property(nonatomic, copy, nullable) NSString *deployFolder;
 
 /**
  *  Maven `groupId` value used when uploading the artifact to Artifact Registry.
@@ -7739,6 +7804,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGoModule : GTLRObject
 
+/** Output only. Path to the artifact in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
+
 /** Hash types and values of the Go Module Artifact. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
 
@@ -7757,6 +7825,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  A Maven artifact uploaded using the MavenArtifact directive.
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact : GTLRObject
+
+/** Output only. Path to the artifact in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
 
 /** Hash types and values of the Maven Artifact. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
@@ -7777,6 +7848,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedNpmPackage : GTLRObject
 
+/** Output only. Path to the artifact in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
+
 /** Hash types and values of the npm package. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
 
@@ -7795,6 +7869,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Artifact uploaded using the PythonPackage directive.
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedPythonPackage : GTLRObject
+
+/** Output only. Path to the artifact in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
 
 /** Hash types and values of the Python Artifact. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes *fileHashes;
@@ -8180,8 +8257,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

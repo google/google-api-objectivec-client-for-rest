@@ -377,6 +377,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeClips;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeComments;
 /**
+ *  Authorization scope: Move a copy of all your YouTube messages
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.youtube.conversations"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityYoutubeConversations;
+/**
  *  Authorization scope: Move a copy of your YouTube messages in live chat
  *
  *  Value "https://www.googleapis.com/auth/dataportability.youtube.live_chat"

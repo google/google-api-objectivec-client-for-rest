@@ -2460,7 +2460,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
 
 /**
  *  Organization Policy condition/expression. For example:
- *  `resource.instanceName.matches("[production|test]_.*_(\\d)+")'` or,
+ *  `resource.instanceName.matches("(production|test)_(.+_)?[\\d]+")'` or,
  *  `resource.management.auto_upgrade == true`
  */
 @property(nonatomic, copy, nullable) NSString *condition;
@@ -6331,6 +6331,9 @@ GTLR_DEPRECATED
  *  the resource for a given API version.
  */
 @interface GTLRCloudAsset_VersionedResource : GTLRObject
+
+/** The exceptions of a resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAsset_AssetException *> *assetExceptions;
 
 /**
  *  JSON representation of the resource as defined by the corresponding service

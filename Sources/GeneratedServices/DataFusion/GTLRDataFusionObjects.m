@@ -224,10 +224,11 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
          displayName, enableRbac, enableStackdriverLogging,
          enableStackdriverMonitoring, enableZoneSeparation, eventPublishConfig,
          gcsBucket, labels, loggingConfig, maintenanceEvents, maintenancePolicy,
-         name, networkConfig, options, p4ServiceAccount, patchRevision,
-         privateInstance, satisfiesPzi, satisfiesPzs, serviceAccount,
-         serviceEndpoint, state, stateMessage, tags, tenantProjectId, type,
-         updateTime, version, workforceIdentityServiceEndpoint, zoneProperty;
+         monitoringConfig, name, networkConfig, options, p4ServiceAccount,
+         patchRevision, privateInstance, satisfiesPzi, satisfiesPzs,
+         serviceAccount, serviceEndpoint, state, stateMessage, tags,
+         tenantProjectId, type, updateTime, version,
+         workforceIdentityServiceEndpoint, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -384,11 +385,12 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDataFusion_Operation class]
+    @"operations" : [GTLRDataFusion_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -475,6 +477,16 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 
 @implementation GTLRDataFusion_MaintenanceWindow
 @dynamic recurringTimeWindow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataFusion_MonitoringConfig
+//
+
+@implementation GTLRDataFusion_MonitoringConfig
+@dynamic enableInstanceV2Metrics;
 @end
 
 

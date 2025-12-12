@@ -62,6 +62,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminScopeScopeUnspecified;
 // view
 
 /**
+ *  Responses include all fields that aren't explicitly gated behind another
+ *  view.
+ *
+ *  Value: "BACKUP_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewBackupViewBasic;
+/**
+ *  Response include all the field from BASIC plus the field cluster_deleted,
+ *  which specifies if the cluster corresponding to this backup is deleted.
+ *
+ *  Value: "BACKUP_VIEW_CLUSTER_DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewBackupViewClusterDeleted;
+/**
+ *  Value unspecified, equivalent to BASIC.
+ *
+ *  Value: "BACKUP_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewBackupViewUnspecified;
+/**
  *  BASIC server responses include all the relevant cluster details, excluding
  *  Cluster.ContinuousBackupInfo.EarliestRestorableTime and other view-specific
  *  fields. The default value.
@@ -241,6 +261,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The view of the backup to return.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdminViewBackupViewUnspecified Value unspecified,
+ *        equivalent to BASIC. (Value: "BACKUP_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdminViewBackupViewBasic Responses include all
+ *        fields that aren't explicitly gated behind another view. (Value:
+ *        "BACKUP_VIEW_BASIC")
+ *    @arg @c kGTLRCloudAlloyDBAdminViewBackupViewClusterDeleted Response
+ *        include all the field from BASIC plus the field cluster_deleted, which
+ *        specifies if the cluster corresponding to this backup is deleted.
+ *        (Value: "BACKUP_VIEW_CLUSTER_DELETED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Fetches a @c GTLRCloudAlloyDBAdmin_Backup.
  *
  *  Gets details of a single Backup.
@@ -280,6 +316,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 
 /** Required. Parent value for ListBackupsRequest */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The view of the backup to return.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdminViewBackupViewUnspecified Value unspecified,
+ *        equivalent to BASIC. (Value: "BACKUP_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdminViewBackupViewBasic Responses include all
+ *        fields that aren't explicitly gated behind another view. (Value:
+ *        "BACKUP_VIEW_BASIC")
+ *    @arg @c kGTLRCloudAlloyDBAdminViewBackupViewClusterDeleted Response
+ *        include all the field from BASIC plus the field cluster_deleted, which
+ *        specifies if the cluster corresponding to this backup is deleted.
+ *        (Value: "BACKUP_VIEW_CLUSTER_DELETED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRCloudAlloyDBAdmin_ListBackupsResponse.
@@ -1925,9 +1977,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspeci
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

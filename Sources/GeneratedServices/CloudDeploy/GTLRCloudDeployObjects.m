@@ -346,6 +346,12 @@ NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_InProgress = @"IN_
 NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_TargetRenderStateUnspecified = @"TARGET_RENDER_STATE_UNSPECIFIED";
 
+// GTLRCloudDeploy_ToolVersionSupportedCondition.toolVersionSupportState
+NSString * const kGTLRCloudDeploy_ToolVersionSupportedCondition_ToolVersionSupportState_ToolVersionSupportStateMaintenanceMode = @"TOOL_VERSION_SUPPORT_STATE_MAINTENANCE_MODE";
+NSString * const kGTLRCloudDeploy_ToolVersionSupportedCondition_ToolVersionSupportState_ToolVersionSupportStateSupported = @"TOOL_VERSION_SUPPORT_STATE_SUPPORTED";
+NSString * const kGTLRCloudDeploy_ToolVersionSupportedCondition_ToolVersionSupportState_ToolVersionSupportStateUnspecified = @"TOOL_VERSION_SUPPORT_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudDeploy_ToolVersionSupportedCondition_ToolVersionSupportState_ToolVersionSupportStateUnsupported = @"TOOL_VERSION_SUPPORT_STATE_UNSUPPORTED";
+
 // GTLRCloudDeploy_VerifyJobRun.failureCause
 NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildRequestFailed = @"CLOUD_BUILD_REQUEST_FAILED";
 NSString * const kGTLRCloudDeploy_VerifyJobRun_FailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
@@ -899,7 +905,7 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_Config
-@dynamic defaultSkaffoldVersion, name, supportedVersions;
+@dynamic defaultSkaffoldVersion, defaultToolVersions, name, supportedVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2154,7 +2160,8 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
          customTargetTypeSnapshots, deliveryPipelineSnapshot, deployParameters,
          descriptionProperty, ETag, labels, name, renderEndTime,
          renderStartTime, renderState, skaffoldConfigPath, skaffoldConfigUri,
-         skaffoldVersion, targetArtifacts, targetRenders, targetSnapshots, uid;
+         skaffoldVersion, targetArtifacts, targetRenders, targetSnapshots,
+         toolVersions, uid;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2252,7 +2259,10 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_ReleaseCondition
-@dynamic releaseReadyCondition, skaffoldSupportedCondition;
+@dynamic dockerVersionSupportedCondition, helmVersionSupportedCondition,
+         kptVersionSupportedCondition, kubectlVersionSupportedCondition,
+         kustomizeVersionSupportedCondition, releaseReadyCondition,
+         skaffoldSupportedCondition, skaffoldVersionSupportedCondition;
 @end
 
 
@@ -3147,6 +3157,27 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_ToolVersions
+//
+
+@implementation GTLRCloudDeploy_ToolVersions
+@dynamic docker, helm, kpt, kubectl, kustomize, skaffold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_ToolVersionSupportedCondition
+//
+
+@implementation GTLRCloudDeploy_ToolVersionSupportedCondition
+@dynamic maintenanceModeTime, status, supportExpirationTime,
+         toolVersionSupportState;
 @end
 
 

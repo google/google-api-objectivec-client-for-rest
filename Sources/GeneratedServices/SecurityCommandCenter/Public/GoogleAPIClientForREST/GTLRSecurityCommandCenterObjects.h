@@ -110,6 +110,11 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1p1beta1SecurityMarks_Marks;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Property;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplication;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributes;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesContactInfo;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceSelector;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_ResourceLabelsSelector;
@@ -224,6 +229,11 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Reference;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Requests;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplication;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributes;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesContactInfo;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePath;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_ResourceLabelsSelector;
@@ -1310,6 +1320,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_State_Stat
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Framework_Category_AssuredWorkloads;
 /**
+ *  A user-created framework
+ *
+ *  Value: "CUSTOM_FRAMEWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Framework_Category_CustomFramework;
+/**
  *  Data Security framework
  *
  *  Value: "DATA_SECURITY"
@@ -1612,6 +1628,74 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "MICROSOFT_AZURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_MicrosoftAzure;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality.type
+
+/**
+ *  Unspecified type.
+ *
+ *  Value: "CRITICALITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_CriticalityTypeUnspecified;
+/**
+ *  High impact.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_High;
+/**
+ *  Low impact.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_Low;
+/**
+ *  Medium impact.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_Medium;
+/**
+ *  Mission critical service, application or workload.
+ *
+ *  Value: "MISSION_CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_MissionCritical;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment.type
+
+/**
+ *  Development environment.
+ *
+ *  Value: "DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Development;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "ENVIRONMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_EnvironmentTypeUnspecified;
+/**
+ *  Production environment.
+ *
+ *  Value: "PRODUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Production;
+/**
+ *  Staging environment.
+ *
+ *  Value: "STAGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Staging;
+/**
+ *  Test environment.
+ *
+ *  Value: "TEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Test;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.cloudProvider
@@ -2597,6 +2681,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "ASSURED_WORKLOADS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_AssuredWorkloads;
+/**
+ *  A user-created framework
+ *
+ *  Value: "CUSTOM_FRAMEWORK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_CustomFramework;
 /**
  *  Data Security framework
  *
@@ -4941,6 +5031,74 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "MICROSOFT_AZURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_MicrosoftAzure;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality.type
+
+/**
+ *  Unspecified type.
+ *
+ *  Value: "CRITICALITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_CriticalityTypeUnspecified;
+/**
+ *  High impact.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_High;
+/**
+ *  Low impact.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_Low;
+/**
+ *  Medium impact.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_Medium;
+/**
+ *  Mission critical service, application or workload.
+ *
+ *  Value: "MISSION_CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_MissionCritical;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment.type
+
+/**
+ *  Development environment.
+ *
+ *  Value: "DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Development;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "ENVIRONMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_EnvironmentTypeUnspecified;
+/**
+ *  Production environment.
+ *
+ *  Value: "PRODUCTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Production;
+/**
+ *  Staging environment.
+ *
+ *  Value: "STAGING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Staging;
+/**
+ *  Test environment.
+ *
+ *  Value: "TEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Test;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode.nodeType
@@ -7841,6 +7999,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The publisher of the model, for example, “google” or “nvidia”. */
 @property(nonatomic, copy, nullable) NSString *publisher;
+
+/** The purpose of the model, for example, "Inteference" or "Training". */
+@property(nonatomic, copy, nullable) NSString *usageCategory;
 
 @end
 
@@ -11489,6 +11650,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource : GTLRObject
 
+/** The App Hub application this resource belongs to. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplication *application;
+
 /** The AWS metadata associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AwsMetadata *awsMetadata;
 
@@ -11572,6 +11736,108 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *service;
 
 /** The full resource type of the resource. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The App Hub Application associated with the finding's resource.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplication : GTLRObject
+
+/** Consumer provided attributes for the application */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributes *attributes;
+
+/**
+ *  The resource name of an Application. Format:
+ *  `projects/{host-project-id}/locations/{location}/applications/{application-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Consumer provided attributes for the application
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributes : GTLRObject
+
+/** Business team that ensures user needs are met and value is delivered */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesContactInfo *> *businessOwners;
+
+/** User-defined criticality information. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality *criticality;
+
+/** Developer team that owns development and coding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesContactInfo *> *developerOwners;
+
+/** User-defined environment information. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment *environment;
+
+/** Operator team that ensures runtime and operations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesContactInfo *> *operatorOwners;
+
+@end
+
+
+/**
+ *  Contact information of stakeholders.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesContactInfo : GTLRObject
+
+/** Email address of the contacts. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+@end
+
+
+/**
+ *  Criticality of the Application, Service, or Workload
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality : GTLRObject
+
+/**
+ *  Criticality Type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_CriticalityTypeUnspecified
+ *        Unspecified type. (Value: "CRITICALITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_High
+ *        High impact. (Value: "HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_Low
+ *        Low impact. (Value: "LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_Medium
+ *        Medium impact. (Value: "MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_MissionCritical
+ *        Mission critical service, application or workload. (Value:
+ *        "MISSION_CRITICAL")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Environment of the Application, Service, or Workload
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment : GTLRObject
+
+/**
+ *  Environment Type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Development
+ *        Development environment. (Value: "DEVELOPMENT")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_EnvironmentTypeUnspecified
+ *        Unspecified type. (Value: "ENVIRONMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Production
+ *        Production environment. (Value: "PRODUCTION")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Staging
+ *        Staging environment. (Value: "STAGING")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Test
+ *        Test environment. (Value: "TEST")
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -12055,6 +12321,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The publisher of the model, for example, “google” or “nvidia”. */
 @property(nonatomic, copy, nullable) NSString *publisher;
+
+/** The purpose of the model, for example, "Inteference" or "Training". */
+@property(nonatomic, copy, nullable) NSString *usageCategory;
 
 @end
 
@@ -15767,6 +16036,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource : GTLRObject
 
+/** The App Hub application this resource belongs to. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplication *application;
+
 /** The AWS metadata associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsMetadata *awsMetadata;
 
@@ -15825,6 +16097,108 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *service;
 
 /** The full resource type of the resource. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The App Hub Application associated with the finding's resource.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplication : GTLRObject
+
+/** Consumer provided attributes for the application */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributes *attributes;
+
+/**
+ *  The resource name of an Application. Format:
+ *  `projects/{host-project-id}/locations/{location}/applications/{application-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Consumer provided attributes for the application
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributes : GTLRObject
+
+/** Business team that ensures user needs are met and value is delivered */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesContactInfo *> *businessOwners;
+
+/** User-defined criticality information. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality *criticality;
+
+/** Developer team that owns development and coding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesContactInfo *> *developerOwners;
+
+/** User-defined environment information. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment *environment;
+
+/** Operator team that ensures runtime and operations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesContactInfo *> *operatorOwners;
+
+@end
+
+
+/**
+ *  Contact information of stakeholders.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesContactInfo : GTLRObject
+
+/** Email address of the contacts. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+@end
+
+
+/**
+ *  Criticality of the Application, Service, or Workload
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality : GTLRObject
+
+/**
+ *  Criticality Type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_CriticalityTypeUnspecified
+ *        Unspecified type. (Value: "CRITICALITY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_High
+ *        High impact. (Value: "HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_Low
+ *        Low impact. (Value: "LOW")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_Medium
+ *        Medium impact. (Value: "MEDIUM")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_MissionCritical
+ *        Mission critical service, application or workload. (Value:
+ *        "MISSION_CRITICAL")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Environment of the Application, Service, or Workload
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment : GTLRObject
+
+/**
+ *  Environment Type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Development
+ *        Development environment. (Value: "DEVELOPMENT")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_EnvironmentTypeUnspecified
+ *        Unspecified type. (Value: "ENVIRONMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Production
+ *        Production environment. (Value: "PRODUCTION")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Staging
+ *        Staging environment. (Value: "STAGING")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Test
+ *        Test environment. (Value: "TEST")
+ */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -17597,8 +17971,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -18507,6 +18882,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  this finding.
  */
 @interface GTLRSecurityCommandCenter_Resource : GTLRObject
+
+/** The App Hub application this resource belongs to. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplication *application;
 
 /** The AWS metadata associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AwsMetadata *awsMetadata;

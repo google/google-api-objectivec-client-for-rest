@@ -528,6 +528,29 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesAddEntraIdCertificate
+
+@dynamic instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/addEntraIdCertificate";
+  GTLRSQLAdminQuery_InstancesAddEntraIdCertificate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.addEntraIdCertificate";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesAddServerCa
 
 @dynamic instance, project;
@@ -884,6 +907,29 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @end
 
+@implementation GTLRSQLAdminQuery_InstancesListEntraIdCertificates
+
+@dynamic instance, project;
+
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance {
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/listEntraIdCertificates";
+  GTLRSQLAdminQuery_InstancesListEntraIdCertificates *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_InstancesListEntraIdCertificatesResponse class];
+  query.loggingName = @"sql.instances.ListEntraIdCertificates";
+  return query;
+}
+
+@end
+
 @implementation GTLRSQLAdminQuery_InstancesListServerCas
 
 @dynamic instance, project;
@@ -1168,6 +1214,37 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
   query.instance = instance;
   query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
   query.loggingName = @"sql.instances.restoreBackup";
+  return query;
+}
+
+@end
+
+@implementation GTLRSQLAdminQuery_InstancesRotateEntraIdCertificate
+
+@dynamic instance, project;
+
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateEntraIdCertificateRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"instance", @"project"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{project}/instances/{instance}/rotateEntraIdCertificate";
+  GTLRSQLAdminQuery_InstancesRotateEntraIdCertificate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.instance = instance;
+  query.expectedObjectClass = [GTLRSQLAdmin_Operation class];
+  query.loggingName = @"sql.instances.RotateEntraIdCertificate";
   return query;
 }
 
@@ -1890,7 +1967,14 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_UsersUpdate
 
-@dynamic host, instance, name, project;
+@dynamic databaseRoles, host, instance, name, project;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databaseRoles" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRSQLAdmin_User *)object
                         project:(NSString *)project

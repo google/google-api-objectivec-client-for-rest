@@ -2527,3 +2527,28 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 }
 
 @end
+
+@implementation GTLRYouTubeQuery_YoutubeV3VideosBatchGetStats
+
+@dynamic onBehalfOfContentOwner, part, videoIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"part" : [NSString class],
+    @"videoIds" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"youtube/v3/videos:batchGetStats";
+  GTLRYouTubeQuery_YoutubeV3VideosBatchGetStats *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRYouTube_BatchGetStatsResponse class];
+  query.loggingName = @"youtube.youtube.v3.videos.batchGetStats";
+  return query;
+}
+
+@end

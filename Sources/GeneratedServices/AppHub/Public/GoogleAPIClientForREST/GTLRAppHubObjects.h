@@ -23,7 +23,10 @@
 @class GTLRAppHub_DiscoveredWorkload;
 @class GTLRAppHub_Environment;
 @class GTLRAppHub_Expr;
+@class GTLRAppHub_ExtendedMetadata;
+@class GTLRAppHub_ExtendedMetadata_MetadataStruct;
 @class GTLRAppHub_FunctionalType;
+@class GTLRAppHub_Identity;
 @class GTLRAppHub_Location;
 @class GTLRAppHub_Location_Labels;
 @class GTLRAppHub_Location_Metadata;
@@ -31,15 +34,18 @@
 @class GTLRAppHub_Operation_Metadata;
 @class GTLRAppHub_Operation_Response;
 @class GTLRAppHub_Policy;
+@class GTLRAppHub_RegistrationType;
 @class GTLRAppHub_Scope;
 @class GTLRAppHub_Service;
 @class GTLRAppHub_ServiceProjectAttachment;
 @class GTLRAppHub_ServiceProperties;
+@class GTLRAppHub_ServiceProperties_ExtendedMetadata;
 @class GTLRAppHub_ServiceReference;
 @class GTLRAppHub_Status;
 @class GTLRAppHub_Status_Details_Item;
 @class GTLRAppHub_Workload;
 @class GTLRAppHub_WorkloadProperties;
+@class GTLRAppHub_WorkloadProperties_ExtendedMetadata;
 @class GTLRAppHub_WorkloadReference;
 
 // Generated comments include content from the discovery document; avoid them
@@ -107,6 +113,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_AuditLogConfig_LogType_DataWrite;
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppHub_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAppHub_Boundary.type
+
+/**
+ *  The Boundary automatically includes all descendants of the CRM node.
+ *
+ *  Value: "AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_Boundary_Type_Automatic;
+/**
+ *  The Boundary automatically includes all descendants of the CRM node, which
+ *  is set via App Management folder capability.
+ *
+ *  Value: "MANAGED_AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_Boundary_Type_ManagedAutomatic;
+/**
+ *  The list of projects within the Boundary is managed by the user.
+ *
+ *  Value: "MANUAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_Boundary_Type_Manual;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_Boundary_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppHub_Criticality.type
@@ -224,6 +259,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_ReconciliationOperationMetadata_E
  *  Value: "UNKNOWN_REPAIR_ACTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction;
+
+// ----------------------------------------------------------------------------
+// GTLRAppHub_RegistrationType.type
+
+/**
+ *  The service can only be registered to one application.
+ *
+ *  Value: "EXCLUSIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_RegistrationType_Type_Exclusive;
+/**
+ *  The service can be registered to multiple applications.
+ *
+ *  Value: "SHARED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_RegistrationType_Type_Shared;
+/**
+ *  Unspecified registration type. Defaults to EXCLUSIVE.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_RegistrationType_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAppHub_Scope.type
@@ -589,6 +646,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 
 /**
+ *  Application management boundary.
+ */
+@interface GTLRAppHub_Boundary : GTLRObject
+
+/** Output only. Create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The resource name of the CRM node being attached to the boundary.
+ *  Format: `projects/{project-number}` or `projects/{project-id}`
+ */
+@property(nonatomic, copy, nullable) NSString *crmNode;
+
+/**
+ *  Identifier. The resource name of the boundary. Format:
+ *  "projects/{project}/locations/{location}/boundary"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Boundary type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppHub_Boundary_Type_Automatic The Boundary automatically
+ *        includes all descendants of the CRM node. (Value: "AUTOMATIC")
+ *    @arg @c kGTLRAppHub_Boundary_Type_ManagedAutomatic The Boundary
+ *        automatically includes all descendants of the CRM node, which is set
+ *        via App Management folder capability. (Value: "MANAGED_AUTOMATIC")
+ *    @arg @c kGTLRAppHub_Boundary_Type_Manual The list of projects within the
+ *        Boundary is managed by the user. (Value: "MANUAL")
+ *    @arg @c kGTLRAppHub_Boundary_Type_TypeUnspecified Unspecified type.
+ *        (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRAppHub_CancelOperationRequest : GTLRObject
@@ -788,6 +887,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 
 /**
+ *  Additional metadata for a Service or Workload.
+ */
+@interface GTLRAppHub_ExtendedMetadata : GTLRObject
+
+/** Output only. The metadata contents. */
+@property(nonatomic, strong, nullable) GTLRAppHub_ExtendedMetadata_MetadataStruct *metadataStruct;
+
+@end
+
+
+/**
+ *  Output only. The metadata contents.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAppHub_ExtendedMetadata_MetadataStruct : GTLRObject
+@end
+
+
+/**
  *  The functional type of a service or workload.
  */
 @interface GTLRAppHub_FunctionalType : GTLRObject
@@ -803,6 +925,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  *        (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The identity associated with a service or workload.
+ */
+@interface GTLRAppHub_Identity : GTLRObject
+
+/**
+ *  Output only. Principal of the identity. Supported formats: *
+ *  `sa://my-sa\@xxxx.iam.gserviceaccount.com` for GCP Service Account *
+ *  `principal://POOL_ID.global.PROJECT_NUMBER.workload.id.goog/ns/NAMESPACE_ID/sa/MANAGED_IDENTITY_ID`
+ *  for Managed Workload Identity
+ */
+@property(nonatomic, copy, nullable) NSString *principal;
 
 @end
 
@@ -935,8 +1073,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1361,6 +1500,27 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 
 /**
+ *  The registration type of a service.
+ */
+@interface GTLRAppHub_RegistrationType : GTLRObject
+
+/**
+ *  Output only. The registration type of a service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAppHub_RegistrationType_Type_Exclusive The service can only
+ *        be registered to one application. (Value: "EXCLUSIVE")
+ *    @arg @c kGTLRAppHub_RegistrationType_Type_Shared The service can be
+ *        registered to multiple applications. (Value: "SHARED")
+ *    @arg @c kGTLRAppHub_RegistrationType_Type_TypeUnspecified Unspecified
+ *        registration type. Defaults to EXCLUSIVE. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Scope of an application.
  */
 @interface GTLRAppHub_Scope : GTLRObject
@@ -1514,6 +1674,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  */
 @interface GTLRAppHub_ServiceProperties : GTLRObject
 
+/**
+ *  Output only. Additional metadata specific to the resource type. The key is a
+ *  string that identifies the type of metadata and the value is the metadata
+ *  contents specific to that type. Key format:
+ *  `apphub.googleapis.com/{metadataType}`
+ */
+@property(nonatomic, strong, nullable) GTLRAppHub_ServiceProperties_ExtendedMetadata *extendedMetadata;
+
 /** Output only. The type of the service. */
 @property(nonatomic, strong, nullable) GTLRAppHub_FunctionalType *functionalType;
 
@@ -1523,11 +1691,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *gcpProject;
 
+/** Output only. The identity associated with the service. */
+@property(nonatomic, strong, nullable) GTLRAppHub_Identity *identity;
+
 /**
  *  Output only. The location that the underlying resource resides in, for
  *  example, us-west1.
  */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/** Output only. The registration type of the service. */
+@property(nonatomic, strong, nullable) GTLRAppHub_RegistrationType *registrationType;
 
 /**
  *  Output only. The location that the underlying resource resides in if it is
@@ -1537,6 +1711,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
 
+@end
+
+
+/**
+ *  Output only. Additional metadata specific to the resource type. The key is a
+ *  string that identifies the type of metadata and the value is the metadata
+ *  contents specific to that type. Key format:
+ *  `apphub.googleapis.com/{metadataType}`
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAppHub_ExtendedMetadata. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAppHub_ServiceProperties_ExtendedMetadata : GTLRObject
 @end
 
 
@@ -1736,6 +1925,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  */
 @interface GTLRAppHub_WorkloadProperties : GTLRObject
 
+/**
+ *  Output only. Additional metadata specific to the resource type. The key is a
+ *  string that identifies the type of metadata and the value is the metadata
+ *  contents specific to that type. Key format:
+ *  `apphub.googleapis.com/{metadataType}`
+ */
+@property(nonatomic, strong, nullable) GTLRAppHub_WorkloadProperties_ExtendedMetadata *extendedMetadata;
+
 /** Output only. The type of the workload. */
 @property(nonatomic, strong, nullable) GTLRAppHub_FunctionalType *functionalType;
 
@@ -1744,6 +1941,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  *  resource resides in. Empty for non-cloud resources.
  */
 @property(nonatomic, copy, nullable) NSString *gcpProject;
+
+/** Output only. The identity associated with the workload. */
+@property(nonatomic, strong, nullable) GTLRAppHub_Identity *identity;
 
 /**
  *  Output only. The location that the underlying compute resource resides in
@@ -1759,6 +1959,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *zoneProperty;
 
+@end
+
+
+/**
+ *  Output only. Additional metadata specific to the resource type. The key is a
+ *  string that identifies the type of metadata and the value is the metadata
+ *  contents specific to that type. Key format:
+ *  `apphub.googleapis.com/{metadataType}`
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAppHub_ExtendedMetadata. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAppHub_WorkloadProperties_ExtendedMetadata : GTLRObject
 @end
 
 

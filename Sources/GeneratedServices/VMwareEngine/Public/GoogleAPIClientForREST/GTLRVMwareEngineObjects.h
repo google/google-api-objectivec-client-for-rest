@@ -26,10 +26,15 @@
 @class GTLRVMwareEngine_Cluster;
 @class GTLRVMwareEngine_Cluster_NodeTypeConfigs;
 @class GTLRVMwareEngine_Constraints;
+@class GTLRVMwareEngine_Datastore;
+@class GTLRVMwareEngine_DatastoreMountConfig;
+@class GTLRVMwareEngine_DatastoreNetwork;
 @class GTLRVMwareEngine_Expr;
 @class GTLRVMwareEngine_ExternalAccessRule;
 @class GTLRVMwareEngine_ExternalAddress;
 @class GTLRVMwareEngine_ForwardingRule;
+@class GTLRVMwareEngine_GoogleFileService;
+@class GTLRVMwareEngine_GoogleVmwareFileService;
 @class GTLRVMwareEngine_Hcx;
 @class GTLRVMwareEngine_HcxActivationKey;
 @class GTLRVMwareEngine_Interval;
@@ -46,6 +51,7 @@
 @class GTLRVMwareEngine_NetworkPeering;
 @class GTLRVMwareEngine_NetworkPolicy;
 @class GTLRVMwareEngine_NetworkService;
+@class GTLRVMwareEngine_NfsDatastore;
 @class GTLRVMwareEngine_Node;
 @class GTLRVMwareEngine_NodeType;
 @class GTLRVMwareEngine_NodeTypeConfig;
@@ -63,6 +69,7 @@
 @class GTLRVMwareEngine_Status_Details_Item;
 @class GTLRVMwareEngine_StretchedClusterConfig;
 @class GTLRVMwareEngine_Subnet;
+@class GTLRVMwareEngine_ThirdPartyFileService;
 @class GTLRVMwareEngine_Thresholds;
 @class GTLRVMwareEngine_TimeOfDay;
 @class GTLRVMwareEngine_TimeWindow;
@@ -185,6 +192,88 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Cluster_State_StateUnspecif
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Cluster_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_Datastore.state
+
+/**
+ *  The NFS volume is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Datastore_State_Active;
+/**
+ *  The NFS volume is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Datastore_State_Creating;
+/**
+ *  The NFS volume is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Datastore_State_Deleting;
+/**
+ *  The default value. This value should never be used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Datastore_State_StateUnspecified;
+/**
+ *  The NFS volume is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_Datastore_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_DatastoreMountConfig.accessMode
+
+/**
+ *  The default value. This value should never be used.
+ *
+ *  Value: "ACCESS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_DatastoreMountConfig_AccessMode_AccessModeUnspecified;
+/**
+ *  NFS is accessed by hosts in read mode
+ *
+ *  Value: "READ_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_DatastoreMountConfig_AccessMode_ReadOnly;
+/**
+ *  NFS is accessed by hosts in read and write mode
+ *
+ *  Value: "READ_WRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_DatastoreMountConfig_AccessMode_ReadWrite;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_DatastoreMountConfig.nfsVersion
+
+/**
+ *  NFS 3
+ *
+ *  Value: "NFS_V3"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsV3;
+/**
+ *  The default value. This value should never be used.
+ *
+ *  Value: "NFS_VERSION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsVersionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRVMwareEngine_DatastoreMountConfig.securityType
+
+/**
+ *  The default value. This value should never be used.
+ *
+ *  Value: "SECURITY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_DatastoreMountConfig_SecurityType_SecurityTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRVMwareEngine_ExternalAccessRule.action
@@ -1892,6 +1981,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 /** Output only. Creation time of this resource. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Output only. Configuration of a mounted datastore. */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_DatastoreMountConfig *> *datastoreMountConfig;
+
 /**
  *  Output only. True if the cluster is a management cluster; false otherwise.
  *  There can only be one management cluster in a private cloud and it has to be
@@ -2014,6 +2106,179 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 
 /** Initial username. */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Represents a datastore resource.
+ */
+@interface GTLRVMwareEngine_Datastore : GTLRObject
+
+/** Output only. Clusters to which the datastore is attached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *clusters;
+
+/** Output only. Creation time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. User-provided description for this datastore
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Checksum that may be sent on update and delete requests to ensure
+ *  that the user-provided value is up to date before the server processes a
+ *  request. The server computes checksums based on the value of other fields in
+ *  the request.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. Identifier. The resource name of this datastore. Resource names
+ *  are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1/datastores/datastore`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Settings for the NFS datastore. */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_NfsDatastore *nfsDatastore;
+
+/**
+ *  Output only. The state of the Datastore.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_Datastore_State_Active The NFS volume is active.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRVMwareEngine_Datastore_State_Creating The NFS volume is being
+ *        created. (Value: "CREATING")
+ *    @arg @c kGTLRVMwareEngine_Datastore_State_Deleting The NFS volume is being
+ *        deleted. (Value: "DELETING")
+ *    @arg @c kGTLRVMwareEngine_Datastore_State_StateUnspecified The default
+ *        value. This value should never be used. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_Datastore_State_Updating The NFS volume is being
+ *        updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. System-generated unique identifier for the resource. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. Last update time of this resource. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The Datastore Mount configuration
+ */
+@interface GTLRVMwareEngine_DatastoreMountConfig : GTLRObject
+
+/**
+ *  Optional. NFS is accessed by hosts in read mode Optional. Default value used
+ *  will be READ_WRITE
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_DatastoreMountConfig_AccessMode_AccessModeUnspecified
+ *        The default value. This value should never be used. (Value:
+ *        "ACCESS_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRVMwareEngine_DatastoreMountConfig_AccessMode_ReadOnly NFS is
+ *        accessed by hosts in read mode (Value: "READ_ONLY")
+ *    @arg @c kGTLRVMwareEngine_DatastoreMountConfig_AccessMode_ReadWrite NFS is
+ *        accessed by hosts in read and write mode (Value: "READ_WRITE")
+ */
+@property(nonatomic, copy, nullable) NSString *accessMode;
+
+/**
+ *  Required. The resource name of the datastore to unmount. The datastore
+ *  requested to be mounted should be in same region/zone as the cluster.
+ *  Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1/datastores/my-datastore`
+ */
+@property(nonatomic, copy, nullable) NSString *datastore;
+
+/** Required. The network configuration for the datastore. */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_DatastoreNetwork *datastoreNetwork;
+
+/** Output only. File share name. */
+@property(nonatomic, copy, nullable) NSString *fileShare;
+
+/**
+ *  Optional. The NFS protocol supported by the NFS volume. Default value used
+ *  will be NFS_V3
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsV3 NFS 3
+ *        (Value: "NFS_V3")
+ *    @arg @c kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsVersionUnspecified
+ *        The default value. This value should never be used. (Value:
+ *        "NFS_VERSION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *nfsVersion;
+
+/**
+ *  Optional. ONLY required when NFS 4.1 version is used
+ *
+ *  Likely values:
+ *    @arg @c kGTLRVMwareEngine_DatastoreMountConfig_SecurityType_SecurityTypeUnspecified
+ *        The default value. This value should never be used. (Value:
+ *        "SECURITY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *securityType;
+
+/**
+ *  Output only. Server IP addresses of the NFS volume. For NFS 3, you can only
+ *  provide a single server IP address or DNS names.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *servers;
+
+@end
+
+
+/**
+ *  The network configuration for the datastore.
+ */
+@interface GTLRVMwareEngine_DatastoreNetwork : GTLRObject
+
+/**
+ *  Optional. The number of connections of the NFS volume. Spported from vsphere
+ *  8.0u1
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *connectionCount;
+
+/**
+ *  Optional. The Maximal Transmission Unit (MTU) of the datastore. System sets
+ *  default MTU size. It prefers the VPC peering MTU, falling back to the VEN
+ *  MTU if no peering MTU is found. when detected, and falling back to the VEN
+ *  MTU otherwise.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mtu;
+
+/**
+ *  Output only. The resource name of the network peering, used to access the
+ *  file share by clients on private cloud. Resource names are schemeless URIs
+ *  that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. e.g.
+ *  projects/my-project/locations/us-central1/networkPeerings/my-network-peering
+ */
+@property(nonatomic, copy, nullable) NSString *networkPeering;
+
+/**
+ *  Required. The resource name of the subnet Resource names are schemeless URIs
+ *  that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. e.g.
+ *  projects/my-project/locations/us-central1/subnets/my-subnet
+ */
+@property(nonatomic, copy, nullable) NSString *subnet;
 
 @end
 
@@ -2354,6 +2619,34 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 
 
 /**
+ *  Google service file service configuration
+ */
+@interface GTLRVMwareEngine_GoogleFileService : GTLRObject
+
+/**
+ *  Google filestore instance resource name e.g.
+ *  projects/my-project/locations/me-west1-b/instances/my-instance
+ */
+@property(nonatomic, copy, nullable) NSString *filestoreInstance;
+
+/**
+ *  Google netapp volume resource name e.g.
+ *  projects/my-project/locations/me-west1-b/volumes/my-volume
+ */
+@property(nonatomic, copy, nullable) NSString *netappVolume;
+
+@end
+
+
+/**
+ *  Volume message captures user inputs for creation of file services managed by
+ *  GCVE
+ */
+@interface GTLRVMwareEngine_GoogleVmwareFileService : GTLRObject
+@end
+
+
+/**
  *  Request message for VmwareEngine.GrantDnsBindPermission
  */
 @interface GTLRVMwareEngine_GrantDnsBindPermissionRequest : GTLRObject
@@ -2563,6 +2856,36 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  *  Locations that could not be reached when making an aggregated query using
  *  wildcards.
  */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response message for VmwareEngine.ListDatastores
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "datastores" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRVMwareEngine_ListDatastoresResponse : GTLRCollectionObject
+
+/**
+ *  A list of Datastores.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRVMwareEngine_Datastore *> *datastores;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unreachable resources. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -2903,8 +3226,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -3378,6 +3702,34 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 
 
 /**
+ *  Mount Datastore Request message
+ */
+@interface GTLRVMwareEngine_MountDatastoreRequest : GTLRObject
+
+/** Required. The datastore mount configuration. */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_DatastoreMountConfig *datastoreMountConfig;
+
+/**
+ *  Optional. If set to true, the colocation requirement will be ignored. If set
+ *  to false, the colocation requirement will be enforced. If not set, the
+ *  colocation requirement will be enforced. Colocation requirement is the
+ *  requirement that the cluster must be in the same region/zone of
+ *  datastore(regional/zonal datastore).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ignoreColocation;
+
+/**
+ *  Optional. The request ID must be a valid UUID with the exception that zero
+ *  UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
  *  VMware Engine network resource that provides connectivity for VMware Engine
  *  private clouds.
  */
@@ -3777,6 +4129,23 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  *        not provisioned. (Value: "UNPROVISIONED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  The NFS datastore configuration.
+ */
+@interface GTLRVMwareEngine_NfsDatastore : GTLRObject
+
+/** Google service file service configuration */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_GoogleFileService *googleFileService;
+
+/** GCVE file service configuration */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_GoogleVmwareFileService *googleVmwareFileService;
+
+/** Third party file service configuration */
+@property(nonatomic, strong, nullable) GTLRVMwareEngine_ThirdPartyFileService *thirdPartyFileService;
 
 @end
 
@@ -4860,6 +5229,30 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 
 
 /**
+ *  Third party file service configuration
+ */
+@interface GTLRVMwareEngine_ThirdPartyFileService : GTLRObject
+
+/** Required. Required Mount Folder name */
+@property(nonatomic, copy, nullable) NSString *fileShare;
+
+/**
+ *  Required. Required to identify vpc peering used for NFS access network name
+ *  of NFS's vpc e.g. projects/project-id/global/networks/my-network_id
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Required. Server IP addresses of the NFS file service. NFS v3, provide a
+ *  single IP address or DNS name. Multiple servers can be supported in future
+ *  when NFS 4.1 protocol support is enabled.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *servers;
+
+@end
+
+
+/**
  *  Thresholds define the utilization of resources triggering scale-out and
  *  scale-in operations.
  */
@@ -4970,6 +5363,28 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  *  Request message for VmwareEngine.UndeletePrivateCloud
  */
 @interface GTLRVMwareEngine_UndeletePrivateCloudRequest : GTLRObject
+
+/**
+ *  Optional. The request ID must be a valid UUID with the exception that zero
+ *  UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  Unmount Datastore Request messag
+ */
+@interface GTLRVMwareEngine_UnmountDatastoreRequest : GTLRObject
+
+/**
+ *  Required. The resource name of the datastore to unmount. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1/datastores/my-datastore`
+ */
+@property(nonatomic, copy, nullable) NSString *datastore;
 
 /**
  *  Optional. The request ID must be a valid UUID with the exception that zero

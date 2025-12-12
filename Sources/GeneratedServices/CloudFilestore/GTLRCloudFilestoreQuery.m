@@ -258,6 +258,33 @@
 
 @end
 
+@implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPauseReplica
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFilestore_PauseReplicaRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:pauseReplica";
+  GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPauseReplica *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFilestore_Operation class];
+  query.loggingName = @"file.projects.locations.instances.pauseReplica";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesPromoteReplica
 
 @dynamic name;
@@ -307,6 +334,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudFilestore_Operation class];
   query.loggingName = @"file.projects.locations.instances.restore";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudFilestoreQuery_ProjectsLocationsInstancesResumeReplica
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFilestore_ResumeReplicaRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:resumeReplica";
+  GTLRCloudFilestoreQuery_ProjectsLocationsInstancesResumeReplica *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFilestore_Operation class];
+  query.loggingName = @"file.projects.locations.instances.resumeReplica";
   return query;
 }
 

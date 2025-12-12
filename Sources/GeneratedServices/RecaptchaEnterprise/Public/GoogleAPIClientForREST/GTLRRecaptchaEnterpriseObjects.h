@@ -1067,7 +1067,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 
 /**
  *  Optional. Android package names of apps allowed to use the key. Example:
- *  'com.companyname.appname'
+ *  'com.companyname.appname' Each key supports a maximum of 250 package names.
+ *  To use a key on more apps, set `allow_all_package_names` to true. When this
+ *  is set, you are responsible for validating the package name by checking the
+ *  `token_properties.android_package_name` field in each assessment response
+ *  against your list of allowed package names.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedPackageNames;
 
@@ -1096,7 +1100,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *accountId;
 
 /**
- *  annotation
+ *  Optional. The annotation that is assigned to the Event. This field can be
+ *  left empty to provide reasons that apply to an event without concluding
+ *  whether the event is legitimate or fraudulent.
  *
  *  Likely values:
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AnnotateAssessmentRequest_Annotation_AnnotationUnspecified
@@ -1137,6 +1143,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1PhoneAuthenticationEvent *phoneAuthenticationEvent;
 
+/** Optional. Reasons for the annotation that are assigned to the event. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *reasons;
 
 /**
@@ -1878,8 +1885,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, strong, nullable) NSNumber *allowAllBundleIds;
 
 /**
- *  Optional. iOS bundle ids of apps allowed to use the key. Example:
- *  'com.companyname.productname.appname'
+ *  Optional. iOS bundle IDs of apps allowed to use the key. Example:
+ *  'com.companyname.productname.appname' Each key supports a maximum of 250
+ *  bundle IDs. To use a key on more apps, set `allow_all_bundle_ids` to true.
+ *  When this is set, you are responsible for validating the bundle id by
+ *  checking the `token_properties.ios_bundle_id` field in each assessment
+ *  response against your list of allowed bundle IDs.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedBundleIds;
 
@@ -2159,7 +2170,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Optional. If true, skips the billing check. A reCAPTCHA Enterprise key or
  *  migrated key behaves differently than a reCAPTCHA (non-Enterprise version)
  *  key when you reach a quota limit (see
- *  https://cloud.google.com/recaptcha/quotas#quota_limit). To avoid any
+ *  https://docs.cloud.google.com/recaptcha/quotas#quota_limit). To avoid any
  *  disruption of your usage, we check that a billing account is present. If
  *  your usage of reCAPTCHA is under the free quota, you can safely skip the
  *  billing check and proceed with the migration. See
@@ -3137,7 +3148,11 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Optional. Domains or subdomains of websites allowed to use the key. All
  *  subdomains of an allowed domain are automatically allowed. A valid domain
  *  requires a host and must not include any path, port, query or fragment.
- *  Examples: 'example.com' or 'subdomain.example.com'
+ *  Examples: 'example.com' or 'subdomain.example.com' Each key supports a
+ *  maximum of 250 domains. To use a key on more domains, set
+ *  `allow_all_domains` to true. When this is set, you are responsible for
+ *  validating the hostname by checking the `token_properties.hostname` field in
+ *  each assessment response against your list of allowed domains.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedDomains;
 

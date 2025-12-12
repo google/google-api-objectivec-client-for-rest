@@ -26,6 +26,7 @@
 @class GTLRSA360_GoogleAdsSearchads360V0CommonCustomParameter;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonDeviceInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonEnhancedCpc;
+@class GTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonFrequencyCapEntry;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonGenderInfo;
 @class GTLRSA360_GoogleAdsSearchads360V0CommonImageAsset;
@@ -750,6 +751,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonDevic
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonDeviceInfo_Type_Unspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl.osType
+
+/**
+ *  The Android operating system.
+ *
+ *  Value: "ANDROID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl_OsType_Android;
+/**
+ *  The Apple IOS operating system.
+ *
+ *  Value: "IOS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl_OsType_Ios;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl_OsType_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl_OsType_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0CommonGenderInfo.type
@@ -4701,6 +4730,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAs
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Callout;
 /**
+ *  The asset is linked for use as a call-to-action.
+ *
+ *  Value: "CALL_TO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_CallToAction;
+/**
  *  The asset is linked for use to select a call-to-action.
  *
  *  Value: "CALL_TO_ACTION_SELECTION"
@@ -4755,6 +4790,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAs
  *  Value: "LOGO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Logo;
+/**
+ *  The asset is linked for use as a long description.
+ *
+ *  Value: "LONG_DESCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_LongDescription;
 /**
  *  The asset is linked for use as a long headline.
  *
@@ -5792,6 +5833,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_Callout;
 /**
+ *  The asset is linked for use as a call-to-action.
+ *
+ *  Value: "CALL_TO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_CallToAction;
+/**
  *  The asset is linked for use to select a call-to-action.
  *
  *  Value: "CALL_TO_ACTION_SELECTION"
@@ -5846,6 +5893,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  *  Value: "LOGO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_Logo;
+/**
+ *  The asset is linked for use as a long description.
+ *
+ *  Value: "LONG_DESCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_LongDescription;
 /**
  *  The asset is linked for use as a long headline.
  *
@@ -5936,6 +5989,122 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCa
  *  Value: "YOUTUBE_VIDEO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_ExcludedParentAssetFieldTypes_YoutubeVideo;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign.feedTypes
+
+/**
+ *  Business Profile location group asset set.
+ *
+ *  Value: "BUSINESS_PROFILE_DYNAMIC_LOCATION_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_BusinessProfileDynamicLocationGroup;
+/**
+ *  Chain location group asset set which can be used for both owned locations
+ *  and affiliate locations.
+ *
+ *  Value: "CHAIN_DYNAMIC_LOCATION_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_ChainDynamicLocationGroup;
+/**
+ *  Dynamic custom asset set.
+ *
+ *  Value: "DYNAMIC_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_DynamicCustom;
+/**
+ *  Dynamic education asset set.
+ *
+ *  Value: "DYNAMIC_EDUCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_DynamicEducation;
+/**
+ *  Dynamic flights asset set.
+ *
+ *  Value: "DYNAMIC_FLIGHTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_DynamicFlights;
+/**
+ *  Dynamic hotels and rentals asset set.
+ *
+ *  Value: "DYNAMIC_HOTELS_AND_RENTALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_DynamicHotelsAndRentals;
+/**
+ *  Dynamic jobs asset set.
+ *
+ *  Value: "DYNAMIC_JOBS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_DynamicJobs;
+/**
+ *  Dynamic local asset set.
+ *
+ *  Value: "DYNAMIC_LOCAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_DynamicLocal;
+/**
+ *  Dynamic real estate asset set.
+ *
+ *  Value: "DYNAMIC_REAL_ESTATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_DynamicRealEstate;
+/**
+ *  Dynamic travel asset set.
+ *
+ *  Value: "DYNAMIC_TRAVEL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_DynamicTravel;
+/**
+ *  Hotel Property asset set which is used to link a hotel property feed to
+ *  Performance Max for travel goals campaigns.
+ *
+ *  Value: "HOTEL_PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_HotelProperty;
+/**
+ *  Location sync level asset set.
+ *
+ *  Value: "LOCATION_SYNC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_LocationSync;
+/**
+ *  Google Merchant Center asset set.
+ *
+ *  Value: "MERCHANT_CENTER_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_MerchantCenterFeed;
+/**
+ *  Page asset set.
+ *
+ *  Value: "PAGE_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_PageFeed;
+/**
+ *  Static location group asset set which can be used for both owned locations
+ *  and affiliate locations.
+ *
+ *  Value: "STATIC_LOCATION_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_StaticLocationGroup;
+/**
+ *  Travel Feed asset set type. Can represent either a Hotel feed or a Things to
+ *  Do (activities) feed.
+ *
+ *  Value: "TRAVEL_FEED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_TravelFeed;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign_FeedTypes_Unspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaign.servingStatus
@@ -6572,6 +6741,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Callout;
 /**
+ *  The asset is linked for use as a call-to-action.
+ *
+ *  Value: "CALL_TO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_CallToAction;
+/**
  *  The asset is linked for use to select a call-to-action.
  *
  *  Value: "CALL_TO_ACTION_SELECTION"
@@ -6626,6 +6801,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCo
  *  Value: "LOGO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Logo;
+/**
+ *  The asset is linked for use as a long description.
+ *
+ *  Value: "LONG_DESCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_LongDescription;
 /**
  *  The asset is linked for use as a long headline.
  *
@@ -8638,6 +8819,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVi
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Callout;
 /**
+ *  The asset is linked for use as a call-to-action.
+ *
+ *  Value: "CALL_TO_ACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_CallToAction;
+/**
  *  The asset is linked for use to select a call-to-action.
  *
  *  Value: "CALL_TO_ACTION_SELECTION"
@@ -8692,6 +8879,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVi
  *  Value: "LOGO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Logo;
+/**
+ *  The asset is linked for use as a long description.
+ *
+ *  Value: "LONG_DESCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_LongDescription;
 /**
  *  The asset is linked for use as a long headline.
  *
@@ -9254,6 +9447,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
+ *  A URL for deep linking into an app for the given operating system.
+ */
+@interface GTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl : GTLRObject
+
+/**
+ *  The operating system targeted by this URL. Required.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl_OsType_Android
+ *        The Android operating system. (Value: "ANDROID")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl_OsType_Ios The
+ *        Apple IOS operating system. (Value: "IOS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl_OsType_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl_OsType_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *osType;
+
+/**
+ *  The app deep link URL. Deep links specify a location in an app that
+ *  corresponds to the content you'd like to show, and should be of the form
+ *  {scheme}://{host_path} The scheme identifies which app to open. For your
+ *  app, you can use a custom scheme that starts with the app's name. The host
+ *  and path specify the unique location in the app where your content exists.
+ *  Example: "exampleapp://productid_1234". Required.
+ */
+@property(nonatomic, copy, nullable) NSString *url;
+
+@end
+
+
+/**
  *  A rule specifying the maximum number of times an ad (or some set of ads) can
  *  be shown to a user over a particular time period.
  */
@@ -9747,6 +9974,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *allConversionsValuePerCost;
 
 /**
+ *  Average cart size is the average number of products in each order attributed
+ *  to your ads. How it works: You report conversions with cart data for
+ *  completed purchases on your website. Average cart size is the total number
+ *  of products sold divided by the total number of orders you received.
+ *  Example: You received 2 orders, the first included 3 products and the second
+ *  included 2. The average cart size is 2.5 products = (3+2)/2. This metric is
+ *  only available if you report conversions with cart data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageCartSize;
+
+/**
  *  The average amount you pay per interaction. This amount is the total cost of
  *  your ads divided by the total number of interactions.
  *
@@ -9773,6 +10013,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *averageCpm;
+
+/**
+ *  The average number of times a unique user saw your ad during the requested
+ *  time period. This metric cannot be aggregated, and can only be requested for
+ *  date ranges of 92 days or less. This metric is available for following
+ *  campaign types - Display, Video, Discovery and App.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageImpressionFrequencyPerUser;
+
+/**
+ *  Average order value is the average revenue you made per order attributed to
+ *  your ads. How it works: You report conversions with cart data for completed
+ *  purchases on your website. Average order value is the total revenue from
+ *  your orders divided by the total number of orders. Example: You received 3
+ *  orders which made $10, $15 and $20 worth of revenue. The average order value
+ *  is $15 = ($10 + $15 + $20)/3. This metric is only available if you report
+ *  conversions with cart data.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageOrderValueMicros;
 
 /**
  *  The average quality score.
@@ -10086,6 +10349,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *costMicros;
 
 /**
+ *  Cost of goods sold (COGS) is the total cost of the products you sold in
+ *  orders attributed to your ads. How it works: You can add a cost of goods
+ *  sold value to every product in Merchant Center. If you report conversions
+ *  with cart data, the products you sold are matched with their cost of goods
+ *  sold value and this can be used to calculate the gross profit you made on
+ *  each order. Example: Someone clicked on a Shopping ad for a hat then bought
+ *  the same hat and a shirt. The hat has a cost of goods sold value of $3, the
+ *  shirt has a cost of goods sold value of $5. The cost of goods sold for this
+ *  order is $8 = $3 + $5. This metric is only available if you report
+ *  conversions with cart data.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *costOfGoodsSoldMicros;
+
+/**
  *  The cost of ad interactions divided by all conversions.
  *
  *  Uses NSNumber of doubleValue.
@@ -10257,6 +10536,41 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *generalInvalidClicks;
+
+/**
+ *  Gross profit margin is the percentage gross profit you made from orders
+ *  attributed to your ads, after taking out the cost of goods sold (COGS). How
+ *  it works: You report conversions with cart data for completed purchases on
+ *  your website. Gross profit margin is the gross profit you made divided by
+ *  your total revenue and multiplied by 100%. Gross profit margin calculations
+ *  only include products that have a cost of goods sold value in Merchant
+ *  Center. Example: Someone bought a hat and a shirt in an order on your
+ *  website. The hat is priced $10 and has a cost of goods sold value of $3. The
+ *  shirt is priced $20 but has no cost of goods sold value. Gross profit margin
+ *  for this order will only take into account the hat because it has a cost of
+ *  goods sold value, so it's 70% = ($10 - $3)/$10 x 100%. This metric is only
+ *  available if you report conversions with cart data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *grossProfitMargin;
+
+/**
+ *  Gross profit is the profit you made from orders attributed to your ads minus
+ *  the cost of goods sold (COGS). How it works: Gross profit is the revenue you
+ *  made from sales attributed to your ads minus cost of goods sold. Gross
+ *  profit calculations only include products that have a cost of goods sold
+ *  value in Merchant Center. Example: Someone clicked on a Shopping ad for a
+ *  hat then bought the same hat and a shirt in an order from your website. The
+ *  hat is priced $10 and the shirt is priced $20. The hat has a cost of goods
+ *  sold value of $3, but the shirt has no cost of goods sold value. Gross
+ *  profit for this order will only take into account the hat, so it's $7 = $10
+ *  - $3. This metric is only available if you report conversions with cart
+ *  data.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *grossProfitMicros;
 
 /**
  *  The creative historical quality score.
@@ -10447,8 +10761,37 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, strong, nullable) NSNumber *mobileFriendlyClicksPercentage;
 
+/**
+ *  Orders is the total number of purchase conversions you received attributed
+ *  to your ads. How it works: You report conversions with cart data for
+ *  completed purchases on your website. If a conversion is attributed to
+ *  previous interactions with your ads (clicks for text or Shopping ads, views
+ *  for video ads etc.) it's counted as an order. Example: Someone clicked on a
+ *  Shopping ad for a hat then bought the same hat and a shirt in an order on
+ *  your website. Even though they bought 2 products, this would count as 1
+ *  order. This metric is only available if you report conversions with cart
+ *  data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *orders;
+
 /** The raw event conversion metrics. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonValue *> *rawEventConversionMetrics;
+
+/**
+ *  Revenue is the total amount you made from orders attributed to your ads. How
+ *  it works: You report conversions with cart data for completed purchases on
+ *  your website. Revenue is the total value of all the orders you received
+ *  attributed to your ads, minus any discount. Example: Someone clicked on a
+ *  Shopping ad for a hat then bought the same hat and a shirt in an order from
+ *  your website. The hat is priced $10 and the shirt is priced $20. The entire
+ *  order has a $5 discount. The revenue from this order is $25 = ($10 + $20) -
+ *  $5. This metric is only available if you report conversions with cart data.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *revenueMicros;
 
 /**
  *  The percentage of the customer's Shopping or Search ad impressions that are
@@ -10571,6 +10914,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *topImpressionPercentage;
+
+/**
+ *  The number of unique users who saw your ad during the requested time period.
+ *  This metric cannot be aggregated, and can only be requested for date ranges
+ *  of 92 days or less. This metric is available for following campaign types -
+ *  Display, Video, Discovery and App.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uniqueUsers;
+
+/**
+ *  Units sold is the total number of products sold from orders attributed to
+ *  your ads. How it works: You report conversions with cart data for completed
+ *  purchases on your website. Units sold is the total number of products sold
+ *  from all orders attributed to your ads. Example: Someone clicked on a
+ *  Shopping ad for a hat then bought the same hat, a shirt and a jacket. The
+ *  units sold in this order is 3. This metric is only available if you report
+ *  conversions with cart data.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unitsSold;
 
 /**
  *  The value of all conversions divided by the number of all conversions.
@@ -11004,6 +11370,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** Resource name of the geo target constant that represents a metro. */
 @property(nonatomic, copy, nullable) NSString *geoTargetMetro;
+
+/** Resource name of the geo target constant that represents a postal code. */
+@property(nonatomic, copy, nullable) NSString *geoTargetPostalCode;
 
 /** Resource name of the geo target constant that represents a region. */
 @property(nonatomic, copy, nullable) NSString *geoTargetRegion;
@@ -13006,9 +13375,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360ExpandedTextAdInfo *expandedTextAd;
 
 /**
+ *  A list of final app URLs that will be used on mobile if the user has the
+ *  specific app installed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonFinalAppUrl *> *finalAppUrls;
+
+/**
+ *  The list of possible final mobile URLs after all cross-domain redirects for
+ *  the ad.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *finalMobileUrls;
+
+/**
  *  The list of possible final URLs after all cross-domain redirects for the ad.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *finalUrls;
+
+/** The suffix to use when constructing a final URL. */
+@property(nonatomic, copy, nullable) NSString *finalUrlSuffix;
 
 /**
  *  Output only. The ID of the ad.
@@ -13039,6 +13423,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** Immutable. Details pertaining to a text ad. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonSearchAds360TextAdInfo *textAd;
+
+/** The URL template for constructing a tracking URL. */
+@property(nonatomic, copy, nullable) NSString *trackingUrlTemplate;
 
 /**
  *  Output only. The type of ad.
@@ -13222,6 +13609,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *engineStatus;
 
+/** URL template for appending params to Final URL. */
+@property(nonatomic, copy, nullable) NSString *finalUrlSuffix;
+
 /**
  *  Output only. The ID of the ad group.
  *
@@ -13291,6 +13681,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** Setting for targeting related features. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonTargetingSetting *targetingSetting;
+
+/** The URL template for constructing a tracking URL. */
+@property(nonatomic, copy, nullable) NSString *trackingUrlTemplate;
 
 /**
  *  Immutable. The type of the ad group.
@@ -13495,7 +13888,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /**
  *  Immutable. The resource name of the ad group ad effective label. Ad group ad
  *  effective label resource names have the form:
- *  `customers/{customer_id}/adGroupAdEffectiveLabels/{ad_group_id}~{ad_id}~{label_id}`
+ *  `customers/{owner_customer_id}/adGroupAdEffectiveLabels/{ad_group_id}~{ad_id}~{label_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -13523,7 +13916,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /**
  *  Immutable. The resource name of the ad group ad label. Ad group ad label
  *  resource names have the form:
- *  `customers/{customer_id}/adGroupAdLabels/{ad_group_id}~{ad_id}~{label_id}`
+ *  `customers/{owner_customer_id}/adGroupAdLabels/{ad_group_id}~{ad_id}~{label_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -13633,8 +14026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /**
  *  The modifier for the bid when the criterion matches. The modifier must be in
- *  the range: 0.1 - 10.0. The range is 1.0 - 6.0 for PreferredContent. Use 0 to
- *  opt out of a Device type.
+ *  the range: 0.1 - 10.0. Use 0 to opt out of a Device type.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -13781,6 +14173,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Not specified. (Value: "UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *engineStatus;
+
+/**
+ *  The list of possible final mobile URLs after all cross-domain redirects.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *finalMobileUrls;
 
 /**
  *  The list of possible final URLs after all cross-domain redirects for the ad.
@@ -13956,6 +14353,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
+/**
+ *  The list of mappings used to substitute custom parameter tags in a
+ *  `tracking_url_template`, `final_urls`, or `mobile_final_urls`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonCustomParameter *> *urlCustomParameters;
+
 /** Immutable. User List. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonUserListInfo *userList;
 
@@ -13990,7 +14393,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /**
  *  Immutable. The resource name of the ad group criterion effective label. Ad
  *  group criterion effective label resource names have the form:
- *  `customers/{customer_id}/adGroupCriterionEffectiveLabels/{ad_group_id}~{criterion_id}~{label_id}`
+ *  `customers/{owner_customer_id}/adGroupCriterionEffectiveLabels/{ad_group_id}~{criterion_id}~{label_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -14018,7 +14421,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /**
  *  Immutable. The resource name of the ad group criterion label. Ad group
  *  criterion label resource names have the form:
- *  `customers/{customer_id}/adGroupCriterionLabels/{ad_group_id}~{criterion_id}~{label_id}`
+ *  `customers/{owner_customer_id}/adGroupCriterionLabels/{ad_group_id}~{criterion_id}~{label_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -14079,7 +14482,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /**
  *  Immutable. The resource name of the ad group effective label. Ad group
  *  effective label resource names have the form:
- *  `customers/{customer_id}/adGroupEffectiveLabels/{ad_group_id}~{label_id}`
+ *  `customers/{owner_customer_id}/adGroupEffectiveLabels/{ad_group_id}~{label_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -14107,7 +14510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /**
  *  Immutable. The resource name of the ad group label. Ad group label resource
  *  names have the form:
- *  `customers/{customer_id}/adGroupLabels/{ad_group_id}~{label_id}`
+ *  `customers/{owner_customer_id}/adGroupLabels/{ad_group_id}~{label_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -14174,8 +14577,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  */
 @property(nonatomic, copy, nullable) NSString *engineStatus;
 
+/** A list of possible final mobile URLs after all cross domain redirects. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *finalMobileUrls;
+
 /** A list of possible final URLs after all cross domain redirects. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *finalUrls;
+
+/**
+ *  URL template for appending params to landing page URLs served with parallel
+ *  tracking.
+ */
+@property(nonatomic, copy, nullable) NSString *finalUrlSuffix;
 
 /**
  *  Output only. The ID of the asset.
@@ -14309,6 +14721,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        YouTube video asset. (Value: "YOUTUBE_VIDEO")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  A list of mappings to be used for substituting URL custom parameter tags in
+ *  the tracking_url_template, final_urls, and/or final_mobile_urls.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonCustomParameter *> *urlCustomParameters;
 
 /** Immutable. A YouTube video asset. */
 @property(nonatomic, strong, nullable) GTLRSA360_GoogleAdsSearchads360V0CommonYoutubeVideoAsset *youtubeVideoAsset;
@@ -14448,6 +14866,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        The asset is linked for use as a Call extension. (Value: "CALL")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Callout
  *        The asset is linked for use as a Callout extension. (Value: "CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_CallToAction
+ *        The asset is linked for use as a call-to-action. (Value:
+ *        "CALL_TO_ACTION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_CallToActionSelection
  *        The asset is linked for use to select a call-to-action. (Value:
  *        "CALL_TO_ACTION_SELECTION")
@@ -14472,6 +14893,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        "LEAD_FORM")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_Logo
  *        The asset is linked for use as a logo. (Value: "LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_LongDescription
+ *        The asset is linked for use as a long description. (Value:
+ *        "LONG_DESCRIPTION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesAssetGroupAsset_FieldType_LongHeadline
  *        The asset is linked for use as a long headline. (Value:
  *        "LONG_HEADLINE")
@@ -15380,6 +15804,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSArray<NSString *> *excludedParentAssetFieldTypes;
 
 /**
+ *  Output only. Types of feeds that are attached directly to this campaign.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *feedTypes;
+
+/**
  *  Suffix used to append query parameters to landing pages that are served with
  *  parallel tracking.
  */
@@ -15987,7 +16416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 /**
  *  Immutable. Name of the resource. CampaignEffectivelabel resource names have
  *  the form:
- *  `customers/{customer_id}/campaignEffectiveLabels/{campaign_id}~{label_id}`
+ *  `customers/{owner_customer_id}/campaignEffectiveLabels/{campaign_id}~{label_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -16061,7 +16490,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /**
  *  Immutable. Name of the resource. Campaign label resource names have the
- *  form: `customers/{customer_id}/campaignLabels/{campaign_id}~{label_id}`
+ *  form:
+ *  `customers/{owner_customer_id}/campaignLabels/{campaign_id}~{label_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -16162,10 +16592,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *enableLocal;
 
 /**
- *  Feed label of products to include in the campaign. Only one of feed_label or
- *  sales_country can be set. If used instead of sales_country, the feed_label
- *  field accepts country codes in the same format for example: 'XX'. Otherwise
- *  can be any string used for feed label in Google Merchant Center.
+ *  Feed label of products to include in the campaign. Valid feed labels may
+ *  contain a maximum of 20 characters including uppercase letters, numbers,
+ *  hyphens, and underscores. If you previously used the deprecated
+ *  `sales_country` in the two-letter country code (`XX`) format, the
+ *  `feed_label` field should be used instead. For more information see the
+ *  [feed label](//support.google.com/merchants/answer/12453549) support
+ *  article.
  */
 @property(nonatomic, copy, nullable) NSString *feedLabel;
 
@@ -16256,6 +16689,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        The asset is linked for use as a Call extension. (Value: "CALL")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Callout
  *        The asset is linked for use as a Callout extension. (Value: "CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_CallToAction
+ *        The asset is linked for use as a call-to-action. (Value:
+ *        "CALL_TO_ACTION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_CallToActionSelection
  *        The asset is linked for use to select a call-to-action. (Value:
  *        "CALL_TO_ACTION_SELECTION")
@@ -16280,6 +16716,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        "LEAD_FORM")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_Logo
  *        The asset is linked for use as a logo. (Value: "LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_LongDescription
+ *        The asset is linked for use as a long description. (Value:
+ *        "LONG_DESCRIPTION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversion_AssetFieldType_LongHeadline
  *        The asset is linked for use as a long headline. (Value:
  *        "LONG_HEADLINE")
@@ -17984,7 +18423,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /**
  *  Immutable. Name of the resource. Label resource names have the form:
- *  `customers/{customer_id}/labels/{label_id}`
+ *  `customers/{owner_customer_id}/labels/{label_id}`
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
 
@@ -18551,11 +18990,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
- *  Shopping performance view. Provides Shopping campaign statistics aggregated
- *  at several product dimension levels. Product dimension values from Merchant
- *  Center such as brand, category, custom attributes, product condition and
- *  product type will reflect the state of each dimension as of the date and
- *  time when the corresponding event was recorded.
+ *  Shopping performance view. Provides Shopping campaign and Performance Max
+ *  campaign statistics aggregated at several product dimension levels. Product
+ *  dimension values from Merchant Center such as brand, category, custom
+ *  attributes, product condition, and product type will reflect the state of
+ *  each dimension as of the date and time when the corresponding event was
+ *  recorded. The number of impressions and clicks that
+ *  `shopping_performance_view` returns stats for may be different from campaign
+ *  reports. `shopping_performance_view` shows impressions and clicks on
+ *  products appearing in ads, while campaign reports show impressions and
+ *  clicks on the ads themselves. Depending on the format, an ad can show from
+ *  zero to several products, so the numbers may not match. In Search Ads 360
+ *  UI, you can query impressions and clicks of products appearing in ads by
+ *  selecting a column from "Product attributes" in the report editor. For
+ *  example, selecting the "Brand" column is equivalent to selecting
+ *  `segments.product_brand`.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesShoppingPerformanceView : GTLRObject
 
@@ -18690,6 +19139,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        The asset is linked for use as a Call extension. (Value: "CALL")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Callout
  *        The asset is linked for use as a Callout extension. (Value: "CALLOUT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_CallToAction
+ *        The asset is linked for use as a call-to-action. (Value:
+ *        "CALL_TO_ACTION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_CallToActionSelection
  *        The asset is linked for use to select a call-to-action. (Value:
  *        "CALL_TO_ACTION_SELECTION")
@@ -18714,6 +19166,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        "LEAD_FORM")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_Logo
  *        The asset is linked for use as a logo. (Value: "LOGO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_LongDescription
+ *        The asset is linked for use as a long description. (Value:
+ *        "LONG_DESCRIPTION")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesVisit_AssetFieldType_LongHeadline
  *        The asset is linked for use as a long headline. (Value:
  *        "LONG_HEADLINE")

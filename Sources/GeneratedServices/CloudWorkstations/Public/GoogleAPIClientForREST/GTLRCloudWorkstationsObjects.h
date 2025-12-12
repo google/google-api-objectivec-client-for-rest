@@ -28,6 +28,7 @@
 @class GTLRCloudWorkstations_Expr;
 @class GTLRCloudWorkstations_GatewayConfig;
 @class GTLRCloudWorkstations_GceConfidentialInstanceConfig;
+@class GTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability;
 @class GTLRCloudWorkstations_GceInstance;
 @class GTLRCloudWorkstations_GceInstance_VmTags;
 @class GTLRCloudWorkstations_GceInstanceHost;
@@ -98,6 +99,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_AuditLogConfig_LogType
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability.reclaimPolicy
+
+/**
+ *  Delete the persistent disk when deleting the workstation.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability_ReclaimPolicy_Delete;
+/**
+ *  Do not use.
+ *
+ *  Value: "RECLAIM_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability_ReclaimPolicy_ReclaimPolicyUnspecified;
+/**
+ *  Keep the persistent disk when deleting the workstation. An administrator
+ *  must manually delete the disk.
+ *
+ *  Value: "RETAIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability_ReclaimPolicy_Retain;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudWorkstations_GceRegionalPersistentDisk.reclaimPolicy
@@ -607,6 +631,61 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 
 /**
+ *  A Persistent Directory backed by a Compute Engine [Hyperdisk Balanced High
+ *  Availability
+ *  Disk](https://cloud.google.com/compute/docs/disks/hd-types/hyperdisk-balanced-ha).
+ *  This is a high-availability block storage solution that offers a balance
+ *  between performance and cost for most general-purpose workloads.
+ */
+@interface GTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability : GTLRObject
+
+/**
+ *  Optional. Number of seconds to wait after initially creating or subsequently
+ *  shutting down the workstation before converting its disk into a snapshot.
+ *  This generally saves costs at the expense of greater startup time on next
+ *  workstation start, as the service will need to create a disk from the
+ *  archival snapshot. A value of `"0s"` indicates that the disk will never be
+ *  archived.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *archiveTimeout;
+
+/**
+ *  Optional. Whether the persistent disk should be deleted when the workstation
+ *  is deleted. Valid values are `DELETE` and `RETAIN`. Defaults to `DELETE`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability_ReclaimPolicy_Delete
+ *        Delete the persistent disk when deleting the workstation. (Value:
+ *        "DELETE")
+ *    @arg @c kGTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability_ReclaimPolicy_ReclaimPolicyUnspecified
+ *        Do not use. (Value: "RECLAIM_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability_ReclaimPolicy_Retain
+ *        Keep the persistent disk when deleting the workstation. An
+ *        administrator must manually delete the disk. (Value: "RETAIN")
+ */
+@property(nonatomic, copy, nullable) NSString *reclaimPolicy;
+
+/**
+ *  Optional. The GB capacity of a persistent home directory for each
+ *  workstation created with this configuration. Must be empty if
+ *  source_snapshot is set. Valid values are `10`, `50`, `100`, `200`, `500`, or
+ *  `1000`. Defaults to `200`.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeGb;
+
+/**
+ *  Optional. Name of the snapshot to use as the source for the disk. If set,
+ *  size_gb must be empty. Must be formatted as ext4 file system with no
+ *  partitions.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceSnapshot;
+
+@end
+
+
+/**
  *  A runtime using a Compute Engine instance.
  */
 @interface GTLRCloudWorkstations_GceInstance : GTLRObject
@@ -732,6 +811,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /** Optional. A set of Compute Engine Shielded instance options. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_GceShieldedInstanceConfig *shieldedInstanceConfig;
+
+/**
+ *  Optional. Link to the startup script stored in Cloud Storage. This script
+ *  will be run on the host workstation VM when the VM is created. The URI must
+ *  be of the form gs://{bucket-name}/{object-name}. If specifying a startup
+ *  script, the service account must have [Permission to access the bucket and
+ *  script file in Cloud
+ *  Storage](https://cloud.google.com/storage/docs/access-control/iam-permissions).
+ *  Otherwise, the script must be publicly accessible. Note that the service
+ *  regularly updates the OS version used, and it is the responsibility of the
+ *  user to ensure the script stays compatible with the OS version.
+ */
+@property(nonatomic, copy, nullable) NSString *startupScriptUri;
 
 /**
  *  Optional. Network tags to add to the Compute Engine VMs backing the
@@ -1048,8 +1140,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1389,6 +1482,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  workstations.
  */
 @interface GTLRCloudWorkstations_PersistentDirectory : GTLRObject
+
+/**
+ *  A PersistentDirectory backed by a Compute Engine hyperdisk high availability
+ *  disk.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability *gceHd;
 
 /** A PersistentDirectory backed by a Compute Engine persistent disk. */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_GceRegionalPersistentDisk *gcePd;

@@ -37,6 +37,7 @@ NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_D
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ErrorTypeUnspecified = @"ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderBeingMovedViolation = @"FOLDER_BEING_MOVED_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderNameUniquenessViolation = @"FOLDER_NAME_UNIQUENESS_VIOLATION";
+NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteConfiguredCapabilityViolation = @"FOLDER_TO_DELETE_CONFIGURED_CAPABILITY_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmptyViolation = @"FOLDER_TO_DELETE_NON_EMPTY_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_MaxChildFoldersViolation = @"MAX_CHILD_FOLDERS_VIOLATION";
 NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_ParentDeletedViolation = @"PARENT_DELETED_VIOLATION";
@@ -922,8 +923,8 @@ NSString * const kGTLRCloudResourceManager_TagKey_Purpose_PurposeUnspecified = @
 //
 
 @implementation GTLRCloudResourceManager_TagKey
-@dynamic createTime, descriptionProperty, ETag, name, namespacedName, parent,
-         purpose, purposeData, shortName, updateTime;
+@dynamic allowedValuesRegex, createTime, descriptionProperty, ETag, name,
+         namespacedName, parent, purpose, purposeData, shortName, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

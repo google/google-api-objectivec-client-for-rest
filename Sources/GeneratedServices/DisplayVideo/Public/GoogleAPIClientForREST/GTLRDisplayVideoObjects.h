@@ -2225,6 +2225,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonVal
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeBrightrollDisplay;
 /**
+ *  Cadent.
+ *
+ *  Value: "EXCHANGE_CADENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCadent;
+/**
  *  Cadreon.
  *
  *  Value: "EXCHANGE_CADREON"
@@ -5384,7 +5390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskReques
  *
  *  Value: "SDF_VERSION_7"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion7;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_CreateSdfDownloadTaskRequest_Version_SdfVersion7 GTLR_DEPRECATED;
 /**
  *  SDF version 7.1. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
@@ -7568,6 +7574,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOp
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeBrightrollDisplay;
 /**
+ *  Cadent.
+ *
+ *  Value: "EXCHANGE_CADENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCadent;
+/**
  *  Cadreon.
  *
  *  Value: "EXCHANGE_CADREON"
@@ -8100,6 +8112,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchan
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeBrightrollDisplay;
 /**
+ *  Cadent.
+ *
+ *  Value: "EXCHANGE_CADENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCadent;
+/**
  *  Cadreon.
  *
  *  Value: "EXCHANGE_CADREON"
@@ -8631,6 +8649,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchan
  *  Value: "EXCHANGE_BRIGHTROLL_DISPLAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeBrightrollDisplay;
+/**
+ *  Cadent.
+ *
+ *  Value: "EXCHANGE_CADENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCadent;
 /**
  *  Cadreon.
  *
@@ -9191,6 +9215,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDeta
  *  Value: "EXCHANGE_BRIGHTROLL_DISPLAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeBrightrollDisplay;
+/**
+ *  Cadent.
+ *
+ *  Value: "EXCHANGE_CADENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCadent;
 /**
  *  Cadreon.
  *
@@ -10928,6 +10958,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBrightrollDisplay;
 /**
+ *  Cadent.
+ *
+ *  Value: "EXCHANGE_CADENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadent;
+/**
  *  Cadreon.
  *
  *  Value: "EXCHANGE_CADREON"
@@ -12205,6 +12241,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_Ex
  *  Value: "EXCHANGE_BRIGHTROLL_DISPLAY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeBrightrollDisplay;
+/**
+ *  Cadent.
+ *
+ *  Value: "EXCHANGE_CADENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCadent;
 /**
  *  Cadreon.
  *
@@ -13511,6 +13553,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_Pe
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeIvoTen;
 /**
+ *  Maximize reach.
+ *
+ *  Value: "BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_REACH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeReach;
+/**
  *  Type value is not specified or is unknown in this version.
  *
  *  Value: "BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED"
@@ -14484,6 +14532,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeIvoTen;
 /**
+ *  Maximize reach.
+ *
+ *  Value: "BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_REACH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeReach;
+/**
  *  Type value is not specified or is unknown in this version.
  *
  *  Value: "BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED"
@@ -14846,7 +14900,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersio
  *
  *  Value: "SDF_VERSION_7"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfConfig_Version_SdfVersion7 GTLR_DEPRECATED;
 /**
  *  SDF version 7.1. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
@@ -14972,7 +15026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Ver
  *
  *  Value: "SDF_VERSION_7"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7;
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_SdfDownloadTaskMetadata_Version_SdfVersion7 GTLR_DEPRECATED;
 /**
  *  SDF version 7.1. Read the [v7 migration
  *  guide](/display-video/api/structured-data-file/v7-migration-guide) before
@@ -18579,6 +18633,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeBrightrollDisplay
  *        BrightRoll Exchange for Display from Yahoo!. (Value:
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCadent
+ *        Cadent. (Value: "EXCHANGE_CADENT")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeChartboostGbid
@@ -20410,20 +20466,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_FixedBidStrategy *fixedBid;
 
 /**
- *  A strategy that automatically adjusts the bid to optimize to your
- *  performance goal while spending the full budget. At insertion order level,
- *  the markup_type of line items cannot be set to
- *  `PARTNER_REVENUE_MODEL_MARKUP_TYPE_CPM`. In addition, when
- *  performance_goal_type is one of: *
- *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA` *
- *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC` *
- *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED` , the line_item_type of
- *  the insertion order line items must be either: *
- *  `LINE_ITEM_TYPE_DISPLAY_DEFAULT` * `LINE_ITEM_TYPE_VIDEO_DEFAULT` , and when
- *  performance_goal_type is either: *
- *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA` *
- *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN` the line_item_type of the
- *  insertion order line items must be `LINE_ITEM_TYPE_VIDEO_DEFAULT`.
+ *  * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPA`,
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC`, and
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_AV_VIEWED` only allow for
+ *  `LINE_ITEM_TYPE_DISPLAY_DEFAULT` or `LINE_ITEM_TYPE_VIDEO_DEFAULT` line
+ *  items. * `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CIVA` and
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN` only allow for
+ *  `LINE_ITEM_TYPE_VIDEO_DEFAULT` line items. *
+ *  `BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_REACH` only allows for
+ *  `LINE_ITEM_TYPE_VIDEO_OVER_THE_TOP` line items.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_MaximizeSpendBidStrategy *maximizeSpendAutoBid;
 
@@ -25245,6 +25296,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeBrightrollDisplay
  *        BrightRoll Exchange for Display from Yahoo!. (Value:
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCadent
+ *        Cadent. (Value: "EXCHANGE_CADENT")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeChartboostGbid
@@ -25454,6 +25507,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeBrightrollDisplay
  *        BrightRoll Exchange for Display from Yahoo!. (Value:
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCadent
+ *        Cadent. (Value: "EXCHANGE_CADENT")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeChartboostGbid
@@ -25664,6 +25719,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeBrightrollDisplay
  *        BrightRoll Exchange for Display from Yahoo!. (Value:
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCadent
+ *        Cadent. (Value: "EXCHANGE_CADENT")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeChartboostGbid
@@ -25877,6 +25934,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeBrightrollDisplay
  *        BrightRoll Exchange for Display from Yahoo!. (Value:
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCadent
+ *        Cadent. (Value: "EXCHANGE_CADENT")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeChartboostGbid
@@ -26124,7 +26183,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *audienceSource;
 
 /**
- *  Output only. The type of the audience.
+ *  Immutable. The type of the audience.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_FirstPartyAndPartnerAudience_AudienceType_ActivityBased
@@ -26170,8 +26229,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ContactInfoList *contactInfoList;
 
 /**
- *  Output only. The user-provided description of the audience. Only applicable
- *  to first party audiences.
+ *  Optional. The user-provided description of the audience. Only applicable to
+ *  first party audiences.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -26220,7 +26279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSNumber *displayMobileWebAudienceSize;
 
-/** Output only. The display name of the first party and partner audience. */
+/** Optional. The display name of the first party and partner audience. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -26259,10 +26318,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *gmailAudienceSize;
 
 /**
- *  Output only. The duration in days that an entry remains in the audience
- *  after the qualifying event. The set value must be greater than 0 and less
- *  than or equal to 540. Only applicable to first party audiences. This field
- *  is required if one of the following audience_type is used: *
+ *  Optional. The duration in days that an entry remains in the audience after
+ *  the qualifying event. The set value must be greater than 0 and less than or
+ *  equal to 540. Only applicable to first party audiences. This field is
+ *  required if one of the following audience_type is used: *
  *  `CUSTOMER_MATCH_CONTACT_INFO` * `CUSTOMER_MATCH_DEVICE_ID`
  *
  *  Uses NSNumber of longLongValue.
@@ -27286,6 +27345,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBrightrollDisplay
  *        BrightRoll Exchange for Display from Yahoo!. (Value:
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadent Cadent.
+ *        (Value: "EXCHANGE_CADENT")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeChartboostGbid
@@ -28399,6 +28460,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeBrightrollDisplay
  *        BrightRoll Exchange for Display from Yahoo!. (Value:
  *        "EXCHANGE_BRIGHTROLL_DISPLAY")
+ *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCadent Cadent.
+ *        (Value: "EXCHANGE_CADENT")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCadreon
  *        Cadreon. (Value: "EXCHANGE_CADREON")
  *    @arg @c kGTLRDisplayVideo_InventorySource_Exchange_ExchangeChartboostGbid
@@ -30917,6 +30980,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeIvoTen
  *        Inview time over 10 secs views. (Value:
  *        "BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN")
+ *    @arg @c kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeReach
+ *        Maximize reach. (Value:
+ *        "BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_REACH")
  *    @arg @c kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeUnspecified
  *        Type value is not specified or is unknown in this version. (Value:
  *        "BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED")
@@ -32262,6 +32328,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeIvoTen
  *        Inview time over 10 secs views. (Value:
  *        "BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN")
+ *    @arg @c kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeReach
+ *        Maximize reach. (Value:
+ *        "BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_REACH")
  *    @arg @c kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeUnspecified
  *        Type value is not specified or is unknown in this version. (Value:
  *        "BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED")

@@ -1486,6 +1486,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
  */
 @interface GTLRStorage_ComposeRequest : GTLRObject
 
+/**
+ *  If true, the source objects will be deleted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleteSourceObjects;
+
 /** Properties of the resulting object. */
 @property(nonatomic, strong, nullable) GTLRStorage_Object *destination;
 

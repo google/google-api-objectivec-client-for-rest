@@ -24,6 +24,7 @@
 @class GTLRDrive_AccessProposalRoleAndView;
 @class GTLRDrive_App;
 @class GTLRDrive_AppIcons;
+@class GTLRDrive_Approval;
 @class GTLRDrive_Change;
 @class GTLRDrive_Channel_Params;
 @class GTLRDrive_Comment;
@@ -59,6 +60,7 @@
 @class GTLRDrive_Permission_PermissionDetails_Item;
 @class GTLRDrive_Permission_TeamDrivePermissionDetails_Item;
 @class GTLRDrive_Reply;
+@class GTLRDrive_ReviewerResponse;
 @class GTLRDrive_Revision;
 @class GTLRDrive_Revision_ExportLinks;
 @class GTLRDrive_Status;
@@ -78,6 +80,40 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDrive_Approval.status
+
+/**
+ *  The approval process is finished and the target was approved.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_Status_Approved;
+/**
+ *  The approval process was cancelled before it finished.
+ *
+ *  Value: "CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_Status_Cancelled;
+/**
+ *  The approval process is finished and the target was declined.
+ *
+ *  Value: "DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_Status_Declined;
+/**
+ *  The approval process has started and not finished.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_Status_InProgress;
+/**
+ *  Approval status has not been set or was set to an invalid value.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDrive_ResolveAccessProposalRequest.action
@@ -101,6 +137,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  Value: "DENY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny;
+
+// ----------------------------------------------------------------------------
+// GTLRDrive_ReviewerResponse.response
+
+/**
+ *  The Reviewer has approved the item.
+ *
+ *  Value: "APPROVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Approved;
+/**
+ *  The Reviewer has declined the item.
+ *
+ *  Value: "DECLINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Declined;
+/**
+ *  The reviewer has not yet responded
+ *
+ *  Value: "NO_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_NoResponse;
+/**
+ *  Response was set to an unrecognized value.
+ *
+ *  Value: "RESPONSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified;
 
 /**
  *  Information about the user, the user's Drive, and system capabilities.
@@ -553,6 +617,94 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 
 
 /**
+ *  Metadata for an approval. An approval is a review/approve process for a
+ *  Drive item.
+ */
+@interface GTLRDrive_Approval : GTLRObject
+
+/** The Approval ID. */
+@property(nonatomic, copy, nullable) NSString *approvalId;
+
+/** Output only. The time time the approval was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Output only. The time the approval was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The time that the approval is due. */
+@property(nonatomic, strong, nullable) GTLRDateTime *dueTime;
+
+/** The user that requested the Approval. */
+@property(nonatomic, strong, nullable) GTLRDrive_User *initiator;
+
+/** This is always drive#approval. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Output only. The most recent time the approval was modified. */
+@property(nonatomic, strong, nullable) GTLRDateTime *modifyTime;
+
+/** The responses made on the Approval by reviewers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_ReviewerResponse *> *reviewerResponses;
+
+/**
+ *  Output only. The status of the approval at the time this resource was
+ *  requested.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDrive_Approval_Status_Approved The approval process is
+ *        finished and the target was approved. (Value: "APPROVED")
+ *    @arg @c kGTLRDrive_Approval_Status_Cancelled The approval process was
+ *        cancelled before it finished. (Value: "CANCELLED")
+ *    @arg @c kGTLRDrive_Approval_Status_Declined The approval process is
+ *        finished and the target was declined. (Value: "DECLINED")
+ *    @arg @c kGTLRDrive_Approval_Status_InProgress The approval process has
+ *        started and not finished. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRDrive_Approval_Status_StatusUnspecified Approval status has
+ *        not been set or was set to an invalid value. (Value:
+ *        "STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/** Target file id of the approval. */
+@property(nonatomic, copy, nullable) NSString *targetFileId;
+
+@end
+
+
+/**
+ *  The response of an Approvals list request.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "items" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDrive_ApprovalList : GTLRCollectionObject
+
+/**
+ *  The list of Approvals. If nextPageToken is populated, then this list may be
+ *  incomplete and an additional page of results should be fetched.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_Approval *> *items;
+
+/** This is always drive#approvalList */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  The page token for the next page of Approvals. This will be absent if the
+ *  end of the Approvals list has been reached. If the token is rejected for any
+ *  reason, it should be discarded, and pagination should be restarted from the
+ *  first page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  A change to a file or shared drive.
  */
 @interface GTLRDrive_Change : GTLRObject
@@ -739,8 +891,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, copy, nullable) NSString *anchor;
 
 /**
- *  Output only. The email of the user who is assigned to this comment, if none
- *  is assigned this will be unset.
+ *  Output only. The email address of the user assigned to this comment. If no
+ *  user is assigned, the field is unset.
  */
 @property(nonatomic, copy, nullable) NSString *assigneeEmailAddress;
 
@@ -784,8 +936,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Output only. The emails of the users who were mentioned in this comment, if
- *  none were mentioned this will be an empty list.
+ *  Output only. A list of email addresses for users mentioned in this comment.
+ *  If no users are mentioned, the list is empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *mentionedEmailAddresses;
 
@@ -3135,27 +3287,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @interface GTLRDrive_Reply : GTLRObject
 
 /**
- *  The action the reply performed to the parent comment. Valid values are: *
- *  `resolve` * `reopen`
+ *  The action the reply performed to the parent comment. The supported values
+ *  are: * `resolve` * `reopen`
  */
 @property(nonatomic, copy, nullable) NSString *action;
 
 /**
- *  Output only. The email of the user who is assigned to this reply, if none is
- *  assigned this will be unset.
+ *  Output only. The email address of the user assigned to this comment. If no
+ *  user is assigned, the field is unset.
  */
 @property(nonatomic, copy, nullable) NSString *assigneeEmailAddress;
 
 /**
  *  Output only. The author of the reply. The author's email address and
- *  permission ID will not be populated.
+ *  permission ID won't be populated.
  */
 @property(nonatomic, strong, nullable) GTLRDrive_User *author;
 
 /**
  *  The plain text content of the reply. This field is used for setting the
- *  content, while `htmlContent` should be displayed. This is required on
- *  creates if no `action` is specified.
+ *  content, while `htmlContent` should be displayed. This field is required by
+ *  the `create` method if no `action` value is specified.
  */
 @property(nonatomic, copy, nullable) NSString *content;
 
@@ -3187,8 +3339,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  Output only. The emails of the users who were mentioned in this reply, if
- *  none were mentioned this will be an empty list.
+ *  Output only. A list of email addresses for users mentioned in this comment.
+ *  If no users are mentioned, the list is empty.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *mentionedEmailAddresses;
 
@@ -3225,7 +3377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  The list of replies. If nextPageToken is populated, then this list may be
+ *  The list of replies. If `nextPageToken` is populated, then this list may be
  *  incomplete and an additional page of results should be fetched.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
@@ -3276,6 +3428,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
  *  set when the proposal belongs to a view. Only `published` is supported.
  */
 @property(nonatomic, copy, nullable) NSString *view;
+
+@end
+
+
+/**
+ *  A response on an Approval made by a specific Reviewer.
+ */
+@interface GTLRDrive_ReviewerResponse : GTLRObject
+
+/** This is always drive#reviewerResponse. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  A Reviewer’s Response for the Approval.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDrive_ReviewerResponse_Response_Approved The Reviewer has
+ *        approved the item. (Value: "APPROVED")
+ *    @arg @c kGTLRDrive_ReviewerResponse_Response_Declined The Reviewer has
+ *        declined the item. (Value: "DECLINED")
+ *    @arg @c kGTLRDrive_ReviewerResponse_Response_NoResponse The reviewer has
+ *        not yet responded (Value: "NO_RESPONSE")
+ *    @arg @c kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified Response
+ *        was set to an unrecognized value. (Value: "RESPONSE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *response;
+
+/** The user that is responsible for this response. */
+@property(nonatomic, strong, nullable) GTLRDrive_User *reviewer;
 
 @end
 

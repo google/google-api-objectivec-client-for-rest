@@ -262,6 +262,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
 @property(nonatomic, copy, nullable) NSString *blobId;
 
 /**
+ *  A serialized External Read Token passed from Bigstore -> Scotty for a GCS
+ *  download. This field must never be consumed outside of Bigstore, and is not
+ *  applicable to non-GCS media uploads.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *downloadExternalReadToken;
+
+/**
  *  Read handle passed from Bigstore -> Scotty for a GCS download. This is a
  *  signed, serialized blobstore2.ReadHandle proto which must never be set
  *  outside of Bigstore, and is not applicable to non-GCS media downloads.
@@ -1418,8 +1428,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

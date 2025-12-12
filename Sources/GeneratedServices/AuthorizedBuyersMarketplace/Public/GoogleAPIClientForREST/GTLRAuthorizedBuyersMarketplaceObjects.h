@@ -1198,6 +1198,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 @property(nonatomic, strong, nullable) NSArray<NSString *> *eligibleSeatIds;
 
 /**
+ *  Output only. The minimum price a buyer has to bid to compete in this auction
+ *  package. If this is field is not populated, there is no floor price.
+ */
+@property(nonatomic, strong, nullable) GTLRAuthorizedBuyersMarketplace_Money *floorPriceCpm;
+
+/**
  *  Immutable. The unique identifier for the auction package. Format:
  *  `buyers/{accountId}/auctionPackages/{auctionPackageId}` The
  *  auction_package_id part of name is sent in the BidRequest to all RTB bidders
@@ -2343,6 +2349,26 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthorizedBuyersMarketplace_VideoTargeti
 
 /** Output only. Account ID of the media planner. */
 @property(nonatomic, copy, nullable) NSString *accountId GTLR_DEPRECATED;
+
+/**
+ *  Output only. The ancestor names of the media planner. Format:
+ *  `mediaPlanners/{mediaPlannerAccountId}` Can be used to filter the response
+ *  of the mediaPlanners.list method.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ancestorNames;
+
+/**
+ *  Output only. The display name of the media planner. Can be used to filter
+ *  the response of the mediaPlanners.list method.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. The unique resource name of the media planner. Format:
+ *  `mediaPlanners/{mediaPlannerAccountId}` Can be used to filter the response
+ *  of the mediaPlanners.list method.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

@@ -1679,7 +1679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @interface GTLRCloudFilestore_Instance : GTLRObject
 
 /**
- *  Output only. The increase/decrease capacity step size in GB.
+ *  Output only. The incremental increase or decrease in capacity, designated in
+ *  some number of GB.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1739,14 +1740,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @property(nonatomic, strong, nullable) GTLRCloudFilestore_Instance_Labels *labels;
 
 /**
- *  Output only. The max capacity of the instance in GB.
+ *  Output only. The maximum capacity of the instance in GB.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxCapacityGb;
 
 /**
- *  Output only. The min capacity of the instance in GB.
+ *  Output only. The minimum capacity of the instance in GB.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2092,8 +2093,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -2544,6 +2546,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
+ *  PauseReplicaRequest pauses a Filestore standby instance (replica).
+ */
+@interface GTLRCloudFilestore_PauseReplicaRequest : GTLRObject
+@end
+
+
+/**
  *  Used for setting the performance configuration. If the user doesn't specify
  *  PerformanceConfig, automatically provision the default performance settings
  *  as described in https://cloud.google.com/filestore/docs/performance. Larger
@@ -2587,35 +2596,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @interface GTLRCloudFilestore_PerformanceLimits : GTLRObject
 
 /**
- *  Output only. The max IOPS.
+ *  Output only. The maximum IOPS.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxIops;
 
 /**
- *  Output only. The max read IOPS.
+ *  Output only. The maximum read IOPS.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxReadIops;
 
 /**
- *  Output only. The max read throughput in bytes per second.
+ *  Output only. The maximum read throughput in bytes per second.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxReadThroughputBps;
 
 /**
- *  Output only. The max write IOPS.
+ *  Output only. The maximum write IOPS.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *maxWriteIops;
 
 /**
- *  Output only. The max write throughput in bytes per second.
+ *  Output only. The maximum write throughput in bytes per second.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -2666,7 +2675,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastActiveSyncTime;
 
-/** Optional. The peer instance. */
+/**
+ *  Optional. The name of the source instance for the replica, in the format
+ *  `projects/{project}/locations/{location}/instances/{instance}`. This field
+ *  is required when creating a replica.
+ */
 @property(nonatomic, copy, nullable) NSString *peerInstance;
 
 /**
@@ -2709,7 +2722,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 
 /**
- *  Replication specifications.
+ *  Optional. The configuration used to replicate an instance.
  */
 @interface GTLRCloudFilestore_Replication : GTLRObject
 
@@ -2720,7 +2733,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudFilestore_ReplicaConfig *> *replicas;
 
 /**
- *  Optional. The replication role.
+ *  Optional. The replication role. When creating a new replica, this field must
+ *  be set to `STANDBY`.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudFilestore_Replication_Role_Active The instance is the
@@ -2755,6 +2769,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
 
+@end
+
+
+/**
+ *  ResumeReplicaRequest resumes a Filestore standby instance (replica).
+ */
+@interface GTLRCloudFilestore_ResumeReplicaRequest : GTLRObject
 @end
 
 

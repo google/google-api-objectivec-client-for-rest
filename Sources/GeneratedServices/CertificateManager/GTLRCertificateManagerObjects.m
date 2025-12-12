@@ -54,6 +54,12 @@ NSString * const kGTLRCertificateManager_ManagedCertificate_State_Failed = @"FAI
 NSString * const kGTLRCertificateManager_ManagedCertificate_State_Provisioning = @"PROVISIONING";
 NSString * const kGTLRCertificateManager_ManagedCertificate_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRCertificateManager_ManagedIdentityCertificate.state
+NSString * const kGTLRCertificateManager_ManagedIdentityCertificate_State_Active = @"ACTIVE";
+NSString * const kGTLRCertificateManager_ManagedIdentityCertificate_State_Failed = @"FAILED";
+NSString * const kGTLRCertificateManager_ManagedIdentityCertificate_State_Provisioning = @"PROVISIONING";
+NSString * const kGTLRCertificateManager_ManagedIdentityCertificate_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRCertificateManager_ProvisioningIssue.reason
 NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_AuthorizationIssue = @"AUTHORIZATION_ISSUE";
 NSString * const kGTLRCertificateManager_ProvisioningIssue_Reason_RateLimited = @"RATE_LIMITED";
@@ -102,8 +108,9 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 //
 
 @implementation GTLRCertificateManager_Certificate
-@dynamic createTime, descriptionProperty, expireTime, labels, managed, name,
-         pemCertificate, sanDnsnames, scope, selfManaged, updateTime, usedBy;
+@dynamic createTime, descriptionProperty, expireTime, labels, managed,
+         managedIdentity, name, pemCertificate, sanDnsnames, scope, selfManaged,
+         updateTime, usedBy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -635,6 +642,16 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCertificateManager_ManagedIdentityCertificate
+//
+
+@implementation GTLRCertificateManager_ManagedIdentityCertificate
+@dynamic identity, provisioningIssue, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCertificateManager_Operation
 //
 
@@ -769,7 +786,7 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 
 @implementation GTLRCertificateManager_TrustConfig
 @dynamic allowlistedCertificates, createTime, descriptionProperty, ETag, labels,
-         name, trustStores, updateTime;
+         name, spiffeTrustStores, trustStores, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -799,6 +816,20 @@ NSString * const kGTLRCertificateManager_Troubleshooting_Issues_ResolvedToServin
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCertificateManager_TrustConfig_SpiffeTrustStores
+//
+
+@implementation GTLRCertificateManager_TrustConfig_SpiffeTrustStores
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCertificateManager_TrustStore class];
 }
 
 @end

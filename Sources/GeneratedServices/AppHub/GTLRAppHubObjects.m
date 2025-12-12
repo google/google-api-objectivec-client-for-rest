@@ -23,6 +23,12 @@ NSString * const kGTLRAppHub_AuditLogConfig_LogType_DataRead   = @"DATA_READ";
 NSString * const kGTLRAppHub_AuditLogConfig_LogType_DataWrite  = @"DATA_WRITE";
 NSString * const kGTLRAppHub_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRAppHub_Boundary.type
+NSString * const kGTLRAppHub_Boundary_Type_Automatic        = @"AUTOMATIC";
+NSString * const kGTLRAppHub_Boundary_Type_ManagedAutomatic = @"MANAGED_AUTOMATIC";
+NSString * const kGTLRAppHub_Boundary_Type_Manual           = @"MANUAL";
+NSString * const kGTLRAppHub_Boundary_Type_TypeUnspecified  = @"TYPE_UNSPECIFIED";
+
 // GTLRAppHub_Criticality.type
 NSString * const kGTLRAppHub_Criticality_Type_High            = @"HIGH";
 NSString * const kGTLRAppHub_Criticality_Type_Low             = @"LOW";
@@ -46,6 +52,11 @@ NSString * const kGTLRAppHub_FunctionalType_Type_TypeUnspecified = @"TYPE_UNSPEC
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Delete = @"DELETE";
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_Retry = @"RETRY";
 NSString * const kGTLRAppHub_ReconciliationOperationMetadata_ExclusiveAction_UnknownRepairAction = @"UNKNOWN_REPAIR_ACTION";
+
+// GTLRAppHub_RegistrationType.type
+NSString * const kGTLRAppHub_RegistrationType_Type_Exclusive   = @"EXCLUSIVE";
+NSString * const kGTLRAppHub_RegistrationType_Type_Shared      = @"SHARED";
+NSString * const kGTLRAppHub_RegistrationType_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRAppHub_Scope.type
 NSString * const kGTLRAppHub_Scope_Type_Global          = @"GLOBAL";
@@ -165,6 +176,16 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppHub_Boundary
+//
+
+@implementation GTLRAppHub_Boundary
+@dynamic createTime, crmNode, name, type, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppHub_CancelOperationRequest
 //
 
@@ -266,11 +287,45 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppHub_ExtendedMetadata
+//
+
+@implementation GTLRAppHub_ExtendedMetadata
+@dynamic metadataStruct;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ExtendedMetadata_MetadataStruct
+//
+
+@implementation GTLRAppHub_ExtendedMetadata_MetadataStruct
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppHub_FunctionalType
 //
 
 @implementation GTLRAppHub_FunctionalType
 @dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_Identity
+//
+
+@implementation GTLRAppHub_Identity
+@dynamic principal;
 @end
 
 
@@ -609,6 +664,16 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppHub_RegistrationType
+//
+
+@implementation GTLRAppHub_RegistrationType
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppHub_Scope
 //
 
@@ -650,10 +715,25 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 //
 
 @implementation GTLRAppHub_ServiceProperties
-@dynamic functionalType, gcpProject, location, zoneProperty;
+@dynamic extendedMetadata, functionalType, gcpProject, identity, location,
+         registrationType, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ServiceProperties_ExtendedMetadata
+//
+
+@implementation GTLRAppHub_ServiceProperties_ExtendedMetadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAppHub_ExtendedMetadata class];
 }
 
 @end
@@ -770,10 +850,25 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 //
 
 @implementation GTLRAppHub_WorkloadProperties
-@dynamic functionalType, gcpProject, location, zoneProperty;
+@dynamic extendedMetadata, functionalType, gcpProject, identity, location,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_WorkloadProperties_ExtendedMetadata
+//
+
+@implementation GTLRAppHub_WorkloadProperties_ExtendedMetadata
+
++ (Class)classForAdditionalProperties {
+  return [GTLRAppHub_ExtendedMetadata class];
 }
 
 @end

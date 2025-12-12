@@ -1278,7 +1278,23 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1PlatformDat
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_CheckBox;
 /**
- *  A dropdown menu. Users can select one item from the menu.
+ *  A dropdown menu. Users can select one item from the menu. For Google Chat
+ *  apps, as part of the [Developer Preview
+ *  Program](https://developers.google.com/workspace/preview), you can populate
+ *  items using a dynamic data source and autosuggest items as users type in the
+ *  menu. For example, users can start typing the name of a Google Chat space
+ *  and the widget autosuggests the space. To dynamically populate items for a
+ *  dropdown menu, use one of the following types of data sources: * Google
+ *  Workspace data: Items are populated using data from Google Workspace, such
+ *  as Google Workspace users or Google Chat spaces. * External data: Items are
+ *  populated from an external data source outside of Google Workspace. For
+ *  examples of how to implement dropdown menus for Chat apps, see [Add a
+ *  dropdown
+ *  menu](https://developers.google.com/workspace/chat/design-interactive-card-dialog#dropdown-menu)
+ *  and [Dynamically populate drop-down
+ *  menus](https://developers.google.com/workspace/chat/design-interactive-card-dialog#dynamic-dropdown-menu).
+ *  [Google Workspace add-ons and Chat
+ *  apps](https://developers.google.com/workspace/extend):
  *
  *  Value: "DROPDOWN"
  */
@@ -1778,6 +1794,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkTy
  *  Value: "DRIVE_FILE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_DriveFile;
+/**
+ *  A Gmail message rich link type. Specifically, a Gmail chip from [Share to
+ *  Chat](https://support.google.com/chat?p=chat_gmail). The API only supports
+ *  reading messages with GMAIL_MESSAGE rich links.
+ *
+ *  Value: "GMAIL_MESSAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_GmailMessage;
 /**
  *  A Meet message rich link type. For example, a Meet chip.
  *
@@ -2477,7 +2501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_DriveDataRef *driveDataRef;
 
 /**
- *  Optional. Resource name of the attachment, in the form
+ *  Identifier. Resource name of the attachment. Format:
  *  `spaces/{space}/messages/{message}/attachments/{attachment}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -3861,8 +3885,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, copy, nullable) NSString *displayStyle;
 
 /**
- *  The expression data for the card. Only supported by Google Workspace
- *  Workflow, but not Google Chat apps or Google Workspace add-ons.
+ *  The expression data for the card. Available for Google Workspace add-ons
+ *  that extend Google Workspace Studio. Unavailable for Google Chat apps.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1ExpressionData *> *expressionData;
 
@@ -4273,9 +4297,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  Represents an action that is not specific to a widget. Only supported by
- *  Google Workspace Workflow, but not Google Chat apps or Google Workspace
- *  add-ons.
+ *  Represents an action that is not specific to a widget. Available for Google
+ *  Workspace add-ons that extend Google Workspace Studio. Unavailable for
+ *  Google Chat apps.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1CommonWidgetAction : GTLRObject
 
@@ -4286,9 +4310,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  Represents a condition that can be used to trigger an action. Only supported
- *  by Google Workspace Workflow, but not Google Chat apps or Google Workspace
- *  add-ons.
+ *  Represents a condition that can be used to trigger an action. Available for
+ *  Google Workspace add-ons that extend Google Workspace Studio. Unavailable
+ *  for Google Chat apps.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Condition : GTLRObject
 
@@ -4303,8 +4327,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  A configuration object that helps configure the data sources for a widget.
- *  Only supported by Google Workspace Workflow, but not Google Chat apps or
- *  Google Workspace add-ons.
+ *  Available for Google Workspace add-ons that extend Google Workspace Studio.
+ *  Unavailable for Google Chat apps.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1DataSourceConfig : GTLRObject
 
@@ -4333,9 +4357,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  A data source that's unique to a Google Workspace host application, such as
- *  Gmail emails, Google Calendar events, or Google Chat messages. Only
- *  supported by Google Workspace Workflows, but not Google Chat API or Google
- *  Workspace Add-ons.
+ *  Gmail emails, Google Calendar events, or Google Chat messages. Available for
+ *  Google Workspace add-ons that extend Google Workspace Studio. Unavailable
+ *  for Google Chat apps.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_HostAppDataSourceMarkup *hostAppDataSource;
 
@@ -4515,9 +4539,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  Represents an actionthat can be performed on an ui element. Only supported
- *  by Google Workspace Workflow, but not Google Chat apps or Google Workspace
- *  add-ons.
+ *  Represents an actionthat can be performed on an ui element. Available for
+ *  Google Workspace add-ons that extend Google Workspace Studio. Unavailable
+ *  for Google Chat apps.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1EventAction : GTLRObject
 
@@ -4537,9 +4561,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  Represents the data that is used to evaluate an expression. Only supported
- *  by Google Workspace Workflow, but not Google Chat apps or Google Workspace
- *  add-ons.
+ *  Represents the data that is used to evaluate an expression. Available for
+ *  Google Workspace add-ons that extend Google Workspace Studio. Unavailable
+ *  for Google Chat apps.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1ExpressionData : GTLRObject
 
@@ -4566,8 +4590,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  Represents a condition that is evaluated using CEL. Only supported by Google
- *  Workspace Workflow, but not Google Chat apps or Google Workspace add-ons.
+ *  Represents a condition that is evaluated using CEL. Available for Google
+ *  Workspace add-ons that extend Google Workspace Studio. Unavailable for
+ *  Google Chat apps.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1ExpressionDataCondition : GTLRObject
 
@@ -4980,7 +5005,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  */
 @property(nonatomic, copy, nullable) NSString *openAs;
 
-/** The URL to open. */
+/** The URL to open. HTTP URLs are converted to HTTPS. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
@@ -5109,8 +5134,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 /**
  *  A unique ID assigned to the section that's used to identify the section to
  *  be mutated. The ID has a character limit of 64 characters and should be in
- *  the format of `[a-zA-Z0-9-]+`. Only supported by Google Workspace Workflow,
- *  but not Google Chat apps or Google Workspace add-ons.
+ *  the format of `[a-zA-Z0-9-]+`. Available for Google Workspace add-ons that
+ *  extend Google Workspace Studio. Unavailable for Google Chat apps.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5160,8 +5185,13 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  provides more fine-grained control over the data source. If specified, the
  *  `multi_select_max_selected_items` field, `multi_select_min_query_length`
  *  field, `external_data_source` field and `platform_data_source` field are
- *  ignored. Only supported by Google Workspace Workflow, but not Google Chat
- *  apps or Google Workspace add-ons.
+ *  ignored. Available for Google Workspace add-ons that extend Google Workspace
+ *  Studio. Available for the `Dropdown widget` widget in Google Chat apps as
+ *  part of the [Developer Preview
+ *  Program](https://developers.google.com/workspace/preview). For the
+ *  `Dropdown` widget in Google Chat apps, only one `DataSourceConfig` is
+ *  supported. If multiple `DataSourceConfig`s are set, only the first one is
+ *  used.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1DataSourceConfig *> *dataSourceConfigs;
 
@@ -5171,8 +5201,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 /**
  *  Optional. Text that appears below the selection input field meant to assist
  *  users by prompting them to enter a certain value. This text is always
- *  visible. Only supported by Google Workspace Workflows, but not Google Chat
- *  API or Google Workspace Add-ons.
+ *  visible. Available for Google Workspace add-ons that extend Google Workspace
+ *  Studio. Unavailable for Google Chat apps.
  */
 @property(nonatomic, copy, nullable) NSString *hintText;
 
@@ -5243,7 +5273,23 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *        set of checkboxes. Users can select one or more checkboxes. (Value:
  *        "CHECK_BOX")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Dropdown A
- *        dropdown menu. Users can select one item from the menu. (Value:
+ *        dropdown menu. Users can select one item from the menu. For Google
+ *        Chat apps, as part of the [Developer Preview
+ *        Program](https://developers.google.com/workspace/preview), you can
+ *        populate items using a dynamic data source and autosuggest items as
+ *        users type in the menu. For example, users can start typing the name
+ *        of a Google Chat space and the widget autosuggests the space. To
+ *        dynamically populate items for a dropdown menu, use one of the
+ *        following types of data sources: * Google Workspace data: Items are
+ *        populated using data from Google Workspace, such as Google Workspace
+ *        users or Google Chat spaces. * External data: Items are populated from
+ *        an external data source outside of Google Workspace. For examples of
+ *        how to implement dropdown menus for Chat apps, see [Add a dropdown
+ *        menu](https://developers.google.com/workspace/chat/design-interactive-card-dialog#dropdown-menu)
+ *        and [Dynamically populate drop-down
+ *        menus](https://developers.google.com/workspace/chat/design-interactive-card-dialog#dynamic-dropdown-menu).
+ *        [Google Workspace add-ons and Chat
+ *        apps](https://developers.google.com/workspace/extend): (Value:
  *        "DROPDOWN")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_MultiSelect
  *        A menu with a text box. Users can type and select one or more items.
@@ -5447,9 +5493,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  A data source that's unique to a Google Workspace host application, such as
- *  Gmail emails, Google Calendar events, or Google Chat messages. Only
- *  supported by Google Workspace Workflow, but not Google Chat apps or Google
- *  Workspace add-ons.
+ *  Gmail emails, Google Calendar events, or Google Chat messages. Available for
+ *  Google Workspace add-ons that extend Google Workspace Studio. Unavailable
+ *  for Google Chat apps.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_HostAppDataSourceMarkup *hostAppDataSource;
 
@@ -5581,8 +5627,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  Represents a trigger. Only supported by Google Workspace Workflow, but not
- *  Google Chat apps or Google Workspace add-ons.
+ *  Represents a trigger. Available for Google Workspace add-ons that extend
+ *  Google Workspace Studio. Unavailable for Google Chat apps.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1Trigger : GTLRObject
 
@@ -5593,9 +5639,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
- *  Represents an action that updates the visibility of a widget. Only supported
- *  by Google Workspace Workflow, but not Google Chat apps or Google Workspace
- *  add-ons.
+ *  Represents an action that updates the visibility of a widget. Available for
+ *  Google Workspace add-ons that extend Google Workspace Studio. Unavailable
+ *  for Google Chat apps.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1UpdateVisibilityAction : GTLRObject
 
@@ -5728,9 +5774,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1Divider *divider;
 
 /**
- *  Specifies the event actions that can be performed on the widget. Only
- *  supported by Google Workspace Workflow, but not Google Chat apps or Google
- *  Workspace add-ons.
+ *  Specifies the event actions that can be performed on the widget. Available
+ *  for Google Workspace add-ons that extend Google Workspace Studio.
+ *  Unavailable for Google Chat apps.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleAppsCardV1EventAction *> *eventActions;
 
@@ -5773,8 +5819,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 /**
  *  A unique ID assigned to the widget that's used to identify the widget to be
  *  mutated. The ID has a character limit of 64 characters and should be in the
- *  format of `[a-zA-Z0-9-]+` and. Only supported by Google Workspace Workflow,
- *  but not Google Chat apps or Google Workspace add-ons.
+ *  format of `[a-zA-Z0-9-]+`. Available for Google Workspace add-ons that
+ *  extend Google Workspace Studio. Unavailable for Google Chat apps.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -5825,8 +5871,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  Specifies whether the widget is visible or hidden. The default value is
- *  `VISIBLE`. Only supported by Google Workspace Workflow, but not Google Chat
- *  apps or Google Workspace add-ons.
+ *  `VISIBLE`. Available for Google Workspace add-ons that extend Google
+ *  Workspace Studio. Unavailable for Google Chat apps.
  *
  *  Likely values:
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visibility_Hidden The UI
@@ -7099,6 +7145,11 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *        "CHAT_SPACE")
  *    @arg @c kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_DriveFile A Google
  *        Drive rich link type. (Value: "DRIVE_FILE")
+ *    @arg @c kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_GmailMessage A
+ *        Gmail message rich link type. Specifically, a Gmail chip from [Share
+ *        to Chat](https://support.google.com/chat?p=chat_gmail). The API only
+ *        supports reading messages with GMAIL_MESSAGE rich links. (Value:
+ *        "GMAIL_MESSAGE")
  *    @arg @c kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_MeetSpace A Meet
  *        message rich link type. For example, a Meet chip. (Value:
  *        "MEET_SPACE")

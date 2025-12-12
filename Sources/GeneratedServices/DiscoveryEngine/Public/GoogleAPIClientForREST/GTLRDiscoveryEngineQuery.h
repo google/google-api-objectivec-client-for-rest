@@ -34,56 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Downloads a file from the session.
- *
- *  Method: discoveryengine.media.download
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
- *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
- *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
- */
-@interface GTLRDiscoveryEngineQuery_MediaDownload : GTLRDiscoveryEngineQuery
-
-/** Required. The ID of the file to be downloaded. */
-@property(nonatomic, copy, nullable) NSString *fileId;
-
-/**
- *  Required. The resource name of the Session. Format:
- *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/sessions/{session}`
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Optional. The ID of the view to be downloaded. */
-@property(nonatomic, copy, nullable) NSString *viewId;
-
-/**
- *  Fetches a @c GTLRDiscoveryEngine_GdataMedia.
- *
- *  Downloads a file from the session.
- *
- *  @param name Required. The resource name of the Session. Format:
- *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/sessions/{session}`
- *
- *  @return GTLRDiscoveryEngineQuery_MediaDownload
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-/**
- *  Fetches the requested resource data as a @c GTLRDataObject.
- *
- *  Downloads a file from the session.
- *
- *  @param name Required. The resource name of the Session. Format:
- *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/sessions/{session}`
- *
- *  @return GTLRDiscoveryEngineQuery_MediaDownload
- */
-+ (instancetype)queryForMediaWithName:(NSString *)name;
-
-@end
-
-/**
  *  De-provisions a CmekConfig.
  *
  *  Method: discoveryengine.projects.locations.cmekConfigs.delete
@@ -291,9 +241,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -785,9 +735,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -1831,9 +1781,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -1915,9 +1865,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -2205,9 +2155,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -2318,6 +2268,40 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest *)object
                   servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the ServingConfig to delete. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleProtobufEmpty.
+ *
+ *  Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  @param name Required. The resource name of the ServingConfig to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -3134,9 +3118,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -3571,9 +3555,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -3954,6 +3938,102 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a WidgetConfig.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.widgetConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresWidgetConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. Whether it's acceptable to load the widget config from cache. If
+ *  set to true, recent changes on widget configs may take a few minutes to
+ *  reflect on the end user's view. It's recommended to set to true for maturely
+ *  developed widgets, as it improves widget performance. Set to false to see
+ *  changes reflected in prod right away, if your widget is under development.
+ */
+@property(nonatomic, assign) BOOL acceptCache;
+
+/**
+ *  Optional. Whether to turn off collection_components in WidgetConfig to
+ *  reduce latency and data transmission.
+ */
+@property(nonatomic, assign) BOOL getWidgetConfigRequestOptionTurnOffCollectionComponents;
+
+/**
+ *  Required. Full WidgetConfig resource name. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig.
+ *
+ *  Gets a WidgetConfig.
+ *
+ *  @param name Required. Full WidgetConfig resource name. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresWidgetConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update a WidgetConfig.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.widgetConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresWidgetConfigsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. The full resource name of the widget config. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided WidgetConfig to update. The following
+ *  are the only supported fields: * WidgetConfig.enable_autocomplete If not
+ *  set, all supported fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig.
+ *
+ *  Update a WidgetConfig.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig to include in
+ *    the query.
+ *  @param name Immutable. The full resource name of the widget config. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`.
+ *    This field must be a UTF-8 encoded string with a length limit of 1024
+ *    characters.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresWidgetConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes a Collection.
  *
  *  Method: discoveryengine.projects.locations.collections.delete
@@ -3980,6 +4060,119 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/{project}/locations/{location}/collections/{collection}`.
  *
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.agents.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsOperationsGet : GTLRDiscoveryEngineQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an Assistant.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The ID to use for the Assistant, which will become the final
+ *  component of the Assistant's resource name. This field must conform to
+ *  [RFC-1034](https://tools.ietf.org/html/rfc1034) with a length limit of 63
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *assistantId;
+
+/**
+ *  Required. The parent resource name. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant.
+ *
+ *  Creates an Assistant.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant to include in
+ *    the query.
+ *  @param parent Required. The parent resource name. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an Assistant.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Resource name of Assistant. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/assistants/{assistant}`
+ *  If the caller does not have permission to delete the Assistant, regardless
+ *  of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *  Assistant to delete does not exist, a NOT_FOUND error is returned.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleProtobufEmpty.
+ *
+ *  Deletes an Assistant.
+ *
+ *  @param name Required. Resource name of Assistant. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/assistants/{assistant}`
+ *    If the caller does not have permission to delete the Assistant, regardless
+ *    of whether or not it exists, a PERMISSION_DENIED error is returned. If the
+ *    Assistant to delete does not exist, a NOT_FOUND error is returned.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -4014,6 +4207,58 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all Assistants under an Engine.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Maximum number of Assistants to return. If unspecified, defaults to 100. The
+ *  maximum allowed value is 1000; anything above that will be coerced down to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token ListAssistantsResponse.next_page_token, received from a
+ *  previous AssistantService.ListAssistants call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  ListAssistants must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListAssistantsResponse.
+ *
+ *  Lists all Assistants under an Engine.
+ *
+ *  @param parent Required. The parent resource name. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -4886,9 +5131,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -5004,6 +5249,40 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest *)object
                   servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the ServingConfig to delete. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleProtobufEmpty.
+ *
+ *  Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  @param name Required. The resource name of the ServingConfig to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -5595,6 +5874,102 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a WidgetConfig.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.widgetConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesWidgetConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. Whether it's acceptable to load the widget config from cache. If
+ *  set to true, recent changes on widget configs may take a few minutes to
+ *  reflect on the end user's view. It's recommended to set to true for maturely
+ *  developed widgets, as it improves widget performance. Set to false to see
+ *  changes reflected in prod right away, if your widget is under development.
+ */
+@property(nonatomic, assign) BOOL acceptCache;
+
+/**
+ *  Optional. Whether to turn off collection_components in WidgetConfig to
+ *  reduce latency and data transmission.
+ */
+@property(nonatomic, assign) BOOL getWidgetConfigRequestOptionTurnOffCollectionComponents;
+
+/**
+ *  Required. Full WidgetConfig resource name. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig.
+ *
+ *  Gets a WidgetConfig.
+ *
+ *  @param name Required. Full WidgetConfig resource name. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesWidgetConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update a WidgetConfig.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.widgetConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesWidgetConfigsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. The full resource name of the widget config. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided WidgetConfig to update. The following
+ *  are the only supported fields: * WidgetConfig.enable_autocomplete If not
+ *  set, all supported fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig.
+ *
+ *  Update a WidgetConfig.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig to include in
+ *    the query.
+ *  @param name Immutable. The full resource name of the widget config. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`.
+ *    This field must be a UTF-8 encoded string with a length limit of 1024
+ *    characters.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesWidgetConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the DataConnector. DataConnector is a singleton resource for each
  *  Collection.
  *
@@ -5694,9 +6069,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -6238,9 +6613,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -7247,9 +7622,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -7331,9 +7706,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -7650,6 +8025,40 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest *)object
                   servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The resource name of the ServingConfig to delete. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleProtobufEmpty.
+ *
+ *  Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
+ *  not exist.
+ *
+ *  @param name Required. The resource name of the ServingConfig to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}/servingConfigs/{serving_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -8984,6 +9393,102 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a WidgetConfig.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.widgetConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresWidgetConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. Whether it's acceptable to load the widget config from cache. If
+ *  set to true, recent changes on widget configs may take a few minutes to
+ *  reflect on the end user's view. It's recommended to set to true for maturely
+ *  developed widgets, as it improves widget performance. Set to false to see
+ *  changes reflected in prod right away, if your widget is under development.
+ */
+@property(nonatomic, assign) BOOL acceptCache;
+
+/**
+ *  Optional. Whether to turn off collection_components in WidgetConfig to
+ *  reduce latency and data transmission.
+ */
+@property(nonatomic, assign) BOOL getWidgetConfigRequestOptionTurnOffCollectionComponents;
+
+/**
+ *  Required. Full WidgetConfig resource name. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig.
+ *
+ *  Gets a WidgetConfig.
+ *
+ *  @param name Required. Full WidgetConfig resource name. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresWidgetConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Update a WidgetConfig.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.widgetConfigs.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineAssistReadwrite
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresWidgetConfigsPatch : GTLRDiscoveryEngineQuery
+
+/**
+ *  Immutable. The full resource name of the widget config. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`.
+ *  This field must be a UTF-8 encoded string with a length limit of 1024
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates which fields in the provided WidgetConfig to update. The following
+ *  are the only supported fields: * WidgetConfig.enable_autocomplete If not
+ *  set, all supported fields are updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig.
+ *
+ *  Update a WidgetConfig.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig to include in
+ *    the query.
+ *  @param name Immutable. The full resource name of the widget config. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection_id}/dataStores/{data_store_id}/widgetConfigs/{widget_config_id}`.
+ *    This field must be a UTF-8 encoded string with a length limit of 1024
+ *    characters.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresWidgetConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1WidgetConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the AclConfig.
  *
  *  Method: discoveryengine.projects.locations.getAclConfig
@@ -9410,9 +9915,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -9659,9 +10164,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -10240,6 +10745,38 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Lists all the LicenseConfigUsageStatss associated with the project.
+ *
+ *  Method: discoveryengine.projects.locations.userStores.licenseConfigsUsageStats.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresLicenseConfigsUsageStatsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. The parent branch resource name, such as
+ *  `projects/{project}/locations/{location}/userStores/{user_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ListLicenseConfigsUsageStatsResponse.
+ *
+ *  Lists all the LicenseConfigUsageStatss associated with the project.
+ *
+ *  @param parent Required. The parent branch resource name, such as
+ *    `projects/{project}/locations/{location}/userStores/{user_store_id}`.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresLicenseConfigsUsageStatsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates the User Store.
  *
  *  Method: discoveryengine.projects.locations.userStores.patch
@@ -10297,15 +10834,21 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDiscoveryEngineQuery_ProjectsLocationsUserStoresUserLicensesList : GTLRDiscoveryEngineQuery
 
 /**
- *  Optional. Filter for the list request. Supported fields: *
- *  `license_assignment_state` Examples: * `license_assignment_state = ASSIGNED`
- *  to list assigned user licenses. * `license_assignment_state = NO_LICENSE` to
- *  list not licensed users. * `license_assignment_state =
- *  NO_LICENSE_ATTEMPTED_LOGIN` to list users who attempted login but no license
- *  assigned. * `license_assignment_state != NO_LICENSE_ATTEMPTED_LOGIN` to
- *  filter out users who attempted login but no license assigned.
+ *  Optional. The order in which the UserLicenses are listed. The value must be
+ *  a comma-separated list of fields. Default sorting order is ascending. To
+ *  specify descending order for a field, append a " desc" suffix. Redundant
+ *  space characters in the syntax are insignificant. Supported fields: *
+ *  `license_assignment_state` * `user_principal` * `user_profile` *
+ *  `last_login_date` * `update_time` If not set, the default ordering is by
+ *  `user_principal`. Examples: * `user_principal desc` to order by
+ *  `user_principal` in descending order. * `license_assignment_state` to order
+ *  by `license_assignment_state` in ascending order. * `last_login_date desc`
+ *  to order by `last_login_date` in descending order. * `update_time desc` to
+ *  order by `update_time` in descending order. * `last_login_date desc,
+ *  user_principal` to order by `last_login_date` in descending order and then
+ *  by `user_principal` in ascending order.
  */
-@property(nonatomic, copy, nullable) NSString *filter;
+@property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
  *  Optional. Requested page size. Server may return fewer items than requested.
@@ -10453,9 +10996,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

@@ -70,6 +70,33 @@
 
 @end
 
+@implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCommitFunctionUpgradeAsGen2
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudFunctions_CommitFunctionUpgradeAsGen2Request *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:commitFunctionUpgradeAsGen2";
+  GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCommitFunctionUpgradeAsGen2 *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudFunctions_Operation class];
+  query.loggingName = @"cloudfunctions.projects.locations.functions.commitFunctionUpgradeAsGen2";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCreate
 
 @dynamic functionId, parent;

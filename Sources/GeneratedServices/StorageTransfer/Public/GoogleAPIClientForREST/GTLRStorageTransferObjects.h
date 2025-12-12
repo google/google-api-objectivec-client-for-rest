@@ -957,6 +957,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 @property(nonatomic, copy, nullable) NSString *path;
 
 /**
+ *  Service Directory Service to be used as the endpoint for transfers from a
+ *  custom VPC. Format:
+ *  `projects/{project_id}/locations/{location}/namespaces/{namespace}/services/{service}`
+ */
+@property(nonatomic, copy, nullable) NSString *privateNetworkService;
+
+/**
  *  The Amazon Resource Name (ARN) of the role to support temporary credentials
  *  via `AssumeRoleWithWebIdentity`. For more information about ARNs, see [IAM
  *  ARNs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-arns).
@@ -1016,6 +1023,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  *  should generally not begin with a '/'.
  */
 @property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Service Directory Service to be used as the endpoint for transfers from a
+ *  custom VPC. Format:
+ *  `projects/{project_id}/locations/{location}/namespaces/{namespace}/services/{service}`
+ */
+@property(nonatomic, copy, nullable) NSString *privateNetworkService;
 
 /** Required. The name of the Azure Storage account. */
 @property(nonatomic, copy, nullable) NSString *storageAccount;
@@ -1465,8 +1479,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1827,6 +1842,11 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  *  `last_modified_before` to the end of the day
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastModifiedSince;
+
+/**
+ *  Optional. If specified, only objects matching this glob are transferred.
+ */
+@property(nonatomic, copy, nullable) NSString *matchGlob;
 
 /**
  *  Ensures that objects are not transferred if a specific maximum time has
@@ -2468,13 +2488,11 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
 /**
  *  Optional. The user-managed service account to which to delegate service
  *  agent permissions. You can grant Cloud Storage bucket permissions to this
- *  service account instead of to the Transfer Service service agent. Format is
- *  `projects/-/serviceAccounts/ACCOUNT_EMAIL_OR_UNIQUEID` Either the service
- *  account email (`SERVICE_ACCOUNT_NAME\@PROJECT_ID.iam.gserviceaccount.com`)
- *  or the unique ID (`123456789012345678901`) are accepted in the string. The
- *  `-` wildcard character is required; replacing it with a project ID is
- *  invalid. See
- *  https://cloud.google.com//storage-transfer/docs/delegate-service-agent-permissions
+ *  service account instead of to the Transfer Service service agent. Either the
+ *  service account email
+ *  (`SERVICE_ACCOUNT_NAME\@PROJECT_ID.iam.gserviceaccount.com`) or the unique
+ *  ID (`123456789012345678901`) are accepted. See
+ *  https://docs.cloud.google.com/storage-transfer/docs/delegate-service-agent-permissions
  *  for required permissions.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;

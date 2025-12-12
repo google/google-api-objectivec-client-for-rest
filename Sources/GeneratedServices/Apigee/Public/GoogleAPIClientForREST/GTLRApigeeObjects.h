@@ -49,6 +49,8 @@
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQuery;
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQueryResult;
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
+@class GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestApiHubApiArray;
+@class GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestApiHubGatewayArray;
 @class GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestIncludeAll;
 @class GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArray;
 @class GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource;
@@ -114,6 +116,10 @@
 @class GTLRApigee_GoogleCloudApigeeV1KeyAliasReference;
 @class GTLRApigee_GoogleCloudApigeeV1KeystoreConfig;
 @class GTLRApigee_GoogleCloudApigeeV1KeyValueEntry;
+@class GTLRApigee_GoogleCloudApigeeV1LlmOperation;
+@class GTLRApigee_GoogleCloudApigeeV1LlmOperationConfig;
+@class GTLRApigee_GoogleCloudApigeeV1LlmOperationGroup;
+@class GTLRApigee_GoogleCloudApigeeV1LlmTokenQuota;
 @class GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicy;
 @class GTLRApigee_GoogleCloudApigeeV1MaintenanceUpdatePolicyMaintenanceWindow;
 @class GTLRApigee_GoogleCloudApigeeV1Metadata;
@@ -182,6 +188,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1SecurityActionHttpHeader;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResult;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_AssessmentRecommendations;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult_FailedAssessmentPerWeight;
@@ -198,6 +205,7 @@
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_ProfileAssessmentConfigs;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig;
+@class GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfigApiHubGatewayTypeArray;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityReport;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityReportMetadata;
 @class GTLRApigee_GoogleCloudApigeeV1SecurityReportQueryMetric;
@@ -388,6 +396,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProxy_ApiPr
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource.type
 
+/**
+ *  Resource is an API Hub deployment.
+ *
+ *  Value: "API_HUB_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ApiHubDeployment;
 /**
  *  Resource is an Apigee Proxy.
  *
@@ -1648,6 +1662,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction
 // GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource.type
 
 /**
+ *  Resource is an API Hub deployment.
+ *
+ *  Value: "API_HUB_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ApiHubDeployment;
+/**
  *  Resource is an Apigee Proxy.
  *
  *  Value: "API_PROXY"
@@ -1659,6 +1679,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssess
  *  Value: "RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails.gatewayType
+
+/**
+ *  Gateway is Apigee Edge for API Hub.
+ *
+ *  Value: "APIGEE_EDGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails_GatewayType_ApigeeEdge;
+/**
+ *  Gateway is Apigee Hybrid for API Hub.
+ *
+ *  Value: "APIGEE_HYBRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails_GatewayType_ApigeeHybrid;
+/**
+ *  Gateway is Apigee OPDK for API Hub.
+ *
+ *  Value: "APIGEE_OPDK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails_GatewayType_ApigeeOpdk;
+/**
+ *  Gateway is Apigee X for API Hub.
+ *
+ *  Value: "APIGEE_X"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails_GatewayType_ApigeeX;
+/**
+ *  Gateway type is not specified.
+ *
+ *  Value: "API_HUB_GATEWAY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails_GatewayType_ApiHubGatewayTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResult.severity
@@ -1703,6 +1757,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssess
  *  Value: "FAIL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_Fail;
+/**
+ *  The verdict is not applicable.
+ *
+ *  Value: "NOT_APPLICABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_NotApplicable;
 /**
  *  The assessment has passed.
  *
@@ -1873,6 +1933,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncide
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Severe;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2.riskAssessmentType
+
+/**
+ *  Risk assessment type is Apigee.
+ *
+ *  Value: "APIGEE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_RiskAssessmentType_Apigee;
+/**
+ *  Risk assessment type is API Hub.
+ *
+ *  Value: "API_HUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_RiskAssessmentType_ApiHub;
+/**
+ *  Risk assessment type is not specified.
+ *
+ *  Value: "RISK_ASSESSMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_RiskAssessmentType_RiskAssessmentTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig.weight
 
 /**
@@ -1899,6 +1981,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfil
  *  Value: "WEIGHT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig_Weight_WeightUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfigApiHubGatewayTypeArray.gatewayTypes
+
+/**
+ *  Gateway is Apigee Edge for API Hub.
+ *
+ *  Value: "APIGEE_EDGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfigApiHubGatewayTypeArray_GatewayTypes_ApigeeEdge;
+/**
+ *  Gateway is Apigee Hybrid for API Hub.
+ *
+ *  Value: "APIGEE_HYBRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfigApiHubGatewayTypeArray_GatewayTypes_ApigeeHybrid;
+/**
+ *  Gateway is Apigee OPDK for API Hub.
+ *
+ *  Value: "APIGEE_OPDK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfigApiHubGatewayTypeArray_GatewayTypes_ApigeeOpdk;
+/**
+ *  Gateway is Apigee X for API Hub.
+ *
+ *  Value: "APIGEE_X"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfigApiHubGatewayTypeArray_GatewayTypes_ApigeeX;
+/**
+ *  Gateway type is not specified.
+ *
+ *  Value: "API_HUB_GATEWAY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfigApiHubGatewayTypeArray_GatewayTypes_ApiHubGatewayTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1TargetServer.protocol
@@ -2971,6 +3087,39 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
 
 /**
+ *  Optional. Configuration used to group Apigee proxies with resources, method
+ *  types, LLM model and quotas. The resource refers to the resource URI
+ *  (excluding the base path). With this grouping, the API product creator is
+ *  able to fine-tune and give precise control over which REST methods have
+ *  access to specific resources, specific LLM model and how many calls can be
+ *  made (using the `quota` setting). **Note:** The `api_resources` setting
+ *  cannot be specified for both the API product and llm operation group;
+ *  otherwise the call will fail.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1LlmOperationGroup *llmOperationGroup;
+
+/**
+ *  Optional. Number of LLM tokens permitted per app by this API product for the
+ *  specified `llm_quota_interval` and `llm_quota_time_unit`. For example, an
+ *  `llm_quota` of 50,000, for an `llm_quota_interval` of 12 and an
+ *  `llm_quota_time_unit` of hours means 50,000 llm tokens are allowed to be
+ *  used every 12 hours.
+ */
+@property(nonatomic, copy, nullable) NSString *llmQuota;
+
+/**
+ *  Optional. Time interval over which the number of tokens from LLM responses
+ *  is calculated.
+ */
+@property(nonatomic, copy, nullable) NSString *llmQuotaInterval;
+
+/**
+ *  Optional. Time unit defined for the `llm_quota_interval`. Valid values
+ *  include `minute`, `hour`, `day`, or `month`.
+ */
+@property(nonatomic, copy, nullable) NSString *llmQuotaTimeUnit;
+
+/**
  *  Internal name of the API product. Characters you can use in the name are
  *  restricted to: `A-Z0-9._\\-$ %`. **Note:** The internal name cannot be
  *  edited when updating the API product.
@@ -3865,6 +4014,15 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequest : GTLRObject
 
+/** An array of API Hub APIs to assess. A maximum of 1 API can be assessed. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestApiHubApiArray *apiHubApis;
+
+/**
+ *  An array of API Hub Gateways to assess. A maximum of 3 gateways can be
+ *  assessed.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestApiHubGatewayArray *apiHubGateways;
+
 /** Include only these resources. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArray *include;
 
@@ -3890,10 +4048,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *profile;
 
 /**
- *  Optional. Scope of the resources for the computation. For Apigee, the
- *  environment is the scope of the resources.
+ *  Optional. Scope of the resources for the computation. When computing scores
+ *  for Apigee proxies, the scope should be set to the environment of the
+ *  resources. When computing scores for API Hub deployments, api_hub_scope
+ *  should be set instead.
  */
 @property(nonatomic, copy, nullable) NSString *scope;
+
+@end
+
+
+/**
+ *  Message for the array of API Hub APIs.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestApiHubApiArray : GTLRObject
+
+/**
+ *  Required. The array of API Hub API IDs. Format:
+ *  `projects/{project}/locations/{location}/apis/{api}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *apis;
+
+@end
+
+
+/**
+ *  Message for the array of API Hub Gateways.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestApiHubGatewayArray : GTLRObject
+
+/**
+ *  Required. The array of API Hub Gateway IDs. Format:
+ *  `projects/{project}/locations/{location}/plugins/{plugin}/instances/{instance}`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gateways;
 
 @end
 
@@ -3923,13 +4111,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource : GTLRObject
 
-/** Required. Name of this resource. */
+/**
+ *  Required. Name of this resource. For an Apigee API Proxy, this should be the
+ *  id of the API proxy. For an API Hub Deployment, this should be the id of the
+ *  deployment.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Type of this resource.
  *
  *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ApiHubDeployment
+ *        Resource is an API Hub deployment. (Value: "API_HUB_DEPLOYMENT")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ApiProxy
  *        Resource is an Apigee Proxy. (Value: "API_PROXY")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource_Type_ResourceTypeUnspecified
@@ -7052,6 +7246,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSNumber *encrypted;
 
+/**
+ *  Optional. Flag that specifies whether entry values will be masked when
+ *  returned.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maskedValues;
+
 /** Required. ID of the key value map. */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -7991,6 +8193,110 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1TraceConfigOverride *> *traceConfigOverrides;
+
+@end
+
+
+/**
+ *  Represents the pairing of REST resource path, model and the actions (verbs)
+ *  allowed on the resource path.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1LlmOperation : GTLRObject
+
+/**
+ *  Optional. methods refers to the REST verbs as in
+ *  https://httpwg.org/specs/rfc9110.html For example: GET, POST, PUT, DELETE,
+ *  etc. They need to be in uppercase. When none specified, all verb types are
+ *  allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *methods;
+
+/** Required. LLM model name associated with the API proxy */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/**
+ *  Required. REST resource path associated with the API proxy or remote
+ *  service.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+@end
+
+
+/**
+ *  Binds the resources in an API proxy or remote service with the allowed REST
+ *  methods and associated quota enforcement.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1LlmOperationConfig : GTLRObject
+
+/**
+ *  Required. Name of the API proxy or remote service with which the resources,
+ *  methods, and quota are associated.
+ */
+@property(nonatomic, copy, nullable) NSString *apiSource;
+
+/** Optional. Custom attributes associated with the operation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1Attribute *> *attributes;
+
+/**
+ *  Required. List of resource/method/model for the API proxy to which quota
+ *  will applied. **Note**: Currently, you can specify only a single
+ *  resource/method/model mapping. The call will fail if more than one
+ *  resource/method/model mappings are provided.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1LlmOperation *> *llmOperations;
+
+/**
+ *  Required. LLM token Quota parameters to be enforced for the resources,
+ *  methods, and API source & LLM model combination. If none are specified,
+ *  quota enforcement will not be done.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1LlmTokenQuota *llmTokenQuota;
+
+@end
+
+
+/**
+ *  List of LLM operation configuration details associated with Apigee API
+ *  proxies.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1LlmOperationGroup : GTLRObject
+
+/**
+ *  Required. List of LLM operation configurations for either Apigee API proxies
+ *  that are associated with this API product.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1LlmOperationConfig *> *operationConfigs;
+
+@end
+
+
+/**
+ *  LLM Token Quota contains the essential parameters needed that can be applied
+ *  on the resources, methods, models, API source combination associated with
+ *  this API product. While LLM Token Quota is optional, setting it prevents
+ *  requests from exceeding the provisioned parameters.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1LlmTokenQuota : GTLRObject
+
+/**
+ *  Required. Time interval over which the number of request messages is
+ *  calculated.
+ */
+@property(nonatomic, copy, nullable) NSString *interval;
+
+/**
+ *  Required. Upper limit of LLM tokens allowed for the time interval and time
+ *  unit specified. Requests exceeding this limit will be rejected.
+ */
+@property(nonatomic, copy, nullable) NSString *limit;
+
+/**
+ *  Optional. Time unit defined for the `interval`. Valid values include
+ *  `minute`, `hour`, `day`, or `month`. If `limit` and `interval` are valid,
+ *  the default value is `hour`; otherwise, the default is null.
+ */
+@property(nonatomic, copy, nullable) NSString *timeUnit;
 
 @end
 
@@ -10725,7 +11031,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource : GTLRObject
 
-/** Required. Name of this resource. */
+/** Output only. Additional details for the API Hub deployment. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails *apiHubDeploymentDetails;
+
+/**
+ *  Required. Name of this resource. For an Apigee API Proxy, this should be the
+ *  id of the API proxy. For an API Hub Deployment, this should be the id of the
+ *  deployment.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -10738,12 +11051,55 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Required. Type of this resource.
  *
  *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ApiHubDeployment
+ *        Resource is an API Hub deployment. (Value: "API_HUB_DEPLOYMENT")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ApiProxy
  *        Resource is an Apigee Proxy. (Value: "API_PROXY")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ResourceTypeUnspecified
  *        ResourceType not specified. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Additional details if the resource is an API Hub deployment.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails : GTLRObject
+
+/** The display name of the API Hub deployment. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The gateway for the API Hub deployment. Format:
+ *  `projects/{project}/locations/{location}/plugins/{plugin}/instances/{instance}`
+ */
+@property(nonatomic, copy, nullable) NSString *gateway;
+
+/**
+ *  The gateway type for the API Hub deployment.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails_GatewayType_ApigeeEdge
+ *        Gateway is Apigee Edge for API Hub. (Value: "APIGEE_EDGE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails_GatewayType_ApigeeHybrid
+ *        Gateway is Apigee Hybrid for API Hub. (Value: "APIGEE_HYBRID")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails_GatewayType_ApigeeOpdk
+ *        Gateway is Apigee OPDK for API Hub. (Value: "APIGEE_OPDK")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails_GatewayType_ApigeeX
+ *        Gateway is Apigee X for API Hub. (Value: "APIGEE_X")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails_GatewayType_ApiHubGatewayTypeUnspecified
+ *        Gateway type is not specified. (Value:
+ *        "API_HUB_GATEWAY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *gatewayType;
+
+/** The resource uri for the API Hub deployment. */
+@property(nonatomic, copy, nullable) NSString *resourceUri;
+
+/** The source project for the API Hub deployment. */
+@property(nonatomic, copy, nullable) NSString *sourceProject;
 
 @end
 
@@ -10851,6 +11207,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_Fail
  *        The assessment has failed. (Value: "FAIL")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_NotApplicable
+ *        The verdict is not applicable. (Value: "NOT_APPLICABLE")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_Pass
  *        The assessment has passed. (Value: "PASS")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultScoringResultAssessmentRecommendation_Verdict_VerdictUnspecified
@@ -11295,6 +11653,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_ProfileAssessmentConfigs *profileAssessmentConfigs;
 
+/**
+ *  Optional. The risk assessment type of the security profile. Defaults to
+ *  ADVANCED_API_SECURITY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_RiskAssessmentType_Apigee
+ *        Risk assessment type is Apigee. (Value: "APIGEE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_RiskAssessmentType_ApiHub
+ *        Risk assessment type is API Hub. (Value: "API_HUB")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_RiskAssessmentType_RiskAssessmentTypeUnspecified
+ *        Risk assessment type is not specified. (Value:
+ *        "RISK_ASSESSMENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *riskAssessmentType;
+
 /** Output only. The time of the security profile update. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -11320,6 +11693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfig : GTLRObject
 
+/** Include only these Gateway Types. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfigApiHubGatewayTypeArray *include;
+
 /**
  *  The weight of the assessment.
  *
@@ -11334,6 +11710,17 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        The weight is unspecified. (Value: "WEIGHT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *weight;
+
+@end
+
+
+/**
+ *  Message for the array of API Hub Gateway Types.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2ProfileAssessmentConfigApiHubGatewayTypeArray : GTLRObject
+
+/** Required. The array of API Hub Gateway Types. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *gatewayTypes;
 
 @end
 
@@ -12849,8 +13236,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

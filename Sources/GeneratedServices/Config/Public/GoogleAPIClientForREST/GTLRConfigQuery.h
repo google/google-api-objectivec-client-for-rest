@@ -920,6 +920,36 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
 @end
 
 /**
+ *  Get the AutoMigrationConfig for a given project and location.
+ *
+ *  Method: config.projects.locations.getAutoMigrationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsGetAutoMigrationConfig : GTLRConfigQuery
+
+/**
+ *  Required. The name of the AutoMigrationConfig. Format:
+ *  'projects/{project_id}/locations/{location}/AutoMigrationConfig'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConfig_AutoMigrationConfig.
+ *
+ *  Get the AutoMigrationConfig for a given project and location.
+ *
+ *  @param name Required. The name of the AutoMigrationConfig. Format:
+ *    'projects/{project_id}/locations/{location}/AutoMigrationConfig'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsGetAutoMigrationConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: config.projects.locations.list
@@ -930,8 +960,8 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
 @interface GTLRConfigQuery_ProjectsLocationsList : GTLRConfigQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1107,9 +1137,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -1641,6 +1671,46 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the AutoMigrationConfig for a given project and location.
+ *
+ *  Method: config.projects.locations.updateAutoMigrationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsUpdateAutoMigrationConfig : GTLRConfigQuery
+
+/**
+ *  Identifier. The name of the AutoMigrationConfig. Format:
+ *  'projects/{project_id}/locations/{location}/AutoMigrationConfig'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The update mask applies to the resource. See
+ *  google.protobuf.FieldMask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRConfig_Operation.
+ *
+ *  Updates the AutoMigrationConfig for a given project and location.
+ *
+ *  @param object The @c GTLRConfig_AutoMigrationConfig to include in the query.
+ *  @param name Identifier. The name of the AutoMigrationConfig. Format:
+ *    'projects/{project_id}/locations/{location}/AutoMigrationConfig'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsUpdateAutoMigrationConfig
+ */
++ (instancetype)queryWithObject:(GTLRConfig_AutoMigrationConfig *)object
+                           name:(NSString *)name;
 
 @end
 

@@ -835,6 +835,56 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Get a count of active devices per set time frames.
+ *
+ *  Method: chromemanagement.customers.reports.countActiveDevices
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsCountActiveDevices : GTLRChromeManagementQuery
+
+/**
+ *  Required. Obfuscated customer ID prefixed with "customers/C" or
+ *  "customers/my_customer".
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ */
+@property(nonatomic, assign) NSInteger dateDay;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ */
+@property(nonatomic, assign) NSInteger dateMonth;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ */
+@property(nonatomic, assign) NSInteger dateYear;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountActiveDevicesResponse.
+ *
+ *  Get a count of active devices per set time frames.
+ *
+ *  @param customer Required. Obfuscated customer ID prefixed with "customers/C"
+ *    or "customers/my_customer".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsCountActiveDevices
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
  *  Count of Chrome Browsers that have been recently enrolled, have new policy
  *  to be synced, or have no recent activity.
  *
@@ -1110,6 +1160,106 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Get a count of devices per boot type.
+ *
+ *  Method: chromemanagement.customers.reports.countDevicesPerBootType
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsCountDevicesPerBootType : GTLRChromeManagementQuery
+
+/**
+ *  Required. Obfuscated customer ID prefixed with "customers/C" or
+ *  "customers/my_customer".
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ */
+@property(nonatomic, assign) NSInteger dateDay;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ */
+@property(nonatomic, assign) NSInteger dateMonth;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ */
+@property(nonatomic, assign) NSInteger dateYear;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountDevicesPerBootTypeResponse.
+ *
+ *  Get a count of devices per boot type.
+ *
+ *  @param customer Required. Obfuscated customer ID prefixed with "customers/C"
+ *    or "customers/my_customer".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsCountDevicesPerBootType
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Get a count of devices per channel.
+ *
+ *  Method: chromemanagement.customers.reports.countDevicesPerReleaseChannel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsCountDevicesPerReleaseChannel : GTLRChromeManagementQuery
+
+/**
+ *  Required. Obfuscated customer ID prefixed with "customers/C" or
+ *  "customers/my_customer".
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ */
+@property(nonatomic, assign) NSInteger dateDay;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ */
+@property(nonatomic, assign) NSInteger dateMonth;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ */
+@property(nonatomic, assign) NSInteger dateYear;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1CountDevicesPerReleaseChannelResponse.
+ *
+ *  Get a count of devices per channel.
+ *
+ *  @param customer Required. Obfuscated customer ID prefixed with "customers/C"
+ *    or "customers/my_customer".
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsCountDevicesPerReleaseChannel
  */
 + (instancetype)queryWithCustomer:(NSString *)customer;
 
@@ -1987,9 +2137,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

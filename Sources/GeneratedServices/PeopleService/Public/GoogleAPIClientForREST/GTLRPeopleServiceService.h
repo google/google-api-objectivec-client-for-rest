@@ -45,7 +45,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceContactsOtherReado
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopePeopleServiceContactsReadonly;
 /**
- *  Authorization scope: See and download your organization's GSuite directory
+ *  Authorization scope: See and download your organization's Google Workspace
+ *  directory
  *
  *  Value "https://www.googleapis.com/auth/directory.readonly"
  */

@@ -794,6 +794,33 @@ NSString * const kGTLRTagManagerTypeVisitorRegion              = @"visitorRegion
 
 @end
 
+@implementation GTLRTagManagerQuery_AccountsContainersWorkspacesBulkUpdate
+
+@dynamic path;
+
++ (instancetype)queryWithObject:(GTLRTagManager_ProposedChange *)object
+                           path:(NSString *)path {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"path" ];
+  NSString *pathURITemplate = @"tagmanager/v2/{+path}/bulk_update";
+  GTLRTagManagerQuery_AccountsContainersWorkspacesBulkUpdate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.path = path;
+  query.expectedObjectClass = [GTLRTagManager_BulkUpdateWorkspaceResponse class];
+  query.loggingName = @"tagmanager.accounts.containers.workspaces.bulk_update";
+  return query;
+}
+
+@end
+
 @implementation GTLRTagManagerQuery_AccountsContainersWorkspacesClientsCreate
 
 @dynamic parent;

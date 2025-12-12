@@ -23,6 +23,7 @@ NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_Interna
 NSString * const kGTLRNetworkServices_AuthzExtension_LoadBalancingScheme_LoadBalancingSchemeUnspecified = @"LOAD_BALANCING_SCHEME_UNSPECIFIED";
 
 // GTLRNetworkServices_AuthzExtension.wireFormat
+NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtAuthzGrpc = @"EXT_AUTHZ_GRPC";
 NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_ExtProcGrpc = @"EXT_PROC_GRPC";
 NSString * const kGTLRNetworkServices_AuthzExtension_WireFormat_WireFormatUnspecified = @"WIRE_FORMAT_UNSPECIFIED";
 
@@ -381,7 +382,7 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ExtensionChainExtension
-@dynamic authority, failOpen, forwardHeaders, metadata, name,
+@dynamic authority, failOpen, forwardHeaders, metadata, name, observabilityMode,
          requestBodySendMode, responseBodySendMode, service, supportedEvents,
          timeout;
 

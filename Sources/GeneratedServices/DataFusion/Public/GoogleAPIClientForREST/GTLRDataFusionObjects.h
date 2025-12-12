@@ -39,6 +39,7 @@
 @class GTLRDataFusion_MaintenanceEvent;
 @class GTLRDataFusion_MaintenancePolicy;
 @class GTLRDataFusion_MaintenanceWindow;
+@class GTLRDataFusion_MonitoringConfig;
 @class GTLRDataFusion_NetworkConfig;
 @class GTLRDataFusion_Operation;
 @class GTLRDataFusion_Operation_Metadata;
@@ -812,6 +813,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 /** Optional. Configure the maintenance policy for this instance. */
 @property(nonatomic, strong, nullable) GTLRDataFusion_MaintenancePolicy *maintenancePolicy;
 
+/** Optional. The monitoring configuration for this instance. */
+@property(nonatomic, strong, nullable) GTLRDataFusion_MonitoringConfig *monitoringConfig;
+
 /**
  *  Output only. The name of this instance is in the form of
  *  projects/{project}/locations/{location}/instances/{instance}.
@@ -1130,6 +1134,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataFusion_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -1269,6 +1280,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 /** Required. The recurring time window of the maintenance window. */
 @property(nonatomic, strong, nullable) GTLRDataFusion_RecurringTimeWindow *recurringTimeWindow;
+
+@end
+
+
+/**
+ *  Monitoring configuration for a Data Fusion instance.
+ */
+@interface GTLRDataFusion_MonitoringConfig : GTLRObject
+
+/**
+ *  Optional. Option to enable the instance v2 metrics for this instance. This
+ *  field is supported only in CDF versions 6.11.1.1 and above.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableInstanceV2Metrics;
 
 @end
 

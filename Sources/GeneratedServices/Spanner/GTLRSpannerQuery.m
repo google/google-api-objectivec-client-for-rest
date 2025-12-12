@@ -201,7 +201,7 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRSpannerQuery_ProjectsInstanceConfigsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -304,7 +304,7 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRSpannerQuery_ProjectsInstanceConfigsSsdCachesOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -554,7 +554,7 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRSpannerQuery_ProjectsInstancesBackupsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1198,7 +1198,7 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRSpannerQuery_ProjectsInstancesDatabasesOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -2043,7 +2043,7 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRSpannerQuery_ProjectsInstancesInstancePartitionsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -2192,7 +2192,7 @@ NSString * const kGTLRSpannerViewViewUnspecified = @"VIEW_UNSPECIFIED";
 
 @implementation GTLRSpannerQuery_ProjectsInstancesOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

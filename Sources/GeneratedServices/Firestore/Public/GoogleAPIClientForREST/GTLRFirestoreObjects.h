@@ -3060,7 +3060,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Encryption configuration for a new database being created from another
- *  source. The source could be a Backup .
+ *  source. The source could be a Backup or a PitrSnapshot.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1EncryptionConfig : GTLRObject
 
@@ -3150,8 +3150,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleFirestoreAdminV1ExportDocumentsRequest : GTLRObject
 
 /**
- *  Which collection IDs to export. Unspecified means all collections. Each
- *  collection ID in this list must be unique.
+ *  IDs of the collection groups to export. Unspecified means all collection
+ *  groups. Each collection group in this list must be unique.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
@@ -3396,8 +3396,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @interface GTLRFirestore_GoogleFirestoreAdminV1ImportDocumentsRequest : GTLRObject
 
 /**
- *  Which collection IDs to import. Unspecified means all collections included
- *  in the import. Each collection ID in this list must be unique.
+ *  IDs of the collection groups to import. Unspecified means all collection
+ *  groups that were included in the export. Each collection group in this list
+ *  must be unique.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *collectionIds;
 
@@ -4308,8 +4309,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

@@ -4350,6 +4350,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 @property(nonatomic, copy, nullable) NSString *artifactId;
 
 /**
+ *  Optional. Path to a folder containing the files to upload to Artifact
+ *  Registry. This can be either an absolute path, e.g.
+ *  `/workspace/my-app/target/`, or a relative path from /workspace, e.g.
+ *  `my-app/target/`. This field is mutually exclusive with the `path` field.
+ */
+@property(nonatomic, copy, nullable) NSString *deployFolder;
+
+/**
  *  Maven `groupId` value used when uploading the artifact to Artifact Registry.
  */
 @property(nonatomic, copy, nullable) NSString *groupId;

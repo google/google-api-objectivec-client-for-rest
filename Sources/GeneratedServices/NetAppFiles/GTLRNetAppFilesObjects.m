@@ -52,6 +52,13 @@ NSString * const kGTLRNetAppFiles_BackupVault_BackupVaultType_BackupVaultTypeUns
 NSString * const kGTLRNetAppFiles_BackupVault_BackupVaultType_CrossRegion = @"CROSS_REGION";
 NSString * const kGTLRNetAppFiles_BackupVault_BackupVaultType_InRegion = @"IN_REGION";
 
+// GTLRNetAppFiles_BackupVault.encryptionState
+NSString * const kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateCompleted = @"ENCRYPTION_STATE_COMPLETED";
+NSString * const kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateFailed = @"ENCRYPTION_STATE_FAILED";
+NSString * const kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateInProgress = @"ENCRYPTION_STATE_IN_PROGRESS";
+NSString * const kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStatePending = @"ENCRYPTION_STATE_PENDING";
+NSString * const kGTLRNetAppFiles_BackupVault_EncryptionState_EncryptionStateUnspecified = @"ENCRYPTION_STATE_UNSPECIFIED";
+
 // GTLRNetAppFiles_BackupVault.state
 NSString * const kGTLRNetAppFiles_BackupVault_State_Creating   = @"CREATING";
 NSString * const kGTLRNetAppFiles_BackupVault_State_Deleting   = @"DELETING";
@@ -60,12 +67,43 @@ NSString * const kGTLRNetAppFiles_BackupVault_State_Ready      = @"READY";
 NSString * const kGTLRNetAppFiles_BackupVault_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_BackupVault_State_Updating   = @"UPDATING";
 
+// GTLRNetAppFiles_BlockDevice.osType
+NSString * const kGTLRNetAppFiles_BlockDevice_OsType_Esxi      = @"ESXI";
+NSString * const kGTLRNetAppFiles_BlockDevice_OsType_Linux     = @"LINUX";
+NSString * const kGTLRNetAppFiles_BlockDevice_OsType_OsTypeUnspecified = @"OS_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetAppFiles_BlockDevice_OsType_Windows   = @"WINDOWS";
+
+// GTLRNetAppFiles_CacheConfig.cachePrePopulateState
+NSString * const kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_CachePrePopulateStateUnspecified = @"CACHE_PRE_POPULATE_STATE_UNSPECIFIED";
+NSString * const kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_Complete = @"COMPLETE";
+NSString * const kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_Error = @"ERROR";
+NSString * const kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRNetAppFiles_CacheConfig_CachePrePopulateState_NotNeeded = @"NOT_NEEDED";
+
 // GTLRNetAppFiles_CacheParameters.cacheState
 NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_CacheStateUnspecified = @"CACHE_STATE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_Error = @"ERROR";
 NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_Peered = @"PEERED";
 NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_PendingClusterPeering = @"PENDING_CLUSTER_PEERING";
 NSString * const kGTLRNetAppFiles_CacheParameters_CacheState_PendingSvmPeering = @"PENDING_SVM_PEERING";
+
+// GTLRNetAppFiles_HostGroup.osType
+NSString * const kGTLRNetAppFiles_HostGroup_OsType_Esxi        = @"ESXI";
+NSString * const kGTLRNetAppFiles_HostGroup_OsType_Linux       = @"LINUX";
+NSString * const kGTLRNetAppFiles_HostGroup_OsType_OsTypeUnspecified = @"OS_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetAppFiles_HostGroup_OsType_Windows     = @"WINDOWS";
+
+// GTLRNetAppFiles_HostGroup.state
+NSString * const kGTLRNetAppFiles_HostGroup_State_Creating     = @"CREATING";
+NSString * const kGTLRNetAppFiles_HostGroup_State_Deleting     = @"DELETING";
+NSString * const kGTLRNetAppFiles_HostGroup_State_Disabled     = @"DISABLED";
+NSString * const kGTLRNetAppFiles_HostGroup_State_Ready        = @"READY";
+NSString * const kGTLRNetAppFiles_HostGroup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRNetAppFiles_HostGroup_State_Updating     = @"UPDATING";
+
+// GTLRNetAppFiles_HostGroup.type
+NSString * const kGTLRNetAppFiles_HostGroup_Type_IscsiInitiator = @"ISCSI_INITIATOR";
+NSString * const kGTLRNetAppFiles_HostGroup_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRNetAppFiles_HybridReplicationParameters.hybridReplicationType
 NSString * const kGTLRNetAppFiles_HybridReplicationParameters_HybridReplicationType_ContinuousReplication = @"CONTINUOUS_REPLICATION";
@@ -107,6 +145,7 @@ NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedServiceLevels_Servic
 NSString * const kGTLRNetAppFiles_LocationMetadata_SupportedServiceLevels_Standard = @"STANDARD";
 
 // GTLRNetAppFiles_MountOption.protocol
+NSString * const kGTLRNetAppFiles_MountOption_Protocol_Iscsi   = @"ISCSI";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_Nfsv3   = @"NFSV3";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_Nfsv4   = @"NFSV4";
 NSString * const kGTLRNetAppFiles_MountOption_Protocol_ProtocolsUnspecified = @"PROTOCOLS_UNSPECIFIED";
@@ -208,7 +247,6 @@ NSString * const kGTLRNetAppFiles_StoragePool_ServiceLevel_Standard = @"STANDARD
 
 // GTLRNetAppFiles_StoragePool.state
 NSString * const kGTLRNetAppFiles_StoragePool_State_Creating   = @"CREATING";
-NSString * const kGTLRNetAppFiles_StoragePool_State_Degraded   = @"DEGRADED";
 NSString * const kGTLRNetAppFiles_StoragePool_State_Deleting   = @"DELETING";
 NSString * const kGTLRNetAppFiles_StoragePool_State_Disabled   = @"DISABLED";
 NSString * const kGTLRNetAppFiles_StoragePool_State_Error      = @"ERROR";
@@ -216,6 +254,12 @@ NSString * const kGTLRNetAppFiles_StoragePool_State_Ready      = @"READY";
 NSString * const kGTLRNetAppFiles_StoragePool_State_Restoring  = @"RESTORING";
 NSString * const kGTLRNetAppFiles_StoragePool_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_StoragePool_State_Updating   = @"UPDATING";
+
+// GTLRNetAppFiles_StoragePool.type
+NSString * const kGTLRNetAppFiles_StoragePool_Type_File        = @"FILE";
+NSString * const kGTLRNetAppFiles_StoragePool_Type_StoragePoolTypeUnspecified = @"STORAGE_POOL_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetAppFiles_StoragePool_Type_Unified     = @"UNIFIED";
+NSString * const kGTLRNetAppFiles_StoragePool_Type_UnifiedLargeCapacity = @"UNIFIED_LARGE_CAPACITY";
 
 // GTLRNetAppFiles_TieringPolicy.tierAction
 NSString * const kGTLRNetAppFiles_TieringPolicy_TierAction_Enabled = @"ENABLED";
@@ -232,6 +276,7 @@ NSString * const kGTLRNetAppFiles_Volume_EncryptionType_EncryptionTypeUnspecifie
 NSString * const kGTLRNetAppFiles_Volume_EncryptionType_ServiceManaged = @"SERVICE_MANAGED";
 
 // GTLRNetAppFiles_Volume.protocols
+NSString * const kGTLRNetAppFiles_Volume_Protocols_Iscsi       = @"ISCSI";
 NSString * const kGTLRNetAppFiles_Volume_Protocols_Nfsv3       = @"NFSV3";
 NSString * const kGTLRNetAppFiles_Volume_Protocols_Nfsv4       = @"NFSV4";
 NSString * const kGTLRNetAppFiles_Volume_Protocols_ProtocolsUnspecified = @"PROTOCOLS_UNSPECIFIED";
@@ -416,8 +461,9 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_BackupVault
-@dynamic backupRegion, backupRetentionPolicy, backupVaultType, createTime,
-         descriptionProperty, destinationBackupVault, labels, name,
+@dynamic backupRegion, backupRetentionPolicy, backupsCryptoKeyVersion,
+         backupVaultType, createTime, descriptionProperty,
+         destinationBackupVault, encryptionState, kmsConfig, labels, name,
          sourceBackupVault, sourceRegion, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -443,11 +489,34 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetAppFiles_BlockDevice
+//
+
+@implementation GTLRNetAppFiles_BlockDevice
+@dynamic hostGroups, identifierProperty, name, osType, sizeGib;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifierProperty" : @"identifier" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hostGroups" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetAppFiles_CacheConfig
 //
 
 @implementation GTLRNetAppFiles_CacheConfig
-@dynamic cifsChangeNotifyEnabled;
+@dynamic cachePrePopulate, cachePrePopulateState, cifsChangeNotifyEnabled,
+         writebackEnabled;
 @end
 
 
@@ -464,6 +533,25 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"peerIpAddresses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_CachePrePopulate
+//
+
+@implementation GTLRNetAppFiles_CachePrePopulate
+@dynamic excludePathList, pathList, recursion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludePathList" : [NSString class],
+    @"pathList" : [NSString class]
   };
   return map;
 }
@@ -556,6 +644,43 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_GoogleProtobufEmpty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_HostGroup
+//
+
+@implementation GTLRNetAppFiles_HostGroup
+@dynamic createTime, descriptionProperty, hosts, labels, name, osType, state,
+         type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hosts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_HostGroup_Labels
+//
+
+@implementation GTLRNetAppFiles_HostGroup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -735,6 +860,29 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 + (NSString *)collectionItemsKey {
   return @"backupVaults";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ListHostGroupsResponse
+//
+
+@implementation GTLRNetAppFiles_ListHostGroupsResponse
+@dynamic hostGroups, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"hostGroups" : [GTLRNetAppFiles_HostGroup class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"hostGroups";
 }
 
 @end
@@ -1280,7 +1428,7 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
          globalAccessAllowed, hotTierSizeGib, hotTierSizeUsedGib, kmsConfig,
          labels, ldapEnabled, name, network, psaRange, qosType, replicaZone,
          satisfiesPzi, satisfiesPzs, serviceLevel, state, stateDetails,
-         totalIops, totalThroughputMibps, volumeCapacityGib, volumeCount,
+         totalIops, totalThroughputMibps, type, volumeCapacityGib, volumeCount,
          zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -1401,9 +1549,9 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_Volume
-@dynamic activeDirectory, backupConfig, cacheParameters, capacityGib,
-         coldTierSizeGib, createTime, descriptionProperty, encryptionType,
-         exportPolicy, hasReplication, hotTierSizeUsedGib,
+@dynamic activeDirectory, backupConfig, blockDevices, cacheParameters,
+         capacityGib, coldTierSizeGib, createTime, descriptionProperty,
+         encryptionType, exportPolicy, hasReplication, hotTierSizeUsedGib,
          hybridReplicationParameters, kerberosEnabled, kmsConfig, labels,
          largeCapacity, ldapEnabled, mountOptions, multipleEndpoints, name,
          network, protocols, psaRange, replicaZone, restoreParameters,
@@ -1422,6 +1570,7 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"blockDevices" : [GTLRNetAppFiles_BlockDevice class],
     @"mountOptions" : [GTLRNetAppFiles_MountOption class],
     @"protocols" : [NSString class],
     @"restrictedActions" : [NSString class],

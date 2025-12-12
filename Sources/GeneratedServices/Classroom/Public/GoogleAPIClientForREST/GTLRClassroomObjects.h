@@ -1899,10 +1899,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Title of the Gem. Read-only. */
+/** Title of the Gem. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** URL that can be used to access the Gem. Read-only. */
+/** URL that can be used to access the Gem. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end
@@ -2852,10 +2852,10 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** Title of the Notebook. Read-only. */
+/** Title of the Notebook. */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** URL that can be used to access the Notebook. Read-only. */
+/** URL that can be used to access the Notebook. */
 @property(nonatomic, copy, nullable) NSString *url;
 
 @end

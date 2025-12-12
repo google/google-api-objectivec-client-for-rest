@@ -274,6 +274,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2Ope
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CommitFunctionUpgrade;
 /**
+ *  CommitFunctionUpgradeAsGen2
+ *
+ *  Value: "COMMIT_FUNCTION_UPGRADE_AS_GEN2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CommitFunctionUpgradeAsGen2;
+/**
  *  CreateFunction
  *
  *  Value: "CREATE_FUNCTION"
@@ -607,11 +613,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_AbortFunctionUpgradeError;
 /**
- *  CommitFunctionUpgrade API was un-successful.
+ *  CommitFunctionUpgrade API was un-successful and 1st gen function might have
+ *  broken.
  *
  *  Value: "COMMIT_FUNCTION_UPGRADE_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError;
+/**
+ *  CommitFunctionUpgrade API was un-successful but safe to rollback traffic or
+ *  abort.
+ *
+ *  Value: "COMMIT_FUNCTION_UPGRADE_ERROR_ROLLBACK_SAFE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeErrorRollbackSafe;
 /**
  *  Functions in this state are eligible for 1st Gen upgrade.
  *
@@ -953,6 +967,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *        fetch them all at once.
  */
 @interface GTLRCloudFunctions_BuildConfig_EnvironmentVariables : GTLRObject
+@end
+
+
+/**
+ *  Request for the `CommitFunctionUpgradeAsGen2` method.
+ */
+@interface GTLRCloudFunctions_CommitFunctionUpgradeAsGen2Request : GTLRObject
 @end
 
 
@@ -1435,6 +1456,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *        AbortFunctionUpgrade (Value: "ABORT_FUNCTION_UPGRADE")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CommitFunctionUpgrade
  *        CommitFunctionUpgrade (Value: "COMMIT_FUNCTION_UPGRADE")
+ *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CommitFunctionUpgradeAsGen2
+ *        CommitFunctionUpgradeAsGen2 (Value: "COMMIT_FUNCTION_UPGRADE_AS_GEN2")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CreateFunction
  *        CreateFunction (Value: "CREATE_FUNCTION")
  *    @arg @c kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DeleteFunction
@@ -1657,8 +1680,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -2615,8 +2639,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *        AbortFunctionUpgrade API was un-successful. (Value:
  *        "ABORT_FUNCTION_UPGRADE_ERROR")
  *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError
- *        CommitFunctionUpgrade API was un-successful. (Value:
- *        "COMMIT_FUNCTION_UPGRADE_ERROR")
+ *        CommitFunctionUpgrade API was un-successful and 1st gen function might
+ *        have broken. (Value: "COMMIT_FUNCTION_UPGRADE_ERROR")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeErrorRollbackSafe
+ *        CommitFunctionUpgrade API was un-successful but safe to rollback
+ *        traffic or abort. (Value:
+ *        "COMMIT_FUNCTION_UPGRADE_ERROR_ROLLBACK_SAFE")
  *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade
  *        Functions in this state are eligible for 1st Gen upgrade. (Value:
  *        "ELIGIBLE_FOR_2ND_GEN_UPGRADE")

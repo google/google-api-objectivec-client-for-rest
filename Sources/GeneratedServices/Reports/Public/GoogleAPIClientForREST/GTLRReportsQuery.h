@@ -32,6 +32,13 @@ NS_ASSUME_NONNULL_BEGIN
 // applicationName
 
 /**
+ *  The Access Evaluation activity reports return information about various
+ *  types of Access Evaluation activity events.
+ *
+ *  Value: "access_evaluation"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAccessEvaluation;
+/**
  *  The Google Workspace Access Transparency activity reports return information
  *  about different types of Access Transparency activity events.
  *
@@ -45,6 +52,20 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAccessTransparency
  *  Value: "admin"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAdmin;
+/**
+ *  The Admin Data Action application's activity reports return information
+ *  about various types of Admin Data Action activity events.
+ *
+ *  Value: "admin_data_action"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAdminDataAction;
+/**
+ *  The assignments application's activity reports return information about
+ *  various types of assignments activity events.
+ *
+ *  Value: "assignments"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameAssignments;
 /**
  *  The Google Calendar application's activity reports return information about
  *  various Calendar activity events.
@@ -75,6 +96,20 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChrome;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameClassroom;
 /**
+ *  The Cloud Search application's activity reports return information about
+ *  various types of cloud_search activity events.
+ *
+ *  Value: "cloud_search"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameCloudSearch;
+/**
+ *  The Contacts application's activity reports return information about various
+ *  types of Contacts activity events.
+ *
+ *  Value: "contacts"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameContacts;
+/**
  *  The Context-aware access activity reports return information about users'
  *  access denied events due to Context-aware access rules.
  *
@@ -82,12 +117,26 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameClassroom;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameContextAwareAccess;
 /**
+ *  The Data Migration application's activity reports return information about
+ *  various types of data migration activity events.
+ *
+ *  Value: "data_migration"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDataMigration;
+/**
  *  The Data Studio activity reports return information about various types of
  *  Data Studio activity events.
  *
  *  Value: "data_studio"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDataStudio;
+/**
+ *  The Directory Sync application's activity reports return information about
+ *  various types of Directory Sync activity events.
+ *
+ *  Value: "directory_sync"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDirectorySync;
 /** Value: "drive" */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameDrive;
 /**
@@ -120,6 +169,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGmail;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGplus;
 /**
+ *  The Graduation application's activity reports return information about
+ *  various types of Graduation activity events.
+ *
+ *  Value: "graduation"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameGraduation;
+/**
  *  The Google Groups application's activity reports return information about
  *  various Groups activity events.
  *
@@ -149,6 +205,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameJamboard;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameKeep;
 /**
+ *  The ldap application's activity reports return information about various
+ *  types of ldap activity events.
+ *
+ *  Value: "ldap"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameLdap;
+/**
  *  The Login application's activity reports return account information about
  *  different types of Login activity events.
  *
@@ -163,12 +226,26 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameLogin;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameMeet;
 /**
+ *  The Meet Hardware application's activity reports return information about
+ *  various types of Meet Hardware activity events.
+ *
+ *  Value: "meet_hardware"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameMeetHardware;
+/**
  *  The Device Audit activity report returns information about different types
  *  of Device Audit activity events.
  *
  *  Value: "mobile"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameMobile;
+/**
+ *  The Profile application's activity reports return information about various
+ *  types of Profile activity events.
+ *
+ *  Value: "profile"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameProfile;
 /**
  *  The Rules activity report returns information about different types of Rules
  *  activity events.
@@ -183,6 +260,20 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameRules;
  *  Value: "saml"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameSaml;
+/**
+ *  The Takeout application's activity reports return information about various
+ *  types of Takeout activity events.
+ *
+ *  Value: "takeout"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameTakeout;
+/**
+ *  The Tasks application's activity reports return information about various
+ *  types of Tasks activity events.
+ *
+ *  Value: "tasks"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameTasks;
 /**
  *  The Token application's activity reports return account information about
  *  different types of Token activity events.
@@ -340,6 +431,45 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        activity
  *        events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
  *        (Value: "classroom")
+ *    @arg @c kGTLRReportsApplicationNameAssignments The assignments
+ *        application's activity reports return information about various types
+ *        of assignments activity events. (Value: "assignments")
+ *    @arg @c kGTLRReportsApplicationNameCloudSearch The Cloud Search
+ *        application's activity reports return information about various types
+ *        of cloud_search activity events. (Value: "cloud_search")
+ *    @arg @c kGTLRReportsApplicationNameTasks The Tasks application's activity
+ *        reports return information about various types of Tasks activity
+ *        events. (Value: "tasks")
+ *    @arg @c kGTLRReportsApplicationNameDataMigration The Data Migration
+ *        application's activity reports return information about various types
+ *        of data migration activity events. (Value: "data_migration")
+ *    @arg @c kGTLRReportsApplicationNameMeetHardware The Meet Hardware
+ *        application's activity reports return information about various types
+ *        of Meet Hardware activity events. (Value: "meet_hardware")
+ *    @arg @c kGTLRReportsApplicationNameDirectorySync The Directory Sync
+ *        application's activity reports return information about various types
+ *        of Directory Sync activity events. (Value: "directory_sync")
+ *    @arg @c kGTLRReportsApplicationNameLdap The ldap application's activity
+ *        reports return information about various types of ldap activity
+ *        events. (Value: "ldap")
+ *    @arg @c kGTLRReportsApplicationNameProfile The Profile application's
+ *        activity reports return information about various types of Profile
+ *        activity events. (Value: "profile")
+ *    @arg @c kGTLRReportsApplicationNameAccessEvaluation The Access Evaluation
+ *        activity reports return information about various types of Access
+ *        Evaluation activity events. (Value: "access_evaluation")
+ *    @arg @c kGTLRReportsApplicationNameAdminDataAction The Admin Data Action
+ *        application's activity reports return information about various types
+ *        of Admin Data Action activity events. (Value: "admin_data_action")
+ *    @arg @c kGTLRReportsApplicationNameContacts The Contacts application's
+ *        activity reports return information about various types of Contacts
+ *        activity events. (Value: "contacts")
+ *    @arg @c kGTLRReportsApplicationNameTakeout The Takeout application's
+ *        activity reports return information about various types of Takeout
+ *        activity events. (Value: "takeout")
+ *    @arg @c kGTLRReportsApplicationNameGraduation The Graduation application's
+ *        activity reports return information about various types of Graduation
+ *        activity events. (Value: "graduation")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -448,6 +578,51 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  `pageToken` query string.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. The `resourceDetailsFilter` query string is an AND separated list
+ *  composed of [Resource Details](#resourcedetails) fields manipulated by
+ *  relational operators. Resource Details Filters are in the form
+ *  `{resourceDetails.field1}{relational operator}{field1 value} AND
+ *  {resourceDetails.field2}{relational operator}{field2 value}...` All the
+ *  inner fields are traversed using the `.` operator, as shown in the following
+ *  example: ``` resourceDetails.id = "resourceId" AND
+ *  resourceDetails.appliedLabels.id = "appliedLabelId" AND
+ *  resourceDetails.appliedLabels.fieldValue.id = "fieldValueId" ```
+ *  `resourceDetailsFilter` query supports these relational operators: *
+ *  `=`—'equal to'. * `!=`—'not equal to'. * `:`—'exists'. This is used for
+ *  filtering on repeated fields. [`FieldValue`](#fieldvalue) types that are
+ *  repeated in nature uses `exists` operator for filtering. The following
+ *  [`FieldValue`](#fieldvalue) types are repeated: *
+ *  [`TextListValue`](#textlistvalue) *
+ *  [`SelectionListValue`](#selectionlistvalue) *
+ *  [`UserListValue`](#userlistvalue) For example, in the following filter,
+ *  [`SelectionListValue`](#selectionlistvalue), is a repeated field. The filter
+ *  checks whether [`SelectionListValue`](#selectionlistvalue) contains
+ *  `selection_id`: ``` resourceDetails.id = "resourceId" AND
+ *  resourceDetails.appliedLabels.id = "appliedLabelId" AND
+ *  resourceDetails.appliedLabels.fieldValue.id = "fieldValueId" AND
+ *  resourceDetails.appliedLabels.fieldValue.type = "SELECTION_LIST_VALUE" AND
+ *  resourceDetails.appliedLabels.fieldValue.selectionListValue.id: "id" ```
+ *  **Usage** ``` GET...&resourceDetailsFilter=resourceDetails.id = "resourceId"
+ *  AND resourceDetails.appliedLabels.id = "appliedLabelId"
+ *  GET...&resourceDetailsFilter=resourceDetails.id=%22resourceId%22%20AND%20resourceDetails.appliedLabels.id=%22appliedLabelId%22
+ *  ``` **Note the following**: * You must URL encode the query string before
+ *  sending the request. * The API supports a maximum of 5 fields separated by
+ *  the AND operator. - When filtering on deeper levels (e.g.,
+ *  [`AppliedLabel`](#appliedlabel), [`FieldValue`](#fieldvalue)), the IDs of
+ *  all preceding levels in the hierarchy must be included in the filter. For
+ *  example: Filtering on [`FieldValue`](#fieldvalue) requires
+ *  [`AppliedLabel`](#appliedlabel) ID and resourceDetails ID to be present.
+ *  *Sample Query*: ``` resourceDetails.id = "resourceId" AND
+ *  resourceDetails.appliedLabels.id = "appliedLabelId" AND
+ *  resourceDetails.appliedLabels.fieldValue.id = "fieldValueId" ``` * Filtering
+ *  on inner [`FieldValue`](#fieldvalue) types like `longTextValue` and
+ *  `textValue` requires `resourceDetails.appliedLabels.fieldValue.type` to be
+ *  present. * Only Filtering on a single [`AppliedLabel`](#appliedlabel) id and
+ *  [`FieldValue`](#fieldvalue) id is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceDetailsFilter;
 
 /**
  *  Sets the beginning of the range of time shown in the report. The date is in
@@ -571,6 +746,45 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *        activity
  *        events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
  *        (Value: "classroom")
+ *    @arg @c kGTLRReportsApplicationNameAssignments The assignments
+ *        application's activity reports return information about various types
+ *        of assignments activity events. (Value: "assignments")
+ *    @arg @c kGTLRReportsApplicationNameCloudSearch The Cloud Search
+ *        application's activity reports return information about various types
+ *        of cloud_search activity events. (Value: "cloud_search")
+ *    @arg @c kGTLRReportsApplicationNameTasks The Tasks application's activity
+ *        reports return information about various types of Tasks activity
+ *        events. (Value: "tasks")
+ *    @arg @c kGTLRReportsApplicationNameDataMigration The Data Migration
+ *        application's activity reports return information about various types
+ *        of data migration activity events. (Value: "data_migration")
+ *    @arg @c kGTLRReportsApplicationNameMeetHardware The Meet Hardware
+ *        application's activity reports return information about various types
+ *        of Meet Hardware activity events. (Value: "meet_hardware")
+ *    @arg @c kGTLRReportsApplicationNameDirectorySync The Directory Sync
+ *        application's activity reports return information about various types
+ *        of Directory Sync activity events. (Value: "directory_sync")
+ *    @arg @c kGTLRReportsApplicationNameLdap The ldap application's activity
+ *        reports return information about various types of ldap activity
+ *        events. (Value: "ldap")
+ *    @arg @c kGTLRReportsApplicationNameProfile The Profile application's
+ *        activity reports return information about various types of Profile
+ *        activity events. (Value: "profile")
+ *    @arg @c kGTLRReportsApplicationNameAccessEvaluation The Access Evaluation
+ *        activity reports return information about various types of Access
+ *        Evaluation activity events. (Value: "access_evaluation")
+ *    @arg @c kGTLRReportsApplicationNameAdminDataAction The Admin Data Action
+ *        application's activity reports return information about various types
+ *        of Admin Data Action activity events. (Value: "admin_data_action")
+ *    @arg @c kGTLRReportsApplicationNameContacts The Contacts application's
+ *        activity reports return information about various types of Contacts
+ *        activity events. (Value: "contacts")
+ *    @arg @c kGTLRReportsApplicationNameTakeout The Takeout application's
+ *        activity reports return information about various types of Takeout
+ *        activity events. (Value: "takeout")
+ *    @arg @c kGTLRReportsApplicationNameGraduation The Graduation application's
+ *        activity reports return information about various types of Graduation
+ *        activity events. (Value: "graduation")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *

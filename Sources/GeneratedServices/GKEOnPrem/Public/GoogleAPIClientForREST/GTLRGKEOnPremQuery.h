@@ -381,9 +381,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -1008,9 +1008,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -1606,9 +1606,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -2094,9 +2094,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -2144,6 +2144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
  *  created in. Format: "projects/{project}/locations/{location}"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. If set, skip the specified validations. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *skipValidations;
 
 /** Validate the request without actually doing any updates. */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -2442,9 +2445,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -2480,6 +2483,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 
 /** Immutable. The VMware admin cluster resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. If set, the server-side preflight checks will be skipped. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *skipValidations;
 
 /**
  *  Required. Field mask is used to specify the fields to be overwritten in the
@@ -2686,6 +2692,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
  *  created in. Format: "projects/{project}/locations/{location}"
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. List of validations to skip during cluster creation. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *skipValidations;
 
 /** Validate the request without actually doing any updates. */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -3049,9 +3058,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -3087,6 +3096,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 
 /** Immutable. The VMware user cluster resource name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@property(nonatomic, strong, nullable) NSArray<NSString *> *skipValidations;
 
 /**
  *  Required. Field mask is used to specify the fields to be overwritten in the
@@ -3671,9 +3682,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

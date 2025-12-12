@@ -492,6 +492,25 @@ NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecified = @"DELETE_POLIC
 
 @end
 
+@implementation GTLRConfigQuery_ProjectsLocationsGetAutoMigrationConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRConfigQuery_ProjectsLocationsGetAutoMigrationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRConfig_AutoMigrationConfig class];
+  query.loggingName = @"config.projects.locations.getAutoMigrationConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRConfigQuery_ProjectsLocationsList
 
 @dynamic extraLocationTypes, filter, name, pageSize, pageToken;
@@ -822,6 +841,33 @@ NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecified = @"DELETE_POLIC
   query.parent = parent;
   query.expectedObjectClass = [GTLRConfig_ListTerraformVersionsResponse class];
   query.loggingName = @"config.projects.locations.terraformVersions.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsUpdateAutoMigrationConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRConfig_AutoMigrationConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRConfigQuery_ProjectsLocationsUpdateAutoMigrationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRConfig_Operation class];
+  query.loggingName = @"config.projects.locations.updateAutoMigrationConfig";
   return query;
 }
 

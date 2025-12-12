@@ -37,6 +37,7 @@
 @class GTLRAndroidPublisher_AssetSliceSet;
 @class GTLRAndroidPublisher_AutoRenewingBasePlanType;
 @class GTLRAndroidPublisher_AutoRenewingPlan;
+@class GTLRAndroidPublisher_BaseDetails;
 @class GTLRAndroidPublisher_BasePlan;
 @class GTLRAndroidPublisher_Bundle;
 @class GTLRAndroidPublisher_BuyerAddress;
@@ -75,10 +76,13 @@
 @class GTLRAndroidPublisher_DeviceTierSet;
 @class GTLRAndroidPublisher_ExpansionFile;
 @class GTLRAndroidPublisher_ExternalAccountIdentifiers;
+@class GTLRAndroidPublisher_ExternalAccountIds;
 @class GTLRAndroidPublisher_ExternallyHostedApk;
+@class GTLRAndroidPublisher_ExternalOfferDetails;
 @class GTLRAndroidPublisher_ExternalSubscription;
 @class GTLRAndroidPublisher_ExternalTransactionAddress;
 @class GTLRAndroidPublisher_ExternalTransactionTestPurchase;
+@class GTLRAndroidPublisher_FreeTrialDetails;
 @class GTLRAndroidPublisher_FullRefund;
 @class GTLRAndroidPublisher_GeneratedApksPerSigningKey;
 @class GTLRAndroidPublisher_GeneratedAssetPackSlice;
@@ -98,7 +102,9 @@
 @class GTLRAndroidPublisher_InappproductsUpdateRequest;
 @class GTLRAndroidPublisher_InstallmentPlan;
 @class GTLRAndroidPublisher_InstallmentsBasePlanType;
+@class GTLRAndroidPublisher_IntroductoryPriceDetails;
 @class GTLRAndroidPublisher_IntroductoryPriceInfo;
+@class GTLRAndroidPublisher_ItemReplacement;
 @class GTLRAndroidPublisher_LanguageTargeting;
 @class GTLRAndroidPublisher_LineItem;
 @class GTLRAndroidPublisher_Listing;
@@ -113,6 +119,7 @@
 @class GTLRAndroidPublisher_MultiAbi;
 @class GTLRAndroidPublisher_MultiAbiTargeting;
 @class GTLRAndroidPublisher_OfferDetails;
+@class GTLRAndroidPublisher_OfferPhaseDetails;
 @class GTLRAndroidPublisher_OfferTag;
 @class GTLRAndroidPublisher_OneTimeCode;
 @class GTLRAndroidPublisher_OneTimeExternalTransaction;
@@ -139,6 +146,7 @@
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseConfig;
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhaseFreePriceOverride;
 @class GTLRAndroidPublisher_OtherRegionsSubscriptionOfferPhasePrices;
+@class GTLRAndroidPublisher_OutOfAppPurchaseContext;
 @class GTLRAndroidPublisher_PageInfo;
 @class GTLRAndroidPublisher_PaidAppDetails;
 @class GTLRAndroidPublisher_PartialRefund;
@@ -155,6 +163,7 @@
 @class GTLRAndroidPublisher_ProcessedEvent;
 @class GTLRAndroidPublisher_ProductLineItem;
 @class GTLRAndroidPublisher_ProductOfferDetails;
+@class GTLRAndroidPublisher_ProrationPeriodDetails;
 @class GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_PurchaseStateContext;
 @class GTLRAndroidPublisher_RecurringExternalTransaction;
@@ -853,6 +862,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeobfuscationFile_Symbo
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_DeobfuscationFile_SymbolType_Proguard;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ExternalOfferDetails.installedAppCategory
+
+/**
+ *  The app is classified under the app category.
+ *
+ *  Value: "APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_App;
+/**
+ *  Unspecified, do not use.
+ *
+ *  Value: "EXTERNAL_OFFER_APP_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_ExternalOfferAppCategoryUnspecified;
+/**
+ *  The app is classified under the game category.
+ *
+ *  Value: "GAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_Game;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ExternalOfferDetails.linkType
+
+/**
+ *  Unspecified, do not use.
+ *
+ *  Value: "EXTERNAL_OFFER_LINK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_LinkType_ExternalOfferLinkTypeUnspecified;
+/**
+ *  An app install.
+ *
+ *  Value: "LINK_TO_APP_DOWNLOAD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_LinkType_LinkToAppDownload;
+/**
+ *  An offer to purchase digital content.
+ *
+ *  Value: "LINK_TO_DIGITAL_CONTENT_OFFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ExternalOfferDetails_LinkType_LinkToDigitalContentOffer;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_ExternalSubscription.subscriptionType
 
 /**
@@ -1199,6 +1252,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanTyp
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_InstallmentsBasePlanType_ResubscribeState_ResubscribeStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ItemReplacement.replacementMode
+
+/**
+ *  The user will be charged the full price for the new plan.
+ *
+ *  Value: "CHARGE_FULL_PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_ChargeFullPrice;
+/**
+ *  The user will be charged a prorated price for the new plan.
+ *
+ *  Value: "CHARGE_PRORATED_PRICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_ChargeProratedPrice;
+/**
+ *  The old plan will be cancelled and the new plan will be effective after the
+ *  old one expires.
+ *
+ *  Value: "DEFERRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_Deferred;
+/**
+ *  The plan will remain unchanged with this replacement.
+ *
+ *  Value: "KEEP_EXISTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_KeepExisting;
+/**
+ *  Unspecified replacement mode.
+ *
+ *  Value: "REPLACEMENT_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_ReplacementModeUnspecified;
+/**
+ *  The new plan will replace the old one without prorating the time.
+ *
+ *  Value: "WITHOUT_PRORATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_WithoutProration;
+/**
+ *  The new plan will be prorated and credited from the old plan.
+ *
+ *  Value: "WITH_TIME_PRORATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_WithTimeProration;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings.eeaWithdrawalRightType
 
 /** Value: "WITHDRAWAL_RIGHT_DIGITAL_CONTENT" */
@@ -1463,6 +1563,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseO
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_OneTimeProductPurchaseOptionRegionalPricingAndAvailabilityConfig_Availability_NoLongerAvailable;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_Order.salesChannel
+
+/**
+ *  Standard orders that initiated from in-app.
+ *
+ *  Value: "IN_APP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_SalesChannel_InApp;
+/**
+ *  Orders initiated from a native PC app for in-app purchases.
+ *
+ *  Value: "NATIVE_PC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_SalesChannel_NativePc;
+/**
+ *  Orders initiated outside the Google Play store.
+ *
+ *  Value: "OUTSIDE_PLAY_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_SalesChannel_OutsidePlayStore;
+/**
+ *  Orders initiated from a PC emulator for in-app purchases.
+ *
+ *  Value: "PC_EMULATOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_SalesChannel_PcEmulator;
+/**
+ *  Orders initiated from the Google Play store.
+ *
+ *  Value: "PLAY_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_SalesChannel_PlayStore;
+/**
+ *  Sales channel unspecified. This value is not used.
+ *
+ *  Value: "SALES_CHANNEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_Order_SalesChannel_SalesChannelUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_Order.state
 
 /**
@@ -1625,6 +1765,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_Ackno
  *  Value: "ACKNOWLEDGEMENT_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProductPurchaseV2_AcknowledgementState_AcknowledgementStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ProrationPeriodDetails.originalOfferPhase
+
+/**
+ *  The order funds a base price period.
+ *
+ *  Value: "BASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_Base;
+/**
+ *  The order funds a free trial period.
+ *
+ *  Value: "FREE_TRIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_FreeTrial;
+/**
+ *  The order funds an introductory pricing period.
+ *
+ *  Value: "INTRODUCTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_Introductory;
+/**
+ *  Offer phase unspecified. This value is not used.
+ *
+ *  Value: "OFFER_PHASE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_OfferPhaseUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings.withdrawalRightType
@@ -3207,10 +3375,11 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_AutoRenewingBasePlanType : GTLRObject
 
 /**
- *  Optional. Account hold period of the subscription, specified in ISO 8601
- *  format. Acceptable values must be in days and between P0D and P60D. If not
- *  specified, the default value is P30D. The sum of gracePeriodDuration and
- *  accountHoldDuration must be between P30D and P60D days, inclusive.
+ *  Optional. Custom account hold period of the subscription, specified in ISO
+ *  8601 format. Acceptable values must be in days and between P0D and P60D. An
+ *  empty field represents a recommended account hold, calculated as 60 days
+ *  minus grace period. The sum of gracePeriodDuration and accountHoldDuration
+ *  must be between P30D and P60D days, inclusive.
  */
 @property(nonatomic, copy, nullable) NSString *accountHoldDuration;
 
@@ -3322,6 +3491,13 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *recurringPrice;
 
+@end
+
+
+/**
+ *  Details of a base price pricing phase.
+ */
+@interface GTLRAndroidPublisher_BaseDetails : GTLRObject
 @end
 
 
@@ -4873,6 +5049,44 @@ GTLR_DEPRECATED
 
 
 /**
+ *  User account identifier in your app.
+ */
+@interface GTLRAndroidPublisher_ExternalAccountIds : GTLRObject
+
+/**
+ *  Optional. Specifies an optional obfuscated string that is uniquely
+ *  associated with the purchaser's user account in your app. If you pass this
+ *  value, Google Play can use it to detect irregular activity. Do not use this
+ *  field to store any Personally Identifiable Information (PII) such as emails
+ *  in cleartext. Attempting to store PII in this field will result in purchases
+ *  being blocked. Google Play recommends that you use either encryption or a
+ *  one-way hash to generate an obfuscated identifier to send to Google Play.
+ *  This identifier is limited to 64 characters. This field can only be set for
+ *  resubscription purchases. See
+ *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedaccountid
+ *  to set this field for purchases made using the standard in-app billing flow.
+ */
+@property(nonatomic, copy, nullable) NSString *obfuscatedAccountId;
+
+/**
+ *  Optional. Specifies an optional obfuscated string that is uniquely
+ *  associated with the purchaser's user profile in your app. If you pass this
+ *  value, Google Play can use it to detect irregular activity. Do not use this
+ *  field to store any Personally Identifiable Information (PII) such as emails
+ *  in cleartext. Attempting to store PII in this field will result in purchases
+ *  being blocked. Google Play recommends that you use either encryption or a
+ *  one-way hash to generate an obfuscated identifier to send to Google Play.
+ *  This identifier is limited to 64 characters. This field can only be set for
+ *  resubscription purchases. See
+ *  https://developer.android.com/reference/com/android/billingclient/api/BillingFlowParams.Builder#setobfuscatedprofileid
+ *  to set this field for purchases made using the standard in-app billing flow.
+ */
+@property(nonatomic, copy, nullable) NSString *obfuscatedProfileId;
+
+@end
+
+
+/**
  *  Defines an APK available for this application that is hosted externally and
  *  not uploaded to Google Play. This function is only available to
  *  organizations using Managed Play whose application is configured to restrict
@@ -4952,6 +5166,60 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Reporting details unique to the external offers program.
+ */
+@interface GTLRAndroidPublisher_ExternalOfferDetails : GTLRObject
+
+/**
+ *  Optional. The external transaction id associated with the app download event
+ *  through an external link. Required when reporting transactions made in
+ *  externally installed apps.
+ */
+@property(nonatomic, copy, nullable) NSString *appDownloadEventExternalTransactionId;
+
+/**
+ *  Optional. The category of the downloaded app though this transaction. This
+ *  must match the category provided in Play Console during the external app
+ *  verification process. Only required for app downloads.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_App
+ *        The app is classified under the app category. (Value: "APP")
+ *    @arg @c kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_ExternalOfferAppCategoryUnspecified
+ *        Unspecified, do not use. (Value:
+ *        "EXTERNAL_OFFER_APP_CATEGORY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_ExternalOfferDetails_InstalledAppCategory_Game
+ *        The app is classified under the game category. (Value: "GAME")
+ */
+@property(nonatomic, copy, nullable) NSString *installedAppCategory;
+
+/**
+ *  Optional. The package name of the app downloaded through this transaction.
+ *  Required when link_type is LINK_TO_APP_DOWNLOAD.
+ */
+@property(nonatomic, copy, nullable) NSString *installedAppPackage;
+
+/**
+ *  Optional. The type of content being reported by this transaction. Required
+ *  when reporting app downloads or purchased digital content offers made in app
+ *  installed through Google Play.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ExternalOfferDetails_LinkType_ExternalOfferLinkTypeUnspecified
+ *        Unspecified, do not use. (Value:
+ *        "EXTERNAL_OFFER_LINK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_ExternalOfferDetails_LinkType_LinkToAppDownload
+ *        An app install. (Value: "LINK_TO_APP_DOWNLOAD")
+ *    @arg @c kGTLRAndroidPublisher_ExternalOfferDetails_LinkType_LinkToDigitalContentOffer
+ *        An offer to purchase digital content. (Value:
+ *        "LINK_TO_DIGITAL_CONTENT_OFFER")
+ */
+@property(nonatomic, copy, nullable) NSString *linkType;
+
+@end
+
+
+/**
  *  Details of an external subscription.
  */
 @interface GTLRAndroidPublisher_ExternalSubscription : GTLRObject
@@ -4997,6 +5265,12 @@ GTLR_DEPRECATED
  *  including any refunds that may have been applied to this transaction.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Price *currentTaxAmount;
+
+/**
+ *  Optional. Details necessary to accurately report external offers
+ *  transactions.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalOfferDetails *externalOfferDetails;
 
 /**
  *  Output only. The id of this transaction. All transaction ids under the same
@@ -5108,6 +5382,13 @@ GTLR_DEPRECATED
  *  will not be charged by Google.
  */
 @interface GTLRAndroidPublisher_ExternalTransactionTestPurchase : GTLRObject
+@end
+
+
+/**
+ *  Details of a free trial pricing phase.
+ */
+@interface GTLRAndroidPublisher_FreeTrialDetails : GTLRObject
 @end
 
 
@@ -5790,10 +6071,11 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_InstallmentsBasePlanType : GTLRObject
 
 /**
- *  Optional. Account hold period of the subscription, specified in ISO 8601
- *  format. Acceptable values must be in days and between P0D and P60D. If not
- *  specified, the default value is P30D. The sum of gracePeriodDuration and
- *  accountHoldDuration must be between P30D and P60D days, inclusive.
+ *  Optional. Custom account hold period of the subscription, specified in ISO
+ *  8601 format. Acceptable values must be in days and between P0D and P60D. An
+ *  empty field represents a recommended account hold, calculated as 60 days
+ *  minus grace period. The sum of gracePeriodDuration and accountHoldDuration
+ *  must be between P30D and P60D days, inclusive.
  */
 @property(nonatomic, copy, nullable) NSString *accountHoldDuration;
 
@@ -5904,6 +6186,13 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details of an introductory price pricing phase.
+ */
+@interface GTLRAndroidPublisher_IntroductoryPriceDetails : GTLRObject
+@end
+
+
+/**
  *  Contains the introductory price information for a subscription.
  */
 @interface GTLRAndroidPublisher_IntroductoryPriceInfo : GTLRObject
@@ -5938,6 +6227,52 @@ GTLR_DEPRECATED
  *  months), "P6M" (six months), and "P1Y" (one year).
  */
 @property(nonatomic, copy, nullable) NSString *introductoryPricePeriod;
+
+@end
+
+
+/**
+ *  Details about a subscription line item that is being replaced.
+ */
+@interface GTLRAndroidPublisher_ItemReplacement : GTLRObject
+
+/** The base plan ID of the subscription line item being replaced. */
+@property(nonatomic, copy, nullable) NSString *basePlanId;
+
+/**
+ *  The offer ID of the subscription line item being replaced, if applicable.
+ */
+@property(nonatomic, copy, nullable) NSString *offerId;
+
+/** The product ID of the subscription line item being replaced. */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+/**
+ *  The replacement mode applied during the purchase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_ChargeFullPrice
+ *        The user will be charged the full price for the new plan. (Value:
+ *        "CHARGE_FULL_PRICE")
+ *    @arg @c kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_ChargeProratedPrice
+ *        The user will be charged a prorated price for the new plan. (Value:
+ *        "CHARGE_PRORATED_PRICE")
+ *    @arg @c kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_Deferred The
+ *        old plan will be cancelled and the new plan will be effective after
+ *        the old one expires. (Value: "DEFERRED")
+ *    @arg @c kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_KeepExisting
+ *        The plan will remain unchanged with this replacement. (Value:
+ *        "KEEP_EXISTING")
+ *    @arg @c kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_ReplacementModeUnspecified
+ *        Unspecified replacement mode. (Value: "REPLACEMENT_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_WithoutProration
+ *        The new plan will replace the old one without prorating the time.
+ *        (Value: "WITHOUT_PRORATION")
+ *    @arg @c kGTLRAndroidPublisher_ItemReplacement_ReplacementMode_WithTimeProration
+ *        The new plan will be prorated and credited from the old plan. (Value:
+ *        "WITH_TIME_PRORATION")
+ */
+@property(nonatomic, copy, nullable) NSString *replacementMode;
 
 @end
 
@@ -6262,6 +6597,15 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *isTokenizedDigitalAsset;
 
 /**
+ *  Product tax category code to assign to the in-app product. Product tax
+ *  category determines the transaction tax rates applied to the product. Refer
+ *  to the [Help Center
+ *  article](https://support.google.com/googleplay/android-developer/answer/16408159)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *productTaxCategoryCode;
+
+/**
  *  A mapping from region code to tax rate details. The keys are region codes as
  *  defined by Unicode's "CLDR".
  */
@@ -6489,6 +6833,26 @@ GTLR_DEPRECATED
  *  from the base plan.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *offerTags;
+
+@end
+
+
+/**
+ *  Details of a pricing phase for the entitlement period funded by this order.
+ */
+@interface GTLRAndroidPublisher_OfferPhaseDetails : GTLRObject
+
+/** The order funds a base price period. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_BaseDetails *baseDetails;
+
+/** The order funds a free trial period. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_FreeTrialDetails *freeTrialDetails;
+
+/** The order funds an introductory pricing period. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_IntroductoryPriceDetails *introductoryPriceDetails;
+
+/** The order funds a proration period. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ProrationPeriodDetails *prorationPeriodDetails;
 
 @end
 
@@ -7008,6 +7372,15 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *isTokenizedDigitalAsset;
 
+/**
+ *  Product tax category code to assign to the one-time product. Product tax
+ *  category determines the transaction tax rates applied to the product. Refer
+ *  to the [Help Center
+ *  article](https://support.google.com/googleplay/android-developer/answer/16408159)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *productTaxCategoryCode;
+
 /** Regional tax configuration. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_RegionalTaxConfig *> *regionalTaxConfigs;
 
@@ -7114,6 +7487,27 @@ GTLR_DEPRECATED
  *  purchased.
  */
 @property(nonatomic, copy, nullable) NSString *purchaseToken;
+
+/**
+ *  The originating sales channel of the order.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_Order_SalesChannel_InApp Standard orders
+ *        that initiated from in-app. (Value: "IN_APP")
+ *    @arg @c kGTLRAndroidPublisher_Order_SalesChannel_NativePc Orders initiated
+ *        from a native PC app for in-app purchases. (Value: "NATIVE_PC")
+ *    @arg @c kGTLRAndroidPublisher_Order_SalesChannel_OutsidePlayStore Orders
+ *        initiated outside the Google Play store. (Value: "OUTSIDE_PLAY_STORE")
+ *    @arg @c kGTLRAndroidPublisher_Order_SalesChannel_PcEmulator Orders
+ *        initiated from a PC emulator for in-app purchases. (Value:
+ *        "PC_EMULATOR")
+ *    @arg @c kGTLRAndroidPublisher_Order_SalesChannel_PlayStore Orders
+ *        initiated from the Google Play store. (Value: "PLAY_STORE")
+ *    @arg @c kGTLRAndroidPublisher_Order_SalesChannel_SalesChannelUnspecified
+ *        Sales channel unspecified. This value is not used. (Value:
+ *        "SALES_CHANNEL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *salesChannel;
 
 /**
  *  The state of the order.
@@ -7292,6 +7686,27 @@ GTLR_DEPRECATED
 
 /** Required. Price in USD to use for any new locations Play may launch in. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *usdPrice;
+
+@end
+
+
+/**
+ *  Information specific to an out of app purchase.
+ */
+@interface GTLRAndroidPublisher_OutOfAppPurchaseContext : GTLRObject
+
+/**
+ *  User account identifier from the last expired subscription for this SKU.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalAccountIdentifiers *expiredExternalAccountIdentifiers;
+
+/**
+ *  The purchase token of the last expired subscription. This purchase token
+ *  must only be used to help identify the user if the link between the
+ *  purchaseToken and user is stored in your database. This cannot be used to
+ *  call the Google Developer API if it has been more than 60 days since expiry.
+ */
+@property(nonatomic, copy, nullable) NSString *expiredPurchaseToken;
 
 @end
 
@@ -7850,6 +8265,49 @@ GTLR_DEPRECATED
  *  purchases.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_TestPurchaseContext *testPurchaseContext;
+
+@end
+
+
+/**
+ *  Details of a proration period. A proration period can be a period calculated
+ *  during a plan change to cover existing entitlements (For more information,
+ *  see [Allow users to upgrade, downgrade, or change their
+ *  subscription](https://developer.android.com/google/play/billing/subscriptions#allow-users-change),
+ *  or a prorated period to align add-on renewal dates with the base (For more
+ *  information, see [Rules applicable for items in the
+ *  purchase](https://developer.android.com/google/play/billing/subscription-with-addons#rules-base-addons)).
+ */
+@interface GTLRAndroidPublisher_ProrationPeriodDetails : GTLRObject
+
+/**
+ *  The last order id of the original subscription purchase prior to the plan
+ *  change. This is only populated if this proration period is from an
+ *  ugrade/downgrade from a previous subscription and carries the remaining
+ *  offer phase from the linked order of the previous subscription.
+ */
+@property(nonatomic, copy, nullable) NSString *linkedOrderId;
+
+/**
+ *  Represent the original offer phase from the purchased the line item if the
+ *  proration period contains any of them. For example, a proration period from
+ *  CHARGE_FULL_PRICE plan change may merge the 1st offer phase of the
+ *  subscription offer of the new product user purchased. In this case, the
+ *  original offer phase will be set here.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_Base
+ *        The order funds a base price period. (Value: "BASE")
+ *    @arg @c kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_FreeTrial
+ *        The order funds a free trial period. (Value: "FREE_TRIAL")
+ *    @arg @c kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_Introductory
+ *        The order funds an introductory pricing period. (Value:
+ *        "INTRODUCTORY")
+ *    @arg @c kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_OfferPhaseUnspecified
+ *        Offer phase unspecified. This value is not used. (Value:
+ *        "OFFER_PHASE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *originalOfferPhase;
 
 @end
 
@@ -8911,7 +9369,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *offerId;
 
 /**
- *  The pricing phase for the billing period funded by this order.
+ *  The pricing phase for the billing period funded by this order. Deprecated.
+ *  Use offer_phase_details instead.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidPublisher_SubscriptionDetails_OfferPhase_Base The
@@ -8926,6 +9385,11 @@ GTLR_DEPRECATED
  *        "OFFER_PHASE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *offerPhase;
+
+/**
+ *  The pricing phase details for the entitlement period funded by this order.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OfferPhaseDetails *offerPhaseDetails;
 
 /**
  *  The end of the billing period funded by this order. This is a snapshot of
@@ -9449,6 +9913,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDateTime *expiryTime;
 
 /**
+ *  Details of the item being replaced. This field is only populated if this
+ *  item replaced another item in a previous subscription and is only available
+ *  for 60 days after the purchase time.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ItemReplacement *itemReplacement;
+
+/**
  *  The order id of the latest successful order associated with this item. Not
  *  present if the item is not owned by the user yet (e.g. the item being
  *  deferred replaced to).
@@ -9480,6 +9951,9 @@ GTLR_DEPRECATED
 
 /** Payload to attach to the purchase. */
 @property(nonatomic, copy, nullable) NSString *developerPayload;
+
+/** Optional. User account identifier in your app. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalAccountIds *externalAccountIds;
 
 @end
 
@@ -9571,6 +10045,15 @@ GTLR_DEPRECATED
  *  prepaid. * Topup a prepaid subscription.
  */
 @property(nonatomic, copy, nullable) NSString *linkedPurchaseToken;
+
+/**
+ *  Additional context for out of app purchases. This information is only
+ *  present for re-subscription purchases (subscription purchases made after the
+ *  previous subscription of the same product has expired) made through the
+ *  Google Play subscriptions center. This field will be removed after you
+ *  acknowledge the subscription.
+ */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OutOfAppPurchaseContext *outOfAppPurchaseContext;
 
 /**
  *  Additional context around paused subscriptions. Only present if the
@@ -9675,6 +10158,15 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isTokenizedDigitalAsset;
+
+/**
+ *  Product tax category code to assign to the subscription. Product tax
+ *  category determines the transaction tax rates applied to the subscription.
+ *  Refer to the [Help Center
+ *  article](https://support.google.com/googleplay/android-developer/answer/16408159)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *productTaxCategoryCode;
 
 /**
  *  A mapping from region code to tax rate details. The keys are region codes as

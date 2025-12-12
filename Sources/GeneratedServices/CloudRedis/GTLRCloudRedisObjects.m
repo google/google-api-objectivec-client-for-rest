@@ -1099,10 +1099,10 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 @dynamic availabilityConfiguration, backupConfiguration, backupdrConfiguration,
          backupRun, creationTime, currentState, customMetadata, edition,
          entitlements, expectedState, gcbdrConfiguration, identifier,
-         instanceType, location, machineConfiguration, maintenanceInfo,
-         primaryResourceId, primaryResourceLocation, product, resourceContainer,
-         resourceName, suspensionReason, tagsSet, updationTime, userLabelSet,
-         zoneProperty;
+         instanceType, isDeletionProtectionEnabled, location,
+         machineConfiguration, maintenanceInfo, primaryResourceId,
+         primaryResourceLocation, product, resourceContainer, resourceName,
+         suspensionReason, tagsSet, updationTime, userLabelSet, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

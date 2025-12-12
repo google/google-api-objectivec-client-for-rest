@@ -451,9 +451,9 @@
 
 @end
 
-@implementation GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsUpdate
+@implementation GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsPatch
 
-@dynamic name;
+@dynamic name, updateMask;
 
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_TagBindingCollection *)object
                            name:(NSString *)name {
@@ -465,14 +465,14 @@
   }
   NSArray *pathParams = @[ @"name" ];
   NSString *pathURITemplate = @"v3/{+name}";
-  GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsUpdate *query =
+  GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsPatch *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PUT"
+                               HTTPMethod:@"PATCH"
                        pathParameterNames:pathParams];
   query.bodyObject = object;
   query.name = name;
   query.expectedObjectClass = [GTLRCloudResourceManager_Operation class];
-  query.loggingName = @"cloudresourcemanager.locations.tagBindingCollections.update";
+  query.loggingName = @"cloudresourcemanager.locations.tagBindingCollections.patch";
   return query;
 }
 

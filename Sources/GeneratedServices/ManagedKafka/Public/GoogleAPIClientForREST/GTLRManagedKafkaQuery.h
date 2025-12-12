@@ -30,6 +30,26 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
+ *  Include the name of the ConsumerGroup. This hides partition and topic
+ *  metadata.
+ *
+ *  Value: "CONSUMER_GROUP_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewConsumerGroupViewBasic;
+/**
+ *  Include everything, including partition and topic metadata. This is the
+ *  default value.
+ *
+ *  Value: "CONSUMER_GROUP_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewConsumerGroupViewFull;
+/**
+ *  The default / unset value. The API will default to the FULL view.
+ *
+ *  Value: "CONSUMER_GROUP_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewConsumerGroupViewUnspecified;
+/**
  *  If SchemaRegistryView is not specified, this is the default value. Returns
  *  only the name of the schema registry. The contexts associated with it are
  *  not included.
@@ -468,6 +488,23 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewSchemaRegistryViewUnspec
  *  `projects/{project}/locations/{location}/clusters/{cluster}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Specifies the view (BASIC or FULL) of the ConsumerGroup resource
+ *  to be returned in the response. Defaults to FULL view.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafkaViewConsumerGroupViewUnspecified The default /
+ *        unset value. The API will default to the FULL view. (Value:
+ *        "CONSUMER_GROUP_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRManagedKafkaViewConsumerGroupViewBasic Include the name of
+ *        the ConsumerGroup. This hides partition and topic metadata. (Value:
+ *        "CONSUMER_GROUP_VIEW_BASIC")
+ *    @arg @c kGTLRManagedKafkaViewConsumerGroupViewFull Include everything,
+ *        including partition and topic metadata. This is the default value.
+ *        (Value: "CONSUMER_GROUP_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRManagedKafka_ListConsumerGroupsResponse.
@@ -1752,9 +1789,9 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewSchemaRegistryViewUnspec
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

@@ -45,6 +45,7 @@ NSString * const kGTLRAuthScopeYouTubeYoutubepartnerChannelAudit = @"https://www
   return @{
     @"youtube#activity" : [GTLRYouTube_Activity class],
     @"youtube#activityListResponse" : [GTLRYouTube_ActivityListResponse class],
+    @"youtube#batchGetStatsResponse" : [GTLRYouTube_BatchGetStatsResponse class],
     @"youtube#caption" : [GTLRYouTube_Caption class],
     @"youtube#captionListResponse" : [GTLRYouTube_CaptionListResponse class],
     @"youtube#channel" : [GTLRYouTube_Channel class],

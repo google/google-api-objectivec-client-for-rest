@@ -102,6 +102,7 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRConfiguration;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBigQueryResourceMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCompliance;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCustomMetadataData;
@@ -340,6 +341,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersio
  *  Value: "POSTGRES_17"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_DatabaseVersion_Postgres17;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_Cluster.maintenanceVersionSelectionPolicy
+
+/**
+ *  Use the current default maintenance version.
+ *
+ *  Value: "MAINTENANCE_VERSION_SELECTION_POLICY_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_MaintenanceVersionSelectionPolicy_MaintenanceVersionSelectionPolicyDefault;
+/**
+ *  Use the latest available maintenance version.
+ *
+ *  Value: "MAINTENANCE_VERSION_SELECTION_POLICY_LATEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_MaintenanceVersionSelectionPolicy_MaintenanceVersionSelectionPolicyLatest;
+/**
+ *  The maintenance version selection policy is not specified.
+ *
+ *  Value: "MAINTENANCE_VERSION_SELECTION_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_MaintenanceVersionSelectionPolicy_MaintenanceVersionSelectionPolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_Cluster.state
@@ -1267,6 +1290,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExtendedSupport;
 /**
+ *  Represents if a resource has no automated backup policy.
+ *
+ *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy;
+/**
  *  Represents if a database has a password configured for the root account or
  *  not.
  *
@@ -1302,6 +1331,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "BACKUPDR_METADATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BackupdrMetadata;
+/**
+ *  BigQuery resource metadata
+ *
+ *  Value: "BIGQUERY_RESOURCE_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BigqueryResourceMetadata;
 /**
  *  Database config based signal data
  *
@@ -1580,7 +1615,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *
  *  Value: "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeExposedByOwnershipChaining;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeExposedByOwnershipChaining GTLR_DEPRECATED;
 /**
  *  Represents if he external scripts enabled database flag for a Cloud SQL for
  *  SQL Server instance is not set to off.
@@ -1741,7 +1776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *
  *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeManyIdleConnections;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeManyIdleConnections GTLR_DEPRECATED;
 /**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
@@ -2591,7 +2626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *
  *  Value: "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeExposedByOwnershipChaining;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeExposedByOwnershipChaining GTLR_DEPRECATED;
 /**
  *  Represents if he external scripts enabled database flag for a Cloud SQL for
  *  SQL Server instance is not set to off.
@@ -2752,7 +2787,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *
  *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeManyIdleConnections;
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeManyIdleConnections GTLR_DEPRECATED;
 /**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
@@ -3205,6 +3240,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport;
+/**
+ *  Represents if a resource has no automated backup policy.
+ *
+ *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy;
 /**
  *  Represents if a database has a password configured for the root account or
  *  not.
@@ -4809,6 +4850,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_MaintenanceUpdatePolicy *maintenanceUpdatePolicy;
 
+/**
+ *  Input only. Policy to use to automatically select the maintenance version to
+ *  which to update the cluster's instances.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_MaintenanceVersionSelectionPolicy_MaintenanceVersionSelectionPolicyDefault
+ *        Use the current default maintenance version. (Value:
+ *        "MAINTENANCE_VERSION_SELECTION_POLICY_DEFAULT")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_MaintenanceVersionSelectionPolicy_MaintenanceVersionSelectionPolicyLatest
+ *        Use the latest available maintenance version. (Value:
+ *        "MAINTENANCE_VERSION_SELECTION_POLICY_LATEST")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_MaintenanceVersionSelectionPolicy_MaintenanceVersionSelectionPolicyUnspecified
+ *        The maintenance version selection policy is not specified. (Value:
+ *        "MAINTENANCE_VERSION_SELECTION_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceVersionSelectionPolicy;
+
 /** Output only. Cluster created via DMS migration. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_MigrationSource *migrationSource;
 
@@ -5863,6 +5921,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_MachineConfig *machineConfig;
 
 /**
+ *  Output only. Maintenance version of the instance, for example:
+ *  POSTGRES_15.2025_07_15.04_00. Output only. Update this field via the parent
+ *  cluster's maintenance_version field(s).
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceVersionName;
+
+/**
  *  Output only. The name of the instance resource with the format: *
  *  projects/{project}/locations/{region}/clusters/{cluster_id}/instances/{instance_id}
  *  where the cluster and instance ID segments should satisfy the regex
@@ -6255,8 +6320,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -7567,6 +7633,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  BigQueryResourceMetadata contains information about the BigQuery resource.
+ *  Next ID: 9
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBigQueryResourceMetadata : GTLRObject
+
+/**
+ *  The creation time of the resource, i.e. the time when resource is created
+ *  and recorded in partner service.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. Full resource name of this instance. */
+@property(nonatomic, copy, nullable) NSString *fullResourceName;
+
+/** Required. location of the resource */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/** The product this resource represents. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct *product;
+
+/**
+ *  Closest parent Cloud Resource Manager container of this resource. It must be
+ *  resource name of a Cloud Resource Manager project with the format of "/",
+ *  such as "projects/123". For GCP provided resources, number should be project
+ *  number.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceContainer;
+
+/** Required. Database resource id. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId;
+
+/**
+ *  The time at which the resource was updated and recorded at partner service.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** User-provided labels associated with the resource */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels *userLabelSet;
+
+@end
+
+
+/**
  *  Contains compliance information about a security standard indicating unmet
  *  recommendations.
  */
@@ -7620,6 +7729,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeExtendedSupport
  *        Represents if a resource version is in extended support. (Value:
  *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
+ *        Represents if a resource has no automated backup policy. (Value:
+ *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData_SignalType_SignalTypeNoRootPassword
  *        Represents if a database has a password configured for the root
  *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -7661,6 +7773,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /** BackupDR metadata is used to ingest metadata from BackupDR. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRMetadata *backupdrMetadata;
 
+/** For BigQuery resource metadata. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBigQueryResourceMetadata *bigqueryResourceMetadata;
+
 /**
  *  Config based signal data is used to ingest signals that are generated based
  *  on the configuration of the database resource.
@@ -7682,6 +7797,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BackupdrMetadata
  *        Database resource metadata from BackupDR (Value: "BACKUPDR_METADATA")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BigqueryResourceMetadata
+ *        BigQuery resource metadata (Value: "BIGQUERY_RESOURCE_METADATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ConfigBasedSignalData
  *        Database config based signal data (Value: "CONFIG_BASED_SIGNAL_DATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_DatabaseResourceSignalData
@@ -8296,9 +8413,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /**
  *  Required. The type of resource this ID is identifying. Ex go/keep-sorted
  *  start alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance,
- *  bigtableadmin.googleapis.com/Cluster, bigtableadmin.googleapis.com/Instance
- *  compute.googleapis.com/Instance firestore.googleapis.com/Database,
- *  redis.googleapis.com/Instance, redis.googleapis.com/Cluster,
+ *  bigquery.googleapis.com/Dataset, bigtableadmin.googleapis.com/Cluster,
+ *  bigtableadmin.googleapis.com/Instance compute.googleapis.com/Instance
+ *  firestore.googleapis.com/Database, redis.googleapis.com/Instance,
+ *  redis.googleapis.com/Cluster,
  *  oracledatabase.googleapis.com/CloudExadataInfrastructure
  *  oracledatabase.googleapis.com/CloudVmCluster
  *  oracledatabase.googleapis.com/AutonomousDatabase
@@ -8318,7 +8436,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 29
+ *  Common model for database resource instance metadata. Next ID: 30
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata : GTLRObject
 
@@ -8450,6 +8568,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        "SUB_RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *instanceType;
+
+/**
+ *  Optional. Whether deletion protection is enabled for this resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDeletionProtectionEnabled;
 
 /** The resource location. REQUIRED */
 @property(nonatomic, copy, nullable) NSString *location;
@@ -9026,6 +9151,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport
  *        Represents if a resource version is in extended support. (Value:
  *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
+ *        Represents if a resource has no automated backup policy. (Value:
+ *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword
  *        Represents if a database has a password configured for the root
  *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")

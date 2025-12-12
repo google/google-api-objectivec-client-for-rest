@@ -772,9 +772,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -2961,6 +2961,178 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new DnsThreatDetector in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.dnsThreatDetectors.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. The ID of the requesting DnsThreatDetector object. If this field
+ *  is not supplied, the service generates an identifier.
+ */
+@property(nonatomic, copy, nullable) NSString *dnsThreatDetectorId;
+
+/** Required. The value for the parent of the DnsThreatDetector resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_DnsThreatDetector.
+ *
+ *  Creates a new DnsThreatDetector in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_DnsThreatDetector to include in the
+ *    query.
+ *  @param parent Required. The value for the parent of the DnsThreatDetector
+ *    resource.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_DnsThreatDetector *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single DnsThreatDetector.
+ *
+ *  Method: networksecurity.projects.locations.dnsThreatDetectors.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsDelete : GTLRNetworkSecurityQuery
+
+/** Required. Name of the DnsThreatDetector resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Empty.
+ *
+ *  Deletes a single DnsThreatDetector.
+ *
+ *  @param name Required. Name of the DnsThreatDetector resource.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a single DnsThreatDetector.
+ *
+ *  Method: networksecurity.projects.locations.dnsThreatDetectors.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsGet : GTLRNetworkSecurityQuery
+
+/** Required. Name of the DnsThreatDetector resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_DnsThreatDetector.
+ *
+ *  Gets the details of a single DnsThreatDetector.
+ *
+ *  @param name Required. Name of the DnsThreatDetector resource.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists DnsThreatDetectors in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.dnsThreatDetectors.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsList : GTLRNetworkSecurityQuery
+
+/**
+ *  Optional. The requested page size. The server may return fewer items than
+ *  requested. If unspecified, the server picks an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous
+ *  `ListDnsThreatDetectorsRequest` call. Provide this to retrieve the
+ *  subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent value for `ListDnsThreatDetectorsRequest`. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListDnsThreatDetectorsResponse.
+ *
+ *  Lists DnsThreatDetectors in a given project and location.
+ *
+ *  @param parent Required. The parent value for
+ *    `ListDnsThreatDetectorsRequest`.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a single DnsThreatDetector.
+ *
+ *  Method: networksecurity.projects.locations.dnsThreatDetectors.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsPatch : GTLRNetworkSecurityQuery
+
+/** Immutable. Identifier. Name of the DnsThreatDetector resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The field mask is used to specify the fields to be overwritten in
+ *  the DnsThreatDetector resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the mask is not provided then all
+ *  fields present in the request will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_DnsThreatDetector.
+ *
+ *  Updates a single DnsThreatDetector.
+ *
+ *  @param object The @c GTLRNetworkSecurity_DnsThreatDetector to include in the
+ *    query.
+ *  @param name Immutable. Identifier. Name of the DnsThreatDetector resource.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_DnsThreatDetector *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new FirewallEndpointAssociation in a given project and location.
  *
  *  Method: networksecurity.projects.locations.firewallEndpointAssociations.create
@@ -3174,6 +3346,224 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsPatch
  */
 + (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpointAssociation *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new FirewallEndpoint in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpoints.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsCreate : GTLRNetworkSecurityQuery
+
+/**
+ *  Required. Id of the requesting object. If auto-generating Id server-side,
+ *  remove this field and firewall_endpoint_id from the method_signature of
+ *  Create RPC.
+ */
+@property(nonatomic, copy, nullable) NSString *firewallEndpointId;
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Creates a new FirewallEndpoint in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
+ *    query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpoint *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Endpoint.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpoints.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsDelete : GTLRNetworkSecurityQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Deletes a single Endpoint.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Endpoint.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpoints.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsGet : GTLRNetworkSecurityQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_FirewallEndpoint.
+ *
+ *  Gets details of a single Endpoint.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists FirewallEndpoints in a given project and location.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpoints.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsList : GTLRNetworkSecurityQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListEndpointsRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_ListFirewallEndpointsResponse.
+ *
+ *  Lists FirewallEndpoints in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListEndpointsRequest
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a single Endpoint.
+ *
+ *  Method: networksecurity.projects.locations.firewallEndpoints.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkSecurityCloudPlatform
+ */
+@interface GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsPatch : GTLRNetworkSecurityQuery
+
+/** Immutable. Identifier. Name of resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Endpoint resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. If the user does not provide a mask then all fields
+ *  will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkSecurity_Operation.
+ *
+ *  Update a single Endpoint.
+ *
+ *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
+ *    query.
+ *  @param name Immutable. Identifier. Name of resource.
+ *
+ *  @return GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpoint *)object
                            name:(NSString *)name;
 
 @end
@@ -4537,8 +4927,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetworkSecurityQuery_ProjectsLocationsList : GTLRNetworkSecurityQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -5638,9 +6028,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

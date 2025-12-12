@@ -705,6 +705,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1CountActiveDevicesResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountActiveDevicesResponse
+@dynamic sevenDaysCount, thirtyDaysCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1CountChromeAppRequestsResponse
 //
 
@@ -833,6 +843,28 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
   return @"browserVersions";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1CountDevicesPerBootTypeResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountDevicesPerBootTypeResponse
+@dynamic devBootTypeCount, unreportedBootTypeCount, verifiedBootTypeCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1CountDevicesPerReleaseChannelResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1CountDevicesPerReleaseChannelResponse
+@dynamic betaChannelCount, canaryChannelCount, devChannelCount, ltcChannelCount,
+         ltsChannelCount, stableChannelCount, unreportedChannelCount,
+         unsupportedChannelCount;
 @end
 
 

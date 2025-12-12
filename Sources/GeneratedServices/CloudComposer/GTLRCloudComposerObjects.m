@@ -57,6 +57,7 @@ NSString * const kGTLRCloudComposer_Environment_State_StateUnspecified = @"STATE
 NSString * const kGTLRCloudComposer_Environment_State_Updating = @"UPDATING";
 
 // GTLRCloudComposer_EnvironmentConfig.environmentSize
+NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeExtraLarge = @"ENVIRONMENT_SIZE_EXTRA_LARGE";
 NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeLarge = @"ENVIRONMENT_SIZE_LARGE";
 NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeMedium = @"ENVIRONMENT_SIZE_MEDIUM";
 NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeSmall = @"ENVIRONMENT_SIZE_SMALL";

@@ -49,6 +49,10 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_AccessGroupConfigs;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttribute_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAttributeBinding;
@@ -68,6 +72,11 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchema;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultTableResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_AccessGroups;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroup;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataProductPrincipal;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult;
@@ -214,6 +223,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TaskTriggerSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Trigger;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOnDemand;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOneTime;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1TriggerSchedule;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Zone;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Zone_Labels;
@@ -916,13 +926,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Failed;
 /**
+ *  Publishing to catalog was skipped.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Skipped;
+/**
  *  The publishing state is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_StateUnspecified;
 /**
- *  Publish to catalog completed successfully.
+ *  Publishing to catalog completed successfully.
  *
  *  Value: "SUCCEEDED"
  */
@@ -999,6 +1015,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  *  Value: "ON_DEMAND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OnDemand;
+/**
+ *  Data scan is run one time on creation.
+ *
+ *  Value: "ONE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OneTime;
 /**
  *  Data scan triggers as per schedule.
  *
@@ -3854,6 +3876,113 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  Represents a Data Asset resource that can be packaged and shared via a Data
+ *  Product.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset : GTLRObject
+
+/**
+ *  Optional. Access groups configurations for this Data Asset. The key is
+ *  DataProduct.AccessGroup.id and the value is AccessGroupConfig. Example: key:
+ *  "analyst" value: { AccessGroupConfig : { iam_roles :
+ *  "roles/bigquery.dataViewer" } } Currently, at most one IAM role is allowed
+ *  per access group. For providing multiple predefined IAM roles, wrap them in
+ *  a custom IAM role as per
+ *  https://cloud.google.com/iam/docs/creating-custom-roles.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_AccessGroupConfigs *accessGroupConfigs;
+
+/** Output only. The time at which the Data Asset was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. User-defined labels for the Data Asset. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_Labels *labels;
+
+/**
+ *  Identifier. Resource name of the Data Asset. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. Full resource name of the cloud resource represented by
+ *  the Data Asset. This must follow
+ *  https://cloud.google.com/iam/docs/full-resource-names. Example:
+ *  //bigquery.googleapis.com/projects/my_project_123/datasets/dataset_456/tables/table_789
+ *  Only BigQuery tables and datasets are currently supported. Data Asset
+ *  creator must have getIamPolicy and setIamPolicy permissions on the resource.
+ *  Data Asset creator must also have resource specific get permission, for
+ *  instance, bigquery.tables.get for BigQuery tables.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Output only. System generated globally unique ID for the Data Asset. This ID
+ *  will be different if the Data Asset is deleted and re-created with the same
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time at which the Data Asset was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Access groups configurations for this Data Asset. The key is
+ *  DataProduct.AccessGroup.id and the value is AccessGroupConfig. Example: key:
+ *  "analyst" value: { AccessGroupConfig : { iam_roles :
+ *  "roles/bigquery.dataViewer" } } Currently, at most one IAM role is allowed
+ *  per access group. For providing multiple predefined IAM roles, wrap them in
+ *  a custom IAM role as per
+ *  https://cloud.google.com/iam/docs/creating-custom-roles.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig. Use
+ *        @c -additionalJSONKeys and @c -additionalPropertyForName: to get the
+ *        list of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_AccessGroupConfigs : GTLRObject
+@end
+
+
+/**
+ *  Optional. User-defined labels for the Data Asset.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_Labels : GTLRObject
+@end
+
+
+/**
+ *  Configuration for access group inherited from the parent Data Product.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig : GTLRObject
+
+/**
+ *  Optional. IAM roles granted on the resource to this access group. Role name
+ *  follows https://cloud.google.com/iam/docs/reference/rest/v1/roles. Example:
+ *  "roles/bigquery.dataViewer"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *iamRoles;
+
+@end
+
+
+/**
  *  Denotes one dataAttribute in a dataTaxonomy, for example, PII. DataAttribute
  *  resources can be defined in a hierarchy. A single dataAttribute resource can
  *  contain specs of multiple types PII - ResourceAccessSpec : - readers
@@ -4412,6 +4541,170 @@ GTLR_DEPRECATED
  *  DataDocumentation scan related spec.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec : GTLRObject
+
+/**
+ *  Optional. Whether to publish result to Dataplex Catalog.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *catalogPublishingEnabled;
+
+@end
+
+
+/**
+ *  A Data Product is a curated collection of Data Assets, packaged to address
+ *  specific use cases. It's a way to manage and share data in a more organized,
+ *  product-like manner.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct : GTLRObject
+
+/**
+ *  Optional. Data Product access groups by access group id as key. If Data
+ *  Product is used only for packaging Data Assets, then access groups may be
+ *  empty. However, if a Data Product is used for sharing Data Assets, then at
+ *  least one access group must be specified.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_AccessGroups *accessGroups;
+
+/**
+ *  Output only. Number of Data Assets associated with this Data Product.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *assetCount;
+
+/** Output only. The time at which the Data Product was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the Data Product.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. User-friendly display name of the Data Product. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  This checksum is computed by the server based on the value of other fields,
+ *  and may be sent on update and delete requests to ensure the client has an
+ *  up-to-date value before proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Optional. Base64 encoded image representing the Data Product. Max Size:
+ *  3.0MiB Expected image dimensions are 512x512 pixels, however the API only
+ *  performs validation on size of the encoded data. Note: For byte fields, the
+ *  content of the fields are base64-encoded (which increases the size of the
+ *  data by 33-36%) when using JSON on the wire.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *icon;
+
+/** Optional. User-defined labels for the Data Product. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_Labels *labels;
+
+/**
+ *  Identifier. Resource name of the Data Product. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Emails of the Data Product owners. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *ownerEmails;
+
+/**
+ *  Output only. System generated unique ID for the Data Product. This ID will
+ *  be different if the Data Product is deleted and re-created with the same
+ *  name.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time at which the Data Product was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Data Product access groups by access group id as key. If Data
+ *  Product is used only for packaging Data Assets, then access groups may be
+ *  empty. However, if a Data Product is used for sharing Data Assets, then at
+ *  least one access group must be specified.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroup. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_AccessGroups : GTLRObject
+@end
+
+
+/**
+ *  Optional. User-defined labels for the Data Product.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_Labels : GTLRObject
+@end
+
+
+/**
+ *  Custom user defined access groups at the Data Product level. These are used
+ *  for granting different levels of access (IAM roles) on the individual Data
+ *  Product's Data Assets.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroup : GTLRObject
+
+/**
+ *  Optional. Description of the access group.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. User friendly display name of the access group. Eg. "Analyst",
+ *  "Developer", etc.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Required. Unique identifier of the access group within the Data Product.
+ *  User defined. Eg. "analyst", "developer", etc.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Required. The principal entity associated with this access group. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProductPrincipal *principal;
+
+@end
+
+
+/**
+ *  Represents the principal entity associated with an access group, as per
+ *  https://cloud.google.com/iam/docs/principals-overview.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProductPrincipal : GTLRObject
+
+/**
+ *  Email of the Google Group, as per
+ *  https://cloud.google.com/iam/docs/principals-overview#google-group.
+ */
+@property(nonatomic, copy, nullable) NSString *googleGroup;
+
 @end
 
 
@@ -4420,6 +4713,12 @@ GTLR_DEPRECATED
  *  table will have field type specific profile result.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResult : GTLRObject
+
+/**
+ *  Output only. The status of publishing the data scan as Dataplex Universal
+ *  Catalog metadata.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus *catalogPublishingStatus;
 
 /** Output only. The result of post scan actions. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResult *postScanActionsResult;
@@ -4735,6 +5034,14 @@ GTLR_DEPRECATED
  *  DataProfileScan related setting.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec : GTLRObject
+
+/**
+ *  Optional. If set, the latest DataScan job result will be published as
+ *  Dataplex Universal Catalog metadata.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *catalogPublishingEnabled;
 
 /**
  *  Optional. The fields to exclude from data profile.If specified, the fields
@@ -5784,20 +6091,23 @@ GTLR_DEPRECATED
 
 /**
  *  The status of publishing the data scan result as Dataplex Universal Catalog
- *  metadata.
+ *  metadata. Multiple DataScan log events may exist, each with different
+ *  publishing information depending on the type of publishing triggered.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus : GTLRObject
 
 /**
- *  Output only. Execution state for catalog publishing.
+ *  Output only. Execution state for publishing.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Failed
  *        Publish to catalog failed. (Value: "FAILED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Skipped
+ *        Publishing to catalog was skipped. (Value: "SKIPPED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_StateUnspecified
  *        The publishing state is unspecified. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanCatalogPublishingStatus_State_Succeeded
- *        Publish to catalog completed successfully. (Value: "SUCCEEDED")
+ *        Publishing to catalog completed successfully. (Value: "SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -5890,6 +6200,8 @@ GTLR_DEPRECATED
  *  Likely values:
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OnDemand
  *        Data scan triggers on demand. (Value: "ON_DEMAND")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_OneTime
+ *        Data scan is run one time on creation. (Value: "ONE_TIME")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_Schedule
  *        Data scan triggers as per schedule. (Value: "SCHEDULE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanEvent_Trigger_TriggerUnspecified
@@ -8365,6 +8677,33 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Response message for listing Data Assets.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataAssets" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAssetsResponse : GTLRCollectionObject
+
+/**
+ *  The Data Assets for the requested filter criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset *> *dataAssets;
+
+/**
+ *  A token, which can be sent as page_token to retrieve the next page. If this
+ *  field is empty, then there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  List DataAttributeBindings response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -8420,6 +8759,36 @@ GTLR_DEPRECATED
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachableLocations;
+
+@end
+
+
+/**
+ *  Response message for listing Data Products.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dataProducts" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataProductsResponse : GTLRCollectionObject
+
+/**
+ *  The Data Products for the requested filter criteria.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct *> *dataProducts;
+
+/**
+ *  A token, which can be sent as page_token to retrieve the next page. If this
+ *  field is empty, then there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that the service couldn't reach. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -10671,6 +11040,12 @@ GTLR_DEPRECATED
 /** The scan runs once via RunDataScan API. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOnDemand *onDemand;
 
+/**
+ *  The scan runs once, and does not create an associated ScanJob child
+ *  resource.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOneTime *oneTime;
+
 /** The scan is scheduled to run periodically. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1TriggerSchedule *schedule;
 
@@ -10681,6 +11056,23 @@ GTLR_DEPRECATED
  *  The scan runs once via RunDataScan API.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOnDemand : GTLRObject
+@end
+
+
+/**
+ *  The scan runs once using create API.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1TriggerOneTime : GTLRObject
+
+/**
+ *  Optional. Time to live for OneTime scans. default value is 24 hours, minimum
+ *  value is 0 seconds, and maximum value is 365 days. The time is calculated
+ *  from the data scan job completion time. If value is set as 0 seconds, the
+ *  scan will be immediately deleted upon job completion, regardless of whether
+ *  the job succeeded or failed.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttlAfterScanCompletion;
+
 @end
 
 
@@ -11343,8 +11735,9 @@ GTLR_DEPRECATED
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  ListOperationsRequest.return_partial_success and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  ListOperationsRequest.return_partial_success and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

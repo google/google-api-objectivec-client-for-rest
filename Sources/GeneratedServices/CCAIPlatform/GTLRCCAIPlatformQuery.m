@@ -125,6 +125,33 @@
 
 @end
 
+@implementation GTLRCCAIPlatformQuery_ProjectsLocationsGenerateShifts
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRCCAIPlatform_GenerateShiftsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1alpha1/{+parent}:generateShifts";
+  GTLRCCAIPlatformQuery_ProjectsLocationsGenerateShifts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCCAIPlatform_Operation class];
+  query.loggingName = @"contactcenteraiplatform.projects.locations.generateShifts";
+  return query;
+}
+
+@end
+
 @implementation GTLRCCAIPlatformQuery_ProjectsLocationsGet
 
 @dynamic name;

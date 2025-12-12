@@ -387,6 +387,20 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettings_Default
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettings_DefaultBannedPhraseMatchStrategy_PhraseMatchStrategyUnspecified = @"PHRASE_MATCH_STRATEGY_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettings_DefaultBannedPhraseMatchStrategy_WordMatch = @"WORD_MATCH";
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter.category
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_DangerousContent = @"DANGEROUS_CONTENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_Harassment = @"HARASSMENT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_HateSpeech = @"HATE_SPEECH";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_SafetyCategoryUnspecified = @"SAFETY_CATEGORY_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_Category_SexuallyExplicitContent = @"SEXUALLY_EXPLICIT_CONTENT";
+
+// GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter.filterLevel
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockFew = @"BLOCK_FEW";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockMost = @"BLOCK_MOST";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockNone = @"BLOCK_NONE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_BlockSome = @"BLOCK_SOME";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter_FilterLevel_SafetyFilterLevelUnspecified = @"SAFETY_FILTER_LEVEL_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings.purgeDataTypes
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_PurgeDataTypes_DialogflowHistory = @"DIALOGFLOW_HISTORY";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3SecuritySettings_PurgeDataTypes_PurgeDataTypeUnspecified = @"PURGE_DATA_TYPE_UNSPECIFIED";
@@ -5907,8 +5921,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettings
-@dynamic bannedPhrases, defaultBannedPhraseMatchStrategy,
-         promptSecuritySettings;
+@dynamic bannedPhrases, defaultBannedPhraseMatchStrategy, defaultRaiSettings,
+         promptSecuritySettings, raiSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5937,6 +5951,34 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsPromptSecuritySettings
 @dynamic enablePromptSecurity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettings
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettings
+@dynamic categoryFilters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categoryFilters" : [GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SafetySettingsRaiSettingsCategoryFilter
+@dynamic category, filterLevel;
 @end
 
 

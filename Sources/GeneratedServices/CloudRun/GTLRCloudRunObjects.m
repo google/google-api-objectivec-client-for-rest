@@ -19,6 +19,7 @@
 // GTLRCloudRun_GoogleCloudRunV2Condition.executionReason
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelled = @"CANCELLED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Cancelling = @"CANCELLING";
+NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_DelayedStartPending = @"DELAYED_START_PENDING";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_Deleted = @"DELETED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_ExecutionReasonUndefined = @"EXECUTION_REASON_UNDEFINED";
 NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_ExecutionReason_JobStatusServicePollingError = @"JOB_STATUS_SERVICE_POLLING_ERROR";
@@ -444,6 +445,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleCloudRunV2CloudStorageSource
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2CloudStorageSource
+@dynamic bucket, generation, object;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleCloudRunV2Condition
 //
 
@@ -460,8 +471,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2Container
 @dynamic args, baseImageUri, buildInfo, command, dependsOn, env, image,
-         livenessProbe, name, ports, resources, startupProbe, volumeMounts,
-         workingDir;
+         livenessProbe, name, ports, resources, sourceCode, startupProbe,
+         volumeMounts, workingDir;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -912,11 +923,12 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2ListServicesResponse
-@dynamic nextPageToken, services;
+@dynamic nextPageToken, services, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"services" : [GTLRCloudRun_GoogleCloudRunV2Service class]
+    @"services" : [GTLRCloudRun_GoogleCloudRunV2Service class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1354,6 +1366,16 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRun_GoogleCloudRunV2SourceCode
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2SourceCode
+@dynamic cloudStorageSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRun_GoogleCloudRunV2StorageSource
 //
 
@@ -1569,7 +1591,8 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
          ETag, expireTime, generation, instanceSplits, instanceSplitStatuses,
          labels, lastModifier, latestCreatedRevision, latestReadyRevision,
          launchStage, name, observedGeneration, reconciling, satisfiesPzs,
-         scaling, templateProperty, terminalCondition, uid, updateTime;
+         scaling, templateProperty, terminalCondition, threatDetectionEnabled,
+         uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1881,7 +1904,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage
-@dynamic digest, name, pushTiming;
+@dynamic artifactRegistryPackage, digest, name, pushTiming;
 @end
 
 
@@ -2044,7 +2067,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1MavenArtifact
-@dynamic artifactId, groupId, path, repository, version;
+@dynamic artifactId, deployFolder, groupId, path, repository, version;
 @end
 
 
@@ -2267,7 +2290,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGoModule
-@dynamic fileHashes, pushTiming, uri;
+@dynamic artifactRegistryPackage, fileHashes, pushTiming, uri;
 @end
 
 
@@ -2277,7 +2300,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact
-@dynamic fileHashes, pushTiming, uri;
+@dynamic artifactRegistryPackage, fileHashes, pushTiming, uri;
 @end
 
 
@@ -2287,7 +2310,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedNpmPackage
-@dynamic fileHashes, pushTiming, uri;
+@dynamic artifactRegistryPackage, fileHashes, pushTiming, uri;
 @end
 
 
@@ -2297,7 +2320,7 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedPythonPackage
-@dynamic fileHashes, pushTiming, uri;
+@dynamic artifactRegistryPackage, fileHashes, pushTiming, uri;
 @end
 
 

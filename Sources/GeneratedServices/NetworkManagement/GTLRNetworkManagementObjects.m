@@ -125,6 +125,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPee
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPscEndpoint = @"GOOGLE_MANAGED_SERVICE_NO_PSC_ENDPOINT";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonDynamicRouteMatched = @"HYBRID_NEG_NON_DYNAMIC_ROUTE_MATCHED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicRouteMatched = @"HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridSubnetNoRoute = @"HYBRID_SUBNET_NO_ROUTE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridSubnetRegionMismatch = @"HYBRID_SUBNET_REGION_MISMATCH";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_IngressFirewallTagsUnsupportedByDirectVpcEgress = @"INGRESS_FIREWALL_TAGS_UNSUPPORTED_BY_DIRECT_VPC_EGRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_InstanceNotRunning = @"INSTANCE_NOT_RUNNING";
@@ -257,6 +258,8 @@ NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpc
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkFirewallPolicyRule = @"NETWORK_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkRegionalFirewallPolicyRule = @"NETWORK_REGIONAL_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule = @"SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE";
+NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_SystemNetworkFirewallPolicyRule = @"SYSTEM_NETWORK_FIREWALL_POLICY_RULE";
+NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_SystemRegionalNetworkFirewallPolicyRule = @"SYSTEM_REGIONAL_NETWORK_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_TrackingState = @"TRACKING_STATE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_UnsupportedFirewallPolicyRule = @"UNSUPPORTED_FIREWALL_POLICY_RULE";
 NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_VpcFirewallRule = @"VPC_FIREWALL_RULE";

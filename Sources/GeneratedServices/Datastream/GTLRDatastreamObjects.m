@@ -34,6 +34,13 @@ NSString * const kGTLRDatastream_BlmtConfig_FileFormat_Parquet = @"PARQUET";
 NSString * const kGTLRDatastream_BlmtConfig_TableFormat_Iceberg = @"ICEBERG";
 NSString * const kGTLRDatastream_BlmtConfig_TableFormat_TableFormatUnspecified = @"TABLE_FORMAT_UNSPECIFIED";
 
+// GTLRDatastream_IngestionTimePartition.partitioningTimeGranularity
+NSString * const kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityDay = @"PARTITIONING_TIME_GRANULARITY_DAY";
+NSString * const kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityHour = @"PARTITIONING_TIME_GRANULARITY_HOUR";
+NSString * const kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityMonth = @"PARTITIONING_TIME_GRANULARITY_MONTH";
+NSString * const kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityUnspecified = @"PARTITIONING_TIME_GRANULARITY_UNSPECIFIED";
+NSString * const kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityYear = @"PARTITIONING_TIME_GRANULARITY_YEAR";
+
 // GTLRDatastream_JsonFileFormat.compression
 NSString * const kGTLRDatastream_JsonFileFormat_Compression_Gzip = @"GZIP";
 NSString * const kGTLRDatastream_JsonFileFormat_Compression_JsonCompressionUnspecified = @"JSON_COMPRESSION_UNSPECIFIED";
@@ -43,6 +50,11 @@ NSString * const kGTLRDatastream_JsonFileFormat_Compression_NoCompression = @"NO
 NSString * const kGTLRDatastream_JsonFileFormat_SchemaFileFormat_AvroSchemaFile = @"AVRO_SCHEMA_FILE";
 NSString * const kGTLRDatastream_JsonFileFormat_SchemaFileFormat_NoSchemaFile = @"NO_SCHEMA_FILE";
 NSString * const kGTLRDatastream_JsonFileFormat_SchemaFileFormat_SchemaFileFormatUnspecified = @"SCHEMA_FILE_FORMAT_UNSPECIFIED";
+
+// GTLRDatastream_MongodbSourceConfig.jsonMode
+NSString * const kGTLRDatastream_MongodbSourceConfig_JsonMode_Canonical = @"CANONICAL";
+NSString * const kGTLRDatastream_MongodbSourceConfig_JsonMode_MongodbJsonModeUnspecified = @"MONGODB_JSON_MODE_UNSPECIFIED";
+NSString * const kGTLRDatastream_MongodbSourceConfig_JsonMode_Strict = @"STRICT";
 
 // GTLRDatastream_PrivateConnection.state
 NSString * const kGTLRDatastream_PrivateConnection_State_Created = @"CREATED";
@@ -62,6 +74,13 @@ NSString * const kGTLRDatastream_Stream_State_Paused           = @"PAUSED";
 NSString * const kGTLRDatastream_Stream_State_Running          = @"RUNNING";
 NSString * const kGTLRDatastream_Stream_State_Starting         = @"STARTING";
 NSString * const kGTLRDatastream_Stream_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRDatastream_TimeUnitPartition.partitioningTimeGranularity
+NSString * const kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityDay = @"PARTITIONING_TIME_GRANULARITY_DAY";
+NSString * const kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityHour = @"PARTITIONING_TIME_GRANULARITY_HOUR";
+NSString * const kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityMonth = @"PARTITIONING_TIME_GRANULARITY_MONTH";
+NSString * const kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityUnspecified = @"PARTITIONING_TIME_GRANULARITY_UNSPECIFIED";
+NSString * const kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityYear = @"PARTITIONING_TIME_GRANULARITY_YEAR";
 
 // GTLRDatastream_Validation.state
 NSString * const kGTLRDatastream_Validation_State_Failed       = @"FAILED";
@@ -143,12 +162,41 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_BigQueryClustering
+//
+
+@implementation GTLRDatastream_BigQueryClustering
+@dynamic columns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_BigQueryDestinationConfig
 //
 
 @implementation GTLRDatastream_BigQueryDestinationConfig
 @dynamic appendOnly, blmtConfig, dataFreshness, merge, singleTargetDataset,
          sourceHierarchyDatasets;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_BigQueryPartitioning
+//
+
+@implementation GTLRDatastream_BigQueryPartitioning
+@dynamic ingestionTimePartition, integerRangePartition, requirePartitionFilter,
+         timeUnitPartition;
 @end
 
 
@@ -235,6 +283,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_CustomizationRule
+//
+
+@implementation GTLRDatastream_CustomizationRule
+@dynamic bigqueryClustering, bigqueryPartitioning;
 @end
 
 
@@ -418,6 +476,26 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_HostAddress
 @dynamic hostname, port;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_IngestionTimePartition
+//
+
+@implementation GTLRDatastream_IngestionTimePartition
+@dynamic partitioningTimeGranularity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_IntegerRangePartition
+//
+
+@implementation GTLRDatastream_IntegerRangePartition
+@dynamic column, end, interval, start;
 @end
 
 
@@ -756,8 +834,9 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_MongodbProfile
-@dynamic hostAddresses, password, replicaSet, secretManagerStoredPassword,
-         srvConnectionFormat, sslConfig, standardConnectionFormat, username;
+@dynamic additionalOptions, hostAddresses, password, replicaSet,
+         secretManagerStoredPassword, srvConnectionFormat, sslConfig,
+         standardConnectionFormat, username;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -771,11 +850,25 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_MongodbProfile_AdditionalOptions
+//
+
+@implementation GTLRDatastream_MongodbProfile_AdditionalOptions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_MongodbSourceConfig
 //
 
 @implementation GTLRDatastream_MongodbSourceConfig
-@dynamic excludeObjects, includeObjects, maxConcurrentBackfillTasks;
+@dynamic excludeObjects, includeObjects, jsonMode, maxConcurrentBackfillTasks;
 @end
 
 
@@ -944,6 +1037,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_Oauth2ClientCredentials
 @dynamic clientId, clientSecret, secretManagerStoredClientSecret;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_ObjectFilter
+//
+
+@implementation GTLRDatastream_ObjectFilter
+@dynamic sourceObjectIdentifier;
 @end
 
 
@@ -1334,6 +1437,24 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_RuleSet
+//
+
+@implementation GTLRDatastream_RuleSet
+@dynamic customizationRules, objectFilter;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customizationRules" : [GTLRDatastream_CustomizationRule class]
+  };
+  return map;
 }
 
 @end
@@ -1741,11 +1862,12 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_Stream
 @dynamic backfillAll, backfillNone, createTime, customerManagedEncryptionKey,
          destinationConfig, displayName, errors, labels, lastRecoveryTime, name,
-         satisfiesPzi, satisfiesPzs, sourceConfig, state, updateTime;
+         ruleSets, satisfiesPzi, satisfiesPzs, sourceConfig, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRDatastream_Error class]
+    @"errors" : [GTLRDatastream_Error class],
+    @"ruleSets" : [GTLRDatastream_RuleSet class]
   };
   return map;
 }
@@ -1782,16 +1904,27 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_StreamObject
-@dynamic backfillJob, createTime, displayName, errors, name, sourceObject,
-         updateTime;
+@dynamic backfillJob, createTime, customizationRules, displayName, errors, name,
+         sourceObject, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"customizationRules" : [GTLRDatastream_CustomizationRule class],
     @"errors" : [GTLRDatastream_Error class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_TimeUnitPartition
+//
+
+@implementation GTLRDatastream_TimeUnitPartition
+@dynamic column, partitioningTimeGranularity;
 @end
 
 

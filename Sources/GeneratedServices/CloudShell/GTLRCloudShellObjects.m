@@ -146,6 +146,16 @@ NSString * const kGTLRCloudShell_StartEnvironmentMetadata_State_UnarchivingDisk 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudShell_GenerateAccessTokenResponse
+//
+
+@implementation GTLRCloudShell_GenerateAccessTokenResponse
+@dynamic accessToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudShell_ListOperationsResponse
 //
 

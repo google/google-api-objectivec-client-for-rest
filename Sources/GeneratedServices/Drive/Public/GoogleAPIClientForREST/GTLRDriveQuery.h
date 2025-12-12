@@ -221,6 +221,89 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
+ *  Gets an Approval by ID.
+ *
+ *  Method: drive.approvals.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveAppdata
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ *    @c kGTLRAuthScopeDriveMetadataReadonly
+ *    @c kGTLRAuthScopeDriveReadonly
+ */
+@interface GTLRDriveQuery_ApprovalsGet : GTLRDriveQuery
+
+/** Required. The ID of the Approval. */
+@property(nonatomic, copy, nullable) NSString *approvalId;
+
+/** Required. The ID of the file the Approval is on. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Fetches a @c GTLRDrive_Approval.
+ *
+ *  Gets an Approval by ID.
+ *
+ *  @param fileId Required. The ID of the file the Approval is on.
+ *  @param approvalId Required. The ID of the Approval.
+ *
+ *  @return GTLRDriveQuery_ApprovalsGet
+ */
++ (instancetype)queryWithFileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId;
+
+@end
+
+/**
+ *  Lists the Approvals on a file.
+ *
+ *  Method: drive.approvals.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveAppdata
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ *    @c kGTLRAuthScopeDriveMetadataReadonly
+ *    @c kGTLRAuthScopeDriveReadonly
+ */
+@interface GTLRDriveQuery_ApprovalsList : GTLRDriveQuery
+
+/** Required. The ID of the file the Approval is on. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  The maximum number of Approvals to return. When not set, at most 100
+ *  Approvals will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  The token for continuing a previous list request on the next page. This
+ *  should be set to the value of nextPageToken from a previous response.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDrive_ApprovalList.
+ *
+ *  Lists the Approvals on a file.
+ *
+ *  @param fileId Required. The ID of the file the Approval is on.
+ *
+ *  @return GTLRDriveQuery_ApprovalsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFileId:(NSString *)fileId;
+
+@end
+
+/**
  *  Gets a specific app. For more information, see [Return user
  *  info](https://developers.google.com/workspace/drive/api/guides/user-info).
  *
@@ -2686,7 +2769,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Creates a reply to a comment.
+ *  Creates a reply to a comment. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *
  *  Method: drive.replies.create
  *
@@ -2705,7 +2789,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Reply.
  *
- *  Creates a reply to a comment.
+ *  Creates a reply to a comment. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *
  *  @param object The @c GTLRDrive_Reply to include in the query.
  *  @param fileId The ID of the file.
@@ -2720,7 +2805,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Deletes a reply.
+ *  Deletes a reply. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *
  *  Method: drive.replies.delete
  *
@@ -2743,7 +2829,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes a reply.
+ *  Deletes a reply. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *
  *  @param fileId The ID of the file.
  *  @param commentId The ID of the comment.
@@ -2758,7 +2845,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Gets a reply by ID.
+ *  Gets a reply by ID. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *
  *  Method: drive.replies.get
  *
@@ -2777,7 +2865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
- *  Whether to return deleted replies. Deleted replies will not include their
+ *  Whether to return deleted replies. Deleted replies don't include their
  *  original content.
  *
  *  @note If not set, the documented server-side default will be false.
@@ -2790,7 +2878,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Reply.
  *
- *  Gets a reply by ID.
+ *  Gets a reply by ID. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *
  *  @param fileId The ID of the file.
  *  @param commentId The ID of the comment.
@@ -2805,7 +2894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Lists a comment's replies.
+ *  Lists a comment's replies. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *
  *  Method: drive.replies.list
  *
@@ -2824,7 +2914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
- *  Whether to include deleted replies. Deleted replies will not include their
+ *  Whether to include deleted replies. Deleted replies don't include their
  *  original content.
  *
  *  @note If not set, the documented server-side default will be false.
@@ -2841,14 +2931,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  The token for continuing a previous list request on the next page. This
- *  should be set to the value of 'nextPageToken' from the previous response.
+ *  should be set to the value of `nextPageToken` from the previous response.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRDrive_ReplyList.
  *
- *  Lists a comment's replies.
+ *  Lists a comment's replies. For more information, see [Manage comments and
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *
  *  @param fileId The ID of the file.
  *  @param commentId The ID of the comment.
@@ -2865,7 +2956,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Updates a reply with patch semantics.
+ *  Updates a reply with patch semantics. For more information, see [Manage
+ *  comments and
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *
  *  Method: drive.replies.update
  *
@@ -2887,7 +2980,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Fetches a @c GTLRDrive_Reply.
  *
- *  Updates a reply with patch semantics.
+ *  Updates a reply with patch semantics. For more information, see [Manage
+ *  comments and
+ *  replies](https://developers.google.com/workspace/drive/api/guides/manage-comments).
  *
  *  @param object The @c GTLRDrive_Reply to include in the query.
  *  @param fileId The ID of the file.
@@ -3015,6 +3110,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 /**
  *  Lists a file's revisions. For more information, see [Manage file
  *  revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
+ *  **Important:** The list of revisions returned by this method might be
+ *  incomplete for files with a large revision history, including frequently
+ *  edited Google Docs, Sheets, and Slides. Older revisions might be omitted
+ *  from the response, meaning the first revision returned may not be the oldest
+ *  existing revision. The revision history visible in the Workspace editor user
+ *  interface might be more complete than the list returned by the API.
  *
  *  Method: drive.revisions.list
  *
@@ -3052,6 +3153,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *
  *  Lists a file's revisions. For more information, see [Manage file
  *  revisions](https://developers.google.com/workspace/drive/api/guides/manage-revisions).
+ *  **Important:** The list of revisions returned by this method might be
+ *  incomplete for files with a large revision history, including frequently
+ *  edited Google Docs, Sheets, and Slides. Older revisions might be omitted
+ *  from the response, meaning the first revision returned may not be the oldest
+ *  existing revision. The revision history visible in the Workspace editor user
+ *  interface might be more complete than the list returned by the API.
  *
  *  @param fileId The ID of the file.
  *

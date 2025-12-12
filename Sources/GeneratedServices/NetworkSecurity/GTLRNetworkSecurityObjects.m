@@ -66,6 +66,10 @@ NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots
 NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_PublicRoots = @"PUBLIC_ROOTS";
 NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_WellKnownRootsUnspecified = @"WELL_KNOWN_ROOTS_UNSPECIFIED";
 
+// GTLRNetworkSecurity_DnsThreatDetector.provider
+NSString * const kGTLRNetworkSecurity_DnsThreatDetector_Provider_Infoblox = @"INFOBLOX";
+NSString * const kGTLRNetworkSecurity_DnsThreatDetector_Provider_ProviderUnspecified = @"PROVIDER_UNSPECIFIED";
+
 // GTLRNetworkSecurity_FirewallEndpoint.state
 NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Active = @"ACTIVE";
 NSString * const kGTLRNetworkSecurity_FirewallEndpoint_State_Creating = @"CREATING";
@@ -777,6 +781,38 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkSecurity_DnsThreatDetector
+//
+
+@implementation GTLRNetworkSecurity_DnsThreatDetector
+@dynamic createTime, excludedNetworks, labels, name, provider, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"excludedNetworks" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_DnsThreatDetector_Labels
+//
+
+@implementation GTLRNetworkSecurity_DnsThreatDetector_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkSecurity_Empty
 //
 
@@ -1418,6 +1454,29 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 
 + (NSString *)collectionItemsKey {
   return @"clientTlsPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_ListDnsThreatDetectorsResponse
+//
+
+@implementation GTLRNetworkSecurity_ListDnsThreatDetectorsResponse
+@dynamic dnsThreatDetectors, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dnsThreatDetectors" : [GTLRNetworkSecurity_DnsThreatDetector class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"dnsThreatDetectors";
 }
 
 @end

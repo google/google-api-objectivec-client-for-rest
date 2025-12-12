@@ -144,6 +144,34 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include = @"include
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGmail_ClassificationLabelFieldValue
+//
+
+@implementation GTLRGmail_ClassificationLabelFieldValue
+@dynamic fieldId, selection;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGmail_ClassificationLabelValue
+//
+
+@implementation GTLRGmail_ClassificationLabelValue
+@dynamic fields, labelId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fields" : [GTLRGmail_ClassificationLabelFieldValue class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGmail_CseIdentity
 //
 
@@ -680,8 +708,8 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include = @"include
 //
 
 @implementation GTLRGmail_Message
-@dynamic historyId, identifier, internalDate, labelIds, payload, raw,
-         sizeEstimate, snippet, threadId;
+@dynamic classificationLabelValues, historyId, identifier, internalDate,
+         labelIds, payload, raw, sizeEstimate, snippet, threadId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -689,6 +717,7 @@ NSString * const kGTLRGmail_WatchRequest_LabelFilterBehavior_Include = @"include
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"classificationLabelValues" : [GTLRGmail_ClassificationLabelValue class],
     @"labelIds" : [NSString class]
   };
   return map;

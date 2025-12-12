@@ -139,6 +139,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_Deployment_ErrorCode_DeleteBuildR
  */
 FOUNDATION_EXTERN NSString * const kGTLRConfig_Deployment_ErrorCode_ErrorCodeUnspecified;
 /**
+ *  Failed to import values from an external source.
+ *
+ *  Value: "EXTERNAL_VALUE_SOURCE_IMPORT_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_Deployment_ErrorCode_ExternalValueSourceImportFailed;
+/**
  *  The revision failed. See Revision for more details.
  *
  *  Value: "REVISION_FAILED"
@@ -385,6 +391,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_Preview_ErrorCode_DeploymentLockA
  *  Value: "ERROR_CODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRConfig_Preview_ErrorCode_ErrorCodeUnspecified;
+/**
+ *  Failed to import values from an external source.
+ *
+ *  Value: "EXTERNAL_VALUE_SOURCE_IMPORT_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_Preview_ErrorCode_ExternalValueSourceImportFailed;
 /**
  *  Preview encountered an error when trying to access Cloud Build API.
  *
@@ -733,6 +745,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_Revision_ErrorCode_CloudBuildPerm
  */
 FOUNDATION_EXTERN NSString * const kGTLRConfig_Revision_ErrorCode_ErrorCodeUnspecified;
 /**
+ *  Failed to import values from an external source.
+ *
+ *  Value: "EXTERNAL_VALUE_SOURCE_IMPORT_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_Revision_ErrorCode_ExternalValueSourceImportFailed;
+/**
  *  quota validation failed for one or more resources in terraform configuration
  *  files.
  *
@@ -923,6 +941,30 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 
 
 /**
+ *  AutoMigrationConfig contains the automigration configuration for a project.
+ */
+@interface GTLRConfig_AutoMigrationConfig : GTLRObject
+
+/**
+ *  Optional. Whether the auto migration is enabled for the project.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoMigrationEnabled;
+
+/**
+ *  Identifier. The name of the AutoMigrationConfig. Format:
+ *  'projects/{project_id}/locations/{location}/AutoMigrationConfig'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Time the AutoMigrationConfig was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRConfig_Binding : GTLRObject
@@ -1094,6 +1136,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
  *        (Value: "DELETE_BUILD_RUN_FAILED")
  *    @arg @c kGTLRConfig_Deployment_ErrorCode_ErrorCodeUnspecified No error
  *        code was specified. (Value: "ERROR_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRConfig_Deployment_ErrorCode_ExternalValueSourceImportFailed
+ *        Failed to import values from an external source. (Value:
+ *        "EXTERNAL_VALUE_SOURCE_IMPORT_FAILED")
  *    @arg @c kGTLRConfig_Deployment_ErrorCode_RevisionFailed The revision
  *        failed. See Revision for more details. (Value: "REVISION_FAILED")
  */
@@ -1555,8 +1600,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -2119,6 +2165,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
  *        "DEPLOYMENT_LOCK_ACQUIRE_FAILED")
  *    @arg @c kGTLRConfig_Preview_ErrorCode_ErrorCodeUnspecified No error code
  *        was specified. (Value: "ERROR_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRConfig_Preview_ErrorCode_ExternalValueSourceImportFailed
+ *        Failed to import values from an external source. (Value:
+ *        "EXTERNAL_VALUE_SOURCE_IMPORT_FAILED")
  *    @arg @c kGTLRConfig_Preview_ErrorCode_PreviewBuildApiFailed Preview
  *        encountered an error when trying to access Cloud Build API. (Value:
  *        "PREVIEW_BUILD_API_FAILED")
@@ -2712,6 +2761,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
  *        "CLOUD_BUILD_PERMISSION_DENIED")
  *    @arg @c kGTLRConfig_Revision_ErrorCode_ErrorCodeUnspecified No error code
  *        was specified. (Value: "ERROR_CODE_UNSPECIFIED")
+ *    @arg @c kGTLRConfig_Revision_ErrorCode_ExternalValueSourceImportFailed
+ *        Failed to import values from an external source. (Value:
+ *        "EXTERNAL_VALUE_SOURCE_IMPORT_FAILED")
  *    @arg @c kGTLRConfig_Revision_ErrorCode_QuotaValidationFailed quota
  *        validation failed for one or more resources in terraform configuration
  *        files. (Value: "QUOTA_VALIDATION_FAILED")

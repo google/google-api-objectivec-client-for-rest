@@ -2613,9 +2613,9 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearch
 
-@dynamic parent;
+@dynamic parent, resourceType;
 
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_SearchResourcesRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                          parent:(NSString *)parent {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
@@ -2642,7 +2642,7 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @dynamic parent, resourceType;
 
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_SearchResourcesRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                          parent:(NSString *)parent
                    resourceType:(NSString *)resourceType {
   if (object == nil) {

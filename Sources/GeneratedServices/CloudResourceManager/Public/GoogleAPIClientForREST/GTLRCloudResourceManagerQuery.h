@@ -934,14 +934,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Updates tag bindings directly attached to a GCP resource.
+ *  Updates tag bindings directly attached to a GCP resource. Update_mask can be
+ *  kept empty or "*".
  *
- *  Method: cloudresourcemanager.locations.tagBindingCollections.update
+ *  Method: cloudresourcemanager.locations.tagBindingCollections.patch
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudResourceManagerCloudPlatform
  */
-@interface GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsUpdate : GTLRCloudResourceManagerQuery
+@interface GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsPatch : GTLRCloudResourceManagerQuery
 
 /**
  *  Identifier. The name of the TagBindingCollection, following the convention:
@@ -953,9 +954,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. An update mask to selectively update fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
  *  Fetches a @c GTLRCloudResourceManager_Operation.
  *
- *  Updates tag bindings directly attached to a GCP resource.
+ *  Updates tag bindings directly attached to a GCP resource. Update_mask can be
+ *  kept empty or "*".
  *
  *  @param object The @c GTLRCloudResourceManager_TagBindingCollection to
  *    include in the query.
@@ -966,7 +975,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    resource the TagBindings are bound to.
  *    "locations/global/tagBindingCollections/%2f%2fcloudresourcemanager.googleapis.com%2fprojects%2f123"
  *
- *  @return GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsUpdate
+ *  @return GTLRCloudResourceManagerQuery_LocationsTagBindingCollectionsPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudResourceManager_TagBindingCollection *)object
                            name:(NSString *)name;

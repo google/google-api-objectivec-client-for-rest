@@ -305,6 +305,30 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Promotion_P
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Promotion_PromotionType_PromotionTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_ResumeSubscriptionRequest.resumeMode
+
+/**
+ *  Resume the subscription using the input from `cycle_options`.
+ *
+ *  Value: "RESUME_MODE_CYCLE_OPTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeCycleOptions;
+/**
+ *  Resume the subscription with the existing billing schedule. The
+ *  subscription's next renewal time must still be in the future for this mode
+ *  to be applicable.
+ *
+ *  Value: "RESUME_MODE_RESTORE_EXISTING_BILLING_SCHEDULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeRestoreExistingBillingSchedule;
+/**
+ *  Reserved for invalid or unexpected value. Do not use.
+ *
+ *  Value: "RESUME_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_Subscription.processingState
 
 /**
@@ -1490,6 +1514,24 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
 
 /** Optional. The cycle options for the subscription. */
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_CycleOptions *cycleOptions;
+
+/**
+ *  Required. The mode to resume the subscription.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeCycleOptions
+ *        Resume the subscription using the input from `cycle_options`. (Value:
+ *        "RESUME_MODE_CYCLE_OPTIONS")
+ *    @arg @c kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeRestoreExistingBillingSchedule
+ *        Resume the subscription with the existing billing schedule. The
+ *        subscription's next renewal time must still be in the future for this
+ *        mode to be applicable. (Value:
+ *        "RESUME_MODE_RESTORE_EXISTING_BILLING_SCHEDULE")
+ *    @arg @c kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeUnspecified
+ *        Reserved for invalid or unexpected value. Do not use. (Value:
+ *        "RESUME_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *resumeMode;
 
 @end
 

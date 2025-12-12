@@ -1097,6 +1097,16 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLREventarc_RetryPolicy
+//
+
+@implementation GTLREventarc_RetryPolicy
+@dynamic maxAttempts;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLREventarc_SetIamPolicyRequest
 //
 
@@ -1168,8 +1178,8 @@ NSString * const kGTLREventarc_StateCondition_Code_Unknown     = @"UNKNOWN";
 
 @implementation GTLREventarc_Trigger
 @dynamic channel, conditions, createTime, destination, ETag,
-         eventDataContentType, eventFilters, labels, name, satisfiesPzs,
-         serviceAccount, transport, uid, updateTime;
+         eventDataContentType, eventFilters, labels, name, retryPolicy,
+         satisfiesPzs, serviceAccount, transport, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

@@ -36,6 +36,7 @@
 @class GTLRDocs_CreateParagraphBulletsRequest;
 @class GTLRDocs_CropProperties;
 @class GTLRDocs_CropPropertiesSuggestionState;
+@class GTLRDocs_DateElementProperties;
 @class GTLRDocs_DeleteContentRangeRequest;
 @class GTLRDocs_DeleteFooterRequest;
 @class GTLRDocs_DeleteHeaderRequest;
@@ -91,6 +92,7 @@
 @class GTLRDocs_InlineObjectElement_SuggestedTextStyleChanges;
 @class GTLRDocs_InlineObjectProperties;
 @class GTLRDocs_InlineObjectPropertiesSuggestionState;
+@class GTLRDocs_InsertDateRequest;
 @class GTLRDocs_InsertInlineImageRequest;
 @class GTLRDocs_InsertInlineImageResponse;
 @class GTLRDocs_InsertInlineSheetsChartResponse;
@@ -385,6 +387,78 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_Bulle
  *  Value: "NUMBERED_ZERODECIMAL_ALPHA_ROMAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedZerodecimalAlphaRoman;
+
+// ----------------------------------------------------------------------------
+// GTLRDocs_DateElementProperties.dateFormat
+
+/**
+ *  Output only. The date format is imported from an external source.
+ *
+ *  Value: "DATE_FORMAT_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatCustom;
+/**
+ *  The date format is in ISO 8601 format. For example, "1970-01-01".
+ *
+ *  Value: "DATE_FORMAT_ISO8601"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatIso8601;
+/**
+ *  The date format is an abbreviated month followed by the day. For example,
+ *  "Jan 1".
+ *
+ *  Value: "DATE_FORMAT_MONTH_DAY_ABBREVIATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatMonthDayAbbreviated;
+/**
+ *  The date format is a month followed by the day. For example, "January 01".
+ *
+ *  Value: "DATE_FORMAT_MONTH_DAY_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatMonthDayFull;
+/**
+ *  The date format is an abbreviated month followed by the day and the year.
+ *  For example, "Jan 1, 1970".
+ *
+ *  Value: "DATE_FORMAT_MONTH_DAY_YEAR_ABBREVIATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatMonthDayYearAbbreviated;
+/**
+ *  The date format is unspecified.
+ *
+ *  Value: "DATE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDocs_DateElementProperties.timeFormat
+
+/**
+ *  Indicates that the date does not have a time.
+ *
+ *  Value: "TIME_FORMAT_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatDisabled;
+/**
+ *  The time format shows the hour and minute. For example, "Jan 1, 1970 12:00
+ *  PM".
+ *
+ *  Value: "TIME_FORMAT_HOUR_MINUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatHourMinute;
+/**
+ *  The time format shows the hour, minute, and timezone. For example, "Jan 1,
+ *  1970 12:00 PM UTC".
+ *
+ *  Value: "TIME_FORMAT_HOUR_MINUTE_TIMEZONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatHourMinuteTimezone;
+/**
+ *  The time format is unspecified.
+ *
+ *  Value: "TIME_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDocs_Dimension.unit
@@ -1795,6 +1869,94 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *offsetTopSuggested;
+
+@end
+
+
+/**
+ *  Properties of a DateElement.
+ */
+@interface GTLRDocs_DateElementProperties : GTLRObject
+
+/**
+ *  Determines how the date part of the DateElement will be displayed in the
+ *  document. If unset, the default value is
+ *  DATE_FORMAT_MONTH_DAY_YEAR_ABBREVIATED, indicating the DateElement will be
+ *  formatted as `MMM d, y` in `en_US`, or locale specific equivalent.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocs_DateElementProperties_DateFormat_DateFormatCustom Output
+ *        only. The date format is imported from an external source. (Value:
+ *        "DATE_FORMAT_CUSTOM")
+ *    @arg @c kGTLRDocs_DateElementProperties_DateFormat_DateFormatIso8601 The
+ *        date format is in ISO 8601 format. For example, "1970-01-01". (Value:
+ *        "DATE_FORMAT_ISO8601")
+ *    @arg @c kGTLRDocs_DateElementProperties_DateFormat_DateFormatMonthDayAbbreviated
+ *        The date format is an abbreviated month followed by the day. For
+ *        example, "Jan 1". (Value: "DATE_FORMAT_MONTH_DAY_ABBREVIATED")
+ *    @arg @c kGTLRDocs_DateElementProperties_DateFormat_DateFormatMonthDayFull
+ *        The date format is a month followed by the day. For example, "January
+ *        01". (Value: "DATE_FORMAT_MONTH_DAY_FULL")
+ *    @arg @c kGTLRDocs_DateElementProperties_DateFormat_DateFormatMonthDayYearAbbreviated
+ *        The date format is an abbreviated month followed by the day and the
+ *        year. For example, "Jan 1, 1970". (Value:
+ *        "DATE_FORMAT_MONTH_DAY_YEAR_ABBREVIATED")
+ *    @arg @c kGTLRDocs_DateElementProperties_DateFormat_DateFormatUnspecified
+ *        The date format is unspecified. (Value: "DATE_FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *dateFormat;
+
+/**
+ *  Output only. Indicates how the DateElement is displayed in the document.
+ */
+@property(nonatomic, copy, nullable) NSString *displayText;
+
+/**
+ *  The locale of the document, as defined by the Unicode Common Locale Data
+ *  Repository (CLDR) project. For example, `en_US`. If unset, the default
+ *  locale is `en_US`.
+ */
+@property(nonatomic, copy, nullable) NSString *locale;
+
+/**
+ *  Determines how the time part of the DateElement will be displayed in the
+ *  document. If unset, the default value is TIME_FORMAT_DISABLED, indicating no
+ *  time should be shown.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatDisabled
+ *        Indicates that the date does not have a time. (Value:
+ *        "TIME_FORMAT_DISABLED")
+ *    @arg @c kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatHourMinute
+ *        The time format shows the hour and minute. For example, "Jan 1, 1970
+ *        12:00 PM". (Value: "TIME_FORMAT_HOUR_MINUTE")
+ *    @arg @c kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatHourMinuteTimezone
+ *        The time format shows the hour, minute, and timezone. For example,
+ *        "Jan 1, 1970 12:00 PM UTC". (Value:
+ *        "TIME_FORMAT_HOUR_MINUTE_TIMEZONE")
+ *    @arg @c kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatUnspecified
+ *        The time format is unspecified. (Value: "TIME_FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *timeFormat;
+
+/**
+ *  The point in time to represent, in seconds and nanoseconds since Unix epoch:
+ *  January 1, 1970 at midnight UTC. Timestamp is expected to be in UTC. If
+ *  time_zone_id is set, the timestamp is adjusted according to the time zone.
+ *  For example, a timestamp of `18000` with a date format of
+ *  `DATE_FORMAT_ISO8601` and time format of `TIME_FORMAT_HOUR_MINUTE` would be
+ *  displayed as `1970-01-01 5:00 AM`. A timestamp of `18000` with date format
+ *  of `DATE_FORMAT_8SO8601`, time format of `TIME_FORMAT_HOUR_MINUTE`, and time
+ *  zone set to `America/New_York` will instead be `1970-01-01 12:00 AM`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
+
+/**
+ *  The time zone of the DateElement, as defined by the Unicode Common Locale
+ *  Data Repository (CLDR) project. For example, `America/New York`. If unset,
+ *  the default time zone is `etc/UTC`.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZoneId;
 
 @end
 
@@ -3496,6 +3658,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  changed in this suggestion.
  */
 @property(nonatomic, strong, nullable) GTLRDocs_EmbeddedObjectSuggestionState *embeddedObjectSuggestionState;
+
+@end
+
+
+/**
+ *  Inserts a date at the specified location.
+ */
+@interface GTLRDocs_InsertDateRequest : GTLRObject
+
+/** The properties of the date to insert. */
+@property(nonatomic, strong, nullable) GTLRDocs_DateElementProperties *dateElementProperties;
+
+/**
+ *  Inserts the date at the end of the given header, footer or document body.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_EndOfSegmentLocation *endOfSegmentLocation;
+
+/**
+ *  Inserts the date at a specific index in the document. The date must be
+ *  inserted inside the bounds of an existing Paragraph. For instance, it cannot
+ *  be inserted at a table's start index (i.e. between an existing table and its
+ *  preceding paragraph).
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *location;
 
 @end
 
@@ -5438,6 +5624,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /** Deletes a row from a table. */
 @property(nonatomic, strong, nullable) GTLRDocs_DeleteTableRowRequest *deleteTableRow;
 
+/** Inserts a date. */
+@property(nonatomic, strong, nullable) GTLRDocs_InsertDateRequest *insertDate;
+
 /** Inserts an inline image at the specified location. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertInlineImageRequest *insertInlineImage;
 
@@ -5620,20 +5809,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 @interface GTLRDocs_RichLinkProperties : GTLRObject
 
 /**
- *  Output only. The [MIME
- *  type](https://developers.google.com/drive/api/v3/mime-types) of the
- *  RichLink, if there's one (for example, when it's a file in Drive).
+ *  The [MIME type](https://developers.google.com/drive/api/v3/mime-types) of
+ *  the RichLink, if there's one (for example, when it's a file in Drive).
  */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 /**
- *  Output only. The title of the RichLink as displayed in the link. This title
- *  matches the title of the linked resource at the time of the insertion or
- *  last update of the link. This field is always present.
+ *  The title of the RichLink as displayed in the link. This title matches the
+ *  title of the linked resource at the time of the insertion or last update of
+ *  the link. This field is always present.
  */
 @property(nonatomic, copy, nullable) NSString *title;
 
-/** Output only. The URI to the RichLink. This is always present. */
+/** The URI to the RichLink. This is always present. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end

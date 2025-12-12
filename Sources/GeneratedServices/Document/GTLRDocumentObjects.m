@@ -821,7 +821,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchema
-@dynamic descriptionProperty, displayName, entityTypes, metadata;
+@dynamic descriptionProperty, displayName, documentPrompt, entityTypes,
+         metadata;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

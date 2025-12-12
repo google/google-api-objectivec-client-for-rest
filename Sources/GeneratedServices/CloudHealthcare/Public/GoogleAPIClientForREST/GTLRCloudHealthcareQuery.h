@@ -4554,7 +4554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Bulk exports all resources from the FHIR store to the specified destination.
  *  Implements the FHIR implementation guide [system level
- *  $export](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---system-level-export.
+ *  $export](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---system-level-export).
  *  The following headers must be set in the request: * `Accept`: specifies the
  *  format of the `OperationOutcome` response. Only `application/fhir+json` is
  *  supported. * `Prefer`: specifies whether the response is immediate or
@@ -4618,7 +4618,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  Bulk exports all resources from the FHIR store to the specified destination.
  *  Implements the FHIR implementation guide [system level
- *  $export](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---system-level-export.
+ *  $export](https://build.fhir.org/ig/HL7/bulk-data/export.html#endpoint---system-level-export).
  *  The following headers must be set in the request: * `Accept`: specifies the
  *  format of the `OperationOutcome` response. Only `application/fhir+json` is
  *  supported. * `Prefer`: specifies whether the response is immediate or
@@ -5840,6 +5840,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional. The FHIR resource type to search, such as Patient or Observation.
+ *  For a complete list, see the FHIR Resource Index
+ *  ([DSTU2](https://hl7.org/fhir/DSTU2/resourcelist.html),
+ *  [STU3](https://hl7.org/fhir/STU3/resourcelist.html),
+ *  [R4](https://hl7.org/fhir/R4/resourcelist.html)),
+ *  [R5](https://hl7.org/fhir/R5/resourcelist.html)).
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
  *  Fetches a @c GTLRCloudHealthcare_HttpBody.
  *
  *  Searches for resources in the given FHIR store according to criteria
@@ -5909,13 +5919,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
  *
- *  @param object The @c GTLRCloudHealthcare_SearchResourcesRequest to include
- *    in the query.
+ *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent Required. Name of the FHIR store to retrieve resources from.
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearch
  */
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_SearchResourcesRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                          parent:(NSString *)parent;
 
 @end
@@ -6079,8 +6088,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *  [Advanced FHIR search
  *  features](https://cloud.google.com/healthcare/docs/how-tos/fhir-advanced-search).
  *
- *  @param object The @c GTLRCloudHealthcare_SearchResourcesRequest to include
- *    in the query.
+ *  @param object The @c GTLRCloudHealthcare_HttpBody to include in the query.
  *  @param parent Required. Name of the FHIR store to retrieve resources from.
  *  @param resourceType Optional. The FHIR resource type to search, such as
  *    Patient or Observation. For a complete list, see the FHIR Resource Index
@@ -6091,7 +6099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
  *
  *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresFhirSearchType
  */
-+ (instancetype)queryWithObject:(GTLRCloudHealthcare_SearchResourcesRequest *)object
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_HttpBody *)object
                          parent:(NSString *)parent
                    resourceType:(NSString *)resourceType;
 
@@ -7919,9 +7927,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -8112,8 +8120,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @interface GTLRCloudHealthcareQuery_ProjectsLocationsList : GTLRCloudHealthcareQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 

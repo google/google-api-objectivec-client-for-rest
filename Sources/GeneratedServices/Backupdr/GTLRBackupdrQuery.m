@@ -1294,6 +1294,33 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @end
 
+@implementation GTLRBackupdrQuery_ProjectsLocationsTrialEnd
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRBackupdr_EndTrialRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/trial:end";
+  GTLRBackupdrQuery_ProjectsLocationsTrialEnd *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_Trial class];
+  query.loggingName = @"backupdr.projects.locations.trial.end";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupdrQuery_ProjectsLocationsTrialSubscribe
 
 @dynamic parent;

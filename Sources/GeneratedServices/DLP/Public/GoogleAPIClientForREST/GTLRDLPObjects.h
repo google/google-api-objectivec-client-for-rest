@@ -2015,25 +2015,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Error_ExtraInfo_Im
 // GTLRDLP_GooglePrivacyDlpV2ExclusionRule.matchingType
 
 /**
- *  Full match. - Dictionary: join of Dictionary results matched complete
- *  finding quote - Regex: all regex matches fill a finding quote start to end -
- *  Exclude info type: completely inside affecting info types findings
+ *  Full match. - Dictionary: join of Dictionary results matched the complete
+ *  finding quote - Regex: all regex matches fill a finding quote from start to
+ *  end - Exclude infoType: completely inside affecting infoTypes findings
  *
  *  Value: "MATCHING_TYPE_FULL_MATCH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeFullMatch;
 /**
  *  Inverse match. - Dictionary: no tokens in the finding match the dictionary -
- *  Regex: finding doesn't match the regex - Exclude info type: no intersection
- *  with affecting info types findings
+ *  Regex: finding doesn't match the regex - Exclude infoType: no intersection
+ *  with affecting infoTypes findings
  *
  *  Value: "MATCHING_TYPE_INVERSE_MATCH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeInverseMatch;
 /**
  *  Partial match. - Dictionary: at least one of the tokens in the finding
- *  matches - Regex: substring of the finding matches - Exclude info type:
- *  intersects with affecting info types findings
+ *  matches - Regex: substring of the finding matches - Exclude infoType:
+ *  intersects with affecting infoTypes findings
  *
  *  Value: "MATCHING_TYPE_PARTIAL_MATCH"
  */
@@ -3559,8 +3559,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2JobNotificationEmails *jobNotificationEmails;
 
-/** Publish findings to Cloud Datahub. */
-@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog *publishFindingsToCloudDataCatalog;
+/**
+ *  Deprecated because Data Catalog is being turned down. Use
+ *  publish_findings_to_dataplex_catalog to publish findings to Dataplex
+ *  Universal Catalog.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishFindingsToCloudDataCatalog *publishFindingsToCloudDataCatalog GTLR_DEPRECATED;
 
 /** Publish findings as an aspect to Dataplex Universal Catalog. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2PublishFindingsToDataplexCatalog *publishFindingsToDataplexCatalog;
@@ -5923,7 +5927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @interface GTLRDLP_GooglePrivacyDlpV2DataSourceType : GTLRObject
 
 /**
- *  An identifying string to the type of resource being profiled. Current
+ *  A string that identifies the type of resource being profiled. Current
  *  values: * google/bigquery/table * google/project * google/sql/table *
  *  google/gcs/bucket
  */
@@ -7462,19 +7466,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeFullMatch
- *        Full match. - Dictionary: join of Dictionary results matched complete
- *        finding quote - Regex: all regex matches fill a finding quote start to
- *        end - Exclude info type: completely inside affecting info types
- *        findings (Value: "MATCHING_TYPE_FULL_MATCH")
+ *        Full match. - Dictionary: join of Dictionary results matched the
+ *        complete finding quote - Regex: all regex matches fill a finding quote
+ *        from start to end - Exclude infoType: completely inside affecting
+ *        infoTypes findings (Value: "MATCHING_TYPE_FULL_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeInverseMatch
  *        Inverse match. - Dictionary: no tokens in the finding match the
- *        dictionary - Regex: finding doesn't match the regex - Exclude info
- *        type: no intersection with affecting info types findings (Value:
+ *        dictionary - Regex: finding doesn't match the regex - Exclude
+ *        infoType: no intersection with affecting infoTypes findings (Value:
  *        "MATCHING_TYPE_INVERSE_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypePartialMatch
  *        Partial match. - Dictionary: at least one of the tokens in the finding
- *        matches - Regex: substring of the finding matches - Exclude info type:
- *        intersects with affecting info types findings (Value:
+ *        matches - Regex: substring of the finding matches - Exclude infoType:
+ *        intersects with affecting infoTypes findings (Value:
  *        "MATCHING_TYPE_PARTIAL_MATCH")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeUnspecified
  *        Invalid. (Value: "MATCHING_TYPE_UNSPECIFIED")
@@ -13041,8 +13045,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
- *  Identifies a single Vertex AI resource. Currently only datasets are
- *  supported.
+ *  Identifies a single Vertex AI resource. Only datasets are supported.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2VertexDatasetResourceReference : GTLRObject
 

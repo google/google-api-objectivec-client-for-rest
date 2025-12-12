@@ -69,6 +69,7 @@
 @class GTLRServiceControl_V2LogEntrySourceLocation;
 @class GTLRServiceControl_V2ResourceEvent_Payload;
 @class GTLRServiceControl_ViolationInfo;
+@class GTLRServiceControl_ViolationInfo_ConstraintViolationInfo;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -2106,6 +2107,13 @@ GTLR_DEPRECATED
 /** Optional. Constraint name */
 @property(nonatomic, copy, nullable) NSString *constraint;
 
+/**
+ *  Optional. Provides extra information for the specific violated constraint.
+ *  See the constraint's documentation to determine if this field is populated
+ *  and what the structure of the message should be.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceControl_ViolationInfo_ConstraintViolationInfo *constraintViolationInfo;
+
 /** Optional. Error message that policy is indicating. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
@@ -2125,6 +2133,20 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *policyType;
 
+@end
+
+
+/**
+ *  Optional. Provides extra information for the specific violated constraint.
+ *  See the constraint's documentation to determine if this field is populated
+ *  and what the structure of the message should be.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceControl_ViolationInfo_ConstraintViolationInfo : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

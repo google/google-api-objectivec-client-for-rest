@@ -8,9 +8,90 @@
 
 #import <GoogleAPIClientForREST/GTLRAPIhubQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// specContentType
+NSString * const kGTLRAPIhubSpecContentTypeBoostedSpecContent  = @"BOOSTED_SPEC_CONTENT";
+NSString * const kGTLRAPIhubSpecContentTypeSpecContentTypeUnspecified = @"SPEC_CONTENT_TYPE_UNSPECIFIED";
+
+// view
+NSString * const kGTLRAPIhubViewApiViewTypeUnspecified = @"API_VIEW_TYPE_UNSPECIFIED";
+NSString * const kGTLRAPIhubViewMcpServer              = @"MCP_SERVER";
+NSString * const kGTLRAPIhubViewMcpTool                = @"MCP_TOOL";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRAPIhubQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRAPIhubQuery_ProjectsLocationsAddonsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAPIhubQuery_ProjectsLocationsAddonsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1Addon class];
+  query.loggingName = @"apihub.projects.locations.addons.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAPIhubQuery_ProjectsLocationsAddonsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/addons";
+  GTLRAPIhubQuery_ProjectsLocationsAddonsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1ListAddonsResponse class];
+  query.loggingName = @"apihub.projects.locations.addons.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAPIhubQuery_ProjectsLocationsAddonsManageConfig
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1ManageAddonConfigRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:manageConfig";
+  GTLRAPIhubQuery_ProjectsLocationsAddonsManageConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleLongrunningOperation class];
+  query.loggingName = @"apihub.projects.locations.addons.manageConfig";
+  return query;
+}
 
 @end
 
@@ -491,6 +572,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAPIhub_Empty class];
   query.loggingName = @"apihub.projects.locations.apis.versions.specs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsFetchAdditionalSpecContent
+
+@dynamic name, specContentType;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:fetchAdditionalSpecContent";
+  GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsFetchAdditionalSpecContent *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1FetchAdditionalSpecContentResponse class];
+  query.loggingName = @"apihub.projects.locations.apis.versions.specs.fetchAdditionalSpecContent";
   return query;
 }
 
@@ -1895,6 +1995,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1StyleGuide class];
   query.loggingName = @"apihub.projects.locations.plugins.updateStyleGuide";
+  return query;
+}
+
+@end
+
+@implementation GTLRAPIhubQuery_ProjectsLocationsRetrieveApiViews
+
+@dynamic filter, pageSize, pageToken, parent, view;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:retrieveApiViews";
+  GTLRAPIhubQuery_ProjectsLocationsRetrieveApiViews *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleCloudApihubV1RetrieveApiViewsResponse class];
+  query.loggingName = @"apihub.projects.locations.retrieveApiViews";
   return query;
 }
 

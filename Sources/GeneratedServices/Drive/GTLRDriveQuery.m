@@ -114,6 +114,48 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @end
 
+@implementation GTLRDriveQuery_ApprovalsGet
+
+@dynamic approvalId, fileId;
+
++ (instancetype)queryWithFileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId {
+  NSArray *pathParams = @[
+    @"approvalId", @"fileId"
+  ];
+  NSString *pathURITemplate = @"files/{fileId}/approvals/{approvalId}";
+  GTLRDriveQuery_ApprovalsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.fileId = fileId;
+  query.approvalId = approvalId;
+  query.expectedObjectClass = [GTLRDrive_Approval class];
+  query.loggingName = @"drive.approvals.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_ApprovalsList
+
+@dynamic fileId, pageSize, pageToken;
+
++ (instancetype)queryWithFileId:(NSString *)fileId {
+  NSArray *pathParams = @[ @"fileId" ];
+  NSString *pathURITemplate = @"files/{fileId}/approvals";
+  GTLRDriveQuery_ApprovalsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.fileId = fileId;
+  query.expectedObjectClass = [GTLRDrive_ApprovalList class];
+  query.loggingName = @"drive.approvals.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRDriveQuery_AppsGet
 
 @dynamic appId;

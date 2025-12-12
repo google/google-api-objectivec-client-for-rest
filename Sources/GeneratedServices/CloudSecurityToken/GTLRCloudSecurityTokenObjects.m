@@ -151,7 +151,7 @@
 //
 
 @implementation GTLRCloudSecurityToken_GoogleIdentityStsV1Options
-@dynamic accessBoundary, userProject;
+@dynamic accessBoundary, bindCertFingerprint, userProject;
 @end
 
 

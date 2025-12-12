@@ -1027,7 +1027,15 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersCreate
 
-@dynamic allowPreflightFailure, parent, validateOnly, vmwareAdminClusterId;
+@dynamic allowPreflightFailure, parent, skipValidations, validateOnly,
+         vmwareAdminClusterId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skipValidations" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRGKEOnPrem_VmwareAdminCluster *)object
                          parent:(NSString *)parent {
@@ -1180,7 +1188,14 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareAdminClustersPatch
 
-@dynamic name, updateMask, validateOnly;
+@dynamic name, skipValidations, updateMask, validateOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skipValidations" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRGKEOnPrem_VmwareAdminCluster *)object
                            name:(NSString *)name {
@@ -1284,7 +1299,15 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareClustersCreate
 
-@dynamic allowPreflightFailure, parent, validateOnly, vmwareClusterId;
+@dynamic allowPreflightFailure, parent, skipValidations, validateOnly,
+         vmwareClusterId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skipValidations" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRGKEOnPrem_VmwareCluster *)object
                          parent:(NSString *)parent {
@@ -1460,7 +1483,14 @@ NSString * const kGTLRGKEOnPremViewNodePoolViewUnspecified = @"NODE_POOL_VIEW_UN
 
 @implementation GTLRGKEOnPremQuery_ProjectsLocationsVmwareClustersPatch
 
-@dynamic name, updateMask, validateOnly;
+@dynamic name, skipValidations, updateMask, validateOnly;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"skipValidations" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRGKEOnPrem_VmwareCluster *)object
                            name:(NSString *)name {

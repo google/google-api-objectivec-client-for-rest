@@ -21,6 +21,11 @@
 NSString * const kGTLRApigeeRetentionDeletionRetentionUnspecified = @"DELETION_RETENTION_UNSPECIFIED";
 NSString * const kGTLRApigeeRetentionMinimum                   = @"MINIMUM";
 
+// riskAssessmentType
+NSString * const kGTLRApigeeRiskAssessmentTypeApigee           = @"APIGEE";
+NSString * const kGTLRApigeeRiskAssessmentTypeApiHub           = @"API_HUB";
+NSString * const kGTLRApigeeRiskAssessmentTypeRiskAssessmentTypeUnspecified = @"RISK_ASSESSMENT_TYPE_UNSPECIFIED";
+
 // state
 NSString * const kGTLRApigeeStateDraft            = @"DRAFT";
 NSString * const kGTLRApigeeStatePublished        = @"PUBLISHED";
@@ -7112,7 +7117,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsSecurityProfilesV2Delete
 
-@dynamic name;
+@dynamic name, riskAssessmentType;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -7131,7 +7136,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsSecurityProfilesV2Get
 
-@dynamic name;
+@dynamic name, riskAssessmentType;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -7150,7 +7155,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsSecurityProfilesV2List
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, riskAssessmentType;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

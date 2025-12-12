@@ -55,6 +55,121 @@
 
 @end
 
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsDatastoresCreate
+
+@dynamic datastoreId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_Datastore *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/datastores";
+  GTLRVMwareEngineQuery_ProjectsLocationsDatastoresCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.datastores.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsDatastoresDelete
+
+@dynamic ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsDatastoresDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.datastores.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsDatastoresGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsDatastoresGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Datastore class];
+  query.loggingName = @"vmwareengine.projects.locations.datastores.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsDatastoresList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent, requestId;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/datastores";
+  GTLRVMwareEngineQuery_ProjectsLocationsDatastoresList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRVMwareEngine_ListDatastoresResponse class];
+  query.loggingName = @"vmwareengine.projects.locations.datastores.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsDatastoresPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_Datastore *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRVMwareEngineQuery_ProjectsLocationsDatastoresPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.datastores.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsDnsBindPermissionGrant
 
 @dynamic name;
@@ -746,6 +861,33 @@
 
 @end
 
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersMountDatastore
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_MountDatastoreRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:mountDatastore";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersMountDatastore *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.clusters.mountDatastore";
+  return query;
+}
+
+@end
+
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersNodesGet
 
 @dynamic name;
@@ -860,6 +1002,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRVMwareEngine_TestIamPermissionsResponse class];
   query.loggingName = @"vmwareengine.projects.locations.privateClouds.clusters.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersUnmountDatastore
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRVMwareEngine_UnmountDatastoreRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:unmountDatastore";
+  GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersUnmountDatastore *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRVMwareEngine_Operation class];
+  query.loggingName = @"vmwareengine.projects.locations.privateClouds.clusters.unmountDatastore";
   return query;
 }
 

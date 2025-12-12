@@ -44,6 +44,20 @@ NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedUp
 NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedUpperromanUpperalphaDecimal = @"NUMBERED_UPPERROMAN_UPPERALPHA_DECIMAL";
 NSString * const kGTLRDocs_CreateParagraphBulletsRequest_BulletPreset_NumberedZerodecimalAlphaRoman = @"NUMBERED_ZERODECIMAL_ALPHA_ROMAN";
 
+// GTLRDocs_DateElementProperties.dateFormat
+NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatCustom = @"DATE_FORMAT_CUSTOM";
+NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatIso8601 = @"DATE_FORMAT_ISO8601";
+NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatMonthDayAbbreviated = @"DATE_FORMAT_MONTH_DAY_ABBREVIATED";
+NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatMonthDayFull = @"DATE_FORMAT_MONTH_DAY_FULL";
+NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatMonthDayYearAbbreviated = @"DATE_FORMAT_MONTH_DAY_YEAR_ABBREVIATED";
+NSString * const kGTLRDocs_DateElementProperties_DateFormat_DateFormatUnspecified = @"DATE_FORMAT_UNSPECIFIED";
+
+// GTLRDocs_DateElementProperties.timeFormat
+NSString * const kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatDisabled = @"TIME_FORMAT_DISABLED";
+NSString * const kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatHourMinute = @"TIME_FORMAT_HOUR_MINUTE";
+NSString * const kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatHourMinuteTimezone = @"TIME_FORMAT_HOUR_MINUTE_TIMEZONE";
+NSString * const kGTLRDocs_DateElementProperties_TimeFormat_TimeFormatUnspecified = @"TIME_FORMAT_UNSPECIFIED";
+
 // GTLRDocs_Dimension.unit
 NSString * const kGTLRDocs_Dimension_Unit_Pt              = @"PT";
 NSString * const kGTLRDocs_Dimension_Unit_UnitUnspecified = @"UNIT_UNSPECIFIED";
@@ -502,6 +516,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @implementation GTLRDocs_CropPropertiesSuggestionState
 @dynamic angleSuggested, offsetBottomSuggested, offsetLeftSuggested,
          offsetRightSuggested, offsetTopSuggested;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DateElementProperties
+//
+
+@implementation GTLRDocs_DateElementProperties
+@dynamic dateFormat, displayText, locale, timeFormat, timestamp, timeZoneId;
 @end
 
 
@@ -1271,6 +1295,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_InsertDateRequest
+//
+
+@implementation GTLRDocs_InsertDateRequest
+@dynamic dateElementProperties, endOfSegmentLocation, location;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_InsertInlineImageRequest
 //
 
@@ -1976,13 +2010,13 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 @dynamic createFooter, createFootnote, createHeader, createNamedRange,
          createParagraphBullets, deleteContentRange, deleteFooter, deleteHeader,
          deleteNamedRange, deleteParagraphBullets, deletePositionedObject,
-         deleteTableColumn, deleteTableRow, insertInlineImage, insertPageBreak,
-         insertPerson, insertSectionBreak, insertTable, insertTableColumn,
-         insertTableRow, insertText, mergeTableCells, pinTableHeaderRows,
-         replaceAllText, replaceImage, replaceNamedRangeContent,
-         unmergeTableCells, updateDocumentStyle, updateParagraphStyle,
-         updateSectionStyle, updateTableCellStyle, updateTableColumnProperties,
-         updateTableRowStyle, updateTextStyle;
+         deleteTableColumn, deleteTableRow, insertDate, insertInlineImage,
+         insertPageBreak, insertPerson, insertSectionBreak, insertTable,
+         insertTableColumn, insertTableRow, insertText, mergeTableCells,
+         pinTableHeaderRows, replaceAllText, replaceImage,
+         replaceNamedRangeContent, unmergeTableCells, updateDocumentStyle,
+         updateParagraphStyle, updateSectionStyle, updateTableCellStyle,
+         updateTableColumnProperties, updateTableRowStyle, updateTextStyle;
 @end
 
 

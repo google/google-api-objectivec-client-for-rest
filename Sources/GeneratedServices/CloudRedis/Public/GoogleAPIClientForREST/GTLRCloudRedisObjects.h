@@ -5440,7 +5440,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 29
+ *  Common model for database resource instance metadata. Next ID: 30
  */
 @interface GTLRCloudRedis_DatabaseResourceMetadata : GTLRObject
 
@@ -5572,6 +5572,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        "SUB_RESOURCE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *instanceType;
+
+/**
+ *  Optional. Whether deletion protection is enabled for this resource.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isDeletionProtectionEnabled;
 
 /** The resource location. REQUIRED */
 @property(nonatomic, copy, nullable) NSString *location;

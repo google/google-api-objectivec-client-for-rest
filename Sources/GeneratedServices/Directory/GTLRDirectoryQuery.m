@@ -2715,6 +2715,28 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @end
 
+@implementation GTLRDirectoryQuery_UsersCreateGuest
+
++ (instancetype)queryWithObject:(GTLRDirectory_UsersCreateGuestRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"admin/directory/v1/users:createGuest";
+  GTLRDirectoryQuery_UsersCreateGuest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRDirectory_User class];
+  query.loggingName = @"directory.users.createGuest";
+  return query;
+}
+
+@end
+
 @implementation GTLRDirectoryQuery_UsersDelete
 
 @dynamic userKey;

@@ -47,6 +47,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeRetentionDeletionRetentionUnspecif
 FOUNDATION_EXTERN NSString * const kGTLRApigeeRetentionMinimum;
 
 // ----------------------------------------------------------------------------
+// riskAssessmentType
+
+/**
+ *  Risk assessment type is Apigee.
+ *
+ *  Value: "APIGEE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeRiskAssessmentTypeApigee;
+/**
+ *  Risk assessment type is API Hub.
+ *
+ *  Value: "API_HUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeRiskAssessmentTypeApiHub;
+/**
+ *  Risk assessment type is not specified.
+ *
+ *  Value: "RISK_ASSESSMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigeeRiskAssessmentTypeRiskAssessmentTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // state
 
 /**
@@ -8993,7 +9015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsDelete : GTLRApigeeQuery
 
 /**
- *  Required. The name of the security monitoring condition to delete. Format:
+ *  Required. The name of the security action to delete. Format:
  *  `organizations/{org}/environment/{env}/securityActions/{security_action}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -9003,8 +9025,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *
  *  Delete a SecurityAction.
  *
- *  @param name Required. The name of the security monitoring condition to
- *    delete. Format:
+ *  @param name Required. The name of the security action to delete. Format:
  *    `organizations/{org}/environment/{env}/securityActions/{security_action}`
  *
  *  @return GTLRApigeeQuery_OrganizationsEnvironmentsSecurityActionsDelete
@@ -12632,9 +12653,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -13760,6 +13781,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The risk assessment type of the security profile. Defaults to
+ *  ADVANCED_API_SECURITY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeRiskAssessmentTypeUnspecified Risk
+ *        assessment type is not specified. (Value:
+ *        "RISK_ASSESSMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApigee Risk assessment type is
+ *        Apigee. (Value: "APIGEE")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApiHub Risk assessment type is API
+ *        Hub. (Value: "API_HUB")
+ */
+@property(nonatomic, copy, nullable) NSString *riskAssessmentType;
+
+/**
  *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
  *
  *  Delete a security profile v2.
@@ -13788,6 +13824,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  `organizations/{org}/securityProfilesV2/{profile}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The risk assessment type of the security profile. Defaults to
+ *  ADVANCED_API_SECURITY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeRiskAssessmentTypeUnspecified Risk
+ *        assessment type is not specified. (Value:
+ *        "RISK_ASSESSMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApigee Risk assessment type is
+ *        Apigee. (Value: "APIGEE")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApiHub Risk assessment type is API
+ *        Hub. (Value: "API_HUB")
+ */
+@property(nonatomic, copy, nullable) NSString *riskAssessmentType;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2.
@@ -13827,6 +13878,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Format: `organizations/{org}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The risk assessment type of the security profiles. Defaults to
+ *  ADVANCED_API_SECURITY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeRiskAssessmentTypeUnspecified Risk
+ *        assessment type is not specified. (Value:
+ *        "RISK_ASSESSMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApigee Risk assessment type is
+ *        Apigee. (Value: "APIGEE")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApiHub Risk assessment type is API
+ *        Hub. (Value: "API_HUB")
+ */
+@property(nonatomic, copy, nullable) NSString *riskAssessmentType;
 
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ListSecurityProfilesV2Response.

@@ -81,6 +81,7 @@
 @class GTLRSQLAdmin_OperationErrors;
 @class GTLRSQLAdmin_PasswordStatus;
 @class GTLRSQLAdmin_PasswordValidationPolicy;
+@class GTLRSQLAdmin_PerformanceCaptureConfig;
 @class GTLRSQLAdmin_PoolNodeConfig;
 @class GTLRSQLAdmin_PreCheckMajorVersionUpgradeContext;
 @class GTLRSQLAdmin_PreCheckResponse;
@@ -92,6 +93,7 @@
 @class GTLRSQLAdmin_ReplicationCluster;
 @class GTLRSQLAdmin_Reschedule;
 @class GTLRSQLAdmin_RestoreBackupContext;
+@class GTLRSQLAdmin_RotateEntraIdCertificateContext;
 @class GTLRSQLAdmin_RotateServerCaContext;
 @class GTLRSQLAdmin_RotateServerCertificateContext;
 @class GTLRSQLAdmin_Row;
@@ -104,6 +106,7 @@
 @class GTLRSQLAdmin_SqlScheduledMaintenance;
 @class GTLRSQLAdmin_SqlServerAuditConfig;
 @class GTLRSQLAdmin_SqlServerDatabaseDetails;
+@class GTLRSQLAdmin_SqlServerEntraIdConfig;
 @class GTLRSQLAdmin_SqlServerUserDetails;
 @class GTLRSQLAdmin_SqlSubOperationType;
 @class GTLRSQLAdmin_SslCert;
@@ -1914,7 +1917,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_State_Suspende
 // GTLRSQLAdmin_DatabaseInstance.suspensionReason
 
 /**
- *  The instance is suspended due to billing issues (for example:, GCP account
+ *  The instance is suspended due to billing issues (for example:, account
  *  issue)
  *
  *  Value: "BILLING_ISSUE"
@@ -2541,6 +2544,33 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_Go
  *  Value: "GOOGLE_MANAGED_INTERNAL_CA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedInternalCa;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_IpConfiguration.serverCertificateRotationMode
+
+/**
+ *  Automatic server certificate rotation during Cloud SQL scheduled maintenance
+ *  or self-service maintenance updates. Requires `server_ca_mode` to be
+ *  `GOOGLE_MANAGED_CAS_CA` or `CUSTOMER_MANAGED_CAS_CA`.
+ *
+ *  Value: "AUTOMATIC_ROTATION_DURING_MAINTENANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCertificateRotationMode_AutomaticRotationDuringMaintenance;
+/**
+ *  No automatic server certificate rotation. The user must [manage server
+ *  certificate
+ *  rotation](/sql/docs/mysql/manage-ssl-instance#rotate-server-certificate-cas)
+ *  on their side.
+ *
+ *  Value: "NO_AUTOMATIC_ROTATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCertificateRotationMode_NoAutomaticRotation;
+/**
+ *  Unspecified: no automatic server certificate rotation.
+ *
+ *  Value: "SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCertificateRotationMode_ServerCertificateRotationModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_IpConfiguration.sslMode
@@ -3541,9 +3571,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_ConnectorEnforcement_R
 // GTLRSQLAdmin_Settings.dataApiAccess
 
 /**
- *  Allow using Data API to connect to the instance. For private IP instances,
- *  this will allow authorized users to access the instance from the public
- *  internet.
+ *  Allow using ExecuteSql API to connect to the instance. For private IP
+ *  instances, this allows authorized users to access the instance from the
+ *  public internet using ExecuteSql API.
  *
  *  Value: "ALLOW_DATA_API"
  */
@@ -3555,7 +3585,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataApiAccess_AllowDat
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Settings_DataApiAccess_DataApiAccessUnspecified;
 /**
- *  Disallow using Data API to connect to the instance.
+ *  Disallow using ExecuteSql API to connect to the instance.
  *
  *  Value: "DISALLOW_DATA_API"
  */
@@ -4366,6 +4396,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamServiceAccoun
  *  Value: "CLOUD_IAM_USER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
+/**
+ *  Microsoft Entra ID user.
+ *
+ *  Value: "ENTRAID_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 /**
  *  An entry for an Access Control list.
@@ -7261,7 +7297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  Whether or not the backup importing will restore database with NORECOVERY
- *  option Applies only to Cloud SQL for SQL Server.
+ *  option. Applies only to Cloud SQL for SQL Server.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7602,6 +7638,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Instances ListEntraIdCertificates response.
+ */
+@interface GTLRSQLAdmin_InstancesListEntraIdCertificatesResponse : GTLRObject
+
+/** The `sha1_fingerprint` of the active certificate from `certs`. */
+@property(nonatomic, copy, nullable) NSString *activeVersion;
+
+/** List of Entra ID certificates for the instance. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_SslCert *> *certs;
+
+/** This is always `sql#instancesListEntraIdCertificates`. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+@end
+
+
+/**
  *  Database instances list response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -7736,6 +7789,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  restore to existing instances.
  */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_DatabaseInstance *restoreInstanceSettings;
+
+@end
+
+
+/**
+ *  Rotate Entra ID certificate request.
+ */
+@interface GTLRSQLAdmin_InstancesRotateEntraIdCertificateRequest : GTLRObject
+
+/**
+ *  Optional. Contains details about the rotate server certificate operation.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_RotateEntraIdCertificateContext *rotateEntraIdCertificateContext;
 
 @end
 
@@ -7890,6 +7956,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  projects/{PROJECT}/locations/{REGION}/caPools/{CA_POOL_ID}
  */
 @property(nonatomic, copy, nullable) NSString *serverCaPool;
+
+/**
+ *  Optional. Controls the automatic server certificate rotation feature. This
+ *  feature is disabled by default. When enabled, the server certificate will be
+ *  automatically rotated during Cloud SQL scheduled maintenance or self-service
+ *  maintenance updates up to six months before it expires. This setting can
+ *  only be set if server_ca_mode is either GOOGLE_MANAGED_CAS_CA or
+ *  CUSTOMER_MANAGED_CAS_CA.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_ServerCertificateRotationMode_AutomaticRotationDuringMaintenance
+ *        Automatic server certificate rotation during Cloud SQL scheduled
+ *        maintenance or self-service maintenance updates. Requires
+ *        `server_ca_mode` to be `GOOGLE_MANAGED_CAS_CA` or
+ *        `CUSTOMER_MANAGED_CAS_CA`. (Value:
+ *        "AUTOMATIC_ROTATION_DURING_MAINTENANCE")
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_ServerCertificateRotationMode_NoAutomaticRotation
+ *        No automatic server certificate rotation. The user must [manage server
+ *        certificate
+ *        rotation](/sql/docs/mysql/manage-ssl-instance#rotate-server-certificate-cas)
+ *        on their side. (Value: "NO_AUTOMATIC_ROTATION")
+ *    @arg @c kGTLRSQLAdmin_IpConfiguration_ServerCertificateRotationMode_ServerCertificateRotationModeUnspecified
+ *        Unspecified: no automatic server certificate rotation. (Value:
+ *        "SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *serverCertificateRotationMode;
 
 /**
  *  Specify how SSL/TLS is enforced in database connections. If you must use the
@@ -8628,7 +8720,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
- *  Database instance local user password validation policy
+ *  Database instance local user password validation policy. This message
+ *  defines the password policy for local database users. When enabled, it
+ *  enforces constraints on password complexity, length, and reuse. Keep this
+ *  policy enabled to help prevent unauthorized access.
  */
 @interface GTLRSQLAdmin_PasswordValidationPolicy : GTLRObject
 
@@ -8659,7 +8754,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *disallowUsernameSubstring;
 
 /**
- *  Whether the password policy is enabled or not.
+ *  Whether to enable the password policy or not. When enabled, passwords must
+ *  meet complexity requirements. Keep this policy enabled to help prevent
+ *  unauthorized access. Disabling this policy allows weak passwords.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -8689,6 +8786,60 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Performance Capture configuration.
+ */
+@interface GTLRSQLAdmin_PerformanceCaptureConfig : GTLRObject
+
+/**
+ *  Optional. Enable or disable the Performance Capture feature.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. The minimum number of consecutive readings above threshold that
+ *  triggers instance state capture.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *probeThreshold;
+
+/**
+ *  Optional. The time interval in seconds between any two probes.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *probingIntervalSeconds;
+
+/**
+ *  Optional. The minimum number of server threads running to trigger the
+ *  capture on primary.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runningThreadsThreshold;
+
+/**
+ *  Optional. The minimum number of seconds replica must be lagging behind
+ *  primary to trigger capture on replica.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *secondsBehindSourceThreshold;
+
+/**
+ *  Optional. The amount of time in seconds that a transaction needs to have
+ *  been open before the watcher starts recording it.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *transactionDurationThreshold;
+
+@end
+
+
+/**
  *  Perform disk shrink context.
  */
 @interface GTLRSQLAdmin_PerformDiskShrinkContext : GTLRObject
@@ -8705,7 +8856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /**
  *  The context to perform a point-in-time recovery of an instance managed by
- *  Google Cloud Backup and Disaster Recovery.
+ *  Backup and Disaster Recovery (DR) Service.
  */
 @interface GTLRSQLAdmin_PointInTimeRestoreContext : GTLRObject
 
@@ -8721,7 +8872,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, copy, nullable) NSString *allocatedIpRange;
 
 /**
- *  The Google Cloud Backup and Disaster Recovery Datasource URI. Format:
+ *  The Backup and Disaster Recovery (DR) Service Datasource URI. Format:
  *  projects/{project}/locations/{region}/backupVaults/{backupvault}/dataSources/{datasource}.
  */
 @property(nonatomic, copy, nullable) NSString *datasource;
@@ -8781,6 +8932,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *  metrics and logs.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The list of settings for requested automatically-setup Private
+ *  Service Connect (PSC) consumer endpoints that can be used to connect to this
+ *  read pool node.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_PscAutoConnectionConfig *> *pscAutoConnections;
+
+/**
+ *  Output only. The Private Service Connect (PSC) service attachment of the
+ *  read pool node.
+ */
+@property(nonatomic, copy, nullable) NSString *pscServiceAttachmentLink;
 
 /**
  *  Output only. The current state of the read pool node.
@@ -9297,6 +9461,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  Instance rotate Entra ID certificate context.
+ */
+@interface GTLRSQLAdmin_RotateEntraIdCertificateContext : GTLRObject
+
+/** Optional. This is always `sql#rotateEntraIdCertificateContext`. */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/**
+ *  Optional. The fingerprint of the next version to be rotated to. If left
+ *  unspecified, will be rotated to the most recently added server certificate
+ *  version.
+ */
+@property(nonatomic, copy, nullable) NSString *nextVersion;
+
+@end
+
+
+/**
  *  Instance rotate server CA context.
  */
 @interface GTLRSQLAdmin_RotateServerCaContext : GTLRObject
@@ -9465,19 +9647,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 @property(nonatomic, strong, nullable) NSNumber *crashSafeReplicationEnabled GTLR_DEPRECATED;
 
 /**
- *  This parameter controls whether to allow using Data API to connect to the
- *  instance. Not allowed by default.
+ *  This parameter controls whether to allow using ExecuteSql API to connect to
+ *  the instance. Not allowed by default.
  *
  *  Likely values:
- *    @arg @c kGTLRSQLAdmin_Settings_DataApiAccess_AllowDataApi Allow using Data
- *        API to connect to the instance. For private IP instances, this will
- *        allow authorized users to access the instance from the public
- *        internet. (Value: "ALLOW_DATA_API")
+ *    @arg @c kGTLRSQLAdmin_Settings_DataApiAccess_AllowDataApi Allow using
+ *        ExecuteSql API to connect to the instance. For private IP instances,
+ *        this allows authorized users to access the instance from the public
+ *        internet using ExecuteSql API. (Value: "ALLOW_DATA_API")
  *    @arg @c kGTLRSQLAdmin_Settings_DataApiAccess_DataApiAccessUnspecified
  *        Unspecified, effectively the same as `DISALLOW_DATA_API`. (Value:
  *        "DATA_API_ACCESS_UNSPECIFIED")
  *    @arg @c kGTLRSQLAdmin_Settings_DataApiAccess_DisallowDataApi Disallow
- *        using Data API to connect to the instance. (Value:
+ *        using ExecuteSql API to connect to the instance. (Value:
  *        "DISALLOW_DATA_API")
  */
 @property(nonatomic, copy, nullable) NSString *dataApiAccess;
@@ -9581,6 +9763,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @property(nonatomic, strong, nullable) NSNumber *enableGoogleMlIntegration;
 
+/**
+ *  Optional. The Microsoft Entra ID configuration for the SQL Server instance.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_SqlServerEntraIdConfig *entraidConfig;
+
 /** Optional. The final backup configuration for the instance. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_FinalBackupConfig *finalBackupConfig;
 
@@ -9613,6 +9800,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 /** The local user password validation policy of the instance. */
 @property(nonatomic, strong, nullable) GTLRSQLAdmin_PasswordValidationPolicy *passwordValidationPolicy;
+
+/**
+ *  Optional. Configuration for Performance Capture, provides diagnostic metrics
+ *  during high load situations.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_PerformanceCaptureConfig *performanceCaptureConfig;
 
 /**
  *  The pricing plan for this instance. This can be either `PER_USE` or
@@ -10381,6 +10574,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
 
 
 /**
+ *  SQL Server Entra ID configuration.
+ */
+@interface GTLRSQLAdmin_SqlServerEntraIdConfig : GTLRObject
+
+/** Optional. The application ID for the Entra ID configuration. */
+@property(nonatomic, copy, nullable) NSString *applicationId;
+
+/** Output only. This is always sql#sqlServerEntraIdConfig */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Optional. The tenant ID for the Entra ID configuration. */
+@property(nonatomic, copy, nullable) NSString *tenantId;
+
+@end
+
+
+/**
  *  Represents a Sql Server user on the Cloud SQL instance.
  */
 @interface GTLRSQLAdmin_SqlServerUserDetails : GTLRObject
@@ -10727,6 +10937,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  */
 @interface GTLRSQLAdmin_User : GTLRObject
 
+/** Optional. Role memberships of the user */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *databaseRoles;
+
 /**
  *  Dual password status for the user.
  *
@@ -10831,6 +11044,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser;
  *        account. (Value: "CLOUD_IAM_SERVICE_ACCOUNT")
  *    @arg @c kGTLRSQLAdmin_User_Type_CloudIamUser Cloud IAM user. (Value:
  *        "CLOUD_IAM_USER")
+ *    @arg @c kGTLRSQLAdmin_User_Type_EntraidUser Microsoft Entra ID user.
+ *        (Value: "ENTRAID_USER")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
