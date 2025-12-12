@@ -84,8 +84,8 @@ NSString * const kGTLRCloudSupport_Media_ReferenceType_Path    = @"PATH";
 //
 
 @implementation GTLRCloudSupport_Blobstore2Info
-@dynamic blobGeneration, blobId, downloadReadHandle, readToken,
-         uploadMetadataContainer;
+@dynamic blobGeneration, blobId, downloadExternalReadToken, downloadReadHandle,
+         readToken, uploadMetadataContainer;
 @end
 
 

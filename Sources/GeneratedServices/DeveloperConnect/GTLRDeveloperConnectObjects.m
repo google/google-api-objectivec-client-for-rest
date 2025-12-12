@@ -13,6 +13,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDeveloperConnect_DeploymentEvent.state
+NSString * const kGTLRDeveloperConnect_DeploymentEvent_State_StateActive = @"STATE_ACTIVE";
+NSString * const kGTLRDeveloperConnect_DeploymentEvent_State_StateInactive = @"STATE_INACTIVE";
+NSString * const kGTLRDeveloperConnect_DeploymentEvent_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRDeveloperConnect_GitHubConfig.githubApp
 NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_DeveloperConnect = @"DEVELOPER_CONNECT";
 NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_Firebase = @"FIREBASE";
@@ -47,6 +52,17 @@ NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Syst
 NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Linked = @"LINKED";
 NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED";
+
+// GTLRDeveloperConnect_StartOAuthResponse.systemProviderId
+NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Datastax = @"DATASTAX";
+NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Dynatrace = @"DYNATRACE";
+NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Github = @"GITHUB";
+NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Gitlab = @"GITLAB";
+NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Google = @"GOOGLE";
+NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_NewRelic = @"NEW_RELIC";
+NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Rovo = @"ROVO";
+NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Sentry = @"SENTRY";
+NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_SystemProviderUnspecified = @"SYSTEM_PROVIDER_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -119,6 +135,29 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED
 
 @implementation GTLRDeveloperConnect_ArtifactConfig
 @dynamic googleArtifactAnalysis, googleArtifactRegistry, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_ArtifactDeployment
+//
+
+@implementation GTLRDeveloperConnect_ArtifactDeployment
+@dynamic artifactAlias, artifactReference, containerStatusSummary, deployTime,
+         identifier, sourceCommitUris, undeployTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sourceCommitUris" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -207,6 +246,25 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED
 
 @implementation GTLRDeveloperConnect_CryptoKeyConfig
 @dynamic keyReference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_DeploymentEvent
+//
+
+@implementation GTLRDeveloperConnect_DeploymentEvent
+@dynamic artifactDeployments, createTime, deployTime, name, runtimeConfig,
+         runtimeDeploymentUri, state, undeployTime, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"artifactDeployments" : [GTLRDeveloperConnect_ArtifactDeployment class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -354,6 +412,16 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED
 
 @implementation GTLRDeveloperConnect_FetchReadWriteTokenResponse
 @dynamic expirationTime, gitUsername, token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_FinishOAuthResponse
+//
+
+@implementation GTLRDeveloperConnect_FinishOAuthResponse
+@dynamic exchangeError;
 @end
 
 
@@ -534,7 +602,7 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED
 
 @implementation GTLRDeveloperConnect_InsightsConfig
 @dynamic annotations, appHubApplication, artifactConfigs, createTime, errors,
-         labels, name, reconciling, runtimeConfigs, state, updateTime;
+         labels, name, projects, reconciling, runtimeConfigs, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -652,6 +720,28 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED
 
 + (NSString *)collectionItemsKey {
   return @"connections";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_ListDeploymentEventsResponse
+//
+
+@implementation GTLRDeveloperConnect_ListDeploymentEventsResponse
+@dynamic deploymentEvents, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deploymentEvents" : [GTLRDeveloperConnect_DeploymentEvent class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"deploymentEvents";
 }
 
 @end
@@ -920,6 +1010,24 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_Projects
+//
+
+@implementation GTLRDeveloperConnect_Projects
+@dynamic projectIds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"projectIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_ProviderOAuthConfig
 //
 
@@ -953,6 +1061,25 @@ NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked = @"UNLINKED
 
 @implementation GTLRDeveloperConnect_ServiceDirectoryConfig
 @dynamic service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_StartOAuthResponse
+//
+
+@implementation GTLRDeveloperConnect_StartOAuthResponse
+@dynamic authUri, clientId, codeChallenge, codeChallengeMethod, scopes,
+         systemProviderId, ticket;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

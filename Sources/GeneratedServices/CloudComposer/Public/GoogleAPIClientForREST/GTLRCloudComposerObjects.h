@@ -291,6 +291,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_Environment_State_Updating
 // GTLRCloudComposer_EnvironmentConfig.environmentSize
 
 /**
+ *  The environment size is extra large.
+ *
+ *  Value: "ENVIRONMENT_SIZE_EXTRA_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeExtraLarge;
+/**
  *  The environment size is large.
  *
  *  Value: "ENVIRONMENT_SIZE_LARGE"
@@ -1087,6 +1093,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  composer-2.*.*-airflow-*.*.* and newer.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeExtraLarge
+ *        The environment size is extra large. (Value:
+ *        "ENVIRONMENT_SIZE_EXTRA_LARGE")
  *    @arg @c kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeLarge
  *        The environment size is large. (Value: "ENVIRONMENT_SIZE_LARGE")
  *    @arg @c kGTLRCloudComposer_EnvironmentConfig_EnvironmentSize_EnvironmentSizeMedium
@@ -1476,8 +1485,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

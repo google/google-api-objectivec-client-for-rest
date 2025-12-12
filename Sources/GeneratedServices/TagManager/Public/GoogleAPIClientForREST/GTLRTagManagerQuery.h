@@ -1778,6 +1778,48 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManagerTypeVisitorRegion;
 @end
 
 /**
+ *  Applies multiple entity changes to a workspace in one call. When creating
+ *  new entities, their entity IDs must be unique and in correct format. That
+ *  is, they must start with "new_" and followed by number, e.g. "new_1",
+ *  "new_2". Example body snippet to create myNewTag under myNewFolder is: ```
+ *  "changes": [ { "folder": { "folderId": "new_1", "name": "myNewFolder", ...
+ *  }, "changeStatus": "added" }, { "tag": { "tagId": "new_2", "name":
+ *  "myNewTag", "parentFolderId": "new_1", ... }, "changeStatus": "added" } ]
+ *  ```
+ *
+ *  Method: tagmanager.accounts.containers.workspaces.bulk_update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTagManagerEditContainers
+ */
+@interface GTLRTagManagerQuery_AccountsContainersWorkspacesBulkUpdate : GTLRTagManagerQuery
+
+/** GTM Workspace's API relative path. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  Fetches a @c GTLRTagManager_BulkUpdateWorkspaceResponse.
+ *
+ *  Applies multiple entity changes to a workspace in one call. When creating
+ *  new entities, their entity IDs must be unique and in correct format. That
+ *  is, they must start with "new_" and followed by number, e.g. "new_1",
+ *  "new_2". Example body snippet to create myNewTag under myNewFolder is: ```
+ *  "changes": [ { "folder": { "folderId": "new_1", "name": "myNewFolder", ...
+ *  }, "changeStatus": "added" }, { "tag": { "tagId": "new_2", "name":
+ *  "myNewTag", "parentFolderId": "new_1", ... }, "changeStatus": "added" } ]
+ *  ```
+ *
+ *  @param object The @c GTLRTagManager_ProposedChange to include in the query.
+ *  @param path GTM Workspace's API relative path.
+ *
+ *  @return GTLRTagManagerQuery_AccountsContainersWorkspacesBulkUpdate
+ */
++ (instancetype)queryWithObject:(GTLRTagManager_ProposedChange *)object
+                           path:(NSString *)path;
+
+@end
+
+/**
  *  Creates a GTM Client.
  *
  *  Method: tagmanager.accounts.containers.workspaces.clients.create

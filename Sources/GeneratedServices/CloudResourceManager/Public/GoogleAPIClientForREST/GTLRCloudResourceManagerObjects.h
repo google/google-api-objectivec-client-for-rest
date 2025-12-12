@@ -164,6 +164,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationErro
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderNameUniquenessViolation;
 /**
+ *  The folder being deleted has a configured capability.
+ *
+ *  Value: "FOLDER_TO_DELETE_CONFIGURED_CAPABILITY_VIOLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteConfiguredCapabilityViolation;
+/**
  *  The folder the caller is trying to delete contains active resources.
  *
  *  Value: "FOLDER_TO_DELETE_NON_EMPTY_VIOLATION"
@@ -909,6 +915,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderNameUniquenessViolation
  *        The attempted action would violate the locally-unique folder
  *        display_name constraint. (Value: "FOLDER_NAME_UNIQUENESS_VIOLATION")
+ *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteConfiguredCapabilityViolation
+ *        The folder being deleted has a configured capability. (Value:
+ *        "FOLDER_TO_DELETE_CONFIGURED_CAPABILITY_VIOLATION")
  *    @arg @c kGTLRCloudResourceManager_FolderOperationError_ErrorMessageId_FolderToDeleteNonEmptyViolation
  *        The folder the caller is trying to delete contains active resources.
  *        (Value: "FOLDER_TO_DELETE_NON_EMPTY_VIOLATION")
@@ -1311,8 +1320,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 /**
  *  A pagination token returned from a previous call to `ListTagValues` that
- *  indicates from where listing should continue. This is currently not used,
- *  but the server may at any point start supplying a valid token.
+ *  indicates from where listing should continue.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -2064,6 +2072,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
  *  A TagKey, used to group a set of TagValues.
  */
 @interface GTLRCloudResourceManager_TagKey : GTLRObject
+
+/**
+ *  Optional. Regular expression constraint for freeform tag values. If present,
+ *  it implicitly allows freeform values (constrained by the regex).
+ */
+@property(nonatomic, copy, nullable) NSString *allowedValuesRegex;
 
 /** Output only. Creation time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;

@@ -18,7 +18,9 @@
 @class GTLRDatastream_BackfillJob;
 @class GTLRDatastream_BackfillNoneStrategy;
 @class GTLRDatastream_BasicEncryption;
+@class GTLRDatastream_BigQueryClustering;
 @class GTLRDatastream_BigQueryDestinationConfig;
+@class GTLRDatastream_BigQueryPartitioning;
 @class GTLRDatastream_BigQueryProfile;
 @class GTLRDatastream_BinaryLogParser;
 @class GTLRDatastream_BinaryLogPosition;
@@ -26,6 +28,7 @@
 @class GTLRDatastream_CdcStrategy;
 @class GTLRDatastream_ConnectionProfile;
 @class GTLRDatastream_ConnectionProfile_Labels;
+@class GTLRDatastream_CustomizationRule;
 @class GTLRDatastream_DatasetTemplate;
 @class GTLRDatastream_DestinationConfig;
 @class GTLRDatastream_DropLargeObjects;
@@ -39,6 +42,8 @@
 @class GTLRDatastream_GcsProfile;
 @class GTLRDatastream_Gtid;
 @class GTLRDatastream_HostAddress;
+@class GTLRDatastream_IngestionTimePartition;
+@class GTLRDatastream_IntegerRangePartition;
 @class GTLRDatastream_JsonFileFormat;
 @class GTLRDatastream_Location;
 @class GTLRDatastream_Location_Labels;
@@ -53,6 +58,7 @@
 @class GTLRDatastream_MongodbField;
 @class GTLRDatastream_MongodbObjectIdentifier;
 @class GTLRDatastream_MongodbProfile;
+@class GTLRDatastream_MongodbProfile_AdditionalOptions;
 @class GTLRDatastream_MongodbSourceConfig;
 @class GTLRDatastream_MongodbSslConfig;
 @class GTLRDatastream_MostRecentStartPosition;
@@ -68,6 +74,7 @@
 @class GTLRDatastream_MysqlTable;
 @class GTLRDatastream_NextAvailableStartPosition;
 @class GTLRDatastream_Oauth2ClientCredentials;
+@class GTLRDatastream_ObjectFilter;
 @class GTLRDatastream_Operation;
 @class GTLRDatastream_Operation_Metadata;
 @class GTLRDatastream_Operation_Response;
@@ -98,6 +105,7 @@
 @class GTLRDatastream_PscInterfaceConfig;
 @class GTLRDatastream_Route;
 @class GTLRDatastream_Route_Labels;
+@class GTLRDatastream_RuleSet;
 @class GTLRDatastream_SalesforceField;
 @class GTLRDatastream_SalesforceObject;
 @class GTLRDatastream_SalesforceObjectIdentifier;
@@ -131,6 +139,7 @@
 @class GTLRDatastream_Stream_Labels;
 @class GTLRDatastream_StreamLargeObjects;
 @class GTLRDatastream_StreamObject;
+@class GTLRDatastream_TimeUnitPartition;
 @class GTLRDatastream_UserCredentials;
 @class GTLRDatastream_Validation;
 @class GTLRDatastream_ValidationMessage;
@@ -259,6 +268,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_BlmtConfig_TableFormat_Iceber
 FOUNDATION_EXTERN NSString * const kGTLRDatastream_BlmtConfig_TableFormat_TableFormatUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDatastream_IngestionTimePartition.partitioningTimeGranularity
+
+/**
+ *  Daily partitioning.
+ *
+ *  Value: "PARTITIONING_TIME_GRANULARITY_DAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityDay;
+/**
+ *  Hourly partitioning.
+ *
+ *  Value: "PARTITIONING_TIME_GRANULARITY_HOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityHour;
+/**
+ *  Monthly partitioning.
+ *
+ *  Value: "PARTITIONING_TIME_GRANULARITY_MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityMonth;
+/**
+ *  Unspecified partitioing interval.
+ *
+ *  Value: "PARTITIONING_TIME_GRANULARITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityUnspecified;
+/**
+ *  Yearly partitioning.
+ *
+ *  Value: "PARTITIONING_TIME_GRANULARITY_YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityYear;
+
+// ----------------------------------------------------------------------------
 // GTLRDatastream_JsonFileFormat.compression
 
 /**
@@ -301,6 +344,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_JsonFileFormat_SchemaFileForm
  *  Value: "SCHEMA_FILE_FORMAT_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastream_JsonFileFormat_SchemaFileFormat_SchemaFileFormatUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastream_MongodbSourceConfig.jsonMode
+
+/**
+ *  Canonical JSON mode.
+ *
+ *  Value: "CANONICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_MongodbSourceConfig_JsonMode_Canonical;
+/**
+ *  Unspecified JSON mode.
+ *
+ *  Value: "MONGODB_JSON_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_MongodbSourceConfig_JsonMode_MongodbJsonModeUnspecified;
+/**
+ *  Strict JSON mode.
+ *
+ *  Value: "STRICT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_MongodbSourceConfig_JsonMode_Strict;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastream_PrivateConnection.state
@@ -402,6 +467,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_Stream_State_Starting;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatastream_Stream_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDatastream_TimeUnitPartition.partitioningTimeGranularity
+
+/**
+ *  Daily partitioning.
+ *
+ *  Value: "PARTITIONING_TIME_GRANULARITY_DAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityDay;
+/**
+ *  Hourly partitioning.
+ *
+ *  Value: "PARTITIONING_TIME_GRANULARITY_HOUR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityHour;
+/**
+ *  Monthly partitioning.
+ *
+ *  Value: "PARTITIONING_TIME_GRANULARITY_MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityMonth;
+/**
+ *  Unspecified partitioing interval.
+ *
+ *  Value: "PARTITIONING_TIME_GRANULARITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityUnspecified;
+/**
+ *  Yearly partitioning.
+ *
+ *  Value: "PARTITIONING_TIME_GRANULARITY_YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityYear;
 
 // ----------------------------------------------------------------------------
 // GTLRDatastream_Validation.state
@@ -575,6 +674,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  BigQuery clustering configuration.
+ */
+@interface GTLRDatastream_BigQueryClustering : GTLRObject
+
+/** Required. Column names to set as clustering columns. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *columns;
+
+@end
+
+
+/**
  *  BigQuery destination configuration
  */
 @interface GTLRDatastream_BigQueryDestinationConfig : GTLRObject
@@ -601,6 +711,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Source hierarchy datasets. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SourceHierarchyDatasets *sourceHierarchyDatasets;
+
+@end
+
+
+/**
+ *  BigQuery partitioning configuration.
+ */
+@interface GTLRDatastream_BigQueryPartitioning : GTLRObject
+
+/** Ingestion time partitioning. */
+@property(nonatomic, strong, nullable) GTLRDatastream_IngestionTimePartition *ingestionTimePartition;
+
+/** Integer range partitioning. */
+@property(nonatomic, strong, nullable) GTLRDatastream_IntegerRangePartition *integerRangePartition;
+
+/**
+ *  Optional. If true, queries over the table require a partition filter.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requirePartitionFilter;
+
+/** Time unit column partitioning. */
+@property(nonatomic, strong, nullable) GTLRDatastream_TimeUnitPartition *timeUnitPartition;
 
 @end
 
@@ -782,6 +916,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *        fetch them all at once.
  */
 @interface GTLRDatastream_ConnectionProfile_Labels : GTLRObject
+@end
+
+
+/**
+ *  A customization rule to apply to a set of objects.
+ */
+@interface GTLRDatastream_CustomizationRule : GTLRObject
+
+/** BigQuery clustering rule. */
+@property(nonatomic, strong, nullable) GTLRDatastream_BigQueryClustering *bigqueryClustering;
+
+/** BigQuery partitioning rule. */
+@property(nonatomic, strong, nullable) GTLRDatastream_BigQueryPartitioning *bigqueryPartitioning;
+
 @end
 
 
@@ -1130,6 +1278,66 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Ingestion time partitioning. see
+ *  https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time
+ */
+@interface GTLRDatastream_IngestionTimePartition : GTLRObject
+
+/**
+ *  Optional. Partition granularity
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityDay
+ *        Daily partitioning. (Value: "PARTITIONING_TIME_GRANULARITY_DAY")
+ *    @arg @c kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityHour
+ *        Hourly partitioning. (Value: "PARTITIONING_TIME_GRANULARITY_HOUR")
+ *    @arg @c kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityMonth
+ *        Monthly partitioning. (Value: "PARTITIONING_TIME_GRANULARITY_MONTH")
+ *    @arg @c kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityUnspecified
+ *        Unspecified partitioing interval. (Value:
+ *        "PARTITIONING_TIME_GRANULARITY_UNSPECIFIED")
+ *    @arg @c kGTLRDatastream_IngestionTimePartition_PartitioningTimeGranularity_PartitioningTimeGranularityYear
+ *        Yearly partitioning. (Value: "PARTITIONING_TIME_GRANULARITY_YEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *partitioningTimeGranularity;
+
+@end
+
+
+/**
+ *  Integer range partitioning. see
+ *  https://cloud.google.com/bigquery/docs/partitioned-tables#integer_range
+ */
+@interface GTLRDatastream_IntegerRangePartition : GTLRObject
+
+/** Required. The partitioning column. */
+@property(nonatomic, copy, nullable) NSString *column;
+
+/**
+ *  Required. The ending value for range partitioning (exclusive).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *end;
+
+/**
+ *  Required. The interval of each range within the partition.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *interval;
+
+/**
+ *  Required. The starting value for range partitioning (inclusive).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *start;
+
+@end
+
+
+/**
  *  JSON file format configuration.
  */
 @interface GTLRDatastream_JsonFileFormat : GTLRObject
@@ -1242,8 +1450,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1547,6 +1756,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @interface GTLRDatastream_MongodbProfile : GTLRObject
 
 /**
+ *  Optional. Specifies additional options for the MongoDB connection. The
+ *  options should be sent as key-value pairs, for example: `additional_options
+ *  = {"serverSelectionTimeoutMS": "10000", "directConnection": "true"}`. Keys
+ *  are case-sensitive and should match the official MongoDB connection string
+ *  options:
+ *  https://www.mongodb.com/docs/manual/reference/connection-string-options/ The
+ *  server will not modify the values provided by the user.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_MongodbProfile_AdditionalOptions *additionalOptions;
+
+/**
  *  Required. List of host addresses for a MongoDB cluster. For SRV connection
  *  format, this list must contain exactly one DNS host without a port. For
  *  Standard connection format, this list must contain all the required hosts in
@@ -1589,6 +1809,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Optional. Specifies additional options for the MongoDB connection. The
+ *  options should be sent as key-value pairs, for example: `additional_options
+ *  = {"serverSelectionTimeoutMS": "10000", "directConnection": "true"}`. Keys
+ *  are case-sensitive and should match the official MongoDB connection string
+ *  options:
+ *  https://www.mongodb.com/docs/manual/reference/connection-string-options/ The
+ *  server will not modify the values provided by the user.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDatastream_MongodbProfile_AdditionalOptions : GTLRObject
+@end
+
+
+/**
  *  MongoDB source configuration.
  */
 @interface GTLRDatastream_MongodbSourceConfig : GTLRObject
@@ -1598,6 +1836,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** MongoDB collections to include in the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MongodbCluster *includeObjects;
+
+/**
+ *  Optional. MongoDB JSON mode to use for the stream.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastream_MongodbSourceConfig_JsonMode_Canonical Canonical
+ *        JSON mode. (Value: "CANONICAL")
+ *    @arg @c kGTLRDatastream_MongodbSourceConfig_JsonMode_MongodbJsonModeUnspecified
+ *        Unspecified JSON mode. (Value: "MONGODB_JSON_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRDatastream_MongodbSourceConfig_JsonMode_Strict Strict JSON
+ *        mode. (Value: "STRICT")
+ */
+@property(nonatomic, copy, nullable) NSString *jsonMode;
 
 /**
  *  Optional. Maximum number of concurrent backfill tasks. The number should be
@@ -1972,6 +2223,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  field.
  */
 @property(nonatomic, copy, nullable) NSString *secretManagerStoredClientSecret;
+
+@end
+
+
+/**
+ *  Object filter to apply the rules to.
+ */
+@interface GTLRDatastream_ObjectFilter : GTLRObject
+
+/** Specific source object identifier. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SourceObjectIdentifier *sourceObjectIdentifier;
 
 @end
 
@@ -2790,6 +3052,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  A set of rules to apply to a set of objects.
+ */
+@interface GTLRDatastream_RuleSet : GTLRObject
+
+/** Required. List of customization rules to apply. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_CustomizationRule *> *customizationRules;
+
+/** Required. Object filter to apply the customization rules to. */
+@property(nonatomic, strong, nullable) GTLRDatastream_ObjectFilter *objectFilter;
+
+@end
+
+
+/**
  *  Request message for running a stream.
  */
 @interface GTLRDatastream_RunStreamRequest : GTLRObject
@@ -3328,12 +3604,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @interface GTLRDatastream_StandardConnectionFormat : GTLRObject
 
 /**
- *  Optional. Specifies whether the client connects directly to the host[:port]
- *  in the connection URI.
+ *  Optional. Deprecated: Use the `additional_options` map to specify the
+ *  `directConnection` parameter instead. For example: `additional_options =
+ *  {"directConnection": "true"}`. Specifies whether the client connects
+ *  directly to the host[:port] in the connection URI.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *directConnection;
+@property(nonatomic, strong, nullable) NSNumber *directConnection GTLR_DEPRECATED;
 
 @end
 
@@ -3483,6 +3761,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Output only. Identifier. The stream's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Optional. Rule sets to apply to the stream. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_RuleSet *> *ruleSets;
+
 /**
  *  Output only. Reserved for future use.
  *
@@ -3563,6 +3844,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Output only. The creation time of the object. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/**
+ *  Output only. The customization rules for the object. These rules are derived
+ *  from the parent Stream's `rule_sets` and represent the intended
+ *  configuration for the object.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_CustomizationRule *> *customizationRules;
+
 /** Required. Display name. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -3577,6 +3865,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Output only. The last update time of the object. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Time unit column partitioning. see
+ *  https://cloud.google.com/bigquery/docs/partitioned-tables#date_timestamp_partitioned_tables
+ */
+@interface GTLRDatastream_TimeUnitPartition : GTLRObject
+
+/** Required. The partitioning column. */
+@property(nonatomic, copy, nullable) NSString *column;
+
+/**
+ *  Optional. Partition granularity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityDay
+ *        Daily partitioning. (Value: "PARTITIONING_TIME_GRANULARITY_DAY")
+ *    @arg @c kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityHour
+ *        Hourly partitioning. (Value: "PARTITIONING_TIME_GRANULARITY_HOUR")
+ *    @arg @c kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityMonth
+ *        Monthly partitioning. (Value: "PARTITIONING_TIME_GRANULARITY_MONTH")
+ *    @arg @c kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityUnspecified
+ *        Unspecified partitioing interval. (Value:
+ *        "PARTITIONING_TIME_GRANULARITY_UNSPECIFIED")
+ *    @arg @c kGTLRDatastream_TimeUnitPartition_PartitioningTimeGranularity_PartitioningTimeGranularityYear
+ *        Yearly partitioning. (Value: "PARTITIONING_TIME_GRANULARITY_YEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *partitioningTimeGranularity;
 
 @end
 

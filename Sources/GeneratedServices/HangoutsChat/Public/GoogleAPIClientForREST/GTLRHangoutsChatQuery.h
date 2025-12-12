@@ -2375,19 +2375,21 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 /**
  *  Required. The updated field paths, comma separated if there are multiple.
  *  You can update the following fields for a space: `space_details`: Updates
- *  the space's description. Supports up to 150 characters. `display_name`: Only
- *  supports updating the display name for spaces where `spaceType` field is
- *  `SPACE`. If you receive the error message `ALREADY_EXISTS`, try a different
- *  value. An existing space within the Google Workspace organization might
- *  already use this display name. `space_type`: Only supports changing a
- *  `GROUP_CHAT` space type to `SPACE`. Include `display_name` together with
- *  `space_type` in the update mask and ensure that the specified space has a
- *  non-empty display name and the `SPACE` space type. Including the
- *  `space_type` mask and the `SPACE` type in the specified space when updating
- *  the display name is optional if the existing space already has the `SPACE`
- *  type. Trying to update the space type in other ways results in an invalid
- *  argument error. `space_type` is not supported with `useAdminAccess`.
- *  `space_history_state`: Updates [space history
+ *  the space's description and guidelines. You must pass both description and
+ *  guidelines in the update request as `SpaceDetails`. If you only want to
+ *  update one of the fields, pass the existing value for the other field.
+ *  `display_name`: Only supports updating the display name for spaces where
+ *  `spaceType` field is `SPACE`. If you receive the error message
+ *  `ALREADY_EXISTS`, try a different value. An existing space within the Google
+ *  Workspace organization might already use this display name. `space_type`:
+ *  Only supports changing a `GROUP_CHAT` space type to `SPACE`. Include
+ *  `display_name` together with `space_type` in the update mask and ensure that
+ *  the specified space has a non-empty display name and the `SPACE` space type.
+ *  Including the `space_type` mask and the `SPACE` type in the specified space
+ *  when updating the display name is optional if the existing space already has
+ *  the `SPACE` type. Trying to update the space type in other ways results in
+ *  an invalid argument error. `space_type` is not supported with
+ *  `useAdminAccess`. `space_history_state`: Updates [space history
  *  settings](https://support.google.com/chat/answer/7664687) by turning history
  *  on or off for the space. Only supported if history settings are enabled for
  *  the Google Workspace organization. To update the space history state, you
@@ -2407,9 +2409,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  `permission_settings`: Supports changing the [permission
  *  settings](https://support.google.com/chat/answer/13340792) of a space. When
  *  updating permission settings, you can only specify `permissionSettings`
- *  field masks; you cannot update other field masks at the same time.
- *  `permissionSettings` is not supported with `useAdminAccess`. The supported
- *  field masks include: - `permission_settings.manageMembersAndGroups` -
+ *  field masks; you cannot update other field masks at the same time. The
+ *  supported field masks include: -
+ *  `permission_settings.manageMembersAndGroups` -
  *  `permission_settings.modifySpaceDetails` -
  *  `permission_settings.toggleHistory` - `permission_settings.useAtMentionAll`
  *  - `permission_settings.manageApps` - `permission_settings.manageWebhooks` -

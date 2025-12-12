@@ -96,6 +96,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
  *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeConversations
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
  *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable
@@ -185,6 +186,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
  *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeConversations
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
  *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable
@@ -287,6 +289,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
  *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeConversations
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
  *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable
@@ -386,6 +389,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
  *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeConversations
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
  *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable
@@ -490,6 +494,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
  *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeConversations
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
  *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable
@@ -583,6 +588,7 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityYoutubeChannel
  *    @c kGTLRAuthScopeDataPortabilityYoutubeClips
  *    @c kGTLRAuthScopeDataPortabilityYoutubeComments
+ *    @c kGTLRAuthScopeDataPortabilityYoutubeConversations
  *    @c kGTLRAuthScopeDataPortabilityYoutubeLiveChat
  *    @c kGTLRAuthScopeDataPortabilityYoutubeMusic
  *    @c kGTLRAuthScopeDataPortabilityYoutubePlayable

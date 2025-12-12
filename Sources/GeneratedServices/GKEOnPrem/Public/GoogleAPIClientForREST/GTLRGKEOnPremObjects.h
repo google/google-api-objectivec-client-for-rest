@@ -14,6 +14,8 @@
 
 @class GTLRGKEOnPrem_Authorization;
 @class GTLRGKEOnPrem_BareMetalAdminApiServerArgument;
+@class GTLRGKEOnPrem_BareMetalAdminBgpLbConfig;
+@class GTLRGKEOnPrem_BareMetalAdminBgpPeerConfig;
 @class GTLRGKEOnPrem_BareMetalAdminCluster;
 @class GTLRGKEOnPrem_BareMetalAdminCluster_Annotations;
 @class GTLRGKEOnPrem_BareMetalAdminClusterOperationsConfig;
@@ -22,11 +24,14 @@
 @class GTLRGKEOnPrem_BareMetalAdminDrainedMachine;
 @class GTLRGKEOnPrem_BareMetalAdminDrainingMachine;
 @class GTLRGKEOnPrem_BareMetalAdminIslandModeCidrConfig;
+@class GTLRGKEOnPrem_BareMetalAdminLoadBalancerAddressPool;
 @class GTLRGKEOnPrem_BareMetalAdminLoadBalancerConfig;
+@class GTLRGKEOnPrem_BareMetalAdminLoadBalancerNodePoolConfig;
 @class GTLRGKEOnPrem_BareMetalAdminMachineDrainStatus;
 @class GTLRGKEOnPrem_BareMetalAdminMaintenanceConfig;
 @class GTLRGKEOnPrem_BareMetalAdminMaintenanceStatus;
 @class GTLRGKEOnPrem_BareMetalAdminManualLbConfig;
+@class GTLRGKEOnPrem_BareMetalAdminMultipleNetworkInterfacesConfig;
 @class GTLRGKEOnPrem_BareMetalAdminNetworkConfig;
 @class GTLRGKEOnPrem_BareMetalAdminNodeAccessConfig;
 @class GTLRGKEOnPrem_BareMetalAdminOsEnvironmentConfig;
@@ -924,6 +929,74 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
+ *  BareMetalAdminBgpLbConfig represents configuration parameters for a Border
+ *  Gateway Protocol (BGP) load balancer.
+ */
+@interface GTLRGKEOnPrem_BareMetalAdminBgpLbConfig : GTLRObject
+
+/**
+ *  Required. AddressPools is a list of non-overlapping IP pools used by load
+ *  balancer typed services. All addresses must be routable to load balancer
+ *  nodes. IngressVIP must be included in the pools.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_BareMetalAdminLoadBalancerAddressPool *> *addressPools;
+
+/**
+ *  Required. BGP autonomous system number (ASN) of the cluster. This field can
+ *  be updated after cluster creation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *asn;
+
+/**
+ *  Required. The list of BGP peers that the cluster will connect to. At least
+ *  one peer must be configured for each control plane node. Control plane nodes
+ *  will connect to these peers to advertise the control plane VIP. The Services
+ *  load balancer also uses these peers by default. This field can be updated
+ *  after cluster creation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRGKEOnPrem_BareMetalAdminBgpPeerConfig *> *bgpPeerConfigs;
+
+/**
+ *  Specifies the node pool running data plane load balancing. L2 connectivity
+ *  is required among nodes in this pool. If missing, the control plane node
+ *  pool is used for data plane load balancing.
+ */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalAdminLoadBalancerNodePoolConfig *loadBalancerNodePoolConfig;
+
+@end
+
+
+/**
+ *  BareMetalAdminBgpPeerConfig represents configuration parameters for a Border
+ *  Gateway Protocol (BGP) peer.
+ */
+@interface GTLRGKEOnPrem_BareMetalAdminBgpPeerConfig : GTLRObject
+
+/**
+ *  Required. BGP autonomous system number (ASN) for the network that contains
+ *  the external peer device.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *asn;
+
+/**
+ *  The IP address of the control plane node that connects to the external peer.
+ *  If you don't specify any control plane nodes, all control plane nodes can
+ *  connect to the external peer. If you specify one or more IP addresses, only
+ *  the nodes specified participate in peering sessions.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *controlPlaneNodes;
+
+/** Required. The IP address of the external peer device. */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+@end
+
+
+/**
  *  Resource that represents a bare metal admin cluster.
  */
 @interface GTLRGKEOnPrem_BareMetalAdminCluster : GTLRObject
@@ -1214,9 +1287,44 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
+ *  Represents an IP pool used by the load balancer.
+ */
+@interface GTLRGKEOnPrem_BareMetalAdminLoadBalancerAddressPool : GTLRObject
+
+/**
+ *  Required. The addresses that are part of this pool. Each address must be
+ *  either in the CIDR form (1.2.3.0/24) or range form (1.2.3.1-1.2.3.5).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *addresses;
+
+/**
+ *  If true, avoid using IPs ending in .0 or .255. This avoids buggy consumer
+ *  devices mistakenly dropping IPv4 traffic for those special IP addresses.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avoidBuggyIps;
+
+/**
+ *  If true, prevent IP addresses from being automatically assigned.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *manualAssign;
+
+/** Required. The name of the address pool. */
+@property(nonatomic, copy, nullable) NSString *pool;
+
+@end
+
+
+/**
  *  BareMetalAdminLoadBalancerConfig specifies the load balancer configuration.
  */
 @interface GTLRGKEOnPrem_BareMetalAdminLoadBalancerConfig : GTLRObject
+
+/** Configuration for BGP typed load balancers. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalAdminBgpLbConfig *bgpLbConfig;
 
 /** Manually configured load balancers. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalAdminManualLbConfig *manualLbConfig;
@@ -1226,6 +1334,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /** The VIPs used by the load balancer. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalAdminVipConfig *vipConfig;
+
+@end
+
+
+/**
+ *  Specifies the load balancer's node pool configuration.
+ */
+@interface GTLRGKEOnPrem_BareMetalAdminLoadBalancerNodePoolConfig : GTLRObject
+
+/** The generic configuration for a node pool running a load balancer. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalNodePoolConfig *nodePoolConfig;
 
 @end
 
@@ -1294,12 +1413,40 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 
 /**
+ *  Specifies the multiple networking interfaces cluster configuration.
+ */
+@interface GTLRGKEOnPrem_BareMetalAdminMultipleNetworkInterfacesConfig : GTLRObject
+
+/**
+ *  Whether to enable multiple network interfaces for your pods. When set
+ *  network_config.advanced_networking is automatically set to true.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  BareMetalAdminNetworkConfig specifies the cluster network configuration.
  */
 @interface GTLRGKEOnPrem_BareMetalAdminNetworkConfig : GTLRObject
 
+/**
+ *  Enables the use of advanced Anthos networking features, such as Bundled Load
+ *  Balancing with BGP or the egress NAT gateway. Setting configuration for
+ *  advanced networking features will automatically set this flag.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *advancedNetworking;
+
 /** Configuration for Island mode CIDR. */
 @property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalAdminIslandModeCidrConfig *islandModeCidr;
+
+/** Configuration for multiple network interfaces. */
+@property(nonatomic, strong, nullable) GTLRGKEOnPrem_BareMetalAdminMultipleNetworkInterfacesConfig *multipleNetworkInterfacesConfig;
 
 @end
 
@@ -3043,8 +3190,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping;
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

@@ -31,12 +31,20 @@ NSString * const kGTLRDataform_InvocationConfig_QueryPriority_Batch = @"BATCH";
 NSString * const kGTLRDataform_InvocationConfig_QueryPriority_Interactive = @"INTERACTIVE";
 NSString * const kGTLRDataform_InvocationConfig_QueryPriority_QueryPriorityUnspecified = @"QUERY_PRIORITY_UNSPECIFIED";
 
+// GTLRDataform_Relation.fileFormat
+NSString * const kGTLRDataform_Relation_FileFormat_FileFormatUnspecified = @"FILE_FORMAT_UNSPECIFIED";
+NSString * const kGTLRDataform_Relation_FileFormat_Parquet     = @"PARQUET";
+
 // GTLRDataform_Relation.relationType
 NSString * const kGTLRDataform_Relation_RelationType_IncrementalTable = @"INCREMENTAL_TABLE";
 NSString * const kGTLRDataform_Relation_RelationType_MaterializedView = @"MATERIALIZED_VIEW";
 NSString * const kGTLRDataform_Relation_RelationType_RelationTypeUnspecified = @"RELATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataform_Relation_RelationType_Table     = @"TABLE";
 NSString * const kGTLRDataform_Relation_RelationType_View      = @"VIEW";
+
+// GTLRDataform_Relation.tableFormat
+NSString * const kGTLRDataform_Relation_TableFormat_Iceberg    = @"ICEBERG";
+NSString * const kGTLRDataform_Relation_TableFormat_TableFormatUnspecified = @"TABLE_FORMAT_UNSPECIFIED";
 
 // GTLRDataform_UncommittedFileChange.state
 NSString * const kGTLRDataform_UncommittedFileChange_State_Added = @"ADDED";
@@ -344,7 +352,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 @implementation GTLRDataform_CompilationResult
 @dynamic codeCompilationConfig, compilationErrors, createTime,
          dataEncryptionState, dataformCoreVersion, gitCommitish,
-         internalMetadata, name, releaseConfig, resolvedGitCommitSha, workspace;
+         internalMetadata, name, privateResourceMetadata, releaseConfig,
+         resolvedGitCommitSha, workspace;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1135,6 +1144,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_PrivateResourceMetadata
+//
+
+@implementation GTLRDataform_PrivateResourceMetadata
+@dynamic userScoped;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_PullGitCommitsRequest
 //
 
@@ -1285,10 +1304,11 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Relation
-@dynamic additionalOptions, clusterExpressions, dependencyTargets, disabled,
-         incrementalTableConfig, partitionExpirationDays, partitionExpression,
-         postOperations, preOperations, relationDescriptor, relationType,
-         requirePartitionFilter, selectQuery, tags;
+@dynamic additionalOptions, clusterExpressions, connection, dependencyTargets,
+         disabled, fileFormat, incrementalTableConfig, partitionExpirationDays,
+         partitionExpression, postOperations, preOperations, relationDescriptor,
+         relationType, requirePartitionFilter, selectQuery, storageUri,
+         tableFormat, tags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1672,8 +1692,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_WorkflowInvocation
 @dynamic compilationResult, dataEncryptionState, internalMetadata,
-         invocationConfig, invocationTiming, name, resolvedCompilationResult,
-         state, workflowConfig;
+         invocationConfig, invocationTiming, name, privateResourceMetadata,
+         resolvedCompilationResult, state, workflowConfig;
 @end
 
 
@@ -1694,7 +1714,8 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Workspace
-@dynamic createTime, dataEncryptionState, internalMetadata, name;
+@dynamic createTime, dataEncryptionState, internalMetadata, name,
+         privateResourceMetadata;
 @end
 
 

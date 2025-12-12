@@ -15,6 +15,7 @@
 
 // GTLRCompute_AcceleratorTopologiesInfoAcceleratorTopologyInfoInfoPerTopologyState.state
 NSString * const kGTLRCompute_AcceleratorTopologiesInfoAcceleratorTopologyInfoInfoPerTopologyState_State_Available = @"AVAILABLE";
+NSString * const kGTLRCompute_AcceleratorTopologiesInfoAcceleratorTopologyInfoInfoPerTopologyState_State_Degraded = @"DEGRADED";
 NSString * const kGTLRCompute_AcceleratorTopologiesInfoAcceleratorTopologyInfoInfoPerTopologyState_State_Running = @"RUNNING";
 NSString * const kGTLRCompute_AcceleratorTopologiesInfoAcceleratorTopologyInfoInfoPerTopologyState_State_TopologyStateUnspecified = @"TOPOLOGY_STATE_UNSPECIFIED";
 NSString * const kGTLRCompute_AcceleratorTopologiesInfoAcceleratorTopologyInfoInfoPerTopologyState_State_Unhealthy = @"UNHEALTHY";
@@ -826,8 +827,10 @@ NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeE2 = @"GENERAL_PURPO
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2 = @"GENERAL_PURPOSE_N2";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN2d = @"GENERAL_PURPOSE_N2D";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN4 = @"GENERAL_PURPOSE_N4";
+NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeN4d = @"GENERAL_PURPOSE_N4D";
 NSString * const kGTLRCompute_Commitment_Type_GeneralPurposeT2d = @"GENERAL_PURPOSE_T2D";
 NSString * const kGTLRCompute_Commitment_Type_GraphicsOptimized = @"GRAPHICS_OPTIMIZED";
+NSString * const kGTLRCompute_Commitment_Type_GraphicsOptimizedG4 = @"GRAPHICS_OPTIMIZED_G4";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimized  = @"MEMORY_OPTIMIZED";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM3 = @"MEMORY_OPTIMIZED_M3";
 NSString * const kGTLRCompute_Commitment_Type_MemoryOptimizedM4 = @"MEMORY_OPTIMIZED_M4";
@@ -1695,6 +1698,45 @@ NSString * const kGTLRCompute_FutureReservationStatusLastKnownGoodState_Procurem
 NSString * const kGTLRCompute_FutureReservationStatusLastKnownGoodState_ProcurementStatus_ProcurementStatusUnspecified = @"PROCUREMENT_STATUS_UNSPECIFIED";
 NSString * const kGTLRCompute_FutureReservationStatusLastKnownGoodState_ProcurementStatus_Procuring = @"PROCURING";
 NSString * const kGTLRCompute_FutureReservationStatusLastKnownGoodState_ProcurementStatus_Provisioning = @"PROVISIONING";
+
+// GTLRCompute_FutureResourcesRecommendation.recommendationType
+NSString * const kGTLRCompute_FutureResourcesRecommendation_RecommendationType_FutureReservation = @"FUTURE_RESERVATION";
+NSString * const kGTLRCompute_FutureResourcesRecommendation_RecommendationType_RecommendationTypeUnspecified = @"RECOMMENDATION_TYPE_UNSPECIFIED";
+
+// GTLRCompute_FutureResourcesRecommendationOtherLocation.status
+NSString * const kGTLRCompute_FutureResourcesRecommendationOtherLocation_Status_ConditionsNotMet = @"CONDITIONS_NOT_MET";
+NSString * const kGTLRCompute_FutureResourcesRecommendationOtherLocation_Status_NoCapacity = @"NO_CAPACITY";
+NSString * const kGTLRCompute_FutureResourcesRecommendationOtherLocation_Status_NotSupported = @"NOT_SUPPORTED";
+NSString * const kGTLRCompute_FutureResourcesRecommendationOtherLocation_Status_OtherLocationStatusUndefined = @"OTHER_LOCATION_STATUS_UNDEFINED";
+NSString * const kGTLRCompute_FutureResourcesRecommendationOtherLocation_Status_Recommended = @"RECOMMENDED";
+
+// GTLRCompute_FutureResourcesSpec.deploymentType
+NSString * const kGTLRCompute_FutureResourcesSpec_DeploymentType_Dense = @"DENSE";
+NSString * const kGTLRCompute_FutureResourcesSpec_DeploymentType_DeploymentTypeUnspecified = @"DEPLOYMENT_TYPE_UNSPECIFIED";
+
+// GTLRCompute_FutureResourcesSpecAggregateResources.vmFamily
+NSString * const kGTLRCompute_FutureResourcesSpecAggregateResources_VmFamily_VmFamilyCloudTpuDeviceCt3 = @"VM_FAMILY_CLOUD_TPU_DEVICE_CT3";
+NSString * const kGTLRCompute_FutureResourcesSpecAggregateResources_VmFamily_VmFamilyCloudTpuLiteDeviceCt5l = @"VM_FAMILY_CLOUD_TPU_LITE_DEVICE_CT5L";
+NSString * const kGTLRCompute_FutureResourcesSpecAggregateResources_VmFamily_VmFamilyCloudTpuLitePodSliceCt5lp = @"VM_FAMILY_CLOUD_TPU_LITE_POD_SLICE_CT5LP";
+NSString * const kGTLRCompute_FutureResourcesSpecAggregateResources_VmFamily_VmFamilyCloudTpuLitePodSliceCt6e = @"VM_FAMILY_CLOUD_TPU_LITE_POD_SLICE_CT6E";
+NSString * const kGTLRCompute_FutureResourcesSpecAggregateResources_VmFamily_VmFamilyCloudTpuPodSliceCt3p = @"VM_FAMILY_CLOUD_TPU_POD_SLICE_CT3P";
+NSString * const kGTLRCompute_FutureResourcesSpecAggregateResources_VmFamily_VmFamilyCloudTpuPodSliceCt4p = @"VM_FAMILY_CLOUD_TPU_POD_SLICE_CT4P";
+NSString * const kGTLRCompute_FutureResourcesSpecAggregateResources_VmFamily_VmFamilyCloudTpuPodSliceCt5p = @"VM_FAMILY_CLOUD_TPU_POD_SLICE_CT5P";
+NSString * const kGTLRCompute_FutureResourcesSpecAggregateResources_VmFamily_VmFamilyCloudTpuPodSliceTpu7x = @"VM_FAMILY_CLOUD_TPU_POD_SLICE_TPU7X";
+
+// GTLRCompute_FutureResourcesSpecAggregateResources.workloadType
+NSString * const kGTLRCompute_FutureResourcesSpecAggregateResources_WorkloadType_Batch = @"BATCH";
+NSString * const kGTLRCompute_FutureResourcesSpecAggregateResources_WorkloadType_Serving = @"SERVING";
+NSString * const kGTLRCompute_FutureResourcesSpecAggregateResources_WorkloadType_Unspecified = @"UNSPECIFIED";
+
+// GTLRCompute_FutureResourcesSpecLocalSsdPartition.diskInterface
+NSString * const kGTLRCompute_FutureResourcesSpecLocalSsdPartition_DiskInterface_Nvme = @"NVME";
+NSString * const kGTLRCompute_FutureResourcesSpecLocalSsdPartition_DiskInterface_Scsi = @"SCSI";
+
+// GTLRCompute_FutureResourcesSpecLocationPolicyLocation.preference
+NSString * const kGTLRCompute_FutureResourcesSpecLocationPolicyLocation_Preference_Allow = @"ALLOW";
+NSString * const kGTLRCompute_FutureResourcesSpecLocationPolicyLocation_Preference_Deny = @"DENY";
+NSString * const kGTLRCompute_FutureResourcesSpecLocationPolicyLocation_Preference_PreferenceUnspecified = @"PREFERENCE_UNSPECIFIED";
 
 // GTLRCompute_GroupMaintenanceInfo.schedulingType
 NSString * const kGTLRCompute_GroupMaintenanceInfo_SchedulingType_Grouped = @"GROUPED";
@@ -8794,9 +8836,9 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_Address
 @dynamic address, addressType, creationTimestamp, descriptionProperty,
-         identifier, ipv6EndpointType, ipVersion, kind, labelFingerprint,
-         labels, name, network, networkTier, prefixLength, purpose, region,
-         selfLink, status, subnetwork, users;
+         identifier, ipCollection, ipv6EndpointType, ipVersion, kind,
+         labelFingerprint, labels, name, network, networkTier, prefixLength,
+         purpose, region, selfLink, status, subnetwork, users;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -10585,6 +10627,72 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_CalendarModeAdviceRequest
+//
+
+@implementation GTLRCompute_CalendarModeAdviceRequest
+@dynamic futureResourcesSpecs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CalendarModeAdviceRequest_FutureResourcesSpecs
+//
+
+@implementation GTLRCompute_CalendarModeAdviceRequest_FutureResourcesSpecs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_FutureResourcesSpec class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CalendarModeAdviceResponse
+//
+
+@implementation GTLRCompute_CalendarModeAdviceResponse
+@dynamic recommendations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recommendations" : [GTLRCompute_CalendarModeRecommendation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CalendarModeRecommendation
+//
+
+@implementation GTLRCompute_CalendarModeRecommendation
+@dynamic recommendationsPerSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_CalendarModeRecommendation_RecommendationsPerSpec
+//
+
+@implementation GTLRCompute_CalendarModeRecommendation_RecommendationsPerSpec
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_FutureResourcesRecommendation class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_CircuitBreakers
 //
 
@@ -12274,6 +12382,17 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_FlexibleTimeRange
+//
+
+@implementation GTLRCompute_FlexibleTimeRange
+@dynamic maxDuration, minDuration, startTimeNotEarlierThan,
+         startTimeNotLaterThan;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_ForwardingRule
 //
 
@@ -12801,6 +12920,133 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_FutureReservationTimeWindow
 @dynamic duration, endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FutureResourcesRecommendation
+//
+
+@implementation GTLRCompute_FutureResourcesRecommendation
+@dynamic endTime, location, otherLocations, recommendationId,
+         recommendationType, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FutureResourcesRecommendation_OtherLocations
+//
+
+@implementation GTLRCompute_FutureResourcesRecommendation_OtherLocations
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_FutureResourcesRecommendationOtherLocation class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FutureResourcesRecommendationOtherLocation
+//
+
+@implementation GTLRCompute_FutureResourcesRecommendationOtherLocation
+@dynamic details, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FutureResourcesSpec
+//
+
+@implementation GTLRCompute_FutureResourcesSpec
+@dynamic deploymentType, locationPolicy, targetResources, timeRangeSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FutureResourcesSpecAggregateResources
+//
+
+@implementation GTLRCompute_FutureResourcesSpecAggregateResources
+@dynamic acceleratorCount, vmFamily, workloadType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FutureResourcesSpecLocalSsdPartition
+//
+
+@implementation GTLRCompute_FutureResourcesSpecLocalSsdPartition
+@dynamic diskInterface, diskSizeGb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FutureResourcesSpecLocationPolicy
+//
+
+@implementation GTLRCompute_FutureResourcesSpecLocationPolicy
+@dynamic locations;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FutureResourcesSpecLocationPolicy_Locations
+//
+
+@implementation GTLRCompute_FutureResourcesSpecLocationPolicy_Locations
+
++ (Class)classForAdditionalProperties {
+  return [GTLRCompute_FutureResourcesSpecLocationPolicyLocation class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FutureResourcesSpecLocationPolicyLocation
+//
+
+@implementation GTLRCompute_FutureResourcesSpecLocationPolicyLocation
+@dynamic preference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FutureResourcesSpecSpecificSKUResources
+//
+
+@implementation GTLRCompute_FutureResourcesSpecSpecificSKUResources
+@dynamic instanceCount, localSsdPartitions, machineType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"localSsdPartitions" : [GTLRCompute_FutureResourcesSpecLocalSsdPartition class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCompute_FutureResourcesSpecTargetResources
+//
+
+@implementation GTLRCompute_FutureResourcesSpecTargetResources
+@dynamic aggregateResources, specificSkuResources;
 @end
 
 
@@ -16389,17 +16635,20 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_InterconnectAttachment
-@dynamic adminEnabled, attachmentGroup, bandwidth, candidateIpv6Subnets,
-         candidateSubnets, cloudRouterIpAddress, cloudRouterIpv6Address,
-         cloudRouterIpv6InterfaceId, configurationConstraints,
-         creationTimestamp, customerRouterIpAddress, customerRouterIpv6Address,
-         customerRouterIpv6InterfaceId, dataplaneVersion, descriptionProperty,
-         edgeAvailabilityDomain, encryption, googleReferenceId, identifier,
-         interconnect, ipsecInternalAddresses, kind, l2Forwarding,
-         labelFingerprint, labels, mtu, name, operationalStatus, pairingKey,
-         params, partnerAsn, partnerMetadata, privateInterconnectInfo, region,
-         remoteService, router, satisfiesPzs, selfLink, stackType, state,
-         subnetLength, type, vlanTag8021q;
+@dynamic adminEnabled, attachmentGroup, bandwidth,
+         candidateCloudRouterIpAddress, candidateCloudRouterIpv6Address,
+         candidateCustomerRouterIpAddress, candidateCustomerRouterIpv6Address,
+         candidateIpv6Subnets, candidateSubnets, cloudRouterIpAddress,
+         cloudRouterIpv6Address, cloudRouterIpv6InterfaceId,
+         configurationConstraints, creationTimestamp, customerRouterIpAddress,
+         customerRouterIpv6Address, customerRouterIpv6InterfaceId,
+         dataplaneVersion, descriptionProperty, edgeAvailabilityDomain,
+         encryption, googleReferenceId, identifier, interconnect,
+         ipsecInternalAddresses, kind, l2Forwarding, labelFingerprint, labels,
+         mtu, name, operationalStatus, pairingKey, params, partnerAsn,
+         partnerMetadata, privateInterconnectInfo, region, remoteService,
+         router, satisfiesPzs, selfLink, stackType, state, subnetLength, type,
+         vlanTag8021q;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -21668,9 +21917,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_PublicDelegatedPrefix
 @dynamic allocatablePrefixLength, byoipApiVersion, creationTimestamp,
-         descriptionProperty, fingerprint, identifier, ipCidrRange,
-         ipv6AccessType, isLiveMigration, kind, mode, name, parentPrefix,
-         publicDelegatedSubPrefixs, region, selfLink, status;
+         descriptionProperty, enableEnhancedIpv4Allocation, fingerprint,
+         identifier, ipCidrRange, ipv6AccessType, isLiveMigration, kind, mode,
+         name, parentPrefix, publicDelegatedSubPrefixs, region, selfLink,
+         status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -21858,7 +22108,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_PublicDelegatedPrefixPublicDelegatedSubPrefix
 @dynamic allocatablePrefixLength, delegateeProject, descriptionProperty,
-         ipCidrRange, ipv6AccessType, isAddress, mode, name, region, status;
+         enableEnhancedIpv4Allocation, ipCidrRange, ipv6AccessType, isAddress,
+         mode, name, region, status;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -23838,9 +24089,10 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_Route
 @dynamic asPaths, creationTimestamp, descriptionProperty, destRange, identifier,
          kind, name, network, nextHopGateway, nextHopHub, nextHopIlb,
-         nextHopInstance, nextHopInterRegionCost, nextHopIp, nextHopMed,
-         nextHopNetwork, nextHopOrigin, nextHopPeering, nextHopVpnTunnel,
-         params, priority, routeStatus, routeType, selfLink, tags, warnings;
+         nextHopInstance, nextHopInterconnectAttachment, nextHopInterRegionCost,
+         nextHopIp, nextHopMed, nextHopNetwork, nextHopOrigin, nextHopPeering,
+         nextHopVpnTunnel, params, priority, routeStatus, routeType, selfLink,
+         tags, warnings;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -24936,7 +25188,7 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 @implementation GTLRCompute_SecurityPolicy
 @dynamic adaptiveProtectionConfig, advancedOptionsConfig, associations,
          creationTimestamp, ddosProtectionConfig, descriptionProperty,
-         fingerprint, identifier, kind, labelFingerprint, labels, name,
+         fingerprint, identifier, kind, labelFingerprint, labels, name, parent,
          recaptchaOptionsConfig, region, rules, selfLink, shortName, type,
          userDefinedFields;
 
@@ -25039,7 +25291,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_SecurityPolicyAdvancedOptionsConfig
-@dynamic jsonCustomConfig, jsonParsing, logLevel, userIpRequestHeaders;
+@dynamic jsonCustomConfig, jsonParsing, logLevel, requestBodyInspectionSize,
+         userIpRequestHeaders;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -26695,8 +26948,8 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 @implementation GTLRCompute_StoragePool
 @dynamic capacityProvisioningType, creationTimestamp, descriptionProperty,
-         identifier, kind, labelFingerprint, labels, name,
-         performanceProvisioningType, poolProvisionedCapacityGb,
+         exapoolProvisionedCapacityGb, identifier, kind, labelFingerprint,
+         labels, name, performanceProvisioningType, poolProvisionedCapacityGb,
          poolProvisionedIops, poolProvisionedThroughput, resourceStatus,
          selfLink, selfLinkWithId, state, status, storagePoolType, zoneProperty;
 
@@ -26818,6 +27071,16 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCompute_StoragePoolExapoolProvisionedCapacityGb
+//
+
+@implementation GTLRCompute_StoragePoolExapoolProvisionedCapacityGb
+@dynamic capacityOptimized, readOptimized, writeOptimized;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCompute_StoragePoolList
 //
 
@@ -26934,10 +27197,12 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_StoragePoolResourceStatus
-@dynamic diskCount, lastResizeTimestamp, maxTotalProvisionedDiskCapacityGb,
-         poolUsedCapacityBytes, poolUsedIops, poolUsedThroughput,
-         poolUserWrittenBytes, totalProvisionedDiskCapacityGb,
-         totalProvisionedDiskIops, totalProvisionedDiskThroughput;
+@dynamic diskCount, exapoolMaxReadIops, exapoolMaxReadThroughput,
+         exapoolMaxWriteIops, exapoolMaxWriteThroughput, lastResizeTimestamp,
+         maxTotalProvisionedDiskCapacityGb, poolUsedCapacityBytes, poolUsedIops,
+         poolUsedThroughput, poolUserWrittenBytes,
+         totalProvisionedDiskCapacityGb, totalProvisionedDiskIops,
+         totalProvisionedDiskThroughput;
 @end
 
 
@@ -27177,13 +27442,13 @@ NSString * const kGTLRCompute_ZoneList_Warning_Code_Unreachable = @"UNREACHABLE"
 //
 
 @implementation GTLRCompute_Subnetwork
-@dynamic creationTimestamp, descriptionProperty, enableFlowLogs,
-         externalIpv6Prefix, fingerprint, gatewayAddress, identifier,
-         internalIpv6Prefix, ipCidrRange, ipCollection, ipv6AccessType,
-         ipv6CidrRange, ipv6GceEndpoint, kind, logConfig, name, network, params,
-         privateIpGoogleAccess, privateIpv6GoogleAccess, purpose, region,
-         reservedInternalRange, role, secondaryIpRanges, selfLink, stackType,
-         state, systemReservedExternalIpv6Ranges,
+@dynamic allowSubnetCidrRoutesOverlap, creationTimestamp, descriptionProperty,
+         enableFlowLogs, externalIpv6Prefix, fingerprint, gatewayAddress,
+         identifier, internalIpv6Prefix, ipCidrRange, ipCollection,
+         ipv6AccessType, ipv6CidrRange, ipv6GceEndpoint, kind, logConfig, name,
+         network, params, privateIpGoogleAccess, privateIpv6GoogleAccess,
+         purpose, region, reservedInternalRange, role, secondaryIpRanges,
+         selfLink, stackType, state, systemReservedExternalIpv6Ranges,
          systemReservedInternalIpv6Ranges, utilizationDetails;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {

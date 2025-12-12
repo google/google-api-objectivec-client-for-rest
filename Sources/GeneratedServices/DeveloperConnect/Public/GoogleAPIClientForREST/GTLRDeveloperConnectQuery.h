@@ -453,6 +453,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @end
 
 /**
+ *  Finishes OAuth flow for an account connector.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.users.finishOAuthFlow
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFinishOAuthFlow : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The resource name of the AccountConnector in the format `projects/
+ *  * /locations/ * /accountConnectors/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *accountConnector;
+
+/** Required. The scopes returned by Google OAuth flow. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *googleOauthParamsScopes;
+
+/**
+ *  Required. The ticket to be used for post processing the callback from Google
+ *  OAuth flow.
+ */
+@property(nonatomic, copy, nullable) NSString *googleOauthParamsTicket;
+
+/** Optional. The version info returned by Google OAuth flow. */
+@property(nonatomic, copy, nullable) NSString *googleOauthParamsVersionInfo;
+
+/** Required. The code to be used for getting the token from SCM provider. */
+@property(nonatomic, copy, nullable) NSString *oauthParamsCode;
+
+/**
+ *  Required. The ticket to be used for post processing the callback from SCM
+ *  provider.
+ */
+@property(nonatomic, copy, nullable) NSString *oauthParamsTicket;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_FinishOAuthResponse.
+ *
+ *  Finishes OAuth flow for an account connector.
+ *
+ *  @param accountConnector Required. The resource name of the AccountConnector
+ *    in the format `projects/ * /locations/ * /accountConnectors/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFinishOAuthFlow
+ */
++ (instancetype)queryWithAccountConnector:(NSString *)accountConnector;
+
+@end
+
+/**
  *  Lists Users in a given project, location, and account_connector.
  *
  *  Method: developerconnect.projects.locations.accountConnectors.users.list
@@ -496,6 +547,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts OAuth flow for an account connector.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.users.startOAuthFlow
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersStartOAuthFlow : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The resource name of the AccountConnector in the format `projects/
+ *  * /locations/ * /accountConnectors/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *accountConnector;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_StartOAuthResponse.
+ *
+ *  Starts OAuth flow for an account connector.
+ *
+ *  @param accountConnector Required. The resource name of the AccountConnector
+ *    in the format `projects/ * /locations/ * /accountConnectors/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersStartOAuthFlow
+ */
++ (instancetype)queryWithAccountConnector:(NSString *)accountConnector;
 
 @end
 
@@ -1358,7 +1439,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @end
 
 /**
- *  Delete a single Insight.
+ *  Deletes a single Insight.
  *
  *  Method: developerconnect.projects.locations.insightsConfigs.delete
  *
@@ -1398,13 +1479,101 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 /**
  *  Fetches a @c GTLRDeveloperConnect_Operation.
  *
- *  Delete a single Insight.
+ *  Deletes a single Insight.
  *
  *  @param name Required. Value for parent.
  *
  *  @return GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a single Deployment Event.
+ *
+ *  Method: developerconnect.projects.locations.insightsConfigs.deploymentEvents.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDeploymentEventsGet : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The name of the deployment event to retrieve. Format:
+ *  projects/{project}/locations/{location}/insightsConfigs/{insights_config}/deploymentEvents/{uuid}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_DeploymentEvent.
+ *
+ *  Gets a single Deployment Event.
+ *
+ *  @param name Required. The name of the deployment event to retrieve. Format:
+ *    projects/{project}/locations/{location}/insightsConfigs/{insights_config}/deploymentEvents/{uuid}
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDeploymentEventsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Deployment Events in a given insights config.
+ *
+ *  Method: developerconnect.projects.locations.insightsConfigs.deploymentEvents.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDeploymentEventsList : GTLRDeveloperConnectQuery
+
+/**
+ *  Optional. Filter expression that matches a subset of the DeploymentEvents.
+ *  https://google.aip.dev/160.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of deployment events to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 deployment events
+ *  will be returned. The maximum value is 1000; values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListDeploymentEvents`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListDeploymentEvents` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent insights config that owns this collection of deployment
+ *  events. Format:
+ *  projects/{project}/locations/{location}/insightsConfigs/{insights_config}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_ListDeploymentEventsResponse.
+ *
+ *  Lists Deployment Events in a given insights config.
+ *
+ *  @param parent Required. The parent insights config that owns this collection
+ *    of deployment events. Format:
+ *    projects/{project}/locations/{location}/insightsConfigs/{insights_config}
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDeploymentEventsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1557,8 +1726,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @interface GTLRDeveloperConnectQuery_ProjectsLocationsList : GTLRDeveloperConnectQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1734,9 +1903,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

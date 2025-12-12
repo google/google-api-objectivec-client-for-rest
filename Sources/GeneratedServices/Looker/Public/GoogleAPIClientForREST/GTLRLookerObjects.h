@@ -31,6 +31,7 @@
 @class GTLRLooker_Operation;
 @class GTLRLooker_Operation_Metadata;
 @class GTLRLooker_Operation_Response;
+@class GTLRLooker_PeriodicExportConfig;
 @class GTLRLooker_PscConfig;
 @class GTLRLooker_ServiceAttachment;
 @class GTLRLooker_Status;
@@ -814,6 +815,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 /** Looker instance OAuth login settings. */
 @property(nonatomic, strong, nullable) GTLRLooker_OAuthConfig *oauthConfig;
 
+/** Optional. Configuration for periodic export. */
+@property(nonatomic, strong, nullable) GTLRLooker_PeriodicExportConfig *periodicExportConfig;
+
 /**
  *  Platform edition.
  *
@@ -1080,8 +1084,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1331,6 +1336,29 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 
 /** Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Configuration for periodic export.
+ */
+@interface GTLRLooker_PeriodicExportConfig : GTLRObject
+
+/**
+ *  Required. Cloud Storage bucket URI for periodic export. Format:
+ *  gs://{bucket_name}
+ */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
+
+/**
+ *  Required. Name of the CMEK key in KMS. Format:
+ *  projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{crypto_key}
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKey;
+
+/** Required. Time in UTC to start the periodic export job. */
+@property(nonatomic, strong, nullable) GTLRLooker_TimeOfDay *startTime;
 
 @end
 

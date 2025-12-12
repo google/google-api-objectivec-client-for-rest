@@ -43,6 +43,8 @@
 @class GTLRNetworkSecurity_CustomInterceptProfile;
 @class GTLRNetworkSecurity_CustomMirroringProfile;
 @class GTLRNetworkSecurity_Destination;
+@class GTLRNetworkSecurity_DnsThreatDetector;
+@class GTLRNetworkSecurity_DnsThreatDetector_Labels;
 @class GTLRNetworkSecurity_Expr;
 @class GTLRNetworkSecurity_FirewallEndpoint;
 @class GTLRNetworkSecurity_FirewallEndpoint_Labels;
@@ -408,6 +410,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_BackendAuthenticationCon
  *  Value: "WELL_KNOWN_ROOTS_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_BackendAuthenticationConfig_WellKnownRoots_WellKnownRootsUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_DnsThreatDetector.provider
+
+/**
+ *  The Infoblox DNS threat detector provider.
+ *
+ *  Value: "INFOBLOX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_DnsThreatDetector_Provider_Infoblox;
+/**
+ *  An unspecified provider.
+ *
+ *  Value: "PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_DnsThreatDetector_Provider_ProviderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_FirewallEndpoint.state
@@ -2458,9 +2476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 @interface GTLRNetworkSecurity_CustomMirroringProfile : GTLRObject
 
 /**
- *  Required. The target MirroringEndpointGroup. When a mirroring rule with this
- *  security profile attached matches a packet, a replica will be mirrored to
- *  the location-local target in this group.
+ *  Required. Immutable. The target MirroringEndpointGroup. When a mirroring
+ *  rule with this security profile attached matches a packet, a replica will be
+ *  mirrored to the location-local target in this group.
  */
 @property(nonatomic, copy, nullable) NSString *mirroringEndpointGroup;
 
@@ -2503,6 +2521,63 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *ports;
 
+@end
+
+
+/**
+ *  A DNS threat detector sends DNS query logs to a _provider_ that then
+ *  analyzes the logs to identify threat events in the DNS queries. By default,
+ *  all VPC networks in your projects are included. You can exclude specific
+ *  networks by supplying `excluded_networks`.
+ */
+@interface GTLRNetworkSecurity_DnsThreatDetector : GTLRObject
+
+/** Output only. Create time stamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. A list of network resource names which aren't monitored by this
+ *  DnsThreatDetector. Example:
+ *  `projects/PROJECT_ID/global/networks/NETWORK_NAME`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludedNetworks;
+
+/**
+ *  Optional. Any labels associated with the DnsThreatDetector, listed as key
+ *  value pairs.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_DnsThreatDetector_Labels *labels;
+
+/** Immutable. Identifier. Name of the DnsThreatDetector resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The provider used for DNS threat analysis.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_DnsThreatDetector_Provider_Infoblox The
+ *        Infoblox DNS threat detector provider. (Value: "INFOBLOX")
+ *    @arg @c kGTLRNetworkSecurity_DnsThreatDetector_Provider_ProviderUnspecified
+ *        An unspecified provider. (Value: "PROVIDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *provider;
+
+/** Output only. Update time stamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Any labels associated with the DnsThreatDetector, listed as key
+ *  value pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkSecurity_DnsThreatDetector_Labels : GTLRObject
 @end
 
 
@@ -4082,6 +4157,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 
 /**
+ *  The response message to requesting a list of DnsThreatDetectors.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dnsThreatDetectors" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkSecurity_ListDnsThreatDetectorsResponse : GTLRCollectionObject
+
+/**
+ *  The list of DnsThreatDetector resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_DnsThreatDetector *> *dnsThreatDetectors;
+
+/** A token, which can be sent as `page_token`, to retrieve the next page. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Unreachable `DnsThreatDetector` resources. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Message for response to listing Associations
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4474,8 +4576,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

@@ -358,6 +358,7 @@ NSString * const kGTLRHangoutsChat_Membership_State_NotAMember = @"NOT_A_MEMBER"
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_CalendarEvent = @"CALENDAR_EVENT";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_ChatSpace = @"CHAT_SPACE";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_DriveFile = @"DRIVE_FILE";
+NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_GmailMessage = @"GMAIL_MESSAGE";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_MeetSpace = @"MEET_SPACE";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_RichLinkTypeUnspecified = @"RICH_LINK_TYPE_UNSPECIFIED";
 

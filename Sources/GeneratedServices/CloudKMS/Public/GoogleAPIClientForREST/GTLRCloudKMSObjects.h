@@ -79,6 +79,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_Prote
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Hsm;
 /**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_HsmSingleTenant;
+/**
  *  Not specified.
  *
  *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
@@ -112,6 +118,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricSignResponse_Protecti
  *  Value: "HSM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Hsm;
+/**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_HsmSingleTenant;
 /**
  *  Not specified.
  *
@@ -385,6 +397,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSi
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa44;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 1. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa44ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 3. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_65"
@@ -392,11 +412,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSi
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa65;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa65ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 5. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_87"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa87;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 5. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa87ExternalMu;
 /**
  *  The post-quantum stateless hash-based digital signature algorithm, at
  *  security level 1. Randomized version.
@@ -534,6 +570,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLeve
  *  Value: "HSM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_Hsm;
+/**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_HsmSingleTenant;
 /**
  *  Not specified.
  *
@@ -787,6 +829,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa44;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 1. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa44ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 3. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_65"
@@ -794,11 +844,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algori
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 5. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_87"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa87;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 5. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa87ExternalMu;
 /**
  *  The post-quantum stateless hash-based digital signature algorithm, at
  *  security level 1. Randomized version.
@@ -937,6 +1003,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_Protec
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Hsm;
 /**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_HsmSingleTenant;
+/**
  *  Not specified.
  *
  *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
@@ -971,6 +1043,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecapsulateResponse_ProtectionL
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_Hsm;
 /**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_HsmSingleTenant;
+/**
  *  Not specified.
  *
  *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
@@ -1004,6 +1082,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel
  *  Value: "HSM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Hsm;
+/**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_DecryptResponse_ProtectionLevel_HsmSingleTenant;
 /**
  *  Not specified.
  *
@@ -1075,6 +1159,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Hsm;
 /**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_EncryptResponse_ProtectionLevel_HsmSingleTenant;
+/**
  *  Not specified.
  *
  *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
@@ -1108,6 +1198,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_Prot
  *  Value: "HSM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Hsm;
+/**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_HsmSingleTenant;
 /**
  *  Not specified.
  *
@@ -1273,6 +1369,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa44;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 1. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa44ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 3. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_65"
@@ -1280,11 +1384,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_A
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 5. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_87"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa87;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 5. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa87ExternalMu;
 /**
  *  The post-quantum stateless hash-based digital signature algorithm, at
  *  security level 1. Randomized version.
@@ -1491,6 +1611,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Exter
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_Hsm;
 /**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_ImportJob_ProtectionLevel_HsmSingleTenant;
+/**
  *  Not specified.
  *
  *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
@@ -1674,6 +1800,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Hsm;
 /**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacSignResponse_ProtectionLevel_HsmSingleTenant;
+/**
  *  Not specified.
  *
  *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
@@ -1707,6 +1839,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLev
  *  Value: "HSM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Hsm;
+/**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_HsmSingleTenant;
 /**
  *  Not specified.
  *
@@ -1872,6 +2010,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignHashS
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa44;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 1. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa44ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 3. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_65"
@@ -1879,11 +2025,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa65;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa65ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 5. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_87"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa87;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 5. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa87ExternalMu;
 /**
  *  The post-quantum stateless hash-based digital signature algorithm, at
  *  security level 1. Randomized version.
@@ -2022,6 +2184,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Exter
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_Hsm;
 /**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_PublicKey_ProtectionLevel_HsmSingleTenant;
+/**
  *  Not specified.
  *
  *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
@@ -2100,6 +2268,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawDecryptResponse_ProtectionLe
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_Hsm;
 /**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_HsmSingleTenant;
+/**
  *  Not specified.
  *
  *  Value: "PROTECTION_LEVEL_UNSPECIFIED"
@@ -2133,6 +2307,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  Value: "HSM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Hsm;
+/**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_HsmSingleTenant;
 /**
  *  Not specified.
  *
@@ -2222,6 +2402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_AsymmetricDecryptResponse_ProtectionLevel_Software
@@ -2329,6 +2512,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_AsymmetricSignResponse_ProtectionLevel_Software
@@ -2456,7 +2642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 
 
 /**
- *  Cloud KMS Autokey configuration for a folder or project.
+ *  Cloud KMS Autokey configuration for a folder.
  */
 @interface GTLRCloudKMS_AutokeyConfig : GTLRObject
 
@@ -2484,7 +2670,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 /**
  *  Identifier. Name of the AutokeyConfig resource, e.g.
  *  `folders/{FOLDER_NUMBER}/autokeyConfig`
- *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2726,9 +2911,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *  material for all CryptoKeyVersions associated with this CryptoKey reside and
  *  where all related cryptographic operations are performed. Only applicable if
  *  CryptoKeyVersions have a ProtectionLevel of EXTERNAL_VPC, with the resource
- *  name in the format `projects/ * /locations/ * /ekmConnections/ *`. Note,
- *  this list is non-exhaustive and may apply to additional ProtectionLevels in
- *  the future.
+ *  name in the format `projects/ * /locations/ * /ekmConnections/ *`. Only
+ *  applicable if CryptoKeyVersions have a ProtectionLevel of HSM_SINGLE_TENANT,
+ *  with the resource name in the format `projects/ * /locations/ *
+ *  /singleTenantHsmInstances/ *`. Note, this list is non-exhaustive and may
+ *  apply to additional ProtectionLevels in the future.
  */
 @property(nonatomic, copy, nullable) NSString *cryptoKeyBackend;
 
@@ -2927,12 +3114,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa44 The
  *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 1. Randomized version. (Value: "PQ_SIGN_ML_DSA_44")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa44ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 1. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa65 The
  *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa65ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa87 The
  *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 5. Randomized version. (Value: "PQ_SIGN_ML_DSA_87")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignMlDsa87ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 5. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_Algorithm_PqSignSlhDsaSha2128s The
  *        post-quantum stateless hash-based digital signature algorithm, at
  *        security level 1. Randomized version. (Value:
@@ -3080,6 +3279,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersion_ProtectionLevel_Software Crypto
@@ -3232,12 +3434,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa44 The
  *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 1. Randomized version. (Value: "PQ_SIGN_ML_DSA_44")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa44ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 1. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65 The
  *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa87 The
  *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 5. Randomized version. (Value: "PQ_SIGN_ML_DSA_87")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa87ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 5. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_Algorithm_PqSignSlhDsaSha2128s
  *        The post-quantum stateless hash-based digital signature algorithm, at
  *        security level 1. Randomized version. (Value:
@@ -3312,6 +3526,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_CryptoKeyVersionTemplate_ProtectionLevel_Software
@@ -3380,6 +3597,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_DecapsulateResponse_ProtectionLevel_Software Crypto
@@ -3536,6 +3756,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_DecryptResponse_ProtectionLevel_Software Crypto
@@ -3796,6 +4019,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_EncryptResponse_ProtectionLevel_Software Crypto
@@ -3929,6 +4155,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *    @arg @c kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Hsm
  *        Crypto operations are performed in a Hardware Security Module. (Value:
  *        "HSM")
+ *    @arg @c kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_GenerateRandomBytesRequest_ProtectionLevel_Software
@@ -4048,12 +4277,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa44
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 1. Randomized version. (Value: "PQ_SIGN_ML_DSA_44")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa44ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 1. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa65ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa87
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 5. Randomized version. (Value: "PQ_SIGN_ML_DSA_87")
+ *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignMlDsa87ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 5. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_ImportCryptoKeyVersionRequest_Algorithm_PqSignSlhDsaSha2128s
  *        The post-quantum stateless hash-based digital signature algorithm, at
  *        security level 1. Randomized version. (Value:
@@ -4202,6 +4443,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Immutable. The resource name of the backend environment where the key
+ *  material for the wrapping key resides and where all related cryptographic
+ *  operations are performed. Currently, this field is only populated for keys
+ *  stored in HSM_SINGLE_TENANT. Note, this list is non-exhaustive and may apply
+ *  to additional ProtectionLevels in the future.
+ */
+@property(nonatomic, copy, nullable) NSString *cryptoKeyBackend;
+
+/**
  *  Output only. The time this ImportJob expired. Only present if state is
  *  EXPIRED.
  */
@@ -4283,6 +4533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_ImportJob_ProtectionLevel_Hsm Crypto operations are
  *        performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_ImportJob_ProtectionLevel_HsmSingleTenant Crypto
+ *        operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_ImportJob_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_ImportJob_ProtectionLevel_Software Crypto operations
@@ -4775,6 +5028,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  */
 @property(nonatomic, strong, nullable) NSNumber *hsmAvailable;
 
+/**
+ *  Indicates whether CryptoKeys with protection_level HSM_SINGLE_TENANT can be
+ *  created in this location.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hsmSingleTenantAvailable;
+
 @end
 
 
@@ -4859,6 +5120,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_MacSignResponse_ProtectionLevel_Software Crypto
@@ -4964,6 +5228,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_MacVerifyResponse_ProtectionLevel_Software Crypto
@@ -5261,12 +5528,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa44 The post-quantum
  *        Module-Lattice-Based Digital Signature Algorithm, at security level 1.
  *        Randomized version. (Value: "PQ_SIGN_ML_DSA_44")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa44ExternalMu The
+ *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 1. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa65 The post-quantum
  *        Module-Lattice-Based Digital Signature Algorithm, at security level 3.
  *        Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa65ExternalMu The
+ *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa87 The post-quantum
  *        Module-Lattice-Based Digital Signature Algorithm, at security level 5.
  *        Randomized version. (Value: "PQ_SIGN_ML_DSA_87")
+ *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignMlDsa87ExternalMu The
+ *        post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 5. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU")
  *    @arg @c kGTLRCloudKMS_PublicKey_Algorithm_PqSignSlhDsaSha2128s The
  *        post-quantum stateless hash-based digital signature algorithm, at
  *        security level 1. Randomized version. (Value:
@@ -5366,6 +5645,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_Hsm Crypto operations are
  *        performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_HsmSingleTenant Crypto
+ *        operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_PublicKey_ProtectionLevel_Software Crypto operations
@@ -5555,6 +5837,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_RawDecryptResponse_ProtectionLevel_Software Crypto
@@ -5779,6 +6064,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLe
  *        "EXTERNAL_VPC")
  *    @arg @c kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Hsm Crypto
  *        operations are performed in a Hardware Security Module. (Value: "HSM")
+ *    @arg @c kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software Crypto

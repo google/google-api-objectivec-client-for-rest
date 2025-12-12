@@ -21,6 +21,52 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// specContentType
+
+/**
+ *  The spec content type for boosted spec.
+ *
+ *  Value: "BOOSTED_SPEC_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhubSpecContentTypeBoostedSpecContent;
+/**
+ *  Unspecified spec content type. Defaults to spec content uploaded by the
+ *  user.
+ *
+ *  Value: "SPEC_CONTENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhubSpecContentTypeSpecContentTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  The default view type.
+ *
+ *  Value: "API_VIEW_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewApiViewTypeUnspecified;
+/**
+ *  The MCP server view in API hub.
+ *
+ *  Value: "MCP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpServer;
+/**
+ *  The MCP tool view in API hub.
+ *
+ *  Value: "MCP_TOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other API hub query classes.
  */
@@ -28,6 +74,132 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Get an addon.
+ *
+ *  Method: apihub.projects.locations.addons.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsAddonsGet : GTLRAPIhubQuery
+
+/**
+ *  Required. The name of the addon to get. Format:
+ *  `projects/{project}/locations/{location}/addons/{addon}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleCloudApihubV1Addon.
+ *
+ *  Get an addon.
+ *
+ *  @param name Required. The name of the addon to get. Format:
+ *    `projects/{project}/locations/{location}/addons/{addon}`.
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsAddonsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List addons.
+ *
+ *  Method: apihub.projects.locations.addons.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsAddonsList : GTLRAPIhubQuery
+
+/**
+ *  Optional. An expression that filters the list of addons. The only supported
+ *  filter is `plugin_instance_name`. It can be used to filter addons that are
+ *  enabled for a given plugin instance. The format of the filter is
+ *  `plugin_instance_name =
+ *  "projects/{project}/locations/{location}/plugins/{plugin}/instances/{instance}"`.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of hub addons to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 hub addons will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListAddons` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  (except page_size) provided to `ListAddons` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource where this addon will be created. Format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleCloudApihubV1ListAddonsResponse.
+ *
+ *  List addons.
+ *
+ *  @param parent Required. The parent resource where this addon will be
+ *    created. Format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsAddonsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Manage addon config. This RPC is used for managing the config of the addon.
+ *  Calling this RPC moves the addon into an updating state until the
+ *  long-running operation succeeds.
+ *
+ *  Method: apihub.projects.locations.addons.manageConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsAddonsManageConfig : GTLRAPIhubQuery
+
+/**
+ *  Required. The name of the addon for which the config is to be managed.
+ *  Format: `projects/{project}/locations/{location}/addons/{addon}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleLongrunningOperation.
+ *
+ *  Manage addon config. This RPC is used for managing the config of the addon.
+ *  Calling this RPC moves the addon into an updating state until the
+ *  long-running operation succeeds.
+ *
+ *  @param object The @c GTLRAPIhub_GoogleCloudApihubV1ManageAddonConfigRequest
+ *    to include in the query.
+ *  @param name Required. The name of the addon for which the config is to be
+ *    managed. Format: `projects/{project}/locations/{location}/addons/{addon}`.
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsAddonsManageConfig
+ */
++ (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1ManageAddonConfigRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -355,7 +527,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  resource name. For example, `id(name) = \\"api-1\\"` is equivalent to `name
  *  = \\"projects/test-project-id/locations/test-location-id/apis/api-1\\"`
  *  provided the parent is
- *  `projects/test-project-id/locations/test-location-id`. Expressions are
+ *  `projects/test-project-id/locations/test-location-id`. Another supported
+ *  filter function is `plugins(source_metadata)`. This function filters for
+ *  resources that are associated with a specific plugin. For example,
+ *  `plugins(source_metadata) :
+ *  "projects/test-project-id/locations/test-location-id/plugins/test-plugin-id"`
+ *  will return resources sourced from the given plugin. Expressions are
  *  combined with either `AND` logic operator or `OR` logical operator but not
  *  both of them together i.e. only one of the `AND` or `OR` operator can be
  *  used throughout the filter string and both the operators cannot be used
@@ -978,8 +1155,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  ApiOperation resource can be updated: * details.description *
  *  details.documentation * details.http_operation.path *
  *  details.http_operation.method * details.deprecated * attributes *
- *  details.mcp_tool.title * details.mcp_tool.description * details.input_schema
- *  * details.output_schema * details.mcp_tool.annotations.title *
+ *  details.mcp_tool.title * details.mcp_tool.description *
+ *  details.mcp_tool.input_schema * details.mcp_tool.output_schema *
+ *  details.input_schema * details.output_schema *
+ *  details.mcp_tool.annotations.title *
  *  details.mcp_tool.annotations.read_only_hint *
  *  details.mcp_tool.annotations.destructive_hint *
  *  details.mcp_tool.annotations.idempotent_hint *
@@ -1016,8 +1195,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  ApiOperation resource can be updated: * details.description *
  *  details.documentation * details.http_operation.path *
  *  details.http_operation.method * details.deprecated * attributes *
- *  details.mcp_tool.title * details.mcp_tool.description * details.input_schema
- *  * details.output_schema * details.mcp_tool.annotations.title *
+ *  details.mcp_tool.title * details.mcp_tool.description *
+ *  details.mcp_tool.input_schema * details.mcp_tool.output_schema *
+ *  details.input_schema * details.output_schema *
+ *  details.mcp_tool.annotations.title *
  *  details.mcp_tool.annotations.read_only_hint *
  *  details.mcp_tool.annotations.destructive_hint *
  *  details.mcp_tool.annotations.idempotent_hint *
@@ -1182,6 +1363,50 @@ NS_ASSUME_NONNULL_BEGIN
  *    `projects/{project}/locations/{location}/apis/{api}/versions/{version}/specs/{spec}`
  *
  *  @return GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetch additional spec content.
+ *
+ *  Method: apihub.projects.locations.apis.versions.specs.fetchAdditionalSpecContent
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsFetchAdditionalSpecContent : GTLRAPIhubQuery
+
+/**
+ *  Required. The name of the spec whose contents need to be retrieved. Format:
+ *  `projects/{project}/locations/{location}/apis/{api}/versions/{version}/specs/{spec}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The type of the spec contents to be retrieved.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhubSpecContentTypeSpecContentTypeUnspecified Unspecified
+ *        spec content type. Defaults to spec content uploaded by the user.
+ *        (Value: "SPEC_CONTENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhubSpecContentTypeBoostedSpecContent The spec content type
+ *        for boosted spec. (Value: "BOOSTED_SPEC_CONTENT")
+ */
+@property(nonatomic, copy, nullable) NSString *specContentType;
+
+/**
+ *  Fetches a @c
+ *  GTLRAPIhub_GoogleCloudApihubV1FetchAdditionalSpecContentResponse.
+ *
+ *  Fetch additional spec content.
+ *
+ *  @param name Required. The name of the spec whose contents need to be
+ *    retrieved. Format:
+ *    `projects/{project}/locations/{location}/apis/{api}/versions/{version}/specs/{spec}`
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsApisVersionsSpecsFetchAdditionalSpecContent
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -3254,9 +3479,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -3707,10 +3932,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  filtering. The value must be a string. The comparison operator must be one
  *  of: `<`, `>` or `=`. Filters are not case sensitive. The following fields in
  *  the `PluginInstances` are eligible for filtering: * `state` - The state of
- *  the Plugin Instance. Allowed comparison operators: `=`. A filter function is
- *  also supported in the filter string. The filter function is `id(name)`. The
- *  `id(name)` function returns the id of the resource name. For example,
- *  `id(name) = \\"plugin-instance-1\\"` is equivalent to `name =
+ *  the Plugin Instance. Allowed comparison operators: `=`. *
+ *  `source_project_id` - The source project id of the Plugin Instance. Allowed
+ *  comparison operators: `=`. A filter function is also supported in the filter
+ *  string. The filter function is `id(name)`. The `id(name)` function returns
+ *  the id of the resource name. For example, `id(name) =
+ *  \\"plugin-instance-1\\"` is equivalent to `name =
  *  \\"projects/test-project-id/locations/test-location-id/plugins/plugin-1/instances/plugin-instance-1\\"`
  *  provided the parent is
  *  `projects/test-project-id/locations/test-location-id/plugins/plugin-1`.
@@ -3994,6 +4221,65 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1StyleGuide *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieve API views.
+ *
+ *  Method: apihub.projects.locations.retrieveApiViews
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsRetrieveApiViews : GTLRAPIhubQuery
+
+/** Optional. The filter expression. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. The maximum number of results to return. Default to 100. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `RetrieveApiViews` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource name. Format:
+ *  `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The view type to return.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhubViewApiViewTypeUnspecified The default view type.
+ *        (Value: "API_VIEW_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhubViewMcpServer The MCP server view in API hub. (Value:
+ *        "MCP_SERVER")
+ *    @arg @c kGTLRAPIhubViewMcpTool The MCP tool view in API hub. (Value:
+ *        "MCP_TOOL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleCloudApihubV1RetrieveApiViewsResponse.
+ *
+ *  Retrieve API views.
+ *
+ *  @param parent Required. The parent resource name. Format:
+ *    `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsRetrieveApiViews
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

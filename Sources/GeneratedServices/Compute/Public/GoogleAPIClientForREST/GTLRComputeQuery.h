@@ -70,7 +70,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMinimalActionNoEffect;
  */
 FOUNDATION_EXTERN NSString * const kGTLRComputeMinimalActionRefresh;
 /**
- *  The instance will restart.
+ *  The instance will restart, potentially on a different host.
  *
  *  Value: "RESTART"
  */
@@ -94,7 +94,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionNoEffe
  */
 FOUNDATION_EXTERN NSString * const kGTLRComputeMostDisruptiveAllowedActionRefresh;
 /**
- *  The instance will restart.
+ *  The instance will restart, potentially on a different host.
  *
  *  Value: "RESTART"
  */
@@ -1061,6 +1061,47 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
                         project:(NSString *)project
                          region:(NSString *)region
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Advise how, where and when to create the requested amount of instances
+ *  with specified accelerators, within the specified time and location limits.
+ *  The method recommends creating future reservations for the requested
+ *  resources.
+ *
+ *  Method: compute.advice.calendarMode
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_AdviceCalendarMode : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_CalendarModeAdviceResponse.
+ *
+ *  Advise how, where and when to create the requested amount of instances
+ *  with specified accelerators, within the specified time and location limits.
+ *  The method recommends creating future reservations for the requested
+ *  resources.
+ *
+ *  @param object The @c GTLRCompute_CalendarModeAdviceRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region for this request.
+ *
+ *  @return GTLRComputeQuery_AdviceCalendarMode
+ */
++ (instancetype)queryWithObject:(GTLRCompute_CalendarModeAdviceRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
 
 @end
 
@@ -18635,8 +18676,8 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *        instance. (Value: "NO_EFFECT")
  *    @arg @c kGTLRComputeMinimalActionRefresh The instance will not restart.
  *        (Value: "REFRESH")
- *    @arg @c kGTLRComputeMinimalActionRestart The instance will restart.
- *        (Value: "RESTART")
+ *    @arg @c kGTLRComputeMinimalActionRestart The instance will restart,
+ *        potentially on a different host. (Value: "RESTART")
  */
 @property(nonatomic, copy, nullable) NSString *minimalAction;
 
@@ -18654,7 +18695,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *    @arg @c kGTLRComputeMostDisruptiveAllowedActionRefresh The instance will
  *        not restart. (Value: "REFRESH")
  *    @arg @c kGTLRComputeMostDisruptiveAllowedActionRestart The instance will
- *        restart. (Value: "RESTART")
+ *        restart, potentially on a different host. (Value: "RESTART")
  */
 @property(nonatomic, copy, nullable) NSString *mostDisruptiveAllowedAction;
 
@@ -29442,8 +29483,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  This has billing implications. Projects in the hierarchy with effective
  *  hierarchical security policies will be automatically enrolled into Cloud
  *  Armor Enterprise if not already enrolled.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.addAssociation instead if possible.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.addAssociation
+ *  instead.
  *
  *  Method: compute.organizationSecurityPolicies.addAssociation
  *
@@ -29485,8 +29528,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  This has billing implications. Projects in the hierarchy with effective
  *  hierarchical security policies will be automatically enrolled into Cloud
  *  Armor Enterprise if not already enrolled.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.addAssociation instead if possible.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.addAssociation
+ *  instead.
  *
  *  @param object The @c GTLRCompute_SecurityPolicyAssociation to include in the
  *    query.
@@ -29501,6 +29546,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  Inserts a rule into a security policy.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.addRule instead.
  *
  *  Method: compute.organizationSecurityPolicies.addRule
  *
@@ -29532,6 +29580,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Inserts a rule into a security policy.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.addRule instead.
  *
  *  @param object The @c GTLRCompute_SecurityPolicyRule to include in the query.
  *  @param securityPolicy Name of the security policy to update.
@@ -29545,8 +29596,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  Copies rules to the specified security policy.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.copyRules instead.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.cloneRules
+ *  instead.
  *
  *  Method: compute.organizationSecurityPolicies.copyRules
  *
@@ -29581,8 +29634,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Copies rules to the specified security policy.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.copyRules instead.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.cloneRules
+ *  instead.
  *
  *  @param securityPolicy Name of the security policy to update.
  *
@@ -29594,8 +29649,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  Deletes the specified policy.
- *  Use of this API to remove firewall policies is deprecated. Use
- *  firewallPolicies.delete instead.
+ *  Use this API to remove Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to remove firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.delete instead.
  *
  *  Method: compute.organizationSecurityPolicies.delete
  *
@@ -29627,8 +29683,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Deletes the specified policy.
- *  Use of this API to remove firewall policies is deprecated. Use
- *  firewallPolicies.delete instead.
+ *  Use this API to remove Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to remove firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.delete instead.
  *
  *  @param securityPolicy Name of the security policy to delete.
  *
@@ -29640,8 +29697,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  List all of the ordered rules present in a single specified policy.
- *  Use of this API to read firewall policies is deprecated. Use
- *  firewallPolicies.get instead.
+ *  Use this API to read Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to read firewall policies. This usage is now
+ *  disabled for most organizations. Use firewallPolicies.get instead.
  *
  *  Method: compute.organizationSecurityPolicies.get
  *
@@ -29659,8 +29717,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  Fetches a @c GTLRCompute_SecurityPolicy.
  *
  *  List all of the ordered rules present in a single specified policy.
- *  Use of this API to read firewall policies is deprecated. Use
- *  firewallPolicies.get instead.
+ *  Use this API to read Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to read firewall policies. This usage is now
+ *  disabled for most organizations. Use firewallPolicies.get instead.
  *
  *  @param securityPolicy Name of the security policy to get.
  *
@@ -29672,8 +29731,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  Gets an association with the specified name.
- *  Use of this API to read firewall policies is deprecated. Use
- *  firewallPolicies.getAssociation instead if possible.
+ *  Use this API to read Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to read firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.getAssociation
+ *  instead.
  *
  *  Method: compute.organizationSecurityPolicies.getAssociation
  *
@@ -29694,8 +29755,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  Fetches a @c GTLRCompute_SecurityPolicyAssociation.
  *
  *  Gets an association with the specified name.
- *  Use of this API to read firewall policies is deprecated. Use
- *  firewallPolicies.getAssociation instead if possible.
+ *  Use this API to read Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to read firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.getAssociation
+ *  instead.
  *
  *  @param securityPolicy Name of the security policy to which the queried rule
  *    belongs.
@@ -29708,8 +29771,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  Gets a rule at the specified priority.
- *  Use of this API to read firewall policies is deprecated. Use
- *  firewallPolicies.getRule instead.
+ *  Use this API to read Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to read firewall policies. This usage is now
+ *  disabled for most organizations. Use firewallPolicies.getRule instead.
  *
  *  Method: compute.organizationSecurityPolicies.getRule
  *
@@ -29730,8 +29794,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  Fetches a @c GTLRCompute_SecurityPolicyRule.
  *
  *  Gets a rule at the specified priority.
- *  Use of this API to read firewall policies is deprecated. Use
- *  firewallPolicies.getRule instead.
+ *  Use this API to read Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to read firewall policies. This usage is now
+ *  disabled for most organizations. Use firewallPolicies.getRule instead.
  *
  *  @param securityPolicy Name of the security policy to which the queried rule
  *    belongs.
@@ -29745,8 +29810,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 /**
  *  Creates a new policy in the specified organization using the data included
  *  in the request.
- *  Use of this API to insert firewall policies is deprecated. Use
- *  firewallPolicies.insert instead.
+ *  Use this API to add Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to add firewall policies. This usage is now
+ *  disabled for most organizations. Use firewallPolicies.insert instead.
  *
  *  Method: compute.organizationSecurityPolicies.insert
  *
@@ -29783,8 +29849,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *
  *  Creates a new policy in the specified organization using the data included
  *  in the request.
- *  Use of this API to insert firewall policies is deprecated. Use
- *  firewallPolicies.insert instead.
+ *  Use this API to add Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to add firewall policies. This usage is now
+ *  disabled for most organizations. Use firewallPolicies.insert instead.
  *
  *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
  *
@@ -29797,8 +29864,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 /**
  *  List all the policies that have been configured for the specified
  *  organization.
- *  Use of this API to read firewall policies is deprecated. Use
- *  firewallPolicies.list instead.
+ *  Use this API to read Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to read firewall policies. This usage is now
+ *  disabled for most organizations. Use firewallPolicies.list instead.
  *
  *  Method: compute.organizationSecurityPolicies.list
  *
@@ -29910,8 +29978,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *
  *  List all the policies that have been configured for the specified
  *  organization.
- *  Use of this API to read firewall policies is deprecated. Use
- *  firewallPolicies.list instead.
+ *  Use this API to read Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to read firewall policies. This usage is now
+ *  disabled for most organizations. Use firewallPolicies.list instead.
  *
  *  @return GTLRComputeQuery_OrganizationSecurityPoliciesList
  *
@@ -29925,8 +29994,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  Lists associations of a specified target, i.e., organization or folder.
- *  Use of this API to read firewall policies is deprecated. Use
- *  firewallPolicies.listAssociations instead if possible.
+ *  Use this API to read Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to read firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.listAssociations
+ *  instead.
  *
  *  Method: compute.organizationSecurityPolicies.listAssociations
  *
@@ -29948,8 +30019,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  GTLRCompute_OrganizationSecurityPoliciesListAssociationsResponse.
  *
  *  Lists associations of a specified target, i.e., organization or folder.
- *  Use of this API to read firewall policies is deprecated. Use
- *  firewallPolicies.listAssociations instead if possible.
+ *  Use this API to read Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to read firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.listAssociations
+ *  instead.
  *
  *  @return GTLRComputeQuery_OrganizationSecurityPoliciesListAssociations
  */
@@ -30081,8 +30154,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  Moves the specified security policy.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.move instead.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.move instead.
  *
  *  Method: compute.organizationSecurityPolicies.move
  *
@@ -30117,8 +30191,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Moves the specified security policy.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.move instead.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.move instead.
  *
  *  @param securityPolicy Name of the security policy to update.
  *
@@ -30130,8 +30205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  Patches the specified policy with the data included in the request.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.patch instead.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.patch instead.
  *
  *  Method: compute.organizationSecurityPolicies.patch
  *
@@ -30163,8 +30239,9 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches the specified policy with the data included in the request.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.patch instead.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.patch instead.
  *
  *  @param object The @c GTLRCompute_SecurityPolicy to include in the query.
  *  @param securityPolicy Name of the security policy to update.
@@ -30178,8 +30255,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  Patches a rule at the specified priority.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.patchRule instead.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.patchRule
+ *  instead.
  *
  *  Method: compute.organizationSecurityPolicies.patchRule
  *
@@ -30214,8 +30293,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Patches a rule at the specified priority.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.patchRule instead.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.patchRule
+ *  instead.
  *
  *  @param object The @c GTLRCompute_SecurityPolicyRule to include in the query.
  *  @param securityPolicy Name of the security policy to update.
@@ -30229,8 +30310,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  Removes an association for the specified security policy.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.removeAssociation instead if possible.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.removeAssociation
+ *  instead.
  *
  *  Method: compute.organizationSecurityPolicies.removeAssociation
  *
@@ -30265,8 +30348,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Removes an association for the specified security policy.
- *  Use of this API to modify firewall policies is deprecated. Use
- *  firewallPolicies.removeAssociation instead if possible.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.removeAssociation
+ *  instead.
  *
  *  @param securityPolicy Name of the security policy to update.
  *
@@ -30278,6 +30363,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 
 /**
  *  Deletes a rule at the specified priority.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.removeRule
+ *  instead.
  *
  *  Method: compute.organizationSecurityPolicies.removeRule
  *
@@ -30312,6 +30401,10 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Deletes a rule at the specified priority.
+ *  Use this API to modify Cloud Armor policies. Previously, alpha and beta
+ *  versions of this API were used to modify firewall policies. This usage is
+ *  now disabled for most organizations. Use firewallPolicies.removeRule
+ *  instead.
  *
  *  @param securityPolicy Name of the security policy to update.
  *

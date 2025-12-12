@@ -29,7 +29,12 @@ NS_ASSUME_NONNULL_BEGIN
 // ----------------------------------------------------------------------------
 // view
 
-/** Value: "ALL" */
+/**
+ *  Returns all aspects. If the number of aspects exceeds 100, the first 100
+ *  will be returned.
+ *
+ *  Value: "ALL"
+ */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewAll;
 /** Value: "BASIC" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewBasic;
@@ -571,8 +576,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *  When set to true, operations that are reachable are returned as normal, and
  *  those that are unreachable are returned in the
  *  ListOperationsResponse.unreachable field.This can only be true when reading
- *  across collections e.g. when parent is set to
- *  "projects/example/locations/-".This field is not by default supported and
+ *  across collections. For example, when parent is set to
+ *  "projects/example/locations/-".This field is not supported by default and
  *  will result in an UNIMPLEMENTED error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -1457,19 +1462,390 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
+ *  Creates a Data Product.
  *
- *  Method: dataplex.projects.locations.dataProducts.dataAssets.setIamPolicy
+ *  Method: dataplex.projects.locations.dataProducts.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
  */
-@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsSetIamPolicy : GTLRCloudDataplexQuery
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsCreate : GTLRCloudDataplexQuery
 
 /**
- *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  Optional. The ID of the Data Product to create.The ID must conform to
+ *  RFC-1034 and contain only lower-case letters (a-z), numbers (0-9), or
+ *  hyphens, with the first character a letter, the last a letter or a number,
+ *  and a 63 character maximum. Characters outside of ASCII are not permitted.
+ *  Valid format regex: (^a-z?$) If not provided, a system generated ID will be
+ *  used.
+ */
+@property(nonatomic, copy, nullable) NSString *dataProductId;
+
+/**
+ *  Required. The parent resource where this Data Product will be created.
+ *  Format: projects/{project_id_or_number}/locations/{location_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Validates the request without actually creating the Data Product.
+ *  Default: false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Creates a Data Product.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct to
+ *    include in the query.
+ *  @param parent Required. The parent resource where this Data Product will be
+ *    created. Format: projects/{project_id_or_number}/locations/{location_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a Data Asset.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.dataAssets.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The ID of the Data Asset to create.The ID must conform to RFC-1034
+ *  and contain only lower-case letters (a-z), numbers (0-9), or hyphens, with
+ *  the first character a letter, the last a letter or a number, and a 63
+ *  character maximum. Characters outside of ASCII are not permitted. Valid
+ *  format regex: (^a-z?$) If not provided, a system generated ID will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *dataAssetId;
+
+/**
+ *  Required. The parent resource where this Data Asset will be created. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Validates the request without actually creating the Data Asset.
+ *  Defaults to false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Creates a Data Asset.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset to
+ *    include in the query.
+ *  @param parent Required. The parent resource where this Data Asset will be
+ *    created. Format:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Data Asset.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.dataAssets.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The etag of the Data Asset. If this is provided, it must match the
+ *  server's etag. If the etag is provided and does not match the
+ *  server-computed etag, the request must fail with a ABORTED error code.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the Data Asset to delete. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Validates the request without actually deleting the Data Asset.
+ *  Defaults to false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Deletes a Data Asset.
+ *
+ *  @param name Required. The name of the Data Asset to delete. Format:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Data Asset.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.dataAssets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The name of the Data Asset to retrieve. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset.
+ *
+ *  Gets a Data Asset.
+ *
+ *  @param name Required. The name of the Data Asset to retrieve. Format:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Data Assets for a given Data Product.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.dataAssets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsList : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. Filter expression that filters DataAssets listed in the response.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Order by expression that orders DataAssets listed in the
+ *  response.Supported Order by fields are: name or create_time.If not
+ *  specified, the ordering is undefined.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of Data Assets to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 Data Assets will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListDataAssets call.
+ *  Provide this to retrieve the subsequent page.When paginating, all other
+ *  parameters provided to ListDataAssets must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which has this collection of Data Assets. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAssetsResponse.
+ *
+ *  Lists Data Assets for a given Data Product.
+ *
+ *  @param parent Required. The parent, which has this collection of Data
+ *    Assets. Format:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Data Asset.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.dataAssets.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Identifier. Resource name of the Data Asset. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. If this is empty or not set, then
+ *  all fields that are populated (have a non-empty value) in data_asset above
+ *  will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Validates the request without actually updating the Data Asset.
+ *  Defaults to false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Updates a Data Asset.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset to
+ *    include in the query.
+ *  @param name Identifier. Resource name of the Data Asset. Format:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a Data Product. The deletion will fail if the Data Product is not
+ *  empty (i.e. contains at least one Data Asset).
+ *
+ *  Method: dataplex.projects.locations.dataProducts.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The etag of the Data Product.If an etag is provided and does not
+ *  match the current etag of the Data Product, then the deletion will be
+ *  blocked and an ABORTED error will be returned.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The name of the Data Product to delete. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Validates the request without actually deleting the Data Product.
+ *  Default: false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Deletes a Data Product. The deletion will fail if the Data Product is not
+ *  empty (i.e. contains at least one Data Asset).
+ *
+ *  @param name Required. The name of the Data Product to delete. Format:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Data Product.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The name of the Data Product to retrieve. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct.
+ *
+ *  Gets a Data Product.
+ *
+ *  @param name Required. The name of the Data Product to retrieve. Format:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
  *  names (https://cloud.google.com/apis/design/resource_names) for the
  *  appropriate value for this field.
  */
@@ -1478,65 +1854,135 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
  *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
- *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
- *    include in the query.
  *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: dataplex.projects.locations.dataProducts.dataAssets.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
- */
-@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsTestIamPermissions : GTLRCloudDataplexQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
- *    to include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
  *    requested. See Resource names
  *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
  *    value for this field.
  *
- *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsTestIamPermissions
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGetIamPolicy
  */
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists Data Products for a given project.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsList : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. Filter expression that filters Data Products listed in the
+ *  response.Example of using this filter is: display_name="my-data-product"
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Order by expression that orders Data Products listed in the
+ *  response.Supported Order by fields are: name or create_time.If not
+ *  specified, the ordering is undefined.Ordering by create_time is not
+ *  supported when listing resources across locations (i.e. when request
+ *  contains /locations/-).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of Data Products to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 Data Products will
+ *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListDataProducts call.
+ *  Provide this to retrieve the subsequent page.When paginating, all other
+ *  parameters provided to ListDataProducts must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which has this collection of Data Products.Format:
+ *  projects/{project_id_or_number}/locations/{location_id}.Supports listing
+ *  across all locations with the wildcard - (hyphen) character. Example:
+ *  projects/{project_id_or_number}/locations/-
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListDataProductsResponse.
+ *
+ *  Lists Data Products for a given project.
+ *
+ *  @param parent Required. The parent, which has this collection of Data
+ *    Products.Format:
+ *    projects/{project_id_or_number}/locations/{location_id}.Supports listing
+ *    across all locations with the wildcard - (hyphen) character. Example:
+ *    projects/{project_id_or_number}/locations/-
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Data Product.
+ *
+ *  Method: dataplex.projects.locations.dataProducts.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Identifier. Resource name of the Data Product. Format:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. If this is empty or not set, then
+ *  all the fields will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Validates the request without actually updating the Data Product.
+ *  Default: false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Updates a Data Product.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct to
+ *    include in the query.
+ *  @param name Identifier. Resource name of the Data Product. Format:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -3157,7 +3603,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudDataplexViewCustom Returns aspects matching custom
  *        fields in GetEntryRequest. If the number of aspects exceeds 100, the
  *        first 100 will be returned. (Value: "CUSTOM")
- *    @arg @c kGTLRCloudDataplexViewAll Value "ALL"
+ *    @arg @c kGTLRCloudDataplexViewAll Returns all aspects. If the number of
+ *        aspects exceeds 100, the first 100 will be returned. (Value: "ALL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -3196,15 +3643,18 @@ GTLR_DEPRECATED
 /**
  *  Optional. A filter on the entries to return. Filters are case-sensitive. You
  *  can filter the request by the following fields: entry_type
- *  entry_source.display_nameThe comparison operators are =, !=, <, >, <=, >=.
- *  The service compares strings according to lexical order.You can use the
- *  logical operators AND, OR, NOT in the filter.You can use Wildcard "*", but
- *  for entry_type you need to provide the full project id or number.Example
- *  filter expressions: "entry_source.display_name=AnExampleDisplayName"
+ *  entry_source.display_name parent_entryThe comparison operators are =, !=, <,
+ *  >, <=, >=. The service compares strings according to lexical order.You can
+ *  use the logical operators AND, OR, NOT in the filter.You can use Wildcard
+ *  "*", but for entry_type and parent_entry you need to provide the full
+ *  project id or number.You cannot use parent_entry in conjunction with other
+ *  fields.Example filter expressions:
+ *  "entry_source.display_name=AnExampleDisplayName"
  *  "entry_type=projects/example-project/locations/global/entryTypes/example-entry_type"
  *  "entry_type=projects/example-project/locations/us/entryTypes/a* OR
  *  entry_type=projects/another-project/locations/ *" "NOT
  *  entry_source.display_name=AnotherExampleDisplayName"
+ *  "parent_entry=projects/example-project/locations/us/entryGroups/example-entry-group/entries/example-entry"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8699,7 +9149,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudDataplexViewCustom Returns aspects matching custom
  *        fields in GetEntryRequest. If the number of aspects exceeds 100, the
  *        first 100 will be returned. (Value: "CUSTOM")
- *    @arg @c kGTLRCloudDataplexViewAll Value "ALL"
+ *    @arg @c kGTLRCloudDataplexViewAll Returns all aspects. If the number of
+ *        aspects exceeds 100, the first 100 will be returned. (Value: "ALL")
  */
 @property(nonatomic, copy, nullable) NSString *view;
 
@@ -9036,8 +9487,8 @@ GTLR_DEPRECATED
  *  When set to true, operations that are reachable are returned as normal, and
  *  those that are unreachable are returned in the
  *  ListOperationsResponse.unreachable field.This can only be true when reading
- *  across collections e.g. when parent is set to
- *  "projects/example/locations/-".This field is not by default supported and
+ *  across collections. For example, when parent is set to
+ *  "projects/example/locations/-".This field is not supported by default and
  *  will result in an UNIMPLEMENTED error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

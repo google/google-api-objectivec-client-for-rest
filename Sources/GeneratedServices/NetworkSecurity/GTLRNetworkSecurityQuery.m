@@ -1617,6 +1617,117 @@
 
 @end
 
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsCreate
+
+@dynamic dnsThreatDetectorId, parent;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_DnsThreatDetector *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsThreatDetectors";
+  GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_DnsThreatDetector class];
+  query.loggingName = @"networksecurity.projects.locations.dnsThreatDetectors.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Empty class];
+  query.loggingName = @"networksecurity.projects.locations.dnsThreatDetectors.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_DnsThreatDetector class];
+  query.loggingName = @"networksecurity.projects.locations.dnsThreatDetectors.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dnsThreatDetectors";
+  GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListDnsThreatDetectorsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.dnsThreatDetectors.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_DnsThreatDetector *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsDnsThreatDetectorsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_DnsThreatDetector class];
+  query.loggingName = @"networksecurity.projects.locations.dnsThreatDetectors.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointAssociationsCreate
 
 @dynamic firewallEndpointAssociationId, parent, requestId;
@@ -1723,6 +1834,117 @@
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
   query.loggingName = @"networksecurity.projects.locations.firewallEndpointAssociations.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsCreate
+
+@dynamic firewallEndpointId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpoint *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/firewallEndpoints";
+  GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.firewallEndpoints.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.firewallEndpoints.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_FirewallEndpoint class];
+  query.loggingName = @"networksecurity.projects.locations.firewallEndpoints.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/firewallEndpoints";
+  GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkSecurity_ListFirewallEndpointsResponse class];
+  query.loggingName = @"networksecurity.projects.locations.firewallEndpoints.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkSecurity_FirewallEndpoint *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkSecurityQuery_ProjectsLocationsFirewallEndpointsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkSecurity_Operation class];
+  query.loggingName = @"networksecurity.projects.locations.firewallEndpoints.patch";
   return query;
 }
 

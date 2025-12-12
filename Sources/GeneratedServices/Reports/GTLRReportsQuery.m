@@ -16,28 +16,41 @@
 // Constants
 
 // applicationName
+NSString * const kGTLRReportsApplicationNameAccessEvaluation   = @"access_evaluation";
 NSString * const kGTLRReportsApplicationNameAccessTransparency = @"access_transparency";
 NSString * const kGTLRReportsApplicationNameAdmin              = @"admin";
+NSString * const kGTLRReportsApplicationNameAdminDataAction    = @"admin_data_action";
+NSString * const kGTLRReportsApplicationNameAssignments        = @"assignments";
 NSString * const kGTLRReportsApplicationNameCalendar           = @"calendar";
 NSString * const kGTLRReportsApplicationNameChat               = @"chat";
 NSString * const kGTLRReportsApplicationNameChrome             = @"chrome";
 NSString * const kGTLRReportsApplicationNameClassroom          = @"classroom";
+NSString * const kGTLRReportsApplicationNameCloudSearch        = @"cloud_search";
+NSString * const kGTLRReportsApplicationNameContacts           = @"contacts";
 NSString * const kGTLRReportsApplicationNameContextAwareAccess = @"context_aware_access";
+NSString * const kGTLRReportsApplicationNameDataMigration      = @"data_migration";
 NSString * const kGTLRReportsApplicationNameDataStudio         = @"data_studio";
+NSString * const kGTLRReportsApplicationNameDirectorySync      = @"directory_sync";
 NSString * const kGTLRReportsApplicationNameDrive              = @"drive";
 NSString * const kGTLRReportsApplicationNameGcp                = @"gcp";
 NSString * const kGTLRReportsApplicationNameGeminiInWorkspaceApps = @"gemini_in_workspace_apps";
 NSString * const kGTLRReportsApplicationNameGmail              = @"gmail";
 NSString * const kGTLRReportsApplicationNameGplus              = @"gplus";
+NSString * const kGTLRReportsApplicationNameGraduation         = @"graduation";
 NSString * const kGTLRReportsApplicationNameGroups             = @"groups";
 NSString * const kGTLRReportsApplicationNameGroupsEnterprise   = @"groups_enterprise";
 NSString * const kGTLRReportsApplicationNameJamboard           = @"jamboard";
 NSString * const kGTLRReportsApplicationNameKeep               = @"keep";
+NSString * const kGTLRReportsApplicationNameLdap               = @"ldap";
 NSString * const kGTLRReportsApplicationNameLogin              = @"login";
 NSString * const kGTLRReportsApplicationNameMeet               = @"meet";
+NSString * const kGTLRReportsApplicationNameMeetHardware       = @"meet_hardware";
 NSString * const kGTLRReportsApplicationNameMobile             = @"mobile";
+NSString * const kGTLRReportsApplicationNameProfile            = @"profile";
 NSString * const kGTLRReportsApplicationNameRules              = @"rules";
 NSString * const kGTLRReportsApplicationNameSaml               = @"saml";
+NSString * const kGTLRReportsApplicationNameTakeout            = @"takeout";
+NSString * const kGTLRReportsApplicationNameTasks              = @"tasks";
 NSString * const kGTLRReportsApplicationNameToken              = @"token";
 NSString * const kGTLRReportsApplicationNameUserAccounts       = @"user_accounts";
 NSString * const kGTLRReportsApplicationNameVault              = @"vault";
@@ -58,8 +71,8 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
 @implementation GTLRReportsQuery_ActivitiesList
 
 @dynamic actorIpAddress, applicationName, customerId, endTime, eventName,
-         filters, groupIdFilter, maxResults, orgUnitID, pageToken, startTime,
-         userKey;
+         filters, groupIdFilter, maxResults, orgUnitID, pageToken,
+         resourceDetailsFilter, startTime, userKey;
 
 + (instancetype)queryWithUserKey:(NSString *)userKey
                  applicationName:(NSString *)applicationName {

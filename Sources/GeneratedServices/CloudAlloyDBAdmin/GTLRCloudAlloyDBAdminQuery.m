@@ -29,6 +29,9 @@ NSString * const kGTLRCloudAlloyDBAdminScopeDatabase         = @"DATABASE";
 NSString * const kGTLRCloudAlloyDBAdminScopeScopeUnspecified = @"SCOPE_UNSPECIFIED";
 
 // view
+NSString * const kGTLRCloudAlloyDBAdminViewBackupViewBasic     = @"BACKUP_VIEW_BASIC";
+NSString * const kGTLRCloudAlloyDBAdminViewBackupViewClusterDeleted = @"BACKUP_VIEW_CLUSTER_DELETED";
+NSString * const kGTLRCloudAlloyDBAdminViewBackupViewUnspecified = @"BACKUP_VIEW_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdminViewClusterViewBasic    = @"CLUSTER_VIEW_BASIC";
 NSString * const kGTLRCloudAlloyDBAdminViewClusterViewContinuousBackup = @"CLUSTER_VIEW_CONTINUOUS_BACKUP";
 NSString * const kGTLRCloudAlloyDBAdminViewClusterViewUnspecified = @"CLUSTER_VIEW_UNSPECIFIED";
@@ -98,7 +101,7 @@ NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspecified = @"INSTANCE_
 
 @implementation GTLRCloudAlloyDBAdminQuery_ProjectsLocationsBackupsGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -117,7 +120,7 @@ NSString * const kGTLRCloudAlloyDBAdminViewInstanceViewUnspecified = @"INSTANCE_
 
 @implementation GTLRCloudAlloyDBAdminQuery_ProjectsLocationsBackupsList
 
-@dynamic filter, orderBy, pageSize, pageToken, parent;
+@dynamic filter, orderBy, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

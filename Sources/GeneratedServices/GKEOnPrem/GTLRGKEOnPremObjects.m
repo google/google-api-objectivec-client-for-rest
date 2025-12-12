@@ -181,6 +181,43 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEOnPrem_BareMetalAdminBgpLbConfig
+//
+
+@implementation GTLRGKEOnPrem_BareMetalAdminBgpLbConfig
+@dynamic addressPools, asn, bgpPeerConfigs, loadBalancerNodePoolConfig;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addressPools" : [GTLRGKEOnPrem_BareMetalAdminLoadBalancerAddressPool class],
+    @"bgpPeerConfigs" : [GTLRGKEOnPrem_BareMetalAdminBgpPeerConfig class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_BareMetalAdminBgpPeerConfig
+//
+
+@implementation GTLRGKEOnPrem_BareMetalAdminBgpPeerConfig
+@dynamic asn, controlPlaneNodes, ipAddress;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"controlPlaneNodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEOnPrem_BareMetalAdminCluster
 //
 
@@ -296,11 +333,39 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEOnPrem_BareMetalAdminLoadBalancerAddressPool
+//
+
+@implementation GTLRGKEOnPrem_BareMetalAdminLoadBalancerAddressPool
+@dynamic addresses, avoidBuggyIps, manualAssign, pool;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addresses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEOnPrem_BareMetalAdminLoadBalancerConfig
 //
 
 @implementation GTLRGKEOnPrem_BareMetalAdminLoadBalancerConfig
-@dynamic manualLbConfig, portConfig, vipConfig;
+@dynamic bgpLbConfig, manualLbConfig, portConfig, vipConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEOnPrem_BareMetalAdminLoadBalancerNodePoolConfig
+//
+
+@implementation GTLRGKEOnPrem_BareMetalAdminLoadBalancerNodePoolConfig
+@dynamic nodePoolConfig;
 @end
 
 
@@ -363,11 +428,21 @@ NSString * const kGTLRGKEOnPrem_VmwareNodePool_State_Stopping  = @"STOPPING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRGKEOnPrem_BareMetalAdminMultipleNetworkInterfacesConfig
+//
+
+@implementation GTLRGKEOnPrem_BareMetalAdminMultipleNetworkInterfacesConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRGKEOnPrem_BareMetalAdminNetworkConfig
 //
 
 @implementation GTLRGKEOnPrem_BareMetalAdminNetworkConfig
-@dynamic islandModeCidr;
+@dynamic advancedNetworking, islandModeCidr, multipleNetworkInterfacesConfig;
 @end
 
 

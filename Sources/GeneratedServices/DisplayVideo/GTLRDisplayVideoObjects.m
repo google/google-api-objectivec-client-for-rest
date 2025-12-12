@@ -381,6 +381,7 @@ NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_E
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeBidswitch = @"EXCHANGE_BIDSWITCH";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeBrightroll = @"EXCHANGE_BRIGHTROLL";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeBrightrollDisplay = @"EXCHANGE_BRIGHTROLL_DISPLAY";
+NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCadent = @"EXCHANGE_CADENT";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCadreon = @"EXCHANGE_CADREON";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeChartboostGbid = @"EXCHANGE_CHARTBOOST_GBID";
 NSString * const kGTLRDisplayVideo_AlgorithmRulesComparisonValue_ExchangeValue_ExchangeCommerceGrid = @"EXCHANGE_COMMERCE_GRID";
@@ -1324,6 +1325,7 @@ NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeBidswitch = @"EXCHANGE_BIDSWITCH";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeBrightroll = @"EXCHANGE_BRIGHTROLL";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeBrightrollDisplay = @"EXCHANGE_BRIGHTROLL_DISPLAY";
+NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCadent = @"EXCHANGE_CADENT";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCadreon = @"EXCHANGE_CADREON";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeChartboostGbid = @"EXCHANGE_CHARTBOOST_GBID";
 NSString * const kGTLRDisplayVideo_ExchangeAssignedTargetingOptionDetails_Exchange_ExchangeCommerceGrid = @"EXCHANGE_COMMERCE_GRID";
@@ -1414,6 +1416,7 @@ NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_Exchan
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeBidswitch = @"EXCHANGE_BIDSWITCH";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeBrightroll = @"EXCHANGE_BRIGHTROLL";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeBrightrollDisplay = @"EXCHANGE_BRIGHTROLL_DISPLAY";
+NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCadent = @"EXCHANGE_CADENT";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCadreon = @"EXCHANGE_CADREON";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeChartboostGbid = @"EXCHANGE_CHARTBOOST_GBID";
 NSString * const kGTLRDisplayVideo_ExchangeConfigEnabledExchange_Exchange_ExchangeCommerceGrid = @"EXCHANGE_COMMERCE_GRID";
@@ -1504,6 +1507,7 @@ NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeAppnexu
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeBidswitch = @"EXCHANGE_BIDSWITCH";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeBrightroll = @"EXCHANGE_BRIGHTROLL";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeBrightrollDisplay = @"EXCHANGE_BRIGHTROLL_DISPLAY";
+NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCadent = @"EXCHANGE_CADENT";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCadreon = @"EXCHANGE_CADREON";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeChartboostGbid = @"EXCHANGE_CHARTBOOST_GBID";
 NSString * const kGTLRDisplayVideo_ExchangeReviewStatus_Exchange_ExchangeCommerceGrid = @"EXCHANGE_COMMERCE_GRID";
@@ -1600,6 +1604,7 @@ NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_Excha
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeBidswitch = @"EXCHANGE_BIDSWITCH";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeBrightroll = @"EXCHANGE_BRIGHTROLL";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeBrightrollDisplay = @"EXCHANGE_BRIGHTROLL_DISPLAY";
+NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCadent = @"EXCHANGE_CADENT";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCadreon = @"EXCHANGE_CADREON";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeChartboostGbid = @"EXCHANGE_CHARTBOOST_GBID";
 NSString * const kGTLRDisplayVideo_ExchangeTargetingOptionDetails_Exchange_ExchangeCommerceGrid = @"EXCHANGE_COMMERCE_GRID";
@@ -1905,6 +1910,7 @@ NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeAppnexus = @
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBidswitch = @"EXCHANGE_BIDSWITCH";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBrightroll = @"EXCHANGE_BRIGHTROLL";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeBrightrollDisplay = @"EXCHANGE_BRIGHTROLL_DISPLAY";
+NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadent = @"EXCHANGE_CADENT";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCadreon = @"EXCHANGE_CADREON";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeChartboostGbid = @"EXCHANGE_CHARTBOOST_GBID";
 NSString * const kGTLRDisplayVideo_GuaranteedOrder_Exchange_ExchangeCommerceGrid = @"EXCHANGE_COMMERCE_GRID";
@@ -2148,6 +2154,7 @@ NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeAppnexus = @
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeBidswitch = @"EXCHANGE_BIDSWITCH";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeBrightroll = @"EXCHANGE_BRIGHTROLL";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeBrightrollDisplay = @"EXCHANGE_BRIGHTROLL_DISPLAY";
+NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCadent = @"EXCHANGE_CADENT";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCadreon = @"EXCHANGE_CADREON";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeChartboostGbid = @"EXCHANGE_CHARTBOOST_GBID";
 NSString * const kGTLRDisplayVideo_InventorySource_Exchange_ExchangeCommerceGrid = @"EXCHANGE_COMMERCE_GRID";
@@ -2381,6 +2388,7 @@ NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_
 NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeCpc = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC";
 NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeCustomAlgo = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO";
 NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeIvoTen = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN";
+NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeReach = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_REACH";
 NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeUnspecified = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_MaximizeSpendBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeViewableCpm = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM";
 
@@ -2562,6 +2570,7 @@ NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalTyp
 NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeCpc = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CPC";
 NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeCustomAlgo = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_CUSTOM_ALGO";
 NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeIvoTen = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_IVO_TEN";
+NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeReach = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_REACH";
 NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeUnspecified = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_UNSPECIFIED";
 NSString * const kGTLRDisplayVideo_PerformanceGoalBidStrategy_PerformanceGoalType_BiddingStrategyPerformanceGoalTypeViewableCpm = @"BIDDING_STRATEGY_PERFORMANCE_GOAL_TYPE_VIEWABLE_CPM";
 

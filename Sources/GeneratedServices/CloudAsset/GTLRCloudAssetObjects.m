@@ -2368,7 +2368,15 @@ NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState_PriorAssetStateUn
 //
 
 @implementation GTLRCloudAsset_VersionedResource
-@dynamic resource, version;
+@dynamic assetExceptions, resource, version;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assetExceptions" : [GTLRCloudAsset_AssetException class]
+  };
+  return map;
+}
+
 @end
 
 

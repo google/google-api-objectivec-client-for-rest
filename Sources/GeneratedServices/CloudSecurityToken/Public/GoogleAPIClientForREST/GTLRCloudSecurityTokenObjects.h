@@ -479,6 +479,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRCloudSecurityToken_GoogleIdentityStsV1AccessBoundary *accessBoundary;
 
 /**
+ *  The unpadded, base64url-encoded SHA-256 hash of the certificate's DER
+ *  encoding and it must be 43 characters long. The resulting token will be
+ *  bound to this value.
+ */
+@property(nonatomic, copy, nullable) NSString *bindCertFingerprint;
+
+/**
  *  A Google project used for quota and billing purposes when the credential is
  *  used to access Google APIs. The provided project overrides the project bound
  *  to the credential. The value must be a project number or a project ID.

@@ -2252,7 +2252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_Cost
 FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_Price_PricingType_CostPerMille;
 /**
  *  A placeholder for an undefined pricing type. If the pricing type is
- *  unpsecified, `COST_PER_MILLE` will be used instead.
+ *  unspecified, `COST_PER_MILLE` will be used instead.
  *
  *  Value: "PRICING_TYPE_UNSPECIFIED"
  */
@@ -5748,7 +5748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAdExchangeBuyerII_VideoTargeting_Targete
  *        thousand impressions. (Value: "COST_PER_MILLE")
  *    @arg @c kGTLRAdExchangeBuyerII_Price_PricingType_PricingTypeUnspecified A
  *        placeholder for an undefined pricing type. If the pricing type is
- *        unpsecified, `COST_PER_MILLE` will be used instead. (Value:
+ *        unspecified, `COST_PER_MILLE` will be used instead. (Value:
  *        "PRICING_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *pricingType;

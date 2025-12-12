@@ -82,6 +82,24 @@ NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSystemType_Windows = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudOSLogin_ProvisionPosixAccountRequest
+//
+
+@implementation GTLRCloudOSLogin_ProvisionPosixAccountRequest
+@dynamic regions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudOSLogin_SignSshPublicKeyRequest
 //
 

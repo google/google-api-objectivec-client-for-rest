@@ -70,6 +70,7 @@
 @class GTLREventarc_ProjectSubscriptions;
 @class GTLREventarc_Provider;
 @class GTLREventarc_Pubsub;
+@class GTLREventarc_RetryPolicy;
 @class GTLREventarc_StateCondition;
 @class GTLREventarc_Transport;
 @class GTLREventarc_Trigger;
@@ -1645,8 +1646,9 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -2624,6 +2626,23 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
 
 
 /**
+ *  The retry policy configuration for the Trigger. Can only be set with Cloud
+ *  Run destinations.
+ */
+@interface GTLREventarc_RetryPolicy : GTLRObject
+
+/**
+ *  Optional. The maximum number of delivery attempts for any message. The only
+ *  valid value is 1.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxAttempts;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLREventarc_SetIamPolicyRequest : GTLRObject
@@ -2861,6 +2880,13 @@ FOUNDATION_EXTERN NSString * const kGTLREventarc_StateCondition_Code_Unknown;
  *  `projects/{project}/locations/{location}/triggers/{trigger}` format.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The retry policy to use in the Trigger. If unset, event delivery
+ *  will be retried for up to 24 hours by default:
+ *  https://cloud.google.com/eventarc/docs/retry-events
+ */
+@property(nonatomic, strong, nullable) GTLREventarc_RetryPolicy *retryPolicy;
 
 /**
  *  Output only. Whether or not this Trigger satisfies the requirements of

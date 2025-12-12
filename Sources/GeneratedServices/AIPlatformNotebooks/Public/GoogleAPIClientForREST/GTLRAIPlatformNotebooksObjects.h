@@ -78,6 +78,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Ty
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaA10080gb;
 /**
+ *  Accelerator type is NVIDIA B200.
+ *
+ *  Value: "NVIDIA_B200"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaB200;
+/**
  *  Accelerator type is Nvidia Tesla H100 - 80GB.
  *
  *  Value: "NVIDIA_H100_80GB"
@@ -89,6 +95,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Ty
  *  Value: "NVIDIA_H100_MEGA_80GB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH100Mega80gb;
+/**
+ *  Accelerator type is Nvidia Tesla H200 - 141GB.
+ *
+ *  Value: "NVIDIA_H200_141GB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH200141gb;
 /**
  *  Accelerator type is Nvidia Tesla L4.
  *
@@ -176,6 +188,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskEncrypt
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_DiskTypeUnspecified;
 /**
+ *  Hyperdisk Balanced persistent disk type.
+ *
+ *  Value: "HYPERDISK_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskBalanced;
+/**
  *  Balanced persistent disk type.
  *
  *  Value: "PD_BALANCED"
@@ -247,6 +265,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskEncrypt
  *  Value: "DISK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_DiskTypeUnspecified;
+/**
+ *  Hyperdisk Balanced persistent disk type.
+ *
+ *  Value: "HYPERDISK_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskBalanced;
 /**
  *  Balanced persistent disk type.
  *
@@ -553,12 +577,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaA10080gb
  *        Accelerator type is Nvidia Tesla A100 - 80GB. (Value:
  *        "NVIDIA_A100_80GB")
+ *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaB200
+ *        Accelerator type is NVIDIA B200. (Value: "NVIDIA_B200")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH10080gb
  *        Accelerator type is Nvidia Tesla H100 - 80GB. (Value:
  *        "NVIDIA_H100_80GB")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH100Mega80gb
  *        Accelerator type is Nvidia Tesla H100 - MEGA 80GB. (Value:
  *        "NVIDIA_H100_MEGA_80GB")
+ *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH200141gb
+ *        Accelerator type is Nvidia Tesla H200 - 141GB. (Value:
+ *        "NVIDIA_H200_141GB")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaL4
  *        Accelerator type is Nvidia Tesla L4. (Value: "NVIDIA_L4")
  *    @arg @c kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaA100
@@ -725,6 +754,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Likely values:
  *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_DiskTypeUnspecified
  *        Disk type not set. (Value: "DISK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskBalanced
+ *        Hyperdisk Balanced persistent disk type. (Value: "HYPERDISK_BALANCED")
  *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdBalanced Balanced
  *        persistent disk type. (Value: "PD_BALANCED")
  *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdExtreme Extreme
@@ -937,6 +968,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *  Likely values:
  *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_DiskTypeUnspecified
  *        Disk type not set. (Value: "DISK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskBalanced
+ *        Hyperdisk Balanced persistent disk type. (Value: "HYPERDISK_BALANCED")
  *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_PdBalanced Balanced
  *        persistent disk type. (Value: "PD_BALANCED")
  *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_PdExtreme Extreme
@@ -1634,8 +1667,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

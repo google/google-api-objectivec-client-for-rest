@@ -70,6 +70,7 @@
 @class GTLRBackupdr_DiskRestoreProperties_ResourceManagerTags;
 @class GTLRBackupdr_DiskTargetEnvironment;
 @class GTLRBackupdr_DisplayDevice;
+@class GTLRBackupdr_EncryptionConfig;
 @class GTLRBackupdr_Entry;
 @class GTLRBackupdr_Expr;
 @class GTLRBackupdr_GcpBackupConfig;
@@ -112,6 +113,7 @@
 @class GTLRBackupdr_Tags;
 @class GTLRBackupdr_TargetResource;
 @class GTLRBackupdr_TemplateConfig;
+@class GTLRBackupdr_TriggerBackupRequest_Labels;
 @class GTLRBackupdr_WeekDayOfMonth;
 @class GTLRBackupdr_WorkforceIdentityBasedManagementURI;
 @class GTLRBackupdr_WorkforceIdentityBasedOAuth2ClientID;
@@ -353,6 +355,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AuditLogConfig_LogType_DataWrit
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_Backup.backupRetentionInheritance
+
+/**
+ *  Inheritance behavior not set. This will default to
+ *  `INHERIT_VAULT_RETENTION`.
+ *
+ *  Value: "BACKUP_RETENTION_INHERITANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Backup_BackupRetentionInheritance_BackupRetentionInheritanceUnspecified;
+/**
+ *  The enforced retention end time of a backup will be inherited from the
+ *  backup vault's `backup_minimum_enforced_retention_duration` field. This is
+ *  the default behavior.
+ *
+ *  Value: "INHERIT_VAULT_RETENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Backup_BackupRetentionInheritance_InheritVaultRetention;
+/**
+ *  The enforced retention end time of a backup will always match the expire
+ *  time of the backup. If this is set, the backup's enforced retention end time
+ *  will be set to match the expire time during creation of the backup. When
+ *  updating, the ERET and expire time must be updated together and have the
+ *  same value. Invalid update requests will be rejected by the server.
+ *
+ *  Value: "MATCH_BACKUP_EXPIRE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_Backup_BackupRetentionInheritance_MatchBackupExpireTime;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_Backup.backupType
@@ -703,6 +734,35 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_W
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_AccessRestriction_WithinProject;
 
 // ----------------------------------------------------------------------------
+// GTLRBackupdr_BackupVault.backupRetentionInheritance
+
+/**
+ *  Inheritance behavior not set. This will default to
+ *  `INHERIT_VAULT_RETENTION`.
+ *
+ *  Value: "BACKUP_RETENTION_INHERITANCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_BackupRetentionInheritance_BackupRetentionInheritanceUnspecified;
+/**
+ *  The enforced retention end time of a backup will be inherited from the
+ *  backup vault's `backup_minimum_enforced_retention_duration` field. This is
+ *  the default behavior.
+ *
+ *  Value: "INHERIT_VAULT_RETENTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_BackupRetentionInheritance_InheritVaultRetention;
+/**
+ *  The enforced retention end time of a backup will always match the expire
+ *  time of the backup. If this is set, the backup's enforced retention end time
+ *  will be set to match the expire time during creation of the backup. When
+ *  updating, the ERET and expire time must be updated together and have the
+ *  same value. Invalid update requests will be rejected by the server.
+ *
+ *  Value: "MATCH_BACKUP_EXPIRE_TIME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupVault_BackupRetentionInheritance_MatchBackupExpireTime;
+
+// ----------------------------------------------------------------------------
 // GTLRBackupdr_BackupVault.state
 
 /**
@@ -1024,6 +1084,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DiskRestoreProperties_Architect
  *  Value: "X86_64"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_DiskRestoreProperties_Architecture_X8664;
+
+// ----------------------------------------------------------------------------
+// GTLRBackupdr_EndTrialRequest.endReason
+
+/**
+ *  Trial is discontinued before expiration.
+ *
+ *  Value: "DISCONTINUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_EndTrialRequest_EndReason_Discontinued;
+/**
+ *  End reason not set.
+ *
+ *  Value: "END_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_EndTrialRequest_EndReason_EndReasonUnspecified;
+/**
+ *  Trial is deliberately ended by the user to transition to paid usage.
+ *
+ *  Value: "MOVE_TO_PAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_EndTrialRequest_EndReason_MoveToPaid;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_GuestOsFeature.type
@@ -2307,6 +2389,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_BackupLock *> *backupApplianceLocks;
 
 /**
+ *  Output only. Setting for how the enforced retention end time is inherited.
+ *  This value is copied from this backup's BackupVault.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_Backup_BackupRetentionInheritance_BackupRetentionInheritanceUnspecified
+ *        Inheritance behavior not set. This will default to
+ *        `INHERIT_VAULT_RETENTION`. (Value:
+ *        "BACKUP_RETENTION_INHERITANCE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_Backup_BackupRetentionInheritance_InheritVaultRetention
+ *        The enforced retention end time of a backup will be inherited from the
+ *        backup vault's `backup_minimum_enforced_retention_duration` field.
+ *        This is the default behavior. (Value: "INHERIT_VAULT_RETENTION")
+ *    @arg @c kGTLRBackupdr_Backup_BackupRetentionInheritance_MatchBackupExpireTime
+ *        The enforced retention end time of a backup will always match the
+ *        expire time of the backup. If this is set, the backup's enforced
+ *        retention end time will be set to match the expire time during
+ *        creation of the backup. When updating, the ERET and expire time must
+ *        be updated together and have the same value. Invalid update requests
+ *        will be rejected by the server. (Value: "MATCH_BACKUP_EXPIRE_TIME")
+ */
+@property(nonatomic, copy, nullable) NSString *backupRetentionInheritance;
+
+/**
  *  Output only. Type of the backup, unspecified, scheduled or ondemand.
  *
  *  Likely values:
@@ -2366,6 +2471,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Output only. Unique identifier of the GCP resource that is being backed up.
  */
 @property(nonatomic, strong, nullable) GTLRBackupdr_BackupGcpResource *gcpResource;
+
+/**
+ *  Optional. Output only. The list of KMS key versions used to encrypt the
+ *  backup.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *kmsKeyVersions;
 
 /**
  *  Optional. Resource labels to represent user provided metadata. No labels
@@ -3126,6 +3237,29 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) GTLRDuration *backupMinimumEnforcedRetentionDuration;
 
+/**
+ *  Optional. Setting for how a backup's enforced retention end time is
+ *  inherited.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_BackupVault_BackupRetentionInheritance_BackupRetentionInheritanceUnspecified
+ *        Inheritance behavior not set. This will default to
+ *        `INHERIT_VAULT_RETENTION`. (Value:
+ *        "BACKUP_RETENTION_INHERITANCE_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_BackupVault_BackupRetentionInheritance_InheritVaultRetention
+ *        The enforced retention end time of a backup will be inherited from the
+ *        backup vault's `backup_minimum_enforced_retention_duration` field.
+ *        This is the default behavior. (Value: "INHERIT_VAULT_RETENTION")
+ *    @arg @c kGTLRBackupdr_BackupVault_BackupRetentionInheritance_MatchBackupExpireTime
+ *        The enforced retention end time of a backup will always match the
+ *        expire time of the backup. If this is set, the backup's enforced
+ *        retention end time will be set to match the expire time during
+ *        creation of the backup. When updating, the ERET and expire time must
+ *        be updated together and have the same value. Invalid update requests
+ *        will be rejected by the server. (Value: "MATCH_BACKUP_EXPIRE_TIME")
+ */
+@property(nonatomic, copy, nullable) NSString *backupRetentionInheritance;
+
 /** Output only. The time when the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -3147,6 +3281,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Optional. Time after which the BackupVault resource is locked. */
 @property(nonatomic, strong, nullable) GTLRDateTime *effectiveTime;
+
+/** Optional. The encryption config of the backup vault. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_EncryptionConfig *encryptionConfig;
 
 /**
  *  Optional. Server specified ETag for the backup vault resource to prevent
@@ -4573,6 +4710,45 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Message describing the EncryptionConfig of backup vault. This determines how
+ *  data within the vault is encrypted at rest.
+ */
+@interface GTLRBackupdr_EncryptionConfig : GTLRObject
+
+/**
+ *  Optional. The Cloud KMS key name to encrypt backups in this backup vault.
+ *  Must be in the same region as the vault. Some workload backups like compute
+ *  disk backups may use their inherited source key instead. Format:
+ *  projects/{project}/locations/{location}/keyRings/{ring}/cryptoKeys/{key}
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+@end
+
+
+/**
+ *  Request message for ending a trial.
+ */
+@interface GTLRBackupdr_EndTrialRequest : GTLRObject
+
+/**
+ *  Required. The reason for ending the trial.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBackupdr_EndTrialRequest_EndReason_Discontinued Trial is
+ *        discontinued before expiration. (Value: "DISCONTINUED")
+ *    @arg @c kGTLRBackupdr_EndTrialRequest_EndReason_EndReasonUnspecified End
+ *        reason not set. (Value: "END_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRBackupdr_EndTrialRequest_EndReason_MoveToPaid Trial is
+ *        deliberately ended by the user to transition to paid usage. (Value:
+ *        "MOVE_TO_PAID")
+ */
+@property(nonatomic, copy, nullable) NSString *endReason;
+
+@end
+
+
+/**
  *  A key/value pair to be used for storing metadata.
  */
 @interface GTLRBackupdr_Entry : GTLRObject
@@ -5438,8 +5614,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -6324,6 +6501,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @interface GTLRBackupdr_RestoreBackupRequest : GTLRObject
 
+/**
+ *  Optional. A field mask used to clear server-side default values for fields
+ *  within the `instance_properties` oneof. When a field in this mask is
+ *  cleared, the server will not apply its default logic (like inheriting a
+ *  value from the source) for that field. The most common current use case is
+ *  clearing default encryption keys. Examples of field mask paths: - Compute
+ *  Instance Disks:
+ *  `compute_instance_restore_properties.disks.*.disk_encryption_key` - Single
+ *  Disk: `disk_restore_properties.disk_encryption_key`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *clearOverridesFieldMask;
+
 /** Compute Engine instance properties to be overridden during restore. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_ComputeInstanceRestoreProperties *computeInstanceRestoreProperties;
 
@@ -6920,6 +7111,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) NSNumber *customRetentionDays;
 
+/** Optional. Labels to be applied on the backup. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_TriggerBackupRequest_Labels *labels;
+
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server will know to
@@ -6941,6 +7135,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, copy, nullable) NSString *ruleId;
 
+@end
+
+
+/**
+ *  Optional. Labels to be applied on the backup.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupdr_TriggerBackupRequest_Labels : GTLRObject
 @end
 
 

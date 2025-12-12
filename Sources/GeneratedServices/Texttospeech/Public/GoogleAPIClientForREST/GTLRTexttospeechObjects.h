@@ -511,8 +511,9 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -722,8 +723,8 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 @property(nonatomic, strong, nullable) GTLRTexttospeech_CustomPronunciations *customPronunciations;
 
 /**
- *  Markup for HD voices specifically. This field may not be used with any other
- *  voices.
+ *  Markup for Chirp 3: HD voices specifically. This field may not be used with
+ *  any other voices.
  */
 @property(nonatomic, copy, nullable) NSString *markup;
 

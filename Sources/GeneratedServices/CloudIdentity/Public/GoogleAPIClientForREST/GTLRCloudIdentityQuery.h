@@ -3095,7 +3095,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
 @interface GTLRCloudIdentityQuery_PoliciesGet : GTLRCloudIdentityQuery
 
 /**
- *  Required. The name of the policy to retrieve. Format: "policies/{policy}".
+ *  Required. The name of the policy to retrieve. Format: `policies/{policy}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3105,7 +3105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIdentityViewViewUnspecified;
  *  Get a policy.
  *
  *  @param name Required. The name of the policy to retrieve. Format:
- *    "policies/{policy}".
+ *    `policies/{policy}`.
  *
  *  @return GTLRCloudIdentityQuery_PoliciesGet
  */

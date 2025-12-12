@@ -174,6 +174,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudOSLogin_PosixAccount_OperatingSyste
 
 
 /**
+ *  A request message for creating a POSIX account entry.
+ */
+@interface GTLRCloudOSLogin_ProvisionPosixAccountRequest : GTLRObject
+
+/**
+ *  Optional. The regions to wait for a POSIX account to be written to before
+ *  returning a response. If unspecified, defaults to all regions. Regions are
+ *  listed at https://cloud.google.com/about/locations#region.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *regions;
+
+@end
+
+
+/**
  *  A request message for signing an SSH public key.
  */
 @interface GTLRCloudOSLogin_SignSshPublicKeyRequest : GTLRObject

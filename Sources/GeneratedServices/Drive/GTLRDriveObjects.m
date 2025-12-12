@@ -13,10 +13,23 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDrive_Approval.status
+NSString * const kGTLRDrive_Approval_Status_Approved          = @"APPROVED";
+NSString * const kGTLRDrive_Approval_Status_Cancelled         = @"CANCELLED";
+NSString * const kGTLRDrive_Approval_Status_Declined          = @"DECLINED";
+NSString * const kGTLRDrive_Approval_Status_InProgress        = @"IN_PROGRESS";
+NSString * const kGTLRDrive_Approval_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
 // GTLRDrive_ResolveAccessProposalRequest.action
 NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Accept = @"ACCEPT";
 NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
+
+// GTLRDrive_ReviewerResponse.response
+NSString * const kGTLRDrive_ReviewerResponse_Response_Approved = @"APPROVED";
+NSString * const kGTLRDrive_ReviewerResponse_Response_Declined = @"DECLINED";
+NSString * const kGTLRDrive_ReviewerResponse_Response_NoResponse = @"NO_RESPONSE";
+NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RESPONSE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -206,6 +219,55 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
     @"items" : [GTLRDrive_App class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_Approval
+//
+
+@implementation GTLRDrive_Approval
+@dynamic approvalId, completeTime, createTime, dueTime, initiator, kind,
+         modifyTime, reviewerResponses, status, targetFileId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reviewerResponses" : [GTLRDrive_ReviewerResponse class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_ApprovalList
+//
+
+@implementation GTLRDrive_ApprovalList
+@dynamic items, kind, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRDrive_Approval class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -1072,6 +1134,23 @@ NSString * const kGTLRDrive_ResolveAccessProposalRequest_Action_Deny = @"DENY";
     @"role" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_ReviewerResponse
+//
+
+@implementation GTLRDrive_ReviewerResponse
+@dynamic kind, response, reviewer;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end

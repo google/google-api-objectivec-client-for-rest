@@ -758,24 +758,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-/**
- *  GetAgentCard returns the agent card for the agent.
- *
- *  Method: workspaceevents.getCard
- */
-@interface GTLRWorkspaceEventsQuery_V1GetCard : GTLRWorkspaceEventsQuery
-
-/**
- *  Fetches a @c GTLRWorkspaceEvents_AgentCard.
- *
- *  GetAgentCard returns the agent card for the agent.
- *
- *  @return GTLRWorkspaceEventsQuery_V1GetCard
- */
-+ (instancetype)query;
-
-@end
-
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

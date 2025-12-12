@@ -1271,14 +1271,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Inst
  *  minimumVersionCode, accessibleTrackIds, autoUpdateMode, installConstraint
  *  and installPriority cannot be set for the app. The app isn't available in
  *  the Play Store. The app installed on the device has applicationSource set to
- *  CUSTOM. The signing key certificate fingerprint of the app on the device
- *  must match one of the entries in ApplicationPolicy.signingKeyCerts .
- *  Otherwise, a NonComplianceDetail with APP_SIGNING_CERT_MISMATCH is reported.
- *  Changing the installType to and from CUSTOM uninstalls the existing app if
- *  its signing key certificate fingerprint doesn't match the one from the new
- *  app source. Removing the app from applications doesn't uninstall the
- *  existing app if it conforms to playStoreMode. See also customAppConfig. This
- *  is different from the Google Play Custom App Publishing
+ *  CUSTOM. When the current installType is CUSTOM, the signing key certificate
+ *  fingerprint of the existing custom app on the device must match one of the
+ *  entries in ApplicationPolicy.signingKeyCerts . Otherwise, a
+ *  NonComplianceDetail with APP_SIGNING_CERT_MISMATCH is reported. Changing the
+ *  installType from CUSTOM to another value must match the playstore version of
+ *  the application signing key certificate fingerprint. Otherwise a
+ *  NonComplianceDetail with APP_SIGNING_CERT_MISMATCH is reported. Changing the
+ *  installType to CUSTOM uninstalls the existing app if its signing key
+ *  certificate fingerprint of the installed app doesn't match the one from the
+ *  ApplicationPolicy.signingKeyCerts . Removing the app from applications
+ *  doesn't uninstall the existing app if it conforms to playStoreMode. See also
+ *  customAppConfig. This is different from the Google Play Custom App
+ *  Publishing
  *  (https://developers.google.com/android/work/play/custom-app-api/get-started)
  *  feature.
  *
@@ -7296,15 +7301,20 @@ GTLR_DEPRECATED
  *        minimumVersionCode, accessibleTrackIds, autoUpdateMode,
  *        installConstraint and installPriority cannot be set for the app. The
  *        app isn't available in the Play Store. The app installed on the device
- *        has applicationSource set to CUSTOM. The signing key certificate
- *        fingerprint of the app on the device must match one of the entries in
+ *        has applicationSource set to CUSTOM. When the current installType is
+ *        CUSTOM, the signing key certificate fingerprint of the existing custom
+ *        app on the device must match one of the entries in
  *        ApplicationPolicy.signingKeyCerts . Otherwise, a NonComplianceDetail
  *        with APP_SIGNING_CERT_MISMATCH is reported. Changing the installType
- *        to and from CUSTOM uninstalls the existing app if its signing key
- *        certificate fingerprint doesn't match the one from the new app source.
- *        Removing the app from applications doesn't uninstall the existing app
- *        if it conforms to playStoreMode. See also customAppConfig. This is
- *        different from the Google Play Custom App Publishing
+ *        from CUSTOM to another value must match the playstore version of the
+ *        application signing key certificate fingerprint. Otherwise a
+ *        NonComplianceDetail with APP_SIGNING_CERT_MISMATCH is reported.
+ *        Changing the installType to CUSTOM uninstalls the existing app if its
+ *        signing key certificate fingerprint of the installed app doesn't match
+ *        the one from the ApplicationPolicy.signingKeyCerts . Removing the app
+ *        from applications doesn't uninstall the existing app if it conforms to
+ *        playStoreMode. See also customAppConfig. This is different from the
+ *        Google Play Custom App Publishing
  *        (https://developers.google.com/android/work/play/custom-app-api/get-started)
  *        feature. (Value: "CUSTOM")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_ForceInstalled
@@ -11147,8 +11157,9 @@ GTLR_DEPRECATED
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  ListOperationsRequest.return_partial_success and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  ListOperationsRequest.return_partial_success and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -13379,8 +13390,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_SetupAction *> *setupActions;
 
 /**
- *  Whether changing the user icon is disabled. The setting has effect only on
- *  fully managed devices.
+ *  Whether changing the user icon is disabled. This applies only on devices
+ *  running Android 7 and above.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -13394,8 +13405,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *setWallpaperDisabled;
 
 /**
- *  Whether location sharing is disabled. share_location_disabled is supported
- *  for both fully managed devices and personally owned work profiles.
+ *  Whether location sharing is disabled.
  *
  *  Uses NSNumber of boolValue.
  */

@@ -14,6 +14,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDataManager_AwsWrappedKeyInfo.keyType
+NSString * const kGTLRDataManager_AwsWrappedKeyInfo_KeyType_KeyTypeUnspecified = @"KEY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataManager_AwsWrappedKeyInfo_KeyType_Xchacha20Poly1305 = @"XCHACHA20_POLY1305";
+
 // GTLRDataManager_Consent.adPersonalization
 NSString * const kGTLRDataManager_Consent_AdPersonalization_ConsentDenied = @"CONSENT_DENIED";
 NSString * const kGTLRDataManager_Consent_AdPersonalization_ConsentGranted = @"CONSENT_GRANTED";
@@ -26,6 +30,7 @@ NSString * const kGTLRDataManager_Consent_AdUserData_ConsentStatusUnspecified = 
 
 // GTLRDataManager_ErrorCount.reason
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorOperatingAccountMismatchForAdIdentifier = @"PROCESSING_ERROR_OPERATING_ACCOUNT_MISMATCH_FOR_AD_IDENTIFIER";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonAwsAuthFailed = @"PROCESSING_ERROR_REASON_AWS_AUTH_FAILED";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonCustomVariableNotEnabled = @"PROCESSING_ERROR_REASON_CUSTOM_VARIABLE_NOT_ENABLED";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDecryptionError = @"PROCESSING_ERROR_REASON_DECRYPTION_ERROR";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonDekDecryptionError = @"PROCESSING_ERROR_REASON_DEK_DECRYPTION_ERROR";
@@ -94,6 +99,7 @@ NSString * const kGTLRDataManager_ProductAccount_AccountType_DataPartner = @"DAT
 NSString * const kGTLRDataManager_ProductAccount_AccountType_DisplayVideoAdvertiser = @"DISPLAY_VIDEO_ADVERTISER";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_DisplayVideoPartner = @"DISPLAY_VIDEO_PARTNER";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAds = @"GOOGLE_ADS";
+NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAnalyticsProperty = @"GOOGLE_ANALYTICS_PROPERTY";
 
 // GTLRDataManager_ProductAccount.product
 NSString * const kGTLRDataManager_ProductAccount_Product_DataPartner = @"DATA_PARTNER";
@@ -132,6 +138,7 @@ NSString * const kGTLRDataManager_UserProperties_CustomerValueBucket_Low = @"LOW
 NSString * const kGTLRDataManager_UserProperties_CustomerValueBucket_Medium = @"MEDIUM";
 
 // GTLRDataManager_WarningCount.reason
+NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonAwsAuthFailed = @"PROCESSING_WARNING_REASON_AWS_AUTH_FAILED";
 NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDecryptionError = @"PROCESSING_WARNING_REASON_DECRYPTION_ERROR";
 NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDekDecryptionError = @"PROCESSING_WARNING_REASON_DEK_DECRYPTION_ERROR";
 NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonInternalError = @"PROCESSING_WARNING_REASON_INTERNAL_ERROR";
@@ -177,6 +184,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_AwsWrappedKeyInfo
+//
+
+@implementation GTLRDataManager_AwsWrappedKeyInfo
+@dynamic encryptedDek, kekUri, keyType, roleArn;
 @end
 
 
@@ -254,7 +271,7 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_EncryptionInfo
-@dynamic gcpWrappedKeyInfo;
+@dynamic awsWrappedKeyInfo, gcpWrappedKeyInfo;
 @end
 
 
@@ -292,10 +309,11 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_Event
-@dynamic adIdentifiers, cartData, consent, conversionValue, currency,
-         customVariables, destinationReferences, eventDeviceInfo, eventSource,
-         eventTimestamp, experimentalFields, lastUpdatedTimestamp,
-         transactionId, userData, userPropertiesProperty;
+@dynamic additionalEventParameters, adIdentifiers, cartData, clientId, consent,
+         conversionValue, currency, customVariables, destinationReferences,
+         eventDeviceInfo, eventName, eventSource, eventTimestamp,
+         experimentalFields, lastUpdatedTimestamp, transactionId, userData,
+         userId, userPropertiesProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"userPropertiesProperty" : @"userProperties" };
@@ -303,6 +321,7 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"additionalEventParameters" : [GTLRDataManager_EventParameter class],
     @"customVariables" : [GTLRDataManager_CustomVariable class],
     @"destinationReferences" : [NSString class],
     @"experimentalFields" : [GTLRDataManager_ExperimentalField class]
@@ -310,6 +329,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_EventParameter
+//
+
+@implementation GTLRDataManager_EventParameter
+@dynamic parameterName, value;
 @end
 
 
@@ -449,7 +478,26 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_Item
-@dynamic merchantProductId, quantity, unitPrice;
+@dynamic additionalItemParameters, itemId, merchantProductId, quantity,
+         unitPrice;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalItemParameters" : [GTLRDataManager_ItemParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_ItemParameter
+//
+
+@implementation GTLRDataManager_ItemParameter
+@dynamic parameterName, value;
 @end
 
 
@@ -642,7 +690,25 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_UserProperties
-@dynamic customerType, customerValueBucket;
+@dynamic additionalUserProperties, customerType, customerValueBucket;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"additionalUserProperties" : [GTLRDataManager_UserProperty class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_UserProperty
+//
+
+@implementation GTLRDataManager_UserProperty
+@dynamic propertyName, value;
 @end
 
 

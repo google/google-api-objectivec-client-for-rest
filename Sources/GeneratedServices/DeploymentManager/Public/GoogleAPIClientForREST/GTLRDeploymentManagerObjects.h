@@ -29,6 +29,7 @@
 @class GTLRDeploymentManager_ErrorInfo;
 @class GTLRDeploymentManager_ErrorInfo_Metadatas;
 @class GTLRDeploymentManager_Expr;
+@class GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata;
 @class GTLRDeploymentManager_Help;
 @class GTLRDeploymentManager_HelpLink;
 @class GTLRDeploymentManager_ImportFile;
@@ -1587,6 +1588,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
+ *  GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata
+ */
+@interface GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata : GTLRObject
+
+/**
+ *  The priority allocated for the firewall policy rule if query parameters
+ *  specified minPriority/maxPriority.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allocatedPriority;
+
+@end
+
+
+/**
  *  GTLRDeploymentManager_GlobalSetPolicyRequest
  */
 @interface GTLRDeploymentManager_GlobalSetPolicyRequest : GTLRObject
@@ -1849,6 +1866,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Operation_Error *error;
 
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata *firewallPolicyRuleOperationMetadata;
+
 /**
  *  [Output Only] If the operation fails, this field contains the HTTP error
  *  message that was returned, such as `NOT FOUND`.
@@ -1883,8 +1902,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_InstancesBulkInsertOperationMetadata *instancesBulkInsertOperationMetadata;
 
 /**
- *  [Output Only] Type of the resource. Always `compute#operation` for Operation
- *  resources.
+ *  Output only. [Output Only] Type of the resource. Always `compute#operation`
+ *  for Operation resources.
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
@@ -1892,8 +1911,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  [Output Only] An ID that represents a group of operations, such as when a
- *  group of operations results from a `bulkInsert` API request.
+ *  Output only. [Output Only] An ID that represents a group of operations, such
+ *  as when a group of operations results from a `bulkInsert` API request.
  */
 @property(nonatomic, copy, nullable) NSString *operationGroupId;
 
@@ -1924,7 +1943,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
 /**
- *  [Output Only] Server-defined URL for this resource with the resource id.
+ *  Output only. [Output Only] Server-defined URL for this resource with the
+ *  resource id.
  */
 @property(nonatomic, copy, nullable) NSString *selfLinkWithId;
 
@@ -1935,9 +1955,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_SetAutoscalerLinkOperationMetadata *setAutoscalerLinkOperationMetadata;
 
 /**
- *  [Output Only] If the operation is for projects.setCommonInstanceMetadata,
- *  this field will contain information on all underlying zonal actions and
- *  their state.
+ *  Output only. [Output Only] If the operation is for
+ *  projects.setCommonInstanceMetadata, this field will contain information on
+ *  all underlying zonal actions and their state.
  */
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_SetCommonInstanceMetadataOperationMetadata *setCommonInstanceMetadataOperationMetadata;
 
@@ -2175,10 +2195,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @interface GTLRDeploymentManager_Operation_Error_Errors_Item : GTLRObject
 
 /**
- *  [Output Only] Optional error details WARNING: DO NOT MAKE VISIBLE This is
- *  for internal use-only (like componentization) (thus the visibility "none")
- *  and in case of public exposure it is strongly recommended to follow pattern
- *  of: https://aip.dev/193 and expose as details field.
+ *  Output only. [Output Only] Optional error details WARNING: DO NOT MAKE
+ *  VISIBLE This is for internal use-only (like componentization) (thus the
+ *  visibility "none") and in case of public exposure it is strongly recommended
+ *  to follow pattern of: https://aip.dev/193 and expose as details field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *arguments;
 
@@ -2946,10 +2966,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @interface GTLRDeploymentManager_ResourceUpdate_Error_Errors_Item : GTLRObject
 
 /**
- *  [Output Only] Optional error details WARNING: DO NOT MAKE VISIBLE This is
- *  for internal use-only (like componentization) (thus the visibility "none")
- *  and in case of public exposure it is strongly recommended to follow pattern
- *  of: https://aip.dev/193 and expose as details field.
+ *  Output only. [Output Only] Optional error details WARNING: DO NOT MAKE
+ *  VISIBLE This is for internal use-only (like componentization) (thus the
+ *  visibility "none") and in case of public exposure it is strongly recommended
+ *  to follow pattern of: https://aip.dev/193 and expose as details field.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *arguments;
 

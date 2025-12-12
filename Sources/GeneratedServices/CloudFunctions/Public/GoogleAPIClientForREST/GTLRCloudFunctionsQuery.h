@@ -106,6 +106,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Commits a function upgrade from GCF Gen1 to GCF Gen2. This action deletes
+ *  the Gen1 function, leaving the Gen2 function active and manageable by the
+ *  GCFv2 API.
+ *
+ *  Method: cloudfunctions.projects.locations.functions.commitFunctionUpgradeAsGen2
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudFunctionsCloudPlatform
+ */
+@interface GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCommitFunctionUpgradeAsGen2 : GTLRCloudFunctionsQuery
+
+/**
+ *  Required. The name of the function for which upgrade should be committed to
+ *  Gen2.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudFunctions_Operation.
+ *
+ *  Commits a function upgrade from GCF Gen1 to GCF Gen2. This action deletes
+ *  the Gen1 function, leaving the Gen2 function active and manageable by the
+ *  GCFv2 API.
+ *
+ *  @param object The @c GTLRCloudFunctions_CommitFunctionUpgradeAsGen2Request
+ *    to include in the query.
+ *  @param name Required. The name of the function for which upgrade should be
+ *    committed to Gen2.
+ *
+ *  @return GTLRCloudFunctionsQuery_ProjectsLocationsFunctionsCommitFunctionUpgradeAsGen2
+ */
++ (instancetype)queryWithObject:(GTLRCloudFunctions_CommitFunctionUpgradeAsGen2Request *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new function. If a function with the given name already exists in
  *  the specified project, the long running operation will return
  *  `ALREADY_EXISTS` error.
@@ -816,9 +853,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

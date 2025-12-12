@@ -886,6 +886,15 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFilestore_PauseReplicaRequest
+//
+
+@implementation GTLRCloudFilestore_PauseReplicaRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFilestore_PerformanceConfig
 //
 
@@ -968,6 +977,15 @@ NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week5 = @"WEEK5";
 
 @implementation GTLRCloudFilestore_RestoreInstanceRequest
 @dynamic fileShare, sourceBackup;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFilestore_ResumeReplicaRequest
+//
+
+@implementation GTLRCloudFilestore_ResumeReplicaRequest
 @end
 
 

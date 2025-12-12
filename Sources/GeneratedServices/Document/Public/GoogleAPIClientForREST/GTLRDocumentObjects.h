@@ -2691,6 +2691,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** Display name to show to users. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/**
+ *  Optional. Document level prompt provided by the user. This custom text is
+ *  injected into the AI model's prompt to provide extra, document-wide guidance
+ *  for processing.
+ */
+@property(nonatomic, copy, nullable) NSString *documentPrompt;
+
 /** Entity types of the schema. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityType *> *entityTypes;
 
@@ -4347,7 +4354,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *skipHumanReview;
+@property(nonatomic, strong, nullable) NSNumber *skipHumanReview GTLR_DEPRECATED;
 
 @end
 
@@ -8330,7 +8337,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** Optional. User specified parameters for the schema generation. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1GenerateSchemaVersionRequestGenerateSchemaVersionParams *generateSchemaVersionParams;
 
-/** The set of documents specified inline. */
+/**
+ *  The set of documents specified inline. For each document, its `uri` or
+ *  `content` field must be set.
+ */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1Documents *inlineDocuments;
 
 /** The set of raw documents. */
@@ -8561,7 +8571,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** Output only. The time when the Schema was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Optional. The user-defined name of the Schema. */
+/** Required. The user-defined name of the Schema. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Optional. The GCP labels for the Schema. */
@@ -9299,7 +9309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *skipHumanReview;
+@property(nonatomic, strong, nullable) NSNumber *skipHumanReview GTLR_DEPRECATED;
 
 @end
 
@@ -9491,7 +9501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** Output only. The time when the SchemaVersion was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Optional. The user-defined name of the SchemaVersion. */
+/** Required. The user-defined name of the SchemaVersion. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Optional. The GCP labels for the SchemaVersion. */
@@ -9866,8 +9876,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

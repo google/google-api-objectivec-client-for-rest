@@ -54,6 +54,11 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1FilesetSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFilesetSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFileSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableGraphNodeReference;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableLabelAndProperties;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableProperty;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1InlineSource;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1LookerSystemSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1MigrationConfig;
@@ -527,6 +532,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entr
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Fileset;
 /**
+ *  An entry type for a graph.
+ *
+ *  Value: "GRAPH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Graph;
+/**
  *  A Dataplex Universal Catalog lake.
  *
  *  Value: "LAKE"
@@ -632,6 +643,50 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Fiel
  *  Value: "TIMESTAMP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1FieldType_PrimitiveType_Timestamp;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable.inputSource
+
+/**
+ *  Default unknown input source.
+ *
+ *  Value: "INPUT_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_InputSource_InputSourceUnspecified;
+/**
+ *  Table input source.
+ *
+ *  Value: "TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_InputSource_Table;
+/**
+ *  View input source.
+ *
+ *  Value: "VIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_InputSource_View;
+
+// ----------------------------------------------------------------------------
+// GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable.kind
+
+/**
+ *  Edge kind.
+ *
+ *  Value: "EDGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_Kind_Edge;
+/**
+ *  Default unknown kind.
+ *
+ *  Value: "KIND_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_Kind_KindUnspecified;
+/**
+ *  Node kind.
+ *
+ *  Value: "NODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_Kind_Node;
 
 // ----------------------------------------------------------------------------
 // GTLRDataCatalog_GoogleCloudDatacatalogV1ImportEntriesMetadata.state
@@ -2090,6 +2145,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1GcsFilesetSpec *gcsFilesetSpec;
 
+/** Spec for graph. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpec *graphSpec;
+
 /**
  *  Output only. Indicates the entry's source system that Data Catalog
  *  integrates with, such as BigQuery, Pub/Sub, or Dataproc Metastore.
@@ -2224,6 +2282,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Fileset An
  *        entry type for a set of files or objects. For example, a Cloud Storage
  *        fileset. (Value: "FILESET")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Graph An entry
+ *        type for a graph. (Value: "GRAPH")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Lake A
  *        Dataplex Universal Catalog lake. (Value: "LAKE")
  *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1Entry_Type_Look A Looker
@@ -2516,6 +2576,145 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sizeBytes;
+
+@end
+
+
+/**
+ *  Specification that applies to a graph.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpec : GTLRObject
+
+/** Optional. Edge tables of the graph. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable *> *edgeTables;
+
+/** Output only. Fully qualified graph name. e.g. `named_catalog.MyGraph` */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Node tables of the graph. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable *> *nodeTables;
+
+@end
+
+
+/**
+ *  Element table definition.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable : GTLRObject
+
+/** Required. The alias name of the graph element. */
+@property(nonatomic, copy, nullable) NSString *alias;
+
+/**
+ *  Required. The name of the data source. This is either a table name or a view
+ *  name that is used for graph element input source. E.g. `Person` table or
+ *  `PersonView` view.
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/** Optional. The destination node reference of the edge. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableGraphNodeReference *destinationNodeReference;
+
+/**
+ *  Optional. If set, this is the input column for dynamic label in schemaless
+ *  data model.
+ */
+@property(nonatomic, copy, nullable) NSString *dynamicLabelColumn;
+
+/**
+ *  Optional. If set, this is the input column for dynamic properties in
+ *  schemaless data model.
+ */
+@property(nonatomic, copy, nullable) NSString *dynamicPropertiesColumn;
+
+/** Required. The name of the keys of the elements in the table. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *elementKeys;
+
+/**
+ *  Required. The input source of the graph element.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_InputSource_InputSourceUnspecified
+ *        Default unknown input source. (Value: "INPUT_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_InputSource_Table
+ *        Table input source. (Value: "TABLE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_InputSource_View
+ *        View input source. (Value: "VIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *inputSource;
+
+/**
+ *  Required. The kind of the graph element.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_Kind_Edge
+ *        Edge kind. (Value: "EDGE")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_Kind_KindUnspecified
+ *        Default unknown kind. (Value: "KIND_UNSPECIFIED")
+ *    @arg @c kGTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTable_Kind_Node
+ *        Node kind. (Value: "NODE")
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
+
+/** Required. The labels and their properties for the graph element. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableLabelAndProperties *> *labelAndProperties;
+
+/** Optional. The source node reference of the edge. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableGraphNodeReference *sourceNodeReference;
+
+@end
+
+
+/**
+ *  A reference to a source or destination node in a graph edge.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableGraphNodeReference : GTLRObject
+
+/**
+ *  Required. The referencing columns in the edge table. The size of
+ *  `edge_table_columns` must be equal to the size of `node_table_columns`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *edgeTableColumns;
+
+/**
+ *  Required. The reference to the source/destination node of the edge. This
+ *  name must be a valid `alias` of a node element in the same graph. Example,
+ *  `Person` node can be a source node name of an edge element
+ *  `Person_to_Address`.
+ */
+@property(nonatomic, copy, nullable) NSString *nodeAlias;
+
+/** Required. The referenced columns of the source node table. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *nodeTableColumns;
+
+@end
+
+
+/**
+ *  The label and its properties. Each label is associated with a set of
+ *  properties.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableLabelAndProperties : GTLRObject
+
+/** Required. The name of the label. */
+@property(nonatomic, copy, nullable) NSString *label;
+
+/** Optional. The properties associated with the label. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableProperty *> *properties;
+
+@end
+
+
+/**
+ *  A property declaration.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1GraphSpecGraphElementTableProperty : GTLRObject
+
+/** Required. Property name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Required. Property data type. */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -4486,8 +4685,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

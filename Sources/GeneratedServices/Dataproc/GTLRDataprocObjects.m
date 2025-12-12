@@ -899,10 +899,11 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_ClusterConfig
 @dynamic autoscalingConfig, auxiliaryNodeGroups, clusterTier, clusterType,
-         configBucket, dataprocMetricConfig, encryptionConfig, endpointConfig,
-         gceClusterConfig, gkeClusterConfig, initializationActions,
-         lifecycleConfig, masterConfig, metastoreConfig, secondaryWorkerConfig,
-         securityConfig, softwareConfig, tempBucket, workerConfig;
+         configBucket, dataprocMetricConfig, diagnosticBucket, encryptionConfig,
+         endpointConfig, gceClusterConfig, gkeClusterConfig,
+         initializationActions, lifecycleConfig, masterConfig, metastoreConfig,
+         secondaryWorkerConfig, securityConfig, softwareConfig, tempBucket,
+         workerConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -44,8 +44,11 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Ml
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_MlKem768 = @"ML_KEM_768";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignHashSlhDsaSha2128sSha256 = @"PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa44 = @"PQ_SIGN_ML_DSA_44";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa44ExternalMu = @"PQ_SIGN_ML_DSA_44_EXTERNAL_MU";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa65 = @"PQ_SIGN_ML_DSA_65";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa65ExternalMu = @"PQ_SIGN_ML_DSA_65_EXTERNAL_MU";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa87 = @"PQ_SIGN_ML_DSA_87";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa87ExternalMu = @"PQ_SIGN_ML_DSA_87_EXTERNAL_MU";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignSlhDsaSha2128s = @"PQ_SIGN_SLH_DSA_SHA2_128S";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha1 = @"RSA_DECRYPT_OAEP_2048_SHA1";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
@@ -70,6 +73,7 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_Rs
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_External = @"EXTERNAL";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_Hsm = @"HSM";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_HsmSingleTenant = @"HSM_SINGLE_TENANT";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_Software = @"SOFTWARE";
 
@@ -110,8 +114,11 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algo
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_MlKem768 = @"ML_KEM_768";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignHashSlhDsaSha2128sSha256 = @"PQ_SIGN_HASH_SLH_DSA_SHA2_128S_SHA256";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa44 = @"PQ_SIGN_ML_DSA_44";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa44ExternalMu = @"PQ_SIGN_ML_DSA_44_EXTERNAL_MU";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65 = @"PQ_SIGN_ML_DSA_65";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65ExternalMu = @"PQ_SIGN_ML_DSA_65_EXTERNAL_MU";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa87 = @"PQ_SIGN_ML_DSA_87";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa87ExternalMu = @"PQ_SIGN_ML_DSA_87_EXTERNAL_MU";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignSlhDsaSha2128s = @"PQ_SIGN_SLH_DSA_SHA2_128S";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha1 = @"RSA_DECRYPT_OAEP_2048_SHA1";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_RsaDecryptOaep2048Sha256 = @"RSA_DECRYPT_OAEP_2048_SHA256";
@@ -136,6 +143,7 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algo
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_External = @"EXTERNAL";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_ExternalVpc = @"EXTERNAL_VPC";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_Hsm = @"HSM";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_HsmSingleTenant = @"HSM_SINGLE_TENANT";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_Software = @"SOFTWARE";
 

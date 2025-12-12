@@ -14,6 +14,9 @@
 // Constants
 
 // view
+NSString * const kGTLRManagedKafkaViewConsumerGroupViewBasic   = @"CONSUMER_GROUP_VIEW_BASIC";
+NSString * const kGTLRManagedKafkaViewConsumerGroupViewFull    = @"CONSUMER_GROUP_VIEW_FULL";
+NSString * const kGTLRManagedKafkaViewConsumerGroupViewUnspecified = @"CONSUMER_GROUP_VIEW_UNSPECIFIED";
 NSString * const kGTLRManagedKafkaViewSchemaRegistryViewBasic  = @"SCHEMA_REGISTRY_VIEW_BASIC";
 NSString * const kGTLRManagedKafkaViewSchemaRegistryViewFull   = @"SCHEMA_REGISTRY_VIEW_FULL";
 NSString * const kGTLRManagedKafkaViewSchemaRegistryViewUnspecified = @"SCHEMA_REGISTRY_VIEW_UNSPECIFIED";
@@ -233,7 +236,7 @@ NSString * const kGTLRManagedKafkaViewSchemaRegistryViewUnspecified = @"SCHEMA_R
 
 @implementation GTLRManagedKafkaQuery_ProjectsLocationsClustersConsumerGroupsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

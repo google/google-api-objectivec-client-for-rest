@@ -155,6 +155,25 @@
 
 @end
 
+@implementation GTLRCloudShellQuery_UsersEnvironmentsGenerateAccessToken
+
+@dynamic environment, expireTime, ttl;
+
++ (instancetype)queryWithEnvironment:(NSString *)environment {
+  NSArray *pathParams = @[ @"environment" ];
+  NSString *pathURITemplate = @"v1/{+environment}:generateAccessToken";
+  GTLRCloudShellQuery_UsersEnvironmentsGenerateAccessToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.environment = environment;
+  query.expectedObjectClass = [GTLRCloudShell_GenerateAccessTokenResponse class];
+  query.loggingName = @"cloudshell.users.environments.generateAccessToken";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudShellQuery_UsersEnvironmentsGet
 
 @dynamic name;

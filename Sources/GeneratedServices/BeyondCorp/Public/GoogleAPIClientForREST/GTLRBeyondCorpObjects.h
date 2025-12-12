@@ -4,10 +4,12 @@
 // API:
 //   BeyondCorp API (beyondcorp/v1)
 // Description:
-//   Beyondcorp Enterprise provides identity and context aware access controls
-//   for enterprise resources and enables zero-trust access. Using the
-//   Beyondcorp Enterprise APIs, enterprises can set up multi-cloud and on-prem
-//   connectivity solutions.
+//   Chrome Enterprise Premium is a secure enterprise browsing solution that
+//   provides secure access to applications and resources, and offers integrated
+//   threat and data protection. It adds an extra layer of security to safeguard
+//   your Chrome browser environment, including Data Loss Prevention (DLP),
+//   real-time URL and file scanning, and Context-Aware Access for SaaS and web
+//   apps.
 // Documentation:
 //   https://cloud.google.com/
 
@@ -345,7 +347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecurity
  */
 FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_None;
 /**
- *  Unspecified output type.
+ *  The unspecified output type.
  *
  *  Value: "OUTPUT_TYPE_UNSPECIFIED"
  */
@@ -373,7 +375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecurity
  */
 FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_None;
 /**
- *  Unspecified output type.
+ *  The unspecified output type.
  *
  *  Value: "OUTPUT_TYPE_UNSPECIFIED"
  */
@@ -401,7 +403,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecurity
  */
 FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_None;
 /**
- *  Unspecified output type.
+ *  The unspecified output type.
  *
  *  Value: "OUTPUT_TYPE_UNSPECIFIED"
  */
@@ -429,7 +431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecurity
  */
 FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_None;
 /**
- *  Unspecified output type.
+ *  The unspecified output type.
  *
  *  Value: "OUTPUT_TYPE_UNSPECIFIED"
  */
@@ -1912,13 +1914,15 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Required. Endpoint matchers associated with an application. A combination of
- *  hostname and ports as endpoint matchers is used to match the application.
- *  Match conditions for OR logic. An array of match conditions to allow for
- *  multiple matching criteria. The rule is considered a match if one of the
- *  conditions is met. The conditions should be the following combination:
- *  (Hostname & Ports) EXAMPLES: Hostname and Ports - ("*.example.com", "443"),
- *  ("example.com" and "22"), ("example.com" and "22,33") etc
+ *  Optional. An array of conditions to match the application's network
+ *  endpoint. Each element in the array is an EndpointMatcher object, which
+ *  defines a specific combination of a hostname pattern and one or more ports.
+ *  The application is considered matched if at least one of the EndpointMatcher
+ *  conditions in this array is met (the conditions are combined using OR
+ *  logic). Each EndpointMatcher must contain a hostname pattern, such as
+ *  "example.com", and one or more port numbers specified as a string, such as
+ *  "443". Hostname and port number examples: "*.example.com", "443"
+ *  "example.com" and "22" "example.com" and "22,33"
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher *> *endpointMatchers;
 
@@ -1999,10 +2003,10 @@ GTLR_DEPRECATED
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders : GTLRObject
 
-/** Optional. Device info configuration. */
+/** Optional. The device information configuration. */
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo *deviceInfo;
 
-/** Optional. Group info configuration. */
+/** Optional. Group details. */
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo *groupInfo;
 
 /**
@@ -2014,25 +2018,25 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_None
  *        Explicitly disable header output. (Value: "NONE")
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_OutputTypeUnspecified
- *        Unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
+ *        The unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders_OutputType_Protobuf
  *        Protobuf output type. (Value: "PROTOBUF")
  */
 @property(nonatomic, copy, nullable) NSString *outputType;
 
-/** Optional. User info configuration. */
+/** Optional. User details. */
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo *userInfo;
 
 @end
 
 
 /**
- *  Delegated device info configuration.
+ *  The delegated device information configuration.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo : GTLRObject
 
 /**
- *  Optional. The output type of the delegated device info.
+ *  Optional. The output type details for the delegated device.
  *
  *  Likely values:
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_Json
@@ -2040,7 +2044,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_None
  *        Explicitly disable header output. (Value: "NONE")
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_OutputTypeUnspecified
- *        Unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
+ *        The unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedDeviceInfo_OutputType_Protobuf
  *        Protobuf output type. (Value: "PROTOBUF")
  */
@@ -2050,12 +2054,12 @@ GTLR_DEPRECATED
 
 
 /**
- *  Delegated group info configuration.
+ *  The delegated group configuration details.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo : GTLRObject
 
 /**
- *  Optional. The output type of the delegated group info.
+ *  Optional. The output type of the delegated group information.
  *
  *  Likely values:
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_Json
@@ -2063,7 +2067,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_None
  *        Explicitly disable header output. (Value: "NONE")
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_OutputTypeUnspecified
- *        Unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
+ *        The unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedGroupInfo_OutputType_Protobuf
  *        Protobuf output type. (Value: "PROTOBUF")
  */
@@ -2073,12 +2077,12 @@ GTLR_DEPRECATED
 
 
 /**
- *  Delegated user info configuration.
+ *  The configuration information for the delegated user.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo : GTLRObject
 
 /**
- *  Optional. The output type of the delegated user info.
+ *  Optional. The delegated user's information.
  *
  *  Likely values:
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_Json
@@ -2086,7 +2090,7 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_None
  *        Explicitly disable header output. (Value: "NONE")
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_OutputTypeUnspecified
- *        Unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
+ *        The unspecified output type. (Value: "OUTPUT_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeadersDelegatedUserInfo_OutputType_Protobuf
  *        Protobuf output type. (Value: "PROTOBUF")
  */
@@ -2134,7 +2138,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *hostname;
 
 /**
- *  Required. Ports of the application.
+ *  Required. The ports of the application.
  *
  *  Uses NSNumber of intValue.
  */
@@ -2246,7 +2250,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ContextualHeaders *contextualHeaders;
 
 /**
- *  Optional. Gateway identity configuration.
+ *  Optional. The security gateway identity configuration.
  *
  *  Likely values:
  *    @arg @c kGTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_GatewayIdentity_GatewayIdentityUnspecified
@@ -2260,9 +2264,9 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. Custom resource specific headers along with the values. The names
- *  should conform to RFC 9110: > Field names SHOULD constrain themselves to
- *  alphanumeric characters, "-", and ".", and SHOULD begin with a letter. Field
- *  values SHOULD contain only ASCII printable characters and tab.
+ *  should conform to RFC 9110: >Field names can contain alphanumeric
+ *  characters, hyphens, and periods, can contain only ASCII-printable
+ *  characters and tabs, and must start with a letter.
  */
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_MetadataHeaders *metadataHeaders;
 
@@ -2271,9 +2275,9 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. Custom resource specific headers along with the values. The names
- *  should conform to RFC 9110: > Field names SHOULD constrain themselves to
- *  alphanumeric characters, "-", and ".", and SHOULD begin with a letter. Field
- *  values SHOULD contain only ASCII printable characters and tab.
+ *  should conform to RFC 9110: >Field names can contain alphanumeric
+ *  characters, hyphens, and periods, can contain only ASCII-printable
+ *  characters and tabs, and must start with a letter.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2436,7 +2440,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGatewayOperationDescriptor : GTLRObject
 
-/** Required. Contains uri path fragment where HTTP request is sent. */
+/** Required. Contains the URI path fragment where HTTP request is sent. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 @end

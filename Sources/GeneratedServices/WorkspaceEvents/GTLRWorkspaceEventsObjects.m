@@ -48,193 +48,6 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkspaceEvents_AgentCapabilities
-//
-
-@implementation GTLRWorkspaceEvents_AgentCapabilities
-@dynamic extensions, pushNotifications, streaming;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"extensions" : [GTLRWorkspaceEvents_AgentExtension class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_AgentCard
-//
-
-@implementation GTLRWorkspaceEvents_AgentCard
-@dynamic additionalInterfaces, capabilities, defaultInputModes,
-         defaultOutputModes, descriptionProperty, documentationUrl, iconUrl,
-         name, preferredTransport, protocolVersion, provider, security,
-         securitySchemes, signatures, skills, supportsAuthenticatedExtendedCard,
-         url, version;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"additionalInterfaces" : [GTLRWorkspaceEvents_AgentInterface class],
-    @"defaultInputModes" : [NSString class],
-    @"defaultOutputModes" : [NSString class],
-    @"security" : [GTLRWorkspaceEvents_Security class],
-    @"signatures" : [GTLRWorkspaceEvents_AgentCardSignature class],
-    @"skills" : [GTLRWorkspaceEvents_AgentSkill class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_AgentCard_SecuritySchemes
-//
-
-@implementation GTLRWorkspaceEvents_AgentCard_SecuritySchemes
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRWorkspaceEvents_SecurityScheme class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_AgentCardSignature
-//
-
-@implementation GTLRWorkspaceEvents_AgentCardSignature
-@dynamic header, protectedProperty, signature;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"protectedProperty" : @"protected" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_AgentCardSignature_Header
-//
-
-@implementation GTLRWorkspaceEvents_AgentCardSignature_Header
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_AgentExtension
-//
-
-@implementation GTLRWorkspaceEvents_AgentExtension
-@dynamic descriptionProperty, params, required, uri;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_AgentExtension_Params
-//
-
-@implementation GTLRWorkspaceEvents_AgentExtension_Params
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_AgentInterface
-//
-
-@implementation GTLRWorkspaceEvents_AgentInterface
-@dynamic transport, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_AgentProvider
-//
-
-@implementation GTLRWorkspaceEvents_AgentProvider
-@dynamic organization, url;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_AgentSkill
-//
-
-@implementation GTLRWorkspaceEvents_AgentSkill
-@dynamic descriptionProperty, examples, identifier, inputModes, name,
-         outputModes, security, tags;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"descriptionProperty" : @"description",
-    @"identifier" : @"id"
-  };
-  return map;
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"examples" : [NSString class],
-    @"inputModes" : [NSString class],
-    @"outputModes" : [NSString class],
-    @"security" : [GTLRWorkspaceEvents_Security class],
-    @"tags" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_APIKeySecurityScheme
-//
-
-@implementation GTLRWorkspaceEvents_APIKeySecurityScheme
-@dynamic descriptionProperty, location, name;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkspaceEvents_Artifact
 //
 
@@ -290,58 +103,10 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkspaceEvents_AuthorizationCodeOAuthFlow
-//
-
-@implementation GTLRWorkspaceEvents_AuthorizationCodeOAuthFlow
-@dynamic authorizationUrl, refreshUrl, scopes, tokenUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_AuthorizationCodeOAuthFlow_Scopes
-//
-
-@implementation GTLRWorkspaceEvents_AuthorizationCodeOAuthFlow_Scopes
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkspaceEvents_CancelTaskRequest
 //
 
 @implementation GTLRWorkspaceEvents_CancelTaskRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_ClientCredentialsOAuthFlow
-//
-
-@implementation GTLRWorkspaceEvents_ClientCredentialsOAuthFlow
-@dynamic refreshUrl, scopes, tokenUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_ClientCredentialsOAuthFlow_Scopes
-//
-
-@implementation GTLRWorkspaceEvents_ClientCredentialsOAuthFlow_Scopes
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
 @end
 
 
@@ -385,45 +150,6 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 
 @implementation GTLRWorkspaceEvents_FilePart
 @dynamic fileWithBytes, fileWithUri, mimeType, name;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_HTTPAuthSecurityScheme
-//
-
-@implementation GTLRWorkspaceEvents_HTTPAuthSecurityScheme
-@dynamic bearerFormat, descriptionProperty, scheme;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_ImplicitOAuthFlow
-//
-
-@implementation GTLRWorkspaceEvents_ImplicitOAuthFlow
-@dynamic authorizationUrl, refreshUrl, scopes;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_ImplicitOAuthFlow_Scopes
-//
-
-@implementation GTLRWorkspaceEvents_ImplicitOAuthFlow_Scopes
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
 @end
 
 
@@ -506,66 +232,11 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkspaceEvents_MutualTlsSecurityScheme
-//
-
-@implementation GTLRWorkspaceEvents_MutualTlsSecurityScheme
-@dynamic descriptionProperty;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkspaceEvents_NotificationEndpoint
 //
 
 @implementation GTLRWorkspaceEvents_NotificationEndpoint
 @dynamic pubsubTopic;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_OAuth2SecurityScheme
-//
-
-@implementation GTLRWorkspaceEvents_OAuth2SecurityScheme
-@dynamic descriptionProperty, flows, oauth2MetadataUrl;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_OAuthFlows
-//
-
-@implementation GTLRWorkspaceEvents_OAuthFlows
-@dynamic authorizationCode, clientCredentials, implicit, password;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_OpenIdConnectSecurityScheme
-//
-
-@implementation GTLRWorkspaceEvents_OpenIdConnectSecurityScheme
-@dynamic descriptionProperty, openIdConnectUrl;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
-}
-
 @end
 
 
@@ -633,30 +304,6 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRWorkspaceEvents_PasswordOAuthFlow
-//
-
-@implementation GTLRWorkspaceEvents_PasswordOAuthFlow
-@dynamic refreshUrl, scopes, tokenUrl;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_PasswordOAuthFlow_Scopes
-//
-
-@implementation GTLRWorkspaceEvents_PasswordOAuthFlow_Scopes
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRWorkspaceEvents_PayloadOptions
 //
 
@@ -686,41 +333,6 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 //
 
 @implementation GTLRWorkspaceEvents_ReactivateSubscriptionRequest
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_Security
-//
-
-@implementation GTLRWorkspaceEvents_Security
-@dynamic schemes;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_Security_Schemes
-//
-
-@implementation GTLRWorkspaceEvents_Security_Schemes
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRWorkspaceEvents_StringList class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_SecurityScheme
-//
-
-@implementation GTLRWorkspaceEvents_SecurityScheme
-@dynamic apiKeySecurityScheme, httpAuthSecurityScheme, mtlsSecurityScheme,
-         oauth2SecurityScheme, openIdConnectSecurityScheme;
 @end
 
 
@@ -805,24 +417,6 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 
 @implementation GTLRWorkspaceEvents_StreamResponse
 @dynamic artifactUpdate, message, statusUpdate, task;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkspaceEvents_StringList
-//
-
-@implementation GTLRWorkspaceEvents_StringList
-@dynamic list;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"list" : [NSString class]
-  };
-  return map;
-}
-
 @end
 
 

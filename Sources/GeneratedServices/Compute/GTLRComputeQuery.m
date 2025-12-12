@@ -365,6 +365,37 @@ NSString * const kGTLRComputeViewsWithUtilization = @"WITH_UTILIZATION";
 
 @end
 
+@implementation GTLRComputeQuery_AdviceCalendarMode
+
+@dynamic project, region;
+
++ (instancetype)queryWithObject:(GTLRCompute_CalendarModeAdviceRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"project", @"region"
+  ];
+  NSString *pathURITemplate = @"projects/{project}/regions/{region}/advice/calendarMode";
+  GTLRComputeQuery_AdviceCalendarMode *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.project = project;
+  query.region = region;
+  query.expectedObjectClass = [GTLRCompute_CalendarModeAdviceResponse class];
+  query.loggingName = @"compute.advice.calendarMode";
+  return query;
+}
+
+@end
+
 @implementation GTLRComputeQuery_AutoscalersAggregatedList
 
 @dynamic filter, includeAllScopes, maxResults, orderBy, pageToken, project,

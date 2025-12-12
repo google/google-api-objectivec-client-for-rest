@@ -30,6 +30,7 @@
 @class GTLRSpanner_Binding;
 @class GTLRSpanner_ChangeQuorumRequest;
 @class GTLRSpanner_ChildLink;
+@class GTLRSpanner_ClientContext;
 @class GTLRSpanner_ColumnMetadata;
 @class GTLRSpanner_CommitStats;
 @class GTLRSpanner_ContextValue;
@@ -1179,8 +1180,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_TransactionOptions_IsolationLeve
  *  absence of conflicts between its updates and any concurrent updates that
  *  have occurred since that snapshot. Consequently, in contrast to
  *  `SERIALIZABLE` transactions, only write-write conflicts are detected in
- *  snapshot transactions. This isolation level does not support Read-only and
- *  Partitioned DML transactions. When `REPEATABLE_READ` is specified on a
+ *  snapshot transactions. This isolation level does not support read-only and
+ *  partitioned DML transactions. When `REPEATABLE_READ` is specified on a
  *  read-write transaction, the locking semantics default to `OPTIMISTIC`.
  *
  *  Value: "REPEATABLE_READ"
@@ -1961,10 +1962,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_BatchCreateSessionsRequest : GTLRObject
 
 /**
- *  Required. The number of sessions to be created in this batch call. The API
- *  can return fewer than the requested number of sessions. If a specific number
- *  of sessions are desired, the client can make additional calls to
- *  `BatchCreateSessions` (adjusting session_count as necessary).
+ *  Required. The number of sessions to be created in this batch call. At least
+ *  one session is created. The API can return fewer than the requested number
+ *  of sessions. If a specific number of sessions are desired, the client can
+ *  make additional calls to `BatchCreateSessions` (adjusting session_count as
+ *  necessary).
  *
  *  Uses NSNumber of intValue.
  */
@@ -2262,6 +2264,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, copy, nullable) NSString *variable;
 
+@end
+
+
+/**
+ *  Container for various pieces of client-owned context attached to a request.
+ */
+@interface GTLRSpanner_ClientContext : GTLRObject
 @end
 
 
@@ -4556,6 +4565,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_InstancePartition : GTLRObject
 
 /**
+ *  Optional. The autoscaling configuration. Autoscaling is enabled if this
+ *  field is set. When autoscaling is enabled, fields in compute_capacity are
+ *  treated as OUTPUT_ONLY fields and reflect the current compute capacity
+ *  allocated to the instance partition.
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_AutoscalingConfig *autoscalingConfig;
+
+/**
  *  Required. The name of the instance partition's configuration. Values are of
  *  the form `projects//instanceConfigs/`. See also InstanceConfig and
  *  ListInstanceConfigs.
@@ -5219,6 +5236,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSpanner_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections
+ *  e.g. when attempting to list all resources across all supported locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -6955,6 +6979,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @interface GTLRSpanner_RequestOptions : GTLRObject
 
+/** Optional. Optional context that may be needed for some requests. */
+@property(nonatomic, strong, nullable) GTLRSpanner_ClientContext *clientContext;
+
 /**
  *  Priority for the request.
  *
@@ -7399,11 +7426,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Optional. If `true`, specifies a multiplexed session. Use a multiplexed
- *  session for multiple, concurrent read-only operations. Don't use them for
- *  read-write transactions, partitioned reads, or partitioned queries. Use
- *  `sessions.create` to create multiplexed sessions. Don't use
- *  BatchCreateSessions to create a multiplexed session. You can't delete or
- *  list multiplexed sessions.
+ *  session for multiple, concurrent operations including any combination of
+ *  read-only and read-write transactions. Use `sessions.create` to create
+ *  multiplexed sessions. Don't use BatchCreateSessions to create a multiplexed
+ *  session. You can't delete or list multiplexed sessions.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7762,7 +7788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *        updates that have occurred since that snapshot. Consequently, in
  *        contrast to `SERIALIZABLE` transactions, only write-write conflicts
  *        are detected in snapshot transactions. This isolation level does not
- *        support Read-only and Partitioned DML transactions. When
+ *        support read-only and partitioned DML transactions. When
  *        `REPEATABLE_READ` is specified on a read-write transaction, the
  *        locking semantics default to `OPTIMISTIC`. (Value: "REPEATABLE_READ")
  *    @arg @c kGTLRSpanner_TransactionOptions_IsolationLevel_Serializable All

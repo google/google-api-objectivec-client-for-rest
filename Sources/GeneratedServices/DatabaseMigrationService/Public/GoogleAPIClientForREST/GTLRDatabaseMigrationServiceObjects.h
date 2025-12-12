@@ -210,6 +210,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings
  *  Value: "POSTGRES_17"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres17;
+/**
+ *  The database version is Postgres 18.
+ *
+ *  Value: "POSTGRES_18"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres18;
 
 // ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_AuditLogConfig.logType
@@ -2633,6 +2639,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        The database version is Postgres 16. (Value: "POSTGRES_16")
  *    @arg @c kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres17
  *        The database version is Postgres 17. (Value: "POSTGRES_17")
+ *    @arg @c kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres18
+ *        The database version is Postgres 18. (Value: "POSTGRES_18")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -5263,6 +5271,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatabaseMigrationService_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

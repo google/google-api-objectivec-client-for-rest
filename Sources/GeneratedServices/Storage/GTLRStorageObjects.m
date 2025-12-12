@@ -610,7 +610,7 @@ NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforceme
 //
 
 @implementation GTLRStorage_ComposeRequest
-@dynamic destination, kind, sourceObjects;
+@dynamic deleteSourceObjects, destination, kind, sourceObjects;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

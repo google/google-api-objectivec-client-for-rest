@@ -1631,7 +1631,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. When this value is set to 'true,' the response will include all
+ *  Optional. When this value is set to 'true' the response will include all
  *  assets, including those that are hidden.
  *
  *  Uses NSNumber of boolValue.
@@ -3514,7 +3514,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 /** Output only. The timestamp when the file was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** User-friendly display name. Maximum length is 63 characters. */
+/** Optional. User-friendly display name. Maximum length is 63 characters. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -3993,8 +3993,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -4367,6 +4368,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /** List of network adapters. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_NetworkAdapterList *adapters;
+
+/** Optional. Default gateway address. */
+@property(nonatomic, copy, nullable) NSString *defaultGateway;
 
 /** The primary IP address of the machine. */
 @property(nonatomic, copy, nullable) NSString *primaryIpAddress;
@@ -5426,6 +5430,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /** Count of assets grouped by Operating System families. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryChartData *operatingSystem;
+
+/**
+ *  Output only. Count of assets grouped by software name. Only present for
+ *  virtual machines.
+ */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryChartData *softwareInstances;
 
 /** Histogram showing a distribution of storage sizes. */
 @property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_ReportSummaryHistogramChartData *storageBytesHistogram;

@@ -1380,7 +1380,8 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_GoogleCloudHealthcareV1DicomBigQueryDestination
-@dynamic force, tableUri, writeDisposition;
+@dynamic force, includeSourceStore, schemaFlattened, schemaJson, tableUri,
+         writeDisposition;
 @end
 
 
@@ -2245,7 +2246,7 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 //
 
 @implementation GTLRCloudHealthcare_ProgressCounter
-@dynamic failure, pending, success;
+@dynamic failure, pending, secondaryFailure, secondarySuccess, success;
 @end
 
 
@@ -2483,11 +2484,29 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudHealthcare_Schema
+//
+
+@implementation GTLRCloudHealthcare_Schema
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudHealthcare_SchemaConfig
 //
 
 @implementation GTLRCloudHealthcare_SchemaConfig
 @dynamic lastUpdatedPartitionConfig, recursiveStructureDepth, schemaType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_SchemaFlattened
+//
+
+@implementation GTLRCloudHealthcare_SchemaFlattened
 @end
 
 
@@ -2546,16 +2565,6 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 @implementation GTLRCloudHealthcare_SchematizedData
 @dynamic data, error;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudHealthcare_SearchResourcesRequest
-//
-
-@implementation GTLRCloudHealthcare_SearchResourcesRequest
-@dynamic resourceType;
 @end
 
 

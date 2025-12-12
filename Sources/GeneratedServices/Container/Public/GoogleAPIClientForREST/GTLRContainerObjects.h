@@ -40,6 +40,8 @@
 @class GTLRContainer_BlueGreenSettings;
 @class GTLRContainer_BootDisk;
 @class GTLRContainer_CertificateAuthorityDomainConfig;
+@class GTLRContainer_CertificateConfig;
+@class GTLRContainer_CertificateConfigPair;
 @class GTLRContainer_CidrBlock;
 @class GTLRContainer_ClientCertificateConfig;
 @class GTLRContainer_CloudRunConfig;
@@ -62,6 +64,7 @@
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DesiredAdditionalIPRangesConfig;
 @class GTLRContainer_DesiredEnterpriseConfig;
+@class GTLRContainer_DisruptionEvent;
 @class GTLRContainer_DnsCacheConfig;
 @class GTLRContainer_DNSConfig;
 @class GTLRContainer_DNSEndpointConfig;
@@ -85,6 +88,7 @@
 @class GTLRContainer_GPUSharingConfig;
 @class GTLRContainer_HighScaleCheckpointingConfig;
 @class GTLRContainer_HorizontalPodAutoscaling;
+@class GTLRContainer_HostConfig;
 @class GTLRContainer_HttpCacheControlResponseHeader;
 @class GTLRContainer_HttpLoadBalancing;
 @class GTLRContainer_HugepagesConfig;
@@ -108,6 +112,7 @@
 @class GTLRContainer_MaintenancePolicy;
 @class GTLRContainer_MaintenanceWindow;
 @class GTLRContainer_MaintenanceWindow_MaintenanceExclusions;
+@class GTLRContainer_ManagedOpenTelemetryConfig;
 @class GTLRContainer_ManagedPrometheusConfig;
 @class GTLRContainer_MasterAuth;
 @class GTLRContainer_MasterAuthorizedNetworksConfig;
@@ -129,6 +134,7 @@
 @class GTLRContainer_NodeConfig_Metadata;
 @class GTLRContainer_NodeConfig_ResourceLabels;
 @class GTLRContainer_NodeConfigDefaults;
+@class GTLRContainer_NodeDrainConfig;
 @class GTLRContainer_NodeKernelModuleLoading;
 @class GTLRContainer_NodeKubeletConfig;
 @class GTLRContainer_NodeLabels;
@@ -149,6 +155,7 @@
 @class GTLRContainer_ParallelstoreCsiDriverConfig;
 @class GTLRContainer_ParentProductConfig;
 @class GTLRContainer_ParentProductConfig_Labels;
+@class GTLRContainer_PdbBlockedPod;
 @class GTLRContainer_PlacementPolicy;
 @class GTLRContainer_PodAutoscaling;
 @class GTLRContainer_PodCIDROverprovisionConfig;
@@ -164,6 +171,8 @@
 @class GTLRContainer_RayOperatorConfig;
 @class GTLRContainer_RBACBindingConfig;
 @class GTLRContainer_RecurringTimeWindow;
+@class GTLRContainer_RegistryHeader;
+@class GTLRContainer_RegistryHostConfig;
 @class GTLRContainer_ReleaseChannel;
 @class GTLRContainer_ReleaseChannelConfig;
 @class GTLRContainer_ReservationAffinity;
@@ -857,6 +866,30 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DesiredEnterpriseConfig_Desire
 FOUNDATION_EXTERN NSString * const kGTLRContainer_DesiredEnterpriseConfig_DesiredTier_Standard;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_DisruptionEvent.disruptionType
+
+/**
+ *  DISRUPTION_TYPE_UNSPECIFIED indicates the disruption type is unspecified.
+ *
+ *  Value: "DISRUPTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DisruptionEvent_DisruptionType_DisruptionTypeUnspecified;
+/**
+ *  POD_NOT_ENOUGH_PDB indicates there are still running pods on the node during
+ *  node drain because their evictions are blocked by PDB.
+ *
+ *  Value: "POD_NOT_ENOUGH_PDB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DisruptionEvent_DisruptionType_PodNotEnoughPdb;
+/**
+ *  POD_PDB_VIOLATION indicates that there are force pod evictions during node
+ *  drain which violate the PDB.
+ *
+ *  Value: "POD_PDB_VIOLATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DisruptionEvent_DisruptionType_PodPdbViolation;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_DNSConfig.clusterDns
 
 /**
@@ -1096,6 +1129,34 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStr
  *  Value: "TIME_SHARING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUSharingConfig_GpuSharingStrategy_TimeSharing;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_HostConfig.capabilities
+
+/**
+ *  Pull represents the capability to fetch manifests and blobs by digest.
+ *
+ *  Value: "HOST_CAPABILITY_PULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_HostConfig_Capabilities_HostCapabilityPull;
+/**
+ *  Push represents the capability to push blobs and manifests.
+ *
+ *  Value: "HOST_CAPABILITY_PUSH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_HostConfig_Capabilities_HostCapabilityPush;
+/**
+ *  Resolve represents the capability to fetch manifests by name.
+ *
+ *  Value: "HOST_CAPABILITY_RESOLVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_HostConfig_Capabilities_HostCapabilityResolve;
+/**
+ *  UNKNOWN should never be set.
+ *
+ *  Value: "HOST_CAPABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_HostConfig_Capabilities_HostCapabilityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_IPAllocationPolicy.ipv6AccessType
@@ -1368,6 +1429,29 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_MaintenanceExclusionOptions_Sc
  *  Value: "NO_UPGRADES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_MaintenanceExclusionOptions_Scope_NoUpgrades;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_ManagedOpenTelemetryConfig.scope
+
+/**
+ *  COLLECTION_AND_INSTRUMENTATION_COMPONENTS is used to enable the Managed
+ *  OpenTelemetry pipeline for collection and instrumentation components.
+ *
+ *  Value: "COLLECTION_AND_INSTRUMENTATION_COMPONENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ManagedOpenTelemetryConfig_Scope_CollectionAndInstrumentationComponents;
+/**
+ *  NONE is used to disable the Managed OpenTelemetry pipeline.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ManagedOpenTelemetryConfig_Scope_None;
+/**
+ *  SCOPE_UNSPECIFIED is when the scope is not set.
+ *
+ *  Value: "SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ManagedOpenTelemetryConfig_Scope_ScopeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_MonitoringComponentConfig.enableComponents
@@ -2714,6 +2798,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeEvent_ResourceType_Upgr
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_CosMilestoneVersionUpdate;
 /**
+ *  DISRUPTION_EVENT indicates the event is about the disruption.
+ *
+ *  Value: "DISRUPTION_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_EventType_DisruptionEvent;
+/**
  *  END_OF_SUPPORT indicates GKE version reaches end of support, check
  *  standard_support_end_time and extended_support_end_time for more details.
  *
@@ -3694,6 +3784,39 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  CertificateConfig configures certificate for the registry.
+ */
+@interface GTLRContainer_CertificateConfig : GTLRObject
+
+/**
+ *  The URI configures a secret from [Secret
+ *  Manager](https://cloud.google.com/secret-manager) in the format
+ *  "projects/$PROJECT_ID/secrets/$SECRET_NAME/versions/$VERSION" for global
+ *  secret or
+ *  "projects/$PROJECT_ID/locations/$REGION/secrets/$SECRET_NAME/versions/$VERSION"
+ *  for regional secret. Version can be fixed (e.g. "2") or "latest"
+ */
+@property(nonatomic, copy, nullable) NSString *gcpSecretManagerSecretUri;
+
+@end
+
+
+/**
+ *  CertificateConfigPair configures pairs of certificates, which is used for
+ *  client certificate and key pairs under a registry.
+ */
+@interface GTLRContainer_CertificateConfigPair : GTLRObject
+
+/** Cert configures the client certificate. */
+@property(nonatomic, strong, nullable) GTLRContainer_CertificateConfig *cert;
+
+/** Key configures the client private key. Optional. */
+@property(nonatomic, strong, nullable) GTLRContainer_CertificateConfig *key;
+
+@end
+
+
+/**
  *  CheckAutopilotCompatibilityResponse has a list of compatibility issues.
  */
 @interface GTLRContainer_CheckAutopilotCompatibilityResponse : GTLRObject
@@ -4011,6 +4134,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Configure the maintenance policy for this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_MaintenancePolicy *maintenancePolicy;
+
+/** Configuration for Managed OpenTelemetry pipeline. */
+@property(nonatomic, strong, nullable) GTLRContainer_ManagedOpenTelemetryConfig *managedOpentelemetryConfig;
 
 /**
  *  The authentication information for accessing the master endpoint. If
@@ -4543,6 +4669,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *desiredLoggingService;
 
+/** The desired managed open telemetry configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_ManagedOpenTelemetryConfig *desiredManagedOpentelemetryConfig;
+
 /**
  *  The desired configuration options for master authorized networks feature.
  *  Deprecated: Use
@@ -4683,6 +4812,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *        "PRIVATE_IPV6_GOOGLE_ACCESS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *desiredPrivateIpv6GoogleAccess;
+
+/** The desired privileged admission config for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_PrivilegedAdmissionConfig *desiredPrivilegedAdmissionConfig;
 
 /**
  *  RBACBindingConfig allows user to restrict ClusterRoleBindings an
@@ -5151,6 +5283,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_PrivateRegistryAccessConfig *privateRegistryAccessConfig;
 
 /**
+ *  RegistryHostConfig configures containerd registry host configuration. Each
+ *  registry_hosts represents a hosts.toml file. At most 25 registry_hosts are
+ *  allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_RegistryHostConfig *> *registryHosts;
+
+/**
  *  Optional. WritableCgroups defines writable cgroups configuration for the
  *  node pool.
  */
@@ -5226,6 +5365,51 @@ GTLR_DEPRECATED
  *        STANDARD indicates a standard GKE cluster. (Value: "STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *desiredTier;
+
+@end
+
+
+/**
+ *  DisruptionEvent is a notification sent to customers about the disruption
+ *  event of a resource.
+ */
+@interface GTLRContainer_DisruptionEvent : GTLRObject
+
+/**
+ *  The type of the disruption event.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_DisruptionEvent_DisruptionType_DisruptionTypeUnspecified
+ *        DISRUPTION_TYPE_UNSPECIFIED indicates the disruption type is
+ *        unspecified. (Value: "DISRUPTION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_DisruptionEvent_DisruptionType_PodNotEnoughPdb
+ *        POD_NOT_ENOUGH_PDB indicates there are still running pods on the node
+ *        during node drain because their evictions are blocked by PDB. (Value:
+ *        "POD_NOT_ENOUGH_PDB")
+ *    @arg @c kGTLRContainer_DisruptionEvent_DisruptionType_PodPdbViolation
+ *        POD_PDB_VIOLATION indicates that there are force pod evictions during
+ *        node drain which violate the PDB. (Value: "POD_PDB_VIOLATION")
+ */
+@property(nonatomic, copy, nullable) NSString *disruptionType;
+
+/**
+ *  The node whose drain is blocked by PDB. This field is set for both
+ *  POD_PDB_VIOLATION and POD_NOT_ENOUGH_PDB event.
+ */
+@property(nonatomic, copy, nullable) NSString *pdbBlockedNode;
+
+/**
+ *  The pods whose evictions are blocked by PDB. This field is set for both
+ *  POD_PDB_VIOLATION and POD_NOT_ENOUGH_PDB event.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_PdbBlockedPod *> *pdbBlockedPod;
+
+/**
+ *  The timeout in seconds for which the node drain is blocked by PDB. After
+ *  this timeout, pods are forcefully evicted. This field is only populated when
+ *  event_type is POD_PDB_VIOLATION.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *pdbViolationTimeout;
 
 @end
 
@@ -5938,6 +6122,56 @@ GTLR_DEPRECATED
 
 
 /**
+ *  HostConfig configures the registry host under a given Server.
+ */
+@interface GTLRContainer_HostConfig : GTLRObject
+
+/** CA configures the registry host certificate. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_CertificateConfig *> *ca;
+
+/**
+ *  Capabilities represent the capabilities of the registry host, specifying
+ *  what operations a host is capable of performing. If not set, containerd
+ *  enables all capabilities by default.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
+
+/** Client configures the registry host client certificate and key. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_CertificateConfigPair *> *client;
+
+/**
+ *  Specifies the maximum duration allowed for a connection attempt to complete.
+ *  A shorter timeout helps reduce delays when falling back to the original
+ *  registry if the mirror is unreachable. Maximum allowed value is 180s. If not
+ *  set, containerd sets default 30s. The value should be a decimal number of
+ *  seconds with an `s` suffix.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *dialTimeout;
+
+/** Header configures the registry host headers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_RegistryHeader *> *header;
+
+/**
+ *  Host configures the registry host/mirror. It supports fully qualified domain
+ *  names (FQDN) and IP addresses: Specifying port is supported. Wildcards are
+ *  NOT supported. Examples: - my.customdomain.com - 10.0.1.2:5000
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  OverridePath is used to indicate the host's API root endpoint is defined in
+ *  the URL path rather than by the API specification. This may be used with
+ *  non-compliant OCI registries which are missing the /v2 prefix. If not set,
+ *  containerd sets default false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *overridePath;
+
+@end
+
+
+/**
  *  RFC-2616: cache control support
  */
 @interface GTLRContainer_HttpCacheControlResponseHeader : GTLRObject
@@ -6422,18 +6656,23 @@ GTLR_DEPRECATED
  *  net.core.busy_read net.core.netdev_max_backlog net.core.rmem_max
  *  net.core.rmem_default net.core.wmem_default net.core.wmem_max
  *  net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem net.ipv4.tcp_wmem
- *  net.ipv4.tcp_tw_reuse net.ipv4.tcp_max_orphans
- *  net.netfilter.nf_conntrack_max net.netfilter.nf_conntrack_buckets
+ *  net.ipv4.tcp_tw_reuse net.ipv4.tcp_mtu_probing net.ipv4.tcp_max_orphans
+ *  net.ipv4.tcp_max_tw_buckets net.ipv4.tcp_syn_retries net.ipv4.tcp_ecn
+ *  net.ipv4.tcp_congestion_control net.netfilter.nf_conntrack_max
+ *  net.netfilter.nf_conntrack_buckets
  *  net.netfilter.nf_conntrack_tcp_timeout_close_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_time_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_established
  *  net.netfilter.nf_conntrack_acct kernel.shmmni kernel.shmmax kernel.shmall
- *  fs.aio-max-nr fs.file-max fs.inotify.max_user_instances
- *  fs.inotify.max_user_watches fs.nr_open vm.dirty_background_ratio
- *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_writeback_centisecs
- *  vm.max_map_count vm.overcommit_memory vm.overcommit_ratio
- *  vm.vfs_cache_pressure vm.swappiness vm.watermark_scale_factor
- *  vm.min_free_kbytes
+ *  kernel.perf_event_paranoid kernel.sched_rt_runtime_us
+ *  kernel.softlockup_panic kernel.yama.ptrace_scope kernel.kptr_restrict
+ *  kernel.dmesg_restrict kernel.sysrq fs.aio-max-nr fs.file-max
+ *  fs.inotify.max_user_instances fs.inotify.max_user_watches fs.nr_open
+ *  vm.dirty_background_ratio vm.dirty_background_bytes
+ *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_bytes
+ *  vm.dirty_writeback_centisecs vm.max_map_count vm.overcommit_memory
+ *  vm.overcommit_ratio vm.vfs_cache_pressure vm.swappiness
+ *  vm.watermark_scale_factor vm.min_free_kbytes
  */
 @property(nonatomic, strong, nullable) GTLRContainer_LinuxNodeConfig_Sysctls *sysctls;
 
@@ -6509,18 +6748,23 @@ GTLR_DEPRECATED
  *  net.core.busy_read net.core.netdev_max_backlog net.core.rmem_max
  *  net.core.rmem_default net.core.wmem_default net.core.wmem_max
  *  net.core.optmem_max net.core.somaxconn net.ipv4.tcp_rmem net.ipv4.tcp_wmem
- *  net.ipv4.tcp_tw_reuse net.ipv4.tcp_max_orphans
- *  net.netfilter.nf_conntrack_max net.netfilter.nf_conntrack_buckets
+ *  net.ipv4.tcp_tw_reuse net.ipv4.tcp_mtu_probing net.ipv4.tcp_max_orphans
+ *  net.ipv4.tcp_max_tw_buckets net.ipv4.tcp_syn_retries net.ipv4.tcp_ecn
+ *  net.ipv4.tcp_congestion_control net.netfilter.nf_conntrack_max
+ *  net.netfilter.nf_conntrack_buckets
  *  net.netfilter.nf_conntrack_tcp_timeout_close_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_time_wait
  *  net.netfilter.nf_conntrack_tcp_timeout_established
  *  net.netfilter.nf_conntrack_acct kernel.shmmni kernel.shmmax kernel.shmall
- *  fs.aio-max-nr fs.file-max fs.inotify.max_user_instances
- *  fs.inotify.max_user_watches fs.nr_open vm.dirty_background_ratio
- *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_writeback_centisecs
- *  vm.max_map_count vm.overcommit_memory vm.overcommit_ratio
- *  vm.vfs_cache_pressure vm.swappiness vm.watermark_scale_factor
- *  vm.min_free_kbytes
+ *  kernel.perf_event_paranoid kernel.sched_rt_runtime_us
+ *  kernel.softlockup_panic kernel.yama.ptrace_scope kernel.kptr_restrict
+ *  kernel.dmesg_restrict kernel.sysrq fs.aio-max-nr fs.file-max
+ *  fs.inotify.max_user_instances fs.inotify.max_user_watches fs.nr_open
+ *  vm.dirty_background_ratio vm.dirty_background_bytes
+ *  vm.dirty_expire_centisecs vm.dirty_ratio vm.dirty_bytes
+ *  vm.dirty_writeback_centisecs vm.max_map_count vm.overcommit_memory
+ *  vm.overcommit_ratio vm.vfs_cache_pressure vm.swappiness
+ *  vm.watermark_scale_factor vm.min_free_kbytes
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -6699,7 +6943,9 @@ GTLR_DEPRECATED
  *  gke-metadata-server. This field is required ONLY under the following
  *  conditions: 1. The GKE node version is older than 1.33.2-gke.4655000. 2.
  *  You're connecting to a Lustre instance that has the 'gke-support-enabled'
- *  flag.
+ *  flag. Deprecated: This flag is no longer required as of GKE node version
+ *  1.33.2-gke.4655000, unless you are connecting to a Lustre instance that has
+ *  the `gke-support-enabled` flag.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6803,6 +7049,31 @@ GTLR_DEPRECATED
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRContainer_MaintenanceWindow_MaintenanceExclusions : GTLRObject
+@end
+
+
+/**
+ *  ManagedOpenTelemetryConfig is the configuration for the GKE Managed
+ *  OpenTelemetry pipeline.
+ */
+@interface GTLRContainer_ManagedOpenTelemetryConfig : GTLRObject
+
+/**
+ *  Scope of the Managed OpenTelemetry pipeline.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ManagedOpenTelemetryConfig_Scope_CollectionAndInstrumentationComponents
+ *        COLLECTION_AND_INSTRUMENTATION_COMPONENTS is used to enable the
+ *        Managed OpenTelemetry pipeline for collection and instrumentation
+ *        components. (Value: "COLLECTION_AND_INSTRUMENTATION_COMPONENTS")
+ *    @arg @c kGTLRContainer_ManagedOpenTelemetryConfig_Scope_None NONE is used
+ *        to disable the Managed OpenTelemetry pipeline. (Value: "NONE")
+ *    @arg @c kGTLRContainer_ManagedOpenTelemetryConfig_Scope_ScopeUnspecified
+ *        SCOPE_UNSPECIFIED is when the scope is not set. (Value:
+ *        "SCOPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
 @end
 
 
@@ -7718,6 +7989,22 @@ GTLR_DEPRECATED
 
 
 /**
+ *  NodeDrainConfig contains the node drain related configurations for this
+ *  nodepool.
+ */
+@interface GTLRContainer_NodeDrainConfig : GTLRObject
+
+/**
+ *  Whether to respect PDB during node pool deletion.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *respectPdbDuringNodePoolDeletion;
+
+@end
+
+
+/**
  *  Configuration for kernel module loading on nodes.
  */
 @interface GTLRContainer_NodeKernelModuleLoading : GTLRObject
@@ -8097,7 +8384,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *podRange;
 
 /**
- *  Output only. The subnetwork path for the node pool. Format:
+ *  The subnetwork path for the node pool. Format:
  *  projects/{project}/regions/{region}/subnetworks/{subnetwork} If the cluster
  *  is associated with multiple subnetworks, the subnetwork for the node pool is
  *  picked based on the IP utilization during node pool creation and is
@@ -8192,6 +8479,9 @@ GTLR_DEPRECATED
  *  cluster-level defaults.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeNetworkConfig *networkConfig;
+
+/** Specifies the node drain configuration for this node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeDrainConfig *nodeDrainConfig;
 
 /** Specifies the node placement policy. */
 @property(nonatomic, strong, nullable) GTLRContainer_PlacementPolicy *placementPolicy;
@@ -8788,6 +9078,24 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The namespace/name of the pod whose eviction is blocked by PDB.
+ */
+@interface GTLRContainer_PdbBlockedPod : GTLRObject
+
+/** The name of the pod. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The namespace of the pod.
+ *
+ *  Remapped to 'namespaceProperty' to avoid language reserved word 'namespace'.
+ */
+@property(nonatomic, copy, nullable) NSString *namespaceProperty;
+
+@end
+
+
+/**
  *  PlacementPolicy defines the placement policy used by the node pool.
  */
 @interface GTLRContainer_PlacementPolicy : GTLRObject
@@ -9130,7 +9438,7 @@ GTLR_DEPRECATED
 
 /**
  *  An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for how this
- *  window reccurs. They go on for the span of time between the start and end
+ *  window recurs. They go on for the span of time between the start and end
  *  time. For example, to have something repeat every weekday, you'd use:
  *  `FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR` To repeat some window daily (equivalent
  *  to the DailyMaintenanceWindow): `FREQ=DAILY` For the first weekend of every
@@ -9150,6 +9458,46 @@ GTLR_DEPRECATED
 
 /** The window of the first recurrence. */
 @property(nonatomic, strong, nullable) GTLRContainer_TimeWindow *window;
+
+@end
+
+
+/**
+ *  RegistryHeader configures headers for the registry.
+ */
+@interface GTLRContainer_RegistryHeader : GTLRObject
+
+/** Key configures the header key. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Value configures the header value. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *value;
+
+@end
+
+
+/**
+ *  RegistryHostConfig configures the top-level structure for a single
+ *  containerd registry server's configuration, which represents one hosts.toml
+ *  file on the node. It will override the same fqdns in
+ *  PrivateRegistryAccessConfig.
+ */
+@interface GTLRContainer_RegistryHostConfig : GTLRObject
+
+/**
+ *  HostConfig configures a list of host-specific configurations for the server.
+ *  Each server can have at most 10 host configurations.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContainer_HostConfig *> *hosts;
+
+/**
+ *  Defines the host name of the registry server, which will be used to create
+ *  configuration file as /etc/containerd/hosts.d//hosts.toml. It supports fully
+ *  qualified domain names (FQDN) and IP addresses: Specifying port is
+ *  supported. Wildcards are NOT supported. Examples: - my.customdomain.com -
+ *  10.0.1.2:5000
+ */
+@property(nonatomic, copy, nullable) NSString *server;
 
 @end
 
@@ -10886,6 +11234,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The desired node drain configuration for nodes in the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeDrainConfig *nodeDrainConfig;
+
 /** Node network config. */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeNetworkConfig *nodeNetworkConfig;
 
@@ -11117,6 +11468,12 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/**
+ *  The information about the disruption event. This field is only populated
+ *  when event_type is DISRUPTION_EVENT.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_DisruptionEvent *disruptionEvent;
+
 /** The time when the operation ended. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
@@ -11128,6 +11485,9 @@ GTLR_DEPRECATED
  *        COS_MILESTONE_VERSION_UPDATE indicates that the COS node image will
  *        update COS milestone version for new patch versions starting with the
  *        one in the description. (Value: "COS_MILESTONE_VERSION_UPDATE")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_EventType_DisruptionEvent
+ *        DISRUPTION_EVENT indicates the event is about the disruption. (Value:
+ *        "DISRUPTION_EVENT")
  *    @arg @c kGTLRContainer_UpgradeInfoEvent_EventType_EndOfSupport
  *        END_OF_SUPPORT indicates GKE version reaches end of support, check
  *        standard_support_end_time and extended_support_end_time for more
@@ -11367,6 +11727,12 @@ GTLR_DEPRECATED
  *  plane nodes.
  */
 @property(nonatomic, copy, nullable) NSString *controlPlaneDiskEncryptionKey;
+
+/**
+ *  Output only. All of the versions of the Cloud KMS cryptoKey that are used by
+ *  Confidential Hyperdisks on the control plane nodes.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *controlPlaneDiskEncryptionKeyVersions;
 
 /**
  *  Resource path of the Certificate Authority Service caPool to use for the

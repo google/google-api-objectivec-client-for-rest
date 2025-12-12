@@ -1461,6 +1461,28 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_BatchGetStatsResponse
+//
+
+@implementation GTLRYouTube_BatchGetStatsResponse
+@dynamic ETag, items, kind;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"items" : [GTLRYouTube_VideoStat class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_Caption
 //
 
@@ -4109,11 +4131,62 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_VideoStat
+//
+
+@implementation GTLRYouTube_VideoStat
+@dynamic contentDetails, ETag, kind, name, snippet, statistics, videoId;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_VideoStatistics
 //
 
 @implementation GTLRYouTube_VideoStatistics
 @dynamic commentCount, dislikeCount, favoriteCount, likeCount, viewCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_VideoStatsContentDetails
+//
+
+@implementation GTLRYouTube_VideoStatsContentDetails
+@dynamic duration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_VideoStatsSnippet
+//
+
+@implementation GTLRYouTube_VideoStatsSnippet
+@dynamic publishTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRYouTube_VideoStatsStatistics
+//
+
+@implementation GTLRYouTube_VideoStatsStatistics
+@dynamic commentCount, likeCount, viewCount;
 @end
 
 

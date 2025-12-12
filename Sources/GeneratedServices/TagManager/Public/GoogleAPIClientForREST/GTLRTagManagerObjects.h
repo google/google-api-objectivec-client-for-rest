@@ -938,6 +938,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 
 /**
+ *  GTLRTagManager_BulkUpdateWorkspaceResponse
+ */
+@interface GTLRTagManager_BulkUpdateWorkspaceResponse : GTLRObject
+
+/**
+ *  The entities that were added or updated during the bulk-update. Does not
+ *  include entities that were deleted or updated by the system.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Entity *> *changes;
+
+@end
+
+
+/**
  *  GTLRTagManager_Client
  */
 @interface GTLRTagManager_Client : GTLRObject
@@ -2301,6 +2315,17 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  *  specified type.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  GTLRTagManager_ProposedChange
+ */
+@interface GTLRTagManager_ProposedChange : GTLRObject
+
+/** The list of workspace changes to be applied. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTagManager_Entity *> *changes;
 
 @end
 

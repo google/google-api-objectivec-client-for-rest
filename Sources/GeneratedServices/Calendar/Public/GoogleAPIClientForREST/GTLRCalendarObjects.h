@@ -181,6 +181,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCalendar_Calendar : GTLRObject
 
 /**
+ *  Whether this calendar automatically accepts invitations. Only valid for
+ *  resource calendars.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoAcceptInvitations;
+
+/**
  *  Conferencing properties for this calendar, for example what types of
  *  conferences are allowed.
  */
@@ -289,6 +297,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  role.
  */
 @property(nonatomic, copy, nullable) NSString *accessRole;
+
+/**
+ *  Whether this calendar automatically accepts invitations. Only valid for
+ *  resource calendars. Read-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoAcceptInvitations;
 
 /**
  *  The main color of the calendar in the hexadecimal format "#0088aa". This

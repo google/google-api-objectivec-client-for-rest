@@ -147,6 +147,290 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new `Datastore` resource in a given project and location.
+ *  Datastores are regional resources
+ *
+ *  Method: vmwareengine.projects.locations.datastores.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsDatastoresCreate : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The user-provided identifier of the datastore to be created. This
+ *  identifier must be unique among each `Datastore` within the parent and
+ *  becomes the final token in the name URI. The identifier must meet the
+ *  following requirements: * Only contains 1-63 alphanumeric characters and
+ *  hyphens * Begins with an alphabetical character * Ends with a non-hyphen
+ *  character * Not formatted as a UUID * Complies with [RFC
+ *  1034](https://datatracker.ietf.org/doc/html/rfc1034) (section 3.5)
+ */
+@property(nonatomic, copy, nullable) NSString *datastoreId;
+
+/**
+ *  Required. The resource name of the location to create the new datastore in.
+ *  Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The request ID must be a valid UUID with the exception that zero
+ *  UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Creates a new `Datastore` resource in a given project and location.
+ *  Datastores are regional resources
+ *
+ *  @param object The @c GTLRVMwareEngine_Datastore to include in the query.
+ *  @param parent Required. The resource name of the location to create the new
+ *    datastore in. Resource names are schemeless URIs that follow the
+ *    conventions in https://cloud.google.com/apis/design/resource_names. For
+ *    example: `projects/my-project/locations/us-central1`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsDatastoresCreate
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_Datastore *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a `Datastore` resource. You can only delete a Datastore after all
+ *  resources that refer to it are deleted. For example, multiple clusters of
+ *  the same private cloud or different private clouds can refer to the same
+ *  datastore.
+ *
+ *  Method: vmwareengine.projects.locations.datastores.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsDatastoresDelete : GTLRVMwareEngineQuery
+
+/**
+ *  Optional. Checksum used to ensure that the user-provided value is up to date
+ *  before the server processes the request. The server compares provided
+ *  checksum with the current checksum of the resource. If the user-provided
+ *  value is out of date, this request returns an `ABORTED` error.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. The resource name of the Datastore to be deleted. Resource names
+ *  are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1/datastore/my-datastore`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The request ID must be a valid UUID with the exception that zero
+ *  UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Deletes a `Datastore` resource. You can only delete a Datastore after all
+ *  resources that refer to it are deleted. For example, multiple clusters of
+ *  the same private cloud or different private clouds can refer to the same
+ *  datastore.
+ *
+ *  @param name Required. The resource name of the Datastore to be deleted.
+ *    Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1/datastore/my-datastore`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsDatastoresDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a `Datastore` resource by its resource name. The resource contains
+ *  details of the Datastore, such as its description, subnets, type, and more.
+ *
+ *  Method: vmwareengine.projects.locations.datastores.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsDatastoresGet : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the Datastore to retrieve. Resource names are
+ *  schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1/datastores/my-datastore`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Datastore.
+ *
+ *  Retrieves a `Datastore` resource by its resource name. The resource contains
+ *  details of the Datastore, such as its description, subnets, type, and more.
+ *
+ *  @param name Required. The resource name of the Datastore to retrieve.
+ *    Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1/datastores/my-datastore`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsDatastoresGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists `Datastore` resources in a given project and location.
+ *
+ *  Method: vmwareengine.projects.locations.datastores.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsDatastoresList : GTLRVMwareEngineQuery
+
+/**
+ *  Optional. A filter expression that matches resources returned in the
+ *  response. The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. The value must be a
+ *  string, a number, or a boolean. The comparison operator must be `=`, `!=`,
+ *  `>`, or `<`. For example, if you are filtering a list of datastores, you can
+ *  exclude the ones named `example-datastore` by specifying `name !=
+ *  "example-datastore"`. To filter on multiple expressions, provide each
+ *  separate expression within parentheses. For example: ``` (name =
+ *  "example-datastore") (createTime > "2021-04-12T08:15:10.40Z") ``` By
+ *  default, each expression is an `AND` expression. However, you can include
+ *  `AND` and `OR` expressions explicitly. For example: ``` (name =
+ *  "example-datastore-1") AND (createTime > "2021-04-12T08:15:10.40Z") OR (name
+ *  = "example-datastore-2") ```
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Sorts list results by a certain order. By default, returned
+ *  results are ordered by `name` in ascending order. You can also sort results
+ *  in descending order based on the `name` value using `orderBy="name desc"`.
+ *  Currently, only ordering by `name` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of results to return in one page. The maximum
+ *  value is coerced to 1000. The default value of this field is 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListDatastores` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListDatastores` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the location to query for Datastores.
+ *  Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The request ID must be a valid UUID with the exception that zero
+ *  UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_ListDatastoresResponse.
+ *
+ *  Lists `Datastore` resources in a given project and location.
+ *
+ *  @param parent Required. The resource name of the location to query for
+ *    Datastores. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsDatastoresList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Modifies a Datastore resource. Only the following fields can be updated:
+ *  `description`. Only fields specified in `updateMask` are applied.
+ *
+ *  Method: vmwareengine.projects.locations.datastores.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsDatastoresPatch : GTLRVMwareEngineQuery
+
+/**
+ *  Output only. Identifier. The resource name of this datastore. Resource names
+ *  are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1/datastores/datastore`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The request ID must be a valid UUID with the exception that zero
+ *  UUID is not supported (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Datastore resource by the update. The fields specified in the `update_mask`
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields will be overwritten. Only the following fields can be updated:
+ *  `description`.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Modifies a Datastore resource. Only the following fields can be updated:
+ *  `description`. Only fields specified in `updateMask` are applied.
+ *
+ *  @param object The @c GTLRVMwareEngine_Datastore to include in the query.
+ *  @param name Output only. Identifier. The resource name of this datastore.
+ *    Resource names are schemeless URIs that follow the conventions in
+ *    https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1/datastores/datastore`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsDatastoresPatch
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_Datastore *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Grants the bind permission to the customer provided principal(user / service
  *  account) to bind their DNS zone with the intranet VPC associated with the
  *  project. DnsBindPermission is a global resource and location can only be
@@ -317,8 +601,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRVMwareEngineQuery_ProjectsLocationsList : GTLRVMwareEngineQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1588,9 +1872,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -1878,6 +2162,43 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Mounts a `Datastore` on a cluster resource Datastores are zonal resources
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.clusters.mountDatastore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersMountDatastore : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the cluster to mount the datastore. Resource
+ *  names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Mounts a `Datastore` on a cluster resource Datastores are zonal resources
+ *
+ *  @param object The @c GTLRVMwareEngine_MountDatastoreRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the cluster to mount the
+ *    datastore. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersMountDatastore
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_MountDatastoreRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets details of a single node.
  *
  *  Method: vmwareengine.projects.locations.privateClouds.clusters.nodes.get
@@ -2108,6 +2429,43 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRVMwareEngine_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Mounts a `Datastore` on a cluster resource Datastores are zonal resources
+ *
+ *  Method: vmwareengine.projects.locations.privateClouds.clusters.unmountDatastore
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeVMwareEngineCloudPlatform
+ */
+@interface GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersUnmountDatastore : GTLRVMwareEngineQuery
+
+/**
+ *  Required. The resource name of the cluster to unmount the datastore.
+ *  Resource names are schemeless URIs that follow the conventions in
+ *  https://cloud.google.com/apis/design/resource_names. For example:
+ *  `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRVMwareEngine_Operation.
+ *
+ *  Mounts a `Datastore` on a cluster resource Datastores are zonal resources
+ *
+ *  @param object The @c GTLRVMwareEngine_UnmountDatastoreRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the cluster to unmount the
+ *    datastore. Resource names are schemeless URIs that follow the conventions
+ *    in https://cloud.google.com/apis/design/resource_names. For example:
+ *    `projects/my-project/locations/us-central1-a/privateClouds/my-cloud/clusters/my-cluster`
+ *
+ *  @return GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsClustersUnmountDatastore
+ */
++ (instancetype)queryWithObject:(GTLRVMwareEngine_UnmountDatastoreRequest *)object
+                           name:(NSString *)name;
 
 @end
 

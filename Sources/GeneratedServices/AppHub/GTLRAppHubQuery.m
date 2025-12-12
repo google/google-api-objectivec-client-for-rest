@@ -584,6 +584,25 @@
 
 @end
 
+@implementation GTLRAppHubQuery_ProjectsLocationsGetBoundary
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAppHubQuery_ProjectsLocationsGetBoundary *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAppHub_Boundary class];
+  query.loggingName = @"apphub.projects.locations.getBoundary";
+  return query;
+}
+
+@end
+
 @implementation GTLRAppHubQuery_ProjectsLocationsList
 
 @dynamic extraLocationTypes, filter, name, pageSize, pageToken;
@@ -792,6 +811,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRAppHub_ListServiceProjectAttachmentsResponse class];
   query.loggingName = @"apphub.projects.locations.serviceProjectAttachments.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppHubQuery_ProjectsLocationsUpdateBoundary
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAppHub_Boundary *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAppHubQuery_ProjectsLocationsUpdateBoundary *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAppHub_Operation class];
+  query.loggingName = @"apphub.projects.locations.updateBoundary";
   return query;
 }
 

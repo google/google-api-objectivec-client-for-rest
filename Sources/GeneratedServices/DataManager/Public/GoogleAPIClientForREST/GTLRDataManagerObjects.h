@@ -18,6 +18,7 @@
 @class GTLRDataManager_AddressInfo;
 @class GTLRDataManager_AdIdentifiers;
 @class GTLRDataManager_AudienceMember;
+@class GTLRDataManager_AwsWrappedKeyInfo;
 @class GTLRDataManager_CartData;
 @class GTLRDataManager_Consent;
 @class GTLRDataManager_CustomVariable;
@@ -27,6 +28,7 @@
 @class GTLRDataManager_ErrorCount;
 @class GTLRDataManager_ErrorInfo;
 @class GTLRDataManager_Event;
+@class GTLRDataManager_EventParameter;
 @class GTLRDataManager_ExperimentalField;
 @class GTLRDataManager_GcpWrappedKeyInfo;
 @class GTLRDataManager_IngestAudienceMembersStatus;
@@ -35,6 +37,7 @@
 @class GTLRDataManager_IngestPairDataStatus;
 @class GTLRDataManager_IngestUserDataStatus;
 @class GTLRDataManager_Item;
+@class GTLRDataManager_ItemParameter;
 @class GTLRDataManager_MobileData;
 @class GTLRDataManager_PairData;
 @class GTLRDataManager_ProductAccount;
@@ -47,6 +50,7 @@
 @class GTLRDataManager_UserData;
 @class GTLRDataManager_UserIdentifier;
 @class GTLRDataManager_UserProperties;
+@class GTLRDataManager_UserProperty;
 @class GTLRDataManager_WarningCount;
 @class GTLRDataManager_WarningInfo;
 
@@ -59,6 +63,22 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDataManager_AwsWrappedKeyInfo.keyType
+
+/**
+ *  Unspecified key type. Should never be used.
+ *
+ *  Value: "KEY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AwsWrappedKeyInfo_KeyType_KeyTypeUnspecified;
+/**
+ *  Algorithm XChaCha20-Poly1305
+ *
+ *  Value: "XCHACHA20_POLY1305"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_AwsWrappedKeyInfo_KeyType_Xchacha20Poly1305;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_Consent.adPersonalization
@@ -114,6 +134,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_Consent_AdUserData_ConsentSt
  *  Value: "PROCESSING_ERROR_OPERATING_ACCOUNT_MISMATCH_FOR_AD_IDENTIFIER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorOperatingAccountMismatchForAdIdentifier;
+/**
+ *  The system failed to authenticate with AWS.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_AWS_AUTH_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonAwsAuthFailed;
 /**
  *  The status of the custom variable is not enabled.
  *
@@ -480,6 +506,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_D
  *  Value: "GOOGLE_ADS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAds;
+/**
+ *  Google Analytics.
+ *
+ *  Value: "GOOGLE_ANALYTICS_PROPERTY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAnalyticsProperty;
 
 // ----------------------------------------------------------------------------
 // GTLRDataManager_ProductAccount.product
@@ -653,6 +685,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_UserProperties_CustomerValue
 // GTLRDataManager_WarningCount.reason
 
 /**
+ *  The system failed to authenticate with AWS.
+ *
+ *  Value: "PROCESSING_WARNING_REASON_AWS_AUTH_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonAwsAuthFailed;
+/**
  *  The event has a decryption error.
  *
  *  Value: "PROCESSING_WARNING_REASON_DECRYPTION_ERROR"
@@ -793,6 +831,43 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 /** User-provided data that identifies the user. */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserData *userData;
+
+@end
+
+
+/**
+ *  A data encryption key wrapped by an AWS KMS key.
+ */
+@interface GTLRDataManager_AwsWrappedKeyInfo : GTLRObject
+
+/** Required. The base64 encoded encrypted data encryption key. */
+@property(nonatomic, copy, nullable) NSString *encryptedDek;
+
+/**
+ *  Required. The URI of the AWS KMS key used to decrypt the DEK. Should be in
+ *  the format of `arn:{partition}:kms:{region}:{account_id}:key/{key_id}` or
+ *  `aws-kms://arn:{partition}:kms:{region}:{account_id}:key/{key_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *kekUri;
+
+/**
+ *  Required. The type of algorithm used to encrypt the data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataManager_AwsWrappedKeyInfo_KeyType_KeyTypeUnspecified
+ *        Unspecified key type. Should never be used. (Value:
+ *        "KEY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataManager_AwsWrappedKeyInfo_KeyType_Xchacha20Poly1305
+ *        Algorithm XChaCha20-Poly1305 (Value: "XCHACHA20_POLY1305")
+ */
+@property(nonatomic, copy, nullable) NSString *keyType;
+
+/**
+ *  Required. The Amazon Resource Name of the IAM Role to assume for KMS
+ *  decryption access. Should be in the format of
+ *  `arn:{partition}:iam::{account_id}:role/{role_name}`
+ */
+@property(nonatomic, copy, nullable) NSString *roleArn;
 
 @end
 
@@ -971,6 +1046,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_EncryptionInfo : GTLRObject
 
+/** Amazon Web Services wrapped key information. */
+@property(nonatomic, strong, nullable) GTLRDataManager_AwsWrappedKeyInfo *awsWrappedKeyInfo;
+
 /** Google Cloud Platform wrapped key information. */
 @property(nonatomic, strong, nullable) GTLRDataManager_GcpWrappedKeyInfo *gcpWrappedKeyInfo;
 
@@ -990,6 +1068,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        The user attempted to ingest events with an ad identifier that isn't
  *        from the operating account's ads. (Value:
  *        "PROCESSING_ERROR_OPERATING_ACCOUNT_MISMATCH_FOR_AD_IDENTIFIER")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonAwsAuthFailed
+ *        The system failed to authenticate with AWS. (Value:
+ *        "PROCESSING_ERROR_REASON_AWS_AUTH_FAILED")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonCustomVariableNotEnabled
  *        The status of the custom variable is not enabled. (Value:
  *        "PROCESSING_ERROR_REASON_CUSTOM_VARIABLE_NOT_ENABLED")
@@ -1103,6 +1184,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @interface GTLRDataManager_Event : GTLRObject
 
 /**
+ *  Optional. A bucket of any [event
+ *  parameters](https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference/events)
+ *  to be included within the event that were not already specified using other
+ *  structured fields.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_EventParameter *> *additionalEventParameters;
+
+/**
  *  Optional. Identifiers and other information used to match the conversion
  *  event with other online activity (such as ad clicks).
  */
@@ -1113,6 +1202,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  event.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_CartData *cartData;
+
+/**
+ *  Optional. A unique identifier for the user instance of a web client for this
+ *  GA4 web stream.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
 
 /**
  *  Optional. Information about whether the associated user has provided
@@ -1151,6 +1246,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  event happened.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_DeviceInfo *eventDeviceInfo;
+
+/** Optional. The name of the event. Required for GA4 events. */
+@property(nonatomic, copy, nullable) NSString *eventName;
 
 /**
  *  Optional. Signal for where the event happened (web, app, in-store, etc.).
@@ -1196,6 +1294,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserData *userData;
 
+/** Optional. A unique identifier for a user, as defined by the advertiser. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
 /**
  *  Optional. Advertiser-assessed information about the user at the time that
  *  the event happened.
@@ -1203,6 +1304,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  Remapped to 'userPropertiesProperty' to avoid GTLRObject's 'userProperties'.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserProperties *userPropertiesProperty;
+
+@end
+
+
+/**
+ *  Event parameter for GA4 events.
+ */
+@interface GTLRDataManager_EventParameter : GTLRObject
+
+/** Required. The name of the parameter to use. */
+@property(nonatomic, copy, nullable) NSString *parameterName;
+
+/**
+ *  Required. The string representation of the value of the parameter to set.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1233,7 +1350,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  Required. Google Cloud Platform [Cloud Key Management Service resource
  *  ID](//cloud.google.com/kms/docs/getting-resource-ids). Should be in the
  *  format of
- *  "projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}".
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}`
+ *  or
+ *  `gcp-kms://projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{key}`
  */
 @property(nonatomic, copy, nullable) NSString *kekUri;
 
@@ -1562,6 +1681,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_Item : GTLRObject
 
+/**
+ *  Optional. A bucket of any [event parameters related to an
+ *  item](https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference/events)
+ *  to be included within the event that were not already specified using other
+ *  structured fields.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_ItemParameter *> *additionalItemParameters;
+
+/** Optional. A unique identifier to reference the item. */
+@property(nonatomic, copy, nullable) NSString *itemId;
+
 /** Optional. The product ID within the Merchant Center account. */
 @property(nonatomic, copy, nullable) NSString *merchantProductId;
 
@@ -1579,6 +1709,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unitPrice;
+
+@end
+
+
+/**
+ *  A bucket of any [event parameters related to an
+ *  item](https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference/events)
+ *  to be included within the event that were not already specified using other
+ *  structured fields.
+ */
+@interface GTLRDataManager_ItemParameter : GTLRObject
+
+/** Required. The name of the parameter to use. */
+@property(nonatomic, copy, nullable) NSString *parameterName;
+
+/**
+ *  Required. The string representation of the value of the parameter to set.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1641,6 +1790,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        Display & Video 360 partner. (Value: "DISPLAY_VIDEO_PARTNER")
  *    @arg @c kGTLRDataManager_ProductAccount_AccountType_GoogleAds Google Ads.
  *        (Value: "GOOGLE_ADS")
+ *    @arg @c kGTLRDataManager_ProductAccount_AccountType_GoogleAnalyticsProperty
+ *        Google Analytics. (Value: "GOOGLE_ANALYTICS_PROPERTY")
  */
 @property(nonatomic, copy, nullable) NSString *accountType;
 
@@ -1954,6 +2105,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @interface GTLRDataManager_UserProperties : GTLRObject
 
 /**
+ *  Optional. A bucket of any additional [user
+ *  properties](https://developers.google.com/analytics/devguides/collection/protocol/ga4/user-properties)
+ *  for the user associated with this event.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_UserProperty *> *additionalUserProperties;
+
+/**
  *  Optional. Type of the customer associated with the event.
  *
  *  Likely values:
@@ -1989,6 +2147,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 
 /**
+ *  A bucket of any additional [user
+ *  properties](https://developers.google.com/analytics/devguides/collection/protocol/ga4/user-properties)
+ *  for the user associated with this event.
+ */
+@interface GTLRDataManager_UserProperty : GTLRObject
+
+/** Required. The name of the user property to use. */
+@property(nonatomic, copy, nullable) NSString *propertyName;
+
+/**
+ *  Required. The string representation of the value of the user property to
+ *  use.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  The warning count for a given warning reason.
  */
 @interface GTLRDataManager_WarningCount : GTLRObject
@@ -1997,6 +2174,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  The warning reason.
  *
  *  Likely values:
+ *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonAwsAuthFailed
+ *        The system failed to authenticate with AWS. (Value:
+ *        "PROCESSING_WARNING_REASON_AWS_AUTH_FAILED")
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonDecryptionError
  *        The event has a decryption error. (Value:
  *        "PROCESSING_WARNING_REASON_DECRYPTION_ERROR")

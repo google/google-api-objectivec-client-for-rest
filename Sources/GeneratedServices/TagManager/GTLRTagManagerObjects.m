@@ -289,6 +289,24 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRTagManager_BulkUpdateWorkspaceResponse
+//
+
+@implementation GTLRTagManager_BulkUpdateWorkspaceResponse
+@dynamic changes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"changes" : [GTLRTagManager_Entity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRTagManager_Client
 //
 
@@ -1006,6 +1024,24 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
   NSDictionary<NSString *, Class> *map = @{
     @"list" : [GTLRTagManager_Parameter class],
     @"map" : [GTLRTagManager_Parameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTagManager_ProposedChange
+//
+
+@implementation GTLRTagManager_ProposedChange
+@dynamic changes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"changes" : [GTLRTagManager_Entity class]
   };
   return map;
 }

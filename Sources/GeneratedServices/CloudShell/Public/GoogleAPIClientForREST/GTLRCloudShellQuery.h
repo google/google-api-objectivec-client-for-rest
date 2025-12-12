@@ -167,9 +167,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -268,6 +268,47 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudShell_AuthorizeEnvironmentRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Generates an access token for the user's environment.
+ *
+ *  Method: cloudshell.users.environments.generateAccessToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudShellCloudPlatform
+ */
+@interface GTLRCloudShellQuery_UsersEnvironmentsGenerateAccessToken : GTLRCloudShellQuery
+
+/** Required. The environment to generate the access token for. */
+@property(nonatomic, copy, nullable) NSString *environment;
+
+/**
+ *  Desired expiration time of the access token. This value must be at most 24
+ *  hours in the future. If a value is not specified, the token's expiration
+ *  time will be set to a default value of 1 hour in the future.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Desired lifetime duration of the access token. This value must be at most 24
+ *  hours. If a value is not specified, the token's lifetime will be set to a
+ *  default value of 1 hour.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
+
+/**
+ *  Fetches a @c GTLRCloudShell_GenerateAccessTokenResponse.
+ *
+ *  Generates an access token for the user's environment.
+ *
+ *  @param environment Required. The environment to generate the access token
+ *    for.
+ *
+ *  @return GTLRCloudShellQuery_UsersEnvironmentsGenerateAccessToken
+ */
++ (instancetype)queryWithEnvironment:(NSString *)environment;
 
 @end
 

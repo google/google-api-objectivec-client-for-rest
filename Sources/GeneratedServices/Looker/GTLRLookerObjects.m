@@ -250,9 +250,9 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
          geminiEnabled, ingressPrivateIp, ingressPublicIp,
          lastDenyMaintenancePeriod, linkedLspProjectNumber, lookerUri,
          lookerVersion, maintenanceSchedule, maintenanceWindow, name,
-         oauthConfig, platformEdition, privateIpEnabled, pscConfig, pscEnabled,
-         publicIpEnabled, reservedRange, satisfiesPzi, satisfiesPzs, state,
-         updateTime, userMetadata;
+         oauthConfig, periodicExportConfig, platformEdition, privateIpEnabled,
+         pscConfig, pscEnabled, publicIpEnabled, reservedRange, satisfiesPzi,
+         satisfiesPzs, state, updateTime, userMetadata;
 @end
 
 
@@ -471,6 +471,16 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 @implementation GTLRLooker_OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_PeriodicExportConfig
+//
+
+@implementation GTLRLooker_PeriodicExportConfig
+@dynamic gcsUri, kmsKey, startTime;
 @end
 
 

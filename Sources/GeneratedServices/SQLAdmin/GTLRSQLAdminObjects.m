@@ -458,6 +458,11 @@ NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_CustomerManagedCasCa
 NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedCasCa = @"GOOGLE_MANAGED_CAS_CA";
 NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCaMode_GoogleManagedInternalCa = @"GOOGLE_MANAGED_INTERNAL_CA";
 
+// GTLRSQLAdmin_IpConfiguration.serverCertificateRotationMode
+NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCertificateRotationMode_AutomaticRotationDuringMaintenance = @"AUTOMATIC_ROTATION_DURING_MAINTENANCE";
+NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCertificateRotationMode_NoAutomaticRotation = @"NO_AUTOMATIC_ROTATION";
+NSString * const kGTLRSQLAdmin_IpConfiguration_ServerCertificateRotationMode_ServerCertificateRotationModeUnspecified = @"SERVER_CERTIFICATE_ROTATION_MODE_UNSPECIFIED";
+
 // GTLRSQLAdmin_IpConfiguration.sslMode
 NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_AllowUnencryptedAndEncrypted = @"ALLOW_UNENCRYPTED_AND_ENCRYPTED";
 NSString * const kGTLRSQLAdmin_IpConfiguration_SslMode_EncryptedOnly = @"ENCRYPTED_ONLY";
@@ -794,6 +799,7 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamGroupServiceAccount = @"CLOUD_I
 NSString * const kGTLRSQLAdmin_User_Type_CloudIamGroupUser     = @"CLOUD_IAM_GROUP_USER";
 NSString * const kGTLRSQLAdmin_User_Type_CloudIamServiceAccount = @"CLOUD_IAM_SERVICE_ACCOUNT";
 NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USER";
+NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER";
 
 // ----------------------------------------------------------------------------
 //
@@ -1802,6 +1808,30 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_InstancesListEntraIdCertificatesResponse
+//
+
+@implementation GTLRSQLAdmin_InstancesListEntraIdCertificatesResponse
+@dynamic activeVersion, certs, kind;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"certs" : [GTLRSQLAdmin_SslCert class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_InstancesListResponse
 //
 
@@ -1915,6 +1945,16 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_InstancesRotateEntraIdCertificateRequest
+//
+
+@implementation GTLRSQLAdmin_InstancesRotateEntraIdCertificateRequest
+@dynamic rotateEntraIdCertificateContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_InstancesRotateServerCaRequest
 //
 
@@ -1961,7 +2001,8 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 @implementation GTLRSQLAdmin_IpConfiguration
 @dynamic allocatedIpRange, authorizedNetworks, customSubjectAlternativeNames,
          enablePrivatePathForGoogleCloudServices, ipv4Enabled, privateNetwork,
-         pscConfig, requireSsl, serverCaMode, serverCaPool, sslMode;
+         pscConfig, requireSsl, serverCaMode, serverCaPool,
+         serverCertificateRotationMode, sslMode;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2242,6 +2283,18 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_PerformanceCaptureConfig
+//
+
+@implementation GTLRSQLAdmin_PerformanceCaptureConfig
+@dynamic enabled, probeThreshold, probingIntervalSeconds,
+         runningThreadsThreshold, secondsBehindSourceThreshold,
+         transactionDurationThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_PerformDiskShrinkContext
 //
 
@@ -2267,12 +2320,14 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_PoolNodeConfig
-@dynamic dnsName, dnsNames, gceZone, ipAddresses, name, state;
+@dynamic dnsName, dnsNames, gceZone, ipAddresses, name, pscAutoConnections,
+         pscServiceAttachmentLink, state;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"dnsNames" : [GTLRSQLAdmin_DnsNameMapping class],
-    @"ipAddresses" : [GTLRSQLAdmin_IpMapping class]
+    @"ipAddresses" : [GTLRSQLAdmin_IpMapping class],
+    @"pscAutoConnections" : [GTLRSQLAdmin_PscAutoConnectionConfig class]
   };
   return map;
 }
@@ -2447,6 +2502,23 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_RotateEntraIdCertificateContext
+//
+
+@implementation GTLRSQLAdmin_RotateEntraIdCertificateContext
+@dynamic kind, nextVersion;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_RotateServerCaContext
 //
 
@@ -2521,12 +2593,12 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
          dataDiskProvisionedIops, dataDiskProvisionedThroughput, dataDiskSizeGb,
          dataDiskType, deletionProtectionEnabled, denyMaintenancePeriods,
          edition, enableDataplexIntegration, enableGoogleMlIntegration,
-         finalBackupConfig, insightsConfig, ipConfiguration, kind,
-         locationPreference, maintenanceWindow, passwordValidationPolicy,
-         pricingPlan, readPoolAutoScaleConfig, replicationLagMaxSeconds,
-         replicationType, retainBackupsOnDelete, settingsVersion,
-         sqlServerAuditConfig, storageAutoResize, storageAutoResizeLimit, tier,
-         timeZone, userLabels;
+         entraidConfig, finalBackupConfig, insightsConfig, ipConfiguration,
+         kind, locationPreference, maintenanceWindow, passwordValidationPolicy,
+         performanceCaptureConfig, pricingPlan, readPoolAutoScaleConfig,
+         replicationLagMaxSeconds, replicationType, retainBackupsOnDelete,
+         settingsVersion, sqlServerAuditConfig, storageAutoResize,
+         storageAutoResizeLimit, tier, timeZone, userLabels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2798,6 +2870,23 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSQLAdmin_SqlServerEntraIdConfig
+//
+
+@implementation GTLRSQLAdmin_SqlServerEntraIdConfig
+@dynamic applicationId, kind, tenantId;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSQLAdmin_SqlServerUserDetails
 //
 
@@ -3045,11 +3134,19 @@ NSString * const kGTLRSQLAdmin_User_Type_CloudIamUser          = @"CLOUD_IAM_USE
 //
 
 @implementation GTLRSQLAdmin_User
-@dynamic dualPasswordType, ETag, host, iamEmail, iamStatus, instance, kind,
-         name, password, passwordPolicy, project, sqlserverUserDetails, type;
+@dynamic databaseRoles, dualPasswordType, ETag, host, iamEmail, iamStatus,
+         instance, kind, name, password, passwordPolicy, project,
+         sqlserverUserDetails, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"databaseRoles" : [NSString class]
+  };
+  return map;
 }
 
 + (BOOL)isKindValidForClassRegistry {

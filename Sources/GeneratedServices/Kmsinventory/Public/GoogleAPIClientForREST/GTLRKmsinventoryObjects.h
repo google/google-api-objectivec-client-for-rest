@@ -238,6 +238,14 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa44;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 1. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa44ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 3. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_65"
@@ -245,11 +253,27 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa65;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa65ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 5. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_87"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa87;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 5. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa87ExternalMu;
 /**
  *  The post-quantum stateless hash-based digital signature algorithm, at
  *  security level 1. Randomized version.
@@ -387,6 +411,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "HSM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_Hsm;
+/**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_HsmSingleTenant;
 /**
  *  Not specified.
  *
@@ -640,6 +670,14 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa44;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 1. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa44ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 3. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_65"
@@ -647,11 +685,27 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65;
 /**
  *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 3. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65ExternalMu;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *  security level 5. Randomized version.
  *
  *  Value: "PQ_SIGN_ML_DSA_87"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa87;
+/**
+ *  The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *  security level 5. Randomized version supporting externally-computed message
+ *  representatives.
+ *
+ *  Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa87ExternalMu;
 /**
  *  The post-quantum stateless hash-based digital signature algorithm, at
  *  security level 1. Randomized version.
@@ -789,6 +843,12 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVe
  *  Value: "HSM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_Hsm;
+/**
+ *  Crypto operations are performed in a single-tenant HSM.
+ *
+ *  Value: "HSM_SINGLE_TENANT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_HsmSingleTenant;
 /**
  *  Not specified.
  *
@@ -1139,9 +1199,11 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *  material for all CryptoKeyVersions associated with this CryptoKey reside and
  *  where all related cryptographic operations are performed. Only applicable if
  *  CryptoKeyVersions have a ProtectionLevel of EXTERNAL_VPC, with the resource
- *  name in the format `projects/ * /locations/ * /ekmConnections/ *`. Note,
- *  this list is non-exhaustive and may apply to additional ProtectionLevels in
- *  the future.
+ *  name in the format `projects/ * /locations/ * /ekmConnections/ *`. Only
+ *  applicable if CryptoKeyVersions have a ProtectionLevel of HSM_SINGLE_TENANT,
+ *  with the resource name in the format `projects/ * /locations/ *
+ *  /singleTenantHsmInstances/ *`. Note, this list is non-exhaustive and may
+ *  apply to additional ProtectionLevels in the future.
  */
 @property(nonatomic, copy, nullable) NSString *cryptoKeyBackend;
 
@@ -1344,12 +1406,24 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa44
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 1. Randomized version. (Value: "PQ_SIGN_ML_DSA_44")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa44ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 1. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa65
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa65ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa87
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 5. Randomized version. (Value: "PQ_SIGN_ML_DSA_87")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignMlDsa87ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 5. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_Algorithm_PqSignSlhDsaSha2128s
  *        The post-quantum stateless hash-based digital signature algorithm, at
  *        security level 1. Randomized version. (Value:
@@ -1498,6 +1572,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_Hsm
  *        Crypto operations are performed in a Hardware Security Module. (Value:
  *        "HSM")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersion_ProtectionLevel_Software
@@ -1656,12 +1733,24 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa44
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 1. Randomized version. (Value: "PQ_SIGN_ML_DSA_44")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa44ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 1. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_44_EXTERNAL_MU")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 3. Randomized version. (Value: "PQ_SIGN_ML_DSA_65")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa65ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 3. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_65_EXTERNAL_MU")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa87
  *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
  *        security level 5. Randomized version. (Value: "PQ_SIGN_ML_DSA_87")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignMlDsa87ExternalMu
+ *        The post-quantum Module-Lattice-Based Digital Signature Algorithm, at
+ *        security level 5. Randomized version supporting externally-computed
+ *        message representatives. (Value: "PQ_SIGN_ML_DSA_87_EXTERNAL_MU")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_Algorithm_PqSignSlhDsaSha2128s
  *        The post-quantum stateless hash-based digital signature algorithm, at
  *        security level 1. Randomized version. (Value:
@@ -1737,6 +1826,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_Hsm
  *        Crypto operations are performed in a Hardware Security Module. (Value:
  *        "HSM")
+ *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_HsmSingleTenant
+ *        Crypto operations are performed in a single-tenant HSM. (Value:
+ *        "HSM_SINGLE_TENANT")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_ProtectionLevelUnspecified
  *        Not specified. (Value: "PROTECTION_LEVEL_UNSPECIFIED")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsV1CryptoKeyVersionTemplate_ProtectionLevel_Software

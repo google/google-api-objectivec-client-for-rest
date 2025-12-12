@@ -19,6 +19,7 @@ NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_P
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres15 = @"POSTGRES_15";
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres17 = @"POSTGRES_17";
+NSString * const kGTLRDatabaseMigrationService_AlloyDbSettings_DatabaseVersion_Postgres18 = @"POSTGRES_18";
 
 // GTLRDatabaseMigrationService_AuditLogConfig.logType
 NSString * const kGTLRDatabaseMigrationService_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
@@ -1543,11 +1544,12 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDatabaseMigrationService_Operation class]
+    @"operations" : [GTLRDatabaseMigrationService_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

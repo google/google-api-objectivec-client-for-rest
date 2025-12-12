@@ -1212,6 +1212,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a Boundary.
+ *
+ *  Method: apphub.projects.locations.getBoundary
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsGetBoundary : GTLRAppHubQuery
+
+/**
+ *  Required. The name of the boundary to retrieve. Format:
+ *  projects/{project}/locations/{location}/boundary
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAppHub_Boundary.
+ *
+ *  Gets a Boundary.
+ *
+ *  @param name Required. The name of the boundary to retrieve. Format:
+ *    projects/{project}/locations/{location}/boundary
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsGetBoundary
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: apphub.projects.locations.list
@@ -1433,9 +1463,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -1645,6 +1675,64 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Boundary.
+ *
+ *  Method: apphub.projects.locations.updateBoundary
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsUpdateBoundary : GTLRAppHubQuery
+
+/**
+ *  Identifier. The resource name of the boundary. Format:
+ *  "projects/{project}/locations/{location}/boundary"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. Field mask is used to specify the fields to be overwritten in the
+ *  Boundary resource by the update. The fields specified in the update_mask are
+ *  relative to the resource, not the full request. A field will be overwritten
+ *  if it is in the mask. If the user does not provide a mask then all fields
+ *  will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAppHub_Operation.
+ *
+ *  Updates a Boundary.
+ *
+ *  @param object The @c GTLRAppHub_Boundary to include in the query.
+ *  @param name Identifier. The resource name of the boundary. Format:
+ *    "projects/{project}/locations/{location}/boundary"
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsUpdateBoundary
+ */
++ (instancetype)queryWithObject:(GTLRAppHub_Boundary *)object
+                           name:(NSString *)name;
 
 @end
 

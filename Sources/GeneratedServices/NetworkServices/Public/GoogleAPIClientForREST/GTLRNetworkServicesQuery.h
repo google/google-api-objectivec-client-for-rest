@@ -719,7 +719,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The parent resource of the EndpointPolicy. Must be in the format
- *  `projects/ * /locations/global`.
+ *  `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -731,7 +731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  @param object The @c GTLRNetworkServices_EndpointPolicy to include in the
  *    query.
  *  @param parent Required. The parent resource of the EndpointPolicy. Must be
- *    in the format `projects/ * /locations/global`.
+ *    in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesCreate
  */
@@ -752,7 +752,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the EndpointPolicy to delete. Must be in the format
- *  `projects/ * /locations/global/endpointPolicies/ *`.
+ *  `projects/ * /locations/ * /endpointPolicies/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -762,7 +762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Deletes a single EndpointPolicy.
  *
  *  @param name Required. A name of the EndpointPolicy to delete. Must be in the
- *    format `projects/ * /locations/global/endpointPolicies/ *`.
+ *    format `projects/ * /locations/ * /endpointPolicies/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesDelete
  */
@@ -782,7 +782,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the EndpointPolicy to get. Must be in the format
- *  `projects/ * /locations/global/endpointPolicies/ *`.
+ *  `projects/ * /locations/ * /endpointPolicies/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -792,7 +792,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Gets details of a single EndpointPolicy.
  *
  *  @param name Required. A name of the EndpointPolicy to get. Must be in the
- *    format `projects/ * /locations/global/endpointPolicies/ *`.
+ *    format `projects/ * /locations/ * /endpointPolicies/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesGet
  */
@@ -822,7 +822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The project and location from which the EndpointPolicies should be
- *  listed, specified in the format `projects/ * /locations/global`.
+ *  listed, specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -840,7 +840,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param parent Required. The project and location from which the
  *    EndpointPolicies should be listed, specified in the format `projects/ *
- *    /locations/global`.
+ *    /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesList
  *
@@ -864,7 +864,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Identifier. Name of the EndpointPolicy resource. It matches pattern
- *  `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
+ *  `projects/{project}/locations/ * /endpointPolicies/{endpoint_policy}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -887,8 +887,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  @param object The @c GTLRNetworkServices_EndpointPolicy to include in the
  *    query.
  *  @param name Identifier. Name of the EndpointPolicy resource. It matches
- *    pattern
- *    `projects/{project}/locations/global/endpointPolicies/{endpoint_policy}`.
+ *    pattern `projects/{project}/locations/ *
+ *    /endpointPolicies/{endpoint_policy}`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsEndpointPoliciesPatch
  */
@@ -1194,7 +1194,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The parent resource of the GrpcRoute. Must be in the format
- *  `projects/ * /locations/global`.
+ *  `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1205,7 +1205,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param object The @c GTLRNetworkServices_GrpcRoute to include in the query.
  *  @param parent Required. The parent resource of the GrpcRoute. Must be in the
- *    format `projects/ * /locations/global`.
+ *    format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesCreate
  */
@@ -1226,7 +1226,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the GrpcRoute to delete. Must be in the format
- *  `projects/ * /locations/global/grpcRoutes/ *`.
+ *  `projects/ * /locations/ * /grpcRoutes/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1236,7 +1236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Deletes a single GrpcRoute.
  *
  *  @param name Required. A name of the GrpcRoute to delete. Must be in the
- *    format `projects/ * /locations/global/grpcRoutes/ *`.
+ *    format `projects/ * /locations/ * /grpcRoutes/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesDelete
  */
@@ -1256,7 +1256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the GrpcRoute to get. Must be in the format `projects/ *
- *  /locations/global/grpcRoutes/ *`.
+ *  /locations/ * /grpcRoutes/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1266,7 +1266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Gets details of a single GrpcRoute.
  *
  *  @param name Required. A name of the GrpcRoute to get. Must be in the format
- *    `projects/ * /locations/global/grpcRoutes/ *`.
+ *    `projects/ * /locations/ * /grpcRoutes/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesGet
  */
@@ -1296,7 +1296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The project and location from which the GrpcRoutes should be
- *  listed, specified in the format `projects/ * /locations/global`.
+ *  listed, specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1313,7 +1313,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Lists GrpcRoutes in a given project and location.
  *
  *  @param parent Required. The project and location from which the GrpcRoutes
- *    should be listed, specified in the format `projects/ * /locations/global`.
+ *    should be listed, specified in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesList
  *
@@ -1337,7 +1337,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Identifier. Name of the GrpcRoute resource. It matches pattern `projects/ *
- *  /locations/global/grpcRoutes/`
+ *  /locations/ * /grpcRoutes/`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1359,7 +1359,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param object The @c GTLRNetworkServices_GrpcRoute to include in the query.
  *  @param name Identifier. Name of the GrpcRoute resource. It matches pattern
- *    `projects/ * /locations/global/grpcRoutes/`
+ *    `projects/ * /locations/ * /grpcRoutes/`
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsGrpcRoutesPatch
  */
@@ -1383,7 +1383,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The parent resource of the HttpRoute. Must be in the format
- *  `projects/ * /locations/global`.
+ *  `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1394,7 +1394,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param object The @c GTLRNetworkServices_HttpRoute to include in the query.
  *  @param parent Required. The parent resource of the HttpRoute. Must be in the
- *    format `projects/ * /locations/global`.
+ *    format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesCreate
  */
@@ -1415,7 +1415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the HttpRoute to delete. Must be in the format
- *  `projects/ * /locations/global/httpRoutes/ *`.
+ *  `projects/ * /locations/ * /httpRoutes/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1425,7 +1425,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Deletes a single HttpRoute.
  *
  *  @param name Required. A name of the HttpRoute to delete. Must be in the
- *    format `projects/ * /locations/global/httpRoutes/ *`.
+ *    format `projects/ * /locations/ * /httpRoutes/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesDelete
  */
@@ -1445,7 +1445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the HttpRoute to get. Must be in the format `projects/ *
- *  /locations/global/httpRoutes/ *`.
+ *  /locations/ * /httpRoutes/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1455,7 +1455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Gets details of a single HttpRoute.
  *
  *  @param name Required. A name of the HttpRoute to get. Must be in the format
- *    `projects/ * /locations/global/httpRoutes/ *`.
+ *    `projects/ * /locations/ * /httpRoutes/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesGet
  */
@@ -1485,7 +1485,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The project and location from which the HttpRoutes should be
- *  listed, specified in the format `projects/ * /locations/global`.
+ *  listed, specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1502,7 +1502,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Lists HttpRoute in a given project and location.
  *
  *  @param parent Required. The project and location from which the HttpRoutes
- *    should be listed, specified in the format `projects/ * /locations/global`.
+ *    should be listed, specified in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesList
  *
@@ -1526,7 +1526,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Identifier. Name of the HttpRoute resource. It matches pattern `projects/ *
- *  /locations/global/httpRoutes/http_route_name>`.
+ *  /locations/ * /httpRoutes/http_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1548,7 +1548,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param object The @c GTLRNetworkServices_HttpRoute to include in the query.
  *  @param name Identifier. Name of the HttpRoute resource. It matches pattern
- *    `projects/ * /locations/global/httpRoutes/http_route_name>`.
+ *    `projects/ * /locations/ * /httpRoutes/http_route_name>`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesPatch
  */
@@ -2289,8 +2289,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @interface GTLRNetworkServicesQuery_ProjectsLocationsList : GTLRNetworkServicesQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2348,7 +2348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The parent resource of the Mesh. Must be in the format `projects/
- *  * /locations/global`.
+ *  * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2359,7 +2359,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param object The @c GTLRNetworkServices_Mesh to include in the query.
  *  @param parent Required. The parent resource of the Mesh. Must be in the
- *    format `projects/ * /locations/global`.
+ *    format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesCreate
  */
@@ -2380,7 +2380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the Mesh to delete. Must be in the format `projects/ *
- *  /locations/global/meshes/ *`.
+ *  /locations/ * /meshes/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2390,7 +2390,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Deletes a single Mesh.
  *
  *  @param name Required. A name of the Mesh to delete. Must be in the format
- *    `projects/ * /locations/global/meshes/ *`.
+ *    `projects/ * /locations/ * /meshes/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesDelete
  */
@@ -2410,7 +2410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the Mesh to get. Must be in the format `projects/ *
- *  /locations/global/meshes/ *`.
+ *  /locations/ * /meshes/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2420,7 +2420,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Gets details of a single Mesh.
  *
  *  @param name Required. A name of the Mesh to get. Must be in the format
- *    `projects/ * /locations/global/meshes/ *`.
+ *    `projects/ * /locations/ * /meshes/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesGet
  */
@@ -2450,7 +2450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The project and location from which the Meshes should be listed,
- *  specified in the format `projects/ * /locations/global`.
+ *  specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2467,7 +2467,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Lists Meshes in a given project and location.
  *
  *  @param parent Required. The project and location from which the Meshes
- *    should be listed, specified in the format `projects/ * /locations/global`.
+ *    should be listed, specified in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesList
  *
@@ -2491,7 +2491,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Identifier. Name of the Mesh resource. It matches pattern `projects/ *
- *  /locations/global/meshes/`.
+ *  /locations/ * /meshes/`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2513,7 +2513,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param object The @c GTLRNetworkServices_Mesh to include in the query.
  *  @param name Identifier. Name of the Mesh resource. It matches pattern
- *    `projects/ * /locations/global/meshes/`.
+ *    `projects/ * /locations/ * /meshes/`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsMeshesPatch
  */
@@ -2729,9 +2729,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -3144,7 +3144,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The parent resource of the TcpRoute. Must be in the format
- *  `projects/ * /locations/global`.
+ *  `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3158,7 +3158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param object The @c GTLRNetworkServices_TcpRoute to include in the query.
  *  @param parent Required. The parent resource of the TcpRoute. Must be in the
- *    format `projects/ * /locations/global`.
+ *    format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesCreate
  */
@@ -3179,7 +3179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the TcpRoute to delete. Must be in the format `projects/
- *  * /locations/global/tcpRoutes/ *`.
+ *  * /locations/ * /tcpRoutes/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3189,7 +3189,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Deletes a single TcpRoute.
  *
  *  @param name Required. A name of the TcpRoute to delete. Must be in the
- *    format `projects/ * /locations/global/tcpRoutes/ *`.
+ *    format `projects/ * /locations/ * /tcpRoutes/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesDelete
  */
@@ -3209,7 +3209,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the TcpRoute to get. Must be in the format `projects/ *
- *  /locations/global/tcpRoutes/ *`.
+ *  /locations/ * /tcpRoutes/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3219,7 +3219,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Gets details of a single TcpRoute.
  *
  *  @param name Required. A name of the TcpRoute to get. Must be in the format
- *    `projects/ * /locations/global/tcpRoutes/ *`.
+ *    `projects/ * /locations/ * /tcpRoutes/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesGet
  */
@@ -3249,7 +3249,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The project and location from which the TcpRoutes should be
- *  listed, specified in the format `projects/ * /locations/global`.
+ *  listed, specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3266,7 +3266,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Lists TcpRoute in a given project and location.
  *
  *  @param parent Required. The project and location from which the TcpRoutes
- *    should be listed, specified in the format `projects/ * /locations/global`.
+ *    should be listed, specified in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesList
  *
@@ -3290,7 +3290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Identifier. Name of the TcpRoute resource. It matches pattern `projects/ *
- *  /locations/global/tcpRoutes/tcp_route_name>`.
+ *  /locations/ * /tcpRoutes/tcp_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3312,7 +3312,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param object The @c GTLRNetworkServices_TcpRoute to include in the query.
  *  @param name Identifier. Name of the TcpRoute resource. It matches pattern
- *    `projects/ * /locations/global/tcpRoutes/tcp_route_name>`.
+ *    `projects/ * /locations/ * /tcpRoutes/tcp_route_name>`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTcpRoutesPatch
  */
@@ -3333,7 +3333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The parent resource of the TlsRoute. Must be in the format
- *  `projects/ * /locations/global`.
+ *  `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3347,7 +3347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param object The @c GTLRNetworkServices_TlsRoute to include in the query.
  *  @param parent Required. The parent resource of the TlsRoute. Must be in the
- *    format `projects/ * /locations/global`.
+ *    format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesCreate
  */
@@ -3368,7 +3368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the TlsRoute to delete. Must be in the format `projects/
- *  * /locations/global/tlsRoutes/ *`.
+ *  * /locations/ * /tlsRoutes/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3378,7 +3378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Deletes a single TlsRoute.
  *
  *  @param name Required. A name of the TlsRoute to delete. Must be in the
- *    format `projects/ * /locations/global/tlsRoutes/ *`.
+ *    format `projects/ * /locations/ * /tlsRoutes/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesDelete
  */
@@ -3398,7 +3398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. A name of the TlsRoute to get. Must be in the format `projects/ *
- *  /locations/global/tlsRoutes/ *`.
+ *  /locations/ * /tlsRoutes/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3408,7 +3408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Gets details of a single TlsRoute.
  *
  *  @param name Required. A name of the TlsRoute to get. Must be in the format
- *    `projects/ * /locations/global/tlsRoutes/ *`.
+ *    `projects/ * /locations/ * /tlsRoutes/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesGet
  */
@@ -3438,7 +3438,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Required. The project and location from which the TlsRoutes should be
- *  listed, specified in the format `projects/ * /locations/global`.
+ *  listed, specified in the format `projects/ * /locations/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -3455,7 +3455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Lists TlsRoute in a given project and location.
  *
  *  @param parent Required. The project and location from which the TlsRoutes
- *    should be listed, specified in the format `projects/ * /locations/global`.
+ *    should be listed, specified in the format `projects/ * /locations/ *`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesList
  *
@@ -3479,7 +3479,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Identifier. Name of the TlsRoute resource. It matches pattern `projects/ *
- *  /locations/global/tlsRoutes/tls_route_name>`.
+ *  /locations/ * /tlsRoutes/tls_route_name>`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3501,7 +3501,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *
  *  @param object The @c GTLRNetworkServices_TlsRoute to include in the query.
  *  @param name Identifier. Name of the TlsRoute resource. It matches pattern
- *    `projects/ * /locations/global/tlsRoutes/tls_route_name>`.
+ *    `projects/ * /locations/ * /tlsRoutes/tls_route_name>`.
  *
  *  @return GTLRNetworkServicesQuery_ProjectsLocationsTlsRoutesPatch
  */

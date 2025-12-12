@@ -601,6 +601,15 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_ClientContext
+//
+
+@implementation GTLRSpanner_ClientContext
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_ColumnMetadata
 //
 
@@ -1388,9 +1397,9 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_InstancePartition
-@dynamic config, createTime, displayName, ETag, name, nodeCount,
-         processingUnits, referencingBackups, referencingDatabases, state,
-         updateTime;
+@dynamic autoscalingConfig, config, createTime, displayName, ETag, name,
+         nodeCount, processingUnits, referencingBackups, referencingDatabases,
+         state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1763,11 +1772,12 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRSpanner_Operation class]
+    @"operations" : [GTLRSpanner_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -2494,7 +2504,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_RequestOptions
-@dynamic priority, requestTag, transactionTag;
+@dynamic clientContext, priority, requestTag, transactionTag;
 @end
 
 

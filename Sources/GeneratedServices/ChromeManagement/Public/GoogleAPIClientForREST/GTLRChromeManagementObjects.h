@@ -3385,6 +3385,30 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response containing the number of active devices.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountActiveDevicesResponse : GTLRObject
+
+/**
+ *  Number of active devices in the 7 days leading up to the date specified in
+ *  the request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sevenDaysCount;
+
+/**
+ *  Number of active devices in the 30 days leading up to the date specified in
+ *  the request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thirtyDaysCount;
+
+@end
+
+
+/**
  *  Response containing summary of requested app installations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3597,6 +3621,99 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response containing the number of devices with the given boot type.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountDevicesPerBootTypeResponse : GTLRObject
+
+/**
+ *  Number of devices with dev boot type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *devBootTypeCount;
+
+/**
+ *  Number of devices with unreported boot type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unreportedBootTypeCount;
+
+/**
+ *  Number of devices with verified boot type.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verifiedBootTypeCount;
+
+@end
+
+
+/**
+ *  Response containing the number of devices with the given channel.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1CountDevicesPerReleaseChannelResponse : GTLRObject
+
+/**
+ *  Number of devices with beta release channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *betaChannelCount;
+
+/**
+ *  Number of devices with canary release channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canaryChannelCount;
+
+/**
+ *  Number of devices with dev release channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *devChannelCount;
+
+/**
+ *  Number of devices with ltc release channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ltcChannelCount;
+
+/**
+ *  Number of devices with lts release channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ltsChannelCount;
+
+/**
+ *  Number of devices with stable release channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stableChannelCount;
+
+/**
+ *  Number of devices with an unreported release channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unreportedChannelCount;
+
+/**
+ *  Number of devices with unsupported release channel.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unsupportedChannelCount;
 
 @end
 
@@ -7847,8 +7964,9 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

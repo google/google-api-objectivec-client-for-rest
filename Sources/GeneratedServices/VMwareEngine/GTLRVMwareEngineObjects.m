@@ -35,6 +35,25 @@ NSString * const kGTLRVMwareEngine_Cluster_State_Repairing     = @"REPAIRING";
 NSString * const kGTLRVMwareEngine_Cluster_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRVMwareEngine_Cluster_State_Updating      = @"UPDATING";
 
+// GTLRVMwareEngine_Datastore.state
+NSString * const kGTLRVMwareEngine_Datastore_State_Active      = @"ACTIVE";
+NSString * const kGTLRVMwareEngine_Datastore_State_Creating    = @"CREATING";
+NSString * const kGTLRVMwareEngine_Datastore_State_Deleting    = @"DELETING";
+NSString * const kGTLRVMwareEngine_Datastore_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_Datastore_State_Updating    = @"UPDATING";
+
+// GTLRVMwareEngine_DatastoreMountConfig.accessMode
+NSString * const kGTLRVMwareEngine_DatastoreMountConfig_AccessMode_AccessModeUnspecified = @"ACCESS_MODE_UNSPECIFIED";
+NSString * const kGTLRVMwareEngine_DatastoreMountConfig_AccessMode_ReadOnly = @"READ_ONLY";
+NSString * const kGTLRVMwareEngine_DatastoreMountConfig_AccessMode_ReadWrite = @"READ_WRITE";
+
+// GTLRVMwareEngine_DatastoreMountConfig.nfsVersion
+NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsV3 = @"NFS_V3";
+NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsVersionUnspecified = @"NFS_VERSION_UNSPECIFIED";
+
+// GTLRVMwareEngine_DatastoreMountConfig.securityType
+NSString * const kGTLRVMwareEngine_DatastoreMountConfig_SecurityType_SecurityTypeUnspecified = @"SECURITY_TYPE_UNSPECIFIED";
+
 // GTLRVMwareEngine_ExternalAccessRule.action
 NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_Allow = @"ALLOW";
@@ -441,8 +460,16 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 //
 
 @implementation GTLRVMwareEngine_Cluster
-@dynamic autoscalingSettings, createTime, management, name, nodeTypeConfigs,
-         state, stretchedClusterConfig, uid, updateTime;
+@dynamic autoscalingSettings, createTime, datastoreMountConfig, management,
+         name, nodeTypeConfigs, state, stretchedClusterConfig, uid, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"datastoreMountConfig" : [GTLRVMwareEngine_DatastoreMountConfig class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -485,6 +512,62 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 @implementation GTLRVMwareEngine_Credentials
 @dynamic password, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_Datastore
+//
+
+@implementation GTLRVMwareEngine_Datastore
+@dynamic clusters, createTime, descriptionProperty, ETag, name, nfsDatastore,
+         state, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"clusters" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_DatastoreMountConfig
+//
+
+@implementation GTLRVMwareEngine_DatastoreMountConfig
+@dynamic accessMode, datastore, datastoreNetwork, fileShare, nfsVersion,
+         securityType, servers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_DatastoreNetwork
+//
+
+@implementation GTLRVMwareEngine_DatastoreNetwork
+@dynamic connectionCount, mtu, networkPeering, subnet;
 @end
 
 
@@ -633,6 +716,25 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_GoogleFileService
+//
+
+@implementation GTLRVMwareEngine_GoogleFileService
+@dynamic filestoreInstance, netappVolume;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_GoogleVmwareFileService
+//
+
+@implementation GTLRVMwareEngine_GoogleVmwareFileService
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_GrantDnsBindPermissionRequest
 //
 
@@ -722,6 +824,29 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 + (NSString *)collectionItemsKey {
   return @"clusters";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_ListDatastoresResponse
+//
+
+@implementation GTLRVMwareEngine_ListDatastoresResponse
+@dynamic datastores, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"datastores" : [GTLRVMwareEngine_Datastore class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"datastores";
 }
 
 @end
@@ -1246,6 +1371,16 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_MountDatastoreRequest
+//
+
+@implementation GTLRVMwareEngine_MountDatastoreRequest
+@dynamic datastoreMountConfig, ignoreColocation, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_Network
 //
 
@@ -1325,6 +1460,16 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 @implementation GTLRVMwareEngine_NetworkService
 @dynamic enabled, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_NfsDatastore
+//
+
+@implementation GTLRVMwareEngine_NfsDatastore
+@dynamic googleFileService, googleVmwareFileService, thirdPartyFileService;
 @end
 
 
@@ -1670,6 +1815,24 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRVMwareEngine_ThirdPartyFileService
+//
+
+@implementation GTLRVMwareEngine_ThirdPartyFileService
+@dynamic fileShare, network, servers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"servers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRVMwareEngine_Thresholds
 //
 
@@ -1705,6 +1868,16 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 @implementation GTLRVMwareEngine_UndeletePrivateCloudRequest
 @dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRVMwareEngine_UnmountDatastoreRequest
+//
+
+@implementation GTLRVMwareEngine_UnmountDatastoreRequest
+@dynamic datastore, requestId;
 @end
 
 

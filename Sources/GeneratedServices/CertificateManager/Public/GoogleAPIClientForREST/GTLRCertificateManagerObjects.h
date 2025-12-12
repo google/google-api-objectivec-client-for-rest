@@ -36,6 +36,7 @@
 @class GTLRCertificateManager_Location_Labels;
 @class GTLRCertificateManager_Location_Metadata;
 @class GTLRCertificateManager_ManagedCertificate;
+@class GTLRCertificateManager_ManagedIdentityCertificate;
 @class GTLRCertificateManager_Operation;
 @class GTLRCertificateManager_Operation_Metadata;
 @class GTLRCertificateManager_Operation_Response;
@@ -47,6 +48,7 @@
 @class GTLRCertificateManager_TrustAnchor;
 @class GTLRCertificateManager_TrustConfig;
 @class GTLRCertificateManager_TrustConfig_Labels;
+@class GTLRCertificateManager_TrustConfig_SpiffeTrustStores;
 @class GTLRCertificateManager_TrustStore;
 @class GTLRCertificateManager_UsedBy;
 
@@ -274,6 +276,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ManagedCertificate_St
 FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ManagedCertificate_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCertificateManager_ManagedIdentityCertificate.state
+
+/**
+ *  The certificate management is working, and a certificate has been
+ *  provisioned.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ManagedIdentityCertificate_State_Active;
+/**
+ *  Multiple certificate provisioning attempts failed and Certificate Manager
+ *  gave up. To try again, delete and create a new managed Certificate resource.
+ *  For details see the `provisioning_issue` field.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ManagedIdentityCertificate_State_Failed;
+/**
+ *  Certificate Manager attempts to provision or renew the certificate. If the
+ *  process takes longer than expected, consult the `provisioning_issue` field.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ManagedIdentityCertificate_State_Provisioning;
+/**
+ *  State is unspecified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_ManagedIdentityCertificate_State_StateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCertificateManager_ProvisioningIssue.reason
 
 /**
@@ -450,6 +484,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
 
 /** If set, contains configuration and state of a managed certificate. */
 @property(nonatomic, strong, nullable) GTLRCertificateManager_ManagedCertificate *managed;
+
+/**
+ *  If set, contains configuration and state of a managed identity certificate.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_ManagedIdentityCertificate *managedIdentity;
 
 /**
  *  Identifier. A user-defined name of the certificate. Certificate names must
@@ -1178,8 +1217,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1336,6 +1376,49 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
  *        the process takes longer than expected, consult the
  *        `provisioning_issue` field. (Value: "PROVISIONING")
  *    @arg @c kGTLRCertificateManager_ManagedCertificate_State_StateUnspecified
+ *        State is unspecified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Configuration and state of a Managed Identity Certificate. Certificate
+ *  Manager provisions and renews Managed Identity Certificates automatically,
+ *  for as long as it's authorized to do so.
+ */
+@interface GTLRCertificateManager_ManagedIdentityCertificate : GTLRObject
+
+/**
+ *  Required. Immutable. SPIFFE ID of the Managed Identity used for this
+ *  certificate.
+ */
+@property(nonatomic, copy, nullable) NSString *identity;
+
+/**
+ *  Output only. Information about issues with provisioning a managed
+ *  certificate.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_ProvisioningIssue *provisioningIssue;
+
+/**
+ *  Output only. State of the managed certificate resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCertificateManager_ManagedIdentityCertificate_State_Active
+ *        The certificate management is working, and a certificate has been
+ *        provisioned. (Value: "ACTIVE")
+ *    @arg @c kGTLRCertificateManager_ManagedIdentityCertificate_State_Failed
+ *        Multiple certificate provisioning attempts failed and Certificate
+ *        Manager gave up. To try again, delete and create a new managed
+ *        Certificate resource. For details see the `provisioning_issue` field.
+ *        (Value: "FAILED")
+ *    @arg @c kGTLRCertificateManager_ManagedIdentityCertificate_State_Provisioning
+ *        Certificate Manager attempts to provision or renew the certificate. If
+ *        the process takes longer than expected, consult the
+ *        `provisioning_issue` field. (Value: "PROVISIONING")
+ *    @arg @c kGTLRCertificateManager_ManagedIdentityCertificate_State_StateUnspecified
  *        State is unspecified. (Value: "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
@@ -1632,6 +1715,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Defines a mapping from a trust domain to a TrustStore. This is
+ *  used for SPIFFE certificate validation.
+ */
+@property(nonatomic, strong, nullable) GTLRCertificateManager_TrustConfig_SpiffeTrustStores *spiffeTrustStores;
+
+/**
  *  Optional. Set of trust stores to perform validation against. This field is
  *  supported when TrustConfig is configured with Load Balancers, currently not
  *  supported for SPIFFE certificate validation. Only one TrustStore specified
@@ -1654,6 +1743,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateManager_Troubleshooting_Issue
  *        fetch them all at once.
  */
 @interface GTLRCertificateManager_TrustConfig_Labels : GTLRObject
+@end
+
+
+/**
+ *  Optional. Defines a mapping from a trust domain to a TrustStore. This is
+ *  used for SPIFFE certificate validation.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCertificateManager_TrustStore. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCertificateManager_TrustConfig_SpiffeTrustStores : GTLRObject
 @end
 
 

@@ -26,7 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage G Suite licenses for your domain
+ *  Authorization scope: View and manage Google Workspace licenses for your
+ *  domain
  *
  *  Value "https://www.googleapis.com/auth/apps.licensing"
  */

@@ -840,6 +840,190 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new host group.
+ *
+ *  Method: netapp.projects.locations.hostGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsCreate : GTLRNetAppFilesQuery
+
+/**
+ *  Required. ID of the host group to create. Must be unique within the parent
+ *  resource. Must contain only letters, numbers, and hyphen, with the first
+ *  character a letter or underscore, the last a letter or underscore or a
+ *  number, and a 63 character maximum.
+ */
+@property(nonatomic, copy, nullable) NSString *hostGroupId;
+
+/** Required. Parent value for CreateHostGroupRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_Operation.
+ *
+ *  Creates a new host group.
+ *
+ *  @param object The @c GTLRNetAppFiles_HostGroup to include in the query.
+ *  @param parent Required. Parent value for CreateHostGroupRequest
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetAppFiles_HostGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a host group.
+ *
+ *  Method: netapp.projects.locations.hostGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsDelete : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The resource name of the host group. Format:
+ *  `projects/{project_number}/locations/{location_id}/hostGroups/{host_group_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_Operation.
+ *
+ *  Deletes a host group.
+ *
+ *  @param name Required. The resource name of the host group. Format:
+ *    `projects/{project_number}/locations/{location_id}/hostGroups/{host_group_id}`.
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns details of the specified host group.
+ *
+ *  Method: netapp.projects.locations.hostGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsGet : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The resource name of the host group. Format:
+ *  `projects/{project_number}/locations/{location_id}/hostGroups/{host_group_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_HostGroup.
+ *
+ *  Returns details of the specified host group.
+ *
+ *  @param name Required. The resource name of the host group. Format:
+ *    `projects/{project_number}/locations/{location_id}/hostGroups/{host_group_id}`.
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns a list of host groups in a `location`. Use `-` as location to list
+ *  host groups across all locations.
+ *
+ *  Method: netapp.projects.locations.hostGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsList : GTLRNetAppFilesQuery
+
+/** Optional. Filter to apply to the request. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListHostGroupsRequest */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_ListHostGroupsResponse.
+ *
+ *  Returns a list of host groups in a `location`. Use `-` as location to list
+ *  host groups across all locations.
+ *
+ *  @param parent Required. Parent value for ListHostGroupsRequest
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an existing host group.
+ *
+ *  Method: netapp.projects.locations.hostGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsPatch : GTLRNetAppFilesQuery
+
+/**
+ *  Identifier. The resource name of the host group. Format:
+ *  `projects/{project_number}/locations/{location_id}/hostGroups/{host_group_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_Operation.
+ *
+ *  Updates an existing host group.
+ *
+ *  @param object The @c GTLRNetAppFiles_HostGroup to include in the query.
+ *  @param name Identifier. The resource name of the host group. Format:
+ *    `projects/{project_number}/locations/{location_id}/hostGroups/{host_group_id}`.
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetAppFiles_HostGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a new KMS config.
  *
  *  Method: netapp.projects.locations.kmsConfigs.create
@@ -1261,9 +1445,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

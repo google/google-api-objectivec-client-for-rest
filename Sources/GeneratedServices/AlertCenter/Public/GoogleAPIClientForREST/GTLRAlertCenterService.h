@@ -26,8 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: See and delete your domain's G Suite alerts, and send
- *  alert feedback
+ *  Authorization scope: See and delete your domain's Google Workspace alerts,
+ *  and send alert feedback
  *
  *  Value "https://www.googleapis.com/auth/apps.alerts"
  */

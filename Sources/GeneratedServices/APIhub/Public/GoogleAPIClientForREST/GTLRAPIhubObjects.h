@@ -13,10 +13,18 @@
 #endif
 
 @class GTLRAPIhub_GoogleCloudApihubV1ActionExecutionDetail;
+@class GTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent;
+@class GTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_Labels;
+@class GTLRAPIhub_GoogleCloudApihubV1Addon;
+@class GTLRAPIhub_GoogleCloudApihubV1AddonConfig;
+@class GTLRAPIhub_GoogleCloudApihubV1AllDataAddonConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1AllowedValue;
 @class GTLRAPIhub_GoogleCloudApihubV1Api;
 @class GTLRAPIhub_GoogleCloudApihubV1Api_Attributes;
 @class GTLRAPIhub_GoogleCloudApihubV1ApiData;
+@class GTLRAPIhub_GoogleCloudApihubV1ApigeeEdgeConfig;
+@class GTLRAPIhub_GoogleCloudApihubV1ApigeeOPDKConfig;
+@class GTLRAPIhub_GoogleCloudApihubV1ApigeeXHybridConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1ApiHubInstance;
 @class GTLRAPIhub_GoogleCloudApihubV1ApiHubInstance_Labels;
 @class GTLRAPIhub_GoogleCloudApihubV1ApiHubResource;
@@ -25,6 +33,7 @@
 @class GTLRAPIhub_GoogleCloudApihubV1ApiMetadataList;
 @class GTLRAPIhub_GoogleCloudApihubV1ApiOperation;
 @class GTLRAPIhub_GoogleCloudApihubV1ApiOperation_Attributes;
+@class GTLRAPIhub_GoogleCloudApihubV1ApiView;
 @class GTLRAPIhub_GoogleCloudApihubV1ApplicationIntegrationEndpointDetails;
 @class GTLRAPIhub_GoogleCloudApihubV1Attribute;
 @class GTLRAPIhub_GoogleCloudApihubV1AttributeValues;
@@ -52,9 +61,14 @@
 @class GTLRAPIhub_GoogleCloudApihubV1Documentation;
 @class GTLRAPIhub_GoogleCloudApihubV1Endpoint;
 @class GTLRAPIhub_GoogleCloudApihubV1EnumAttributeValues;
+@class GTLRAPIhub_GoogleCloudApihubV1EnvironmentFilter;
 @class GTLRAPIhub_GoogleCloudApihubV1ExecutionStatus;
 @class GTLRAPIhub_GoogleCloudApihubV1ExternalApi;
 @class GTLRAPIhub_GoogleCloudApihubV1ExternalApi_Attributes;
+@class GTLRAPIhub_GoogleCloudApihubV1FlattenedApiVersionDeploymentView;
+@class GTLRAPIhub_GoogleCloudApihubV1FlattenedApiVersionOperationDeploymentView;
+@class GTLRAPIhub_GoogleCloudApihubV1GatewayPluginAddonConfig;
+@class GTLRAPIhub_GoogleCloudApihubV1GatewayPluginConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1GoogleServiceAccountConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1Header;
 @class GTLRAPIhub_GoogleCloudApihubV1HostingService;
@@ -71,12 +85,15 @@
 @class GTLRAPIhub_GoogleCloudApihubV1LastExecution;
 @class GTLRAPIhub_GoogleCloudApihubV1LintResponse;
 @class GTLRAPIhub_GoogleCloudApihubV1MatchResult;
+@class GTLRAPIhub_GoogleCloudApihubV1McpTool;
 @class GTLRAPIhub_GoogleCloudApihubV1MultiIntValues;
 @class GTLRAPIhub_GoogleCloudApihubV1MultiSelectValues;
 @class GTLRAPIhub_GoogleCloudApihubV1MultiStringValues;
 @class GTLRAPIhub_GoogleCloudApihubV1Oauth2ClientCredentialsConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1OpenApiSpecDetails;
 @class GTLRAPIhub_GoogleCloudApihubV1OperationDetails;
+@class GTLRAPIhub_GoogleCloudApihubV1OperationSchema;
+@class GTLRAPIhub_GoogleCloudApihubV1OperationSchema_JsonSchema;
 @class GTLRAPIhub_GoogleCloudApihubV1Owner;
 @class GTLRAPIhub_GoogleCloudApihubV1Path;
 @class GTLRAPIhub_GoogleCloudApihubV1PathParam;
@@ -84,6 +101,7 @@
 @class GTLRAPIhub_GoogleCloudApihubV1PluginActionConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1PluginInstance;
 @class GTLRAPIhub_GoogleCloudApihubV1PluginInstance_AdditionalConfig;
+@class GTLRAPIhub_GoogleCloudApihubV1PluginInstance_SourceEnvironmentsConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1PluginInstanceAction;
 @class GTLRAPIhub_GoogleCloudApihubV1PluginInstanceActionID;
 @class GTLRAPIhub_GoogleCloudApihubV1PluginInstanceActionSource;
@@ -95,6 +113,7 @@
 @class GTLRAPIhub_GoogleCloudApihubV1Schema;
 @class GTLRAPIhub_GoogleCloudApihubV1SearchResult;
 @class GTLRAPIhub_GoogleCloudApihubV1Secret;
+@class GTLRAPIhub_GoogleCloudApihubV1SourceEnvironment;
 @class GTLRAPIhub_GoogleCloudApihubV1SourceMetadata;
 @class GTLRAPIhub_GoogleCloudApihubV1Spec;
 @class GTLRAPIhub_GoogleCloudApihubV1Spec_Attributes;
@@ -104,6 +123,8 @@
 @class GTLRAPIhub_GoogleCloudApihubV1StringAttributeValues;
 @class GTLRAPIhub_GoogleCloudApihubV1StyleGuideContents;
 @class GTLRAPIhub_GoogleCloudApihubV1SummaryEntry;
+@class GTLRAPIhub_GoogleCloudApihubV1ToolAnnotations;
+@class GTLRAPIhub_GoogleCloudApihubV1ToolAnnotations_AdditionalHints;
 @class GTLRAPIhub_GoogleCloudApihubV1UserPasswordConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1Version;
 @class GTLRAPIhub_GoogleCloudApihubV1Version_Attributes;
@@ -126,6 +147,79 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent.specContentType
+
+/**
+ *  The spec content type for boosted spec.
+ *
+ *  Value: "BOOSTED_SPEC_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_BoostedSpecContent;
+/**
+ *  Unspecified spec content type. Defaults to spec content uploaded by the
+ *  user.
+ *
+ *  Value: "SPEC_CONTENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_SpecContentTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1Addon.dataSource
+
+/**
+ *  Addon operates on all data in the API hub.
+ *
+ *  Value: "ALL_DATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Addon_DataSource_AllData;
+/**
+ *  The data source of the addon is not specified.
+ *
+ *  Value: "DATA_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Addon_DataSource_DataSourceUnspecified;
+/**
+ *  Addon operates on data collected from specific plugin instances.
+ *
+ *  Value: "PLUGIN_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Addon_DataSource_PluginInstance;
+
+// ----------------------------------------------------------------------------
+// GTLRAPIhub_GoogleCloudApihubV1Addon.state
+
+/**
+ *  The addon is active.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Addon_State_Active;
+/**
+ *  The addon state is not specified.
+ *
+ *  Value: "ADDON_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Addon_State_AddonStateUnspecified;
+/**
+ *  The addon is in error state.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Addon_State_Error;
+/**
+ *  The addon is inactive.
+ *
+ *  Value: "INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Addon_State_Inactive;
+/**
+ *  The addon is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1Addon_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRAPIhub_GoogleCloudApihubV1ApiHubInstance.state
@@ -1519,6 +1613,148 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  The additional spec content for the spec. This contains the metadata and the
+ *  last update time for the additional spec content.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent : GTLRObject
+
+/** Output only. The time at which the spec content was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The labels of the spec content e.g. specboost addon version. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_Labels *labels;
+
+/** Optional. The additional spec contents. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1SpecContents *specContents;
+
+/**
+ *  Required. The type of the spec content.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_BoostedSpecContent
+ *        The spec content type for boosted spec. (Value:
+ *        "BOOSTED_SPEC_CONTENT")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_SpecContentTypeUnspecified
+ *        Unspecified spec content type. Defaults to spec content uploaded by
+ *        the user. (Value: "SPEC_CONTENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *specContentType;
+
+/** Output only. The time at which the spec content was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. The labels of the spec content e.g. specboost addon version.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_Labels : GTLRObject
+@end
+
+
+/**
+ *  Addon resource.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1Addon : GTLRObject
+
+/** Required. The configuration of the addon. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AddonConfig *config;
+
+/** Output only. The time at which the addon was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The data source on which the addon operates. This determines which
+ *  field in the `config` oneof is used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Addon_DataSource_AllData Addon
+ *        operates on all data in the API hub. (Value: "ALL_DATA")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Addon_DataSource_DataSourceUnspecified
+ *        The data source of the addon is not specified. (Value:
+ *        "DATA_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Addon_DataSource_PluginInstance
+ *        Addon operates on data collected from specific plugin instances.
+ *        (Value: "PLUGIN_INSTANCE")
+ */
+@property(nonatomic, copy, nullable) NSString *dataSource;
+
+/**
+ *  Optional. The description of the addon.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. The display name of the addon. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. The name of the addon to enable. Format:
+ *  `projects/{project}/locations/{location}/addons/{addon}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The state of the addon.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Addon_State_Active The addon is
+ *        active. (Value: "ACTIVE")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Addon_State_AddonStateUnspecified
+ *        The addon state is not specified. (Value: "ADDON_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Addon_State_Error The addon is in
+ *        error state. (Value: "ERROR")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Addon_State_Inactive The addon is
+ *        inactive. (Value: "INACTIVE")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1Addon_State_Updating The addon is
+ *        being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time at which the addon was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Configuration for the addon.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1AddonConfig : GTLRObject
+
+/** Configuration for addons which act on all data in the API hub. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AllDataAddonConfig *allDataAddonConfig;
+
+/** Configuration for gateway plugin addons. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1GatewayPluginAddonConfig *gatewayPluginAddonConfig;
+
+@end
+
+
+/**
+ *  Configuration for addons which act on all data in the API hub. This is used
+ *  to specify if the addon is enabled for all data in the API hub.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1AllDataAddonConfig : GTLRObject
+
+/**
+ *  Required. If true, the addon is enabled for all data in the API hub.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  The value that can be assigned to the attribute when the data type is enum.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1AllowedValue : GTLRObject
@@ -1739,6 +1975,57 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /** Optional. The list of API metadata. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ApiMetadataList *apiMetadataList;
+
+@end
+
+
+/**
+ *  Configuration for Apigee Edge gateways. Applicability of a filter is
+ *  determined by the filter being provided. If none of the filters are provided
+ *  the addon will be enabled for all data brought in by the gateway plugin
+ *  instance.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ApigeeEdgeConfig : GTLRObject
+
+/**
+ *  Optional. The filter to apply on the resources managed by the gateway plugin
+ *  instance. If provided this filter applies environment specific filtering.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1EnvironmentFilter *environmentFilter;
+
+@end
+
+
+/**
+ *  Configuration for Apigee OPDK gateways. Applicability of a filter is
+ *  determined by the filter being provided. If none of the filters are provided
+ *  the addon will be enabled for all data brought in by the gateway plugin
+ *  instance.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ApigeeOPDKConfig : GTLRObject
+
+/**
+ *  Optional. The filter to apply on the resources managed by the gateway plugin
+ *  instance. If provided this filter applies environment specific filtering.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1EnvironmentFilter *environmentFilter;
+
+@end
+
+
+/**
+ *  Configuration for Apigee X and Apigee Hybrid gateways. Applicability of a
+ *  filter is determined by the filter being provided. If none of the filters
+ *  are provided the addon will be enabled for all data brought in by the
+ *  gateway plugin instance.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ApigeeXHybridConfig : GTLRObject
+
+/**
+ *  Optional. The filter to apply on the resources managed by the gateway plugin
+ *  instance. If provided this filter applies environment specific filtering.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1EnvironmentFilter *environmentFilter;
 
 @end
 
@@ -2028,6 +2315,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *        fetch them all at once.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1ApiOperation_Attributes : GTLRObject
+@end
+
+
+/**
+ *  The view of an API.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ApiView : GTLRObject
+
+/** Output only. MCP server view. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1FlattenedApiVersionDeploymentView *mcpServerView;
+
+/** Output only. MCP tools view. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1FlattenedApiVersionOperationDeploymentView *mcpToolView;
+
 @end
 
 
@@ -3296,6 +3597,28 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  Filter for environments.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1EnvironmentFilter : GTLRObject
+
+/**
+ *  Optional. Indicates if this filter should match all environments or only a
+ *  subset of environments. If set to true, all environments are matched.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allEnvironments;
+
+/**
+ *  Optional. If provided, only environments in this list are matched. This
+ *  field is ignored if `all_environments` is true.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *environments;
+
+@end
+
+
+/**
  *  The ExecutePluginInstanceAction method's request.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1ExecutePluginInstanceActionRequest : GTLRObject
@@ -3398,6 +3721,96 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *        fetch them all at once.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1ExternalApi_Attributes : GTLRObject
+@end
+
+
+/**
+ *  The FetchAdditionalSpecContent method's response.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1FetchAdditionalSpecContentResponse : GTLRObject
+
+/** The additional spec content. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent *additionalSpecContent;
+
+@end
+
+
+/**
+ *  A flattened view of an API, its version and one of the linked deployments.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1FlattenedApiVersionDeploymentView : GTLRObject
+
+/** The API. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Api *api;
+
+/** The deployment. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Deployment *deployment;
+
+/** The version. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Version *version;
+
+@end
+
+
+/**
+ *  A flattened view of an API, its version, one of its operations and one of
+ *  the linked deployments. If there are no deployments linked to the operation
+ *  then the result will be empty.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1FlattenedApiVersionOperationDeploymentView : GTLRObject
+
+/** The API. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Api *api;
+
+/** The API operation. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ApiOperation *apiOperation;
+
+/** The deployment. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Deployment *deployment;
+
+/** The version. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Version *version;
+
+@end
+
+
+/**
+ *  Configuration for gateway plugin addons. This is used to specify the list of
+ *  gateway plugin configs for which the addon is enabled.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1GatewayPluginAddonConfig : GTLRObject
+
+/**
+ *  Required. The list of gateway plugin configs for which the addon is enabled.
+ *  Each gateway plugin config should have a unique plugin instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1GatewayPluginConfig *> *gatewayPluginConfigs;
+
+@end
+
+
+/**
+ *  Configuration for a gateway plugin. This is used to specify configs for
+ *  different gateways.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1GatewayPluginConfig : GTLRObject
+
+/** Configuration for Apigee Edge gateways. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ApigeeEdgeConfig *apigeeEdgeConfig;
+
+/** Configuration for Apigee OPDK gateways. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ApigeeOPDKConfig *apigeeOpdkConfig;
+
+/** Configuration for Apigee X and Apigee Hybrid gateways. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ApigeeXHybridConfig *apigeeXHybridConfig;
+
+/**
+ *  Required. The name of the gateway plugin instance for which the config is to
+ *  be specified. Format:
+ *  projects/{project}/locations/{location}/plugins/{plugin}/pluginInstances/{plugin_instance}
+ */
+@property(nonatomic, copy, nullable) NSString *pluginInstance;
+
 @end
 
 
@@ -3707,6 +4120,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  */
 @property(nonatomic, copy, nullable) NSString *result;
 
+/**
+ *  Output only. The result metadata of the last execution of the plugin
+ *  instance. This will be a string representation of a JSON object and will be
+ *  available on successful execution.
+ */
+@property(nonatomic, copy, nullable) NSString *resultMetadata;
+
 /** Output only. The last execution start time of the plugin instance. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -3765,6 +4185,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  The LintSpec method's request.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1LintSpecRequest : GTLRObject
+@end
+
+
+/**
+ *  The ListAddons method's response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "addons" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ListAddonsResponse : GTLRCollectionObject
+
+/**
+ *  The list of addons.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1Addon *> *addons;
+
+/**
+ *  A token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
 @end
 
 
@@ -4197,6 +4644,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  The ManageAddonConfig method's request.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ManageAddonConfigRequest : GTLRObject
+
+/**
+ *  Required. The config of the addon to be managed. This config will replace
+ *  the config present in the addon. The type of the config should match the
+ *  config type already present in the addon.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AddonConfig *config;
+
+@end
+
+
+/**
  *  The ManagePluginInstanceSourceData method's request.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1ManagePluginInstanceSourceDataRequest : GTLRObject
@@ -4265,6 +4727,44 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  `projects/{project}/locations/{location}/apis/{api}/versions/{version}/operations/{operation}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Details describing an MCP Tool.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1McpTool : GTLRObject
+
+/** Optional. Optional annotations for the tool. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ToolAnnotations *annotations;
+
+/**
+ *  Optional. Description of what the tool does.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Optional. Input schema for the operation. This can be parsed only from MCP
+ *  schema type.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1OperationSchema *inputSchema;
+
+/**
+ *  Required. The name of the tool, unique within its parent scope (version).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Output schema for the operation. This can be parsed only from MCP
+ *  schema type.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1OperationSchema *outputSchema;
+
+/** Optional. Optional title for the tool. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 @end
 
@@ -4392,6 +4892,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 /** The HTTP Operation. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1HttpOperation *httpOperation;
 
+/** The MCP Tool Operation. */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1McpTool *mcpTool;
+
 @end
 
 
@@ -4430,6 +4933,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 /** Output only. Name of the verb executed by the operation. */
 @property(nonatomic, copy, nullable) NSString *verb;
 
+@end
+
+
+/**
+ *  The operation schema needed for an operation.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1OperationSchema : GTLRObject
+
+/**
+ *  The JSON schema. Only valid JSON is accepted but semantic validation of
+ *  schema is not supported right now.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1OperationSchema_JsonSchema *jsonSchema;
+
+@end
+
+
+/**
+ *  The JSON schema. Only valid JSON is accepted but semantic validation of
+ *  schema is not supported right now.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1OperationSchema_JsonSchema : GTLRObject
 @end
 
 
@@ -4754,6 +5284,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The source environment's config present in the gateway instance
+ *  linked to the plugin instance. The key is the `source_environment` name from
+ *  the SourceEnvironment message.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1PluginInstance_SourceEnvironmentsConfig *sourceEnvironmentsConfig;
+
+/**
  *  Optional. The source project id of the plugin instance. This will be the id
  *  of runtime project in case of gcp based plugins and org id in case of non
  *  gcp based plugins. This field will be a required field for Google provided
@@ -4818,6 +5355,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *        fetch them all at once.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1PluginInstance_AdditionalConfig : GTLRObject
+@end
+
+
+/**
+ *  Optional. The source environment's config present in the gateway instance
+ *  linked to the plugin instance. The key is the `source_environment` name from
+ *  the SourceEnvironment message.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRAPIhub_GoogleCloudApihubV1SourceEnvironment. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1PluginInstance_SourceEnvironmentsConfig : GTLRObject
 @end
 
 
@@ -5042,6 +5594,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  The RetrieveApiViews method's response.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "apiViews" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1RetrieveApiViewsResponse : GTLRCollectionObject
+
+/**
+ *  The list of API views.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1ApiView *> *apiViews;
+
+/** Next page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Runtime project attachment represents an attachment from the runtime project
  *  to the host project. Api Hub looks for deployments in the attached runtime
  *  projects and creates corresponding resources in Api Hub for the discovered
@@ -5202,6 +5778,35 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  Message representing the source environment details.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1SourceEnvironment : GTLRObject
+
+/** Optional. The time at which the environment was created at the source. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. The name of the environment at the source. This should map to
+ *  Deployment.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceEnvironment;
+
+/**
+ *  The location where additional information about source environments can be
+ *  found. The location should be relative path of the environment manifest with
+ *  respect to a plugin instance.
+ */
+@property(nonatomic, copy, nullable) NSString *sourceEnvironmentUri;
+
+/**
+ *  Optional. The time at which the environment was last updated at the source.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  SourceMetadata represents the metadata for a resource at the source.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1SourceMetadata : GTLRObject
@@ -5240,6 +5845,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  supported for OpenAPI spec currently.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1Spec : GTLRObject
+
+/** Output only. The additional spec contents for the spec. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent *> *additionalSpecContents;
 
 /**
  *  Optional. The list of user defined attributes associated with the spec. The
@@ -5503,6 +6111,66 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  */
 @property(nonatomic, copy, nullable) NSString *severity;
 
+@end
+
+
+/**
+ *  Annotations for a Tool.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ToolAnnotations : GTLRObject
+
+/**
+ *  Optional. Additional hints which may help tools and not covered in defaults.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ToolAnnotations_AdditionalHints *additionalHints;
+
+/**
+ *  Optional. Hint indicating if the tool may have destructive side effects.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *destructiveHint;
+
+/**
+ *  Optional. Hint indicating if the tool is idempotent.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *idempotentHint;
+
+/**
+ *  Optional. Hint indicating if the tool interacts with the open world (e.g.,
+ *  internet).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *openWorldHint;
+
+/**
+ *  Optional. Hint indicating if the tool is read-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOnlyHint;
+
+/**
+ *  Optional. A human-readable title for the tool (if different from
+ *  Tool.title).
+ */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Optional. Additional hints which may help tools and not covered in defaults.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1ToolAnnotations_AdditionalHints : GTLRObject
 @end
 
 
@@ -5857,8 +6525,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

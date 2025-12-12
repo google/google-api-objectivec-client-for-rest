@@ -791,6 +791,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridN
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridNegNonLocalDynamicRouteMatched;
 /**
+ *  Packet is dropped because no matching route was found in the hybrid subnet.
+ *
+ *  Value: "HYBRID_SUBNET_NO_ROUTE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_HybridSubnetNoRoute;
+/**
  *  Packet is dropped because the region of the hybrid subnet is different from
  *  the region of the next hop of the route matched within this hybrid subnet.
  *
@@ -1560,15 +1566,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallR
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ImpliedVpcFirewallRule;
 /**
- *  Global network firewall policy rule. For details, see [Network firewall
+ *  User-defined global network firewall policy rule. For details, see [Network
+ *  firewall
  *  policies](https://cloud.google.com/vpc/docs/network-firewall-policies).
  *
  *  Value: "NETWORK_FIREWALL_POLICY_RULE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkFirewallPolicyRule;
 /**
- *  Regional network firewall policy rule. For details, see [Regional network
- *  firewall
+ *  User-defined regional network firewall policy rule. For details, see
+ *  [Regional network firewall
  *  policies](https://cloud.google.com/firewall/docs/regional-firewall-policies).
  *
  *  Value: "NETWORK_REGIONAL_FIREWALL_POLICY_RULE"
@@ -1583,6 +1590,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallR
  *  Value: "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule;
+/**
+ *  System-defined global network firewall policy rule.
+ *
+ *  Value: "SYSTEM_NETWORK_FIREWALL_POLICY_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_SystemNetworkFirewallPolicyRule;
+/**
+ *  System-defined regional network firewall policy rule.
+ *
+ *  Value: "SYSTEM_REGIONAL_NETWORK_FIREWALL_POLICY_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_SystemRegionalNetworkFirewallPolicyRule;
 /**
  *  Tracking state for response traffic created when request traffic goes
  *  through allow firewall rule. For details, see [firewall rules
@@ -3582,6 +3601,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        The packet sent from the hybrid NEG proxy matches a dynamic route with
  *        a next hop in a different region, but such a configuration is not
  *        supported. (Value: "HYBRID_NEG_NON_LOCAL_DYNAMIC_ROUTE_MATCHED")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_HybridSubnetNoRoute Packet
+ *        is dropped because no matching route was found in the hybrid subnet.
+ *        (Value: "HYBRID_SUBNET_NO_ROUTE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_HybridSubnetRegionMismatch
  *        Packet is dropped because the region of the hybrid subnet is different
  *        from the region of the next hop of the route matched within this
@@ -4336,13 +4358,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        rules](https://cloud.google.com/vpc/docs/firewalls#default_firewall_rules).
  *        (Value: "IMPLIED_VPC_FIREWALL_RULE")
  *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkFirewallPolicyRule
- *        Global network firewall policy rule. For details, see [Network
- *        firewall
+ *        User-defined global network firewall policy rule. For details, see
+ *        [Network firewall
  *        policies](https://cloud.google.com/vpc/docs/network-firewall-policies).
  *        (Value: "NETWORK_FIREWALL_POLICY_RULE")
  *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_NetworkRegionalFirewallPolicyRule
- *        Regional network firewall policy rule. For details, see [Regional
- *        network firewall
+ *        User-defined regional network firewall policy rule. For details, see
+ *        [Regional network firewall
  *        policies](https://cloud.google.com/firewall/docs/regional-firewall-policies).
  *        (Value: "NETWORK_REGIONAL_FIREWALL_POLICY_RULE")
  *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_ServerlessVpcAccessManagedFirewallRule
@@ -4351,6 +4373,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        console. For details, see [VPC connector's implicit
  *        rules](https://cloud.google.com/functions/docs/networking/connecting-vpc#restrict-access).
  *        (Value: "SERVERLESS_VPC_ACCESS_MANAGED_FIREWALL_RULE")
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_SystemNetworkFirewallPolicyRule
+ *        System-defined global network firewall policy rule. (Value:
+ *        "SYSTEM_NETWORK_FIREWALL_POLICY_RULE")
+ *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_SystemRegionalNetworkFirewallPolicyRule
+ *        System-defined regional network firewall policy rule. (Value:
+ *        "SYSTEM_REGIONAL_NETWORK_FIREWALL_POLICY_RULE")
  *    @arg @c kGTLRNetworkManagement_FirewallInfo_FirewallRuleType_TrackingState
  *        Tracking state for response traffic created when request traffic goes
  *        through allow firewall rule. For details, see [firewall rules

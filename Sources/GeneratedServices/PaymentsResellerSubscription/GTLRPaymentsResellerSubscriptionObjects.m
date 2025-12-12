@@ -60,6 +60,11 @@ NSString * const kGTLRPaymentsResellerSubscription_Promotion_PromotionType_Promo
 NSString * const kGTLRPaymentsResellerSubscription_Promotion_PromotionType_PromotionTypeIntroductoryPricing = @"PROMOTION_TYPE_INTRODUCTORY_PRICING";
 NSString * const kGTLRPaymentsResellerSubscription_Promotion_PromotionType_PromotionTypeUnspecified = @"PROMOTION_TYPE_UNSPECIFIED";
 
+// GTLRPaymentsResellerSubscription_ResumeSubscriptionRequest.resumeMode
+NSString * const kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeCycleOptions = @"RESUME_MODE_CYCLE_OPTIONS";
+NSString * const kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeRestoreExistingBillingSchedule = @"RESUME_MODE_RESTORE_EXISTING_BILLING_SCHEDULE";
+NSString * const kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeUnspecified = @"RESUME_MODE_UNSPECIFIED";
+
 // GTLRPaymentsResellerSubscription_Subscription.processingState
 NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateCancelling = @"PROCESSING_STATE_CANCELLING";
 NSString * const kGTLRPaymentsResellerSubscription_Subscription_ProcessingState_ProcessingStateRecurring = @"PROCESSING_STATE_RECURRING";
@@ -566,7 +571,7 @@ NSString * const kGTLRPaymentsResellerSubscription_YoutubePayload_PartnerPlanTyp
 //
 
 @implementation GTLRPaymentsResellerSubscription_ResumeSubscriptionRequest
-@dynamic cycleOptions;
+@dynamic cycleOptions, resumeMode;
 @end
 
 

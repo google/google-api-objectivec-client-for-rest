@@ -248,6 +248,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Generates shifts constrained by various parameters.
+ *
+ *  Method: contactcenteraiplatform.projects.locations.generateShifts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCCAIPlatformCloudPlatform
+ */
+@interface GTLRCCAIPlatformQuery_ProjectsLocationsGenerateShifts : GTLRCCAIPlatformQuery
+
+/**
+ *  Required. Name of the parent resource associated with the request. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCCAIPlatform_Operation.
+ *
+ *  Generates shifts constrained by various parameters.
+ *
+ *  @param object The @c GTLRCCAIPlatform_GenerateShiftsRequest to include in
+ *    the query.
+ *  @param parent Required. Name of the parent resource associated with the
+ *    request. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRCCAIPlatformQuery_ProjectsLocationsGenerateShifts
+ */
++ (instancetype)queryWithObject:(GTLRCCAIPlatform_GenerateShiftsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: contactcenteraiplatform.projects.locations.get
@@ -461,9 +494,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

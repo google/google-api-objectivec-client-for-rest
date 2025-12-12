@@ -20,12 +20,14 @@
 @class GTLRDeveloperConnect_AppHubService;
 @class GTLRDeveloperConnect_AppHubWorkload;
 @class GTLRDeveloperConnect_ArtifactConfig;
+@class GTLRDeveloperConnect_ArtifactDeployment;
 @class GTLRDeveloperConnect_BitbucketCloudConfig;
 @class GTLRDeveloperConnect_BitbucketDataCenterConfig;
 @class GTLRDeveloperConnect_Connection;
 @class GTLRDeveloperConnect_Connection_Annotations;
 @class GTLRDeveloperConnect_Connection_Labels;
 @class GTLRDeveloperConnect_CryptoKeyConfig;
+@class GTLRDeveloperConnect_DeploymentEvent;
 @class GTLRDeveloperConnect_ExchangeError;
 @class GTLRDeveloperConnect_GitHubConfig;
 @class GTLRDeveloperConnect_GitHubEnterpriseConfig;
@@ -54,6 +56,7 @@
 @class GTLRDeveloperConnect_Operation;
 @class GTLRDeveloperConnect_Operation_Metadata;
 @class GTLRDeveloperConnect_Operation_Response;
+@class GTLRDeveloperConnect_Projects;
 @class GTLRDeveloperConnect_ProviderOAuthConfig;
 @class GTLRDeveloperConnect_RuntimeConfig;
 @class GTLRDeveloperConnect_ServiceDirectoryConfig;
@@ -71,6 +74,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDeveloperConnect_DeploymentEvent.state
+
+/**
+ *  The deployment is active in the runtime.
+ *
+ *  Value: "STATE_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_DeploymentEvent_State_StateActive;
+/**
+ *  The deployment is not in the runtime.
+ *
+ *  Value: "STATE_INACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_DeploymentEvent_State_StateInactive;
+/**
+ *  No state specified.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_DeploymentEvent_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDeveloperConnect_GitHubConfig.githubApp
@@ -248,6 +273,69 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Sta
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unlinked;
 
+// ----------------------------------------------------------------------------
+// GTLRDeveloperConnect_StartOAuthResponse.systemProviderId
+
+/**
+ *  Datastax provider. No scopes are allowed.
+ *
+ *  Value: "DATASTAX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Datastax;
+/**
+ *  Dynatrace provider.
+ *
+ *  Value: "DYNATRACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Dynatrace;
+/**
+ *  GitHub provider. Scopes can be found at
+ *  https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
+ *
+ *  Value: "GITHUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Github;
+/**
+ *  GitLab provider. Scopes can be found at
+ *  https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes
+ *
+ *  Value: "GITLAB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Gitlab;
+/**
+ *  Google provider. Recommended scopes:
+ *  "https://www.googleapis.com/auth/drive.readonly",
+ *  "https://www.googleapis.com/auth/documents.readonly"
+ *
+ *  Value: "GOOGLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Google;
+/**
+ *  New Relic provider. No scopes are allowed.
+ *
+ *  Value: "NEW_RELIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_NewRelic;
+/**
+ *  Rovo provider. Must select the "rovo" scope.
+ *
+ *  Value: "ROVO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Rovo;
+/**
+ *  Sentry provider. Scopes can be found at
+ *  https://docs.sentry.io/api/permissions/
+ *
+ *  Value: "SENTRY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Sentry;
+/**
+ *  No system provider specified.
+ *
+ *  Value: "SYSTEM_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_SystemProviderUnspecified;
+
 /**
  *  AccountConnector encapsulates what a platform administrator needs to
  *  configure for users to connect to the service providers, which includes,
@@ -376,6 +464,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 
 /**
+ *  The ArtifactDeployment resource represents the deployment of the artifact
+ *  within the InsightsConfig resource.
+ */
+@interface GTLRDeveloperConnect_ArtifactDeployment : GTLRObject
+
+/**
+ *  Output only. The artifact alias in the deployment spec, with Tag/SHA. e.g.
+ *  us-docker.pkg.dev/my-project/my-repo/image:1.0.0
+ */
+@property(nonatomic, copy, nullable) NSString *artifactAlias;
+
+/** Output only. The artifact that is deployed. */
+@property(nonatomic, copy, nullable) NSString *artifactReference;
+
+/**
+ *  Output only. The summary of container status of the artifact deployment.
+ *  Format as `ContainerStatusState-Reason : restartCount` e.g.
+ *  "Waiting-ImagePullBackOff : 3"
+ */
+@property(nonatomic, copy, nullable) NSString *containerStatusSummary;
+
+/** Output only. The time at which the deployment was deployed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deployTime;
+
+/**
+ *  Output only. Unique identifier of `ArtifactDeployment`.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The source commits at which this artifact was built. Extracted
+ *  from provenance.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sourceCommitUris;
+
+/**
+ *  Output only. The time at which the deployment was undeployed, all artifacts
+ *  are considered undeployed once this time is set.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *undeployTime;
+
+@end
+
+
+/**
  *  Configuration for connections to an instance of Bitbucket Cloud.
  */
 @interface GTLRDeveloperConnect_BitbucketCloudConfig : GTLRObject
@@ -398,7 +533,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 /**
  *  Required. Immutable. SecretManager resource containing the webhook secret
  *  used to verify webhook events, formatted as `projects/ * /secrets/ *
- *  /versions/ *`. This is used to validate and create webhooks.
+ *  /versions/ *` or `projects/ * /locations/ * /secrets/ * /versions/ *` (if
+ *  regional secrets are supported in that location). This is used to validate
+ *  and create webhooks.
  */
 @property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
 
@@ -458,7 +595,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 /**
  *  Required. Immutable. SecretManager resource containing the webhook secret
  *  used to verify webhook events, formatted as `projects/ * /secrets/ *
- *  /versions/ *`. This is used to validate webhooks.
+ *  /versions/ *` or `projects/ * /locations/ * /secrets/ * /versions/ *` (if
+ *  regional secrets are supported in that location). This is used to validate
+ *  webhooks.
  */
 @property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
 
@@ -598,6 +737,76 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
  *  /locations/ * /keyRings/ * /cryptoKeys/ *`.
  */
 @property(nonatomic, copy, nullable) NSString *keyReference;
+
+@end
+
+
+/**
+ *  The DeploymentEvent resource represents the deployment of the artifact
+ *  within the InsightsConfig resource.
+ */
+@interface GTLRDeveloperConnect_DeploymentEvent : GTLRObject
+
+/**
+ *  Output only. The artifact deployments of the DeploymentEvent. Each artifact
+ *  deployment contains the artifact uri and the runtime configuration uri. For
+ *  GKE, this would be all the containers images that are deployed in the pod.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_ArtifactDeployment *> *artifactDeployments;
+
+/** Output only. The create time of the DeploymentEvent. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The time at which the DeploymentEvent was deployed. This would
+ *  be the min of all ArtifactDeployment deploy_times.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deployTime;
+
+/**
+ *  Identifier. The name of the DeploymentEvent. This name is provided by DCI.
+ *  Format:
+ *  projects/{project}/locations/{location}/insightsConfigs/{insights_config}/deploymentEvents/{uuid}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The runtime configurations where the DeploymentEvent happened.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_RuntimeConfig *runtimeConfig;
+
+/**
+ *  Output only. The runtime assigned URI of the DeploymentEvent. For GKE, this
+ *  is the fully qualified replica set uri. e.g.
+ *  container.googleapis.com/projects/{project}/locations/{location}/clusters/{cluster}/k8s/namespaces/{namespace}/apps/replicasets/{replica-set-id}
+ *  For Cloud Run, this is the revision name.
+ */
+@property(nonatomic, copy, nullable) NSString *runtimeDeploymentUri;
+
+/**
+ *  Output only. The state of the DeploymentEvent.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_DeploymentEvent_State_StateActive The
+ *        deployment is active in the runtime. (Value: "STATE_ACTIVE")
+ *    @arg @c kGTLRDeveloperConnect_DeploymentEvent_State_StateInactive The
+ *        deployment is not in the runtime. (Value: "STATE_INACTIVE")
+ *    @arg @c kGTLRDeveloperConnect_DeploymentEvent_State_StateUnspecified No
+ *        state specified. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The time at which the DeploymentEvent was undeployed, all
+ *  artifacts are considered undeployed once this time is set. This would be the
+ *  max of all ArtifactDeployment undeploy_times. If any ArtifactDeployment is
+ *  still active (i.e. does not have an undeploy_time), this field will be
+ *  empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *undeployTime;
+
+/** Output only. The update time of the DeploymentEvent. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -767,6 +976,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 
 /**
+ *  Message for responding to finishing an OAuth flow.
+ */
+@interface GTLRDeveloperConnect_FinishOAuthResponse : GTLRObject
+
+/**
+ *  The error resulted from exchanging OAuth tokens from the service provider.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_ExchangeError *exchangeError;
+
+@end
+
+
+/**
  *  Configuration for connections to github.com.
  */
 @interface GTLRDeveloperConnect_GitHubConfig : GTLRObject
@@ -843,7 +1065,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 /**
  *  Optional. SecretManager resource containing the private key of the GitHub
- *  App, formatted as `projects/ * /secrets/ * /versions/ *`.
+ *  App, formatted as `projects/ * /secrets/ * /versions/ *` or `projects/ *
+ *  /locations/ * /secrets/ * /versions/ *` (if regional secrets are supported
+ *  in that location).
  */
 @property(nonatomic, copy, nullable) NSString *privateKeySecretVersion;
 
@@ -864,7 +1088,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 /**
  *  Optional. SecretManager resource containing the webhook secret of the GitHub
- *  App, formatted as `projects/ * /secrets/ * /versions/ *`.
+ *  App, formatted as `projects/ * /secrets/ * /versions/ *` or `projects/ *
+ *  /locations/ * /secrets/ * /versions/ *` (if regional secrets are supported
+ *  in that location).
  */
 @property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
 
@@ -894,8 +1120,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 /**
  *  Required. Immutable. SecretManager resource containing the webhook secret of
- *  a GitLab project, formatted as `projects/ * /secrets/ * /versions/ *`. This
- *  is used to validate webhooks.
+ *  a GitLab project, formatted as `projects/ * /secrets/ * /versions/ *` or
+ *  `projects/ * /locations/ * /secrets/ * /versions/ *` (if regional secrets
+ *  are supported in that location). This is used to validate webhooks.
  */
 @property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
 
@@ -949,8 +1176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 /**
  *  Required. Immutable. SecretManager resource containing the webhook secret of
- *  a GitLab project, formatted as `projects/ * /secrets/ * /versions/ *`. This
- *  is used to validate webhooks.
+ *  a GitLab project, formatted as `projects/ * /secrets/ * /versions/ *` or
+ *  `projects/ * /locations/ * /secrets/ * /versions/ *` (if regional secrets
+ *  are supported in that location). This is used to validate webhooks.
  */
 @property(nonatomic, copy, nullable) NSString *webhookSecretSecretVersion;
 
@@ -1198,7 +1426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_ArtifactConfig *> *artifactConfigs;
 
-/** Output only. [Output only] Create timestamp */
+/** Output only. Create timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -1217,6 +1445,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
  *  projects/{project}/locations/{location}/insightsConfigs/{insightsConfig}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The GCP projects to track with the InsightsConfig. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_Projects *projects;
 
 /**
  *  Output only. Reconciling (https://google.aip.dev/128#reconciliation). Set to
@@ -1250,7 +1481,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
-/** Output only. [Output only] Update timestamp */
+/** Output only. Update timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
@@ -1414,6 +1645,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 
 /**
+ *  Response to listing DeploymentEvents.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deploymentEvents" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRDeveloperConnect_ListDeploymentEventsResponse : GTLRCollectionObject
+
+/**
+ *  The list of DeploymentEvents.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_DeploymentEvent *> *deploymentEvents;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Message for response to listing GitRepositoryLinks
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1514,8 +1772,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1618,7 +1877,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 /**
  *  Required. A SecretManager resource containing the OAuth token that
- *  authorizes the connection. Format: `projects/ * /secrets/ * /versions/ *`.
+ *  authorizes the connection. Format: `projects/ * /secrets/ * /versions/ *` or
+ *  `projects/ * /locations/ * /secrets/ * /versions/ *` (if regional secrets
+ *  are supported in that location).
  */
 @property(nonatomic, copy, nullable) NSString *oauthTokenSecretVersion;
 
@@ -1805,6 +2066,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 
 /**
+ *  Projects represents the projects to track with the InsightsConfig.
+ */
+@interface GTLRDeveloperConnect_Projects : GTLRObject
+
+/** Optional. The GCP Project IDs. Format: projects/{project} */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds;
+
+@end
+
+
+/**
  *  ProviderOAuthConfig is the OAuth config for a provider.
  */
 @interface GTLRDeveloperConnect_ProviderOAuthConfig : GTLRObject
@@ -1907,6 +2179,70 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 
 
 /**
+ *  Message for responding to starting an OAuth flow.
+ */
+@interface GTLRDeveloperConnect_StartOAuthResponse : GTLRObject
+
+/** The authorization server URL to the OAuth flow of the service provider. */
+@property(nonatomic, copy, nullable) NSString *authUri;
+
+/** The client ID to the OAuth App of the service provider. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  https://datatracker.ietf.org/doc/html/rfc7636#section-4.1 Follow
+ *  http://shortn/_WFYl6U0NyC to include it in the AutoCodeURL.
+ */
+@property(nonatomic, copy, nullable) NSString *codeChallenge;
+
+/** https://datatracker.ietf.org/doc/html/rfc7636#section-4.2 */
+@property(nonatomic, copy, nullable) NSString *codeChallengeMethod;
+
+/** The list of scopes requested by the application. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
+
+/**
+ *  The ID of the system provider.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Datastax
+ *        Datastax provider. No scopes are allowed. (Value: "DATASTAX")
+ *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Dynatrace
+ *        Dynatrace provider. (Value: "DYNATRACE")
+ *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Github
+ *        GitHub provider. Scopes can be found at
+ *        https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
+ *        (Value: "GITHUB")
+ *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Gitlab
+ *        GitLab provider. Scopes can be found at
+ *        https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes
+ *        (Value: "GITLAB")
+ *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Google
+ *        Google provider. Recommended scopes:
+ *        "https://www.googleapis.com/auth/drive.readonly",
+ *        "https://www.googleapis.com/auth/documents.readonly" (Value: "GOOGLE")
+ *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_NewRelic
+ *        New Relic provider. No scopes are allowed. (Value: "NEW_RELIC")
+ *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Rovo
+ *        Rovo provider. Must select the "rovo" scope. (Value: "ROVO")
+ *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Sentry
+ *        Sentry provider. Scopes can be found at
+ *        https://docs.sentry.io/api/permissions/ (Value: "SENTRY")
+ *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_SystemProviderUnspecified
+ *        No system provider specified. (Value: "SYSTEM_PROVIDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *systemProviderId;
+
+/**
+ *  The ticket to be used for post processing the callback from the service
+ *  provider.
+ */
+@property(nonatomic, copy, nullable) NSString *ticket;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -1990,7 +2326,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 /**
  *  Required. A SecretManager resource containing the user token that authorizes
  *  the Developer Connect connection. Format: `projects/ * /secrets/ *
- *  /versions/ *`.
+ *  /versions/ *` or `projects/ * /locations/ * /secrets/ * /versions/ *` (if
+ *  regional secrets are supported in that location).
  */
 @property(nonatomic, copy, nullable) NSString *userTokenSecretVersion;
 

@@ -186,6 +186,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
+@property(nonatomic, copy, nullable) NSString *downloadExternalReadToken;
+
+/**
+ *  gdata
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
 @property(nonatomic, copy, nullable) NSString *downloadReadHandle;
 
 /** gdata */

@@ -209,6 +209,7 @@ NSString * const kGTLRSecurityCommandCenter_Finding_State_StateUnspecified = @"S
 
 // GTLRSecurityCommandCenter_Framework.category
 NSString * const kGTLRSecurityCommandCenter_Framework_Category_AssuredWorkloads = @"ASSURED_WORKLOADS";
+NSString * const kGTLRSecurityCommandCenter_Framework_Category_CustomFramework = @"CUSTOM_FRAMEWORK";
 NSString * const kGTLRSecurityCommandCenter_Framework_Category_DataSecurity = @"DATA_SECURITY";
 NSString * const kGTLRSecurityCommandCenter_Framework_Category_FrameworkCategoryUnspecified = @"FRAMEWORK_CATEGORY_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_Framework_Category_GoogleBestPractices = @"GOOGLE_BEST_PRACTICES";
@@ -271,6 +272,20 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_CloudProviderUnspecified = @"CLOUD_PROVIDER_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_GoogleCloudPlatform = @"GOOGLE_CLOUD_PLATFORM";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource_CloudProvider_MicrosoftAzure = @"MICROSOFT_AZURE";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality.type
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_CriticalityTypeUnspecified = @"CRITICALITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_High = @"HIGH";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_Low = @"LOW";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_Medium = @"MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality_Type_MissionCritical = @"MISSION_CRITICAL";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment.type
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Development = @"DEVELOPMENT";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_EnvironmentTypeUnspecified = @"ENVIRONMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Production = @"PRODUCTION";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Staging = @"STAGING";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment_Type_Test = @"TEST";
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig.cloudProvider
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceValueConfig_CloudProvider_AmazonWebServices = @"AMAZON_WEB_SERVICES";
@@ -466,6 +481,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_S
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework.category
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_AssuredWorkloads = @"ASSURED_WORKLOADS";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_CustomFramework = @"CUSTOM_FRAMEWORK";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_DataSecurity = @"DATA_SECURITY";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_FrameworkCategoryUnspecified = @"FRAMEWORK_CATEGORY_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework_Category_GoogleBestPractices = @"GOOGLE_BEST_PRACTICES";
@@ -882,6 +898,20 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_CloudProviderUnspecified = @"CLOUD_PROVIDER_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_GoogleCloudPlatform = @"GOOGLE_CLOUD_PLATFORM";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource_CloudProvider_MicrosoftAzure = @"MICROSOFT_AZURE";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality.type
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_CriticalityTypeUnspecified = @"CRITICALITY_TYPE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_High = @"HIGH";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_Low = @"LOW";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_Medium = @"MEDIUM";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality_Type_MissionCritical = @"MISSION_CRITICAL";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment.type
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Development = @"DEVELOPMENT";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_EnvironmentTypeUnspecified = @"ENVIRONMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Production = @"PRODUCTION";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Staging = @"STAGING";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment_Type_Test = @"TEST";
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode.nodeType
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode_NodeType_AwsAccount = @"AWS_ACCOUNT";
@@ -1430,7 +1460,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 @implementation GTLRSecurityCommandCenter_AiModel
 @dynamic deploymentPlatform, displayName, domain, library, location, name,
-         publisher;
+         publisher, usageCategory;
 @end
 
 
@@ -2877,9 +2907,10 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource
-@dynamic awsMetadata, azureMetadata, cloudProvider, displayName, folders,
-         location, name, organization, parent, parentDisplayName, project,
-         projectDisplayName, resourcePath, resourcePathString, service, type;
+@dynamic application, awsMetadata, azureMetadata, cloudProvider, displayName,
+         folders, location, name, organization, parent, parentDisplayName,
+         project, projectDisplayName, resourcePath, resourcePathString, service,
+         type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2888,6 +2919,67 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplication
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplication
+@dynamic attributes, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributes
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributes
+@dynamic businessOwners, criticality, developerOwners, environment,
+         operatorOwners;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"businessOwners" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesContactInfo class],
+    @"developerOwners" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesContactInfo class],
+    @"operatorOwners" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesContactInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesContactInfo
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesContactInfo
+@dynamic email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesCriticality
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributesEnvironment
+@dynamic type;
 @end
 
 
@@ -3035,7 +3127,7 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel
 @dynamic deploymentPlatform, displayName, domain, library, location, name,
-         publisher;
+         publisher, usageCategory;
 @end
 
 
@@ -4569,8 +4661,70 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource
-@dynamic awsMetadata, azureMetadata, cloudProvider, displayName, gcpMetadata,
-         location, name, resourcePath, resourcePathString, service, type;
+@dynamic application, awsMetadata, azureMetadata, cloudProvider, displayName,
+         gcpMetadata, location, name, resourcePath, resourcePathString, service,
+         type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplication
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplication
+@dynamic attributes, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributes
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributes
+@dynamic businessOwners, criticality, developerOwners, environment,
+         operatorOwners;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"businessOwners" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesContactInfo class],
+    @"developerOwners" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesContactInfo class],
+    @"operatorOwners" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesContactInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesContactInfo
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesContactInfo
+@dynamic email;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesCriticality
+@dynamic type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributesEnvironment
+@dynamic type;
 @end
 
 
@@ -5867,8 +6021,8 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_Resource
-@dynamic awsMetadata, azureMetadata, cloudProvider, displayName, folders,
-         location, name, organization, parentDisplayName, parentName,
+@dynamic application, awsMetadata, azureMetadata, cloudProvider, displayName,
+         folders, location, name, organization, parentDisplayName, parentName,
          projectDisplayName, projectName, resourcePath, resourcePathString,
          service, type;
 

@@ -53,6 +53,7 @@
 @class GTLRDirectory_FanInfo;
 @class GTLRDirectory_Feature;
 @class GTLRDirectory_Group;
+@class GTLRDirectory_GuestAccountInfo;
 @class GTLRDirectory_Member;
 @class GTLRDirectory_MobileDevice;
 @class GTLRDirectory_MobileDevice_Applications_Item;
@@ -1890,7 +1891,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 /** Output only. Contains backlight information for the device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_BacklightInfo *> *backlightInfo;
 
-/** Output only. Information about bluetooth adapters of the device. */
+/** Output only. Information about Bluetooth adapters of the device. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_BluetoothAdapterInfo *> *bluetoothAdapterInfo;
 
 /**
@@ -3478,6 +3479,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 
 /**
+ *  Account info specific to Guest users.
+ */
+@interface GTLRDirectory_GuestAccountInfo : GTLRObject
+
+/** Immutable. The guest's external email. */
+@property(nonatomic, copy, nullable) NSString *primaryGuestEmail;
+
+@end
+
+
+/**
  *  Response for listing allowed printer models.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4977,6 +4989,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  */
 @property(nonatomic, strong, nullable) id gender;
 
+/** Immutable. Additional guest-related metadata fields */
+@property(nonatomic, strong, nullable) GTLRDirectory_GuestAccountInfo *guestAccountInfo;
+
 /**
  *  Stores the hash format of the `password` property. The following
  *  `hashFunction` values are allowed: * `MD5` - Accepts simple hex-encoded
@@ -5063,6 +5078,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isEnrolledIn2Sv;
+
+/**
+ *  Immutable. Indicates if the inserted user is a guest.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isGuestUser;
 
 /**
  *  Output only. Indicates if the user's Google mailbox is created. This
@@ -5890,6 +5912,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDirectory_User *> *users;
+
+@end
+
+
+/**
+ *  Directory users guest creation request message.
+ */
+@interface GTLRDirectory_UsersCreateGuestRequest : GTLRObject
+
+/** Immutable. External email of the guest user being created. */
+@property(nonatomic, copy, nullable) NSString *primaryGuestEmail;
 
 @end
 

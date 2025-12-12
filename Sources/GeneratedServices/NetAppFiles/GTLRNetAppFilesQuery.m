@@ -481,6 +481,117 @@
 
 @end
 
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsCreate
+
+@dynamic hostGroupId, parent;
+
++ (instancetype)queryWithObject:(GTLRNetAppFiles_HostGroup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/hostGroups";
+  GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetAppFiles_Operation class];
+  query.loggingName = @"netapp.projects.locations.hostGroups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetAppFiles_Operation class];
+  query.loggingName = @"netapp.projects.locations.hostGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetAppFiles_HostGroup class];
+  query.loggingName = @"netapp.projects.locations.hostGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/hostGroups";
+  GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetAppFiles_ListHostGroupsResponse class];
+  query.loggingName = @"netapp.projects.locations.hostGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetAppFiles_HostGroup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetAppFilesQuery_ProjectsLocationsHostGroupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetAppFiles_Operation class];
+  query.loggingName = @"netapp.projects.locations.hostGroups.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetAppFilesQuery_ProjectsLocationsKmsConfigsCreate
 
 @dynamic kmsConfigId, parent;

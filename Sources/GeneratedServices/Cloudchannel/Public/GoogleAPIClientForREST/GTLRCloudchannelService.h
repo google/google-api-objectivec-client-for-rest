@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudchannelAppsOrder;
 /**
- *  Authorization scope: View usage reports for your G Suite domain
+ *  Authorization scope: View usage reports for your Google Workspace domain
  *
  *  Value "https://www.googleapis.com/auth/apps.reports.usage.readonly"
  */

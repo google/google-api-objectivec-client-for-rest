@@ -198,7 +198,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 /**
  *  Identifier. Name of the AutokeyConfig resource, e.g.
  *  `folders/{FOLDER_NUMBER}/autokeyConfig`
- *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -222,7 +221,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @param object The @c GTLRCloudKMS_AutokeyConfig to include in the query.
  *  @param name Identifier. Name of the AutokeyConfig resource, e.g.
  *    `folders/{FOLDER_NUMBER}/autokeyConfig`
- *    `projects/{PROJECT_NUMBER}/autokeyConfig`.
  *
  *  @return GTLRCloudKMSQuery_FoldersUpdateAutokeyConfig
  */

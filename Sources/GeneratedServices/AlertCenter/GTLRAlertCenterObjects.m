@@ -924,7 +924,8 @@ NSString * const kGTLRAlertCenter_VoiceMisconfiguration_EntityType_RingGroup = @
 //
 
 @implementation GTLRAlertCenter_ResourceInfo
-@dynamic chatAttachmentId, chatMessageId, deviceId, documentId, resourceTitle;
+@dynamic chatAttachmentId, chatMessageId, deviceId, documentId, messageId,
+         resourceTitle;
 @end
 
 

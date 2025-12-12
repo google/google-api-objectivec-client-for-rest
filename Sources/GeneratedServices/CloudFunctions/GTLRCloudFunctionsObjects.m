@@ -57,6 +57,7 @@ NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2LocationMetadata_Envi
 // GTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata.operationType
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_AbortFunctionUpgrade = @"ABORT_FUNCTION_UPGRADE";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CommitFunctionUpgrade = @"COMMIT_FUNCTION_UPGRADE";
+NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CommitFunctionUpgradeAsGen2 = @"COMMIT_FUNCTION_UPGRADE_AS_GEN2";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_CreateFunction = @"CREATE_FUNCTION";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DeleteFunction = @"DELETE_FUNCTION";
 NSString * const kGTLRCloudFunctions_GoogleCloudFunctionsV2OperationMetadata_OperationType_DetachFunction = @"DETACH_FUNCTION";
@@ -126,6 +127,7 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 // GTLRCloudFunctions_UpgradeInfo.upgradeState
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_AbortFunctionUpgradeError = @"ABORT_FUNCTION_UPGRADE_ERROR";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError = @"COMMIT_FUNCTION_UPGRADE_ERROR";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeErrorRollbackSafe = @"COMMIT_FUNCTION_UPGRADE_ERROR_ROLLBACK_SAFE";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade = @"ELIGIBLE_FOR_2ND_GEN_UPGRADE";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_IneligibleForUpgradeUntilRedeployment = @"INELIGIBLE_FOR_UPGRADE_UNTIL_REDEPLOYMENT";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_RedirectFunctionUpgradeTrafficError = @"REDIRECT_FUNCTION_UPGRADE_TRAFFIC_ERROR";
@@ -231,6 +233,15 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_CommitFunctionUpgradeAsGen2Request
+//
+
+@implementation GTLRCloudFunctions_CommitFunctionUpgradeAsGen2Request
 @end
 
 

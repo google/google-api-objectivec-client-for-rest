@@ -12416,7 +12416,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. Requested page size. Must be between `1` and `100`. If unspecified
+ *  Optional. Requested page size. Must be between `1` and `200`. If unspecified
  *  will default to `100`. Returns error code `INVALID_ARGUMENT` if an invalid
  *  value is specified.
  */

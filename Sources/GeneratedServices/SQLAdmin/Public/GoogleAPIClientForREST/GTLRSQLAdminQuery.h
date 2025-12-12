@@ -851,6 +851,44 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 @end
 
 /**
+ *  Adds a new Entra ID certificate for the specified instance. If an Entra ID
+ *  certificate was previously added but never used in a certificate rotation,
+ *  this operation replaces that version.
+ *
+ *  Method: sql.instances.addEntraIdCertificate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesAddEntraIdCertificate : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Adds a new Entra ID certificate for the specified instance. If an Entra ID
+ *  certificate was previously added but never used in a certificate rotation,
+ *  this operation replaces that version.
+ *
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesAddEntraIdCertificate
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Adds a new trusted Certificate Authority (CA) version for the specified
  *  instance. Required to prepare for a certificate rotation. If a CA version
  *  was previously added but never used in a certificate rotation, this
@@ -1380,6 +1418,46 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 @end
 
 /**
+ *  Lists all versions of EntraID certificates for the specified instance. There
+ *  can be up to three sets of certificates listed: the certificate that is
+ *  currently in use, a future that has been added but not yet used to sign a
+ *  certificate, and a certificate that has been rotated out.
+ *
+ *  Method: sql.instances.ListEntraIdCertificates
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesListEntraIdCertificates : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_InstancesListEntraIdCertificatesResponse.
+ *
+ *  Lists all versions of EntraID certificates for the specified instance. There
+ *  can be up to three sets of certificates listed: the certificate that is
+ *  currently in use, a future that has been added but not yet used to sign a
+ *  certificate, and a certificate that has been rotated out.
+ *
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesListEntraIdCertificates
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                        instance:(NSString *)instance;
+
+@end
+
+/**
  *  Lists all of the trusted Certificate Authorities (CAs) for the specified
  *  instance. There can be up to three CAs listed: the CA that was used to sign
  *  the certificate that is currently in use, a CA that has been added but not
@@ -1805,6 +1883,45 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *  @return GTLRSQLAdminQuery_InstancesRestoreBackup
  */
 + (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRestoreBackupRequest *)object
+                        project:(NSString *)project
+                       instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Rotates the server certificate version to one previously added with the
+ *  addEntraIdCertificate method.
+ *
+ *  Method: sql.instances.RotateEntraIdCertificate
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeSQLAdminCloudPlatform
+ *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
+ */
+@interface GTLRSQLAdminQuery_InstancesRotateEntraIdCertificate : GTLRSQLAdminQuery
+
+/** Required. Cloud SQL instance ID. This does not include the project ID. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Required. Project ID of the project that contains the instance. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Fetches a @c GTLRSQLAdmin_Operation.
+ *
+ *  Rotates the server certificate version to one previously added with the
+ *  addEntraIdCertificate method.
+ *
+ *  @param object The @c GTLRSQLAdmin_InstancesRotateEntraIdCertificateRequest
+ *    to include in the query.
+ *  @param project Required. Project ID of the project that contains the
+ *    instance.
+ *  @param instance Required. Cloud SQL instance ID. This does not include the
+ *    project ID.
+ *
+ *  @return GTLRSQLAdminQuery_InstancesRotateEntraIdCertificate
+ */
++ (instancetype)queryWithObject:(GTLRSQLAdmin_InstancesRotateEntraIdCertificateRequest *)object
                         project:(NSString *)project
                        instance:(NSString *)instance;
 
@@ -2800,6 +2917,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *    @c kGTLRAuthScopeSQLAdminSqlserviceAdmin
  */
 @interface GTLRSQLAdminQuery_UsersUpdate : GTLRSQLAdminQuery
+
+/**
+ *  Optional. List of database roles to grant to the user. body.database_roles
+ *  will be ignored for update request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *databaseRoles;
 
 /** Optional. Host of the user in the instance. */
 @property(nonatomic, copy, nullable) NSString *host;

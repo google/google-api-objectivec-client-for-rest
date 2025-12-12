@@ -2199,6 +2199,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 /** Drive file ID. */
 @property(nonatomic, copy, nullable) NSString *documentId;
 
+/** RFC2822 message ID. */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
 /** Title of the resource, for example email subject, or document title. */
 @property(nonatomic, copy, nullable) NSString *resourceTitle;
 

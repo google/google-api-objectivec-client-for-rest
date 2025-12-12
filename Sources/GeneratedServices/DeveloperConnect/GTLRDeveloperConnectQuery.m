@@ -231,6 +231,44 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
 
 @end
 
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFinishOAuthFlow
+
+@dynamic accountConnector, googleOauthParamsScopes, googleOauthParamsTicket,
+         googleOauthParamsVersionInfo, oauthParamsCode, oauthParamsTicket;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"googleOauthParamsScopes" : @"googleOauthParams.scopes",
+    @"googleOauthParamsTicket" : @"googleOauthParams.ticket",
+    @"googleOauthParamsVersionInfo" : @"googleOauthParams.versionInfo",
+    @"oauthParamsCode" : @"oauthParams.code",
+    @"oauthParamsTicket" : @"oauthParams.ticket"
+  };
+  return map;
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"googleOauthParams.scopes" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithAccountConnector:(NSString *)accountConnector {
+  NSArray *pathParams = @[ @"accountConnector" ];
+  NSString *pathURITemplate = @"v1/{+accountConnector}/users:finishOAuthFlow";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersFinishOAuthFlow *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountConnector = accountConnector;
+  query.expectedObjectClass = [GTLRDeveloperConnect_FinishOAuthResponse class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.users.finishOAuthFlow";
+  return query;
+}
+
+@end
+
 @implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -245,6 +283,25 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
   query.parent = parent;
   query.expectedObjectClass = [GTLRDeveloperConnect_ListUsersResponse class];
   query.loggingName = @"developerconnect.projects.locations.accountConnectors.users.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersStartOAuthFlow
+
+@dynamic accountConnector;
+
++ (instancetype)queryWithAccountConnector:(NSString *)accountConnector {
+  NSArray *pathParams = @[ @"accountConnector" ];
+  NSString *pathURITemplate = @"v1/{+accountConnector}/users:startOAuthFlow";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsUsersStartOAuthFlow *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountConnector = accountConnector;
+  query.expectedObjectClass = [GTLRDeveloperConnect_StartOAuthResponse class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.users.startOAuthFlow";
   return query;
 }
 
@@ -763,6 +820,44 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
   query.name = name;
   query.expectedObjectClass = [GTLRDeveloperConnect_Operation class];
   query.loggingName = @"developerconnect.projects.locations.insightsConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDeploymentEventsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDeploymentEventsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDeveloperConnect_DeploymentEvent class];
+  query.loggingName = @"developerconnect.projects.locations.insightsConfigs.deploymentEvents.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDeploymentEventsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/deploymentEvents";
+  GTLRDeveloperConnectQuery_ProjectsLocationsInsightsConfigsDeploymentEventsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDeveloperConnect_ListDeploymentEventsResponse class];
+  query.loggingName = @"developerconnect.projects.locations.insightsConfigs.deploymentEvents.list";
   return query;
 }
 

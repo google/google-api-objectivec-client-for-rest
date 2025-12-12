@@ -920,13 +920,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 /**
  *  Optional. A filter expression that filters the results fetched in the
  *  response. The expression must specify the field name, a comparison operator,
- *  and the value that you want to use for filtering. Supported fields:
+ *  and the value that you want to use for filtering. Supported fields: * name *
+ *  state * backup_type * create_time * expire_time *
+ *  enforced_retention_end_time * gcp_backup_plan_info.backup_plan *
+ *  cloud_sql_instance_backup_properties.instance_tier *
+ *  cloud_sql_instance_backup_properties.database_installed_version
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
  *  Optional. A comma-separated list of fields to order by, sorted in ascending
- *  order. Use "desc" after a field name for descending.
+ *  order. Use "desc" after a field name for descending. Supported fields: *
+ *  name
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
@@ -2678,9 +2683,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -2791,6 +2796,38 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  */
 + (instancetype)queryWithObject:(GTLRBackupdr_InitializeServiceRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Ends the trial for a project
+ *
+ *  Method: backupdr.projects.locations.trial.end
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsTrialEnd : GTLRBackupdrQuery
+
+/**
+ *  Required. The parent resource where the trial has been created. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_Trial.
+ *
+ *  Ends the trial for a project
+ *
+ *  @param object The @c GTLRBackupdr_EndTrialRequest to include in the query.
+ *  @param parent Required. The parent resource where the trial has been
+ *    created. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsTrialEnd
+ */
++ (instancetype)queryWithObject:(GTLRBackupdr_EndTrialRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

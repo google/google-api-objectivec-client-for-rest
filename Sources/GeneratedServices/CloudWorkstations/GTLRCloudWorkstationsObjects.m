@@ -20,6 +20,11 @@ NSString * const kGTLRCloudWorkstations_AuditLogConfig_LogType_DataRead = @"DATA
 NSString * const kGTLRCloudWorkstations_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudWorkstations_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability.reclaimPolicy
+NSString * const kGTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability_ReclaimPolicy_Delete = @"DELETE";
+NSString * const kGTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability_ReclaimPolicy_ReclaimPolicyUnspecified = @"RECLAIM_POLICY_UNSPECIFIED";
+NSString * const kGTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability_ReclaimPolicy_Retain = @"RETAIN";
+
 // GTLRCloudWorkstations_GceRegionalPersistentDisk.reclaimPolicy
 NSString * const kGTLRCloudWorkstations_GceRegionalPersistentDisk_ReclaimPolicy_Delete = @"DELETE";
 NSString * const kGTLRCloudWorkstations_GceRegionalPersistentDisk_ReclaimPolicy_ReclaimPolicyUnspecified = @"RECLAIM_POLICY_UNSPECIFIED";
@@ -228,6 +233,16 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability
+//
+
+@implementation GTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability
+@dynamic archiveTimeout, reclaimPolicy, sizeGb, sourceSnapshot;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudWorkstations_GceInstance
 //
 
@@ -235,7 +250,8 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 @dynamic accelerators, boostConfigs, bootDiskSizeGb, confidentialInstanceConfig,
          disablePublicIpAddresses, disableSsh, enableNestedVirtualization,
          machineType, pooledInstances, poolSize, serviceAccount,
-         serviceAccountScopes, shieldedInstanceConfig, tags, vmTags;
+         serviceAccountScopes, shieldedInstanceConfig, startupScriptUri, tags,
+         vmTags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -605,7 +621,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_PersistentDirectory
-@dynamic gcePd, mountPath;
+@dynamic gceHd, gcePd, mountPath;
 @end
 
 

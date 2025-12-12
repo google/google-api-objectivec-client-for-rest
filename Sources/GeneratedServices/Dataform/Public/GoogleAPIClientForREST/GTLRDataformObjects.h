@@ -62,6 +62,7 @@
 @class GTLRDataform_Operations;
 @class GTLRDataform_Policy;
 @class GTLRDataform_PolicyName;
+@class GTLRDataform_PrivateResourceMetadata;
 @class GTLRDataform_Relation;
 @class GTLRDataform_Relation_AdditionalOptions;
 @class GTLRDataform_RelationDescriptor;
@@ -181,6 +182,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_InvocationConfig_QueryPriority_
 FOUNDATION_EXTERN NSString * const kGTLRDataform_InvocationConfig_QueryPriority_QueryPriorityUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDataform_Relation.fileFormat
+
+/**
+ *  Default value.
+ *
+ *  Value: "FILE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_Relation_FileFormat_FileFormatUnspecified;
+/**
+ *  Apache Parquet format.
+ *
+ *  Value: "PARQUET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_Relation_FileFormat_Parquet;
+
+// ----------------------------------------------------------------------------
 // GTLRDataform_Relation.relationType
 
 /**
@@ -213,6 +230,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_Relation_RelationType_Table;
  *  Value: "VIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataform_Relation_RelationType_View;
+
+// ----------------------------------------------------------------------------
+// GTLRDataform_Relation.tableFormat
+
+/**
+ *  Apache Iceberg format.
+ *
+ *  Value: "ICEBERG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_Relation_TableFormat_Iceberg;
+/**
+ *  Default value.
+ *
+ *  Value: "TABLE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_Relation_TableFormat_TableFormatUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDataform_UncommittedFileChange.state
@@ -859,6 +892,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Output only. The compilation result's name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Metadata indicating whether this resource is user-scoped.
+ *  `CompilationResult` resource is `user_scoped` only if it is sourced from a
+ *  workspace.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_PrivateResourceMetadata *privateResourceMetadata;
 
 /**
  *  Immutable. The name of the release config to compile. Must be in the format
@@ -1591,8 +1631,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -2257,6 +2298,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  Metadata used to identify if a resource is user scoped.
+ */
+@interface GTLRDataform_PrivateResourceMetadata : GTLRObject
+
+/**
+ *  Output only. If true, this resource is user-scoped, meaning it is either a
+ *  workspace or sourced from a workspace.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *userScoped;
+
+@end
+
+
+/**
  *  `PullGitCommits` request message.
  */
 @interface GTLRDataform_PullGitCommitsRequest : GTLRObject
@@ -2460,6 +2517,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 /** A list of columns or SQL expressions used to cluster the table. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clusterExpressions;
 
+/**
+ *  Optional. The connection specifying the credentials to be used to read and
+ *  write to external storage, such as Cloud Storage. The connection can have
+ *  the form `{project}.{location}.{connection_id}` or
+ *  `projects/{project}/locations/{location}/connections/{connection_id}", or be
+ *  set to DEFAULT.
+ */
+@property(nonatomic, copy, nullable) NSString *connection;
+
 /** A list of actions that this action depends on. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataform_Target *> *dependencyTargets;
 
@@ -2469,6 +2535,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disabled;
+
+/**
+ *  Optional. The file format for the BigQuery table.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataform_Relation_FileFormat_FileFormatUnspecified Default
+ *        value. (Value: "FILE_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRDataform_Relation_FileFormat_Parquet Apache Parquet format.
+ *        (Value: "PARQUET")
+ */
+@property(nonatomic, copy, nullable) NSString *fileFormat;
 
 /**
  *  Configures `INCREMENTAL_TABLE` settings for this relation. Only set if
@@ -2523,6 +2600,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** The SELECT query which returns rows which this relation should contain. */
 @property(nonatomic, copy, nullable) NSString *selectQuery;
+
+/**
+ *  Optional. The fully qualified location prefix of the external folder where
+ *  table data is stored. The URI should be in the format
+ *  `gs://bucket/path_to_table/`.
+ */
+@property(nonatomic, copy, nullable) NSString *storageUri;
+
+/**
+ *  Optional. The table format for the BigQuery table.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataform_Relation_TableFormat_Iceberg Apache Iceberg format.
+ *        (Value: "ICEBERG")
+ *    @arg @c kGTLRDataform_Relation_TableFormat_TableFormatUnspecified Default
+ *        value. (Value: "TABLE_FORMAT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *tableFormat;
 
 /** Arbitrary, user-defined tags on this action. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
@@ -3173,6 +3268,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Metadata indicating whether this resource is user-scoped.
+ *  `WorkflowInvocation` resource is `user_scoped` only if it is sourced from a
+ *  compilation result and the compilation result is user-scoped.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_PrivateResourceMetadata *privateResourceMetadata;
+
+/**
  *  Output only. The resolved compilation result that was used to create this
  *  invocation. Will be in the format `projects/ * /locations/ * /repositories/
  *  * /compilationResults/ *`.
@@ -3303,6 +3405,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Identifier. The workspace's name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Metadata indicating whether this resource is user-scoped. For
+ *  `Workspace` resources, the `user_scoped` field is always `true`.
+ */
+@property(nonatomic, strong, nullable) GTLRDataform_PrivateResourceMetadata *privateResourceMetadata;
 
 @end
 

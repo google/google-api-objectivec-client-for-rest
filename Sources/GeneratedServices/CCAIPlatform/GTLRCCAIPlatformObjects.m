@@ -89,6 +89,12 @@ NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TelephonyNo
 NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TelephonyPersonalized = @"TELEPHONY_PERSONALIZED";
 NSString * const kGTLRCCAIPlatform_SAMLParams_AuthenticationContexts_TimeSyncToken = @"TIME_SYNC_TOKEN";
 
+// GTLRCCAIPlatform_SolverConfig.scheduleType
+NSString * const kGTLRCCAIPlatform_SolverConfig_ScheduleType_ScheduleTypeUnspecified = @"SCHEDULE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCCAIPlatform_SolverConfig_ScheduleType_SingleShift = @"SINGLE_SHIFT";
+NSString * const kGTLRCCAIPlatform_SolverConfig_ScheduleType_WeeklyWithFixedEvents = @"WEEKLY_WITH_FIXED_EVENTS";
+NSString * const kGTLRCCAIPlatform_SolverConfig_ScheduleType_WeeklyWithVariableEvents = @"WEEKLY_WITH_VARIABLE_EVENTS";
+
 // GTLRCCAIPlatform_WeeklySchedule.days
 NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
 NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Friday  = @"FRIDAY";
@@ -210,10 +216,70 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_Date
+//
+
+@implementation GTLRCCAIPlatform_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_DateList
+//
+
+@implementation GTLRCCAIPlatform_DateList
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRCCAIPlatform_Date class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_DateTime
+//
+
+@implementation GTLRCCAIPlatform_DateTime
+@dynamic day, hours, minutes, month, nanos, seconds, timeZone, utcOffset, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_Early
 //
 
 @implementation GTLRCCAIPlatform_Early
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_EmployeeInfo
+//
+
+@implementation GTLRCCAIPlatform_EmployeeInfo
+@dynamic identifier, unwantedEventIntervals;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"unwantedEventIntervals" : [GTLRCCAIPlatform_UnwantedEventInterval class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -228,11 +294,47 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_EventTemplate
+//
+
+@implementation GTLRCCAIPlatform_EventTemplate
+@dynamic durationMinutes, identifier, maximumMinutesAfterShiftStart,
+         minimumMinutesAfterShiftStart, startTimeIncrementMinutes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_FeatureConfig
 //
 
 @implementation GTLRCCAIPlatform_FeatureConfig
 @dynamic agentDesktopEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_GenerateShiftsRequest
+//
+
+@implementation GTLRCCAIPlatform_GenerateShiftsRequest
+@dynamic employeeInfo, planningHorizon, shiftTemplates, solverConfig,
+         workforceDemands;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"employeeInfo" : [GTLRCCAIPlatform_EmployeeInfo class],
+    @"shiftTemplates" : [GTLRCCAIPlatform_ShiftTemplate class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -423,6 +525,16 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_PlanningHorizon
+//
+
+@implementation GTLRCCAIPlatform_PlanningHorizon
+@dynamic endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_PrivateAccess
 //
 
@@ -491,6 +603,42 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_ShiftTemplate
+//
+
+@implementation GTLRCCAIPlatform_ShiftTemplate
+@dynamic assignableEmployeeIds, daysOffCountPerWeek, daysOffDates,
+         durationMinutes, earliestStartTime, eventTemplates, identifier,
+         latestStartTime, maximumEmployeeCount, minimumEmployeeCount,
+         minimumIntereventGapMinutes, startTimeIncrementMinutes;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assignableEmployeeIds" : [NSString class],
+    @"eventTemplates" : [GTLRCCAIPlatform_EventTemplate class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_SolverConfig
+//
+
+@implementation GTLRCCAIPlatform_SolverConfig
+@dynamic maximumProcessingDuration, scheduleType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_Status
 //
 
@@ -533,6 +681,31 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCCAIPlatform_TimeZone
+//
+
+@implementation GTLRCCAIPlatform_TimeZone
+@dynamic identifier, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_UnwantedEventInterval
+//
+
+@implementation GTLRCCAIPlatform_UnwantedEventInterval
+@dynamic durationMinutes, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCCAIPlatform_URIs
 //
 
@@ -552,6 +725,34 @@ NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesday = @"WEDNESDAY";
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"days" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_WorkforceDemand
+//
+
+@implementation GTLRCCAIPlatform_WorkforceDemand
+@dynamic employeeCount, endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCCAIPlatform_WorkforceDemandList
+//
+
+@implementation GTLRCCAIPlatform_WorkforceDemandList
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [GTLRCCAIPlatform_WorkforceDemand class]
   };
   return map;
 }

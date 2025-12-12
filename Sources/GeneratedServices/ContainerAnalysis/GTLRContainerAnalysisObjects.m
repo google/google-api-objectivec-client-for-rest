@@ -1401,7 +1401,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1ArtifactsMavenArtifact
-@dynamic artifactId, groupId, path, repository, version;
+@dynamic artifactId, deployFolder, groupId, path, repository, version;
 @end
 
 

@@ -16,8 +16,10 @@
 // GTLRAIPlatformNotebooks_AcceleratorConfig.type
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_AcceleratorTypeUnspecified = @"ACCELERATOR_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaA10080gb = @"NVIDIA_A100_80GB";
+NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaB200 = @"NVIDIA_B200";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH10080gb = @"NVIDIA_H100_80GB";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH100Mega80gb = @"NVIDIA_H100_MEGA_80GB";
+NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaH200141gb = @"NVIDIA_H200_141GB";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaL4 = @"NVIDIA_L4";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaA100 = @"NVIDIA_TESLA_A100";
 NSString * const kGTLRAIPlatformNotebooks_AcceleratorConfig_Type_NvidiaTeslaP100 = @"NVIDIA_TESLA_P100";
@@ -35,6 +37,7 @@ NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskEncryption_Gmek = @"GMEK"
 
 // GTLRAIPlatformNotebooks_BootDisk.diskType
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_DiskTypeUnspecified = @"DISK_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskBalanced = @"HYPERDISK_BALANCED";
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdBalanced = @"PD_BALANCED";
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdExtreme = @"PD_EXTREME";
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdSsd = @"PD_SSD";
@@ -51,6 +54,7 @@ NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskEncryption_Gmek = @"GMEK"
 
 // GTLRAIPlatformNotebooks_DataDisk.diskType
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_DiskTypeUnspecified = @"DISK_TYPE_UNSPECIFIED";
+NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskBalanced = @"HYPERDISK_BALANCED";
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_PdBalanced = @"PD_BALANCED";
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_PdExtreme = @"PD_EXTREME";
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_PdSsd = @"PD_SSD";
