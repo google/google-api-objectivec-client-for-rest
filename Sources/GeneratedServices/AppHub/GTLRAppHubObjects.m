@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   App Hub API (apphub/v1)
+// Description:
+//   App Hub lets you build, operate, and manage applications on Google Cloud.
 // Documentation:
 //   https://cloud.google.com/app-hub/docs/
 
@@ -311,6 +313,16 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppHub_ExtendedMetadataSchema
+//
+
+@implementation GTLRAppHub_ExtendedMetadataSchema
+@dynamic jsonSchema, name, schemaVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppHub_FunctionalType
 //
 
@@ -393,6 +405,28 @@ NSString * const kGTLRAppHub_Workload_State_StateUnspecified = @"STATE_UNSPECIFI
 
 + (NSString *)collectionItemsKey {
   return @"discoveredWorkloads";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAppHub_ListExtendedMetadataSchemasResponse
+//
+
+@implementation GTLRAppHub_ListExtendedMetadataSchemasResponse
+@dynamic extendedMetadataSchemas, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extendedMetadataSchemas" : [GTLRAppHub_ExtendedMetadataSchema class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"extendedMetadataSchemas";
 }
 
 @end

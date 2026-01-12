@@ -2113,9 +2113,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Output only. A map to store mapping between customer vip and target service
- *  attachment. Only service attachment with producer specified ip addresses are
- *  stored here.
+ *  Optional. A map to store mapping between customer vip and target service
+ *  attachment. This field can be used to specify a static IP address for a PSC
+ *  connection.
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_ConsumerPscConfig_ServiceAttachmentIpAddressMap *serviceAttachmentIpAddressMap;
 
@@ -2161,9 +2161,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  Output only. A map to store mapping between customer vip and target service
- *  attachment. Only service attachment with producer specified ip addresses are
- *  stored here.
+ *  Optional. A map to store mapping between customer vip and target service
+ *  attachment. This field can be used to specify a static IP address for a PSC
+ *  connection.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

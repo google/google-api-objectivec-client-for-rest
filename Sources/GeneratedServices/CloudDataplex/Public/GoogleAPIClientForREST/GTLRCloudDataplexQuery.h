@@ -1462,7 +1462,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Creates a Data Product.
+ *  Creates a data product.
  *
  *  Method: dataplex.projects.locations.dataProducts.create
  *
@@ -1472,23 +1472,23 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsCreate : GTLRCloudDataplexQuery
 
 /**
- *  Optional. The ID of the Data Product to create.The ID must conform to
+ *  Optional. The ID of the data product to create.The ID must conform to
  *  RFC-1034 and contain only lower-case letters (a-z), numbers (0-9), or
  *  hyphens, with the first character a letter, the last a letter or a number,
  *  and a 63 character maximum. Characters outside of ASCII are not permitted.
- *  Valid format regex: (^a-z?$) If not provided, a system generated ID will be
- *  used.
+ *  Valid format regex: ^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$ If not provided, a
+ *  system generated ID will be used.
  */
 @property(nonatomic, copy, nullable) NSString *dataProductId;
 
 /**
- *  Required. The parent resource where this Data Product will be created.
+ *  Required. The parent resource where this data product will be created.
  *  Format: projects/{project_id_or_number}/locations/{location_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Validates the request without actually creating the Data Product.
+ *  Optional. Validates the request without actually creating the data product.
  *  Default: false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -1496,11 +1496,11 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Creates a Data Product.
+ *  Creates a data product.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct to
  *    include in the query.
- *  @param parent Required. The parent resource where this Data Product will be
+ *  @param parent Required. The parent resource where this data product will be
  *    created. Format: projects/{project_id_or_number}/locations/{location_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsCreate
@@ -1511,7 +1511,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Creates a Data Asset.
+ *  Creates a data asset.
  *
  *  Method: dataplex.projects.locations.dataProducts.dataAssets.create
  *
@@ -1521,22 +1521,23 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsCreate : GTLRCloudDataplexQuery
 
 /**
- *  Optional. The ID of the Data Asset to create.The ID must conform to RFC-1034
+ *  Optional. The ID of the data asset to create.The ID must conform to RFC-1034
  *  and contain only lower-case letters (a-z), numbers (0-9), or hyphens, with
  *  the first character a letter, the last a letter or a number, and a 63
  *  character maximum. Characters outside of ASCII are not permitted. Valid
- *  format regex: (^a-z?$) If not provided, a system generated ID will be used.
+ *  format regex: ^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$ If not provided, a system
+ *  generated ID will be used.
  */
 @property(nonatomic, copy, nullable) NSString *dataAssetId;
 
 /**
- *  Required. The parent resource where this Data Asset will be created. Format:
+ *  Required. The parent resource where this data asset will be created. Format:
  *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Optional. Validates the request without actually creating the Data Asset.
+ *  Optional. Validates the request without actually creating the data asset.
  *  Defaults to false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -1544,11 +1545,11 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Creates a Data Asset.
+ *  Creates a data asset.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset to
  *    include in the query.
- *  @param parent Required. The parent resource where this Data Asset will be
+ *  @param parent Required. The parent resource where this data asset will be
  *    created. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
  *
@@ -1560,7 +1561,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Deletes a Data Asset.
+ *  Deletes a data asset.
  *
  *  Method: dataplex.projects.locations.dataProducts.dataAssets.delete
  *
@@ -1570,20 +1571,20 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsDelete : GTLRCloudDataplexQuery
 
 /**
- *  Optional. The etag of the Data Asset. If this is provided, it must match the
+ *  Optional. The etag of the data asset. If this is provided, it must match the
  *  server's etag. If the etag is provided and does not match the
  *  server-computed etag, the request must fail with a ABORTED error code.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. The name of the Data Asset to delete. Format:
+ *  Required. The name of the data asset to delete. Format:
  *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Validates the request without actually deleting the Data Asset.
+ *  Optional. Validates the request without actually deleting the data asset.
  *  Defaults to false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -1591,9 +1592,9 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Deletes a Data Asset.
+ *  Deletes a data asset.
  *
- *  @param name Required. The name of the Data Asset to delete. Format:
+ *  @param name Required. The name of the data asset to delete. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsDelete
@@ -1603,7 +1604,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Gets a Data Asset.
+ *  Gets a data asset.
  *
  *  Method: dataplex.projects.locations.dataProducts.dataAssets.get
  *
@@ -1613,7 +1614,7 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsGet : GTLRCloudDataplexQuery
 
 /**
- *  Required. The name of the Data Asset to retrieve. Format:
+ *  Required. The name of the data asset to retrieve. Format:
  *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1621,9 +1622,9 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset.
  *
- *  Gets a Data Asset.
+ *  Gets a data asset.
  *
- *  @param name Required. The name of the Data Asset to retrieve. Format:
+ *  @param name Required. The name of the data asset to retrieve. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsGet
@@ -1633,7 +1634,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Lists Data Assets for a given Data Product.
+ *  Lists data assets for a given data product.
  *
  *  Method: dataplex.projects.locations.dataProducts.dataAssets.list
  *
@@ -1643,20 +1644,20 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsList : GTLRCloudDataplexQuery
 
 /**
- *  Optional. Filter expression that filters DataAssets listed in the response.
+ *  Optional. Filter expression that filters data assets listed in the response.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Order by expression that orders DataAssets listed in the
- *  response.Supported Order by fields are: name or create_time.If not
+ *  Optional. Order by expression that orders data assets listed in the
+ *  response.Supported order_by fields are: name or create_time.If not
  *  specified, the ordering is undefined.
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. The maximum number of Data Assets to return. The service may
- *  return fewer than this value. If unspecified, at most 50 Data Assets will be
+ *  Optional. The maximum number of data assets to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 data assets will be
  *  returned. The maximum value is 1000; values above 1000 will be coerced to
  *  1000.
  */
@@ -1671,7 +1672,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent, which has this collection of Data Assets. Format:
+ *  Required. The parent, which has this collection of data assets. Format:
  *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -1679,10 +1680,10 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAssetsResponse.
  *
- *  Lists Data Assets for a given Data Product.
+ *  Lists data assets for a given data product.
  *
- *  @param parent Required. The parent, which has this collection of Data
- *    Assets. Format:
+ *  @param parent Required. The parent, which has this collection of data
+ *    assets. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsList
@@ -1696,7 +1697,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Updates a Data Asset.
+ *  Updates a data asset.
  *
  *  Method: dataplex.projects.locations.dataProducts.dataAssets.patch
  *
@@ -1706,22 +1707,21 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsPatch : GTLRCloudDataplexQuery
 
 /**
- *  Identifier. Resource name of the Data Asset. Format:
+ *  Identifier. Resource name of the data asset. Format:
  *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Optional. The list of fields to update. If this is empty or not set, then
- *  all fields that are populated (have a non-empty value) in data_asset above
- *  will be updated.
+ *  all the fields will be updated.
  *
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Optional. Validates the request without actually updating the Data Asset.
+ *  Optional. Validates the request without actually updating the data asset.
  *  Defaults to false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -1729,11 +1729,11 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Updates a Data Asset.
+ *  Updates a data asset.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset to
  *    include in the query.
- *  @param name Identifier. Resource name of the Data Asset. Format:
+ *  @param name Identifier. Resource name of the data asset. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsPatch
@@ -1744,8 +1744,8 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Deletes a Data Product. The deletion will fail if the Data Product is not
- *  empty (i.e. contains at least one Data Asset).
+ *  Deletes a data product. The deletion will fail if the data product is not
+ *  empty (i.e. contains at least one data asset).
  *
  *  Method: dataplex.projects.locations.dataProducts.delete
  *
@@ -1755,20 +1755,20 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDelete : GTLRCloudDataplexQuery
 
 /**
- *  Optional. The etag of the Data Product.If an etag is provided and does not
- *  match the current etag of the Data Product, then the deletion will be
+ *  Optional. The etag of the data product.If an etag is provided and does not
+ *  match the current etag of the data product, then the deletion will be
  *  blocked and an ABORTED error will be returned.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Required. The name of the Data Product to delete. Format:
+ *  Required. The name of the data product to delete. Format:
  *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Validates the request without actually deleting the Data Product.
+ *  Optional. Validates the request without actually deleting the data product.
  *  Default: false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -1776,10 +1776,10 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Deletes a Data Product. The deletion will fail if the Data Product is not
- *  empty (i.e. contains at least one Data Asset).
+ *  Deletes a data product. The deletion will fail if the data product is not
+ *  empty (i.e. contains at least one data asset).
  *
- *  @param name Required. The name of the Data Product to delete. Format:
+ *  @param name Required. The name of the data product to delete. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDelete
@@ -1789,7 +1789,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Gets a Data Product.
+ *  Gets a data product.
  *
  *  Method: dataplex.projects.locations.dataProducts.get
  *
@@ -1799,7 +1799,7 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGet : GTLRCloudDataplexQuery
 
 /**
- *  Required. The name of the Data Product to retrieve. Format:
+ *  Required. The name of the data product to retrieve. Format:
  *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1807,9 +1807,9 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct.
  *
- *  Gets a Data Product.
+ *  Gets a data product.
  *
- *  @param name Required. The name of the Data Product to retrieve. Format:
+ *  @param name Required. The name of the data product to retrieve. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGet
@@ -1869,7 +1869,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Lists Data Products for a given project.
+ *  Lists data products for a given project.
  *
  *  Method: dataplex.projects.locations.dataProducts.list
  *
@@ -1879,13 +1879,13 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsList : GTLRCloudDataplexQuery
 
 /**
- *  Optional. Filter expression that filters Data Products listed in the
+ *  Optional. Filter expression that filters data products listed in the
  *  response.Example of using this filter is: display_name="my-data-product"
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Optional. Order by expression that orders Data Products listed in the
+ *  Optional. Order by expression that orders data products listed in the
  *  response.Supported Order by fields are: name or create_time.If not
  *  specified, the ordering is undefined.Ordering by create_time is not
  *  supported when listing resources across locations (i.e. when request
@@ -1894,8 +1894,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Optional. The maximum number of Data Products to return. The service may
- *  return fewer than this value. If unspecified, at most 50 Data Products will
+ *  Optional. The maximum number of data products to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 data products will
  *  be returned. The maximum value is 1000; values above 1000 will be coerced to
  *  1000.
  */
@@ -1910,7 +1910,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent, which has this collection of Data Products.Format:
+ *  Required. The parent, which has this collection of data products.Format:
  *  projects/{project_id_or_number}/locations/{location_id}.Supports listing
  *  across all locations with the wildcard - (hyphen) character. Example:
  *  projects/{project_id_or_number}/locations/-
@@ -1921,10 +1921,10 @@ GTLR_DEPRECATED
  *  Fetches a @c
  *  GTLRCloudDataplex_GoogleCloudDataplexV1ListDataProductsResponse.
  *
- *  Lists Data Products for a given project.
+ *  Lists data products for a given project.
  *
- *  @param parent Required. The parent, which has this collection of Data
- *    Products.Format:
+ *  @param parent Required. The parent, which has this collection of data
+ *    products.Format:
  *    projects/{project_id_or_number}/locations/{location_id}.Supports listing
  *    across all locations with the wildcard - (hyphen) character. Example:
  *    projects/{project_id_or_number}/locations/-
@@ -1940,7 +1940,7 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Updates a Data Product.
+ *  Updates a data product.
  *
  *  Method: dataplex.projects.locations.dataProducts.patch
  *
@@ -1950,7 +1950,7 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsPatch : GTLRCloudDataplexQuery
 
 /**
- *  Identifier. Resource name of the Data Product. Format:
+ *  Identifier. Resource name of the data product. Format:
  *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1964,7 +1964,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Optional. Validates the request without actually updating the Data Product.
+ *  Optional. Validates the request without actually updating the data product.
  *  Default: false.
  */
 @property(nonatomic, assign) BOOL validateOnly;
@@ -1972,11 +1972,11 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
  *
- *  Updates a Data Product.
+ *  Updates a data product.
  *
  *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct to
  *    include in the query.
- *  @param name Identifier. Resource name of the Data Product. Format:
+ *  @param name Identifier. Resource name of the data product. Format:
  *    projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}.
  *
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataProductsPatch

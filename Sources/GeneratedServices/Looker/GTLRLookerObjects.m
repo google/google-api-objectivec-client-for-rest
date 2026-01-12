@@ -118,11 +118,12 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 //
 
 @implementation GTLRLooker_ControlledEgressConfig
-@dynamic egressFqdns, marketplaceEnabled;
+@dynamic egressFqdns, marketplaceEnabled, webProxyIps;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"egressFqdns" : [NSString class]
+    @"egressFqdns" : [NSString class],
+    @"webProxyIps" : [NSString class]
   };
   return map;
 }

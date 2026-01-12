@@ -2530,12 +2530,16 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 
 @implementation GTLRYouTubeQuery_YoutubeV3VideosBatchGetStats
 
-@dynamic onBehalfOfContentOwner, part, videoIds;
+@dynamic identifier, onBehalfOfContentOwner, part;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"part" : [NSString class],
-    @"videoIds" : [NSString class]
+    @"id" : [NSString class],
+    @"part" : [NSString class]
   };
   return map;
 }

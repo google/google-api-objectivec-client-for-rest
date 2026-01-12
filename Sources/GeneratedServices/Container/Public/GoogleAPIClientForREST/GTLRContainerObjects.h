@@ -3777,7 +3777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fqdns;
 
-/** Google Secret Manager (GCP) certificate configuration. */
+/** Secret Manager certificate configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_GCPSecretManagerCertificateConfig *gcpSecretManagerCertificateConfig;
 
 @end

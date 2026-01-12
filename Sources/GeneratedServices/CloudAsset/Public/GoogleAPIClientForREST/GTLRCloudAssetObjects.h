@@ -347,7 +347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1BigQueryDes
 // GTLRCloudAsset_GoogleCloudAssetV1Constraint.constraintDefault
 
 /**
- *  Indicate that all values are allowed for list constraints. Indicate that
+ *  Indicates that all values are allowed for list constraints. Indicates that
  *  enforcement is off for boolean constraints.
  *
  *  Value: "ALLOW"
@@ -360,7 +360,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1Constraint_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_ConstraintDefaultUnspecified;
 /**
- *  Indicate that all values are denied for list constraints. Indicate that
+ *  Indicates that all values are denied for list constraints. Indicates that
  *  enforcement is on for boolean constraints.
  *
  *  Value: "DENY"
@@ -2404,13 +2404,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAsset_TemporalAsset_PriorAssetState
  *
  *  Likely values:
  *    @arg @c kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_Allow
- *        Indicate that all values are allowed for list constraints. Indicate
+ *        Indicates that all values are allowed for list constraints. Indicates
  *        that enforcement is off for boolean constraints. (Value: "ALLOW")
  *    @arg @c kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_ConstraintDefaultUnspecified
  *        This is only used for distinguishing unset values and should never be
  *        used. (Value: "CONSTRAINT_DEFAULT_UNSPECIFIED")
  *    @arg @c kGTLRCloudAsset_GoogleCloudAssetV1Constraint_ConstraintDefault_Deny
- *        Indicate that all values are denied for list constraints. Indicate
+ *        Indicates that all values are denied for list constraints. Indicates
  *        that enforcement is on for boolean constraints. (Value: "DENY")
  */
 @property(nonatomic, copy, nullable) NSString *constraintDefault;

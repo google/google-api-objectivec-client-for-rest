@@ -80,6 +80,7 @@ NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserNoKey = @"CHROME_BROWSER_NO_KEY";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeBrowserOsKey = @"CHROME_BROWSER_OS_KEY";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsDeveloperMode = @"CHROME_OS_DEVELOPER_MODE";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsNoKey = @"CHROME_OS_NO_KEY";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsVerifiedMode = @"CHROME_OS_VERIFIED_MODE";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_KeyTrustLevelUnspecified = @"KEY_TRUST_LEVEL_UNSPECIFIED";
 
@@ -88,6 +89,7 @@ NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTru
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeBrowserNoKey = @"CHROME_BROWSER_NO_KEY";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeBrowserOsKey = @"CHROME_BROWSER_OS_KEY";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeOsDeveloperMode = @"CHROME_OS_DEVELOPER_MODE";
+NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeOsNoKey = @"CHROME_OS_NO_KEY";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeOsVerifiedMode = @"CHROME_OS_VERIFIED_MODE";
 NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_KeyTrustLevelUnspecified = @"KEY_TRUST_LEVEL_UNSPECIFIED";
 

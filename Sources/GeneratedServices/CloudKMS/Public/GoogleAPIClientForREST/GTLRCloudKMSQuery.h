@@ -2737,6 +2737,388 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Creates a new SingleTenantHsmInstance in a given Project and Location. User
+ *  must create a RegisterTwoFactorAuthKeys proposal with this single-tenant HSM
+ *  instance to finish setup of the instance.
+ *
+ *  Method: cloudkms.projects.locations.singleTenantHsmInstances.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesCreate : GTLRCloudKMSQuery
+
+/**
+ *  Required. The resource name of the location associated with the
+ *  SingleTenantHsmInstance, in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. It must be unique within a location and match the regular
+ *  expression `[a-zA-Z0-9_-]{1,63}`.
+ */
+@property(nonatomic, copy, nullable) NSString *singleTenantHsmInstanceId;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_Operation.
+ *
+ *  Creates a new SingleTenantHsmInstance in a given Project and Location. User
+ *  must create a RegisterTwoFactorAuthKeys proposal with this single-tenant HSM
+ *  instance to finish setup of the instance.
+ *
+ *  @param object The @c GTLRCloudKMS_SingleTenantHsmInstance to include in the
+ *    query.
+ *  @param parent Required. The resource name of the location associated with
+ *    the SingleTenantHsmInstance, in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_SingleTenantHsmInstance *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns metadata for a given SingleTenantHsmInstance.
+ *
+ *  Method: cloudkms.projects.locations.singleTenantHsmInstances.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesGet : GTLRCloudKMSQuery
+
+/** Required. The name of the SingleTenantHsmInstance to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_SingleTenantHsmInstance.
+ *
+ *  Returns metadata for a given SingleTenantHsmInstance.
+ *
+ *  @param name Required. The name of the SingleTenantHsmInstance to get.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists SingleTenantHsmInstances.
+ *
+ *  Method: cloudkms.projects.locations.singleTenantHsmInstances.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesList : GTLRCloudKMSQuery
+
+/**
+ *  Optional. Only include resources that match the filter in the response. For
+ *  more information, see [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify how the results should be sorted. If not specified, the
+ *  results will be sorted in the default order. For more information, see
+ *  [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Optional limit on the number of SingleTenantHsmInstances to
+ *  include in the response. Further SingleTenantHsmInstances can subsequently
+ *  be obtained by including the
+ *  ListSingleTenantHsmInstancesResponse.next_page_token in a subsequent
+ *  request. If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Optional pagination token, returned earlier via
+ *  ListSingleTenantHsmInstancesResponse.next_page_token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the location associated with the
+ *  SingleTenantHsmInstances to list, in the format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If set to true, HsmManagement.ListSingleTenantHsmInstances will
+ *  also return SingleTenantHsmInstances in DELETED state.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ListSingleTenantHsmInstancesResponse.
+ *
+ *  Lists SingleTenantHsmInstances.
+ *
+ *  @param parent Required. The resource name of the location associated with
+ *    the SingleTenantHsmInstances to list, in the format `projects/ *
+ *    /locations/ *`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Approves a SingleTenantHsmInstanceProposal for a given
+ *  SingleTenantHsmInstance. The proposal must be in the PENDING state.
+ *
+ *  Method: cloudkms.projects.locations.singleTenantHsmInstances.proposals.approve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsApprove : GTLRCloudKMSQuery
+
+/** Required. The name of the SingleTenantHsmInstanceProposal to approve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ApproveSingleTenantHsmInstanceProposalResponse.
+ *
+ *  Approves a SingleTenantHsmInstanceProposal for a given
+ *  SingleTenantHsmInstance. The proposal must be in the PENDING state.
+ *
+ *  @param object The @c
+ *    GTLRCloudKMS_ApproveSingleTenantHsmInstanceProposalRequest to include in
+ *    the query.
+ *  @param name Required. The name of the SingleTenantHsmInstanceProposal to
+ *    approve.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsApprove
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_ApproveSingleTenantHsmInstanceProposalRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a new SingleTenantHsmInstanceProposal for a given
+ *  SingleTenantHsmInstance.
+ *
+ *  Method: cloudkms.projects.locations.singleTenantHsmInstances.proposals.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsCreate : GTLRCloudKMSQuery
+
+/**
+ *  Required. The name of the SingleTenantHsmInstance associated with the
+ *  SingleTenantHsmInstanceProposals.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. It must be unique within a location and match the regular
+ *  expression `[a-zA-Z0-9_-]{1,63}`.
+ */
+@property(nonatomic, copy, nullable) NSString *singleTenantHsmInstanceProposalId;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_Operation.
+ *
+ *  Creates a new SingleTenantHsmInstanceProposal for a given
+ *  SingleTenantHsmInstance.
+ *
+ *  @param object The @c GTLRCloudKMS_SingleTenantHsmInstanceProposal to include
+ *    in the query.
+ *  @param parent Required. The name of the SingleTenantHsmInstance associated
+ *    with the SingleTenantHsmInstanceProposals.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_SingleTenantHsmInstanceProposal *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a SingleTenantHsmInstanceProposal.
+ *
+ *  Method: cloudkms.projects.locations.singleTenantHsmInstances.proposals.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsDelete : GTLRCloudKMSQuery
+
+/** Required. The name of the SingleTenantHsmInstanceProposal to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_Empty.
+ *
+ *  Deletes a SingleTenantHsmInstanceProposal.
+ *
+ *  @param name Required. The name of the SingleTenantHsmInstanceProposal to
+ *    delete.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Executes a SingleTenantHsmInstanceProposal for a given
+ *  SingleTenantHsmInstance. The proposal must be in the APPROVED state.
+ *
+ *  Method: cloudkms.projects.locations.singleTenantHsmInstances.proposals.execute
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsExecute : GTLRCloudKMSQuery
+
+/** Required. The name of the SingleTenantHsmInstanceProposal to execute. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_Operation.
+ *
+ *  Executes a SingleTenantHsmInstanceProposal for a given
+ *  SingleTenantHsmInstance. The proposal must be in the APPROVED state.
+ *
+ *  @param object The @c
+ *    GTLRCloudKMS_ExecuteSingleTenantHsmInstanceProposalRequest to include in
+ *    the query.
+ *  @param name Required. The name of the SingleTenantHsmInstanceProposal to
+ *    execute.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsExecute
+ */
++ (instancetype)queryWithObject:(GTLRCloudKMS_ExecuteSingleTenantHsmInstanceProposalRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns metadata for a given SingleTenantHsmInstanceProposal.
+ *
+ *  Method: cloudkms.projects.locations.singleTenantHsmInstances.proposals.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsGet : GTLRCloudKMSQuery
+
+/** Required. The name of the SingleTenantHsmInstanceProposal to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_SingleTenantHsmInstanceProposal.
+ *
+ *  Returns metadata for a given SingleTenantHsmInstanceProposal.
+ *
+ *  @param name Required. The name of the SingleTenantHsmInstanceProposal to
+ *    get.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists SingleTenantHsmInstanceProposals.
+ *
+ *  Method: cloudkms.projects.locations.singleTenantHsmInstances.proposals.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsList : GTLRCloudKMSQuery
+
+/**
+ *  Optional. Only include resources that match the filter in the response. For
+ *  more information, see [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify how the results should be sorted. If not specified, the
+ *  results will be sorted in the default order. For more information, see
+ *  [Sorting and filtering list
+ *  results](https://cloud.google.com/kms/docs/sorting-and-filtering).
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Optional limit on the number of SingleTenantHsmInstanceProposals
+ *  to include in the response. Further SingleTenantHsmInstanceProposals can
+ *  subsequently be obtained by including the
+ *  ListSingleTenantHsmInstanceProposalsResponse.next_page_token in a subsequent
+ *  request. If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Optional pagination token, returned earlier via
+ *  ListSingleTenantHsmInstanceProposalsResponse.next_page_token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the location associated with the
+ *  SingleTenantHsmInstanceProposals to list, in the format `projects/ *
+ *  /locations/ * /singleTenantHsmInstances/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If set to true, HsmManagement.ListSingleTenantHsmInstanceProposals
+ *  will also return SingleTenantHsmInstanceProposals in DELETED state.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ListSingleTenantHsmInstanceProposalsResponse.
+ *
+ *  Lists SingleTenantHsmInstanceProposals.
+ *
+ *  @param parent Required. The resource name of the location associated with
+ *    the SingleTenantHsmInstanceProposals to list, in the format `projects/ *
+ *    /locations/ * /singleTenantHsmInstances/ *`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates the EkmConfig singleton resource for a given project and location.
  *
  *  Method: cloudkms.projects.locations.updateEkmConfig

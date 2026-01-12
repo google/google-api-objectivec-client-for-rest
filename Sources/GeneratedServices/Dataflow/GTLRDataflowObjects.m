@@ -2360,7 +2360,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_RuntimeUpdatableParams
-@dynamic maxNumWorkers, minNumWorkers, workerUtilizationHint;
+@dynamic acceptableBacklogDuration, maxNumWorkers, minNumWorkers,
+         workerUtilizationHint;
 @end
 
 

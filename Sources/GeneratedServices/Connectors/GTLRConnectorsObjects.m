@@ -572,7 +572,7 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ExchangeAuthCodeRequest
-@dynamic authCodeData;
+@dynamic authCodeData, executionConfig, oauth2Config;
 @end
 
 
@@ -620,7 +620,7 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ExecuteActionRequest
-@dynamic parameters;
+@dynamic executionConfig, parameters;
 @end
 
 
@@ -746,7 +746,7 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ExecuteToolRequest
-@dynamic parameters;
+@dynamic executionConfig, parameters, toolDefinition;
 @end
 
 
@@ -756,6 +756,20 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ExecuteToolRequest_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteToolRequest_ToolDefinition
+//
+
+@implementation GTLRConnectors_ExecuteToolRequest_ToolDefinition
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -818,6 +832,16 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_ExecutionConfig
+//
+
+@implementation GTLRConnectors_ExecutionConfig
+@dynamic headers;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_Field
 //
 
@@ -843,6 +867,16 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_GetResourcePostRequest
+//
+
+@implementation GTLRConnectors_GetResourcePostRequest
+@dynamic executionConfig, toolSpec;
 @end
 
 
@@ -1282,6 +1316,16 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_ListToolsPostRequest
+//
+
+@implementation GTLRConnectors_ListToolsPostRequest
+@dynamic executionConfig, pageSize, pageToken, toolSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_ListToolsResponse
 //
 
@@ -1435,6 +1479,16 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_OAuth2Config
+//
+
+@implementation GTLRConnectors_OAuth2Config
+@dynamic authUri, clientId, clientSecret;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_PerSliSloEligibility
 //
 
@@ -1511,7 +1565,7 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_RefreshAccessTokenRequest
-@dynamic refreshToken;
+@dynamic executionConfig, oauth2Config, refreshToken;
 @end
 
 
@@ -1662,6 +1716,38 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 @implementation GTLRConnectors_ToolAnnotations
 @dynamic destructiveHint, idempotentHint, openWorldHint, readOnlyHint, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ToolSpec
+//
+
+@implementation GTLRConnectors_ToolSpec
+@dynamic toolDefinitions, toolSpecVersion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolDefinitions" : [GTLRConnectors_ToolSpec_ToolDefinitions_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ToolSpec_ToolDefinitions_Item
+//
+
+@implementation GTLRConnectors_ToolSpec_ToolDefinitions_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 

@@ -47,6 +47,7 @@ NSString * const kGTLRPubsub_BigQueryConfig_State_NotFound     = @"NOT_FOUND";
 NSString * const kGTLRPubsub_BigQueryConfig_State_PermissionDenied = @"PERMISSION_DENIED";
 NSString * const kGTLRPubsub_BigQueryConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
 NSString * const kGTLRPubsub_BigQueryConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRPubsub_BigQueryConfig_State_VertexAiLocationRestriction = @"VERTEX_AI_LOCATION_RESTRICTION";
 
 // GTLRPubsub_CloudStorage.state
 NSString * const kGTLRPubsub_CloudStorage_State_Active         = @"ACTIVE";
@@ -63,6 +64,7 @@ NSString * const kGTLRPubsub_CloudStorageConfig_State_NotFound = @"NOT_FOUND";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_PermissionDenied = @"PERMISSION_DENIED";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
 NSString * const kGTLRPubsub_CloudStorageConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRPubsub_CloudStorageConfig_State_VertexAiLocationRestriction = @"VERTEX_AI_LOCATION_RESTRICTION";
 
 // GTLRPubsub_ConfluentCloud.state
 NSString * const kGTLRPubsub_ConfluentCloud_State_Active       = @"ACTIVE";

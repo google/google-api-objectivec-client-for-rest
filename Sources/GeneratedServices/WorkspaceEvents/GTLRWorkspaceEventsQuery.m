@@ -224,7 +224,7 @@
 
 @implementation GTLRWorkspaceEventsQuery_TasksGet
 
-@dynamic historyLength, name;
+@dynamic historyLength, name, tenant;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -243,7 +243,7 @@
 
 @implementation GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsCreate
 
-@dynamic configId, parent;
+@dynamic configId, parent, tenant;
 
 + (instancetype)queryWithObject:(GTLRWorkspaceEvents_TaskPushNotificationConfig *)object
                          parent:(NSString *)parent {
@@ -270,7 +270,7 @@
 
 @implementation GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsDelete
 
-@dynamic name;
+@dynamic name, tenant;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -289,7 +289,7 @@
 
 @implementation GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsGet
 
-@dynamic name;
+@dynamic name, tenant;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -308,7 +308,7 @@
 
 @implementation GTLRWorkspaceEventsQuery_TasksPushNotificationConfigsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic pageSize, pageToken, parent, tenant;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -327,7 +327,7 @@
 
 @implementation GTLRWorkspaceEventsQuery_TasksSubscribe
 
-@dynamic name;
+@dynamic name, tenant;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

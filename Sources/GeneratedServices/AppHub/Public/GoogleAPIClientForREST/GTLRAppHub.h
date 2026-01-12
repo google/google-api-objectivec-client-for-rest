@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   App Hub API (apphub/v1)
+// Description:
+//   App Hub lets you build, operate, and manage applications on Google Cloud.
 // Documentation:
 //   https://cloud.google.com/app-hub/docs/
 

@@ -1395,14 +1395,14 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslateQuery_ProjectsLocationsGlossariesPatch : GTLRTranslateQuery
 
 /**
- *  Required. The resource name of the glossary. Glossary names have the form
+ *  Identifier. The resource name of the glossary. Glossary names have the form
  *  `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  The list of fields to be updated. Currently only `display_name` and
- *  'input_config'
+ *  The list of fields to be updated. Currently, only `display_name` and
+ *  `input_config` are supported.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1415,8 +1415,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  glossary's entry file is updated.
  *
  *  @param object The @c GTLRTranslate_Glossary to include in the query.
- *  @param name Required. The resource name of the glossary. Glossary names have
- *    the form
+ *  @param name Identifier. The resource name of the glossary. Glossary names
+ *    have the form
  *    `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`.
  *
  *  @return GTLRTranslateQuery_ProjectsLocationsGlossariesPatch
@@ -1438,8 +1438,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslateQuery_ProjectsLocationsList : GTLRTranslateQuery
 
 /**
- *  Optional. A list of extra location types that should be used as conditions
- *  for controlling the visibility of the locations.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1758,6 +1758,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRTranslate_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -1818,6 +1829,45 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRTranslate_WaitOperationRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Refines the input translated text to improve the quality.
+ *
+ *  Method: translate.projects.locations.refineText
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeTranslateCloudPlatform
+ *    @c kGTLRAuthScopeTranslateCloudTranslation
+ */
+@interface GTLRTranslateQuery_ProjectsLocationsRefineText : GTLRTranslateQuery
+
+/**
+ *  Required. Project or location to make a call. Must refer to a caller's
+ *  project. Format: `projects/{project-number-or-id}/locations/{location-id}`.
+ *  For global calls, use `projects/{project-number-or-id}/locations/global` or
+ *  `projects/{project-number-or-id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRTranslate_RefineTextResponse.
+ *
+ *  Refines the input translated text to improve the quality.
+ *
+ *  @param object The @c GTLRTranslate_RefineTextRequest to include in the
+ *    query.
+ *  @param parent Required. Project or location to make a call. Must refer to a
+ *    caller's project. Format:
+ *    `projects/{project-number-or-id}/locations/{location-id}`. For global
+ *    calls, use `projects/{project-number-or-id}/locations/global` or
+ *    `projects/{project-number-or-id}`.
+ *
+ *  @return GTLRTranslateQuery_ProjectsLocationsRefineText
+ */
++ (instancetype)queryWithObject:(GTLRTranslate_RefineTextRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 

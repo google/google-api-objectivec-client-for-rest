@@ -192,17 +192,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 // GTLRDeveloperConnect_ProviderOAuthConfig.systemProviderId
 
 /**
- *  Datastax provider. No scopes are allowed.
+ *  Deprecated: This provider is no longer supported. Datastax provider. No
+ *  scopes are allowed.
  *
  *  Value: "DATASTAX"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax GTLR_DEPRECATED;
 /**
- *  Dynatrace provider.
+ *  Deprecated: This provider is no longer supported. Dynatrace provider.
  *
  *  Value: "DYNATRACE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Dynatrace;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Dynatrace GTLR_DEPRECATED;
 /**
  *  GitHub provider. Scopes can be found at
  *  https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
@@ -218,32 +219,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Gitlab;
 /**
- *  Google provider. Recommended scopes:
- *  "https://www.googleapis.com/auth/drive.readonly",
+ *  Deprecated: This provider is no longer supported. Google provider.
+ *  Recommended scopes: "https://www.googleapis.com/auth/drive.readonly",
  *  "https://www.googleapis.com/auth/documents.readonly"
  *
  *  Value: "GOOGLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Google;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Google GTLR_DEPRECATED;
 /**
- *  New Relic provider. No scopes are allowed.
+ *  Deprecated: This provider is no longer supported. New Relic provider. No
+ *  scopes are allowed.
  *
  *  Value: "NEW_RELIC"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_NewRelic;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_NewRelic GTLR_DEPRECATED;
 /**
- *  Rovo provider. Must select the "rovo" scope.
+ *  Deprecated: This provider is no longer supported. Rovo provider. Must select
+ *  the "rovo" scope.
  *
  *  Value: "ROVO"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Rovo;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Rovo GTLR_DEPRECATED;
 /**
- *  Sentry provider. Scopes can be found at
- *  https://docs.sentry.io/api/permissions/
+ *  Deprecated: This provider is no longer supported. Sentry provider. Scopes
+ *  can be found at https://docs.sentry.io/api/permissions/
  *
  *  Value: "SENTRY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Sentry;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Sentry GTLR_DEPRECATED;
 /**
  *  No system provider specified.
  *
@@ -277,17 +280,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 // GTLRDeveloperConnect_StartOAuthResponse.systemProviderId
 
 /**
- *  Datastax provider. No scopes are allowed.
+ *  Deprecated: This provider is no longer supported. Datastax provider. No
+ *  scopes are allowed.
  *
  *  Value: "DATASTAX"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Datastax;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Datastax GTLR_DEPRECATED;
 /**
- *  Dynatrace provider.
+ *  Deprecated: This provider is no longer supported. Dynatrace provider.
  *
  *  Value: "DYNATRACE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Dynatrace;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Dynatrace GTLR_DEPRECATED;
 /**
  *  GitHub provider. Scopes can be found at
  *  https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
@@ -303,32 +307,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Gitlab;
 /**
- *  Google provider. Recommended scopes:
- *  "https://www.googleapis.com/auth/drive.readonly",
+ *  Deprecated: This provider is no longer supported. Google provider.
+ *  Recommended scopes: "https://www.googleapis.com/auth/drive.readonly",
  *  "https://www.googleapis.com/auth/documents.readonly"
  *
  *  Value: "GOOGLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Google;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Google GTLR_DEPRECATED;
 /**
- *  New Relic provider. No scopes are allowed.
+ *  Deprecated: This provider is no longer supported. New Relic provider. No
+ *  scopes are allowed.
  *
  *  Value: "NEW_RELIC"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_NewRelic;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_NewRelic GTLR_DEPRECATED;
 /**
- *  Rovo provider. Must select the "rovo" scope.
+ *  Deprecated: This provider is no longer supported. Rovo provider. Must select
+ *  the "rovo" scope.
  *
  *  Value: "ROVO"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Rovo;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Rovo GTLR_DEPRECATED;
 /**
- *  Sentry provider. Scopes can be found at
- *  https://docs.sentry.io/api/permissions/
+ *  Deprecated: This provider is no longer supported. Sentry provider. Scopes
+ *  can be found at https://docs.sentry.io/api/permissions/
  *
  *  Value: "SENTRY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Sentry;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Sentry GTLR_DEPRECATED;
 /**
  *  No system provider specified.
  *
@@ -1197,6 +1203,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Output only. The base URI for the HTTP proxy endpoint. Has the format
+ *  `https://{generatedID}-c-h-{shortRegion}.developerconnect.dev` Populated
+ *  only when enabled is set to true. This endpoint is used by other Google
+ *  services that integrate with Developer Connect.
+ */
+@property(nonatomic, copy, nullable) NSString *httpProxyBaseUri;
 
 @end
 
@@ -2093,9 +2107,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *
  *  Likely values:
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax
- *        Datastax provider. No scopes are allowed. (Value: "DATASTAX")
+ *        Deprecated: This provider is no longer supported. Datastax provider.
+ *        No scopes are allowed. (Value: "DATASTAX")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Dynatrace
- *        Dynatrace provider. (Value: "DYNATRACE")
+ *        Deprecated: This provider is no longer supported. Dynatrace provider.
+ *        (Value: "DYNATRACE")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Github
  *        GitHub provider. Scopes can be found at
  *        https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
@@ -2105,16 +2121,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *        https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes
  *        (Value: "GITLAB")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Google
- *        Google provider. Recommended scopes:
- *        "https://www.googleapis.com/auth/drive.readonly",
+ *        Deprecated: This provider is no longer supported. Google provider.
+ *        Recommended scopes: "https://www.googleapis.com/auth/drive.readonly",
  *        "https://www.googleapis.com/auth/documents.readonly" (Value: "GOOGLE")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_NewRelic
- *        New Relic provider. No scopes are allowed. (Value: "NEW_RELIC")
+ *        Deprecated: This provider is no longer supported. New Relic provider.
+ *        No scopes are allowed. (Value: "NEW_RELIC")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Rovo
- *        Rovo provider. Must select the "rovo" scope. (Value: "ROVO")
+ *        Deprecated: This provider is no longer supported. Rovo provider. Must
+ *        select the "rovo" scope. (Value: "ROVO")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Sentry
- *        Sentry provider. Scopes can be found at
- *        https://docs.sentry.io/api/permissions/ (Value: "SENTRY")
+ *        Deprecated: This provider is no longer supported. Sentry provider.
+ *        Scopes can be found at https://docs.sentry.io/api/permissions/ (Value:
+ *        "SENTRY")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_SystemProviderUnspecified
  *        No system provider specified. (Value: "SYSTEM_PROVIDER_UNSPECIFIED")
  */
@@ -2206,9 +2225,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *
  *  Likely values:
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Datastax
- *        Datastax provider. No scopes are allowed. (Value: "DATASTAX")
+ *        Deprecated: This provider is no longer supported. Datastax provider.
+ *        No scopes are allowed. (Value: "DATASTAX")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Dynatrace
- *        Dynatrace provider. (Value: "DYNATRACE")
+ *        Deprecated: This provider is no longer supported. Dynatrace provider.
+ *        (Value: "DYNATRACE")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Github
  *        GitHub provider. Scopes can be found at
  *        https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
@@ -2218,16 +2239,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *        https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes
  *        (Value: "GITLAB")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Google
- *        Google provider. Recommended scopes:
- *        "https://www.googleapis.com/auth/drive.readonly",
+ *        Deprecated: This provider is no longer supported. Google provider.
+ *        Recommended scopes: "https://www.googleapis.com/auth/drive.readonly",
  *        "https://www.googleapis.com/auth/documents.readonly" (Value: "GOOGLE")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_NewRelic
- *        New Relic provider. No scopes are allowed. (Value: "NEW_RELIC")
+ *        Deprecated: This provider is no longer supported. New Relic provider.
+ *        No scopes are allowed. (Value: "NEW_RELIC")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Rovo
- *        Rovo provider. Must select the "rovo" scope. (Value: "ROVO")
+ *        Deprecated: This provider is no longer supported. Rovo provider. Must
+ *        select the "rovo" scope. (Value: "ROVO")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Sentry
- *        Sentry provider. Scopes can be found at
- *        https://docs.sentry.io/api/permissions/ (Value: "SENTRY")
+ *        Deprecated: This provider is no longer supported. Sentry provider.
+ *        Scopes can be found at https://docs.sentry.io/api/permissions/ (Value:
+ *        "SENTRY")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_SystemProviderUnspecified
  *        No system provider specified. (Value: "SYSTEM_PROVIDER_UNSPECIFIED")
  */

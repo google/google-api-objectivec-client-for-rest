@@ -958,6 +958,40 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Executes a pipeline query.
+ *
+ *  Method: firestore.projects.databases.documents.executePipeline
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirestoreCloudPlatform
+ *    @c kGTLRAuthScopeFirestoreDatastore
+ */
+@interface GTLRFirestoreQuery_ProjectsDatabasesDocumentsExecutePipeline : GTLRFirestoreQuery
+
+/**
+ *  Required. Database identifier, in the form
+ *  `projects/{project}/databases/{database}`.
+ */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Fetches a @c GTLRFirestore_ExecutePipelineResponse.
+ *
+ *  Executes a pipeline query.
+ *
+ *  @param object The @c GTLRFirestore_ExecutePipelineRequest to include in the
+ *    query.
+ *  @param database Required. Database identifier, in the form
+ *    `projects/{project}/databases/{database}`.
+ *
+ *  @return GTLRFirestoreQuery_ProjectsDatabasesDocumentsExecutePipeline
+ */
++ (instancetype)queryWithObject:(GTLRFirestore_ExecutePipelineRequest *)object
+                       database:(NSString *)database;
+
+@end
+
+/**
  *  Gets a single document.
  *
  *  Method: firestore.projects.databases.documents.get

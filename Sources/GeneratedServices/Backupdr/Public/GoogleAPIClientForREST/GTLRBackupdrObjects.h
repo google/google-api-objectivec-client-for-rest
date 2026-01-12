@@ -17,6 +17,7 @@
 @class GTLRBackupdr_AdvancedMachineFeatures;
 @class GTLRBackupdr_AliasIpRange;
 @class GTLRBackupdr_AllocationAffinity;
+@class GTLRBackupdr_AlloyDBClusterBackupPlanAssociationProperties;
 @class GTLRBackupdr_AlloyDbClusterBackupProperties;
 @class GTLRBackupdr_AlloyDBClusterDataSourceProperties;
 @class GTLRBackupdr_AttachedDisk;
@@ -73,6 +74,7 @@
 @class GTLRBackupdr_EncryptionConfig;
 @class GTLRBackupdr_Entry;
 @class GTLRBackupdr_Expr;
+@class GTLRBackupdr_FilestoreInstanceBackupPlanAssociationProperties;
 @class GTLRBackupdr_GcpBackupConfig;
 @class GTLRBackupdr_GCPBackupPlanInfo;
 @class GTLRBackupdr_GcpResource;
@@ -489,13 +491,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigDetails_State_State
 // GTLRBackupdr_BackupConfigDetails.type
 
 /**
- *  Backup config is Backup and DR's Backup Plan.
+ *  Backup config is Google Cloud Backup and DR's Backup Plan.
  *
  *  Value: "BACKUPDR_BACKUP_PLAN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_BackupConfigDetails_Type_BackupdrBackupPlan;
 /**
- *  Backup config is Backup and DR's Template.
+ *  Backup config is Google Cloud Backup and DR's Template.
  *
  *  Value: "BACKUPDR_TEMPLATE"
  */
@@ -1295,7 +1297,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_NetworkConfig_PeeringMode_Peeri
 /**
  *  Connect using Private Service Access to the Management Server. Private
  *  services access provides an IP address range for multiple Google Cloud
- *  services, including Cloud BackupDR.
+ *  services, including Google Cloud Backup and DR.
  *
  *  Value: "PRIVATE_SERVICE_ACCESS"
  */
@@ -2106,6 +2108,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Properties for an AlloyDB cluster backup plan association.
+ */
+@interface GTLRBackupdr_AlloyDBClusterBackupPlanAssociationProperties : GTLRObject
+@end
+
+
+/**
  *  AlloyDbClusterBackupProperties represents AlloyDB cluster backup properties.
  *  .
  */
@@ -2691,10 +2700,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 /** Output only. The display name of the backup config source resource. */
 @property(nonatomic, copy, nullable) NSString *backupConfigSourceDisplayName;
 
-/** Backup and DR's Backup Plan specific data. */
+/** Google Cloud Backup and DR's Backup Plan specific data. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_PlanConfig *backupDrPlanConfig;
 
-/** Backup and DR's Template specific data. */
+/** Google Cloud Backup and DR's Template specific data. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_TemplateConfig *backupDrTemplateConfig;
 
 /** The locations where the backups are to be stored. */
@@ -2745,9 +2754,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *
  *  Likely values:
  *    @arg @c kGTLRBackupdr_BackupConfigDetails_Type_BackupdrBackupPlan Backup
- *        config is Backup and DR's Backup Plan. (Value: "BACKUPDR_BACKUP_PLAN")
+ *        config is Google Cloud Backup and DR's Backup Plan. (Value:
+ *        "BACKUPDR_BACKUP_PLAN")
  *    @arg @c kGTLRBackupdr_BackupConfigDetails_Type_BackupdrTemplate Backup
- *        config is Backup and DR's Template. (Value: "BACKUPDR_TEMPLATE")
+ *        config is Google Cloud Backup and DR's Template. (Value:
+ *        "BACKUPDR_TEMPLATE")
  *    @arg @c kGTLRBackupdr_BackupConfigDetails_Type_CloudSqlInstanceBackupConfig
  *        Backup config is Cloud SQL instance's automated backup config. (Value:
  *        "CLOUD_SQL_INSTANCE_BACKUP_CONFIG")
@@ -2898,9 +2909,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, copy, nullable) NSString *backupVault;
 
 /**
- *  Output only. The Google Cloud Platform Service Account to be used by the
- *  BackupVault for taking backups. Specify the email address of the Backup
- *  Vault Service Account.
+ *  Output only. The Google Cloud service account to be used by the BackupVault
+ *  for taking backups. Specify the email address of the Backup Vault Service
+ *  Account.
  */
 @property(nonatomic, copy, nullable) NSString *backupVaultServiceAccount;
 
@@ -2932,7 +2943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) GTLRBackupdr_BackupPlan_Labels *labels;
 
 /**
- *  Optional. Applicable only for CloudSQL resource_type. Configures how long
+ *  Optional. Applicable only for Cloud SQL resource_type. Configures how long
  *  logs will be stored. It is defined in “days”. This value should be greater
  *  than or equal to minimum enforced log retention duration of the backup
  *  vault.
@@ -3023,6 +3034,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @interface GTLRBackupdr_BackupPlanAssociation : GTLRObject
 
+/** Output only. AlloyDB cluster's backup plan association properties. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_AlloyDBClusterBackupPlanAssociationProperties *alloydbClusterBackupPlanAssociationProperties;
+
 /**
  *  Required. Resource name of backup plan which needs to be applied on
  *  workload. Format:
@@ -3054,6 +3068,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  projects/{project}/locations/{location}/backupVaults/{backupvault}/dataSources/{datasource}
  */
 @property(nonatomic, copy, nullable) NSString *dataSource;
+
+/** Output only. Filestore instance's backup plan association properties. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_FilestoreInstanceBackupPlanAssociationProperties *filestoreInstanceBackupPlanAssociationProperties;
 
 /**
  *  Output only. Identifier. The resource name of BackupPlanAssociation in below
@@ -3381,7 +3398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @interface GTLRBackupdr_BackupWindow : GTLRObject
 
 /**
- *  Required. The hour of day (1-24) when the window end for e.g. if value of
+ *  Required. The hour of day (1-24) when the window end for example if value of
  *  end hour of day is 10 that mean backup window end time is 10:00. End hour of
  *  day should be greater than start hour of day. 0 <= start_hour_of_day <
  *  end_hour_of_day <= 24 End hour of day is not include in backup window that
@@ -3392,8 +3409,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) NSNumber *endHourOfDay;
 
 /**
- *  Required. The hour of day (0-23) when the window starts for e.g. if value of
- *  start hour of day is 6 that mean backup window start at 6:00.
+ *  Required. The hour of day (0-23) when the window starts for example if value
+ *  of start hour of day is 6 that mean backup window start at 6:00.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4274,7 +4291,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  The GCP resource that the DataSource is associated with.
+ *  The Google Cloud resource that the DataSource is associated with.
  */
 @interface GTLRBackupdr_DataSourceGcpResourceInfo : GTLRObject
 
@@ -4282,18 +4299,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) GTLRBackupdr_CloudSqlInstanceDataSourceReferenceProperties *cloudSqlInstanceProperties;
 
 /**
- *  Output only. The resource name of the GCP resource. Ex:
+ *  Output only. The resource name of the Google Cloud resource. Ex:
  *  projects/{project}/zones/{zone}/instances/{instance}
  */
 @property(nonatomic, copy, nullable) NSString *gcpResourcename;
 
 /**
- *  Output only. The location of the GCP resource. Ex: //"global"/"unspecified"
+ *  Output only. The location of the Google Cloud resource. Ex:
+ *  //"global"/"unspecified"
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
 /**
- *  Output only. The type of the GCP resource. Ex:
+ *  Output only. The type of the Google Cloud resource. Ex:
  *  compute.googleapis.com/Instance
  */
 @property(nonatomic, copy, nullable) NSString *type;
@@ -4342,7 +4360,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @property(nonatomic, strong, nullable) NSNumber *dataSourceBackupCount;
 
-/** Output only. The GCP resource that the DataSource is associated with. */
+/**
+ *  Output only. The Google Cloud resource that the DataSource is associated
+ *  with.
+ */
 @property(nonatomic, strong, nullable) GTLRBackupdr_DataSourceGcpResourceInfo *dataSourceGcpResourceInfo;
 
 /**
@@ -4950,7 +4971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /**
  *  The ms compliance metadata of the target project, if the project is an
- *  assured workloads project, values will be true, otherwise false.
+ *  Assured Workloads project, values will be true, otherwise false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4986,6 +5007,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Filestore instance's BPA properties.
+ */
+@interface GTLRBackupdr_FilestoreInstanceBackupPlanAssociationProperties : GTLRObject
+
+/** Output only. The time when the instance was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *instanceCreateTime;
 
 @end
 
@@ -5214,12 +5246,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  request ID so that if you must retry your request, the server will know to
  *  ignore the request if it has already been completed. The server will
  *  guarantee that for at least 60 minutes since the first request. For example,
- *  consider a situation where you make an initial request and t he request
- *  times out. If you make the request again with the same request ID, the
- *  server can check if original operation with the same request ID was
- *  received, and if so, will ignore the second request. This prevents clients
- *  from accidentally creating duplicate commitments. The request ID must be a
- *  valid UUID with the exception that zero UUID is not supported
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -5771,7 +5803,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /**
  *  Output only. The OAuth 2.0 client id is required to make API calls to the
- *  BackupDR instance API of this ManagementServer. This is the value that
+ *  Backup and DR instance API of this ManagementServer. This is the value that
  *  should be provided in the 'aud' field of the OIDC ID Token (see openid
  *  specification
  *  https://openid.net/specs/openid-connect-core-1_0.html#IDToken).
@@ -5916,7 +5948,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *    @arg @c kGTLRBackupdr_NetworkConfig_PeeringMode_PrivateServiceAccess
  *        Connect using Private Service Access to the Management Server. Private
  *        services access provides an IP address range for multiple Google Cloud
- *        services, including Cloud BackupDR. (Value: "PRIVATE_SERVICE_ACCESS")
+ *        services, including Google Cloud Backup and DR. (Value:
+ *        "PRIVATE_SERVICE_ACCESS")
  */
 @property(nonatomic, copy, nullable) NSString *peeringMode;
 
@@ -6250,8 +6283,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  BackupDrPlanConfig has additional information about Backup and DR's Plan
- *  backup configuration.
+ *  BackupDrPlanConfig has additional information about Google Cloud Backup and
+ *  DR's Plan backup configuration.
  */
 @interface GTLRBackupdr_PlanConfig : GTLRObject
 
@@ -6902,7 +6935,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Required. The time zone to be used when interpreting the schedule. The value
  *  of this field must be a time zone name from the IANA tz database. See
  *  https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for the list of
- *  valid timezone names. For e.g., Europe/Paris.
+ *  valid timezone names. For example, Europe/Paris.
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
 
@@ -6996,8 +7029,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
- *  BackupDrTemplateConfig has additional information about Backup and DR's
- *  Template backup configuration.
+ *  Provides additional information about Google Cloud Backup and DR's Template
+ *  backup configuration.
  */
 @interface GTLRBackupdr_TemplateConfig : GTLRObject
 

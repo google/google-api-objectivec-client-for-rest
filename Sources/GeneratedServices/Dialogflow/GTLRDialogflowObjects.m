@@ -157,6 +157,11 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_Runni
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_Succeeded = @"SUCCEEDED";
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest.responseView
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewBasic = @"DETECT_INTENT_RESPONSE_VIEW_BASIC";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewFull = @"DETECT_INTENT_RESPONSE_VIEW_FULL";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewUnspecified = @"DETECT_INTENT_RESPONSE_VIEW_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse.responseType
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse_ResponseType_Final = @"FINAL";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse_ResponseType_Partial = @"PARTIAL";
@@ -3320,7 +3325,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest
-@dynamic outputAudioConfig, queryInput, queryParams;
+@dynamic outputAudioConfig, queryInput, queryParams, responseView;
 @end
 
 

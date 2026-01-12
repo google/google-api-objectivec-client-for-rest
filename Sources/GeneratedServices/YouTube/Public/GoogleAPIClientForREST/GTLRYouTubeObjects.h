@@ -13201,16 +13201,17 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  Output only. The ID that YouTube uses to uniquely identify the video.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
  *  Output only. Identifies what kind of resource this is. Value: the fixed
  *  string "youtube#videoStats".
  */
 @property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Output only. Identifier. The resource name for the `VideoStats` resource, in
- *  the format `videoStats/{video_stat}`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Output only. The VideoStatsSnippet object contains basic details about the
@@ -13223,9 +13224,6 @@ GTLR_DEPRECATED
  *  video.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_VideoStatsStatistics *statistics;
-
-/** Output only. The ID that YouTube uses to uniquely identify the video. */
-@property(nonatomic, copy, nullable) NSString *videoId;
 
 @end
 

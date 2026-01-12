@@ -158,6 +158,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_BoostedSpecContent;
 /**
+ *  The spec content type for OpenAPI spec. This enum is used for OpenAPI specs
+ *  ingested via APIGEE X Gateway.
+ *
+ *  Value: "GATEWAY_OPEN_API_SPEC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_GatewayOpenApiSpec;
+/**
  *  Unspecified spec content type. Defaults to spec content uploaded by the
  *  user.
  *
@@ -1634,6 +1641,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_BoostedSpecContent
  *        The spec content type for boosted spec. (Value:
  *        "BOOSTED_SPEC_CONTENT")
+ *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_GatewayOpenApiSpec
+ *        The spec content type for OpenAPI spec. This enum is used for OpenAPI
+ *        specs ingested via APIGEE X Gateway. (Value: "GATEWAY_OPEN_API_SPEC")
  *    @arg @c kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_SpecContentTypeUnspecified
  *        Unspecified spec content type. Defaults to spec content uploaded by
  *        the user. (Value: "SPEC_CONTENT_TYPE_UNSPECIFIED")

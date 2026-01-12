@@ -2638,6 +2638,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_T
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription.launchStatus
+
+/**
+ *  InfoType is generally available.
+ *
+ *  Value: "GENERAL_AVAILABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_GeneralAvailability;
+/**
+ *  Unspecified.
+ *
+ *  Value: "INFO_TYPE_LAUNCH_STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_InfoTypeLaunchStatusUnspecified;
+/**
+ *  InfoType is in private preview.
+ *
+ *  Value: "PRIVATE_PREVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_PrivatePreview;
+/**
+ *  InfoType is in public preview.
+ *
+ *  Value: "PUBLIC_PREVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_PublicPreview;
+
+// ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription.supportedBy
 
 /**
@@ -5477,10 +5505,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2SensitivityScore *sensitivityScore;
 
-/**
- *  Load an existing `StoredInfoType` resource for use in `InspectDataSource`.
- *  Not currently supported in `InspectContent`.
- */
+/** Loads an existing `StoredInfoType` resource. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StoredType *storedType;
 
 /**
@@ -8755,6 +8780,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** A sample that is a true positive for this infoType. */
 @property(nonatomic, copy, nullable) NSString *example;
+
+/**
+ *  The launch status of the infoType.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_GeneralAvailability
+ *        InfoType is generally available. (Value: "GENERAL_AVAILABILITY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_InfoTypeLaunchStatusUnspecified
+ *        Unspecified. (Value: "INFO_TYPE_LAUNCH_STATUS_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_PrivatePreview
+ *        InfoType is in private preview. (Value: "PRIVATE_PREVIEW")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_PublicPreview
+ *        InfoType is in public preview. (Value: "PUBLIC_PREVIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *launchStatus;
 
 /** Locations at which this feature can be used. May change over time. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LocationSupport *locationSupport;

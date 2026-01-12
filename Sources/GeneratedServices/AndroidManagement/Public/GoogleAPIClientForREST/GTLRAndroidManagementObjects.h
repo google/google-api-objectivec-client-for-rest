@@ -1517,13 +1517,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationReport_User
 // GTLRAndroidManagement_BackupServiceToggledEvent.backupServiceState
 
 /**
- *  Backup service is enabled
+ *  Backup service is disabled
  *
  *  Value: "BACKUP_SERVICE_DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceDisabled;
 /**
- *  Backup service is disabled
+ *  Backup service is enabled
  *
  *  Value: "BACKUP_SERVICE_ENABLED"
  */
@@ -7822,9 +7822,9 @@ GTLR_DEPRECATED
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceDisabled
- *        Backup service is enabled (Value: "BACKUP_SERVICE_DISABLED")
+ *        Backup service is disabled (Value: "BACKUP_SERVICE_DISABLED")
  *    @arg @c kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceEnabled
- *        Backup service is disabled (Value: "BACKUP_SERVICE_ENABLED")
+ *        Backup service is enabled (Value: "BACKUP_SERVICE_ENABLED")
  *    @arg @c kGTLRAndroidManagement_BackupServiceToggledEvent_BackupServiceState_BackupServiceStateUnspecified
  *        No value is set (Value: "BACKUP_SERVICE_STATE_UNSPECIFIED")
  */

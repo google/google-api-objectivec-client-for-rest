@@ -628,10 +628,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSnapshotsCreate : GTLRPubsubQuery
 
 /**
- *  Required. User-provided name for this snapshot. If the name is not provided
- *  in the request, the server will assign a random name for this snapshot on
- *  the same project as the subscription. Note that for REST API requests, you
- *  must specify a name. See the [resource name
+ *  Required. Identifier. User-provided name for this snapshot. If the name is
+ *  not provided in the request, the server will assign a random name for this
+ *  snapshot on the same project as the subscription. Note that for REST API
+ *  requests, you must specify a name. See the [resource name
  *  rules](https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
  *  Format is `projects/{project}/snapshots/{snap}`.
  */
@@ -658,10 +658,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  @param object The @c GTLRPubsub_CreateSnapshotRequest to include in the
  *    query.
- *  @param name Required. User-provided name for this snapshot. If the name is
- *    not provided in the request, the server will assign a random name for this
- *    snapshot on the same project as the subscription. Note that for REST API
- *    requests, you must specify a name. See the [resource name
+ *  @param name Required. Identifier. User-provided name for this snapshot. If
+ *    the name is not provided in the request, the server will assign a random
+ *    name for this snapshot on the same project as the subscription. Note that
+ *    for REST API requests, you must specify a name. See the [resource name
  *    rules](https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
  *    Format is `projects/{project}/snapshots/{snap}`.
  *
@@ -692,7 +692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSnapshotsDelete : GTLRPubsubQuery
 
 /**
- *  Required. The name of the snapshot to delete. Format is
+ *  Required. Identifier. The name of the snapshot to delete. Format is
  *  `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *snapshot;
@@ -710,8 +710,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  association with the old snapshot or its subscription, unless the same
  *  subscription is specified.
  *
- *  @param snapshot Required. The name of the snapshot to delete. Format is
- *    `projects/{project}/snapshots/{snap}`.
+ *  @param snapshot Required. Identifier. The name of the snapshot to delete.
+ *    Format is `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsDelete
  */
@@ -735,7 +735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSnapshotsGet : GTLRPubsubQuery
 
 /**
- *  Required. The name of the snapshot to get. Format is
+ *  Required. Identifier. The name of the snapshot to get. Format is
  *  `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *snapshot;
@@ -749,8 +749,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  set the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot.
  *
- *  @param snapshot Required. The name of the snapshot to get. Format is
- *    `projects/{project}/snapshots/{snap}`.
+ *  @param snapshot Required. Identifier. The name of the snapshot to get.
+ *    Format is `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsGet
  */
@@ -834,8 +834,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the project in which to list snapshots. Format is
- *  `projects/{project-id}`.
+ *  Required. Identifier. The name of the project in which to list snapshots.
+ *  Format is `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -848,8 +848,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot.
  *
- *  @param project Required. The name of the project in which to list snapshots.
- *    Format is `projects/{project-id}`.
+ *  @param project Required. Identifier. The name of the project in which to
+ *    list snapshots. Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsList
  *
@@ -1047,7 +1047,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSubscriptionsCreate : GTLRPubsubQuery
 
 /**
- *  Required. The name of the subscription. It must have the format
+ *  Required. Identifier. The name of the subscription. It must have the format
  *  `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
  *  start with a letter, and contain only letters (`[A-Za-z]`), numbers
  *  (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`),
@@ -1070,12 +1070,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  for REST API requests, you must specify a name in the request.
  *
  *  @param object The @c GTLRPubsub_Subscription to include in the query.
- *  @param name Required. The name of the subscription. It must have the format
- *    `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
- *    start with a letter, and contain only letters (`[A-Za-z]`), numbers
- *    (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`),
- *    plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters
- *    in length, and it must not start with `"goog"`.
+ *  @param name Required. Identifier. The name of the subscription. It must have
+ *    the format `"projects/{project}/subscriptions/{subscription}"`.
+ *    `{subscription}` must start with a letter, and contain only letters
+ *    (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods
+ *    (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between
+ *    3 and 255 characters in length, and it must not start with `"goog"`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsCreate
  */
@@ -1100,7 +1100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSubscriptionsDelete : GTLRPubsubQuery
 
 /**
- *  Required. The subscription to delete. Format is
+ *  Required. Identifier. The subscription to delete. Format is
  *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -1114,8 +1114,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  the same name, but the new one has no association with the old subscription
  *  or its topic unless the same topic is specified.
  *
- *  @param subscription Required. The subscription to delete. Format is
- *    `projects/{project}/subscriptions/{sub}`.
+ *  @param subscription Required. Identifier. The subscription to delete. Format
+ *    is `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsDelete
  */
@@ -1172,7 +1172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSubscriptionsGet : GTLRPubsubQuery
 
 /**
- *  Required. The name of the subscription to get. Format is
+ *  Required. Identifier. The name of the subscription to get. Format is
  *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -1182,8 +1182,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  Gets the configuration details of a subscription.
  *
- *  @param subscription Required. The name of the subscription to get. Format is
- *    `projects/{project}/subscriptions/{sub}`.
+ *  @param subscription Required. Identifier. The name of the subscription to
+ *    get. Format is `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsGet
  */
@@ -1263,8 +1263,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the project in which to list subscriptions. Format is
- *  `projects/{project-id}`.
+ *  Required. Identifier. The name of the project in which to list
+ *  subscriptions. Format is `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1273,8 +1273,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  Lists matching subscriptions.
  *
- *  @param project Required. The name of the project in which to list
- *    subscriptions. Format is `projects/{project-id}`.
+ *  @param project Required. Identifier. The name of the project in which to
+ *    list subscriptions. Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsList
  *
@@ -1384,7 +1384,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSubscriptionsPatch : GTLRPubsubQuery
 
 /**
- *  Required. The name of the subscription. It must have the format
+ *  Required. Identifier. The name of the subscription. It must have the format
  *  `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
  *  start with a letter, and contain only letters (`[A-Za-z]`), numbers
  *  (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`),
@@ -1402,12 +1402,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  @param object The @c GTLRPubsub_UpdateSubscriptionRequest to include in the
  *    query.
- *  @param name Required. The name of the subscription. It must have the format
- *    `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
- *    start with a letter, and contain only letters (`[A-Za-z]`), numbers
- *    (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`),
- *    plus (`+`) or percent signs (`%`). It must be between 3 and 255 characters
- *    in length, and it must not start with `"goog"`.
+ *  @param name Required. Identifier. The name of the subscription. It must have
+ *    the format `"projects/{project}/subscriptions/{subscription}"`.
+ *    `{subscription}` must start with a letter, and contain only letters
+ *    (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`), underscores (`_`), periods
+ *    (`.`), tildes (`~`), plus (`+`) or percent signs (`%`). It must be between
+ *    3 and 255 characters in length, and it must not start with `"goog"`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsPatch
  */
@@ -1588,7 +1588,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsTopicsCreate : GTLRPubsubQuery
 
 /**
- *  Required. The name of the topic. It must have the format
+ *  Required. Identifier. The name of the topic. It must have the format
  *  `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
  *  and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
  *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs
@@ -1604,12 +1604,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  (https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
  *
  *  @param object The @c GTLRPubsub_Topic to include in the query.
- *  @param name Required. The name of the topic. It must have the format
- *    `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
- *    and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
- *    underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
- *    signs (`%`). It must be between 3 and 255 characters in length, and it
- *    must not start with `"goog"`.
+ *  @param name Required. Identifier. The name of the topic. It must have the
+ *    format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a
+ *    letter, and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes
+ *    (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or
+ *    percent signs (`%`). It must be between 3 and 255 characters in length,
+ *    and it must not start with `"goog"`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsCreate
  */
@@ -1634,7 +1634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsTopicsDelete : GTLRPubsubQuery
 
 /**
- *  Required. Name of the topic to delete. Format is
+ *  Required. Identifier. Name of the topic to delete. Format is
  *  `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
@@ -1648,7 +1648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  or subscriptions. Existing subscriptions to this topic are not deleted, but
  *  their `topic` field is set to `_deleted-topic_`.
  *
- *  @param topic Required. Name of the topic to delete. Format is
+ *  @param topic Required. Identifier. Name of the topic to delete. Format is
  *    `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsDelete
@@ -1669,7 +1669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsTopicsGet : GTLRPubsubQuery
 
 /**
- *  Required. The name of the topic to get. Format is
+ *  Required. Identifier. The name of the topic to get. Format is
  *  `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
@@ -1679,7 +1679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  Gets the configuration of a topic.
  *
- *  @param topic Required. The name of the topic to get. Format is
+ *  @param topic Required. Identifier. The name of the topic to get. Format is
  *    `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsGet
@@ -1760,8 +1760,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The name of the project in which to list topics. Format is
- *  `projects/{project-id}`.
+ *  Required. Identifier. The name of the project in which to list topics.
+ *  Format is `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1770,8 +1770,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  Lists matching topics.
  *
- *  @param project Required. The name of the project in which to list topics.
- *    Format is `projects/{project-id}`.
+ *  @param project Required. Identifier. The name of the project in which to
+ *    list topics. Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsList
  *
@@ -1796,7 +1796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsTopicsPatch : GTLRPubsubQuery
 
 /**
- *  Required. The name of the topic. It must have the format
+ *  Required. Identifier. The name of the topic. It must have the format
  *  `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
  *  and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
  *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs
@@ -1812,12 +1812,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  mask. Note that certain properties of a topic are not modifiable.
  *
  *  @param object The @c GTLRPubsub_UpdateTopicRequest to include in the query.
- *  @param name Required. The name of the topic. It must have the format
- *    `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
- *    and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
- *    underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent
- *    signs (`%`). It must be between 3 and 255 characters in length, and it
- *    must not start with `"goog"`.
+ *  @param name Required. Identifier. The name of the topic. It must have the
+ *    format `"projects/{project}/topics/{topic}"`. `{topic}` must start with a
+ *    letter, and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes
+ *    (`-`), underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or
+ *    percent signs (`%`). It must be between 3 and 255 characters in length,
+ *    and it must not start with `"goog"`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsPatch
  */
@@ -1839,8 +1839,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsTopicsPublish : GTLRPubsubQuery
 
 /**
- *  Required. The messages in the request will be published on this topic.
- *  Format is `projects/{project}/topics/{topic}`.
+ *  Required. Identifier. The messages in the request will be published on this
+ *  topic. Format is `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
@@ -1851,8 +1851,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  does not exist.
  *
  *  @param object The @c GTLRPubsub_PublishRequest to include in the query.
- *  @param topic Required. The messages in the request will be published on this
- *    topic. Format is `projects/{project}/topics/{topic}`.
+ *  @param topic Required. Identifier. The messages in the request will be
+ *    published on this topic. Format is `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsPublish
  */

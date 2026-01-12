@@ -2272,6 +2272,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a ServingConfig. Note: The Google Cloud console works only with the
+ *  default serving config. Additional ServingConfigs can be created and managed
+ *  only via the API. A maximum of 100 ServingConfigs are allowed in an Engine,
+ *  otherwise a RESOURCE_EXHAUSTED error is returned.
+ *
+ *  Method: discoveryengine.projects.locations.collections.dataStores.servingConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of parent. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the ServingConfig, which will become the final
+ *  component of the ServingConfig's resource name. This value should be 4-63
+ *  characters, and valid characters are /a-zA-Z0-9+/.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfigId;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig.
+ *
+ *  Creates a ServingConfig. Note: The Google Cloud console works only with the
+ *  default serving config. Additional ServingConfigs can be created and managed
+ *  only via the API. A maximum of 100 ServingConfigs are allowed in an Engine,
+ *  otherwise a RESOURCE_EXHAUSTED error is returned.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig to include
+ *    in the query.
+ *  @param parent Required. Full resource name of parent. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsDataStoresServingConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
  *  not exist.
  *
@@ -5253,6 +5301,54 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a ServingConfig. Note: The Google Cloud console works only with the
+ *  default serving config. Additional ServingConfigs can be created and managed
+ *  only via the API. A maximum of 100 ServingConfigs are allowed in an Engine,
+ *  otherwise a RESOURCE_EXHAUSTED error is returned.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.servingConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of parent. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the ServingConfig, which will become the final
+ *  component of the ServingConfig's resource name. This value should be 4-63
+ *  characters, and valid characters are /a-zA-Z0-9+/.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfigId;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig.
+ *
+ *  Creates a ServingConfig. Note: The Google Cloud console works only with the
+ *  default serving config. Additional ServingConfigs can be created and managed
+ *  only via the API. A maximum of 100 ServingConfigs are allowed in an Engine,
+ *  otherwise a RESOURCE_EXHAUSTED error is returned.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig to include
+ *    in the query.
+ *  @param parent Required. Full resource name of parent. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesServingConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes a ServingConfig. Returns a NOT_FOUND error if the ServingConfig does
  *  not exist.
  *
@@ -6115,13 +6211,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Indicates which fields in the provided DataConnector to update. Supported
- *  field paths include: - refresh_interval - params - auto_run_disabled -
- *  action_config - action_config.action_params - action_config.service_name -
- *  destination_configs - blocking_reasons - sync_mode -
- *  incremental_sync_disabled - incremental_refresh_interval Note: Support for
- *  these fields may vary depending on the connector type. For example, not all
- *  connectors support `destination_configs`. If an unsupported or unknown field
- *  path is provided, the request will return an INVALID_ARGUMENT error.
+ *  field paths include: - `refresh_interval` - `params` - `auto_run_disabled` -
+ *  `action_config` - `action_config.action_params` -
+ *  `action_config.service_name` - `destination_configs` - `blocking_reasons` -
+ *  `sync_mode` - `incremental_sync_disabled` - `incremental_refresh_interval` -
+ *  `data_protection_policy` Note: Support for these fields may vary depending
+ *  on the connector type. For example, not all connectors support
+ *  `destination_configs`. If an unsupported or unknown field path is provided,
+ *  the request will return an INVALID_ARGUMENT error.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -8025,6 +8122,54 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AnswerQueryRequest *)object
                   servingConfig:(NSString *)servingConfig;
+
+@end
+
+/**
+ *  Creates a ServingConfig. Note: The Google Cloud console works only with the
+ *  default serving config. Additional ServingConfigs can be created and managed
+ *  only via the API. A maximum of 100 ServingConfigs are allowed in an Engine,
+ *  otherwise a RESOURCE_EXHAUSTED error is returned.
+ *
+ *  Method: discoveryengine.projects.locations.dataStores.servingConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsCreate : GTLRDiscoveryEngineQuery
+
+/**
+ *  Required. Full resource name of parent. Format:
+ *  `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Required. The ID to use for the ServingConfig, which will become the final
+ *  component of the ServingConfig's resource name. This value should be 4-63
+ *  characters, and valid characters are /a-zA-Z0-9+/.
+ */
+@property(nonatomic, copy, nullable) NSString *servingConfigId;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig.
+ *
+ *  Creates a ServingConfig. Note: The Google Cloud console works only with the
+ *  default serving config. Additional ServingConfigs can be created and managed
+ *  only via the API. A maximum of 100 ServingConfigs are allowed in an Engine,
+ *  otherwise a RESOURCE_EXHAUSTED error is returned.
+ *
+ *  @param object The @c
+ *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig to include
+ *    in the query.
+ *  @param parent Required. Full resource name of parent. Format:
+ *    `projects/{project}/locations/{location}/collections/{collection}/engines/{engine}`
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsDataStoresServingConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1ServingConfig *)object
+                         parent:(NSString *)parent;
 
 @end
 

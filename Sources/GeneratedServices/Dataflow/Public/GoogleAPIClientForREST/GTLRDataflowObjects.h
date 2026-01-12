@@ -6545,6 +6545,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @interface GTLRDataflow_RuntimeUpdatableParams : GTLRObject
 
 /**
+ *  Optional. The backlog threshold duration in seconds for autoscaling. Value
+ *  must be non-negative.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *acceptableBacklogDuration;
+
+/**
  *  The maximum number of workers to cap autoscaling at. This field is currently
  *  only supported for Streaming Engine jobs.
  *

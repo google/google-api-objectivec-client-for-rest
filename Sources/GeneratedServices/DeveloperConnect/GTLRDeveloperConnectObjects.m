@@ -475,7 +475,7 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 //
 
 @implementation GTLRDeveloperConnect_GitProxyConfig
-@dynamic enabled;
+@dynamic enabled, httpProxyBaseUri;
 @end
 
 

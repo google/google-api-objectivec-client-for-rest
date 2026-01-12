@@ -3490,7 +3490,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnor
  *  Warning message with additional details of the issue. Should always be a
  *  message from com.google.devtools.toolresults.v1.warnings
  */
-@property(nonatomic, strong, nullable) GTLRToolResults_Any *warning;
+@property(nonatomic, strong, nullable) GTLRToolResults_Any *warningMigration;
 
 @end
 

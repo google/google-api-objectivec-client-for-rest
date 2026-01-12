@@ -21,6 +21,10 @@ NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_Gce = @"G
 NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_Gke = @"GKE";
 NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_VertexAi = @"VERTEX_AI";
 
+// GTLRSecurityCommandCenter_ArtifactGuardPolicy.type
+NSString * const kGTLRSecurityCommandCenter_ArtifactGuardPolicy_Type_ArtifactGuardPolicyTypeUnspecified = @"ARTIFACT_GUARD_POLICY_TYPE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_ArtifactGuardPolicy_Type_Vulnerability = @"VULNERABILITY";
+
 // GTLRSecurityCommandCenter_AssetDiscoveryConfig.inclusionMode
 NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_Exclude = @"EXCLUDE";
 NSString * const kGTLRSecurityCommandCenter_AssetDiscoveryConfig_InclusionMode_IncludeOnly = @"INCLUDE_ONLY";
@@ -168,6 +172,11 @@ NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_Ena
 NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Enabled = @"ENABLED";
 NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_EnablementStateUnspecified = @"ENABLEMENT_STATE_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Inherited = @"INHERITED";
+
+// GTLRSecurityCommandCenter_File.fileLoadState
+NSString * const kGTLRSecurityCommandCenter_File_FileLoadState_FileLoadStateUnspecified = @"FILE_LOAD_STATE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_File_FileLoadState_LoadedByProcess = @"LOADED_BY_PROCESS";
+NSString * const kGTLRSecurityCommandCenter_File_FileLoadState_NotLoadedByProcess = @"NOT_LOADED_BY_PROCESS";
 
 // GTLRSecurityCommandCenter_FileOperation.type
 NSString * const kGTLRSecurityCommandCenter_FileOperation_Type_Execute = @"EXECUTE";
@@ -339,6 +348,10 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_D
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_Gke = @"GKE";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_VertexAi = @"VERTEX_AI";
 
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy.type
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy_Type_ArtifactGuardPolicyTypeUnspecified = @"ARTIFACT_GUARD_POLICY_TYPE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy_Type_Vulnerability = @"VULNERABILITY";
+
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure.state
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure_State_Calculated = @"CALCULATED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure_State_NotCalculated = @"NOT_CALCULATED";
@@ -440,6 +453,11 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataReten
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromCreation = @"EVENT_TYPE_MAX_TTL_FROM_CREATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification = @"EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
+
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File.fileLoadState
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File_FileLoadState_FileLoadStateUnspecified = @"FILE_LOAD_STATE_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File_FileLoadState_LoadedByProcess = @"LOADED_BY_PROCESS";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File_FileLoadState_NotLoadedByProcess = @"NOT_LOADED_BY_PROCESS";
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation.type
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation_Type_Execute = @"EXECUTE";
@@ -943,6 +961,13 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Role_Kind
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Role_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Role_Kind_Role = @"ROLE";
 
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus.validity
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityFailed = @"SECRET_VALIDITY_FAILED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityInvalid = @"SECRET_VALIDITY_INVALID";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityUnspecified = @"SECRET_VALIDITY_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityUnsupported = @"SECRET_VALIDITY_UNSUPPORTED";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityValid = @"SECRET_VALIDITY_VALID";
+
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping.highSensitivityMapping
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping_HighSensitivityMapping_High = @"HIGH";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping_HighSensitivityMapping_Low = @"LOW";
@@ -1355,6 +1380,13 @@ NSString * const kGTLRSecurityCommandCenter_Role_Kind_ClusterRole = @"CLUSTER_RO
 NSString * const kGTLRSecurityCommandCenter_Role_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_Role_Kind_Role     = @"ROLE";
 
+// GTLRSecurityCommandCenter_SecretStatus.validity
+NSString * const kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityFailed = @"SECRET_VALIDITY_FAILED";
+NSString * const kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityInvalid = @"SECRET_VALIDITY_INVALID";
+NSString * const kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityUnspecified = @"SECRET_VALIDITY_UNSPECIFIED";
+NSString * const kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityUnsupported = @"SECRET_VALIDITY_UNSUPPORTED";
+NSString * const kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityValid = @"SECRET_VALIDITY_VALID";
+
 // GTLRSecurityCommandCenter_SensitivityScore.score
 NSString * const kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityHigh = @"SENSITIVITY_HIGH";
 NSString * const kGTLRSecurityCommandCenter_SensitivityScore_Score_SensitivityLow = @"SENSITIVITY_LOW";
@@ -1489,6 +1521,34 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 @implementation GTLRSecurityCommandCenter_Application
 @dynamic baseUri, fullUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ArtifactGuardPolicies
+//
+
+@implementation GTLRSecurityCommandCenter_ArtifactGuardPolicies
+@dynamic failingPolicies, resourceId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failingPolicies" : [GTLRSecurityCommandCenter_ArtifactGuardPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_ArtifactGuardPolicy
+//
+
+@implementation GTLRSecurityCommandCenter_ArtifactGuardPolicy
+@dynamic failureReason, policyId, type;
 @end
 
 
@@ -2461,8 +2521,8 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_File
-@dynamic contents, diskPath, hashedSize, operations, partiallyHashed, path,
-         sha256, size;
+@dynamic contents, diskPath, fileLoadState, hashedSize, operations,
+         partiallyHashed, path, sha256, size;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2490,18 +2550,18 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_Finding
-@dynamic access, affectedResources, aiModel, application, attackExposure,
-         backupDisasterRecovery, canonicalName, category, chokepoint,
-         cloudArmor, cloudDlpDataProfile, cloudDlpInspection, complianceDetails,
-         compliances, connections, contacts, containers, createTime,
-         dataAccessEvents, database, dataFlowEvents,
+@dynamic access, affectedResources, aiModel, application, artifactGuardPolicies,
+         attackExposure, backupDisasterRecovery, canonicalName, category,
+         chokepoint, cloudArmor, cloudDlpDataProfile, cloudDlpInspection,
+         complianceDetails, compliances, connections, contacts, containers,
+         createTime, dataAccessEvents, database, dataFlowEvents,
          dataRetentionDeletionEvents, descriptionProperty, disk, eventTime,
          exfiltration, externalSystems, externalUri, files, findingClass,
          groupMemberships, iamBindings, indicator, ipRules, job, kernelRootkit,
          kubernetes, loadBalancers, logEntries, mitreAttack, moduleName, mute,
          muteInfo, muteInitiator, muteUpdateTime, name, networks, nextSteps,
          notebook, orgPolicies, parent, parentDisplayName, processes,
-         resourceName, securityMarks, securityPosture, severity,
+         resourceName, secret, securityMarks, securityPosture, severity,
          sourceProperties, state, toxicCombination, vertexAi, vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -3161,6 +3221,34 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicies
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicies
+@dynamic failingPolicies, resourceId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failingPolicies" : [GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy
+@dynamic failureReason, policyId, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Attack
 //
 
@@ -3813,8 +3901,8 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File
-@dynamic contents, diskPath, hashedSize, operations, partiallyHashed, path,
-         sha256, size;
+@dynamic contents, diskPath, fileLoadState, hashedSize, operations,
+         partiallyHashed, path, sha256, size;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3842,18 +3930,18 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding
-@dynamic access, affectedResources, aiModel, application, attackExposure,
-         backupDisasterRecovery, canonicalName, category, chokepoint,
-         cloudArmor, cloudDlpDataProfile, cloudDlpInspection, complianceDetails,
-         compliances, connections, contacts, containers, createTime,
-         cryptoKeyName, dataAccessEvents, database, dataFlowEvents,
+@dynamic access, affectedResources, aiModel, application, artifactGuardPolicies,
+         attackExposure, backupDisasterRecovery, canonicalName, category,
+         chokepoint, cloudArmor, cloudDlpDataProfile, cloudDlpInspection,
+         complianceDetails, compliances, connections, contacts, containers,
+         createTime, cryptoKeyName, dataAccessEvents, database, dataFlowEvents,
          dataRetentionDeletionEvents, descriptionProperty, disk, eventTime,
          exfiltration, externalSystems, externalUri, files, findingClass,
          groupMemberships, iamBindings, indicator, ipRules, job, kernelRootkit,
          kubernetes, loadBalancers, logEntries, mitreAttack, moduleName, mute,
          muteInfo, muteInitiator, muteUpdateTime, name, networks, nextSteps,
          notebook, orgPolicies, parent, parentDisplayName, processes,
-         resourceName, securityMarks, securityPosture, severity,
+         resourceName, secret, securityMarks, securityPosture, severity,
          sourceProperties, state, toxicCombination, vertexAi, vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
@@ -4813,6 +4901,46 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
   return NO;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Secret
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Secret
+@dynamic environmentVariable, filePath, status, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretEnvironmentVariable
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretEnvironmentVariable
+@dynamic key;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretFilePath
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretFilePath
+@dynamic path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus
+@dynamic lastUpdatedTime, validity;
 @end
 
 
@@ -6102,6 +6230,46 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_RunAssetDiscoveryRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_Secret
+//
+
+@implementation GTLRSecurityCommandCenter_Secret
+@dynamic environmentVariable, filePath, status, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_SecretEnvironmentVariable
+//
+
+@implementation GTLRSecurityCommandCenter_SecretEnvironmentVariable
+@dynamic key;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_SecretFilePath
+//
+
+@implementation GTLRSecurityCommandCenter_SecretFilePath
+@dynamic path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_SecretStatus
+//
+
+@implementation GTLRSecurityCommandCenter_SecretStatus
+@dynamic lastUpdatedTime, validity;
 @end
 
 

@@ -255,6 +255,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_SchemaMismat
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_StateUnspecified;
+/**
+ *  Cannot write to the BigQuery table because the table is not in the same
+ *  location as where Vertex AI models used in `message_transform`s are
+ *  deployed.
+ *
+ *  Value: "VERTEX_AI_LOCATION_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_VertexAiLocationRestriction;
 
 // ----------------------------------------------------------------------------
 // GTLRPubsub_CloudStorage.state
@@ -345,6 +353,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_SchemaMi
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_StateUnspecified;
+/**
+ *  Cannot write to the Cloud Storage bucket because the bucket is not in the
+ *  same location as where Vertex AI models used in `message_transform`s are
+ *  deployed.
+ *
+ *  Value: "VERTEX_AI_LOCATION_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorageConfig_State_VertexAiLocationRestriction;
 
 // ----------------------------------------------------------------------------
 // GTLRPubsub_ConfluentCloud.state
@@ -865,6 +881,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *        "SCHEMA_MISMATCH")
  *    @arg @c kGTLRPubsub_BigQueryConfig_State_StateUnspecified Default value.
  *        This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_BigQueryConfig_State_VertexAiLocationRestriction
+ *        Cannot write to the BigQuery table because the table is not in the
+ *        same location as where Vertex AI models used in `message_transform`s
+ *        are deployed. (Value: "VERTEX_AI_LOCATION_RESTRICTION")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1157,6 +1177,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *        topic schema and subscription settings. (Value: "SCHEMA_MISMATCH")
  *    @arg @c kGTLRPubsub_CloudStorageConfig_State_StateUnspecified Default
  *        value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_CloudStorageConfig_State_VertexAiLocationRestriction
+ *        Cannot write to the Cloud Storage bucket because the bucket is not in
+ *        the same location as where Vertex AI models used in
+ *        `message_transform`s are deployed. (Value:
+ *        "VERTEX_AI_LOCATION_RESTRICTION")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -1250,10 +1275,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, strong, nullable) GTLRPubsub_CreateSnapshotRequest_Labels *labels;
 
 /**
- *  Required. The subscription whose backlog the snapshot retains. Specifically,
- *  the created snapshot is guaranteed to retain: (a) The existing backlog on
- *  the subscription. More precisely, this is defined as the messages in the
- *  subscription's backlog that are unacknowledged upon the successful
+ *  Required. Identifier. The subscription whose backlog the snapshot retains.
+ *  Specifically, the created snapshot is guaranteed to retain: (a) The existing
+ *  backlog on the subscription. More precisely, this is defined as the messages
+ *  in the subscription's backlog that are unacknowledged upon the successful
  *  completion of the `CreateSnapshot` request; as well as: (b) Any messages
  *  published to the subscription's topic following the successful completion of
  *  the CreateSnapshot request. Format is
@@ -2421,7 +2446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 /**
  *  Output only. Information about the associated Analytics Hub subscription.
- *  Only set if the subscritpion is created by Analytics Hub.
+ *  Only set if the subscription is created by Analytics Hub.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_AnalyticsHubSubscriptionInfo *analyticsHubSubscriptionInfo;
 
@@ -2524,7 +2549,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, strong, nullable) NSArray<GTLRPubsub_MessageTransform *> *messageTransforms;
 
 /**
- *  Required. The name of the subscription. It must have the format
+ *  Required. Identifier. The name of the subscription. It must have the format
  *  `"projects/{project}/subscriptions/{subscription}"`. `{subscription}` must
  *  start with a letter, and contain only letters (`[A-Za-z]`), numbers
  *  (`[0-9]`), dashes (`-`), underscores (`_`), periods (`.`), tildes (`~`),
@@ -2584,9 +2609,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, strong, nullable) GTLRPubsub_Subscription_Tags *tags;
 
 /**
- *  Required. The name of the topic from which this subscription is receiving
- *  messages. Format is `projects/{project}/topics/{topic}`. The value of this
- *  field will be `_deleted-topic_` if the topic has been deleted.
+ *  Required. Identifier. The name of the topic from which this subscription is
+ *  receiving messages. Format is `projects/{project}/topics/{topic}`. The value
+ *  of this field will be `_deleted-topic_` if the topic has been deleted.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
@@ -2726,7 +2751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 @property(nonatomic, strong, nullable) NSArray<GTLRPubsub_MessageTransform *> *messageTransforms;
 
 /**
- *  Required. The name of the topic. It must have the format
+ *  Required. Identifier. The name of the topic. It must have the format
  *  `"projects/{project}/topics/{topic}"`. `{topic}` must start with a letter,
  *  and contain only letters (`[A-Za-z]`), numbers (`[0-9]`), dashes (`-`),
  *  underscores (`_`), periods (`.`), tildes (`~`), plus (`+`) or percent signs

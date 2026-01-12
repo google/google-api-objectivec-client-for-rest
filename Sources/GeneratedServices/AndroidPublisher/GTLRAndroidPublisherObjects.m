@@ -352,6 +352,13 @@ NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreas
 NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeOptOut = @"PRICE_INCREASE_TYPE_OPT_OUT";
 NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeUnspecified = @"PRICE_INCREASE_TYPE_UNSPECIFIED";
 
+// GTLRAndroidPublisher_RegionalProductAgeRatingInfo.productAgeRatingTier
+NSString * const kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierEighteenAndAbove = @"PRODUCT_AGE_RATING_TIER_EIGHTEEN_AND_ABOVE";
+NSString * const kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierEveryone = @"PRODUCT_AGE_RATING_TIER_EVERYONE";
+NSString * const kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierSixteenAndAbove = @"PRODUCT_AGE_RATING_TIER_SIXTEEN_AND_ABOVE";
+NSString * const kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierThirteenAndAbove = @"PRODUCT_AGE_RATING_TIER_THIRTEEN_AND_ABOVE";
+NSString * const kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierUnknown = @"PRODUCT_AGE_RATING_TIER_UNKNOWN";
+
 // GTLRAndroidPublisher_RegionalTaxConfig.streamingTaxType
 NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoAudioMultiChannel = @"STREAMING_TAX_TYPE_TELCO_AUDIO_MULTI_CHANNEL";
 NSString * const kGTLRAndroidPublisher_RegionalTaxConfig_StreamingTaxType_StreamingTaxTypeTelcoAudioRental = @"STREAMING_TAX_TYPE_TELCO_AUDIO_RENTAL";
@@ -2755,7 +2762,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_ManagedProductTaxAndComplianceSettings
 @dynamic eeaWithdrawalRightType, isTokenizedDigitalAsset,
-         productTaxCategoryCode, taxRateInfoByRegionCode;
+         productTaxCategoryCode, regionalProductAgeRatingInfos,
+         taxRateInfoByRegionCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionalProductAgeRatingInfos" : [GTLRAndroidPublisher_RegionalProductAgeRatingInfo class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3106,10 +3122,12 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_OneTimeProductTaxAndComplianceSettings
-@dynamic isTokenizedDigitalAsset, productTaxCategoryCode, regionalTaxConfigs;
+@dynamic isTokenizedDigitalAsset, productTaxCategoryCode,
+         regionalProductAgeRatingInfos, regionalTaxConfigs;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"regionalProductAgeRatingInfos" : [GTLRAndroidPublisher_RegionalProductAgeRatingInfo class],
     @"regionalTaxConfigs" : [GTLRAndroidPublisher_RegionalTaxConfig class]
   };
   return map;
@@ -3474,7 +3492,7 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_ProrationPeriodDetails
-@dynamic linkedOrderId, originalOfferPhase;
+@dynamic originalOfferPhase;
 @end
 
 
@@ -3557,6 +3575,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_RegionalPriceMigrationConfig
 @dynamic oldestAllowedPriceVersionTime, priceIncreaseType, regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_RegionalProductAgeRatingInfo
+//
+
+@implementation GTLRAndroidPublisher_RegionalProductAgeRatingInfo
+@dynamic productAgeRatingTier, regionCode;
 @end
 
 
@@ -4230,7 +4258,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_SubscriptionTaxAndComplianceSettings
 @dynamic eeaWithdrawalRightType, isTokenizedDigitalAsset,
-         productTaxCategoryCode, taxRateInfoByRegionCode;
+         productTaxCategoryCode, regionalProductAgeRatingInfos,
+         taxRateInfoByRegionCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionalProductAgeRatingInfos" : [GTLRAndroidPublisher_RegionalProductAgeRatingInfo class]
+  };
+  return map;
+}
+
 @end
 
 

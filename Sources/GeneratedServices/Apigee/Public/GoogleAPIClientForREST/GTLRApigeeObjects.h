@@ -33,6 +33,9 @@
 @class GTLRApigee_GoogleCloudApigeeV1ApiDebugSession;
 @class GTLRApigee_GoogleCloudApigeeV1ApiDoc;
 @class GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation;
+@class GTLRApigee_GoogleCloudApigeeV1ApimServiceExtension;
+@class GTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionExtension;
+@class GTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionNetworkConfig;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProduct;
 @class GTLRApigee_GoogleCloudApigeeV1APIProductAssociation;
 @class GTLRApigee_GoogleCloudApigeeV1ApiProductRef;
@@ -44,8 +47,11 @@
 @class GTLRApigee_GoogleCloudApigeeV1AppGroup;
 @class GTLRApigee_GoogleCloudApigeeV1AppGroupApp;
 @class GTLRApigee_GoogleCloudApigeeV1AppGroupAppKey;
+@class GTLRApigee_GoogleCloudApigeeV1AppGroupBalanceWallet;
+@class GTLRApigee_GoogleCloudApigeeV1AppGroupSubscription;
 @class GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment;
 @class GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment_Labels;
+@class GTLRApigee_GoogleCloudApigeeV1AsyncApiDocumentation;
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQuery;
 @class GTLRApigee_GoogleCloudApigeeV1AsyncQueryResult;
 @class GTLRApigee_GoogleCloudApigeeV1Attribute;
@@ -330,6 +336,86 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfi
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AnalyticsConfig_State_Enabling;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1ApimServiceExtension.state
+
+/**
+ *  Resource is provisioned and ready to use.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtension_State_Active;
+/**
+ *  Resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtension_State_Creating;
+/**
+ *  The resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtension_State_Deleting;
+/**
+ *  Resource is in an unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtension_State_StateUnspecified;
+/**
+ *  The resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtension_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionExtension.supportedEvents
+
+/**
+ *  Request body event.
+ *
+ *  Value: "REQUEST_BODY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionExtension_SupportedEvents_RequestBody;
+/**
+ *  Request headers event.
+ *
+ *  Value: "REQUEST_HEADERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionExtension_SupportedEvents_RequestHeaders;
+/**
+ *  Request trailers event.
+ *
+ *  Value: "REQUEST_TRAILERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionExtension_SupportedEvents_RequestTrailers;
+/**
+ *  Response body event.
+ *
+ *  Value: "RESPONSE_BODY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionExtension_SupportedEvents_ResponseBody;
+/**
+ *  Response headers event.
+ *
+ *  Value: "RESPONSE_HEADERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionExtension_SupportedEvents_ResponseHeaders;
+/**
+ *  Response trailers event.
+ *
+ *  Value: "RESPONSE_TRAILERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionExtension_SupportedEvents_ResponseTrailers;
+/**
+ *  Unspecified event.
+ *
+ *  Value: "SUPPORTED_EVENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionExtension_SupportedEvents_SupportedEventUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1ApiProduct.quotaCounterScope
 
 /**
@@ -392,6 +478,30 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProxy_ApiPr
  *  Value: "PROGRAMMABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1ApiProxy_ApiProxyType_Programmable;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig.billingType
+
+/**
+ *  The default/unset value.
+ *
+ *  Value: "BILLING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig_BillingType_BillingTypeUnspecified;
+/**
+ *  AppGroup does not maintain an account balance. The API provider bills the
+ *  AppGroup for API usage.
+ *
+ *  Value: "POSTPAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig_BillingType_Postpaid;
+/**
+ *  AppGroup pays in advance for the use of APIs and the charged amount is
+ *  deducted from their account balance.
+ *
+ *  Value: "PREPAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig_BillingType_Prepaid;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1BatchComputeSecurityAssessmentResultsRequestResourceArrayResource.type
@@ -686,6 +796,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1DnsZone_State_
  *  Value: "ACCEPTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Accepted;
+/**
+ *  The connection has been accepted by the PSC producer, but it will only serve
+ *  capacity limited traffic. The producer needs to take further actions to
+ *  increase capacity for this connection.
+ *
+ *  Value: "ACCEPTED_LIMITED_CAPACITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_AcceptedLimitedCapacity;
 /**
  *  The connection has been closed by the PSC producer and will not serve
  *  traffic going forward.
@@ -2551,6 +2669,22 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Request for AdjustAppGroupBalance.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AdjustAppGroupBalanceRequest : GTLRObject
+
+/**
+ *  Required. * A positive value of `adjustment` means that that the API
+ *  provider wants to adjust the balance for an under-charged AppGroup i.e. the
+ *  balance of the AppGroup will decrease. * A negative value of `adjustment` is
+ *  not supported. Use credit balance API instead.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeMoney *adjustment;
+
+@end
+
+
+/**
  *  Request for AdjustDeveloperBalance.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1AdjustDeveloperBalanceRequest : GTLRObject
@@ -2922,6 +3056,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ApiDocDocumentation : GTLRObject
 
+/** Optional. AsyncAPI Specification documentation. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1AsyncApiDocumentation *asyncApiDocumentation;
+
 /** Optional. GraphQL documentation. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1GraphqlDocumentation *graphqlDocumentation;
 
@@ -2974,6 +3111,138 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Status of the operation. */
 @property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  APIM Service Extension is a resource under an Apigee Organization that is
+ *  used to create APIM Service Extension to route traffic to existing X
+ *  instances.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApimServiceExtension : GTLRObject
+
+/** Output only. The time that this resource was created on the server. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Required. Name of the proxy deployed in the Apigee X instance. */
+@property(nonatomic, copy, nullable) NSString *extensionProcessor;
+
+/**
+ *  Optional. List of extensions that are part of the service extension. Refer
+ *  to https://cloud.google.com/service-extensions/docs/quotas#limits for any
+ *  limits.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionExtension *> *extensions;
+
+/**
+ *  Required. Name of the Google Cloud LB forwarding rule. Format:
+ *  projects/{project}/regions/{region}/forwardingRules/{forwarding_rule}
+ *  projects/{project}/global/forwardingRules/{forwarding_rule}
+ */
+@property(nonatomic, copy, nullable) NSString *lbForwardingRule;
+
+/**
+ *  Identifier. unique name of the APIM service extension. The name must conform
+ *  with RFC-1034, is restricted to lower-cased letters, numbers and hyphens,
+ *  and can have a maximum length of 63 characters. Additionally, the first
+ *  character must be a letter and the last a letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The network where the forwarding rule is created. Format:
+ *  projects/{project}/global/networks/{network}
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Required. List of network configurations for the APIM service extension.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionNetworkConfig *> *networkConfigs;
+
+/**
+ *  Output only. State of the APIM service extension. Values other than `ACTIVE`
+ *  mean the resource is not ready to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtension_State_Active
+ *        Resource is provisioned and ready to use. (Value: "ACTIVE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtension_State_Creating
+ *        Resource is being created. (Value: "CREATING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtension_State_Deleting
+ *        The resource is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtension_State_StateUnspecified
+ *        Resource is in an unspecified state. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1ApimServiceExtension_State_Updating
+ *        The resource is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. The time that this resource was updated on the server. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Extension configuration for Apigee extension processor service extension.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionExtension : GTLRObject
+
+/**
+ *  Optional. Whether this request should fail open.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failOpen;
+
+/**
+ *  Required. One of the hostnames of Apigee EnvGroup where the proxy is
+ *  deployed. This hostname (i.e FDQN) will be used to route traffic from the
+ *  specified forwarding rule to the environment in Apigee X instance where the
+ *  proxy is deployed for handling extension traffic. Format: ^([a-zA-Z0-9.
+ *  _-])+$
+ */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/**
+ *  Optional. Match Condition for CEL expression. Refer to
+ *  https://cloud.google.com/service-extensions/docs/cel-matcher-language-reference
+ *  for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *matchCondition;
+
+/**
+ *  Required. Name of the `LbTrafficExtension` resource. The name must conform
+ *  with RFC-1034, is restricted to lower-cased letters, numbers and hyphens,
+ *  and can have a maximum length of 63 characters. Additionally, the first
+ *  character must be a letter and the last a letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Supported events for the Service Extension. If not specified, all
+ *  events are supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedEvents;
+
+@end
+
+
+/**
+ *  Network configuration for the APIM service extension.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ApimServiceExtensionNetworkConfig : GTLRObject
+
+/** Required. The region for the PSC NEG. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Required. The subnet for the PSC NEG. Format:
+ *  projects/{project}/regions/{region}/subnetworks/{subnet}
+ */
+@property(nonatomic, copy, nullable) NSString *subnet;
 
 @end
 
@@ -3639,6 +3908,9 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** app group name displayed in the UI */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
+/** Optional. Email of the AppGroup. */
+@property(nonatomic, copy, nullable) NSString *email;
+
 /**
  *  Output only. Modified time as milliseconds since epoch.
  *
@@ -3798,6 +4070,111 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  AppGroupBalance for the AppGroup.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AppGroupBalance : GTLRObject
+
+/**
+ *  Output only. List of all wallets. Each individual wallet stores the account
+ *  balance for a particular currency.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1AppGroupBalanceWallet *> *wallets;
+
+@end
+
+
+/**
+ *  Wallet used to manage an account balance for a particular currency.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AppGroupBalanceWallet : GTLRObject
+
+/** Current remaining balance of the AppGroup for a particular currency. */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeMoney *balance;
+
+/**
+ *  Output only. Time at which the AppGroup last added credit to the account in
+ *  milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastCreditTime;
+
+@end
+
+
+/**
+ *  Monetization configuration for the AppGroup.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig : GTLRObject
+
+/**
+ *  Required. Billing type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig_BillingType_BillingTypeUnspecified
+ *        The default/unset value. (Value: "BILLING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig_BillingType_Postpaid
+ *        AppGroup does not maintain an account balance. The API provider bills
+ *        the AppGroup for API usage. (Value: "POSTPAID")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig_BillingType_Prepaid
+ *        AppGroup pays in advance for the use of APIs and the charged amount is
+ *        deducted from their account balance. (Value: "PREPAID")
+ */
+@property(nonatomic, copy, nullable) NSString *billingType;
+
+@end
+
+
+/**
+ *  AppGroup Subscription details.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AppGroupSubscription : GTLRObject
+
+/**
+ *  Required. Name of the API product for which the appgroup is purchasing a
+ *  subscription.
+ */
+@property(nonatomic, copy, nullable) NSString *apiproduct;
+
+/**
+ *  Output only. Time when the API product subscription was created in
+ *  milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *createdAt;
+
+/**
+ *  Output only. Time when the API product subscription ends in milliseconds
+ *  since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *endTime;
+
+/**
+ *  Output only. Time when the API product subscription was last modified in
+ *  milliseconds since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lastModifiedAt;
+
+/** Output only. Name of the API product subscription. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Time when the API product subscription starts in milliseconds
+ *  since epoch.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTime;
+
+@end
+
+
+/**
  *  Archive Deployment information.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment : GTLRObject
@@ -3867,6 +4244,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *        fetch them all at once.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ArchiveDeployment_Labels : GTLRObject
+@end
+
+
+/**
+ *  AsyncAPI Specification documentation for a catalog item.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1AsyncApiDocumentation : GTLRObject
+
+/**
+ *  Required. The documentation file contents for the AsyncAPI Specification.
+ *  JSON and YAML file formats are supported.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1DocumentationFile *spec;
+
 @end
 
 
@@ -4562,6 +4953,31 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /** Status of the credential. Valid values include `approved` or `revoked`. */
 @property(nonatomic, copy, nullable) NSString *status;
+
+@end
+
+
+/**
+ *  Request for CreditAppGroupBalance.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1CreditAppGroupBalanceRequest : GTLRObject
+
+/**
+ *  Required. The amount of money to be credited. The wallet corresponding to
+ *  the currency specified within `transaction_amount` will be updated. For
+ *  example, if you specified `currency_code` within `transaction_amount` as
+ *  "USD", then the amount would be added to the wallet which has the "USD"
+ *  currency or if no such wallet exists, a new wallet will be created with the
+ *  "USD" currency.
+ */
+@property(nonatomic, strong, nullable) GTLRApigee_GoogleTypeMoney *transactionAmount;
+
+/**
+ *  Required. Each transaction_id uniquely identifies a credit balance request.
+ *  If multiple requests are received with the same transaction_id, only one of
+ *  them will be considered.
+ */
+@property(nonatomic, copy, nullable) NSString *transactionId;
 
 @end
 
@@ -5846,6 +6262,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Accepted
  *        The connection has been accepted by the PSC producer. (Value:
  *        "ACCEPTED")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_AcceptedLimitedCapacity
+ *        The connection has been accepted by the PSC producer, but it will only
+ *        serve capacity limited traffic. The producer needs to take further
+ *        actions to increase capacity for this connection. (Value:
+ *        "ACCEPTED_LIMITED_CAPACITY")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1EndpointAttachment_ConnectionState_Closed
  *        The connection has been closed by the PSC producer and will not serve
  *        traffic going forward. (Value: "CLOSED")
@@ -6437,6 +6858,13 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
+@end
+
+
+/**
+ *  Request for ExpireAppGroupSubscription.
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ExpireAppGroupSubscriptionRequest : GTLRObject
 @end
 
 
@@ -7351,6 +7779,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
+ *  Response for list service extensions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "apimServiceExtensions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListApimServiceExtensionsResponse : GTLRCollectionObject
+
+/**
+ *  service extension in a given organization.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1ApimServiceExtension *> *apimServiceExtensions;
+
+/**
+ *  Page token that you can include in an `ListApimServiceExtensions` request to
+ *  retrieve the next page. If omitted, no subsequent pages exist.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  GTLRApigee_GoogleCloudApigeeV1ListApiProductsResponse
  */
 @interface GTLRApigee_GoogleCloudApigeeV1ListApiProductsResponse : GTLRObject
@@ -7429,6 +7884,33 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
+ *  Response for ListAppGroupSubscriptions.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "appGroupSubscriptions" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRApigee_GoogleCloudApigeeV1ListAppGroupSubscriptionsResponse : GTLRCollectionObject
+
+/**
+ *  The list of subscriptions for an AppGroup.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1AppGroupSubscription *> *appGroupSubscriptions;
+
+/**
+ *  Value that can be sent as `pageToken` to retrieve the next page of content.
+ *  If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 
@@ -8943,13 +9425,24 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *billingType;
 
 /**
- *  Output only. Base64-encoded public certificate for the root CA of the Apigee
- *  organization. Valid only when [RuntimeType](#RuntimeType) is `CLOUD`.
+ *  Output only. Deprecated: Use `ca_certificates` instead. Base64-encoded
+ *  public certificate for the root CA of the Apigee organization. Valid only
+ *  when [RuntimeType](#RuntimeType) is `CLOUD`.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
-@property(nonatomic, copy, nullable) NSString *caCertificate;
+@property(nonatomic, copy, nullable) NSString *caCertificate GTLR_DEPRECATED;
+
+/**
+ *  Output only. Base64-encoded public certificates for the root CA of the
+ *  Apigee organization. Valid only when [RuntimeType](#RuntimeType) is `CLOUD`.
+ *  Multiple certificates are used to support certificate rotation.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *caCertificates;
 
 /**
  *  Optional. Cloud KMS key name used for encrypting control plane data that is

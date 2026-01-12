@@ -1488,11 +1488,12 @@ NSString * const kGTLRCloudMachineLearningEngine_GoogleIamV1AuditLogConfig_LogTy
 //
 
 @implementation GTLRCloudMachineLearningEngine_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudMachineLearningEngine_GoogleLongrunningOperation class]
+    @"operations" : [GTLRCloudMachineLearningEngine_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

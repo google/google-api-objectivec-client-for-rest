@@ -3324,6 +3324,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @interface GTLRNetAppFiles_LocationMetadata : GTLRObject
 
 /**
+ *  Output only. Indicates if the location has ONTAP Proxy support.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasOntapProxy;
+
+/**
  *  Output only. Indicates if the location has VCP support.
  *
  *  Uses NSNumber of boolValue.

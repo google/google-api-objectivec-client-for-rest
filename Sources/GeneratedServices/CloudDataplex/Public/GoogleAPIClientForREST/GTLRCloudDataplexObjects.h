@@ -3876,73 +3876,74 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  Represents a Data Asset resource that can be packaged and shared via a Data
- *  Product.
+ *  Represents a data asset resource that can be packaged and shared via a data
+ *  product.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset : GTLRObject
 
 /**
- *  Optional. Access groups configurations for this Data Asset. The key is
- *  DataProduct.AccessGroup.id and the value is AccessGroupConfig. Example: key:
- *  "analyst" value: { AccessGroupConfig : { iam_roles :
- *  "roles/bigquery.dataViewer" } } Currently, at most one IAM role is allowed
- *  per access group. For providing multiple predefined IAM roles, wrap them in
- *  a custom IAM role as per
+ *  Optional. Access groups configurations for this data asset.The key is
+ *  DataProduct.AccessGroup.id and the value is AccessGroupConfig.Example: {
+ *  "analyst": { "iamRoles": ["roles/bigquery.dataViewer"] } } Currently, at
+ *  most one IAM role is allowed per access group. For providing multiple
+ *  predefined IAM roles, wrap them in a custom IAM role as per
  *  https://cloud.google.com/iam/docs/creating-custom-roles.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_AccessGroupConfigs *accessGroupConfigs;
 
-/** Output only. The time at which the Data Asset was created. */
+/** Output only. The time at which the data asset was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  This checksum is computed by the server based on the value of other fields,
- *  and may be sent on update and delete requests to ensure the client has an
- *  up-to-date value before proceeding.
+ *  Optional. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** Optional. User-defined labels for the Data Asset. */
+/**
+ *  Optional. User-defined labels for the data asset.Example: { "environment":
+ *  "production", "billing": "marketing-department" }
+ */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_Labels *labels;
 
 /**
- *  Identifier. Resource name of the Data Asset. Format:
+ *  Identifier. Resource name of the data asset. Format:
  *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}/dataAssets/{data_asset_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Required. Immutable. Full resource name of the cloud resource represented by
- *  the Data Asset. This must follow
+ *  the data asset. This must follow
  *  https://cloud.google.com/iam/docs/full-resource-names. Example:
  *  //bigquery.googleapis.com/projects/my_project_123/datasets/dataset_456/tables/table_789
- *  Only BigQuery tables and datasets are currently supported. Data Asset
+ *  Only BigQuery tables and datasets are currently supported. Data asset
  *  creator must have getIamPolicy and setIamPolicy permissions on the resource.
- *  Data Asset creator must also have resource specific get permission, for
+ *  Data asset creator must also have resource specific get permission, for
  *  instance, bigquery.tables.get for BigQuery tables.
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
 /**
- *  Output only. System generated globally unique ID for the Data Asset. This ID
- *  will be different if the Data Asset is deleted and re-created with the same
+ *  Output only. System generated globally unique ID for the data asset. This ID
+ *  will be different if the data asset is deleted and re-created with the same
  *  name.
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
-/** Output only. The time at which the Data Asset was last updated. */
+/** Output only. The time at which the data asset was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  Optional. Access groups configurations for this Data Asset. The key is
- *  DataProduct.AccessGroup.id and the value is AccessGroupConfig. Example: key:
- *  "analyst" value: { AccessGroupConfig : { iam_roles :
- *  "roles/bigquery.dataViewer" } } Currently, at most one IAM role is allowed
- *  per access group. For providing multiple predefined IAM roles, wrap them in
- *  a custom IAM role as per
+ *  Optional. Access groups configurations for this data asset.The key is
+ *  DataProduct.AccessGroup.id and the value is AccessGroupConfig.Example: {
+ *  "analyst": { "iamRoles": ["roles/bigquery.dataViewer"] } } Currently, at
+ *  most one IAM role is allowed per access group. For providing multiple
+ *  predefined IAM roles, wrap them in a custom IAM role as per
  *  https://cloud.google.com/iam/docs/creating-custom-roles.
  *
  *  @note This class is documented as having more properties of
@@ -3956,7 +3957,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  Optional. User-defined labels for the Data Asset.
+ *  Optional. User-defined labels for the data asset.Example: { "environment":
+ *  "production", "billing": "marketing-department" }
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3968,14 +3970,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  Configuration for access group inherited from the parent Data Product.
+ *  Configuration for access group inherited from the parent data product.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataAssetAccessGroupConfig : GTLRObject
 
 /**
  *  Optional. IAM roles granted on the resource to this access group. Role name
- *  follows https://cloud.google.com/iam/docs/reference/rest/v1/roles. Example:
- *  "roles/bigquery.dataViewer"
+ *  follows https://cloud.google.com/iam/docs/reference/rest/v1/roles.Example: [
+ *  "roles/bigquery.dataViewer" ]
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *iamRoles;
 
@@ -4553,49 +4555,51 @@ GTLR_DEPRECATED
 
 
 /**
- *  A Data Product is a curated collection of Data Assets, packaged to address
+ *  A data product is a curated collection of data assets, packaged to address
  *  specific use cases. It's a way to manage and share data in a more organized,
  *  product-like manner.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct : GTLRObject
 
 /**
- *  Optional. Data Product access groups by access group id as key. If Data
- *  Product is used only for packaging Data Assets, then access groups may be
- *  empty. However, if a Data Product is used for sharing Data Assets, then at
- *  least one access group must be specified.
+ *  Optional. Data product access groups by access group id as key. If data
+ *  product is used only for packaging data assets, then access groups may be
+ *  empty. However, if a data product is used for sharing data assets, then at
+ *  least one access group must be specified.Example: { "analyst": { "id":
+ *  "analyst", "displayName": "Analyst", "description": "Access group for
+ *  analysts", "principal": { "googleGroup": "analysts\@example.com" } } }
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_AccessGroups *accessGroups;
 
 /**
- *  Output only. Number of Data Assets associated with this Data Product.
+ *  Output only. Number of data assets associated with this data product.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *assetCount;
 
-/** Output only. The time at which the Data Product was created. */
+/** Output only. The time at which the data product was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. Description of the Data Product.
+ *  Optional. Description of the data product.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Required. User-friendly display name of the Data Product. */
+/** Required. User-friendly display name of the data product. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  This checksum is computed by the server based on the value of other fields,
- *  and may be sent on update and delete requests to ensure the client has an
- *  up-to-date value before proceeding.
+ *  Optional. This checksum is computed by the server based on the value of
+ *  other fields, and may be sent on update and delete requests to ensure the
+ *  client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Optional. Base64 encoded image representing the Data Product. Max Size:
+ *  Optional. Base64 encoded image representing the data product. Max Size:
  *  3.0MiB Expected image dimensions are 512x512 pixels, however the API only
  *  performs validation on size of the encoded data. Note: For byte fields, the
  *  content of the fields are base64-encoded (which increases the size of the
@@ -4606,36 +4610,41 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *icon;
 
-/** Optional. User-defined labels for the Data Product. */
+/**
+ *  Optional. User-defined labels for the data product.Example: { "environment":
+ *  "production", "billing": "marketing-department" }
+ */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct_Labels *labels;
 
 /**
- *  Identifier. Resource name of the Data Product. Format:
+ *  Identifier. Resource name of the data product. Format:
  *  projects/{project_id_or_number}/locations/{location_id}/dataProducts/{data_product_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Required. Emails of the Data Product owners. */
+/** Required. Emails of the data product owners. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ownerEmails;
 
 /**
- *  Output only. System generated unique ID for the Data Product. This ID will
- *  be different if the Data Product is deleted and re-created with the same
+ *  Output only. System generated unique ID for the data product. This ID will
+ *  be different if the data product is deleted and re-created with the same
  *  name.
  */
 @property(nonatomic, copy, nullable) NSString *uid;
 
-/** Output only. The time at which the Data Product was last updated. */
+/** Output only. The time at which the data product was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  Optional. Data Product access groups by access group id as key. If Data
- *  Product is used only for packaging Data Assets, then access groups may be
- *  empty. However, if a Data Product is used for sharing Data Assets, then at
- *  least one access group must be specified.
+ *  Optional. Data product access groups by access group id as key. If data
+ *  product is used only for packaging data assets, then access groups may be
+ *  empty. However, if a data product is used for sharing data assets, then at
+ *  least one access group must be specified.Example: { "analyst": { "id":
+ *  "analyst", "displayName": "Analyst", "description": "Access group for
+ *  analysts", "principal": { "googleGroup": "analysts\@example.com" } } }
  *
  *  @note This class is documented as having more properties of
  *        GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroup. Use @c
@@ -4648,7 +4657,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  Optional. User-defined labels for the Data Product.
+ *  Optional. User-defined labels for the data product.Example: { "environment":
+ *  "production", "billing": "marketing-department" }
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -4660,9 +4670,9 @@ GTLR_DEPRECATED
 
 
 /**
- *  Custom user defined access groups at the Data Product level. These are used
- *  for granting different levels of access (IAM roles) on the individual Data
- *  Product's Data Assets.
+ *  Custom user defined access groups at the data product level. These are used
+ *  for granting different levels of access (IAM roles) on the individual data
+ *  product's data assets.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProductAccessGroup : GTLRObject
 
@@ -4680,7 +4690,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Required. Unique identifier of the access group within the Data Product.
+ *  Required. Unique identifier of the access group within the data product.
  *  User defined. Eg. "analyst", "developer", etc.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
@@ -4700,7 +4710,7 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataProductPrincipal : GTLRObject
 
 /**
- *  Email of the Google Group, as per
+ *  Optional. Email of the Google Group, as per
  *  https://cloud.google.com/iam/docs/principals-overview#google-group.
  */
 @property(nonatomic, copy, nullable) NSString *googleGroup;
@@ -8677,7 +8687,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Response message for listing Data Assets.
+ *  Response message for listing data assets.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "dataAssets" property. If returned as the result of a query, it
@@ -8687,7 +8697,7 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataAssetsResponse : GTLRCollectionObject
 
 /**
- *  The Data Assets for the requested filter criteria.
+ *  The data assets for the requested filter criteria.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -8764,7 +8774,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Response message for listing Data Products.
+ *  Response message for listing data products.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "dataProducts" property. If returned as the result of a query, it
@@ -8774,7 +8784,7 @@ GTLR_DEPRECATED
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1ListDataProductsResponse : GTLRCollectionObject
 
 /**
- *  The Data Products for the requested filter criteria.
+ *  The data products for the requested filter criteria.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

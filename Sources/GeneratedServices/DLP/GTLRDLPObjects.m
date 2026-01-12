@@ -453,6 +453,12 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Pii = 
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_Spii = @"SPII";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeCategory_TypeCategory_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription.launchStatus
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_GeneralAvailability = @"GENERAL_AVAILABILITY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_InfoTypeLaunchStatusUnspecified = @"INFO_TYPE_LAUNCH_STATUS_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_PrivatePreview = @"PRIVATE_PREVIEW";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_LaunchStatus_PublicPreview = @"PUBLIC_PREVIEW";
+
 // GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription.supportedBy
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_EnumTypeUnspecified = @"ENUM_TYPE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2InfoTypeDescription_SupportedBy_Inspect = @"INSPECT";
@@ -2725,8 +2731,9 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InfoTypeDescription
-@dynamic categories, descriptionProperty, displayName, example, locationSupport,
-         name, sensitivityScore, specificInfoTypes, supportedBy, versions;
+@dynamic categories, descriptionProperty, displayName, example, launchStatus,
+         locationSupport, name, sensitivityScore, specificInfoTypes,
+         supportedBy, versions;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

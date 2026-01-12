@@ -26,6 +26,7 @@
 @class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded256Bit;
 @class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded32Bit;
 @class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5RiceDeltaEncoded64Bit;
+@class GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -227,6 +228,57 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
  *  Value: "UNWANTED_SOFTWARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_UnwantedSoftware;
+
+// ----------------------------------------------------------------------------
+// GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl.threatTypes
+
+/**
+ *  Malware threat type. Malware is any software or mobile application
+ *  specifically designed to harm a computer, a mobile device, the software it's
+ *  running, or its users. Malware exhibits malicious behavior that can include
+ *  installing software without user consent and installing harmful software
+ *  such as viruses. More information can be found
+ *  [here](https://developers.google.com/search/docs/monitor-debug/security/malware).
+ *
+ *  Value: "MALWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl_ThreatTypes_Malware;
+/**
+ *  Potentially harmful application threat type [as used by Google Play Protect
+ *  for the Play
+ *  Store](https://developers.google.com/android/play-protect/potentially-harmful-applications).
+ *
+ *  Value: "POTENTIALLY_HARMFUL_APPLICATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl_ThreatTypes_PotentiallyHarmfulApplication;
+/**
+ *  Social engineering threat type. Social engineering pages falsely purport to
+ *  act on behalf of a third party with the intention of confusing viewers into
+ *  performing an action with which the viewer would only trust a true agent of
+ *  that third party. Phishing is a type of social engineering that tricks the
+ *  viewer into performing the specific action of providing information, such as
+ *  login credentials. More information can be found
+ *  [here](https://developers.google.com/search/docs/monitor-debug/security/social-engineering).
+ *
+ *  Value: "SOCIAL_ENGINEERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl_ThreatTypes_SocialEngineering;
+/**
+ *  Unknown threat type. If this is returned by the server, the client shall
+ *  disregard the enclosing `FullHashDetail` altogether.
+ *
+ *  Value: "THREAT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl_ThreatTypes_ThreatTypeUnspecified;
+/**
+ *  Unwanted software threat type. Unwanted software is any software that does
+ *  not adhere to [Google's Software
+ *  Principles](https://www.google.com/about/software-principles.html) but isn't
+ *  malware.
+ *
+ *  Value: "UNWANTED_SOFTWARE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl_ThreatTypes_UnwantedSoftware;
 
 /**
  *  The response containing multiple hash lists.
@@ -725,6 +777,57 @@ FOUNDATION_EXTERN NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV
 
 /** Unordered list. The unordered list of full hashes found. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHash *> *fullHashes;
+
+@end
+
+
+/**
+ *  The response returned after searching threats matching the specified URLs.
+ *  If nothing is found, the server will return an OK status (HTTP status code
+ *  200) with the `threats` field empty, rather than returning a NOT_FOUND
+ *  status (HTTP status code 404).
+ */
+@interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5SearchUrlsResponse : GTLRObject
+
+/**
+ *  The client-side cache duration. The client MUST add this duration to the
+ *  current time to determine the expiration time. The expiration time then
+ *  applies to every URL queried by the client in the request, regardless of how
+ *  many URLs are returned in the response. Even if the server returns no
+ *  matches for a particular URL, this fact MUST also be cached by the client.
+ *  If and only if the field `threats` is empty, the client MAY increase the
+ *  `cache_duration` to determine a new expiration that is later than that
+ *  specified by the server. In any case, the increased cache duration must not
+ *  be longer than 24 hours. Important: the client MUST NOT assume that the
+ *  server will return the same cache duration for all responses. The server MAY
+ *  choose different cache durations for different responses depending on the
+ *  situation.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *cacheDuration;
+
+/**
+ *  Unordered list. The unordered list of threat matches found. Each entry
+ *  contains a URL and the threat types that were found matching that URL. The
+ *  list size can be greater than the number of URLs in the request as the all
+ *  expressions of the URL would've been considered.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl *> *threats;
+
+@end
+
+
+/**
+ *  A URL matching one or more threats.
+ */
+@interface GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl : GTLRObject
+
+/**
+ *  Unordered list. The unordered list of threat that the URL is classified as.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *threatTypes;
+
+/** The requested URL that was matched by one or more threats. */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 

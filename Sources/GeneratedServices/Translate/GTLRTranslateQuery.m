@@ -970,7 +970,7 @@
 
 @implementation GTLRTranslateQuery_ProjectsLocationsOperationsList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -1009,6 +1009,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRTranslate_Operation class];
   query.loggingName = @"translate.projects.locations.operations.wait";
+  return query;
+}
+
+@end
+
+@implementation GTLRTranslateQuery_ProjectsLocationsRefineText
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRTranslate_RefineTextRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v3/{+parent}:refineText";
+  GTLRTranslateQuery_ProjectsLocationsRefineText *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRTranslate_RefineTextResponse class];
+  query.loggingName = @"translate.projects.locations.refineText";
   return query;
 }
 

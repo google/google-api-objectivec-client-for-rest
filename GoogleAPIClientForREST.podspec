@@ -965,6 +965,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/GroupsSettings/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/GroupsSettings/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'GSuiteMarketplaceAPI' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/GSuiteMarketplaceAPI/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/GSuiteMarketplaceAPI/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'HangoutsChat' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/HangoutsChat/**/*.{h,m}'

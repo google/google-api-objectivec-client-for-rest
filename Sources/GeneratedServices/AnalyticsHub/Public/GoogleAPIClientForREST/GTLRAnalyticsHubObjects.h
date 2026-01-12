@@ -1376,7 +1376,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_MessageTransform *> *messageTransforms;
 
 /**
- *  Required. Name of the subscription. Format is
+ *  Required. Identifier. Name of the subscription. Format is
  *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;

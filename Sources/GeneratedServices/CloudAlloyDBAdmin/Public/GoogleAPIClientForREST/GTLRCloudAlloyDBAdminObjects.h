@@ -432,6 +432,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_StateUns
  *  Value: "STOPPED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_Stopped;
+/**
+ *  The cluster has entered switchover state. All updates on cluster and its
+ *  associated instances are restricted while the cluster is in this state.
+ *
+ *  Value: "SWITCHOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_Switchover;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_Cluster.subscriptionType
@@ -799,6 +806,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_StateUn
  *  Value: "STOPPED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Stopped;
+/**
+ *  The instance has entered switchover state. All updates on instance are
+ *  restricted while the instance is in this state.
+ *
+ *  Value: "SWITCHOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Switchover;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_InstanceUpgradeDetails.instanceType
@@ -4956,6 +4970,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_State_Stopped This is unused. Even
  *        when all instances in the cluster are stopped, the cluster remains in
  *        READY state. (Value: "STOPPED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Cluster_State_Switchover The cluster has
+ *        entered switchover state. All updates on cluster and its associated
+ *        instances are restricted while the cluster is in this state. (Value:
+ *        "SWITCHOVER")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -6023,6 +6041,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_Stopped The instance is
  *        stopped. Instance name and IP resources are preserved. (Value:
  *        "STOPPED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_Switchover The instance has
+ *        entered switchover state. All updates on instance are restricted while
+ *        the instance is in this state. (Value: "SWITCHOVER")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

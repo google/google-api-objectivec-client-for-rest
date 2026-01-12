@@ -42,6 +42,7 @@
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1RemoteRepositoryConfigYumRepositoryPublicRepository;
 @class GTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule;
 @class GTLRArtifactRegistry_Hash;
+@class GTLRArtifactRegistry_ImageManifest;
 @class GTLRArtifactRegistry_ImportAptArtifactsErrorInfo;
 @class GTLRArtifactRegistry_ImportAptArtifactsGcsSource;
 @class GTLRArtifactRegistry_ImportGoogetArtifactsErrorInfo;
@@ -1008,12 +1009,26 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @interface GTLRArtifactRegistry_DockerImage : GTLRObject
 
 /**
+ *  ArtifactType of this image, e.g. "application/vnd.example+type". If the
+ *  `subject_digest` is set and no `artifact_type` is given, the `media_type`
+ *  will be considered as the `artifact_type`. This field is returned as the
+ *  `metadata.artifactType` field in the Version resource.
+ */
+@property(nonatomic, copy, nullable) NSString *artifactType;
+
+/**
  *  The time this image was built. This field is returned as the
  *  'metadata.buildTime' field in the Version resource. The build time is
  *  returned to the client as an RFC 3339 string, which can be easily used with
  *  the JavaScript Date constructor.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *buildTime;
+
+/**
+ *  Optional. For multi-arch images (manifest lists), this field contains the
+ *  list of image manifests.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_ImageManifest *> *imageManifests;
 
 /**
  *  Calculated size of the image. This field is returned as the
@@ -1584,6 +1599,55 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Details of a single image manifest within a multi-arch image.
+ */
+@interface GTLRArtifactRegistry_ImageManifest : GTLRObject
+
+/**
+ *  Optional. The CPU architecture of the image. Values are provided by the
+ *  Docker client and are not validated by Artifact Registry. Example values
+ *  include "amd64", "arm64", "ppc64le", "s390x", "riscv64", "mips64le", etc.
+ */
+@property(nonatomic, copy, nullable) NSString *architecture;
+
+/** Optional. The manifest digest, in the format "sha256:". */
+@property(nonatomic, copy, nullable) NSString *digest;
+
+/**
+ *  Optional. The media type of the manifest, e.g.,
+ *  "application/vnd.docker.distribution.manifest.v2+json"
+ */
+@property(nonatomic, copy, nullable) NSString *mediaType;
+
+/**
+ *  Optional. The operating system of the image. Values are provided by the
+ *  Docker client and are not validated by Artifact Registry. Example values
+ *  include "linux", "windows", "darwin", "aix", etc.
+ */
+@property(nonatomic, copy, nullable) NSString *os;
+
+/**
+ *  Optional. The required OS features for the image, for example on Windows
+ *  `win32k`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *osFeatures;
+
+/**
+ *  Optional. The OS version of the image, for example on Windows
+ *  `10.0.14393.1066`.
+ */
+@property(nonatomic, copy, nullable) NSString *osVersion;
+
+/**
+ *  Optional. The variant of the CPU in the image, for example `v7` to specify
+ *  ARMv7 when architecture is `arm`.
+ */
+@property(nonatomic, copy, nullable) NSString *variant;
 
 @end
 

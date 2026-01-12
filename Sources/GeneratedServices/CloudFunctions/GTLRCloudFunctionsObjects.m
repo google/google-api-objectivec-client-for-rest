@@ -126,6 +126,8 @@ NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnectorEgressSettings_Vp
 
 // GTLRCloudFunctions_UpgradeInfo.upgradeState
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_AbortFunctionUpgradeError = @"ABORT_FUNCTION_UPGRADE_ERROR";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeAsGen2Error = @"COMMIT_FUNCTION_UPGRADE_AS_GEN2_ERROR";
+NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeAsGen2Successful = @"COMMIT_FUNCTION_UPGRADE_AS_GEN2_SUCCESSFUL";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError = @"COMMIT_FUNCTION_UPGRADE_ERROR";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeErrorRollbackSafe = @"COMMIT_FUNCTION_UPGRADE_ERROR_ROLLBACK_SAFE";
 NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_EligibleFor2ndGenUpgrade = @"ELIGIBLE_FOR_2ND_GEN_UPGRADE";
@@ -233,6 +235,16 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_BuildConfigOverrides
+//
+
+@implementation GTLRCloudFunctions_BuildConfigOverrides
+@dynamic runtime;
 @end
 
 
@@ -824,6 +836,16 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudFunctions_ServiceConfigOverrides
+//
+
+@implementation GTLRCloudFunctions_ServiceConfigOverrides
+@dynamic maxInstanceCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudFunctions_SetIamPolicyRequest
 //
 
@@ -838,7 +860,7 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 //
 
 @implementation GTLRCloudFunctions_SetupFunctionUpgradeConfigRequest
-@dynamic triggerServiceAccount;
+@dynamic buildConfigOverrides, serviceConfigOverrides, triggerServiceAccount;
 @end
 
 

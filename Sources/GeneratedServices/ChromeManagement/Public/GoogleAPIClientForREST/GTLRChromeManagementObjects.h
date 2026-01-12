@@ -5387,7 +5387,7 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 @interface GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry : GTLRObject
 
 /**
- *  The risk assessment provider from which this entry comes from.
+ *  Output only. The risk assessment provider from which this entry comes from.
  *
  *  Likely values:
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderCrxcavator
@@ -5402,11 +5402,11 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 @property(nonatomic, copy, nullable) NSString *provider;
 
-/** The details of the provider's risk assessment. */
+/** Output only. The details of the provider's risk assessment. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1RiskAssessment *riskAssessment;
 
 /**
- *  The bucketed risk level for the risk assessment.
+ *  Output only. The bucketed risk level for the risk assessment.
  *
  *  Likely values:
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_RiskLevel_RiskLevelHigh

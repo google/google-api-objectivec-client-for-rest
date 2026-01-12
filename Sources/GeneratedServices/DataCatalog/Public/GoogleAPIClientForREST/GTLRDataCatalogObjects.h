@@ -82,6 +82,10 @@
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedPolicyTag;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SerializedTaxonomy;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1ServiceSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpec;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKey;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKeyForeignKeyColumnMapping;
+@class GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerPrimaryKey;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SqlDatabaseSystemSpec;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1StorageProperties;
 @class GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps;
@@ -2239,6 +2243,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  */
 @property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SystemTimestamps *sourceSystemTimestamps;
 
+/** Specification of a Spanner table. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpec *spannerTableSpec;
+
 /**
  *  Specification that applies to a relational database system. Only settable
  *  when `user_specified_system` is equal to `SQL_DATABASE`
@@ -3892,6 +3899,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1Vert
  *        "TAG_TEMPLATE_MIGRATION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *tagTemplateMigration;
+
+@end
+
+
+/**
+ *  Specification of a Spanner table.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpec : GTLRObject
+
+/** Output only. The foreign keys of the table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKey *> *foreignKeys;
+
+/** Output only. The primary key of the table. */
+@property(nonatomic, strong, nullable) GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerPrimaryKey *primaryKey;
+
+@end
+
+
+/**
+ *  Specification of a Spanner foreign key.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKey : GTLRObject
+
+/** Output only. The ordered list of column mappings for this foreign key. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKeyForeignKeyColumnMapping *> *columnMappings;
+
+/**
+ *  Output only. The table name this foreign key referenced to. Format:
+ *  `projects/{PROJECT_ID}/locations/{LOCATION}/entryGroups/{ENTRY_GROUP_ID}/entries/{ENTRY_ID}`
+ */
+@property(nonatomic, copy, nullable) NSString *entry;
+
+/**
+ *  Output only. The constraint_name of the foreign key, for example,
+ *  FK_CustomerOrder.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Column mapping for a Spanner foreign key.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKeyForeignKeyColumnMapping : GTLRObject
+
+/**
+ *  Output only. The column in the current table that is part of the foreign
+ *  key.
+ */
+@property(nonatomic, copy, nullable) NSString *column;
+
+/**
+ *  Output only. The column in the referenced table that is part of the foreign
+ *  key.
+ */
+@property(nonatomic, copy, nullable) NSString *referenceColumn;
+
+@end
+
+
+/**
+ *  Specification of a Spanner primary key.
+ */
+@interface GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerPrimaryKey : GTLRObject
+
+/** Output only. Column names of the primary key. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *columns;
 
 @end
 

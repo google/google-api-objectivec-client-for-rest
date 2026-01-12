@@ -39,7 +39,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSpannerAdmin;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSpannerCloudPlatform;
 /**
- *  Authorization scope: View and manage the contents of your Spanner databases
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Spanner data and see the email address for your Google Account
  *
  *  Value "https://www.googleapis.com/auth/spanner.data"
  */

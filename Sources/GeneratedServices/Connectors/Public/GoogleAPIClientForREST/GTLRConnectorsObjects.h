@@ -40,9 +40,11 @@
 @class GTLRConnectors_ExecuteActionResponse_Results_Item;
 @class GTLRConnectors_ExecuteSqlQueryResponse_Results_Item;
 @class GTLRConnectors_ExecuteToolRequest_Parameters;
+@class GTLRConnectors_ExecuteToolRequest_ToolDefinition;
 @class GTLRConnectors_ExecuteToolResponse_Metadata;
 @class GTLRConnectors_ExecuteToolResponse_Metadata_Metadata;
 @class GTLRConnectors_ExecuteToolResponse_Result;
+@class GTLRConnectors_ExecutionConfig;
 @class GTLRConnectors_Field;
 @class GTLRConnectors_Field_AdditionalDetails;
 @class GTLRConnectors_GetResourceResponse_Metadata;
@@ -76,6 +78,7 @@
 @class GTLRConnectors_MaintenanceWindow;
 @class GTLRConnectors_NodeSloMetadata;
 @class GTLRConnectors_NotificationParameter;
+@class GTLRConnectors_OAuth2Config;
 @class GTLRConnectors_PerSliSloEligibility;
 @class GTLRConnectors_PerSliSloEligibility_Eligibilities;
 @class GTLRConnectors_ProvisionedResource;
@@ -92,6 +95,8 @@
 @class GTLRConnectors_TimeOfDay;
 @class GTLRConnectors_Tool;
 @class GTLRConnectors_ToolAnnotations;
+@class GTLRConnectors_ToolSpec;
+@class GTLRConnectors_ToolSpec_ToolDefinitions_Item;
 @class GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata;
 @class GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata_Metadata;
 @class GTLRConnectors_UpdateEntitiesWithConditionsResponse_Response;
@@ -2126,6 +2131,14 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @property(nonatomic, strong, nullable) GTLRConnectors_AuthCodeData *authCodeData;
 
+/**
+ *  ExecutionConfig contains the configuration for the execution of the request.
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecutionConfig *executionConfig;
+
+/** OAuth2Config contains the OAuth2 config for the connection. */
+@property(nonatomic, strong, nullable) GTLRConnectors_OAuth2Config *oauth2Config;
+
 @end
 
 
@@ -2172,6 +2185,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *  Request message for ActionService.ExecuteAction
  */
 @interface GTLRConnectors_ExecuteActionRequest : GTLRObject
+
+/** Execution config for the request. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecutionConfig *executionConfig;
 
 /**
  *  Parameters for executing the action. The parameters can be key/value pairs
@@ -2303,8 +2319,14 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @interface GTLRConnectors_ExecuteToolRequest : GTLRObject
 
+/** execution config for the request. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecutionConfig *executionConfig;
+
 /** Input parameters for the tool. */
 @property(nonatomic, strong, nullable) GTLRConnectors_ExecuteToolRequest_Parameters *parameters;
+
+/** Tool definition for the tool to be executed. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecuteToolRequest_ToolDefinition *toolDefinition;
 
 @end
 
@@ -2318,6 +2340,18 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_ExecuteToolRequest_Parameters : GTLRObject
+@end
+
+
+/**
+ *  Tool definition for the tool to be executed.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ExecuteToolRequest_ToolDefinition : GTLRObject
 @end
 
 
@@ -2369,6 +2403,20 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_ExecuteToolResponse_Metadata_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_ExecutionConfig
+ */
+@interface GTLRConnectors_ExecutionConfig : GTLRObject
+
+/**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *headers;
+
 @end
 
 
@@ -2520,6 +2568,20 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_Field_AdditionalDetails : GTLRObject
+@end
+
+
+/**
+ *  Request message for ConnectorAgentService.GetResourcePost
+ */
+@interface GTLRConnectors_GetResourcePostRequest : GTLRObject
+
+/** execution config for the request. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecutionConfig *executionConfig;
+
+/** List of tool specifications. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ToolSpec *toolSpec;
+
 @end
 
 
@@ -3386,6 +3448,30 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  Request message for ConnectorAgentService.ListToolsPost
+ */
+@interface GTLRConnectors_ListToolsPostRequest : GTLRObject
+
+/** execution config for the request. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecutionConfig *executionConfig;
+
+/**
+ *  Page size.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageSize;
+
+/** Page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** List of tool specifications. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ToolSpec *toolSpec;
+
+@end
+
+
+/**
  *  Response message for ConnectorAgentService.ListTools
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3647,6 +3733,23 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  GTLRConnectors_OAuth2Config
+ */
+@interface GTLRConnectors_OAuth2Config : GTLRObject
+
+/** Authorization Server URL/Token Endpoint for Authorization Code Flow */
+@property(nonatomic, copy, nullable) NSString *authUri;
+
+/** Client ID for the OAuth2 flow. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** Client secret for the OAuth2 flow. */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+@end
+
+
+/**
  *  PerSliSloEligibility is a mapping from an SLI name to eligibility.
  */
 @interface GTLRConnectors_PerSliSloEligibility : GTLRObject
@@ -3881,6 +3984,14 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *  RefreshAccessTokenRequest includes the refresh token.
  */
 @interface GTLRConnectors_RefreshAccessTokenRequest : GTLRObject
+
+/**
+ *  ExecutionConfig contains the configuration for the execution of the request.
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecutionConfig *executionConfig;
+
+/** OAuth2Config contains the OAuth2 config for the connection. */
+@property(nonatomic, strong, nullable) GTLRConnectors_OAuth2Config *oauth2Config;
 
 /**
  *  Optional. Refresh Token String. If the Refresh Token is not provided, the
@@ -4298,6 +4409,35 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 /** A human-readable title for the tool. */
 @property(nonatomic, copy, nullable) NSString *title;
 
+@end
+
+
+/**
+ *  GTLRConnectors_ToolSpec
+ */
+@interface GTLRConnectors_ToolSpec : GTLRObject
+
+/** List of tool definitions. */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_ToolSpec_ToolDefinitions_Item *> *toolDefinitions;
+
+/**
+ *  Version of the tool spec. Format:
+ *  providerId/connectorId/versionId/toolSpecId
+ */
+@property(nonatomic, copy, nullable) NSString *toolSpecVersion;
+
+@end
+
+
+/**
+ *  GTLRConnectors_ToolSpec_ToolDefinitions_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ToolSpec_ToolDefinitions_Item : GTLRObject
 @end
 
 

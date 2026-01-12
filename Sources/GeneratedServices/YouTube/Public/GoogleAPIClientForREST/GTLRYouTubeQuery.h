@@ -5884,6 +5884,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @interface GTLRYouTubeQuery_YoutubeV3VideosBatchGetStats : GTLRYouTubeQuery
 
 /**
+ *  Required. Return videos with the given ids. The number of IDs specified
+ *  cannot exceed 50.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *identifier;
+
+/**
  *  Optional. **Note:** This parameter is intended exclusively for YouTube
  *  content partners. The `onBehalfOfContentOwner` parameter indicates that the
  *  request's authorization credentials identify a YouTube CMS user who is
@@ -5907,9 +5915,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  *  contain all of those properties.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
-
-/** Required. Return videos with the given ids. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *videoIds;
 
 /**
  *  Fetches a @c GTLRYouTube_BatchGetStatsResponse.

@@ -1482,7 +1482,12 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 //
 
 @implementation GTLRToolResults_TestIssue
-@dynamic category, errorMessage, severity, stackTrace, type, warning;
+@dynamic category, errorMessage, severity, stackTrace, type, warningMigration;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"warningMigration" : @"warning_migration" };
+}
+
 @end
 
 

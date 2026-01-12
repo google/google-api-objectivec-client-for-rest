@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   App Hub API (apphub/v1)
+// Description:
+//   App Hub lets you build, operate, and manage applications on Google Cloud.
 // Documentation:
 //   https://cloud.google.com/app-hub/docs/
 
@@ -1180,6 +1182,83 @@ NS_ASSUME_NONNULL_BEGIN
  *    Workload in. Expected format: `projects/{project}/locations/{location}`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsDiscoveredWorkloadsLookup
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets an Extended Metadata Schema.
+ *
+ *  Method: apphub.projects.locations.extendedMetadataSchemas.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsExtendedMetadataSchemasGet : GTLRAppHubQuery
+
+/**
+ *  Required. Schema resource name Format:
+ *  projects//locations//extendedMetadataSchemas/ could be
+ *  "apphub.googleapis.com/Name"
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAppHub_ExtendedMetadataSchema.
+ *
+ *  Gets an Extended Metadata Schema.
+ *
+ *  @param name Required. Schema resource name Format:
+ *    projects//locations//extendedMetadataSchemas/ could be
+ *    "apphub.googleapis.com/Name"
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsExtendedMetadataSchemasGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Extended Metadata Schemas available in a host project and location.
+ *
+ *  Method: apphub.projects.locations.extendedMetadataSchemas.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppHubCloudPlatform
+ */
+@interface GTLRAppHubQuery_ProjectsLocationsExtendedMetadataSchemasList : GTLRAppHubQuery
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Project and location to list Extended Metadata Schemas on.
+ *  Expected format: `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAppHub_ListExtendedMetadataSchemasResponse.
+ *
+ *  Lists Extended Metadata Schemas available in a host project and location.
+ *
+ *  @param parent Required. Project and location to list Extended Metadata
+ *    Schemas on. Expected format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAppHubQuery_ProjectsLocationsExtendedMetadataSchemasList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
 

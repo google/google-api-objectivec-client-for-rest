@@ -40,10 +40,12 @@
 @class GTLRNetworkManagement_ForwardInfo;
 @class GTLRNetworkManagement_ForwardingRuleInfo;
 @class GTLRNetworkManagement_GKEMasterInfo;
+@class GTLRNetworkManagement_GkePodInfo;
 @class GTLRNetworkManagement_GoogleServiceInfo;
 @class GTLRNetworkManagement_HybridSubnetInfo;
 @class GTLRNetworkManagement_InstanceInfo;
 @class GTLRNetworkManagement_InterconnectAttachmentInfo;
+@class GTLRNetworkManagement_IpMasqueradingSkippedInfo;
 @class GTLRNetworkManagement_LatencyDistribution;
 @class GTLRNetworkManagement_LatencyPercentile;
 @class GTLRNetworkManagement_LoadBalancerBackend;
@@ -118,6 +120,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Firewa
  *  Value: "GKE_KONNECTIVITY_PROXY_UNSUPPORTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GkeKonnectivityProxyUnsupported;
+/**
+ *  Aborted because selected GKE Pod endpoint location is unknown. This is often
+ *  the case for "Pending" Pods, which don't have assigned IP addresses yet.
+ *
+ *  Value: "GKE_POD_UNKNOWN_ENDPOINT_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_GkePodUnknownEndpointLocation;
 /**
  *  Aborted because endpoint selection for the Google-managed service is
  *  ambiguous (several endpoints satisfy test input).
@@ -464,6 +473,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_Clo
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GkeMaster;
 /**
+ *  Target is a GKE Pod.
+ *
+ *  Value: "GKE_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DeliverInfo_Target_GkePod;
+/**
  *  Target is a Google API.
  *
  *  Value: "GOOGLE_API"
@@ -756,6 +771,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeCont
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess;
 /**
+ *  Packet sent from or to a GKE Pod that is not in running state.
+ *
+ *  Value: "GKE_POD_NOT_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkePodNotRunning;
+/**
  *  Packet was dropped because the GKE cluster uses Private Service Connect
  *  (PSC), but the PSC endpoint is not found in the project.
  *
@@ -876,6 +897,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NccRout
  *  Value: "NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoAdvertisedRouteToGcpDestination;
+/**
+ *  Packet is dropped due to matching a Private NAT64 gateway with no rules for
+ *  source IPv6 addresses.
+ *
+ *  Value: "NO_CONFIGURED_PRIVATE_NAT64_RULE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoConfiguredPrivateNat64Rule;
 /**
  *  Endpoint with only an internal IP address tries to access external hosts,
  *  but there is no matching Cloud NAT gateway in the subnet.
@@ -1837,6 +1865,62 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InterconnectAttachment
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_InterconnectAttachmentInfo_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_IpMasqueradingSkippedInfo.reason
+
+/**
+ *  Masquerading not applied because ip-masq-agent doesn't exist and default
+ *  SNAT is disabled.
+ *
+ *  Value: "DEFAULT_SNAT_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_DefaultSnatDisabled;
+/**
+ *  Masquerading not applied because destination IP is in one of configured
+ *  non-masquerade ranges.
+ *
+ *  Value: "DESTINATION_IP_IN_CONFIGURED_NON_MASQUERADE_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_DestinationIpInConfiguredNonMasqueradeRange;
+/**
+ *  Masquerading not applied because destination IP is in one of default
+ *  non-masquerade ranges.
+ *
+ *  Value: "DESTINATION_IP_IN_DEFAULT_NON_MASQUERADE_RANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_DestinationIpInDefaultNonMasqueradeRange;
+/**
+ *  Masquerading not applied because destination is on the same Node.
+ *
+ *  Value: "DESTINATION_ON_SAME_NODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_DestinationOnSameNode;
+/**
+ *  Masquerading not applied because the packet's IP version is IPv6.
+ *
+ *  Value: "NO_MASQUERADING_FOR_IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_NoMasqueradingForIpv6;
+/**
+ *  Masquerading not applied because the packet is a return packet.
+ *
+ *  Value: "NO_MASQUERADING_FOR_RETURN_PACKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_NoMasqueradingForReturnPacket;
+/**
+ *  Masquerading not applied because the source Pod uses the host Node's network
+ *  namespace, including the Node's IP address.
+ *
+ *  Value: "POD_USES_NODE_NETWORK_NAMESPACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_PodUsesNodeNetworkNamespace;
+/**
+ *  Unused default value.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_ReasonUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_LoadBalancerBackend.healthCheckFirewallState
 
 /**
@@ -1971,6 +2055,46 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadB
  *  Value: "TCP_PROXY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_LoadBalancerInfo_LoadBalancerType_TcpProxy;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkManagement_NatInfo.cloudNatGatewayType
+
+/**
+ *  Type is unspecified.
+ *
+ *  Value: "CLOUD_NAT_GATEWAY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_CloudNatGatewayTypeUnspecified;
+/**
+ *  Private NAT64 gateway.
+ *
+ *  Value: "PRIVATE_NAT64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_PrivateNat64;
+/**
+ *  Private NAT gateway for hybrid connectivity.
+ *
+ *  Value: "PRIVATE_NAT_HYBRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_PrivateNatHybrid;
+/**
+ *  Private NAT gateway for NCC.
+ *
+ *  Value: "PRIVATE_NAT_NCC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_PrivateNatNcc;
+/**
+ *  Public NAT gateway.
+ *
+ *  Value: "PUBLIC_NAT44"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_PublicNat44;
+/**
+ *  Public NAT64 gateway.
+ *
+ *  Value: "PUBLIC_NAT64"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_PublicNat64;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkManagement_NatInfo.type
@@ -2470,6 +2594,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ProxyConnec
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ServerlessExternalConnection;
 /**
+ *  Transition state: GKE Pod IP masquerading is skipped. The
+ *  `ip_masquerading_skipped` field is populated with the reason.
+ *
+ *  Value: "SKIP_GKE_POD_IP_MASQUERADING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_SkipGkePodIpMasquerading;
+/**
  *  Config checking state: packet sent or received under foreign IP address and
  *  allowed.
  *
@@ -2511,6 +2642,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromCl
  *  Value: "START_FROM_GKE_MASTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromGkeMaster;
+/**
+ *  Initial state: packet originating from a Google Kubernetes Engine Pod. A
+ *  GkePodInfo is populated with starting Pod information.
+ *
+ *  Value: "START_FROM_GKE_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromGkePod;
 /**
  *  Initial state: packet originating from a Google service. The google_service
  *  information is populated.
@@ -2782,6 +2920,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Aborted because the connection between the control plane and the node
  *        of the source cluster is initiated by the node and managed by the
  *        Konnectivity proxy. (Value: "GKE_KONNECTIVITY_PROXY_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_GkePodUnknownEndpointLocation
+ *        Aborted because selected GKE Pod endpoint location is unknown. This is
+ *        often the case for "Pending" Pods, which don't have assigned IP
+ *        addresses yet. (Value: "GKE_POD_UNKNOWN_ENDPOINT_LOCATION")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_GoogleManagedServiceAmbiguousEndpoint
  *        Aborted because endpoint selection for the Google-managed service is
  *        ambiguous (several endpoints satisfy test input). (Value:
@@ -3399,6 +3541,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        is a Cloud SQL instance. (Value: "CLOUD_SQL_INSTANCE")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_GkeMaster Target is a
  *        Google Kubernetes Engine cluster master. (Value: "GKE_MASTER")
+ *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_GkePod Target is a GKE
+ *        Pod. (Value: "GKE_POD")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_GoogleApi Target is a
  *        Google API. (Value: "GOOGLE_API")
  *    @arg @c kGTLRNetworkManagement_DeliverInfo_Target_GoogleManagedService
@@ -3581,6 +3725,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        authorized. See [Access to the cluster
  *        endpoints](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#access_to_the_cluster_endpoints)
  *        for more details. (Value: "GKE_MASTER_UNAUTHORIZED_ACCESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GkePodNotRunning Packet sent
+ *        from or to a GKE Pod that is not in running state. (Value:
+ *        "GKE_POD_NOT_RUNNING")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GkePscEndpointMissing Packet
  *        was dropped because the GKE cluster uses Private Service Connect
  *        (PSC), but the PSC endpoint is not found in the project. (Value:
@@ -3647,6 +3794,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        due to the destination IP address not belonging to any IP prefix
  *        advertised via BGP by the Cloud Router. (Value:
  *        "NO_ADVERTISED_ROUTE_TO_GCP_DESTINATION")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoConfiguredPrivateNat64Rule
+ *        Packet is dropped due to matching a Private NAT64 gateway with no
+ *        rules for source IPv6 addresses. (Value:
+ *        "NO_CONFIGURED_PRIVATE_NAT64_RULE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoExternalAddress Endpoint
  *        with only an internal IP address tries to access external hosts, but
  *        there is no matching Cloud NAT gateway in the subnet. (Value:
@@ -4123,6 +4274,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, copy, nullable) NSString *gkeMasterCluster;
 
+/**
+ *  A [GKE Pod](https://cloud.google.com/kubernetes-engine/docs/concepts/pod)
+ *  URI.
+ */
+@property(nonatomic, copy, nullable) NSString *gkePod;
+
 /** A Compute Engine instance URI. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
@@ -4583,6 +4740,32 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  For display only. Metadata associated with a Google Kubernetes Engine (GKE)
+ *  Pod.
+ */
+@interface GTLRNetworkManagement_GkePodInfo : GTLRObject
+
+/**
+ *  IP address of a GKE Pod. If the Pod is dual-stack, this is the IP address
+ *  relevant to the trace.
+ */
+@property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** URI of the network containing the GKE Pod. */
+@property(nonatomic, copy, nullable) NSString *networkUri;
+
+/**
+ *  URI of a GKE Pod. For Pods in regional Clusters, the URI format is:
+ *  `projects/{project}/locations/{location}/clusters/{cluster}/k8s/namespaces/{namespace}/pods/{pod}`
+ *  For Pods in zonal Clusters, the URI format is:
+ *  `projects/{project}/zones/{zone}/clusters/{cluster}/k8s/namespaces/{namespace}/pods/{pod}`
+ */
+@property(nonatomic, copy, nullable) NSString *podUri;
+
+@end
+
+
+/**
  *  For display only. Details of a Google Service sending packets to a VPC
  *  network. Although the source IP might be a publicly routable address, some
  *  Google Services use special routes within Google production infrastructure
@@ -4760,6 +4943,55 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  For display only. Contains information about why IP masquerading was skipped
+ *  for the packet.
+ */
+@interface GTLRNetworkManagement_IpMasqueradingSkippedInfo : GTLRObject
+
+/**
+ *  The matched non-masquerade IP range. Only set if reason is
+ *  DESTINATION_IP_IN_CONFIGURED_NON_MASQUERADE_RANGE or
+ *  DESTINATION_IP_IN_DEFAULT_NON_MASQUERADE_RANGE.
+ */
+@property(nonatomic, copy, nullable) NSString *nonMasqueradeRange;
+
+/**
+ *  Reason why IP masquerading was not applied.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_DefaultSnatDisabled
+ *        Masquerading not applied because ip-masq-agent doesn't exist and
+ *        default SNAT is disabled. (Value: "DEFAULT_SNAT_DISABLED")
+ *    @arg @c kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_DestinationIpInConfiguredNonMasqueradeRange
+ *        Masquerading not applied because destination IP is in one of
+ *        configured non-masquerade ranges. (Value:
+ *        "DESTINATION_IP_IN_CONFIGURED_NON_MASQUERADE_RANGE")
+ *    @arg @c kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_DestinationIpInDefaultNonMasqueradeRange
+ *        Masquerading not applied because destination IP is in one of default
+ *        non-masquerade ranges. (Value:
+ *        "DESTINATION_IP_IN_DEFAULT_NON_MASQUERADE_RANGE")
+ *    @arg @c kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_DestinationOnSameNode
+ *        Masquerading not applied because destination is on the same Node.
+ *        (Value: "DESTINATION_ON_SAME_NODE")
+ *    @arg @c kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_NoMasqueradingForIpv6
+ *        Masquerading not applied because the packet's IP version is IPv6.
+ *        (Value: "NO_MASQUERADING_FOR_IPV6")
+ *    @arg @c kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_NoMasqueradingForReturnPacket
+ *        Masquerading not applied because the packet is a return packet.
+ *        (Value: "NO_MASQUERADING_FOR_RETURN_PACKET")
+ *    @arg @c kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_PodUsesNodeNetworkNamespace
+ *        Masquerading not applied because the source Pod uses the host Node's
+ *        network namespace, including the Node's IP address. (Value:
+ *        "POD_USES_NODE_NETWORK_NAMESPACE")
+ *    @arg @c kGTLRNetworkManagement_IpMasqueradingSkippedInfo_Reason_ReasonUnspecified
+ *        Unused default value. (Value: "REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
  *  Describes measured latency distribution.
  */
 @interface GTLRNetworkManagement_LatencyDistribution : GTLRObject
@@ -4870,8 +5102,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -5154,6 +5387,26 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *  For display only. Metadata associated with NAT.
  */
 @interface GTLRNetworkManagement_NatInfo : GTLRObject
+
+/**
+ *  Type of Cloud NAT gateway. Only valid when `type` is CLOUD_NAT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_CloudNatGatewayTypeUnspecified
+ *        Type is unspecified. (Value: "CLOUD_NAT_GATEWAY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_PrivateNat64
+ *        Private NAT64 gateway. (Value: "PRIVATE_NAT64")
+ *    @arg @c kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_PrivateNatHybrid
+ *        Private NAT gateway for hybrid connectivity. (Value:
+ *        "PRIVATE_NAT_HYBRID")
+ *    @arg @c kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_PrivateNatNcc
+ *        Private NAT gateway for NCC. (Value: "PRIVATE_NAT_NCC")
+ *    @arg @c kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_PublicNat44
+ *        Public NAT gateway. (Value: "PUBLIC_NAT44")
+ *    @arg @c kGTLRNetworkManagement_NatInfo_CloudNatGatewayType_PublicNat64
+ *        Public NAT64 gateway. (Value: "PUBLIC_NAT64")
+ */
+@property(nonatomic, copy, nullable) NSString *cloudNatGatewayType;
 
 /** The name of Cloud NAT Gateway. Only valid when type is CLOUD_NAT. */
 @property(nonatomic, copy, nullable) NSString *natGatewayName;
@@ -6223,6 +6476,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Display information of a Google Kubernetes Engine cluster master. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_GKEMasterInfo *gkeMaster;
 
+/** Display information of a Google Kubernetes Engine Pod. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_GkePodInfo *gkePod;
+
 /** Display information of a Google service */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_GoogleServiceInfo *googleService;
 
@@ -6234,6 +6490,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** Display information of an interconnect attachment. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_InterconnectAttachmentInfo *interconnectAttachment;
+
+/**
+ *  Display information of the reason why GKE Pod IP masquerading was skipped.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_IpMasqueradingSkippedInfo *ipMasqueradingSkipped;
 
 /**
  *  Display information of the load balancers. Deprecated in favor of the
@@ -6337,6 +6598,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Forwarding state: for packets originating from a serverless endpoint
  *        forwarded through public (external) connectivity. (Value:
  *        "SERVERLESS_EXTERNAL_CONNECTION")
+ *    @arg @c kGTLRNetworkManagement_Step_State_SkipGkePodIpMasquerading
+ *        Transition state: GKE Pod IP masquerading is skipped. The
+ *        `ip_masquerading_skipped` field is populated with the reason. (Value:
+ *        "SKIP_GKE_POD_IP_MASQUERADING")
  *    @arg @c kGTLRNetworkManagement_Step_State_SpoofingApproved Config checking
  *        state: packet sent or received under foreign IP address and allowed.
  *        (Value: "SPOOFING_APPROVED")
@@ -6360,6 +6625,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        state: packet originating from a Google Kubernetes Engine cluster
  *        master. A GKEMasterInfo is populated with starting instance
  *        information. (Value: "START_FROM_GKE_MASTER")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromGkePod Initial state:
+ *        packet originating from a Google Kubernetes Engine Pod. A GkePodInfo
+ *        is populated with starting Pod information. (Value:
+ *        "START_FROM_GKE_POD")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromGoogleService Initial
  *        state: packet originating from a Google service. The google_service
  *        information is populated. (Value: "START_FROM_GOOGLE_SERVICE")

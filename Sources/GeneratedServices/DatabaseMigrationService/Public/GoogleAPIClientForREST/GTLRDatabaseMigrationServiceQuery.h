@@ -292,19 +292,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConnectionProfilesList : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  A filter expression that filters connection profiles listed in the response.
- *  The expression must specify the field name, a comparison operator, and the
- *  value that you want to use for filtering. The value must be a string, a
- *  number, or a boolean. The comparison operator must be either =, !=, >, or <.
- *  For example, list connection profiles created this year by specifying
- *  **createTime %gt; 2020-01-01T00:00:00.000000000Z**. You can also filter
- *  nested fields. For example, you could specify **mySql.username =
+ *  Optional. A filter expression that filters connection profiles listed in the
+ *  response. The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. The value must be a
+ *  string, a number, or a boolean. The comparison operator must be either =,
+ *  !=, >, or <. For example, list connection profiles created this year by
+ *  specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z**. You can also
+ *  filter nested fields. For example, you could specify **mySql.username =
  *  %lt;my_username%gt;** to list all connection profiles configured to connect
  *  with a specific username.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** A comma-separated list of fields to order results according to. */
+/**
+ *  Optional. A comma-separated list of fields to order results according to.
+ */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -316,10 +318,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListConnectionProfiles` call.
- *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to `ListConnectionProfiles` must match the call that
- *  provided the page token.
+ *  Optional. A page token, received from a previous `ListConnectionProfiles`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListConnectionProfiles` must match the call
+ *  that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -611,8 +613,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  A unique ID used to identify the request. If the server receives two
- *  requests with the same ID, then the second request is ignored. It is
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
  *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
@@ -647,8 +649,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesDelete : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  Force delete the conversion workspace, even if there's a running migration
- *  that is using the workspace.
+ *  Optional. Force delete the conversion workspace, even if there's a running
+ *  migration that is using the workspace.
  */
 @property(nonatomic, assign) BOOL force;
 
@@ -656,8 +658,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A unique ID used to identify the request. If the server receives two
- *  requests with the same ID, then the second request is ignored. It is
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
  *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
@@ -916,11 +918,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesList : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  A filter expression that filters conversion workspaces listed in the
- *  response. The expression must specify the field name, a comparison operator,
- *  and the value that you want to use for filtering. The value must be a
- *  string, a number, or a boolean. The comparison operator must be either =,
- *  !=, >, or <. For example, list conversion workspaces created this year by
+ *  Optional. A filter expression that filters conversion workspaces listed in
+ *  the response. The expression must specify the field name, a comparison
+ *  operator, and the value that you want to use for filtering. The value must
+ *  be a string, a number, or a boolean. The comparison operator must be either
+ *  =, !=, >, or <. For example, list conversion workspaces created this year by
  *  specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z.** You can also
  *  filter nested fields. For example, you could specify **source.version =
  *  "12.c.1"** to select all conversion workspaces with source database version
@@ -929,13 +931,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The maximum number of conversion workspaces to return. The service may
- *  return fewer than this value. If unspecified, at most 50 sets are returned.
+ *  Optional. The maximum number of conversion workspaces to return. The service
+ *  may return fewer than this value. If unspecified, at most 50 sets are
+ *  returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The nextPageToken value received in the previous call to
+ *  Optional. The nextPageToken value received in the previous call to
  *  conversionWorkspaces.list, used in the subsequent request to retrieve the
  *  next page of results. On first call this should be left blank. When
  *  paginating, all other parameters provided to conversionWorkspaces.list must
@@ -983,8 +986,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  A unique ID used to identify the request. If the server receives two
- *  requests with the same ID, then the second request is ignored. It is
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
  *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
@@ -1127,17 +1130,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsConversionWorkspacesMappingRulesList : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  The maximum number of rules to return. The service may return fewer than
- *  this value.
+ *  Optional. The maximum number of rules to return. The service may return
+ *  fewer than this value.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The nextPageToken value received in the previous call to mappingRules.list,
- *  used in the subsequent request to retrieve the next page of results. On
- *  first call this should be left blank. When paginating, all other parameters
- *  provided to mappingRules.list must match the call that provided the page
- *  token.
+ *  Optional. The nextPageToken value received in the previous call to
+ *  mappingRules.list, used in the subsequent request to retrieve the next page
+ *  of results. On first call this should be left blank. When paginating, all
+ *  other parameters provided to mappingRules.list must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1184,8 +1187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A unique ID used to identify the request. If the server receives two
- *  requests with the same ID, then the second request is ignored. It is
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
  *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
@@ -1441,10 +1444,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Maximum number of IPs to return. */
+/** Optional. Maximum number of IPs to return. */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** A page token, received from a previous `FetchStaticIps` call. */
+/** Optional. A page token, received from a previous `FetchStaticIps` call. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -1596,8 +1599,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsDelete : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  The destination CloudSQL connection profile is always deleted with the
- *  migration job. In case of force delete, the destination CloudSQL replica
+ *  Optional. The destination CloudSQL connection profile is always deleted with
+ *  the migration job. In case of force delete, the destination CloudSQL replica
  *  database is also deleted.
  */
 @property(nonatomic, assign) BOOL force;
@@ -1606,8 +1609,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A unique ID used to identify the request. If the server receives two
- *  requests with the same ID, then the second request is ignored. It is
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
  *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
@@ -1640,7 +1643,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  */
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsDemoteDestination : GTLRDatabaseMigrationServiceQuery
 
-/** Name of the migration job resource to demote its destination. */
+/** Required. Name of the migration job resource to demote its destination. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1653,7 +1656,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
  *
  *  @param object The @c GTLRDatabaseMigrationService_DemoteDestinationRequest
  *    to include in the query.
- *  @param name Name of the migration job resource to demote its destination.
+ *  @param name Required. Name of the migration job resource to demote its
+ *    destination.
  *
  *  @return GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsDemoteDestination
  */
@@ -1847,37 +1851,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsList : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  A filter expression that filters migration jobs listed in the response. The
- *  expression must specify the field name, a comparison operator, and the value
- *  that you want to use for filtering. The value must be a string, a number, or
- *  a boolean. The comparison operator must be either =, !=, >, or <. For
- *  example, list migration jobs created this year by specifying **createTime
- *  %gt; 2020-01-01T00:00:00.000000000Z.** You can also filter nested fields.
- *  For example, you could specify **reverseSshConnectivity.vmIp = "1.2.3.4"**
- *  to select all migration jobs connecting through the specific SSH tunnel
- *  bastion.
+ *  Optional. A filter expression that filters migration jobs listed in the
+ *  response. The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. The value must be a
+ *  string, a number, or a boolean. The comparison operator must be either =,
+ *  !=, >, or <. For example, list migration jobs created this year by
+ *  specifying **createTime %gt; 2020-01-01T00:00:00.000000000Z.** You can also
+ *  filter nested fields. For example, you could specify
+ *  **reverseSshConnectivity.vmIp = "1.2.3.4"** to select all migration jobs
+ *  connecting through the specific SSH tunnel bastion.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Sort the results based on the migration job name. Valid values are: "name",
- *  "name asc", and "name desc".
+ *  Optional. Sort the results based on the migration job name. Valid values
+ *  are: "name", "name asc", and "name desc".
  */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The maximum number of migration jobs to return. The service may return fewer
- *  than this value. If unspecified, at most 50 migration jobs will be returned.
- *  The maximum value is 1000; values above 1000 are coerced to 1000.
+ *  Optional. The maximum number of migration jobs to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 migration jobs will
+ *  be returned. The maximum value is 1000; values above 1000 are coerced to
+ *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The nextPageToken value received in the previous call to migrationJobs.list,
- *  used in the subsequent request to retrieve the next page of results. On
- *  first call this should be left blank. When paginating, all other parameters
- *  provided to migrationJobs.list must match the call that provided the page
- *  token.
+ *  Optional. The nextPageToken value received in the previous call to
+ *  migrationJobs.list, used in the subsequent request to retrieve the next page
+ *  of results. On first call this should be left blank. When paginating, all
+ *  other parameters provided to migrationJobs.list must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1988,16 +1993,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsMigrationJobsObjectsList : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  Maximum number of objects to return. Default is 50. The maximum value is
- *  1000; values above 1000 will be coerced to 1000.
+ *  Optional. Maximum number of objects to return. Default is 50. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token received from a previous `ListMigrationJObObjectsRequest` call.
- *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to `ListMigrationJobObjectsRequest` must match the call
- *  that provided the page token.
+ *  Optional. Page token received from a previous
+ *  `ListMigrationJObObjectsRequest` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListMigrationJobObjectsRequest` must match the call that provided the page
+ *  token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2156,8 +2162,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  A unique ID used to identify the request. If the server receives two
- *  requests with the same ID, then the second request is ignored. It is
+ *  Optional. A unique ID used to identify the request. If the server receives
+ *  two requests with the same ID, then the second request is ignored. It is
  *  recommended to always set this value to a UUID. The ID must contain only
  *  letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens (-). The
  *  maximum length is 40 characters.
@@ -2788,30 +2794,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationServiceViewDatabaseEnti
 @interface GTLRDatabaseMigrationServiceQuery_ProjectsLocationsPrivateConnectionsList : GTLRDatabaseMigrationServiceQuery
 
 /**
- *  A filter expression that filters private connections listed in the response.
- *  The expression must specify the field name, a comparison operator, and the
- *  value that you want to use for filtering. The value must be a string, a
- *  number, or a boolean. The comparison operator must be either =, !=, >, or <.
- *  For example, list private connections created this year by specifying
- *  **createTime %gt; 2021-01-01T00:00:00.000000000Z**.
+ *  Optional. A filter expression that filters private connections listed in the
+ *  response. The expression must specify the field name, a comparison operator,
+ *  and the value that you want to use for filtering. The value must be a
+ *  string, a number, or a boolean. The comparison operator must be either =,
+ *  !=, >, or <. For example, list private connections created this year by
+ *  specifying **createTime %gt; 2021-01-01T00:00:00.000000000Z**.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Order by fields for the result. */
+/** Optional. Order by fields for the result. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Maximum number of private connections to return. If unspecified, at most 50
- *  private connections that are returned. The maximum value is 1000; values
- *  above 1000 are coerced to 1000.
+ *  Optional. Maximum number of private connections to return. If unspecified,
+ *  at most 50 private connections that are returned. The maximum value is 1000;
+ *  values above 1000 are coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token received from a previous `ListPrivateConnections` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListPrivateConnections` must match the call that provided the
- *  page token.
+ *  Optional. Page token received from a previous `ListPrivateConnections` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListPrivateConnections` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

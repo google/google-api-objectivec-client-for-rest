@@ -618,8 +618,9 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
          featureOnlineStoreSpec, filesetSpec, fullyQualifiedName,
          gcsFilesetSpec, graphSpec, integratedSystem, labels, linkedResource,
          lookerSystemSpec, modelSpec, name, personalDetails, routineSpec,
-         schema, serviceSpec, sourceSystemTimestamps, sqlDatabaseSystemSpec,
-         type, usageSignal, userSpecifiedSystem, userSpecifiedType;
+         schema, serviceSpec, sourceSystemTimestamps, spannerTableSpec,
+         sqlDatabaseSystemSpec, type, usageSignal, userSpecifiedSystem,
+         userSpecifiedType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1498,6 +1499,70 @@ NSString * const kGTLRDataCatalog_GoogleCloudDatacatalogV1VertexModelSourceInfo_
 
 @implementation GTLRDataCatalog_GoogleCloudDatacatalogV1SetConfigRequest
 @dynamic catalogUiExperience, tagTemplateMigration;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpec
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpec
+@dynamic foreignKeys, primaryKey;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"foreignKeys" : [GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKey class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKey
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKey
+@dynamic columnMappings, entry, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columnMappings" : [GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKeyForeignKeyColumnMapping class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKeyForeignKeyColumnMapping
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerForeignKeyForeignKeyColumnMapping
+@dynamic column, referenceColumn;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerPrimaryKey
+//
+
+@implementation GTLRDataCatalog_GoogleCloudDatacatalogV1SpannerTableSpecSpannerPrimaryKey
+@dynamic columns;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

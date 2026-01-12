@@ -459,6 +459,12 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @property(nonatomic, strong, nullable) NSNumber *marketplaceEnabled;
 
+/**
+ *  Output only. The list of IP addresses used by Secure Web Proxy for outbound
+ *  traffic.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *webProxyIps;
+
 @end
 
 

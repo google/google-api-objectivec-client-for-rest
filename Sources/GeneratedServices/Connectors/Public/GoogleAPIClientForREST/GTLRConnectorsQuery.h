@@ -165,6 +165,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsGet : GTLRConnectorsQuery
 
 /**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
+
+/**
  *  Required. Resource name of the Action. Format:
  *  projects/{project}/locations/{location}/connections/{connection}/actions/{action}
  */
@@ -207,6 +213,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsList : GTLRConnectorsQuery
+
+/**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
 
 /** Number of Actions to return. Defaults to 25. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -296,6 +308,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  */
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsCheckStatus : GTLRConnectorsQuery
 
+/**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
+
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -327,6 +345,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesCreate : GTLRConnectorsQuery
+
+/**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
 
 /**
  *  Required. Resource name of the Entity Type. Format:
@@ -363,6 +387,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesDelete : GTLRConnectorsQuery
+
+/**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
 
 /**
  *  Required. Resource name of the Entity Type. Format:
@@ -414,6 +444,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *entityType;
 
 /**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
+
+/**
  *  Fetches a @c GTLRConnectors_Empty.
  *
  *  Deletes entities based on conditions specified in the request and not on
@@ -438,6 +474,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesGet : GTLRConnectorsQuery
+
+/**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
 
 /**
  *  Required. Resource name of the Entity Type. Format:
@@ -485,6 +527,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *  filters/conditions are supported.
  */
 @property(nonatomic, copy, nullable) NSString *conditions;
+
+/**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
 
 /**
  *  Number of entity rows to return. Defaults page size = 25. Max page size =
@@ -548,6 +596,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesPatch : GTLRConnectorsQuery
 
 /**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
+
+/**
  *  Output only. Resource name of the Entity. Format:
  *  projects/{project}/locations/{location}/connections/{connection}/entityTypes/{type}/entities/{id}
  */
@@ -602,6 +656,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *entityType;
 
 /**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
+
+/**
  *  Fetches a @c GTLRConnectors_UpdateEntitiesWithConditionsResponse.
  *
  *  Updates entities based on conditions specified in the request and not on
@@ -633,6 +693,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *  type schema.
  */
 @property(nonatomic, copy, nullable) NSString *contextMetadata;
+
+/**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
 
 /**
  *  Required. Resource name of the Entity Type. Format:
@@ -677,6 +743,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesList : GTLRConnectorsQuery
+
+/**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
 
 /** Number of entity types to return. Defaults to 25. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -834,6 +906,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesGet : GTLRConnectorsQuery
 
 /**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
+
+/**
  *  Required. Resource name of the Resource. Format:
  *  projects/{project}/locations/{location}/connections/{connection}/resources/{resource}
  */
@@ -854,6 +932,39 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @end
 
 /**
+ *  Gets a specific resource with POST.
+ *
+ *  Method: connectors.projects.locations.connections.resources.getResourcePost
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesGetResourcePost : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Resource. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}/resources/{resource}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_GetResourceResponse.
+ *
+ *  Gets a specific resource with POST.
+ *
+ *  @param object The @c GTLRConnectors_GetResourcePostRequest to include in the
+ *    query.
+ *  @param name Required. Resource name of the Resource. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}/resources/{resource}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesGetResourcePost
+ */
++ (instancetype)queryWithObject:(GTLRConnectors_GetResourcePostRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists all available resources.
  *
  *  Method: connectors.projects.locations.connections.resources.list
@@ -862,6 +973,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesList : GTLRConnectorsQuery
+
+/**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
 
 /** Optional. Page size for the request. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -890,6 +1007,39 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists all available tools with POST.
+ *
+ *  Method: connectors.projects.locations.connections.tools
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsTools : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Connection. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRConnectors_ListToolsResponse.
+ *
+ *  Lists all available tools with POST.
+ *
+ *  @param object The @c GTLRConnectors_ListToolsPostRequest to include in the
+ *    query.
+ *  @param parent Required. Resource name of the Connection. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsTools
+ */
++ (instancetype)queryWithObject:(GTLRConnectors_ListToolsPostRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -935,6 +1085,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
  *    @c kGTLRAuthScopeConnectorsCloudPlatform
  */
 @interface GTLRConnectorsQuery_ProjectsLocationsConnectionsToolsList : GTLRConnectorsQuery
+
+/**
+ *  headers to be used for the request. For example:
+ *  headers:'{"x-integration-connectors-managed-connection-id":"conn-id","x-integration-connectors-runtime-config":"runtime-cfg"}'
+ */
+@property(nonatomic, copy, nullable) NSString *executionConfigHeaders;
 
 /** Page size. */
 @property(nonatomic, assign) NSInteger pageSize;

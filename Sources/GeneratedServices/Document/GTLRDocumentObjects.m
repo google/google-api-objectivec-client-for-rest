@@ -2710,7 +2710,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentEntitiesRevision
-@dynamic entities, entityValidationOutput, revisionId;
+@dynamic entities, entityValidationOutput, provenance, revisionId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

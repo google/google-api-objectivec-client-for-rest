@@ -558,6 +558,33 @@
 
 @end
 
+@implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsExecutePipeline
+
+@dynamic database;
+
++ (instancetype)queryWithObject:(GTLRFirestore_ExecutePipelineRequest *)object
+                       database:(NSString *)database {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"database" ];
+  NSString *pathURITemplate = @"v1/{+database}/documents:executePipeline";
+  GTLRFirestoreQuery_ProjectsDatabasesDocumentsExecutePipeline *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.database = database;
+  query.expectedObjectClass = [GTLRFirestore_ExecutePipelineResponse class];
+  query.loggingName = @"firestore.projects.databases.documents.executePipeline";
+  return query;
+}
+
+@end
+
 @implementation GTLRFirestoreQuery_ProjectsDatabasesDocumentsGet
 
 @dynamic maskFieldPaths, name, readTime, transaction;

@@ -1441,13 +1441,15 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_GceClusterConfig
-@dynamic confidentialInstanceConfig, internalIpOnly, metadata, networkUri,
-         nodeGroupAffinity, privateIpv6GoogleAccess, reservationAffinity,
-         resourceManagerTags, serviceAccount, serviceAccountScopes,
-         shieldedInstanceConfig, subnetworkUri, tags, zoneUri;
+@dynamic autoZoneExcludeZoneUris, confidentialInstanceConfig, internalIpOnly,
+         metadata, networkUri, nodeGroupAffinity, privateIpv6GoogleAccess,
+         reservationAffinity, resourceManagerTags, serviceAccount,
+         serviceAccountScopes, shieldedInstanceConfig, subnetworkUri, tags,
+         zoneUri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"autoZoneExcludeZoneUris" : [NSString class],
     @"serviceAccountScopes" : [NSString class],
     @"tags" : [NSString class]
   };

@@ -170,6 +170,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Labels;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCallMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSourceTurnLevelAudio;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationLevelSentiment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationLevelSilence;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant;
@@ -400,6 +401,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SentimentData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings_PubsubNotificationSettings;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SettingsAnalysisConfig;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SignedAudioUris;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SilenceData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartComposeSuggestionData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartComposeSuggestionData_Metadata;
@@ -903,6 +905,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "EXPORT_V14"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV14;
+/**
+ *  Export schema version 15.
+ *
+ *  Value: "EXPORT_V15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV15;
+/**
+ *  Export schema version 16.
+ *
+ *  Value: "EXPORT_V16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV16;
+/**
+ *  Export schema version 17.
+ *
+ *  Value: "EXPORT_V17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17;
 /**
  *  Export schema version 2.
  *
@@ -1755,6 +1775,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV14;
 /**
+ *  Export schema version 15.
+ *
+ *  Value: "EXPORT_V15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV15;
+/**
+ *  Export schema version 16.
+ *
+ *  Value: "EXPORT_V16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV16;
+/**
+ *  Export schema version 17.
+ *
+ *  Value: "EXPORT_V17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17;
+/**
  *  Export schema version 2.
  *
  *  Value: "EXPORT_V2"
@@ -2481,6 +2519,24 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "EXPORT_V14"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV14;
+/**
+ *  Export schema version 15.
+ *
+ *  Value: "EXPORT_V15"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV15;
+/**
+ *  Export schema version 16.
+ *
+ *  Value: "EXPORT_V16"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV16;
+/**
+ *  Export schema version 17.
+ *
+ *  Value: "EXPORT_V17"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV17;
 /**
  *  Export schema version 2.
  *
@@ -5127,6 +5183,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *        Export schema version 13. (Value: "EXPORT_V13")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV14
  *        Export schema version 14. (Value: "EXPORT_V14")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV15
+ *        Export schema version 15. (Value: "EXPORT_V15")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV16
+ *        Export schema version 16. (Value: "EXPORT_V16")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17
+ *        Export schema version 17. (Value: "EXPORT_V17")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2
  *        Export schema version 2. (Value: "EXPORT_V2")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3
@@ -6118,10 +6180,18 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswer : GTLRObject
 
-/** List of all individual answers given to the question. */
+/**
+ *  Lists all answer sources containing one or more answer values of a specific
+ *  source type, e.g., all system-generated answer sources, or all manual edit
+ *  answer sources.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource *> *answerSources;
 
-/** The main answer value, incorporating any manual edits if they exist. */
+/**
+ *  The answer value from this source. This field is populated by default,
+ *  unless the question has a selection strategy configured to return multiple
+ *  answer values, in which case `answer_values` will be populated instead.
+ */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue *answerValue;
 
 /** The conversation the answer applies to. */
@@ -6150,7 +6220,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerSource : GTLRObject
 
-/** The answer value from this source. */
+/**
+ *  The answer value from this source. This field is populated by default,
+ *  unless the question has a selection strategy configured to return multiple
+ *  answer values, in which case `answer_values` will be populated instead.
+ */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QaAnswerAnswerValue *answerValue;
 
 /**
@@ -6984,6 +7058,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  `CreateConversation` endpoint.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig : GTLRObject
+
+/**
+ *  Whether to disable word time offsets. If true, the
+ *  `enable_word_time_offsets` field in the recognition config will be set to
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableWordTimeOffsets;
 
 /**
  *  The fully-qualified Speech Recognizer resource name. Format:
@@ -8630,6 +8713,20 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A wrapper for holding the audio for any given turn.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSourceTurnLevelAudio : GTLRObject
+
+/** The duration of the audio. */
+@property(nonatomic, strong, nullable) GTLRDuration *audioDuration;
+
+/** The Cloud Storage URI of the audio for any given turn. */
+@property(nonatomic, copy, nullable) NSString *audioGcsUri;
+
+@end
+
+
+/**
  *  One channel of conversation-level sentiment data.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationLevelSentiment : GTLRObject
@@ -9808,6 +9905,12 @@ GTLR_DEPRECATED
  *        Export schema version 13. (Value: "EXPORT_V13")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV14
  *        Export schema version 14. (Value: "EXPORT_V14")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV15
+ *        Export schema version 15. (Value: "EXPORT_V15")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV16
+ *        Export schema version 16. (Value: "EXPORT_V16")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17
+ *        Export schema version 17. (Value: "EXPORT_V17")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2
  *        Export schema version 2. (Value: "EXPORT_V2")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3
@@ -10065,6 +10168,17 @@ GTLR_DEPRECATED
  *  conversation transcript.
  */
 @property(nonatomic, copy, nullable) NSString *transcriptUri;
+
+@end
+
+
+/**
+ *  The response from a GenerateConversationSignedAudio request.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerateConversationSignedAudioResponse : GTLRObject
+
+/** The signed uris for the audio. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SignedAudioUris *signedAudioUris;
 
 @end
 
@@ -13414,6 +13528,12 @@ GTLR_DEPRECATED
  *        Export schema version 13. (Value: "EXPORT_V13")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV14
  *        Export schema version 14. (Value: "EXPORT_V14")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV15
+ *        Export schema version 15. (Value: "EXPORT_V15")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV16
+ *        Export schema version 16. (Value: "EXPORT_V16")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV17
+ *        Export schema version 17. (Value: "EXPORT_V17")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV2
  *        Export schema version 2. (Value: "EXPORT_V2")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV3
@@ -14405,10 +14525,18 @@ GTLR_DEPRECATED
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQaAnswer : GTLRObject
 
-/** List of all individual answers given to the question. */
+/**
+ *  Lists all answer sources containing one or more answer values of a specific
+ *  source type, e.g., all system-generated answer sources, or all manual edit
+ *  answer sources.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQaAnswerAnswerSource *> *answerSources;
 
-/** The main answer value, incorporating any manual edits if they exist. */
+/**
+ *  The answer value from this source. This field is populated by default,
+ *  unless the question has a selection strategy configured to return multiple
+ *  answer values, in which case `answer_values` will be populated instead.
+ */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQaAnswerAnswerValue *answerValue;
 
 /** The conversation the answer applies to. */
@@ -14437,7 +14565,11 @@ GTLR_DEPRECATED
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQaAnswerAnswerSource : GTLRObject
 
-/** The answer value from this source. */
+/**
+ *  The answer value from this source. This field is populated by default,
+ *  unless the question has a selection strategy configured to return multiple
+ *  answer values, in which case `answer_values` will be populated instead.
+ */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQaAnswerAnswerValue *answerValue;
 
 /**
@@ -15273,6 +15405,15 @@ GTLR_DEPRECATED
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSpeechConfig : GTLRObject
 
 /**
+ *  Whether to disable word time offsets. If true, the
+ *  `enable_word_time_offsets` field in the recognition config will be set to
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableWordTimeOffsets;
+
+/**
  *  The fully-qualified Speech Recognizer resource name. Format:
  *  `projects/{project_id}/locations/{location}/recognizer/{recognizer}`
  */
@@ -15673,10 +15814,18 @@ GTLR_DEPRECATED
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswer : GTLRObject
 
-/** List of all individual answers given to the question. */
+/**
+ *  Lists all answer sources containing one or more answer values of a specific
+ *  source type, e.g., all system-generated answer sources, or all manual edit
+ *  answer sources.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource *> *answerSources;
 
-/** The main answer value, incorporating any manual edits if they exist. */
+/**
+ *  The answer value from this source. This field is populated by default,
+ *  unless the question has a selection strategy configured to return multiple
+ *  answer values, in which case `answer_values` will be populated instead.
+ */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue *answerValue;
 
 /** The conversation the answer applies to. */
@@ -15705,7 +15854,11 @@ GTLR_DEPRECATED
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerSource : GTLRObject
 
-/** The answer value from this source. */
+/**
+ *  The answer value from this source. This field is populated by default,
+ *  unless the question has a selection strategy configured to return multiple
+ *  answer values, in which case `answer_values` will be populated instead.
+ */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaAnswerAnswerValue *answerValue;
 
 /**
@@ -17092,6 +17245,27 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Signed audio URIs for a conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SignedAudioUris : GTLRObject
+
+/** The signed URI for the audio from the Dialogflow conversation source. */
+@property(nonatomic, copy, nullable) NSString *signedDialogflowAudioUri;
+
+/**
+ *  The signed URI for the audio from the Cloud Storage conversation source.
+ */
+@property(nonatomic, copy, nullable) NSString *signedGcsAudioUri;
+
+/**
+ *  The signed URI for the audio corresponding to each turn in the conversation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSourceTurnLevelAudio *> *signedTurnLevelAudios;
+
+@end
+
+
+/**
  *  The data for a silence annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SilenceData : GTLRObject
@@ -17196,6 +17370,15 @@ GTLR_DEPRECATED
  *  `CreateConversation` endpoint.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig : GTLRObject
+
+/**
+ *  Whether to disable word time offsets. If true, the
+ *  `enable_word_time_offsets` field in the recognition config will be set to
+ *  false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableWordTimeOffsets;
 
 /**
  *  The fully-qualified Speech Recognizer resource name. Format:

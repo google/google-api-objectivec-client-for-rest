@@ -4135,10 +4135,14 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_VideoStat
-@dynamic contentDetails, ETag, kind, name, snippet, statistics, videoId;
+@dynamic contentDetails, ETag, identifier, kind, snippet, statistics;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"ETag" : @"etag",
+    @"identifier" : @"id"
+  };
+  return map;
 }
 
 + (BOOL)isKindValidForClassRegistry {

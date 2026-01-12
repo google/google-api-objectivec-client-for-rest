@@ -211,6 +211,37 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMyactivityYoutub
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityMymapsMaps;
 /**
+ *  Authorization scope: Copy Nest camera event data
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.nest.camera_event"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityNestCameraEvent;
+/**
+ *  Authorization scope: Copy Nest camera feature data
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.nest.camera_feature"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityNestCameraFeature;
+/**
+ *  Authorization scope: Copy Nest camera footage
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.nest.camera_video"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityNestCameraVideo;
+/**
+ *  Authorization scope: Copy your Nest Store and Nest Renew billing and payment
+ *  information
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.nest.store"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityNestStore;
+/**
+ *  Authorization scope: Copy your Nest user information
+ *
+ *  Value "https://www.googleapis.com/auth/dataportability.nest.user"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataPortabilityNestUser;
+/**
  *  Authorization scope: Move a copy of your food purchase and reservation
  *  activity
  *

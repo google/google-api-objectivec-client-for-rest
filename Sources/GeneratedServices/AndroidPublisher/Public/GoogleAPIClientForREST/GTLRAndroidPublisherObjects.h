@@ -171,6 +171,7 @@
 @class GTLRAndroidPublisher_RefundEvent;
 @class GTLRAndroidPublisher_RegionalBasePlanConfig;
 @class GTLRAndroidPublisher_RegionalPriceMigrationConfig;
+@class GTLRAndroidPublisher_RegionalProductAgeRatingInfo;
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferConfig;
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseConfig;
 @class GTLRAndroidPublisher_RegionalSubscriptionOfferPhaseFreePriceOverride;
@@ -1905,6 +1906,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationC
  *  Value: "PRICE_INCREASE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalPriceMigrationConfig_PriceIncreaseType_PriceIncreaseTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_RegionalProductAgeRatingInfo.productAgeRatingTier
+
+/**
+ *  Age rating tier for products that are appropriate for 18 years and above.
+ *
+ *  Value: "PRODUCT_AGE_RATING_TIER_EIGHTEEN_AND_ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierEighteenAndAbove;
+/**
+ *  Age rating tier for products that are appropriate for all ages.
+ *
+ *  Value: "PRODUCT_AGE_RATING_TIER_EVERYONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierEveryone;
+/**
+ *  Age rating tier for products that are appropriate for 16 years and above.
+ *
+ *  Value: "PRODUCT_AGE_RATING_TIER_SIXTEEN_AND_ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierSixteenAndAbove;
+/**
+ *  Age rating tier for products that are appropriate for 13 years and above.
+ *
+ *  Value: "PRODUCT_AGE_RATING_TIER_THIRTEEN_AND_ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierThirteenAndAbove;
+/**
+ *  Unknown age rating tier.
+ *
+ *  Value: "PRODUCT_AGE_RATING_TIER_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_RegionalTaxConfig.streamingTaxType
@@ -6606,6 +6641,12 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *productTaxCategoryCode;
 
 /**
+ *  Regional age rating information. Currently this field is only supported for
+ *  region code `US`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_RegionalProductAgeRatingInfo *> *regionalProductAgeRatingInfos;
+
+/**
  *  A mapping from region code to tax rate details. The keys are region codes as
  *  defined by Unicode's "CLDR".
  */
@@ -7380,6 +7421,12 @@ GTLR_DEPRECATED
  *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *productTaxCategoryCode;
+
+/**
+ *  Regional age rating information. Currently this field is only supported for
+ *  region code `US`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_RegionalProductAgeRatingInfo *> *regionalProductAgeRatingInfos;
 
 /** Regional tax configuration. */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_RegionalTaxConfig *> *regionalTaxConfigs;
@@ -8281,14 +8328,6 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_ProrationPeriodDetails : GTLRObject
 
 /**
- *  The last order id of the original subscription purchase prior to the plan
- *  change. This is only populated if this proration period is from an
- *  ugrade/downgrade from a previous subscription and carries the remaining
- *  offer phase from the linked order of the previous subscription.
- */
-@property(nonatomic, copy, nullable) NSString *linkedOrderId;
-
-/**
  *  Represent the original offer phase from the purchased the line item if the
  *  proration period contains any of them. For example, a proration period from
  *  CHARGE_FULL_PRICE plan change may merge the 1st offer phase of the
@@ -8544,6 +8583,41 @@ GTLR_DEPRECATED
 /**
  *  Required. Region code this configuration applies to, as defined by ISO
  *  3166-2, e.g. "US".
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
+ *  Details about the age rating for a specific geographic region.
+ */
+@interface GTLRAndroidPublisher_RegionalProductAgeRatingInfo : GTLRObject
+
+/**
+ *  The age rating tier of a product for the given region.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierEighteenAndAbove
+ *        Age rating tier for products that are appropriate for 18 years and
+ *        above. (Value: "PRODUCT_AGE_RATING_TIER_EIGHTEEN_AND_ABOVE")
+ *    @arg @c kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierEveryone
+ *        Age rating tier for products that are appropriate for all ages.
+ *        (Value: "PRODUCT_AGE_RATING_TIER_EVERYONE")
+ *    @arg @c kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierSixteenAndAbove
+ *        Age rating tier for products that are appropriate for 16 years and
+ *        above. (Value: "PRODUCT_AGE_RATING_TIER_SIXTEEN_AND_ABOVE")
+ *    @arg @c kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierThirteenAndAbove
+ *        Age rating tier for products that are appropriate for 13 years and
+ *        above. (Value: "PRODUCT_AGE_RATING_TIER_THIRTEEN_AND_ABOVE")
+ *    @arg @c kGTLRAndroidPublisher_RegionalProductAgeRatingInfo_ProductAgeRatingTier_ProductAgeRatingTierUnknown
+ *        Unknown age rating tier. (Value: "PRODUCT_AGE_RATING_TIER_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *productAgeRatingTier;
+
+/**
+ *  Region code this configuration applies to, as defined by ISO 3166-2, e.g.
+ *  "US".
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
@@ -10167,6 +10241,12 @@ GTLR_DEPRECATED
  *  for more information.
  */
 @property(nonatomic, copy, nullable) NSString *productTaxCategoryCode;
+
+/**
+ *  Regional age rating information. Currently this field is only supported for
+ *  region code `US`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_RegionalProductAgeRatingInfo *> *regionalProductAgeRatingInfos;
 
 /**
  *  A mapping from region code to tax rate details. The keys are region codes as

@@ -205,24 +205,24 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDatastreamQuery_ProjectsLocationsConnectionProfilesList : GTLRDatastreamQuery
 
-/** Filter request. */
+/** Optional. Filter request. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Order by fields for the result. */
+/** Optional. Order by fields for the result. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Maximum number of connection profiles to return. If unspecified, at most 50
- *  connection profiles will be returned. The maximum value is 1000; values
- *  above 1000 will be coerced to 1000.
+ *  Optional. Maximum number of connection profiles to return. If unspecified,
+ *  at most 50 connection profiles will be returned. The maximum value is 1000;
+ *  values above 1000 will be coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token received from a previous `ListConnectionProfiles` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListConnectionProfiles` must match the call that provided the
- *  page token.
+ *  Optional. Page token received from a previous `ListConnectionProfiles` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListConnectionProfiles` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -329,12 +329,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Maximum number of Ips to return, will likely not be specified. */
+/**
+ *  Optional. Maximum number of Ips to return, will likely not be specified.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListStaticIps` call. will likely not
- *  be specified.
+ *  Optional. A page token, received from a previous `ListStaticIps` call. will
+ *  likely not be specified.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -737,10 +739,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsList : GTLRDatastreamQuery
 
-/** Filter request. */
+/** Optional. Filter request. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Order by fields for the result. */
+/** Optional. Order by fields for the result. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -752,10 +754,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token received from a previous `ListPrivateConnections` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListPrivateConnections` must match the call that provided the
- *  page token.
+ *  Optional. Page token received from a previous `ListPrivateConnections` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListPrivateConnections` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -910,23 +912,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDatastreamQuery_ProjectsLocationsPrivateConnectionsRoutesList : GTLRDatastreamQuery
 
-/** Filter request. */
+/** Optional. Filter request. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Order by fields for the result. */
+/** Optional. Order by fields for the result. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Maximum number of Routes to return. The service may return fewer than this
- *  value. If unspecified, at most 50 Routes will be returned. The maximum value
- *  is 1000; values above 1000 will be coerced to 1000.
+ *  Optional. Maximum number of Routes to return. The service may return fewer
+ *  than this value. If unspecified, at most 50 Routes will be returned. The
+ *  maximum value is 1000; values above 1000 will be coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token received from a previous `ListRoutes` call. Provide this to
- *  retrieve the subsequent page. When paginating, all other parameters provided
- *  to `ListRoutes` must match the call that provided the page token.
+ *  Optional. Page token received from a previous `ListRoutes` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListRoutes` must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1083,23 +1085,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDatastreamQuery_ProjectsLocationsStreamsList : GTLRDatastreamQuery
 
-/** Filter request. */
+/** Optional. Filter request. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Order by fields for the result. */
+/** Optional. Order by fields for the result. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  Maximum number of streams to return. If unspecified, at most 50 streams will
- *  be returned. The maximum value is 1000; values above 1000 will be coerced to
- *  1000.
+ *  Optional. Maximum number of streams to return. If unspecified, at most 50
+ *  streams will be returned. The maximum value is 1000; values above 1000 will
+ *  be coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token received from a previous `ListStreams` call. Provide this to
- *  retrieve the subsequent page. When paginating, all other parameters provided
- *  to `ListStreams` must match the call that provided the page token.
+ *  Optional. Page token received from a previous `ListStreams` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `ListStreams` must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1160,16 +1162,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDatastreamQuery_ProjectsLocationsStreamsObjectsList : GTLRDatastreamQuery
 
 /**
- *  Maximum number of objects to return. Default is 50. The maximum value is
- *  1000; values above 1000 will be coerced to 1000.
+ *  Optional. Maximum number of objects to return. Default is 50. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Page token received from a previous `ListStreamObjectsRequest` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListStreamObjectsRequest` must match the call that provided the
- *  page token.
+ *  Optional. Page token received from a previous `ListStreamObjectsRequest`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListStreamObjectsRequest` must match the call
+ *  that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

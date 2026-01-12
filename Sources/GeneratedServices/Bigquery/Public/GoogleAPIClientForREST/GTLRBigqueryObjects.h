@@ -33,6 +33,7 @@
 @class GTLRBigquery_BigtableColumn;
 @class GTLRBigquery_BigtableColumnFamily;
 @class GTLRBigquery_BigtableOptions;
+@class GTLRBigquery_BigtableProtoConfig;
 @class GTLRBigquery_BinaryClassificationMetrics;
 @class GTLRBigquery_BinaryConfusionMatrix;
 @class GTLRBigquery_Binding;
@@ -4595,9 +4596,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Optional. The encoding of the values when the type is not STRING. Acceptable
  *  encoding values are: TEXT - indicates values are alphanumeric text strings.
  *  BINARY - indicates values are encoded using HBase Bytes.toBytes family of
- *  functions. 'encoding' can also be set at the column family level. However,
- *  the setting at this level takes precedence if 'encoding' is set at both
- *  levels.
+ *  functions. PROTO_BINARY - indicates values are encoded using serialized
+ *  proto messages. This can only be used in combination with JSON type.
+ *  'encoding' can also be set at the column family level. However, the setting
+ *  at this level takes precedence if 'encoding' is set at both levels.
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
 
@@ -4617,6 +4619,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *onlyReadLatest;
+
+/**
+ *  Optional. Protobuf-specific configurations, only takes effect when the
+ *  encoding is PROTO_BINARY.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_BigtableProtoConfig *protoConfig;
 
 /**
  *  [Required] Qualifier of the column. Columns in the parent column family that
@@ -4666,8 +4674,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Optional. The encoding of the values when the type is not STRING. Acceptable
  *  encoding values are: TEXT - indicates values are alphanumeric text strings.
  *  BINARY - indicates values are encoded using HBase Bytes.toBytes family of
- *  functions. This can be overridden for a specific column by listing that
- *  column in 'columns' and specifying an encoding for it.
+ *  functions. PROTO_BINARY - indicates values are encoded using serialized
+ *  proto messages. This can only be used in combination with JSON type. This
+ *  can be overridden for a specific column by listing that column in 'columns'
+ *  and specifying an encoding for it.
  */
 @property(nonatomic, copy, nullable) NSString *encoding;
 
@@ -4683,6 +4693,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *onlyReadLatest;
+
+/**
+ *  Optional. Protobuf-specific configurations, only takes effect when the
+ *  encoding is PROTO_BINARY.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_BigtableProtoConfig *protoConfig;
 
 /**
  *  Optional. The type to convert the value in cells of this column family. The
@@ -4740,6 +4756,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *readRowkeyAsString;
+
+@end
+
+
+/**
+ *  Information related to a Bigtable protobuf column.
+ */
+@interface GTLRBigquery_BigtableProtoConfig : GTLRObject
+
+/**
+ *  Optional. The fully qualified proto message name of the protobuf. In the
+ *  format of "foo.bar.Message".
+ */
+@property(nonatomic, copy, nullable) NSString *protoMessageName;
+
+/**
+ *  Optional. The ID of the Bigtable SchemaBundle resource associated with this
+ *  protobuf. The ID should be referred to within the parent table, e.g., `foo`
+ *  rather than
+ *  `projects/{project}/instances/{instance}/tables/{table}/schemaBundles/foo`.
+ *  See [more details on Bigtable
+ *  SchemaBundles](https://docs.cloud.google.com/bigtable/docs/create-manage-protobuf-schemas).
+ */
+@property(nonatomic, copy, nullable) NSString *schemaBundleId;
 
 @end
 

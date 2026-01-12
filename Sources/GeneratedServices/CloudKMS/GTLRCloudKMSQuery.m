@@ -1551,6 +1551,209 @@ NSString * const kGTLRCloudKMSViewFull                         = @"FULL";
 
 @end
 
+@implementation GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesCreate
+
+@dynamic parent, singleTenantHsmInstanceId;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_SingleTenantHsmInstance *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/singleTenantHsmInstances";
+  GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudKMS_Operation class];
+  query.loggingName = @"cloudkms.projects.locations.singleTenantHsmInstances.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_SingleTenantHsmInstance class];
+  query.loggingName = @"cloudkms.projects.locations.singleTenantHsmInstances.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent, showDeleted;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/singleTenantHsmInstances";
+  GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudKMS_ListSingleTenantHsmInstancesResponse class];
+  query.loggingName = @"cloudkms.projects.locations.singleTenantHsmInstances.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsApprove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_ApproveSingleTenantHsmInstanceProposalRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:approve";
+  GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsApprove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_ApproveSingleTenantHsmInstanceProposalResponse class];
+  query.loggingName = @"cloudkms.projects.locations.singleTenantHsmInstances.proposals.approve";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsCreate
+
+@dynamic parent, singleTenantHsmInstanceProposalId;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_SingleTenantHsmInstanceProposal *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/proposals";
+  GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudKMS_Operation class];
+  query.loggingName = @"cloudkms.projects.locations.singleTenantHsmInstances.proposals.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_Empty class];
+  query.loggingName = @"cloudkms.projects.locations.singleTenantHsmInstances.proposals.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsExecute
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudKMS_ExecuteSingleTenantHsmInstanceProposalRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:execute";
+  GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsExecute *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_Operation class];
+  query.loggingName = @"cloudkms.projects.locations.singleTenantHsmInstances.proposals.execute";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudKMS_SingleTenantHsmInstanceProposal class];
+  query.loggingName = @"cloudkms.projects.locations.singleTenantHsmInstances.proposals.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent, showDeleted;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/proposals";
+  GTLRCloudKMSQuery_ProjectsLocationsSingleTenantHsmInstancesProposalsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudKMS_ListSingleTenantHsmInstanceProposalsResponse class];
+  query.loggingName = @"cloudkms.projects.locations.singleTenantHsmInstances.proposals.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudKMSQuery_ProjectsLocationsUpdateEkmConfig
 
 @dynamic name, updateMask;
