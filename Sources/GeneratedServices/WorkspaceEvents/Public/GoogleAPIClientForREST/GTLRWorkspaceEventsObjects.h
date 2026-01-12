@@ -289,6 +289,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskSta
  *  GTLRWorkspaceEvents_CancelTaskRequest
  */
 @interface GTLRWorkspaceEvents_CancelTaskRequest : GTLRObject
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
 @end
 
 
@@ -715,6 +722,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskSta
 
 /** Optional metadata for the request. */
 @property(nonatomic, strong, nullable) GTLRWorkspaceEvents_SendMessageRequest_Metadata *metadata;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
 
 @end
 

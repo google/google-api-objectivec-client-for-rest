@@ -40,11 +40,15 @@
 @class GTLRFirestore_ExistenceFilter;
 @class GTLRFirestore_ExplainMetrics;
 @class GTLRFirestore_ExplainOptions;
+@class GTLRFirestore_ExplainStats;
+@class GTLRFirestore_ExplainStats_Data;
 @class GTLRFirestore_FieldFilter;
 @class GTLRFirestore_FieldReference;
 @class GTLRFirestore_FieldTransform;
 @class GTLRFirestore_Filter;
 @class GTLRFirestore_FindNearest;
+@class GTLRFirestore_Function;
+@class GTLRFirestore_Function_Options;
 @class GTLRFirestore_GoogleFirestoreAdminV1Backup;
 @class GTLRFirestore_GoogleFirestoreAdminV1BackupSchedule;
 @class GTLRFirestore_GoogleFirestoreAdminV1BackupSource;
@@ -85,6 +89,7 @@
 @class GTLRFirestore_MapValue;
 @class GTLRFirestore_MapValue_Fields;
 @class GTLRFirestore_Order;
+@class GTLRFirestore_Pipeline;
 @class GTLRFirestore_PlanSummary;
 @class GTLRFirestore_PlanSummary_IndexesUsed_Item;
 @class GTLRFirestore_Precondition;
@@ -92,9 +97,13 @@
 @class GTLRFirestore_QueryTarget;
 @class GTLRFirestore_ReadOnly;
 @class GTLRFirestore_ReadWrite;
+@class GTLRFirestore_Stage;
+@class GTLRFirestore_Stage_Options;
 @class GTLRFirestore_Status;
 @class GTLRFirestore_Status_Details_Item;
 @class GTLRFirestore_StructuredAggregationQuery;
+@class GTLRFirestore_StructuredPipeline;
+@class GTLRFirestore_StructuredPipeline_Options;
 @class GTLRFirestore_StructuredQuery;
 @class GTLRFirestore_Sum;
 @class GTLRFirestore_Target;
@@ -451,22 +460,25 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_ConcurrencyModeUnspecified;
 /**
  *  Use optimistic concurrency control by default. This mode is available for
- *  Cloud Firestore databases.
+ *  Cloud Firestore databases. This is the default setting for Cloud Firestore
+ *  Enterprise Edition databases.
  *
  *  Value: "OPTIMISTIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Optimistic;
 /**
- *  Use optimistic concurrency control with entity groups by default. This is
- *  the only available mode for Cloud Datastore. This mode is also available for
- *  Cloud Firestore with Datastore Mode but is not recommended.
+ *  Use optimistic concurrency control with entity groups by default. This mode
+ *  is enabled for some databases that were automatically upgraded from Cloud
+ *  Datastore to Cloud Firestore with Datastore Mode. It is not recommended for
+ *  any new databases, and not supported for Firestore Native databases.
  *
  *  Value: "OPTIMISTIC_WITH_ENTITY_GROUPS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_OptimisticWithEntityGroups;
 /**
  *  Use pessimistic concurrency control by default. This mode is available for
- *  Cloud Firestore databases. This is the default setting for Cloud Firestore.
+ *  Cloud Firestore databases. This is the default setting for Cloud Firestore
+ *  Standard Edition databases.
  *
  *  Value: "PESSIMISTIC"
  */
@@ -1996,6 +2008,89 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The request for Firestore.ExecutePipeline.
+ */
+@interface GTLRFirestore_ExecutePipelineRequest : GTLRObject
+
+/**
+ *  Execute the pipeline in a new transaction. The identifier of the newly
+ *  created transaction will be returned in the first response on the stream.
+ *  This defaults to a read-only transaction.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_TransactionOptions *newTransaction NS_RETURNS_NOT_RETAINED;
+
+/**
+ *  Execute the pipeline in a snapshot transaction at the given time. This must
+ *  be a microsecond precision timestamp within the past one hour, or if
+ *  Point-in-Time Recovery is enabled, can additionally be a whole minute
+ *  timestamp within the past 7 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *readTime;
+
+/** A pipelined operation. */
+@property(nonatomic, strong, nullable) GTLRFirestore_StructuredPipeline *structuredPipeline;
+
+/**
+ *  Run the query within an already active transaction. The value here is the
+ *  opaque transaction ID to execute the query in.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *transaction;
+
+@end
+
+
+/**
+ *  The response for Firestore.Execute.
+ */
+@interface GTLRFirestore_ExecutePipelineResponse : GTLRObject
+
+/**
+ *  The time at which the results are valid. This is a (not strictly)
+ *  monotonically increasing value across multiple responses in the same stream.
+ *  The API guarantees that all previously returned results are still valid at
+ *  the latest `execution_time`. This allows the API consumer to treat the query
+ *  if it ran at the latest `execution_time` returned. If the query returns no
+ *  results, a response with `execution_time` and no `results` will be sent, and
+ *  this represents the time at which the operation was run.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *executionTime;
+
+/**
+ *  Query explain stats. This is present on the **last** response if the request
+ *  configured explain to run in 'analyze' or 'explain' mode in the pipeline
+ *  options. If the query does not return any results, a response with
+ *  `explain_stats` and no `results` will still be sent.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExplainStats *explainStats;
+
+/**
+ *  An ordered batch of results returned executing a pipeline. The batch size is
+ *  variable, and can even be zero for when only a partial progress message is
+ *  returned. The fields present in the returned documents are only those that
+ *  were explicitly requested in the pipeline, this includes those like
+ *  `__name__` and `__update_time__`. This is explicitly a divergence from
+ *  `Firestore.RunQuery` / `Firestore.GetDocument` RPCs which always return such
+ *  fields even when they are not specified in the `mask`.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Document *> *results;
+
+/**
+ *  Newly created transaction identifier. This field is only specified as part
+ *  of the first response from the server, alongside the `results` field when
+ *  the original request specified ExecuteRequest.new_transaction.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *transaction;
+
+@end
+
+
+/**
  *  Execution statistics for the query.
  */
 @interface GTLRFirestore_ExecutionStats : GTLRObject
@@ -2118,6 +2213,36 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) NSNumber *analyze;
 
+@end
+
+
+/**
+ *  Pipeline explain stats. Depending on the explain options in the original
+ *  request, this can contain the optimized plan and / or execution stats.
+ */
+@interface GTLRFirestore_ExplainStats : GTLRObject
+
+/**
+ *  The format depends on the `output_format` options in the request. Currently
+ *  there are two supported options: `TEXT` and `JSON`. Both supply a
+ *  `google.protobuf.StringValue`.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_ExplainStats_Data *data;
+
+@end
+
+
+/**
+ *  The format depends on the `output_format` options in the request. Currently
+ *  there are two supported options: `TEXT` and `JSON`. Both supply a
+ *  `google.protobuf.StringValue`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirestore_ExplainStats_Data : GTLRObject
 @end
 
 
@@ -2377,6 +2502,40 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) GTLRFirestore_FieldReference *vectorField;
 
+@end
+
+
+/**
+ *  Represents an unevaluated scalar expression. For example, the expression
+ *  `like(user_name, "%alice%")` is represented as: ``` name: "like" args {
+ *  field_reference: "user_name" } args { string_value: "%alice%" } ```
+ */
+@interface GTLRFirestore_Function : GTLRObject
+
+/** Optional. Ordered list of arguments the given function expects. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Value *> *args;
+
+/**
+ *  Required. The name of the function to evaluate. **Requires:** * must be in
+ *  snake case (lower case with underscore separator).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Optional named arguments that certain functions may support. */
+@property(nonatomic, strong, nullable) GTLRFirestore_Function_Options *options;
+
+@end
+
+
+/**
+ *  Optional. Optional named arguments that certain functions may support.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRFirestore_Value. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirestore_Function_Options : GTLRObject
 @end
 
 
@@ -2785,23 +2944,27 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1CmekConfig *cmekConfig;
 
 /**
- *  The concurrency control mode to use for this database.
+ *  The concurrency control mode to use for this database. If unspecified in a
+ *  CreateDatabase request, this will default based on the database edition:
+ *  Optimistic for Enterprise and Pessimistic for all other databases.
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_ConcurrencyModeUnspecified
  *        Not used. (Value: "CONCURRENCY_MODE_UNSPECIFIED")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Optimistic
  *        Use optimistic concurrency control by default. This mode is available
- *        for Cloud Firestore databases. (Value: "OPTIMISTIC")
+ *        for Cloud Firestore databases. This is the default setting for Cloud
+ *        Firestore Enterprise Edition databases. (Value: "OPTIMISTIC")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_OptimisticWithEntityGroups
  *        Use optimistic concurrency control with entity groups by default. This
- *        is the only available mode for Cloud Datastore. This mode is also
- *        available for Cloud Firestore with Datastore Mode but is not
- *        recommended. (Value: "OPTIMISTIC_WITH_ENTITY_GROUPS")
+ *        mode is enabled for some databases that were automatically upgraded
+ *        from Cloud Datastore to Cloud Firestore with Datastore Mode. It is not
+ *        recommended for any new databases, and not supported for Firestore
+ *        Native databases. (Value: "OPTIMISTIC_WITH_ENTITY_GROUPS")
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_Pessimistic
  *        Use pessimistic concurrency control by default. This mode is available
  *        for Cloud Firestore databases. This is the default setting for Cloud
- *        Firestore. (Value: "PESSIMISTIC")
+ *        Firestore Standard Edition databases. (Value: "PESSIMISTIC")
  */
 @property(nonatomic, copy, nullable) NSString *concurrencyMode;
 
@@ -4790,6 +4953,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  A Firestore query represented as an ordered list of operations / stages.
+ */
+@interface GTLRFirestore_Pipeline : GTLRObject
+
+/** Required. Ordered list of stages to evaluate. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Stage *> *stages;
+
+@end
+
+
+/**
  *  Planning phase information for the query.
  */
 @interface GTLRFirestore_PlanSummary : GTLRObject
@@ -5095,6 +5269,43 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  A single operation within a pipeline. A stage is made up of a unique name,
+ *  and a list of arguments. The exact number of arguments & types is dependent
+ *  on the stage type. To give an example, the stage `filter(state = "MD")`
+ *  would be encoded as: ``` name: "filter" args { function_value { name: "eq"
+ *  args { field_reference_value: "state" } args { string_value: "MD" } } } ```
+ *  See public documentation for the full list.
+ */
+@interface GTLRFirestore_Stage : GTLRObject
+
+/** Optional. Ordered list of arguments the given stage expects. */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_Value *> *args;
+
+/**
+ *  Required. The name of the stage to evaluate. **Requires:** * must be in
+ *  snake case (lower case with underscore separator).
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Optional named arguments that certain functions may support. */
+@property(nonatomic, strong, nullable) GTLRFirestore_Stage_Options *options;
+
+@end
+
+
+/**
+ *  Optional. Optional named arguments that certain functions may support.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRFirestore_Value. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirestore_Stage_Options : GTLRObject
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
@@ -5154,6 +5365,35 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /** Nested structured query. */
 @property(nonatomic, strong, nullable) GTLRFirestore_StructuredQuery *structuredQuery;
 
+@end
+
+
+/**
+ *  A Firestore query represented as an ordered list of operations / stages.
+ *  This is considered the top-level function which plans and executes a query.
+ *  It is logically equivalent to `query(stages, options)`, but prevents the
+ *  client from having to build a function wrapper.
+ */
+@interface GTLRFirestore_StructuredPipeline : GTLRObject
+
+/** Optional. Optional query-level arguments. */
+@property(nonatomic, strong, nullable) GTLRFirestore_StructuredPipeline_Options *options;
+
+/** Required. The pipeline query to execute. */
+@property(nonatomic, strong, nullable) GTLRFirestore_Pipeline *pipeline;
+
+@end
+
+
+/**
+ *  Optional. Optional query-level arguments.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRFirestore_Value. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRFirestore_StructuredPipeline_Options : GTLRObject
 @end
 
 
@@ -5482,6 +5722,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  */
 @property(nonatomic, strong, nullable) NSNumber *doubleValue;
 
+/**
+ *  Value which references a field. This is considered relative (vs absolute)
+ *  since it only refers to a field and not a field within a particular
+ *  document. **Requires:** * Must follow field reference limitations. * Not
+ *  allowed to be used when writing documents.
+ */
+@property(nonatomic, copy, nullable) NSString *fieldReferenceValue;
+
+/**
+ *  A value that represents an unevaluated expression. **Requires:** * Not
+ *  allowed to be used when writing documents.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_Function *functionValue;
+
 /** A geo point value representing a point on the surface of Earth. */
 @property(nonatomic, strong, nullable) GTLRFirestore_LatLng *geoPointValue;
 
@@ -5503,6 +5757,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        "NULL_VALUE")
  */
 @property(nonatomic, copy, nullable) NSString *nullValue;
+
+/**
+ *  A value that represents an unevaluated pipeline. **Requires:** * Not allowed
+ *  to be used when writing documents.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_Pipeline *pipelineValue;
 
 /**
  *  A reference to a document. For example:

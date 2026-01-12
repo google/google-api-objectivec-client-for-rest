@@ -13,6 +13,7 @@
 
 // GTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent.specContentType
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_BoostedSpecContent = @"BOOSTED_SPEC_CONTENT";
+NSString * const kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_GatewayOpenApiSpec = @"GATEWAY_OPEN_API_SPEC";
 NSString * const kGTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_SpecContentType_SpecContentTypeUnspecified = @"SPEC_CONTENT_TYPE_UNSPECIFIED";
 
 // GTLRAPIhub_GoogleCloudApihubV1Addon.dataSource

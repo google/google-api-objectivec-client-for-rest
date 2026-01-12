@@ -253,6 +253,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSpanner_Ack
+//
+
+@implementation GTLRSpanner_Ack
+@dynamic ignoreNotFound, key, queue;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"key" : [NSObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSpanner_AdapterSession
 //
 
@@ -601,15 +619,6 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSpanner_ClientContext
-//
-
-@implementation GTLRSpanner_ClientContext
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSpanner_ColumnMetadata
 //
 
@@ -654,6 +663,16 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_CommitStats
 @dynamic mutationCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_CompactDatabaseMetadata
+//
+
+@implementation GTLRSpanner_CompactDatabaseMetadata
+@dynamic cancelTime, database, progress;
 @end
 
 
@@ -2016,7 +2035,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_Mutation
-@dynamic deleteProperty, insert, insertOrUpdate, replace, update;
+@dynamic ack, deleteProperty, insert, insertOrUpdate, replace, send, update;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"deleteProperty" : @"delete" };
@@ -2504,7 +2523,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_RequestOptions
-@dynamic clientContext, priority, requestTag, transactionTag;
+@dynamic priority, requestTag, transactionTag;
 @end
 
 
@@ -2650,6 +2669,24 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_ScanData
 @dynamic data, endTime, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_Send
+//
+
+@implementation GTLRSpanner_Send
+@dynamic deliverTime, key, payload, queue;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"key" : [NSObject class]
+  };
+  return map;
+}
+
 @end
 
 

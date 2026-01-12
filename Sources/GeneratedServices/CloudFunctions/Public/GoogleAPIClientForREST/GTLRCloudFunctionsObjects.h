@@ -20,6 +20,7 @@
 @class GTLRCloudFunctions_Binding;
 @class GTLRCloudFunctions_BuildConfig;
 @class GTLRCloudFunctions_BuildConfig_EnvironmentVariables;
+@class GTLRCloudFunctions_BuildConfigOverrides;
 @class GTLRCloudFunctions_Date;
 @class GTLRCloudFunctions_EventFilter;
 @class GTLRCloudFunctions_EventTrigger;
@@ -45,6 +46,7 @@
 @class GTLRCloudFunctions_SecretVolume;
 @class GTLRCloudFunctions_ServiceConfig;
 @class GTLRCloudFunctions_ServiceConfig_EnvironmentVariables;
+@class GTLRCloudFunctions_ServiceConfigOverrides;
 @class GTLRCloudFunctions_Source;
 @class GTLRCloudFunctions_SourceProvenance;
 @class GTLRCloudFunctions_Status;
@@ -613,6 +615,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_VpcConnecto
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_AbortFunctionUpgradeError;
 /**
+ *  CommitFunctionUpgradeAsGen2 API was un-successful and 1st gen function might
+ *  have broken.
+ *
+ *  Value: "COMMIT_FUNCTION_UPGRADE_AS_GEN2_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeAsGen2Error;
+/**
+ *  Indicates that the `CommitFunctionUpgradeAsGen2` API call succeeded and the
+ *  function was successfully migrated to the 2nd Gen stack.
+ *
+ *  Value: "COMMIT_FUNCTION_UPGRADE_AS_GEN2_SUCCESSFUL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeAsGen2Successful;
+/**
  *  CommitFunctionUpgrade API was un-successful and 1st gen function might have
  *  broken.
  *
@@ -967,6 +983,25 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *        fetch them all at once.
  */
 @interface GTLRCloudFunctions_BuildConfig_EnvironmentVariables : GTLRObject
+@end
+
+
+/**
+ *  Contains overrides related to the function's build configuration.
+ */
+@interface GTLRCloudFunctions_BuildConfigOverrides : GTLRObject
+
+/**
+ *  Optional. Specifies the desired runtime for the new Cloud Run function.
+ *  (e.g., `"nodejs20"`, `"python312"`). Constraints: 1. This field CANNOT be
+ *  used to change the runtime language (e.g., from `NODEJS` to `PYTHON`). The
+ *  backend will enforce this. 2. This field can ONLY be used to upgrade the
+ *  runtime version (e.g., `nodejs18` to `nodejs20`). Downgrading the version is
+ *  not permitted. The backend will validate the version change. If provided and
+ *  valid, this overrides the runtime of the Gen1 function.
+ */
+@property(nonatomic, copy, nullable) NSString *runtime;
+
 @end
 
 
@@ -2412,6 +2447,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
 
 
 /**
+ *  Contains overrides related to the function's service configuration.
+ */
+@interface GTLRCloudFunctions_ServiceConfigOverrides : GTLRObject
+
+/**
+ *  Optional. Specifies the maximum number of instances for the new Cloud Run
+ *  function. If provided, this overrides the max_instance_count setting of the
+ *  Gen1 function.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxInstanceCount;
+
+@end
+
+
+/**
  *  Request message for `SetIamPolicy` method.
  */
 @interface GTLRCloudFunctions_SetIamPolicyRequest : GTLRObject
@@ -2439,6 +2491,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *  Request for the `SetupFunctionUpgradeConfig` method.
  */
 @interface GTLRCloudFunctions_SetupFunctionUpgradeConfigRequest : GTLRObject
+
+/** Optional. Specifies overrides for the build process. */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_BuildConfigOverrides *buildConfigOverrides;
+
+/** Optional. Specifies overrides for the service configuration. */
+@property(nonatomic, strong, nullable) GTLRCloudFunctions_ServiceConfigOverrides *serviceConfigOverrides;
 
 /**
  *  Optional. The trigger's service account. The service account must have
@@ -2638,6 +2696,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_AbortFunctionUpgradeError
  *        AbortFunctionUpgrade API was un-successful. (Value:
  *        "ABORT_FUNCTION_UPGRADE_ERROR")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeAsGen2Error
+ *        CommitFunctionUpgradeAsGen2 API was un-successful and 1st gen function
+ *        might have broken. (Value: "COMMIT_FUNCTION_UPGRADE_AS_GEN2_ERROR")
+ *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeAsGen2Successful
+ *        Indicates that the `CommitFunctionUpgradeAsGen2` API call succeeded
+ *        and the function was successfully migrated to the 2nd Gen stack.
+ *        (Value: "COMMIT_FUNCTION_UPGRADE_AS_GEN2_SUCCESSFUL")
  *    @arg @c kGTLRCloudFunctions_UpgradeInfo_UpgradeState_CommitFunctionUpgradeError
  *        CommitFunctionUpgrade API was un-successful and 1st gen function might
  *        have broken. (Value: "COMMIT_FUNCTION_UPGRADE_ERROR")

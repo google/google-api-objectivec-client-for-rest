@@ -71,6 +71,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
  *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraEvent
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraFeature
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraVideo
+ *    @c kGTLRAuthScopeDataPortabilityNestStore
+ *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
@@ -161,6 +166,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
  *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraEvent
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraFeature
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraVideo
+ *    @c kGTLRAuthScopeDataPortabilityNestStore
+ *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
@@ -264,6 +274,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
  *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraEvent
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraFeature
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraVideo
+ *    @c kGTLRAuthScopeDataPortabilityNestStore
+ *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
@@ -364,6 +379,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
  *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraEvent
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraFeature
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraVideo
+ *    @c kGTLRAuthScopeDataPortabilityNestStore
+ *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
@@ -469,6 +489,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
  *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraEvent
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraFeature
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraVideo
+ *    @c kGTLRAuthScopeDataPortabilityNestStore
+ *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping
@@ -563,6 +588,11 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeDataPortabilityMyactivityShopping
  *    @c kGTLRAuthScopeDataPortabilityMyactivityYoutube
  *    @c kGTLRAuthScopeDataPortabilityMymapsMaps
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraEvent
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraFeature
+ *    @c kGTLRAuthScopeDataPortabilityNestCameraVideo
+ *    @c kGTLRAuthScopeDataPortabilityNestStore
+ *    @c kGTLRAuthScopeDataPortabilityNestUser
  *    @c kGTLRAuthScopeDataPortabilityOrderReservePurchasesReservations
  *    @c kGTLRAuthScopeDataPortabilityPlayDevices
  *    @c kGTLRAuthScopeDataPortabilityPlayGrouping

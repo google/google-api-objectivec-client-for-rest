@@ -14680,6 +14680,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_ProximityLocationListAssign
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_RateDetails_InventorySourceRateType_InventorySourceRateTypeCpd;
 /**
+ *  The rate type is Cost per Hour.
+ *
+ *  Value: "INVENTORY_SOURCE_RATE_TYPE_CPH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_RateDetails_InventorySourceRateType_InventorySourceRateTypeCph;
+/**
  *  The rate type is CPM (Fixed).
  *
  *  Value: "INVENTORY_SOURCE_RATE_TYPE_CPM_FIXED"
@@ -28369,7 +28375,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  An inventory source.
+ *  An inventory source. Next ID: 22
  */
 @interface GTLRDisplayVideo_InventorySource : GTLRObject
 
@@ -32624,6 +32630,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_RateDetails_InventorySourceRateType_InventorySourceRateTypeCpd
  *        The rate type is Cost per Day. (Value:
  *        "INVENTORY_SOURCE_RATE_TYPE_CPD")
+ *    @arg @c kGTLRDisplayVideo_RateDetails_InventorySourceRateType_InventorySourceRateTypeCph
+ *        The rate type is Cost per Hour. (Value:
+ *        "INVENTORY_SOURCE_RATE_TYPE_CPH")
  *    @arg @c kGTLRDisplayVideo_RateDetails_InventorySourceRateType_InventorySourceRateTypeCpmFixed
  *        The rate type is CPM (Fixed). (Value:
  *        "INVENTORY_SOURCE_RATE_TYPE_CPM_FIXED")

@@ -588,6 +588,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
  *  Fetches a @c GTLRWorkspaceEvents_Task.
  *
  *  Get the current state of a task from the agent.
@@ -614,6 +620,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  Required. The parent task resource for this config. Format: tasks/{task_id}
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
 
 /**
  *  Fetches a @c GTLRWorkspaceEvents_TaskPushNotificationConfig.
@@ -646,6 +658,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
  *  Fetches a @c GTLRWorkspaceEvents_Empty.
  *
  *  Delete a push notification config for a task.
@@ -671,6 +689,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  tasks/{task_id}/pushNotificationConfigs/{config_id}
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
 
 /**
  *  Fetches a @c GTLRWorkspaceEvents_TaskPushNotificationConfig.
@@ -712,6 +736,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
  *  Fetches a @c GTLRWorkspaceEvents_ListTaskPushNotificationConfigResponse.
  *
  *  Get a list of push notifications configured for a task.
@@ -740,6 +770,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The resource name of the task to subscribe to. Format: tasks/{task_id} */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
 
 /**
  *  Fetches a @c GTLRWorkspaceEvents_StreamResponse.

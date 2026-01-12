@@ -7065,6 +7065,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *enabledImplementationGuides;
 
+/**
+ *  Optional. Whether to enable FHIRPath validation for incoming resource types
+ *  that have profiles configured for them in the
+ *  `enabled_implementation_guides` list. Set this to true to enable checking
+ *  incoming resources for conformance against FHIRPath requirements defined in
+ *  the configured profiles.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableFhirpathProfileValidation;
+
 @end
 
 

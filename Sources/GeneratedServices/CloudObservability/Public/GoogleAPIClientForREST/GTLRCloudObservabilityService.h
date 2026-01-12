@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Observability API (observability/v1)
+// Description:
+//   Provides functionality for configuring the observability scope, which
+//   controls the log, metric, and trace data that you can view.
 // Documentation:
 //   https://cloud.google.com/stackdriver/docs/
 
@@ -36,6 +39,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudObservabilityCloudPlatform
 
 /**
  *  Service for executing Observability API queries.
+ *
+ *  Provides functionality for configuring the observability scope, which
+ *  controls the log, metric, and trace data that you can view.
  */
 @interface GTLRCloudObservabilityService : GTLRService
 

@@ -30,6 +30,26 @@ NS_ASSUME_NONNULL_BEGIN
 // view
 
 /**
+ *  Include the basic metadata of the Cluster. This is the default value (for
+ *  both ListClusters and GetCluster).
+ *
+ *  Value: "CLUSTER_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewClusterViewBasic;
+/**
+ *  Include everything, including data fetched from the Kafka cluster source of
+ *  truth.
+ *
+ *  Value: "CLUSTER_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewClusterViewFull;
+/**
+ *  The default / unset value. The API will default to the BASIC view.
+ *
+ *  Value: "CLUSTER_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewClusterViewUnspecified;
+/**
  *  Include the name of the ConsumerGroup. This hides partition and topic
  *  metadata.
  *
@@ -676,6 +696,24 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafkaViewSchemaRegistryViewUnspec
 
 /** Required. The name of the cluster whose configuration to return. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Specifies the view of the Cluster resource to be returned.
+ *  Defaults to CLUSTER_VIEW_BASIC. See the ClusterView enum for possible
+ *  values.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRManagedKafkaViewClusterViewUnspecified The default / unset
+ *        value. The API will default to the BASIC view. (Value:
+ *        "CLUSTER_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRManagedKafkaViewClusterViewBasic Include the basic metadata
+ *        of the Cluster. This is the default value (for both ListClusters and
+ *        GetCluster). (Value: "CLUSTER_VIEW_BASIC")
+ *    @arg @c kGTLRManagedKafkaViewClusterViewFull Include everything, including
+ *        data fetched from the Kafka cluster source of truth. (Value:
+ *        "CLUSTER_VIEW_FULL")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRManagedKafka_Cluster.

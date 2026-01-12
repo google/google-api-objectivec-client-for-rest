@@ -49,6 +49,13 @@ NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
 NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_ThreatTypes_UnwantedSoftware = @"UNWANTED_SOFTWARE";
 
+// GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl.threatTypes
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl_ThreatTypes_Malware = @"MALWARE";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl_ThreatTypes_PotentiallyHarmfulApplication = @"POTENTIALLY_HARMFUL_APPLICATION";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl_ThreatTypes_SocialEngineering = @"SOCIAL_ENGINEERING";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl_ThreatTypes_ThreatTypeUnspecified = @"THREAT_TYPE_UNSPECIFIED";
+NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl_ThreatTypes_UnwantedSoftware = @"UNWANTED_SOFTWARE";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5BatchGetHashListsResponse
@@ -212,6 +219,42 @@ NSString * const kGTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashListMetadata_
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"fullHashes" : [GTLRSafebrowsing_GoogleSecuritySafebrowsingV5FullHash class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5SearchUrlsResponse
+//
+
+@implementation GTLRSafebrowsing_GoogleSecuritySafebrowsingV5SearchUrlsResponse
+@dynamic cacheDuration, threats;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"threats" : [GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl
+//
+
+@implementation GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ThreatUrl
+@dynamic threatTypes, url;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"threatTypes" : [NSString class]
   };
   return map;
 }

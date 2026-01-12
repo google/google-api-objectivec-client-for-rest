@@ -2601,6 +2601,7 @@ NSString * const kGTLRDisplayVideo_ProximityLocationListAssignedTargetingOptionD
 
 // GTLRDisplayVideo_RateDetails.inventorySourceRateType
 NSString * const kGTLRDisplayVideo_RateDetails_InventorySourceRateType_InventorySourceRateTypeCpd = @"INVENTORY_SOURCE_RATE_TYPE_CPD";
+NSString * const kGTLRDisplayVideo_RateDetails_InventorySourceRateType_InventorySourceRateTypeCph = @"INVENTORY_SOURCE_RATE_TYPE_CPH";
 NSString * const kGTLRDisplayVideo_RateDetails_InventorySourceRateType_InventorySourceRateTypeCpmFixed = @"INVENTORY_SOURCE_RATE_TYPE_CPM_FIXED";
 NSString * const kGTLRDisplayVideo_RateDetails_InventorySourceRateType_InventorySourceRateTypeCpmFloor = @"INVENTORY_SOURCE_RATE_TYPE_CPM_FLOOR";
 NSString * const kGTLRDisplayVideo_RateDetails_InventorySourceRateType_InventorySourceRateTypeFlat = @"INVENTORY_SOURCE_RATE_TYPE_FLAT";

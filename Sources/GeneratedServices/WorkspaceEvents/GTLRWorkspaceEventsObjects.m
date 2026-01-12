@@ -107,6 +107,7 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 //
 
 @implementation GTLRWorkspaceEvents_CancelTaskRequest
+@dynamic tenant;
 @end
 
 
@@ -360,7 +361,7 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 //
 
 @implementation GTLRWorkspaceEvents_SendMessageRequest
-@dynamic configuration, message, metadata;
+@dynamic configuration, message, metadata, tenant;
 @end
 
 

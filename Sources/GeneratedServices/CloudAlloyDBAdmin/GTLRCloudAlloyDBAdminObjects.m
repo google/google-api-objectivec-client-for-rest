@@ -78,6 +78,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_Promoting = @"PROMOTING";
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_Ready    = @"READY";
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_Stopped  = @"STOPPED";
+NSString * const kGTLRCloudAlloyDBAdmin_Cluster_State_Switchover = @"SWITCHOVER";
 
 // GTLRCloudAlloyDBAdmin_Cluster.subscriptionType
 NSString * const kGTLRCloudAlloyDBAdmin_Cluster_SubscriptionType_Standard = @"STANDARD";
@@ -152,6 +153,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Promoting = @"PROMOTING";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Ready   = @"READY";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Stopped = @"STOPPED";
+NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Switchover = @"SWITCHOVER";
 
 // GTLRCloudAlloyDBAdmin_InstanceUpgradeDetails.instanceType
 NSString * const kGTLRCloudAlloyDBAdmin_InstanceUpgradeDetails_InstanceType_InstanceTypeUnspecified = @"INSTANCE_TYPE_UNSPECIFIED";

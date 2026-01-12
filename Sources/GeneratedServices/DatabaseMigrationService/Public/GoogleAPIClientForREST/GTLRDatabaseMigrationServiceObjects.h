@@ -104,6 +104,8 @@
 @class GTLRDatabaseMigrationService_Position;
 @class GTLRDatabaseMigrationService_PostgresDestinationConfig;
 @class GTLRDatabaseMigrationService_PostgreSqlConnectionProfile;
+@class GTLRDatabaseMigrationService_PostgresSourceConfig;
+@class GTLRDatabaseMigrationService_PostgresToSqlServerConfig;
 @class GTLRDatabaseMigrationService_PrimaryInstanceSettings;
 @class GTLRDatabaseMigrationService_PrimaryInstanceSettings_DatabaseFlags;
 @class GTLRDatabaseMigrationService_PrimaryInstanceSettings_Labels;
@@ -137,6 +139,7 @@
 @class GTLRDatabaseMigrationService_SqlServerConnectionProfile;
 @class GTLRDatabaseMigrationService_SqlServerDagConfig;
 @class GTLRDatabaseMigrationService_SqlServerDatabaseBackup;
+@class GTLRDatabaseMigrationService_SqlServerDestinationConfig;
 @class GTLRDatabaseMigrationService_SqlServerEncryptionOptions;
 @class GTLRDatabaseMigrationService_SqlServerHomogeneousMigrationJobConfig;
 @class GTLRDatabaseMigrationService_SqlServerSourceConfig;
@@ -1815,6 +1818,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Ph
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_WaitingForSourceWritesToStop;
 
 // ----------------------------------------------------------------------------
+// GTLRDatabaseMigrationService_MigrationJob.purpose
+
+/**
+ *  Failback replication job.
+ *
+ *  Value: "FAILBACK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Purpose_Failback;
+/**
+ *  Standard migration job.
+ *
+ *  Value: "MIGRATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Purpose_Migrate;
+/**
+ *  Unknown purpose. Will be defaulted to MIGRATE.
+ *
+ *  Value: "PURPOSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_MigrationJob_Purpose_PurposeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDatabaseMigrationService_MigrationJob.state
 
 /**
@@ -2720,8 +2745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 @property(nonatomic, strong, nullable) NSNumber *dryRun;
 
 /**
- *  Filter which entities to apply. Leaving this field empty will apply all of
- *  the entities. Supports Google AIP 160 based filtering.
+ *  Optional. Filter which entities to apply. Leaving this field empty will
+ *  apply all of the entities. Supports Google AIP 160 based filtering.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -5764,6 +5789,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_OracleToPostgresConfig *oracleToPostgresConfig;
 
+/**
+ *  Optional. A failback replication pointer to the resource name (URI) of the
+ *  original migration job.
+ */
+@property(nonatomic, copy, nullable) NSString *originalMigrationName;
+
 /** Optional. Data dump parallelism settings used by the migration. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PerformanceConfig *performanceConfig;
 
@@ -5792,6 +5823,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *        "WAITING_FOR_SOURCE_WRITES_TO_STOP")
  */
 @property(nonatomic, copy, nullable) NSString *phase;
+
+/**
+ *  Configuration for heterogeneous failback migrations from **PostgreSQL to SQL
+ *  Server**.
+ */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PostgresToSqlServerConfig *postgresToSqlserverConfig;
+
+/**
+ *  Output only. Migration job mode. Migration jobs can be standard forward jobs
+ *  or failback migration jobs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Purpose_Failback
+ *        Failback replication job. (Value: "FAILBACK")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Purpose_Migrate
+ *        Standard migration job. (Value: "MIGRATE")
+ *    @arg @c kGTLRDatabaseMigrationService_MigrationJob_Purpose_PurposeUnspecified
+ *        Unknown purpose. Will be defaulted to MIGRATE. (Value:
+ *        "PURPOSE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *purpose;
 
 /**
  *  The details needed to communicate to the source over Reverse SSH tunnel
@@ -6762,6 +6814,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 /** Optional. The name of the specific database within the host. */
 @property(nonatomic, copy, nullable) NSString *database;
 
+/** Forward SSH tunnel connectivity. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ForwardSshTunnelConnectivity *forwardSshConnectivity;
+
 /** Required. The IP or hostname of the source PostgreSQL database. */
 @property(nonatomic, copy, nullable) NSString *host;
 
@@ -6803,6 +6858,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, strong, nullable) NSNumber *port;
 
+/** Private connectivity. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PrivateConnectivity *privateConnectivity;
+
 /** Private service connect connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PrivateServiceConnectConnectivity *privateServiceConnectConnectivity;
 
@@ -6820,6 +6878,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  Service.
  */
 @property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Configuration for Postgres as a source in a migration.
+ */
+@interface GTLRDatabaseMigrationService_PostgresSourceConfig : GTLRObject
+
+/**
+ *  Optional. Whether to skip full dump or not.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *skipFullDump;
+
+@end
+
+
+/**
+ *  Configuration for heterogeneous failback migrations from **PostgreSQL to SQL
+ *  Server**.
+ */
+@interface GTLRDatabaseMigrationService_PostgresToSqlServerConfig : GTLRObject
+
+/** Optional. Configuration for PostgreSQL source. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PostgresSourceConfig *postgresSourceConfig;
+
+/** Optional. Configuration for SQL Server destination. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerDestinationConfig *sqlserverDestinationConfig;
 
 @end
 
@@ -7880,6 +7968,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  certificate, path to certificate private key, and key password.
  */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_SqlServerEncryptionOptions *encryptionOptions;
+
+@end
+
+
+/**
+ *  Configuration for SQL Server as a destination in a migration.
+ */
+@interface GTLRDatabaseMigrationService_SqlServerDestinationConfig : GTLRObject
+
+/**
+ *  Optional. Maximum number of connections Database Migration Service will open
+ *  to the destination for data migration.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentConnections;
+
+/** Optional. Timeout for data migration transactions. */
+@property(nonatomic, strong, nullable) GTLRDuration *transactionTimeout;
 
 @end
 

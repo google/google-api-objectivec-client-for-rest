@@ -989,43 +989,53 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_DiscoverConnectionProfileRequest : GTLRObject
 
-/** An ad-hoc connection profile configuration. */
+/** Optional. An ad-hoc connection profile configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_ConnectionProfile *connectionProfile;
 
-/** A reference to an existing connection profile. */
+/** Optional. A reference to an existing connection profile. */
 @property(nonatomic, copy, nullable) NSString *connectionProfileName;
 
 /**
- *  Whether to retrieve the full hierarchy of data objects (TRUE) or only the
- *  current level (FALSE).
+ *  Optional. Whether to retrieve the full hierarchy of data objects (TRUE) or
+ *  only the current level (FALSE).
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *fullHierarchy;
 
 /**
- *  The number of hierarchy levels below the current level to be retrieved.
+ *  Optional. The number of hierarchy levels below the current level to be
+ *  retrieved.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *hierarchyDepth;
 
-/** MongoDB cluster to enrich with child data objects and metadata. */
+/**
+ *  Optional. MongoDB cluster to enrich with child data objects and metadata.
+ */
 @property(nonatomic, strong, nullable) GTLRDatastream_MongodbCluster *mongodbCluster;
 
-/** MySQL RDBMS to enrich with child data objects and metadata. */
+/** Optional. MySQL RDBMS to enrich with child data objects and metadata. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *mysqlRdbms;
 
-/** Oracle RDBMS to enrich with child data objects and metadata. */
+/** Optional. Oracle RDBMS to enrich with child data objects and metadata. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *oracleRdbms;
 
-/** PostgreSQL RDBMS to enrich with child data objects and metadata. */
+/**
+ *  Optional. PostgreSQL RDBMS to enrich with child data objects and metadata.
+ */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *postgresqlRdbms;
 
-/** Salesforce organization to enrich with child data objects and metadata. */
+/**
+ *  Optional. Salesforce organization to enrich with child data objects and
+ *  metadata.
+ */
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *salesforceOrg;
 
-/** SQLServer RDBMS to enrich with child data objects and metadata. */
+/**
+ *  Optional. SQLServer RDBMS to enrich with child data objects and metadata.
+ */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *sqlServerRdbms;
 
 @end

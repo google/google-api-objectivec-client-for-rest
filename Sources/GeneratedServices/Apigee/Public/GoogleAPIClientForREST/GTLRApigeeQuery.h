@@ -360,6 +360,210 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates an APIM ServiceExtension in an organization.
+ *
+ *  Method: apigee.organizations.apimServiceExtensions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApimServiceExtensionsCreate : GTLRApigeeQuery
+
+/**
+ *  Optional. ID used to uniquely identify of the service extension. It must
+ *  conform with RFC-1034, is restricted to lower-cased letters, numbers and
+ *  hyphens, and can have a maximum length of 63 characters. Additionally, the
+ *  first character must be a letter and the last a letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *apimServiceExtensionId;
+
+/**
+ *  Required. Name of the organization in which the service extension will be
+ *  created. Use the following structure in your request: `organizations/{org}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Creates an APIM ServiceExtension in an organization.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApimServiceExtension to
+ *    include in the query.
+ *  @param parent Required. Name of the organization in which the service
+ *    extension will be created. Use the following structure in your request:
+ *    `organizations/{org}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApimServiceExtensionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApimServiceExtension *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes APIM service extension from an organization.
+ *
+ *  Method: apigee.organizations.apimServiceExtensions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApimServiceExtensionsDelete : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the service extension. Use the following structure in your
+ *  request: `organizations/{org}/apimServiceExtensions/{extension_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Deletes APIM service extension from an organization.
+ *
+ *  @param name Required. Name of the service extension. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/apimServiceExtensions/{extension_id}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApimServiceExtensionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets APIM service extension details.
+ *
+ *  Method: apigee.organizations.apimServiceExtensions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApimServiceExtensionsGet : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the service extension. Use the following structure in your
+ *  request: `organizations/{org}/apimServiceExtensions/{extension_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1ApimServiceExtension.
+ *
+ *  Gets APIM service extension details.
+ *
+ *  @param name Required. Name of the service extension. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/apimServiceExtensions/{extension_id}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApimServiceExtensionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all APIM service extensions in an organization.
+ *
+ *  Method: apigee.organizations.apimServiceExtensions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApimServiceExtensionsList : GTLRApigeeQuery
+
+/**
+ *  Optional. Maximum number of items to return. If unspecified, at most 25
+ *  service extension will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token, returned from a previous `ListApimServiceExtensions`
+ *  call, that you can use to retrieve the next page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the organization for which to list the service extension.
+ *  Use the following structure in your request:
+ *  `organizations/{org}/apimServiceExtensions`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRApigee_GoogleCloudApigeeV1ListApimServiceExtensionsResponse.
+ *
+ *  Lists all APIM service extensions in an organization.
+ *
+ *  @param parent Required. Name of the organization for which to list the
+ *    service extension. Use the following structure in your request:
+ *    `organizations/{org}/apimServiceExtensions`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApimServiceExtensionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an APIM service extension in an organization.
+ *
+ *  Method: apigee.organizations.apimServiceExtensions.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsApimServiceExtensionsPatch : GTLRApigeeQuery
+
+/**
+ *  Optional. If set to true, and the service extension is not found, a new
+ *  service extension will be created. In this situation, `update_mask` is
+ *  ignored.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Identifier. unique name of the APIM service extension. The name must conform
+ *  with RFC-1034, is restricted to lower-cased letters, numbers and hyphens,
+ *  and can have a maximum length of 63 characters. Additionally, the first
+ *  character must be a letter and the last a letter or a number.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleLongrunningOperation.
+ *
+ *  Updates an APIM service extension in an organization.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApimServiceExtension to
+ *    include in the query.
+ *  @param name Identifier. unique name of the APIM service extension. The name
+ *    must conform with RFC-1034, is restricted to lower-cased letters, numbers
+ *    and hyphens, and can have a maximum length of 63 characters. Additionally,
+ *    the first character must be a letter and the last a letter or a number.
+ *
+ *  @return GTLRApigeeQuery_OrganizationsApimServiceExtensionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ApimServiceExtension *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates or creates API product attributes. This API **replaces** the current
  *  list of attributes with the attributes specified in the request body. In
  *  this way, you can update existing attributes, add new attributes, or delete
@@ -2671,6 +2875,78 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Adjust the prepaid balance for the AppGroup. This API will be used in
+ *  scenarios where the AppGroup has been under-charged or over-charged.
+ *
+ *  Method: apigee.organizations.appgroups.balance.adjust
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsBalanceAdjust : GTLRApigeeQuery
+
+/**
+ *  Required. Account balance for the AppGroup. Use the following structure in
+ *  your request: `organizations/{org}/appgroups/{app_group}/balance`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupBalance.
+ *
+ *  Adjust the prepaid balance for the AppGroup. This API will be used in
+ *  scenarios where the AppGroup has been under-charged or over-charged.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1AdjustAppGroupBalanceRequest to include in
+ *    the query.
+ *  @param name Required. Account balance for the AppGroup. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/appgroups/{app_group}/balance`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsBalanceAdjust
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1AdjustAppGroupBalanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Credits the account balance for the AppGroup.
+ *
+ *  Method: apigee.organizations.appgroups.balance.credit
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsBalanceCredit : GTLRApigeeQuery
+
+/**
+ *  Required. Account balance for the AppGroup. Use the following structure in
+ *  your request: `organizations/{org}/appgroups/{app_group}/balance`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupBalance.
+ *
+ *  Credits the account balance for the AppGroup.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1CreditAppGroupBalanceRequest to include in
+ *    the query.
+ *  @param name Required. Account balance for the AppGroup. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/appgroups/{app_group}/balance`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsBalanceCredit
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1CreditAppGroupBalanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates an AppGroup. Once created, user can register apps under the AppGroup
  *  to obtain secret key and password. At creation time, the AppGroup's state is
  *  set as `active`.
@@ -2781,6 +3057,69 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Gets the account balance for the AppGroup.
+ *
+ *  Method: apigee.organizations.appgroups.getBalance
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsGetBalance : GTLRApigeeQuery
+
+/**
+ *  Required. Account balance for the AppGroup. Use the following structure in
+ *  your request: `organizations/{org}/appgroups/{app_group}/balance`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupBalance.
+ *
+ *  Gets the account balance for the AppGroup.
+ *
+ *  @param name Required. Account balance for the AppGroup. Use the following
+ *    structure in your request:
+ *    `organizations/{org}/appgroups/{app_group}/balance`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsGetBalance
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the monetization configuration for the AppGroup.
+ *
+ *  Method: apigee.organizations.appgroups.getMonetizationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsGetMonetizationConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Monetization configuration for the AppGroup. Use the following
+ *  structure in your request:
+ *  `organizations/{org}/appgroups/{app_group}/monetizationConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig.
+ *
+ *  Gets the monetization configuration for the AppGroup.
+ *
+ *  @param name Required. Monetization configuration for the AppGroup. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/appgroups/{app_group}/monetizationConfig`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsGetMonetizationConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists all AppGroups in an organization. A maximum of 1000 AppGroups are
  *  returned in the response if PageSize is not specified, or if the PageSize is
  *  greater than 1000.
@@ -2836,6 +3175,159 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
+ *  Creates a subscription to an API product.
+ *
+ *  Method: apigee.organizations.appgroups.subscriptions.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsSubscriptionsCreate : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the appgroup that is purchasing a subscription to the API
+ *  product. Use the following structure in your request:
+ *  `organizations/{org}/appgroups/{appgroup}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupSubscription.
+ *
+ *  Creates a subscription to an API product.
+ *
+ *  @param object The @c GTLRApigee_GoogleCloudApigeeV1AppGroupSubscription to
+ *    include in the query.
+ *  @param parent Required. Name of the appgroup that is purchasing a
+ *    subscription to the API product. Use the following structure in your
+ *    request: `organizations/{org}/appgroups/{appgroup}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsSubscriptionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1AppGroupSubscription *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Expires an API product subscription immediately.
+ *
+ *  Method: apigee.organizations.appgroups.subscriptions.expire
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsSubscriptionsExpire : GTLRApigeeQuery
+
+/**
+ *  Required. Name of the API product subscription. Use the following structure
+ *  in your request:
+ *  `organizations/{org}/appgroups/{appgroup}/subscriptions/{subscription}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupSubscription.
+ *
+ *  Expires an API product subscription immediately.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1ExpireAppGroupSubscriptionRequest to include
+ *    in the query.
+ *  @param name Required. Name of the API product subscription. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/appgroups/{appgroup}/subscriptions/{subscription}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsSubscriptionsExpire
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1ExpireAppGroupSubscriptionRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get an api product subscription for an appgroup.
+ *
+ *  Method: apigee.organizations.appgroups.subscriptions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsSubscriptionsGet : GTLRApigeeQuery
+
+/**
+ *  Required. The name of the AppGroupSubscription to retrieve. Format:
+ *  `organizations/{org}/appgroups/{appgroup}/subscriptions/{subscription}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupSubscription.
+ *
+ *  Get an api product subscription for an appgroup.
+ *
+ *  @param name Required. The name of the AppGroupSubscription to retrieve.
+ *    Format:
+ *    `organizations/{org}/appgroups/{appgroup}/subscriptions/{subscription}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsSubscriptionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List all api product subscriptions for an appgroup.
+ *
+ *  Method: apigee.organizations.appgroups.subscriptions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsSubscriptionsList : GTLRApigeeQuery
+
+/**
+ *  Optional. The maximum number of subscriptions to return. The service may
+ *  return fewer than this value. If unspecified, at most 100 subscriptions will
+ *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListAppGroupSubscriptions`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListAppGroupSubscriptions` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of the appgroup. Use the following structure in your request:
+ *  `organizations/{org}/appgroups/{appgroup}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRApigee_GoogleCloudApigeeV1ListAppGroupSubscriptionsResponse.
+ *
+ *  List all api product subscriptions for an appgroup.
+ *
+ *  @param parent Required. Name of the appgroup. Use the following structure in
+ *    your request: `organizations/{org}/appgroups/{appgroup}`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsSubscriptionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Updates an AppGroup. This API replaces the existing AppGroup details with
  *  those specified in the request. Include or exclude any existing details that
  *  you want to retain or delete, respectively. Note that the state of the
@@ -2877,6 +3369,42 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  @return GTLRApigeeQuery_OrganizationsAppgroupsUpdate
  */
 + (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1AppGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates the monetization configuration for the AppGroup.
+ *
+ *  Method: apigee.organizations.appgroups.updateMonetizationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeApigeeCloudPlatform
+ */
+@interface GTLRApigeeQuery_OrganizationsAppgroupsUpdateMonetizationConfig : GTLRApigeeQuery
+
+/**
+ *  Required. Monetization configuration for the AppGroup. Use the following
+ *  structure in your request:
+ *  `organizations/{org}/appgroups/{app_group}/monetizationConfig`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig.
+ *
+ *  Updates the monetization configuration for the AppGroup.
+ *
+ *  @param object The @c
+ *    GTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig to include in the
+ *    query.
+ *  @param name Required. Monetization configuration for the AppGroup. Use the
+ *    following structure in your request:
+ *    `organizations/{org}/appgroups/{app_group}/monetizationConfig`
+ *
+ *  @return GTLRApigeeQuery_OrganizationsAppgroupsUpdateMonetizationConfig
+ */
++ (instancetype)queryWithObject:(GTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig *)object
                            name:(NSString *)name;
 
 @end

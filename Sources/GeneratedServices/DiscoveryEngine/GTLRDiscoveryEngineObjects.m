@@ -229,6 +229,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConne
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GcpFhir = @"GCP_FHIR";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_Gcs = @"GCS";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleCalendar = @"GOOGLE_CALENDAR";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleChat = @"GOOGLE_CHAT";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleDrive = @"GOOGLE_DRIVE";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleMail = @"GOOGLE_MAIL";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_NativeCloudIdentity = @"NATIVE_CLOUD_IDENTITY";
@@ -560,6 +561,13 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchReq
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestQueryExpansionSpec_Condition_Auto = @"AUTO";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestQueryExpansionSpec_Condition_ConditionUnspecified = @"CONDITION_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestQueryExpansionSpec_Condition_Disabled = @"DISABLED";
+
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec.relevanceThreshold
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_High = @"HIGH";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Low = @"LOW";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Lowest = @"LOWEST";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Medium = @"MEDIUM";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_RelevanceThresholdUnspecified = @"RELEVANCE_THRESHOLD_UNSPECIFIED";
 
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec.condition
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec_Condition_Auto = @"AUTO";
@@ -993,6 +1001,13 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequ
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec_Condition_ConditionUnspecified = @"CONDITION_UNSPECIFIED";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec_Condition_Disabled = @"DISABLED";
 
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec.relevanceThreshold
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_High = @"HIGH";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Low = @"LOW";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Lowest = @"LOWEST";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Medium = @"MEDIUM";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_RelevanceThresholdUnspecified = @"RELEVANCE_THRESHOLD_UNSPECIFIED";
+
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec.condition
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec_Condition_Auto = @"AUTO";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec_Condition_ConditionUnspecified = @"CONDITION_UNSPECIFIED";
@@ -1169,6 +1184,7 @@ NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GcpFhir = @"GCP_FHIR";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_Gcs = @"GCS";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleCalendar = @"GOOGLE_CALENDAR";
+NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleChat = @"GOOGLE_CHAT";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleDrive = @"GOOGLE_DRIVE";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleMail = @"GOOGLE_MAIL";
 NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_NativeCloudIdentity = @"NATIVE_CLOUD_IDENTITY";
@@ -4801,10 +4817,10 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
          naturalLanguageQueryUnderstandingSpec, offset, oneBoxPageSize, orderBy,
          pageCategories, pageSize, pageToken, params, personalizationSpec,
          query, queryExpansionSpec, rankingExpression, rankingExpressionBackend,
-         regionCode, relevanceScoreSpec, relevanceThreshold, safeSearch,
-         searchAddonSpec, searchAsYouTypeSpec, servingConfig, session,
-         sessionSpec, spellCorrectionSpec, useLatestData, userInfo, userLabels,
-         userPseudoId;
+         regionCode, relevanceFilterSpec, relevanceScoreSpec,
+         relevanceThreshold, safeSearch, searchAddonSpec, searchAsYouTypeSpec,
+         servingConfig, session, sessionSpec, spellCorrectionSpec,
+         useLatestData, userInfo, userLabels, userPseudoId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5141,6 +5157,26 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestQueryExpansionSpec
 @dynamic condition, pinUnexpandedResults;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpec
+@dynamic keywordSearchThreshold, semanticSearchThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec
+@dynamic relevanceThreshold, semanticRelevanceThreshold;
 @end
 
 
@@ -6283,8 +6319,8 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 //
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Assistant
-@dynamic customerPolicy, descriptionProperty, displayName, enabledTools,
-         generationConfig, name, webGroundingType;
+@dynamic customerPolicy, defaultWebGroundingToggleOff, descriptionProperty,
+         displayName, enabledTools, generationConfig, name, webGroundingType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -7971,9 +8007,10 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
          offset, oneBoxPageSize, orderBy, pageCategories, pageSize, pageToken,
          params, personalizationSpec, query, queryExpansionSpec,
          rankingExpression, rankingExpressionBackend, regionCode,
-         relevanceScoreSpec, relevanceThreshold, safeSearch, searchAddonSpec,
-         searchAsYouTypeSpec, servingConfig, session, sessionSpec,
-         spellCorrectionSpec, userInfo, userLabels, userPseudoId;
+         relevanceFilterSpec, relevanceScoreSpec, relevanceThreshold,
+         safeSearch, searchAddonSpec, searchAsYouTypeSpec, servingConfig,
+         session, sessionSpec, spellCorrectionSpec, userInfo, userLabels,
+         userPseudoId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8310,6 +8347,26 @@ NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSeries_ValueType_Val
 
 @implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec
 @dynamic condition, pinUnexpandedResults;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpec
+@dynamic keywordSearchThreshold, semanticSearchThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec
+//
+
+@implementation GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec
+@dynamic relevanceThreshold, semanticRelevanceThreshold;
 @end
 
 

@@ -980,8 +980,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_BigtableColumn
-@dynamic encoding, fieldName, onlyReadLatest, qualifierEncoded, qualifierString,
-         type;
+@dynamic encoding, fieldName, onlyReadLatest, protoConfig, qualifierEncoded,
+         qualifierString, type;
 @end
 
 
@@ -991,7 +991,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_BigtableColumnFamily
-@dynamic columns, encoding, familyId, onlyReadLatest, type;
+@dynamic columns, encoding, familyId, onlyReadLatest, protoConfig, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1019,6 +1019,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_BigtableProtoConfig
+//
+
+@implementation GTLRBigquery_BigtableProtoConfig
+@dynamic protoMessageName, schemaBundleId;
 @end
 
 

@@ -12084,6 +12084,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  To use this method, invoke_route_prefix must be set to allow the paths that
  *  will be specified in the request.
  *
+ *  Method: aiplatform.projects.locations.endpoints.openapi.completions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsOpenapiCompletions : GTLRAiplatformQuery
+
+/** ID of the DeployedModel that serves the invoke request. */
+@property(nonatomic, copy, nullable) NSString *deployedModelId;
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleApiHttpBody to include in the
+ *    query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsOpenapiCompletions
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleApiHttpBody *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
  *  Method: aiplatform.projects.locations.endpoints.openapi.embeddings
  *
  *  Authorization scope(s):
@@ -12567,7 +12609,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Required. The name of the Endpoint requested to serve the prediction.
- *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
  */
 @property(nonatomic, copy, nullable) NSString *endpoint;
 
@@ -12581,7 +12624,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *    in the query.
  *  @param endpoint Required. The name of the Endpoint requested to serve the
  *    prediction. Format:
- *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsStreamRawPredict
  */
@@ -25323,7 +25367,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  `software_config.post_startup_script_config.post_startup_script` *
  *  `software_config.post_startup_script_config.post_startup_script_url` *
  *  `software_config.post_startup_script_config.post_startup_script_behavior` *
- *  `software_config.env` * `software_config.colab_image.release_name`
+ *  `software_config.env` * `software_config.colab_image.release_name` *
+ *  `software_config.custom_container_config.image_uri`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -26976,7 +27021,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 
 /**
  *  Required. The name of the Endpoint requested to serve the prediction.
- *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *  `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
  */
 @property(nonatomic, copy, nullable) NSString *endpoint;
 
@@ -26990,7 +27036,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *    in the query.
  *  @param endpoint Required. The name of the Endpoint requested to serve the
  *    prediction. Format:
- *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}` or
+ *    `projects/{project}/locations/{location}/publishers/{publisher}/models/{model}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsStreamRawPredict
  */
@@ -28007,6 +28054,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Executes code statelessly.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.executeCode
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesExecuteCode : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the sandbox environment to execute. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ExecuteCodeResponse.
+ *
+ *  Executes code statelessly.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1ExecuteCodeRequest to include in the
+ *    query.
+ *  @param name Required. The resource name of the sandbox environment to
+ *    execute. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesExecuteCode
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ExecuteCodeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets a reasoning engine.
  *
  *  Method: aiplatform.projects.locations.reasoningEngines.get
@@ -28984,6 +29066,349 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a SandboxEnvironment in a given reasoning engine.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the reasoning engine to create the
+ *  SandboxEnvironment in. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a SandboxEnvironment in a given reasoning engine.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1SandboxEnvironment to include in the
+ *    query.
+ *  @param parent Required. The resource name of the reasoning engine to create
+ *    the SandboxEnvironment in. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1SandboxEnvironment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specific SandboxEnvironment.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the SandboxEnvironment to delete. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes the specific SandboxEnvironment.
+ *
+ *  @param name Required. The resource name of the SandboxEnvironment to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Executes using a sandbox environment.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.execute
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsExecute : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the sandbox environment to execute. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ExecuteSandboxEnvironmentResponse.
+ *
+ *  Executes using a sandbox environment.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1ExecuteSandboxEnvironmentRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the sandbox environment to
+ *    execute. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsExecute
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ExecuteSandboxEnvironmentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of the specific SandboxEnvironment.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the sandbox environment. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1SandboxEnvironment.
+ *
+ *  Gets details of the specific SandboxEnvironment.
+ *
+ *  @param name Required. The resource name of the sandbox environment. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists SandboxEnvironments in a given reasoning engine.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsList : GTLRAiplatformQuery
+
+/**
+ *  Optional. The standard list filter. More detail in
+ *  [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of SandboxEnvironments to return. The service
+ *  may return fewer than this value. If unspecified, at most 100
+ *  SandboxEnvironments will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token, received from a previous
+ *  `ListSandboxEnvironments` call. Provide this to retrieve the subsequent
+ *  page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the reasoning engine to list sandbox
+ *  environments from. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListSandboxEnvironmentsResponse.
+ *
+ *  Lists SandboxEnvironments in a given reasoning engine.
+ *
+ *  @param parent Required. The resource name of the reasoning engine to list
+ *    sandbox environments from. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.sandboxEnvironments.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSandboxEnvironmentsOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -35311,6 +35736,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Executes code statelessly.
+ *
+ *  Method: aiplatform.reasoningEngines.executeCode
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesExecuteCode : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the sandbox environment to execute. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ExecuteCodeResponse.
+ *
+ *  Executes code statelessly.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1ExecuteCodeRequest to include in the
+ *    query.
+ *  @param name Required. The resource name of the sandbox environment to
+ *    execute. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesExecuteCode
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ExecuteCodeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets a reasoning engine.
  *
  *  Method: aiplatform.reasoningEngines.get
@@ -35867,6 +36327,349 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1QueryReasoningEngineRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a SandboxEnvironment in a given reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.sandboxEnvironments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsCreate : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the reasoning engine to create the
+ *  SandboxEnvironment in. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Creates a SandboxEnvironment in a given reasoning engine.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1SandboxEnvironment to include in the
+ *    query.
+ *  @param parent Required. The resource name of the reasoning engine to create
+ *    the SandboxEnvironment in. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`.
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1SandboxEnvironment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes the specific SandboxEnvironment.
+ *
+ *  Method: aiplatform.reasoningEngines.sandboxEnvironments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsDelete : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the SandboxEnvironment to delete. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Deletes the specific SandboxEnvironment.
+ *
+ *  @param name Required. The resource name of the SandboxEnvironment to delete.
+ *    Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Executes using a sandbox environment.
+ *
+ *  Method: aiplatform.reasoningEngines.sandboxEnvironments.execute
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsExecute : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the sandbox environment to execute. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ExecuteSandboxEnvironmentResponse.
+ *
+ *  Executes using a sandbox environment.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1ExecuteSandboxEnvironmentRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the sandbox environment to
+ *    execute. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsExecute
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1ExecuteSandboxEnvironmentRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of the specific SandboxEnvironment.
+ *
+ *  Method: aiplatform.reasoningEngines.sandboxEnvironments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsGet : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the sandbox environment. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1SandboxEnvironment.
+ *
+ *  Gets details of the specific SandboxEnvironment.
+ *
+ *  @param name Required. The resource name of the sandbox environment. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}/sandboxEnvironments/{sandbox_environment}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists SandboxEnvironments in a given reasoning engine.
+ *
+ *  Method: aiplatform.reasoningEngines.sandboxEnvironments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsList : GTLRAiplatformQuery
+
+/**
+ *  Optional. The standard list filter. More detail in
+ *  [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of SandboxEnvironments to return. The service
+ *  may return fewer than this value. If unspecified, at most 100
+ *  SandboxEnvironments will be returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The standard list page token, received from a previous
+ *  `ListSandboxEnvironments` call. Provide this to retrieve the subsequent
+ *  page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the reasoning engine to list sandbox
+ *  environments from. Format:
+ *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1ListSandboxEnvironmentsResponse.
+ *
+ *  Lists SandboxEnvironments in a given reasoning engine.
+ *
+ *  @param parent Required. The resource name of the reasoning engine to list
+ *    sandbox environments from. Format:
+ *    `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: aiplatform.reasoningEngines.sandboxEnvironments.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsOperationsCancel : GTLRAiplatformQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsOperationsCancel
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: aiplatform.reasoningEngines.sandboxEnvironments.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsOperationsDelete : GTLRAiplatformQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: aiplatform.reasoningEngines.sandboxEnvironments.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsOperationsGet : GTLRAiplatformQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  Method: aiplatform.reasoningEngines.sandboxEnvironments.operations.wait
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsOperationsWait : GTLRAiplatformQuery
+
+/** The name of the operation resource to wait on. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum duration to wait before timing out. If left blank, the wait will
+ *  be at most the time permitted by the underlying HTTP/RPC protocol. If RPC
+ *  context deadline is also specified, the shorter one will be used.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Waits until the specified long-running operation is done or reaches at most
+ *  a specified timeout, returning the latest state. If the operation is already
+ *  done, the latest state is immediately returned. If the timeout specified is
+ *  greater than the default HTTP/RPC timeout, the HTTP/RPC timeout is used. If
+ *  the server does not support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Note that this method is on a best-effort
+ *  basis. It may return the latest state before the specified timeout
+ *  (including immediately), meaning even an immediate response is no guarantee
+ *  that the operation is done.
+ *
+ *  @param name The name of the operation resource to wait on.
+ *
+ *  @return GTLRAiplatformQuery_ReasoningEnginesSandboxEnvironmentsOperationsWait
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -38108,6 +38911,89 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Evaluates a dataset based on a set of given metrics.
+ *
+ *  Method: aiplatform.evaluateDataset
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_V1EvaluateDataset : GTLRAiplatformQuery
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Evaluates a dataset based on a set of given metrics.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1EvaluateDatasetRequest to include in
+ *    the query.
+ *
+ *  @return GTLRAiplatformQuery_V1EvaluateDataset
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1EvaluateDatasetRequest *)object;
+
+@end
+
+/**
+ *  Evaluates instances based on a given metric.
+ *
+ *  Method: aiplatform.evaluateInstances
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_V1EvaluateInstances : GTLRAiplatformQuery
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesResponse.
+ *
+ *  Evaluates instances based on a given metric.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesRequest to include
+ *    in the query.
+ *
+ *  @return GTLRAiplatformQuery_V1EvaluateInstances
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1EvaluateInstancesRequest *)object;
+
+@end
+
+/**
+ *  Generates rubrics for a given prompt. A rubric represents a single testable
+ *  criterion for evaluation. One input prompt could have multiple rubrics This
+ *  RPC allows users to get suggested rubrics based on provided prompt, which
+ *  can then be reviewed and used for subsequent evaluations.
+ *
+ *  Method: aiplatform.generateInstanceRubrics
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_V1GenerateInstanceRubrics : GTLRAiplatformQuery
+
+/**
+ *  Fetches a @c
+ *  GTLRAiplatform_GoogleCloudAiplatformV1GenerateInstanceRubricsResponse.
+ *
+ *  Generates rubrics for a given prompt. A rubric represents a single testable
+ *  criterion for evaluation. One input prompt could have multiple rubrics This
+ *  RPC allows users to get suggested rubrics based on provided prompt, which
+ *  can then be reviewed and used for subsequent evaluations.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateInstanceRubricsRequest to
+ *    include in the query.
+ *
+ *  @return GTLRAiplatformQuery_V1GenerateInstanceRubrics
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1GenerateInstanceRubricsRequest *)object;
 
 @end
 

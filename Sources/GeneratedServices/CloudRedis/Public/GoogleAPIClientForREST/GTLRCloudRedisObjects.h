@@ -520,6 +520,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalT
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeExtendedSupport;
 /**
+ *  Represents if a resource has no automated backup policy.
+ *
+ *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy;
+/**
  *  Represents if a database has a password configured for the root account or
  *  not.
  *
@@ -863,7 +869,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *
  *  Value: "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeExposedByOwnershipChaining;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeExposedByOwnershipChaining GTLR_DEPRECATED;
 /**
  *  Represents if he external scripts enabled database flag for a Cloud SQL for
  *  SQL Server instance is not set to off.
@@ -1024,7 +1030,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *
  *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeManyIdleConnections;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeManyIdleConnections GTLR_DEPRECATED;
 /**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
@@ -1158,6 +1164,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  *  Value: "SIGNAL_TYPE_OVERPROVISIONED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOverprovisioned;
+/**
+ *  Change in performance KPIs.
+ *
+ *  Value: "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypePerformanceKpiChange;
 /**
  *  Represents if public IP is enabled.
  *
@@ -1874,7 +1886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *
  *  Value: "SIGNAL_TYPE_EXPOSED_BY_OWNERSHIP_CHAINING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeExposedByOwnershipChaining;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeExposedByOwnershipChaining GTLR_DEPRECATED;
 /**
  *  Represents if he external scripts enabled database flag for a Cloud SQL for
  *  SQL Server instance is not set to off.
@@ -2035,7 +2047,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *
  *  Value: "SIGNAL_TYPE_MANY_IDLE_CONNECTIONS"
  */
-FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeManyIdleConnections;
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeManyIdleConnections GTLR_DEPRECATED;
 /**
  *  Indicates that the instance's max server memory is configured higher than
  *  the recommended value.
@@ -2169,6 +2181,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  *  Value: "SIGNAL_TYPE_OVERPROVISIONED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOverprovisioned;
+/**
+ *  Change in performance KPIs.
+ *
+ *  Value: "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypePerformanceKpiChange;
 /**
  *  Represents if public IP is enabled.
  *
@@ -2488,6 +2506,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_Si
  *  Value: "SIGNAL_TYPE_EXTENDED_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport;
+/**
+ *  Represents if a resource has no automated backup policy.
+ *
+ *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy;
 /**
  *  Represents if a database has a password configured for the root account or
  *  not.
@@ -4664,6 +4688,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeExtendedSupport
  *        Represents if a resource version is in extended support. (Value:
  *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
+ *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
+ *        Represents if a resource has no automated backup policy. (Value:
+ *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
  *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeNoRootPassword
  *        Represents if a database has a password configured for the root
  *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -5211,6 +5238,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeOverprovisioned
  *        Represents instances that are unnecessarily large for given workload.
  *        (Value: "SIGNAL_TYPE_OVERPROVISIONED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypePerformanceKpiChange
+ *        Change in performance KPIs. (Value:
+ *        "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypePublicIpEnabled
  *        Represents if public IP is enabled. (Value:
  *        "SIGNAL_TYPE_PUBLIC_IP_ENABLED")
@@ -5951,6 +5981,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeOverprovisioned
  *        Represents instances that are unnecessarily large for given workload.
  *        (Value: "SIGNAL_TYPE_OVERPROVISIONED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypePerformanceKpiChange
+ *        Change in performance KPIs. (Value:
+ *        "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypePublicIpEnabled
  *        Represents if public IP is enabled. (Value:
  *        "SIGNAL_TYPE_PUBLIC_IP_ENABLED")
@@ -6155,6 +6188,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport
  *        Represents if a resource version is in extended support. (Value:
  *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
+ *        Represents if a resource has no automated backup policy. (Value:
+ *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword
  *        Represents if a database has a password configured for the root
  *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
@@ -7172,8 +7208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -7252,12 +7289,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @interface GTLRCloudRedis_MachineConfiguration : GTLRObject
 
 /**
+ *  Optional. Baseline slots for BigQuery Reservations. Baseline slots are in
+ *  increments of 50.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *baselineSlots;
+
+/**
  *  The number of CPUs. Deprecated. Use vcpu_count instead. TODO(b/342344482)
  *  add proto validations again after bug fix.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cpuCount GTLR_DEPRECATED;
+
+/**
+ *  Optional. Max slots for BigQuery Reservations. Max slots are in increments
+ *  of 50.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxReservationSlots;
 
 /**
  *  Memory size in bytes. TODO(b/342344482) add proto validations again after

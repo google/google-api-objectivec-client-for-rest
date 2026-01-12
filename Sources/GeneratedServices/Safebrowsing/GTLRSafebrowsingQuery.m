@@ -124,3 +124,27 @@
 }
 
 @end
+
+@implementation GTLRSafebrowsingQuery_UrlsSearch
+
+@dynamic urls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"urls" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v5/urls:search";
+  GTLRSafebrowsingQuery_UrlsSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRSafebrowsing_GoogleSecuritySafebrowsingV5SearchUrlsResponse class];
+  query.loggingName = @"safebrowsing.urls.search";
+  return query;
+}
+
+@end

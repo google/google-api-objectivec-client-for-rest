@@ -223,6 +223,26 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_AddDocumentTabRequest
+//
+
+@implementation GTLRDocs_AddDocumentTabRequest
+@dynamic tabProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_AddDocumentTabResponse
+//
+
+@implementation GTLRDocs_AddDocumentTabResponse
+@dynamic tabProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_AutoText
 //
 
@@ -521,11 +541,71 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_DateElement
+//
+
+@implementation GTLRDocs_DateElement
+@dynamic dateElementProperties, dateId, suggestedDateElementPropertiesChanges,
+         suggestedDeletionIds, suggestedInsertionIds, suggestedTextStyleChanges,
+         textStyle;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"suggestedDeletionIds" : [NSString class],
+    @"suggestedInsertionIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DateElement_SuggestedDateElementPropertiesChanges
+//
+
+@implementation GTLRDocs_DateElement_SuggestedDateElementPropertiesChanges
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_SuggestedDateElementProperties class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DateElement_SuggestedTextStyleChanges
+//
+
+@implementation GTLRDocs_DateElement_SuggestedTextStyleChanges
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocs_SuggestedTextStyle class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_DateElementProperties
 //
 
 @implementation GTLRDocs_DateElementProperties
 @dynamic dateFormat, displayText, locale, timeFormat, timestamp, timeZoneId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DateElementPropertiesSuggestionState
+//
+
+@implementation GTLRDocs_DateElementPropertiesSuggestionState
+@dynamic dateFormatSuggested, localeSuggested, timeFormatSuggested,
+         timestampSuggested, timeZoneIdSuggested;
 @end
 
 
@@ -606,6 +686,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_DeleteTableRowRequest
 @dynamic tableCellLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_DeleteTabRequest
+//
+
+@implementation GTLRDocs_DeleteTabRequest
+@dynamic tabId;
 @end
 
 
@@ -1779,9 +1869,9 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_ParagraphElement
-@dynamic autoText, columnBreak, endIndex, equation, footnoteReference,
-         horizontalRule, inlineObjectElement, pageBreak, person, richLink,
-         startIndex, textRun;
+@dynamic autoText, columnBreak, dateElement, endIndex, equation,
+         footnoteReference, horizontalRule, inlineObjectElement, pageBreak,
+         person, richLink, startIndex, textRun;
 @end
 
 
@@ -2007,16 +2097,17 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_Request
-@dynamic createFooter, createFootnote, createHeader, createNamedRange,
-         createParagraphBullets, deleteContentRange, deleteFooter, deleteHeader,
-         deleteNamedRange, deleteParagraphBullets, deletePositionedObject,
-         deleteTableColumn, deleteTableRow, insertDate, insertInlineImage,
-         insertPageBreak, insertPerson, insertSectionBreak, insertTable,
-         insertTableColumn, insertTableRow, insertText, mergeTableCells,
-         pinTableHeaderRows, replaceAllText, replaceImage,
-         replaceNamedRangeContent, unmergeTableCells, updateDocumentStyle,
-         updateParagraphStyle, updateSectionStyle, updateTableCellStyle,
-         updateTableColumnProperties, updateTableRowStyle, updateTextStyle;
+@dynamic addDocumentTab, createFooter, createFootnote, createHeader,
+         createNamedRange, createParagraphBullets, deleteContentRange,
+         deleteFooter, deleteHeader, deleteNamedRange, deleteParagraphBullets,
+         deletePositionedObject, deleteTab, deleteTableColumn, deleteTableRow,
+         insertDate, insertInlineImage, insertPageBreak, insertPerson,
+         insertSectionBreak, insertTable, insertTableColumn, insertTableRow,
+         insertText, mergeTableCells, pinTableHeaderRows, replaceAllText,
+         replaceImage, replaceNamedRangeContent, unmergeTableCells,
+         updateDocumentStyle, updateDocumentTabProperties, updateParagraphStyle,
+         updateSectionStyle, updateTableCellStyle, updateTableColumnProperties,
+         updateTableRowStyle, updateTextStyle;
 @end
 
 
@@ -2026,8 +2117,9 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 //
 
 @implementation GTLRDocs_Response
-@dynamic createFooter, createFootnote, createHeader, createNamedRange,
-         insertInlineImage, insertInlineSheetsChart, replaceAllText;
+@dynamic addDocumentTab, createFooter, createFootnote, createHeader,
+         createNamedRange, insertInlineImage, insertInlineSheetsChart,
+         replaceAllText;
 @end
 
 
@@ -2223,6 +2315,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_SuggestedBullet
 @dynamic bullet, bulletSuggestionState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_SuggestedDateElementProperties
+//
+
+@implementation GTLRDocs_SuggestedDateElementProperties
+@dynamic dateElementProperties, dateElementPropertiesSuggestionState;
 @end
 
 
@@ -2662,6 +2764,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_UpdateDocumentStyleRequest
 @dynamic documentStyle, fields, tabId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_UpdateDocumentTabPropertiesRequest
+//
+
+@implementation GTLRDocs_UpdateDocumentTabPropertiesRequest
+@dynamic fields, tabProperties;
 @end
 
 

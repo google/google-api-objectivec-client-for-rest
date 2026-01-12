@@ -1333,12 +1333,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1ContextualContentJustification *> *justifications;
 
 /**
- *  Information (including references) about photos of this place, contexual to
+ *  Information (including references) about photos of this place, contextual to
  *  the place query.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Photo *> *photos;
 
-/** List of reviews about this place, contexual to the place query. */
+/** List of reviews about this place, contextual to the place query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRMapsPlaces_GoogleMapsPlacesV1Review *> *reviews;
 
 @end

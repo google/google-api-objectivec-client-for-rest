@@ -4280,6 +4280,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_GceClusterConfig : GTLRObject
 
 /**
+ *  Optional. An optional list of Compute Engine zones where the Dataproc
+ *  cluster will not be located when Auto Zone is enabled. Only one of zone_uri
+ *  or auto_zone_exclude_zone_uris can be set. If both are omitted, the service
+ *  will pick a zone in the cluster Compute Engine region. If
+ *  auto_zone_exclude_zone_uris is set and there is more than one non-excluded
+ *  zone, the service will pick one of the non-excluded zones. Otherwise,
+ *  cluster creation will fail with INVALID_ARGUMENT error.A full URL, partial
+ *  URI, or short name are valid. Examples:
+ *  https://www.googleapis.com/compute/v1/projects/[project_id]/zones/[zone]
+ *  projects/[project_id]/zones/[zone] [zone]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *autoZoneExcludeZoneUris;
+
+/**
  *  Optional. Confidential Instance Config for clusters using Confidential VMs
  *  (https://cloud.google.com/compute/confidential-vm/docs).
  */

@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   App Hub API (apphub/v1)
+// Description:
+//   App Hub lets you build, operate, and manage applications on Google Cloud.
 // Documentation:
 //   https://cloud.google.com/app-hub/docs/
 
@@ -25,6 +27,7 @@
 @class GTLRAppHub_Expr;
 @class GTLRAppHub_ExtendedMetadata;
 @class GTLRAppHub_ExtendedMetadata_MetadataStruct;
+@class GTLRAppHub_ExtendedMetadataSchema;
 @class GTLRAppHub_FunctionalType;
 @class GTLRAppHub_Identity;
 @class GTLRAppHub_Location;
@@ -655,7 +658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /**
  *  Optional. The resource name of the CRM node being attached to the boundary.
- *  Format: `projects/{project-number}` or `projects/{project-id}`
+ *  Format: `projects/{project-number}`
  */
 @property(nonatomic, copy, nullable) NSString *crmNode;
 
@@ -910,6 +913,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 
 /**
+ *  ExtendedMetadataSchema represents a schema for extended metadata of a
+ *  service or workload.
+ */
+@interface GTLRAppHub_ExtendedMetadataSchema : GTLRObject
+
+/** Output only. The JSON schema as a string. */
+@property(nonatomic, copy, nullable) NSString *jsonSchema;
+
+/**
+ *  Identifier. Resource name of the schema. Format:
+ *  projects//locations//extendedMetadataSchemas/
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The version of the schema. New versions are required to be
+ *  backwards compatible.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *schemaVersion;
+
+@end
+
+
+/**
  *  The functional type of a service or workload.
  */
 @interface GTLRAppHub_FunctionalType : GTLRObject
@@ -935,8 +964,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 @interface GTLRAppHub_Identity : GTLRObject
 
 /**
- *  Output only. Principal of the identity. Supported formats: *
- *  `sa://my-sa\@xxxx.iam.gserviceaccount.com` for GCP Service Account *
+ *  Output only. The principal of the identity. Supported formats: *
+ *  `sa://my-sa\@PROJECT_ID.iam.gserviceaccount.com` for GCP Service Account *
  *  `principal://POOL_ID.global.PROJECT_NUMBER.workload.id.goog/ns/NAMESPACE_ID/sa/MANAGED_IDENTITY_ID`
  *  for Managed Workload Identity
  */
@@ -1022,6 +1051,30 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /** Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Response for ListExtendedMetadataSchemas.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "extendedMetadataSchemas" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRAppHub_ListExtendedMetadataSchemasResponse : GTLRCollectionObject
+
+/**
+ *  List of Extended Metadata Schemas.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAppHub_ExtendedMetadataSchema *> *extendedMetadataSchemas;
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   App Hub API (apphub/v1)
+// Description:
+//   App Hub lets you build, operate, and manage applications on Google Cloud.
 // Documentation:
 //   https://cloud.google.com/app-hub/docs/
 
@@ -560,6 +562,44 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRAppHub_LookupDiscoveredWorkloadResponse class];
   query.loggingName = @"apphub.projects.locations.discoveredWorkloads.lookup";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppHubQuery_ProjectsLocationsExtendedMetadataSchemasGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAppHubQuery_ProjectsLocationsExtendedMetadataSchemasGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRAppHub_ExtendedMetadataSchema class];
+  query.loggingName = @"apphub.projects.locations.extendedMetadataSchemas.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppHubQuery_ProjectsLocationsExtendedMetadataSchemasList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/extendedMetadataSchemas";
+  GTLRAppHubQuery_ProjectsLocationsExtendedMetadataSchemasList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAppHub_ListExtendedMetadataSchemasResponse class];
+  query.loggingName = @"apphub.projects.locations.extendedMetadataSchemas.list";
   return query;
 }
 

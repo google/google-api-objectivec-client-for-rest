@@ -162,6 +162,16 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRManagedKafka_BrokerDetails
+//
+
+@implementation GTLRManagedKafka_BrokerDetails
+@dynamic brokerIndex, nodeId, rack;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRManagedKafka_CancelOperationRequest
 //
 
@@ -235,9 +245,17 @@ NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mode_Readwrite = @"RE
 //
 
 @implementation GTLRManagedKafka_Cluster
-@dynamic capacityConfig, createTime, gcpConfig, labels, name, rebalanceConfig,
-         satisfiesPzi, satisfiesPzs, state, tlsConfig, updateOptions,
-         updateTime;
+@dynamic brokerDetails, capacityConfig, createTime, gcpConfig, kafkaVersion,
+         labels, name, rebalanceConfig, satisfiesPzi, satisfiesPzs, state,
+         tlsConfig, updateOptions, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"brokerDetails" : [GTLRManagedKafka_BrokerDetails class]
+  };
+  return map;
+}
+
 @end
 
 

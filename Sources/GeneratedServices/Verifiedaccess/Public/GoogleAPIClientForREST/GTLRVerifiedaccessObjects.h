@@ -344,6 +344,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
  */
 FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsDeveloperMode;
 /**
+ *  ChromeOS device without a signing key (e.g., Flex without TPM). Applies to
+ *  both device and user contexts on ChromeOS.
+ *
+ *  Value: "CHROME_OS_NO_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsNoKey;
+/**
  *  ChromeOS device in verified mode.
  *
  *  Value: "CHROME_OS_VERIFIED_MODE"
@@ -383,6 +390,13 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
  *  Value: "CHROME_OS_DEVELOPER_MODE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeOsDeveloperMode;
+/**
+ *  ChromeOS device without a signing key (e.g., Flex without TPM). Applies to
+ *  both device and user contexts on ChromeOS.
+ *
+ *  Value: "CHROME_OS_NO_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeOsNoKey;
 /**
  *  ChromeOS device in verified mode.
  *
@@ -869,6 +883,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
  *        "CHROME_BROWSER_OS_KEY")
  *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsDeveloperMode
  *        ChromeOS device in developer mode. (Value: "CHROME_OS_DEVELOPER_MODE")
+ *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsNoKey
+ *        ChromeOS device without a signing key (e.g., Flex without TPM).
+ *        Applies to both device and user contexts on ChromeOS. (Value:
+ *        "CHROME_OS_NO_KEY")
  *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_ChromeOsVerifiedMode
  *        ChromeOS device in verified mode. (Value: "CHROME_OS_VERIFIED_MODE")
  *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_KeyTrustLevel_KeyTrustLevelUnspecified
@@ -898,6 +916,10 @@ FOUNDATION_EXTERN NSString * const kGTLRVerifiedaccess_VerifyChallengeResponseRe
  *        "CHROME_BROWSER_OS_KEY")
  *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeOsDeveloperMode
  *        ChromeOS device in developer mode. (Value: "CHROME_OS_DEVELOPER_MODE")
+ *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeOsNoKey
+ *        ChromeOS device without a signing key (e.g., Flex without TPM).
+ *        Applies to both device and user contexts on ChromeOS. (Value:
+ *        "CHROME_OS_NO_KEY")
  *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_ChromeOsVerifiedMode
  *        ChromeOS device in verified mode. (Value: "CHROME_OS_VERIFIED_MODE")
  *    @arg @c kGTLRVerifiedaccess_VerifyChallengeResponseResult_ProfileKeyTrustLevel_KeyTrustLevelUnspecified

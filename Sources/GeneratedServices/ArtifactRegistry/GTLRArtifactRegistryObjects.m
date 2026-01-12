@@ -308,11 +308,12 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_DockerImage
-@dynamic buildTime, imageSizeBytes, mediaType, name, tags, updateTime,
-         uploadTime, uri;
+@dynamic artifactType, buildTime, imageManifests, imageSizeBytes, mediaType,
+         name, tags, updateTime, uploadTime, uri;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"imageManifests" : [GTLRArtifactRegistry_ImageManifest class],
     @"tags" : [NSString class]
   };
   return map;
@@ -590,6 +591,24 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 @implementation GTLRArtifactRegistry_Hash
 @dynamic type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ImageManifest
+//
+
+@implementation GTLRArtifactRegistry_ImageManifest
+@dynamic architecture, digest, mediaType, os, osFeatures, osVersion, variant;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"osFeatures" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -116,7 +116,7 @@
 @implementation GTLRTranslate_BatchTranslateDocumentRequest
 @dynamic customizedAttribution, enableRotationCorrection,
          enableShadowRemovalNativePdf, formatConversions, glossaries,
-         inputConfigs, models, outputConfig, sourceLanguageCode,
+         inputConfigs, models, outputConfig, pdfNativeOnly, sourceLanguageCode,
          targetLanguageCodes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -299,7 +299,7 @@
 //
 
 @implementation GTLRTranslate_DetectLanguageRequest
-@dynamic content, labels, mimeType, model;
+@dynamic content, documentInputConfig, labels, mimeType, model;
 @end
 
 
@@ -856,11 +856,12 @@
 //
 
 @implementation GTLRTranslate_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRTranslate_Operation class]
+    @"operations" : [GTLRTranslate_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1009,6 +1010,52 @@
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"referenceSentencePairs" : [GTLRTranslate_ReferenceSentencePair class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_RefinementEntry
+//
+
+@implementation GTLRTranslate_RefinementEntry
+@dynamic originalTranslation, sourceText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_RefineTextRequest
+//
+
+@implementation GTLRTranslate_RefineTextRequest
+@dynamic refinementEntries, sourceLanguageCode, targetLanguageCode;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"refinementEntries" : [GTLRTranslate_RefinementEntry class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTranslate_RefineTextResponse
+//
+
+@implementation GTLRTranslate_RefineTextResponse
+@dynamic refinedTranslations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"refinedTranslations" : [NSString class]
   };
   return map;
 }

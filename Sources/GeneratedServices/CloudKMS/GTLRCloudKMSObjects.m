@@ -402,6 +402,56 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_HsmSingleTenan
 NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_ProtectionLevelUnspecified = @"PROTECTION_LEVEL_UNSPECIFIED";
 NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"SOFTWARE";
 
+// GTLRCloudKMS_SingleTenantHsmInstance.state
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstance_State_Active = @"ACTIVE";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstance_State_Creating = @"CREATING";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstance_State_Deleted = @"DELETED";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstance_State_Deleting = @"DELETING";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstance_State_Disabled = @"DISABLED";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstance_State_Disabling = @"DISABLING";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstance_State_Failed = @"FAILED";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstance_State_PendingTwoFactorAuthRegistration = @"PENDING_TWO_FACTOR_AUTH_REGISTRATION";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstance_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRCloudKMS_SingleTenantHsmInstanceProposal.state
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Approved = @"APPROVED";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Creating = @"CREATING";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Deleted = @"DELETED";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Failed = @"FAILED";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Pending = @"PENDING";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Running = @"RUNNING";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Succeeded = @"SUCCEEDED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_AddQuorumMember
+//
+
+@implementation GTLRCloudKMS_AddQuorumMember
+@dynamic twoFactorPublicKeyPem;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_ApproveSingleTenantHsmInstanceProposalRequest
+//
+
+@implementation GTLRCloudKMS_ApproveSingleTenantHsmInstanceProposalRequest
+@dynamic quorumReply, requiredActionQuorumReply;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_ApproveSingleTenantHsmInstanceProposalResponse
+//
+
+@implementation GTLRCloudKMS_ApproveSingleTenantHsmInstanceProposalResponse
+@end
+
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRCloudKMS_AsymmetricDecryptRequest
@@ -553,6 +603,26 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_Challenge
+//
+
+@implementation GTLRCloudKMS_Challenge
+@dynamic challenge, publicKeyPem;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_ChallengeReply
+//
+
+@implementation GTLRCloudKMS_ChallengeReply
+@dynamic publicKeyPem, signedChallenge;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_ChecksummedData
 //
 
@@ -654,6 +724,15 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_DeleteSingleTenantHsmInstance
+//
+
+@implementation GTLRCloudKMS_DeleteSingleTenantHsmInstance
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_DestroyCryptoKeyVersionRequest
 //
 
@@ -668,6 +747,15 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 
 @implementation GTLRCloudKMS_Digest
 @dynamic sha256, sha384, sha512;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_DisableSingleTenantHsmInstance
+//
+
+@implementation GTLRCloudKMS_DisableSingleTenantHsmInstance
 @end
 
 
@@ -706,6 +794,24 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_Empty
+//
+
+@implementation GTLRCloudKMS_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_EnableSingleTenantHsmInstance
+//
+
+@implementation GTLRCloudKMS_EnableSingleTenantHsmInstance
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_EncryptRequest
 //
 
@@ -723,6 +829,15 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 @implementation GTLRCloudKMS_EncryptResponse
 @dynamic ciphertext, ciphertextCrc32c, name, protectionLevel,
          verifiedAdditionalAuthenticatedDataCrc32c, verifiedPlaintextCrc32c;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_ExecuteSingleTenantHsmInstanceProposalRequest
+//
+
+@implementation GTLRCloudKMS_ExecuteSingleTenantHsmInstanceProposalRequest
 @end
 
 
@@ -1016,6 +1131,50 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_ListSingleTenantHsmInstanceProposalsResponse
+//
+
+@implementation GTLRCloudKMS_ListSingleTenantHsmInstanceProposalsResponse
+@dynamic nextPageToken, singleTenantHsmInstanceProposals, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"singleTenantHsmInstanceProposals" : [GTLRCloudKMS_SingleTenantHsmInstanceProposal class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"singleTenantHsmInstanceProposals";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_ListSingleTenantHsmInstancesResponse
+//
+
+@implementation GTLRCloudKMS_ListSingleTenantHsmInstancesResponse
+@dynamic nextPageToken, singleTenantHsmInstances, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"singleTenantHsmInstances" : [GTLRCloudKMS_SingleTenantHsmInstance class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"singleTenantHsmInstances";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_Location
 //
 
@@ -1177,6 +1336,61 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_QuorumAuth
+//
+
+@implementation GTLRCloudKMS_QuorumAuth
+@dynamic requiredApproverCount, totalApproverCount, twoFactorPublicKeyPems;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"twoFactorPublicKeyPems" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_QuorumParameters
+//
+
+@implementation GTLRCloudKMS_QuorumParameters
+@dynamic approvedTwoFactorPublicKeyPems, challenges, requiredApproverCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"approvedTwoFactorPublicKeyPems" : [NSString class],
+    @"challenges" : [GTLRCloudKMS_Challenge class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_QuorumReply
+//
+
+@implementation GTLRCloudKMS_QuorumReply
+@dynamic challengeReplies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"challengeReplies" : [GTLRCloudKMS_ChallengeReply class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_RawDecryptRequest
 //
 
@@ -1221,6 +1435,83 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
          initializationVectorCrc32c, name, protectionLevel, tagLength,
          verifiedAdditionalAuthenticatedDataCrc32c,
          verifiedInitializationVectorCrc32c, verifiedPlaintextCrc32c;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_RefreshSingleTenantHsmInstance
+//
+
+@implementation GTLRCloudKMS_RefreshSingleTenantHsmInstance
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_RegisterTwoFactorAuthKeys
+//
+
+@implementation GTLRCloudKMS_RegisterTwoFactorAuthKeys
+@dynamic requiredApproverCount, twoFactorPublicKeyPems;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"twoFactorPublicKeyPems" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_RemoveQuorumMember
+//
+
+@implementation GTLRCloudKMS_RemoveQuorumMember
+@dynamic twoFactorPublicKeyPem;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_RequiredActionQuorumParameters
+//
+
+@implementation GTLRCloudKMS_RequiredActionQuorumParameters
+@dynamic approvedTwoFactorPublicKeyPems, quorumChallenges,
+         requiredApproverCount, requiredChallenges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"approvedTwoFactorPublicKeyPems" : [NSString class],
+    @"quorumChallenges" : [GTLRCloudKMS_Challenge class],
+    @"requiredChallenges" : [GTLRCloudKMS_Challenge class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_RequiredActionQuorumReply
+//
+
+@implementation GTLRCloudKMS_RequiredActionQuorumReply
+@dynamic quorumChallengeReplies, requiredChallengeReplies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"quorumChallengeReplies" : [GTLRCloudKMS_ChallengeReply class],
+    @"requiredChallengeReplies" : [GTLRCloudKMS_ChallengeReply class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1288,6 +1579,31 @@ NSString * const kGTLRCloudKMS_RawEncryptResponse_ProtectionLevel_Software = @"S
 
 @implementation GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsPolicyConfigResponse
 @dynamic effectiveKajPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_SingleTenantHsmInstance
+//
+
+@implementation GTLRCloudKMS_SingleTenantHsmInstance
+@dynamic createTime, deleteTime, disableTime, name, quorumAuth, state,
+         unrefreshedDurationUntilDisable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_SingleTenantHsmInstanceProposal
+//
+
+@implementation GTLRCloudKMS_SingleTenantHsmInstanceProposal
+@dynamic addQuorumMember, createTime, deleteSingleTenantHsmInstance, deleteTime,
+         disableSingleTenantHsmInstance, enableSingleTenantHsmInstance,
+         expireTime, failureReason, name, purgeTime, quorumParameters,
+         refreshSingleTenantHsmInstance, registerTwoFactorAuthKeys,
+         removeQuorumMember, requiredActionQuorumParameters, state, ttl;
 @end
 
 

@@ -666,6 +666,34 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_ExecutePipelineRequest
+//
+
+@implementation GTLRFirestore_ExecutePipelineRequest
+@dynamic newTransaction, readTime, structuredPipeline, transaction;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_ExecutePipelineResponse
+//
+
+@implementation GTLRFirestore_ExecutePipelineResponse
+@dynamic executionTime, explainStats, results, transaction;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRFirestore_Document class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_ExecutionStats
 //
 
@@ -720,6 +748,30 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_ExplainStats
+//
+
+@implementation GTLRFirestore_ExplainStats
+@dynamic data;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_ExplainStats_Data
+//
+
+@implementation GTLRFirestore_ExplainStats_Data
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_FieldFilter
 //
 
@@ -767,6 +819,38 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 @implementation GTLRFirestore_FindNearest
 @dynamic distanceMeasure, distanceResultField, distanceThreshold, limit,
          queryVector, vectorField;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_Function
+//
+
+@implementation GTLRFirestore_Function
+@dynamic args, name, options;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [GTLRFirestore_Value class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_Function_Options
+//
+
+@implementation GTLRFirestore_Function_Options
+
++ (Class)classForAdditionalProperties {
+  return [GTLRFirestore_Value class];
+}
+
 @end
 
 
@@ -1776,6 +1860,24 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_Pipeline
+//
+
+@implementation GTLRFirestore_Pipeline
+@dynamic stages;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stages" : [GTLRFirestore_Stage class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_PlanSummary
 //
 
@@ -1917,6 +2019,38 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_Stage
+//
+
+@implementation GTLRFirestore_Stage
+@dynamic args, name, options;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [GTLRFirestore_Value class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_Stage_Options
+//
+
+@implementation GTLRFirestore_Stage_Options
+
++ (Class)classForAdditionalProperties {
+  return [GTLRFirestore_Value class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_Status
 //
 
@@ -1960,6 +2094,30 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
     @"aggregations" : [GTLRFirestore_Aggregation class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_StructuredPipeline
+//
+
+@implementation GTLRFirestore_StructuredPipeline
+@dynamic options, pipeline;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_StructuredPipeline_Options
+//
+
+@implementation GTLRFirestore_StructuredPipeline_Options
+
++ (Class)classForAdditionalProperties {
+  return [GTLRFirestore_Value class];
 }
 
 @end
@@ -2049,9 +2207,9 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_Value
-@dynamic arrayValue, booleanValue, bytesValue, doubleValue, geoPointValue,
-         integerValue, mapValue, nullValue, referenceValue, stringValue,
-         timestampValue;
+@dynamic arrayValue, booleanValue, bytesValue, doubleValue, fieldReferenceValue,
+         functionValue, geoPointValue, integerValue, mapValue, nullValue,
+         pipelineValue, referenceValue, stringValue, timestampValue;
 @end
 
 

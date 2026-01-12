@@ -1314,6 +1314,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Depl
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_Succeeded;
 
 // ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest.responseView
+
+/**
+ *  Basic response view omits the following fields: -
+ *  QueryResult.diagnostic_info
+ *
+ *  Value: "DETECT_INTENT_RESPONSE_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewBasic;
+/**
+ *  Full response view includes all fields.
+ *
+ *  Value: "DETECT_INTENT_RESPONSE_VIEW_FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewFull;
+/**
+ *  Not specified. `FULL` will be used.
+ *
+ *  Value: "DETECT_INTENT_RESPONSE_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentResponse.responseType
 
 /**
@@ -9916,6 +9939,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 /** The parameters of this query. */
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3QueryParameters *queryParams;
+
+/**
+ *  Optional. Specifies which fields in the QueryResult to return. If not set,
+ *  the default is DETECT_INTENT_RESPONSE_VIEW_FULL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewBasic
+ *        Basic response view omits the following fields: -
+ *        QueryResult.diagnostic_info (Value:
+ *        "DETECT_INTENT_RESPONSE_VIEW_BASIC")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewFull
+ *        Full response view includes all fields. (Value:
+ *        "DETECT_INTENT_RESPONSE_VIEW_FULL")
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewUnspecified
+ *        Not specified. `FULL` will be used. (Value:
+ *        "DETECT_INTENT_RESPONSE_VIEW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *responseView;
 
 @end
 

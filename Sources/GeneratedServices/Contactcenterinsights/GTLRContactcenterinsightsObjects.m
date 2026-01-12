@@ -97,6 +97,9 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1al
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV12 = @"EXPORT_V12";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV13 = @"EXPORT_V13";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV14 = @"EXPORT_V14";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV15 = @"EXPORT_V15";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV16 = @"EXPORT_V16";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17 = @"EXPORT_V17";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2 = @"EXPORT_V2";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3 = @"EXPORT_V3";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_ExportSchemaVersion_ExportV4 = @"EXPORT_V4";
@@ -264,6 +267,9 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Ex
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV12 = @"EXPORT_V12";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV13 = @"EXPORT_V13";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV14 = @"EXPORT_V14";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV15 = @"EXPORT_V15";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV16 = @"EXPORT_V16";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV17 = @"EXPORT_V17";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV2 = @"EXPORT_V2";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV3 = @"EXPORT_V3";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_ExportSchemaVersion_ExportV4 = @"EXPORT_V4";
@@ -404,6 +410,9 @@ NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ma
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV12 = @"EXPORT_V12";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV13 = @"EXPORT_V13";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV14 = @"EXPORT_V14";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV15 = @"EXPORT_V15";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV16 = @"EXPORT_V16";
+NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV17 = @"EXPORT_V17";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV2 = @"EXPORT_V2";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV3 = @"EXPORT_V3";
 NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_ExportSchemaVersion_ExportV4 = @"EXPORT_V4";
@@ -2333,7 +2342,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig
-@dynamic speechRecognizer;
+@dynamic disableWordTimeOffsets, speechRecognizer;
 @end
 
 
@@ -3084,6 +3093,16 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSourceTurnLevelAudio
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSourceTurnLevelAudio
+@dynamic audioDuration, audioGcsUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationLevelSentiment
 //
 
@@ -3741,6 +3760,16 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource
 @dynamic audioUri, transcriptUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerateConversationSignedAudioResponse
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerateConversationSignedAudioResponse
+@dynamic signedAudioUris;
 @end
 
 
@@ -6351,7 +6380,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSpeechConfig
-@dynamic speechRecognizer;
+@dynamic disableWordTimeOffsets, speechRecognizer;
 @end
 
 
@@ -7107,6 +7136,24 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SignedAudioUris
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SignedAudioUris
+@dynamic signedDialogflowAudioUri, signedGcsAudioUri, signedTurnLevelAudios;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"signedTurnLevelAudios" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSourceTurnLevelAudio class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SilenceData
 //
 
@@ -7168,7 +7215,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig
-@dynamic speechRecognizer;
+@dynamic disableWordTimeOffsets, speechRecognizer;
 @end
 
 

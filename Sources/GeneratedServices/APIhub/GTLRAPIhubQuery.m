@@ -13,6 +13,7 @@
 
 // specContentType
 NSString * const kGTLRAPIhubSpecContentTypeBoostedSpecContent  = @"BOOSTED_SPEC_CONTENT";
+NSString * const kGTLRAPIhubSpecContentTypeGatewayOpenApiSpec  = @"GATEWAY_OPEN_API_SPEC";
 NSString * const kGTLRAPIhubSpecContentTypeSpecContentTypeUnspecified = @"SPEC_CONTENT_TYPE_UNSPECIFIED";
 
 // view

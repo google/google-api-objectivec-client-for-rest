@@ -742,6 +742,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_GroupsSettings"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_GSuiteMarketplaceAPI",
+            targets: ["GoogleAPIClientForREST_GSuiteMarketplaceAPI"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_HangoutsChat",
             targets: ["GoogleAPIClientForREST_HangoutsChat"]
         ),
@@ -2359,6 +2363,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_GroupsSettings",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/GroupsSettings",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_GSuiteMarketplaceAPI",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/GSuiteMarketplaceAPI",
             publicHeadersPath: "Public"
         ),
         .target(

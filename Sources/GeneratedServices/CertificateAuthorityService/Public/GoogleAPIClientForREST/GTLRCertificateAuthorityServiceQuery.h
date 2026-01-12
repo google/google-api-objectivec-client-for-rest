@@ -895,8 +895,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the location associated with the
- *  Certificates, in the format `projects/ * /locations/ * /caPools/ *`.
+ *  Required. The resource name of the parent associated with the Certificates,
+ *  in the format `projects/ * /locations/ * /caPools/ *`. The parent resource
+ *  name can be in one of two forms: 1. **Specific CA Pool:** To list
+ *  certificates within a single CA Pool: `projects/ * /locations/ * /caPools/
+ *  *` 2. **All CA Pools in a Location:** To list certificates across *all* CA
+ *  Pools in a given project and location, use the wildcard character (`-`) in
+ *  place of the CA Pool ID. Example: `projects/ * /locations/ * /caPools/-` See
+ *  go/ccfe-nested-collections#aggregate-listing for more details.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -905,8 +911,15 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists Certificates.
  *
- *  @param parent Required. The resource name of the location associated with
- *    the Certificates, in the format `projects/ * /locations/ * /caPools/ *`.
+ *  @param parent Required. The resource name of the parent associated with the
+ *    Certificates, in the format `projects/ * /locations/ * /caPools/ *`. The
+ *    parent resource name can be in one of two forms: 1. **Specific CA Pool:**
+ *    To list certificates within a single CA Pool: `projects/ * /locations/ *
+ *    /caPools/ *` 2. **All CA Pools in a Location:** To list certificates
+ *    across *all* CA Pools in a given project and location, use the wildcard
+ *    character (`-`) in place of the CA Pool ID. Example: `projects/ *
+ *    /locations/ * /caPools/-` See go/ccfe-nested-collections#aggregate-listing
+ *    for more details.
  *
  *  @return GTLRCertificateAuthorityServiceQuery_ProjectsLocationsCaPoolsCertificatesList
  *
@@ -1999,9 +2012,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

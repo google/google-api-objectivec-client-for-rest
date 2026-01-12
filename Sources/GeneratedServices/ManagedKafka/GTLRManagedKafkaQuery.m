@@ -14,6 +14,9 @@
 // Constants
 
 // view
+NSString * const kGTLRManagedKafkaViewClusterViewBasic         = @"CLUSTER_VIEW_BASIC";
+NSString * const kGTLRManagedKafkaViewClusterViewFull          = @"CLUSTER_VIEW_FULL";
+NSString * const kGTLRManagedKafkaViewClusterViewUnspecified   = @"CLUSTER_VIEW_UNSPECIFIED";
 NSString * const kGTLRManagedKafkaViewConsumerGroupViewBasic   = @"CONSUMER_GROUP_VIEW_BASIC";
 NSString * const kGTLRManagedKafkaViewConsumerGroupViewFull    = @"CONSUMER_GROUP_VIEW_FULL";
 NSString * const kGTLRManagedKafkaViewConsumerGroupViewUnspecified = @"CONSUMER_GROUP_VIEW_UNSPECIFIED";
@@ -328,7 +331,7 @@ NSString * const kGTLRManagedKafkaViewSchemaRegistryViewUnspecified = @"SCHEMA_R
 
 @implementation GTLRManagedKafkaQuery_ProjectsLocationsClustersGet
 
-@dynamic name;
+@dynamic name, view;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

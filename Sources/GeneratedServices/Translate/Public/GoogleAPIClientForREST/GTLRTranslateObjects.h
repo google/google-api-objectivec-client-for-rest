@@ -63,6 +63,7 @@
 @class GTLRTranslate_ReferenceSentenceConfig;
 @class GTLRTranslate_ReferenceSentencePair;
 @class GTLRTranslate_ReferenceSentencePairList;
+@class GTLRTranslate_RefinementEntry;
 @class GTLRTranslate_Romanization;
 @class GTLRTranslate_Status;
 @class GTLRTranslate_Status_Details_Item;
@@ -102,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *exampleCount;
 
 /**
- *  Required. The resource name of the dataset, in form of
+ *  Identifier. The resource name of the dataset, in form of
  *  `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -138,7 +139,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *entryCount;
 
 /**
- *  Required. The resource name of the file, in form of
+ *  Identifier. The resource name of the file, in form of
  *  `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -158,7 +159,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Required. The resource name of the file, in form of
+ *  Identifier. The resource name of the file, in form of
  *  `projects/{project-number-or-id}/locations/{location_id}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}/adaptiveMtSentences/{sentence}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -374,6 +375,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRTranslate_BatchDocumentOutputConfig *outputConfig;
 
 /**
+ *  Optional. If true, only native pdf pages will be translated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pdfNativeOnly;
+
+/**
  *  Required. The ISO-639 language code of the input document if known, for
  *  example, "en-US" or "sr-Latn". Supported language codes are listed in
  *  [Language Support](https://cloud.google.com/translate/docs/languages).
@@ -382,7 +390,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The ISO-639 language code to use for translation of the input
- *  document. Specify up to 10 language codes here.
+ *  document. Specify up to 10 language codes here. Supported language codes are
+ *  listed in [Language
+ *  Support](https://cloud.google.com/translate/docs/languages).
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetLanguageCodes;
 
@@ -487,10 +497,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) GTLRTranslate_OutputConfig *outputConfig;
 
-/** Required. Source language code. */
+/**
+ *  Required. Source language code. Supported language codes are listed in
+ *  [Language Support](https://cloud.google.com/translate/docs/languages).
+ */
 @property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
 
-/** Required. Specify up to 10 language codes here. */
+/**
+ *  Required. Specify up to 10 language codes here. Supported language codes are
+ *  listed in [Language
+ *  Support](https://cloud.google.com/translate/docs/languages).
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetLanguageCodes;
 
 @end
@@ -666,6 +683,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** The content of the input stored as a string. */
 @property(nonatomic, copy, nullable) NSString *content;
+
+/** Optional. The document configuration of the input. */
+@property(nonatomic, strong, nullable) GTLRTranslate_DocumentInputConfig *documentInputConfig;
 
 /**
  *  Optional. The labels with user-defined metadata for the request. Label keys
@@ -893,16 +913,18 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. The ISO-639 language code of the input document if known, for
  *  example, "en-US" or "sr-Latn". Supported language codes are listed in
- *  Language Support. If the source language isn't specified, the API attempts
- *  to identify the source language automatically and returns the source
- *  language within the response. Source language must be specified if the
- *  request contains a glossary or a custom model.
+ *  [Language Support](https://cloud.google.com/translate/docs/languages). If
+ *  the source language isn't specified, the API attempts to identify the source
+ *  language automatically and returns the source language within the response.
+ *  Source language must be specified if the request contains a glossary or a
+ *  custom model.
  */
 @property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
 
 /**
  *  Required. The ISO-639 language code to use for translation of the input
- *  document, set to one of the language codes listed in Language Support.
+ *  document, set to one of the language codes listed in [Language
+ *  Support](https://cloud.google.com/translate/docs/languages).
  */
 @property(nonatomic, copy, nullable) NSString *targetLanguageCode;
 
@@ -1140,7 +1162,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRTranslate_LanguageCodePair *languagePair;
 
 /**
- *  Required. The resource name of the glossary. Glossary names have the form
+ *  Identifier. The resource name of the glossary. Glossary names have the form
  *  `projects/{project-number-or-id}/locations/{location-id}/glossaries/{glossary-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1389,9 +1411,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRTranslate_LanguageCodesSet : GTLRObject
 
 /**
- *  The ISO-639 language code(s) for terms defined in the glossary. All entries
- *  are unique. The list contains at least two entries. Expected to be an exact
- *  match for GlossaryTerm.language_code.
+ *  Optional. The ISO-639 language code(s) for terms defined in the glossary.
+ *  All entries are unique. The list contains at least two entries. Expected to
+ *  be an exact match for GlossaryTerm.language_code.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *languageCodes;
 
@@ -1659,6 +1681,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRTranslate_Operation *> *operations;
 
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -1735,7 +1765,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  The dataset from which the model is trained, in form of
+ *  Required. The dataset from which the model is trained, in form of
  *  `projects/{project-number-or-id}/locations/{location_id}/datasets/{dataset_id}`
  */
 @property(nonatomic, copy, nullable) NSString *dataset;
@@ -1972,6 +2002,57 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  A single refinement entry for RefineTextRequest.
+ */
+@interface GTLRTranslate_RefinementEntry : GTLRObject
+
+/** Required. The original translation of the source text. */
+@property(nonatomic, copy, nullable) NSString *originalTranslation;
+
+/** Required. The source text to be refined. */
+@property(nonatomic, copy, nullable) NSString *sourceText;
+
+@end
+
+
+/**
+ *  Request message for RefineText.
+ */
+@interface GTLRTranslate_RefineTextRequest : GTLRObject
+
+/**
+ *  Required. The source texts and original translations in the source and
+ *  target languages.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRTranslate_RefinementEntry *> *refinementEntries;
+
+/**
+ *  Required. The BCP-47 language code of the source text in the request, for
+ *  example, "en-US".
+ */
+@property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
+
+/**
+ *  Required. The BCP-47 language code for translation output, for example,
+ *  "zh-CN".
+ */
+@property(nonatomic, copy, nullable) NSString *targetLanguageCode;
+
+@end
+
+
+/**
+ *  Response message for RefineText.
+ */
+@interface GTLRTranslate_RefineTextResponse : GTLRObject
+
+/** The refined translations obtained from the original translations. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *refinedTranslations;
+
+@end
+
+
+/**
  *  A single romanization response.
  */
 @interface GTLRTranslate_Romanization : GTLRObject
@@ -2003,9 +2084,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The ISO-639 language code of the input text if known, for example,
- *  "hi" or "zh". If the source language isn't specified, the API attempts to
- *  identify the source language automatically and returns the source language
- *  for each content in the response.
+ *  "hi" or "zh". Supported language codes are listed in [Language
+ *  Support](https://cloud.google.com/translate/docs/languages#roman). If the
+ *  source language isn't specified, the API attempts to identify the source
+ *  language automatically and returns the source language for each content in
+ *  the response.
  */
 @property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
 
@@ -2205,16 +2288,17 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The ISO-639 language code of the input text if known, for example,
- *  "en-US" or "sr-Latn". Supported language codes are listed in Language
- *  Support. If the source language isn't specified, the API attempts to
- *  identify the source language automatically and returns the source language
- *  within the response.
+ *  "en-US" or "sr-Latn". Supported language codes are listed in [Language
+ *  Support](https://cloud.google.com/translate/docs/languages). If the source
+ *  language isn't specified, the API attempts to identify the source language
+ *  automatically and returns the source language within the response.
  */
 @property(nonatomic, copy, nullable) NSString *sourceLanguageCode;
 
 /**
  *  Required. The ISO-639 language code to use for translation of the input
- *  text, set to one of the language codes listed in Language Support.
+ *  text, set to one of the language codes listed in [Language
+ *  Support](https://cloud.google.com/translate/docs/languages).
  */
 @property(nonatomic, copy, nullable) NSString *targetLanguageCode;
 

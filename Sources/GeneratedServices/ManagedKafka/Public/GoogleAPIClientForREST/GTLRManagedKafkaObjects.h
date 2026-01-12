@@ -17,6 +17,7 @@
 @class GTLRManagedKafka_AccessConfig;
 @class GTLRManagedKafka_Acl;
 @class GTLRManagedKafka_AclEntry;
+@class GTLRManagedKafka_BrokerDetails;
 @class GTLRManagedKafka_CapacityConfig;
 @class GTLRManagedKafka_CertificateAuthorityServiceConfig;
 @class GTLRManagedKafka_Cluster;
@@ -622,6 +623,31 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 
 
 /**
+ *  Details of a broker in the Kafka cluster.
+ */
+@interface GTLRManagedKafka_BrokerDetails : GTLRObject
+
+/**
+ *  Output only. The index of the broker.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *brokerIndex;
+
+/**
+ *  Output only. The node id of the broker.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nodeId;
+
+/** Output only. The rack of the broker. */
+@property(nonatomic, copy, nullable) NSString *rack;
+
+@end
+
+
+/**
  *  The request message for Operations.CancelOperation.
  */
 @interface GTLRManagedKafka_CancelOperationRequest : GTLRObject
@@ -728,6 +754,12 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  */
 @interface GTLRManagedKafka_Cluster : GTLRObject
 
+/**
+ *  Output only. Only populated when FULL view is requested. Details of each
+ *  broker in the cluster.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRManagedKafka_BrokerDetails *> *brokerDetails;
+
 /** Required. Capacity configuration for the Kafka cluster. */
 @property(nonatomic, strong, nullable) GTLRManagedKafka_CapacityConfig *capacityConfig;
 
@@ -739,6 +771,12 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  *  Cloud Platform.
  */
 @property(nonatomic, strong, nullable) GTLRManagedKafka_GcpConfig *gcpConfig;
+
+/**
+ *  Output only. Only populated when FULL view is requested. The Kafka version
+ *  of the cluster.
+ */
+@property(nonatomic, copy, nullable) NSString *kafkaVersion;
 
 /** Optional. Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRManagedKafka_Cluster_Labels *labels;

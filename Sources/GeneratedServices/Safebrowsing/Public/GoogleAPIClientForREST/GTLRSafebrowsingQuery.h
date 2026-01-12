@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Search for full hashes matching the specified prefixes. This is a custom
+ *  Searches for full hashes matching the specified prefixes. This is a custom
  *  method as defined by https://google.aip.dev/136 (the custom method refers to
  *  this method having a custom name within Google's general API development
  *  nomenclature; it does not refer to using a custom HTTP method).
@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRSafebrowsing_GoogleSecuritySafebrowsingV5SearchHashesResponse.
  *
- *  Search for full hashes matching the specified prefixes. This is a custom
+ *  Searches for full hashes matching the specified prefixes. This is a custom
  *  method as defined by https://google.aip.dev/136 (the custom method refers to
  *  this method having a custom name within Google's general API development
  *  nomenclature; it does not refer to using a custom HTTP method).
@@ -73,7 +73,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get the latest contents of a hash list. A hash list may either by a threat
+ *  Gets the latest contents of a hash list. A hash list may either by a threat
  *  list or a non-threat list such as the Global Cache. This is a standard Get
  *  method as defined by https://google.aip.dev/131 and the HTTP method is also
  *  GET.
@@ -120,7 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRSafebrowsing_GoogleSecuritySafebrowsingV5HashList.
  *
- *  Get the latest contents of a hash list. A hash list may either by a threat
+ *  Gets the latest contents of a hash list. A hash list may either by a threat
  *  list or a non-threat list such as the Global Cache. This is a standard Get
  *  method as defined by https://google.aip.dev/131 and the HTTP method is also
  *  GET.
@@ -135,7 +135,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get multiple hash lists at once. It is very common for a client to need to
+ *  Gets multiple hash lists at once. It is very common for a client to need to
  *  get multiple hash lists. Using this method is preferred over using the
  *  regular Get method multiple times. This is a standard batch Get method as
  *  defined by https://google.aip.dev/231 and the HTTP method is also GET.
@@ -188,7 +188,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRSafebrowsing_GoogleSecuritySafebrowsingV5BatchGetHashListsResponse.
  *
- *  Get multiple hash lists at once. It is very common for a client to need to
+ *  Gets multiple hash lists at once. It is very common for a client to need to
  *  get multiple hash lists. Using this method is preferred over using the
  *  regular Get method multiple times. This is a standard batch Get method as
  *  defined by https://google.aip.dev/231 and the HTTP method is also GET.
@@ -200,7 +200,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  List hash lists. In the V5 API, Google will never remove a hash list that
+ *  Lists hash lists. In the V5 API, Google will never remove a hash list that
  *  has ever been returned by this method. This enables clients to skip using
  *  this method and simply hard-code all hash lists they need. This is a
  *  standard List method as defined by https://google.aip.dev/132 and the HTTP
@@ -228,7 +228,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRSafebrowsing_GoogleSecuritySafebrowsingV5ListHashListsResponse.
  *
- *  List hash lists. In the V5 API, Google will never remove a hash list that
+ *  Lists hash lists. In the V5 API, Google will never remove a hash list that
  *  has ever been returned by this method. This enables clients to skip using
  *  this method and simply hard-code all hash lists they need. This is a
  *  standard List method as defined by https://google.aip.dev/132 and the HTTP
@@ -239,6 +239,36 @@ NS_ASSUME_NONNULL_BEGIN
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
  *        information.
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Searches for URLs matching known threats. Each URL and it's host-suffix and
+ *  path-prefix expressions (up to a limited depth) are checked. This means that
+ *  the response may contain URLs that were not included in the request, but are
+ *  expressions of the requested URLs.
+ *
+ *  Method: safebrowsing.urls.search
+ */
+@interface GTLRSafebrowsingQuery_UrlsSearch : GTLRSafebrowsingQuery
+
+/**
+ *  Required. The URLs to be looked up. Clients MUST NOT send more than 50 URLs.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *urls;
+
+/**
+ *  Fetches a @c
+ *  GTLRSafebrowsing_GoogleSecuritySafebrowsingV5SearchUrlsResponse.
+ *
+ *  Searches for URLs matching known threats. Each URL and it's host-suffix and
+ *  path-prefix expressions (up to a limited depth) are checked. This means that
+ *  the response may contain URLs that were not included in the request, but are
+ *  expressions of the requested URLs.
+ *
+ *  @return GTLRSafebrowsingQuery_UrlsSearch
  */
 + (instancetype)query;
 

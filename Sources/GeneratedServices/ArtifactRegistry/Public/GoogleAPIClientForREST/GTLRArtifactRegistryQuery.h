@@ -594,7 +594,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
- *  Exports an artifact.
+ *  Exports an artifact to a Cloud Storage bucket.
  *
  *  Method: artifactregistry.projects.locations.repositories.exportArtifact
  *
@@ -612,7 +612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 /**
  *  Fetches a @c GTLRArtifactRegistry_Operation.
  *
- *  Exports an artifact.
+ *  Exports an artifact to a Cloud Storage bucket.
  *
  *  @param object The @c GTLRArtifactRegistry_ExportArtifactRequest to include
  *    in the query.

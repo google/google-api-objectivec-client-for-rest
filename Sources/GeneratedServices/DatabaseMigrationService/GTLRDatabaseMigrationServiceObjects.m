@@ -332,6 +332,11 @@ NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_PromoteInProgr
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_ReadyForPromote = @"READY_FOR_PROMOTE";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_Phase_WaitingForSourceWritesToStop = @"WAITING_FOR_SOURCE_WRITES_TO_STOP";
 
+// GTLRDatabaseMigrationService_MigrationJob.purpose
+NSString * const kGTLRDatabaseMigrationService_MigrationJob_Purpose_Failback = @"FAILBACK";
+NSString * const kGTLRDatabaseMigrationService_MigrationJob_Purpose_Migrate = @"MIGRATE";
+NSString * const kGTLRDatabaseMigrationService_MigrationJob_Purpose_PurposeUnspecified = @"PURPOSE_UNSPECIFIED";
+
 // GTLRDatabaseMigrationService_MigrationJob.state
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_State_Completed = @"COMPLETED";
 NSString * const kGTLRDatabaseMigrationService_MigrationJob_State_Creating = @"CREATING";
@@ -1735,11 +1740,11 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 @dynamic cmekKeyName, conversionWorkspace, createTime, destination,
          destinationDatabase, displayName, dumpFlags, dumpPath, dumpType,
          duration, endTime, error, filter, labels, name, objectsConfig,
-         oracleToPostgresConfig, performanceConfig, phase,
-         reverseSshConnectivity, satisfiesPzi, satisfiesPzs, source,
-         sourceDatabase, sqlserverHomogeneousMigrationJobConfig,
-         sqlserverToPostgresConfig, state, staticIpConnectivity, type,
-         updateTime, vpcPeeringConnectivity;
+         oracleToPostgresConfig, originalMigrationName, performanceConfig,
+         phase, postgresToSqlserverConfig, purpose, reverseSshConnectivity,
+         satisfiesPzi, satisfiesPzs, source, sourceDatabase,
+         sqlserverHomogeneousMigrationJobConfig, sqlserverToPostgresConfig,
+         state, staticIpConnectivity, type, updateTime, vpcPeeringConnectivity;
 @end
 
 
@@ -2008,9 +2013,29 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 //
 
 @implementation GTLRDatabaseMigrationService_PostgreSqlConnectionProfile
-@dynamic alloydbClusterId, cloudSqlId, database, host, networkArchitecture,
-         password, passwordSet, port, privateServiceConnectConnectivity, ssl,
-         staticIpConnectivity, username;
+@dynamic alloydbClusterId, cloudSqlId, database, forwardSshConnectivity, host,
+         networkArchitecture, password, passwordSet, port, privateConnectivity,
+         privateServiceConnectConnectivity, ssl, staticIpConnectivity, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PostgresSourceConfig
+//
+
+@implementation GTLRDatabaseMigrationService_PostgresSourceConfig
+@dynamic skipFullDump;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PostgresToSqlServerConfig
+//
+
+@implementation GTLRDatabaseMigrationService_PostgresToSqlServerConfig
+@dynamic postgresSourceConfig, sqlserverDestinationConfig;
 @end
 
 
@@ -2496,6 +2521,16 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_SqlServerDatabaseBackup
 @dynamic database, encryptionOptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_SqlServerDestinationConfig
+//
+
+@implementation GTLRDatabaseMigrationService_SqlServerDestinationConfig
+@dynamic maxConcurrentConnections, transactionTimeout;
 @end
 
 

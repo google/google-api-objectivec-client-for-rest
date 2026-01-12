@@ -1255,6 +1255,9 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  */
 @property(nonatomic, copy, nullable) NSString *section;
 
+/** Optional. The subject of the course. */
+@property(nonatomic, copy, nullable) NSString *subject;
+
 /**
  *  Information about a Drive Folder that is shared with all teachers of the
  *  course. This field will only be set for teachers of the course and domain

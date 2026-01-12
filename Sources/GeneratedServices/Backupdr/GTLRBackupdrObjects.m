@@ -449,6 +449,15 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_AlloyDBClusterBackupPlanAssociationProperties
+//
+
+@implementation GTLRBackupdr_AlloyDBClusterBackupPlanAssociationProperties
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_AlloyDbClusterBackupProperties
 //
 
@@ -727,10 +736,11 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_BackupPlanAssociation
-@dynamic backupPlan, backupPlanRevisionId, backupPlanRevisionName,
+@dynamic alloydbClusterBackupPlanAssociationProperties, backupPlan,
+         backupPlanRevisionId, backupPlanRevisionName,
          cloudSqlInstanceBackupPlanAssociationProperties, createTime,
-         dataSource, name, resource, resourceType, rulesConfigInfo, state,
-         updateTime;
+         dataSource, filestoreInstanceBackupPlanAssociationProperties, name,
+         resource, resourceType, rulesConfigInfo, state, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1447,6 +1457,16 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
   return @"backupVaults";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_FilestoreInstanceBackupPlanAssociationProperties
+//
+
+@implementation GTLRBackupdr_FilestoreInstanceBackupPlanAssociationProperties
+@dynamic instanceCreateTime;
 @end
 
 

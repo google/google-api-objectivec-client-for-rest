@@ -215,6 +215,8 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestNaturalLanguageQueryUnderstandingSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestPersonalizationSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestQueryExpansionSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceScoreSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAddonSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec;
@@ -397,6 +399,8 @@
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestNaturalLanguageQueryUnderstandingSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestPersonalizationSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpec;
+@class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceScoreSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAddonSpec;
 @class GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec;
@@ -1761,6 +1765,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "GOOGLE_CALENDAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleCalendar;
+/**
+ *  Google Chat connector.
+ *
+ *  Value: "GOOGLE_CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleChat;
 /**
  *  Google Drive connector.
  *
@@ -3383,6 +3393,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "DISABLED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestQueryExpansionSpec_Condition_Disabled;
+
+// ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec.relevanceThreshold
+
+/**
+ *  High relevance threshold.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_High;
+/**
+ *  Low relevance threshold.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Low;
+/**
+ *  Lowest relevance threshold.
+ *
+ *  Value: "LOWEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Lowest;
+/**
+ *  Medium relevance threshold.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Medium;
+/**
+ *  Default value. In this case, server behavior defaults to Google defined
+ *  threshold.
+ *
+ *  Value: "RELEVANCE_THRESHOLD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_RelevanceThresholdUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestSearchAsYouTypeSpec.condition
@@ -5506,6 +5551,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestQueryExpansionSpec_Condition_Disabled;
 
 // ----------------------------------------------------------------------------
+// GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec.relevanceThreshold
+
+/**
+ *  High relevance threshold.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_High;
+/**
+ *  Low relevance threshold.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Low;
+/**
+ *  Lowest relevance threshold.
+ *
+ *  Value: "LOWEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Lowest;
+/**
+ *  Medium relevance threshold.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Medium;
+/**
+ *  Default value. In this case, server behavior defaults to Google defined
+ *  threshold.
+ *
+ *  Value: "RELEVANCE_THRESHOLD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_RelevanceThresholdUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestSearchAsYouTypeSpec.condition
 
 /**
@@ -6394,6 +6474,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengi
  *  Value: "GOOGLE_CALENDAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleCalendar;
+/**
+ *  Google Chat connector.
+ *
+ *  Value: "GOOGLE_CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleChat;
 /**
  *  Google Drive connector.
  *
@@ -11942,6 +12028,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        Google Cloud Storage connector. (Value: "GCS")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleCalendar
  *        Google Calendar connector. (Value: "GOOGLE_CALENDAR")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleChat
+ *        Google Chat connector. (Value: "GOOGLE_CHAT")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleDrive
  *        Google Drive connector. (Value: "GOOGLE_DRIVE")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaDataConnector_ConnectorType_GoogleMail
@@ -16216,14 +16304,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
+/**
+ *  Optional. The granular relevance filtering specification. If not specified,
+ *  the global `relevance_threshold` will be used for all sub-searches. If
+ *  specified, this overrides the global `relevance_threshold` to use thresholds
+ *  on a per sub-search basis. This feature is currently supported only for
+ *  custom and site search.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpec *relevanceFilterSpec;
+
 /** Optional. The specification for returning the relevance score. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceScoreSpec *relevanceScoreSpec;
 
 /**
- *  The relevance threshold of the search results. Default to Google defined
- *  threshold, leveraging a balance of precision and recall to deliver both
- *  highly accurate results and comprehensive coverage of relevant information.
- *  This feature is not supported for healthcare search.
+ *  The global relevance threshold of the search results. Defaults to Google
+ *  defined threshold, leveraging a balance of precision and recall to deliver
+ *  both highly accurate results and comprehensive coverage of relevant
+ *  information. If more granular relevance filtering is required, use the
+ *  `relevance_filter_spec` instead. This feature is not supported for
+ *  healthcare search.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequest_RelevanceThreshold_High
@@ -17294,6 +17393,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pinUnexpandedResults;
+
+@end
+
+
+/**
+ *  Relevance filtering specification.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpec : GTLRObject
+
+/**
+ *  Optional. Relevance filtering threshold specification for keyword search.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec *keywordSearchThreshold;
+
+/**
+ *  Optional. Relevance filtering threshold specification for semantic search.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec *semanticSearchThreshold;
+
+@end
+
+
+/**
+ *  Specification for relevance filtering on a specific sub-search.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec : GTLRObject
+
+/**
+ *  Pre-defined relevance threshold for the sub-search.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_High
+ *        High relevance threshold. (Value: "HIGH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Low
+ *        Low relevance threshold. (Value: "LOW")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Lowest
+ *        Lowest relevance threshold. (Value: "LOWEST")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Medium
+ *        Medium relevance threshold. (Value: "MEDIUM")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1alphaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_RelevanceThresholdUnspecified
+ *        Default value. In this case, server behavior defaults to Google
+ *        defined threshold. (Value: "RELEVANCE_THRESHOLD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *relevanceThreshold;
+
+/**
+ *  Custom relevance threshold for the sub-search. The value must be in [0.0,
+ *  1.0].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *semanticRelevanceThreshold;
 
 @end
 
@@ -19622,6 +19773,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 
 /** Optional. Customer policy for the assistant. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1AssistantCustomerPolicy *customerPolicy;
+
+/**
+ *  Optional. This field controls the default web grounding toggle for end users
+ *  if `web_grounding_type` is set to `WEB_GROUNDING_TYPE_GOOGLE_SEARCH` or
+ *  `WEB_GROUNDING_TYPE_ENTERPRISE_WEB_SEARCH`. By default, this field is set to
+ *  false. If `web_grounding_type` is `WEB_GROUNDING_TYPE_GOOGLE_SEARCH` or
+ *  `WEB_GROUNDING_TYPE_ENTERPRISE_WEB_SEARCH`, end users will have web
+ *  grounding enabled by default on UI. If true, grounding toggle will be
+ *  disabled by default on UI. End users can still enable web grounding in the
+ *  UI if web grounding is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultWebGroundingToggleOff;
 
 /**
  *  Optional. Description for additional information. Expected to be shown on
@@ -23737,14 +23902,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  */
 @property(nonatomic, copy, nullable) NSString *regionCode;
 
+/**
+ *  Optional. The granular relevance filtering specification. If not specified,
+ *  the global `relevance_threshold` will be used for all sub-searches. If
+ *  specified, this overrides the global `relevance_threshold` to use thresholds
+ *  on a per sub-search basis. This feature is currently supported only for
+ *  custom and site search.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpec *relevanceFilterSpec;
+
 /** Optional. The specification for returning the relevance score. */
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceScoreSpec *relevanceScoreSpec;
 
 /**
- *  The relevance threshold of the search results. Default to Google defined
- *  threshold, leveraging a balance of precision and recall to deliver both
- *  highly accurate results and comprehensive coverage of relevant information.
- *  This feature is not supported for healthcare search.
+ *  The global relevance threshold of the search results. Defaults to Google
+ *  defined threshold, leveraging a balance of precision and recall to deliver
+ *  both highly accurate results and comprehensive coverage of relevant
+ *  information. If more granular relevance filtering is required, use the
+ *  `relevance_filter_spec` instead. This feature is not supported for
+ *  healthcare search.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequest_RelevanceThreshold_High
@@ -24805,6 +24981,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pinUnexpandedResults;
+
+@end
+
+
+/**
+ *  Relevance filtering specification.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpec : GTLRObject
+
+/**
+ *  Optional. Relevance filtering threshold specification for keyword search.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec *keywordSearchThreshold;
+
+/**
+ *  Optional. Relevance filtering threshold specification for semantic search.
+ */
+@property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec *semanticSearchThreshold;
+
+@end
+
+
+/**
+ *  Specification for relevance filtering on a specific sub-search.
+ */
+@interface GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec : GTLRObject
+
+/**
+ *  Pre-defined relevance threshold for the sub-search.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_High
+ *        High relevance threshold. (Value: "HIGH")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Low
+ *        Low relevance threshold. (Value: "LOW")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Lowest
+ *        Lowest relevance threshold. (Value: "LOWEST")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_Medium
+ *        Medium relevance threshold. (Value: "MEDIUM")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1betaSearchRequestRelevanceFilterSpecRelevanceThresholdSpec_RelevanceThreshold_RelevanceThresholdUnspecified
+ *        Default value. In this case, server behavior defaults to Google
+ *        defined threshold. (Value: "RELEVANCE_THRESHOLD_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *relevanceThreshold;
+
+/**
+ *  Custom relevance threshold for the sub-search. The value must be in [0.0,
+ *  1.0].
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *semanticRelevanceThreshold;
 
 @end
 
@@ -27323,6 +27551,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
  *        Google Cloud Storage connector. (Value: "GCS")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleCalendar
  *        Google Calendar connector. (Value: "GOOGLE_CALENDAR")
+ *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleChat
+ *        Google Chat connector. (Value: "GOOGLE_CHAT")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleDrive
  *        Google Drive connector. (Value: "GOOGLE_DRIVE")
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1DataConnector_ConnectorType_GoogleMail
@@ -32411,10 +32641,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDiscoveryEngine_GoogleMonitoringV3TimeSe
 @property(nonatomic, strong, nullable) GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequestRelevanceScoreSpec *relevanceScoreSpec;
 
 /**
- *  The relevance threshold of the search results. Default to Google defined
- *  threshold, leveraging a balance of precision and recall to deliver both
- *  highly accurate results and comprehensive coverage of relevant information.
- *  This feature is not supported for healthcare search.
+ *  The global relevance threshold of the search results. Defaults to Google
+ *  defined threshold, leveraging a balance of precision and recall to deliver
+ *  both highly accurate results and comprehensive coverage of relevant
+ *  information. If more granular relevance filtering is required, use the
+ *  `relevance_filter_spec` instead. This feature is not supported for
+ *  healthcare search.
  *
  *  Likely values:
  *    @arg @c kGTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1SearchRequest_RelevanceThreshold_High

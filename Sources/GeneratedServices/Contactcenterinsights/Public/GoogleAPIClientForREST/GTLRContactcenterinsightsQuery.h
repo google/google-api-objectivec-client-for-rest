@@ -1094,6 +1094,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Gets the signed URI for the audio for the given conversation.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.generateSignedAudio
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsGenerateSignedAudio : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the conversation to sign. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerateConversationSignedAudioResponse.
+ *
+ *  Gets the signed URI for the audio for the given conversation.
+ *
+ *  @param name Required. The name of the conversation to sign.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsGenerateSignedAudio
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets a conversation.
  *
  *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.get
@@ -2996,6 +3023,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Gets the signed URI for the audio for the given conversation.
+ *
+ *  Method: contactcenterinsights.projects.locations.conversations.generateSignedAudio
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsGenerateSignedAudio : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the conversation to sign. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerateConversationSignedAudioResponse.
+ *
+ *  Gets the signed URI for the audio for the given conversation.
+ *
+ *  @param name Required. The name of the conversation to sign.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsGenerateSignedAudio
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets a conversation.
  *
  *  Method: contactcenterinsights.projects.locations.conversations.get
@@ -3677,6 +3731,33 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the signed URI for the audio for the given conversation.
+ *
+ *  Method: contactcenterinsights.projects.locations.datasets.conversations.generateSignedAudio
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsGenerateSignedAudio : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the conversation to sign. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerateConversationSignedAudioResponse.
+ *
+ *  Gets the signed URI for the audio for the given conversation.
+ *
+ *  @param name Required. The name of the conversation to sign.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsGenerateSignedAudio
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 

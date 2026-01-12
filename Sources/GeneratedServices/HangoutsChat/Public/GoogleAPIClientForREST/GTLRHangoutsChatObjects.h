@@ -1903,16 +1903,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_G
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_SpaceThreadingStateUnspecified;
 /**
- *  Named spaces that support message threads. When users respond to a message,
- *  they can reply in-thread, which keeps their response in the context of the
+ *  Spaces that support message threads. When users respond to a message, they
+ *  can reply in-thread, which keeps their response in the context of the
  *  original message.
  *
  *  Value: "THREADED_MESSAGES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Space_SpaceThreadingState_ThreadedMessages;
 /**
- *  Direct messages (DMs) between two people and group conversations between 3
- *  or more people.
+ *  Spaces that don't support message threading. This space threading state is
+ *  only used for special cases including: * Continuous meeting chat where
+ *  threading is intentionally turned off. * Legacy group conversations that
+ *  were created prior to 2022.
  *
  *  Value: "UNTHREADED_MESSAGES"
  */
@@ -6778,8 +6780,6 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  and omit the following: *
  *  [Attachments](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces.messages.attachments)
- *  * [Accessory
- *  widgets](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces.messages#Message.AccessoryWidget)
  *  For details, see [Send a message
  *  privately](https://developers.google.com/workspace/chat/create-messages#private).
  */
@@ -7543,13 +7543,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *        replies are grouped together. (Value: "GROUPED_MESSAGES")
  *    @arg @c kGTLRHangoutsChat_Space_SpaceThreadingState_SpaceThreadingStateUnspecified
  *        Reserved. (Value: "SPACE_THREADING_STATE_UNSPECIFIED")
- *    @arg @c kGTLRHangoutsChat_Space_SpaceThreadingState_ThreadedMessages Named
- *        spaces that support message threads. When users respond to a message,
+ *    @arg @c kGTLRHangoutsChat_Space_SpaceThreadingState_ThreadedMessages
+ *        Spaces that support message threads. When users respond to a message,
  *        they can reply in-thread, which keeps their response in the context of
  *        the original message. (Value: "THREADED_MESSAGES")
  *    @arg @c kGTLRHangoutsChat_Space_SpaceThreadingState_UnthreadedMessages
- *        Direct messages (DMs) between two people and group conversations
- *        between 3 or more people. (Value: "UNTHREADED_MESSAGES")
+ *        Spaces that don't support message threading. This space threading
+ *        state is only used for special cases including: * Continuous meeting
+ *        chat where threading is intentionally turned off. * Legacy group
+ *        conversations that were created prior to 2022. (Value:
+ *        "UNTHREADED_MESSAGES")
  */
 @property(nonatomic, copy, nullable) NSString *spaceThreadingState;
 

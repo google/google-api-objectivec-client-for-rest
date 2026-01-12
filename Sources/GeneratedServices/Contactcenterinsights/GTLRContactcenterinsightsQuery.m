@@ -659,6 +659,25 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 
 @end
 
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsGenerateSignedAudio
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateSignedAudio";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsGenerateSignedAudio *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerateConversationSignedAudioResponse class];
+  query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.conversations.generateSignedAudio";
+  return query;
+}
+
+@end
+
 @implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsConversationsGet
 
 @dynamic name, view;
@@ -1778,6 +1797,25 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 
 @end
 
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsGenerateSignedAudio
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateSignedAudio";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsGenerateSignedAudio *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerateConversationSignedAudioResponse class];
+  query.loggingName = @"contactcenterinsights.projects.locations.conversations.generateSignedAudio";
+  return query;
+}
+
+@end
+
 @implementation GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsGet
 
 @dynamic name, view;
@@ -2211,6 +2249,25 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel class];
   query.loggingName = @"contactcenterinsights.projects.locations.datasets.conversations.feedbackLabels.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsGenerateSignedAudio
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateSignedAudio";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsDatasetsConversationsGenerateSignedAudio *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerateConversationSignedAudioResponse class];
+  query.loggingName = @"contactcenterinsights.projects.locations.datasets.conversations.generateSignedAudio";
   return query;
 }
 

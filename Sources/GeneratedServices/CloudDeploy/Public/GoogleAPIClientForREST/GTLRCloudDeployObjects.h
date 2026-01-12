@@ -1911,13 +1911,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_TargetRender_RenderingState_
 // GTLRCloudDeploy_ToolVersionSupportedCondition.toolVersionSupportState
 
 /**
- *  This Tool version is in maintenance mode.
+ *  This tool version is in maintenance mode.
  *
  *  Value: "TOOL_VERSION_SUPPORT_STATE_MAINTENANCE_MODE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ToolVersionSupportedCondition_ToolVersionSupportState_ToolVersionSupportStateMaintenanceMode;
 /**
- *  This Tool version is currently supported.
+ *  This tool version is currently supported.
  *
  *  Value: "TOOL_VERSION_SUPPORT_STATE_SUPPORTED"
  */
@@ -1929,7 +1929,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ToolVersionSupportedConditio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ToolVersionSupportedCondition_ToolVersionSupportState_ToolVersionSupportStateUnspecified;
 /**
- *  This Tool version is no longer supported.
+ *  This tool version is no longer supported.
  *
  *  Value: "TOOL_VERSION_SUPPORT_STATE_UNSUPPORTED"
  */
@@ -5733,8 +5733,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 /**
  *  Optional. The tool versions to use for this release and all subsequent
- *  operations involving this release. If unset, then it will freeze the tool
- *  versions at the time of release creation.
+ *  operations involving this release. If unset, tool versions are frozen when
+ *  the release is created.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_ToolVersions *toolVersions;
 
@@ -5831,7 +5831,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_ToolVersionSupportedCondition *helmVersionSupportedCondition;
 
 /**
- *  Output only. Details around the support state of the release's Kpt version.
+ *  Output only. Details around the support state of the release's kpt version.
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_ToolVersionSupportedCondition *kptVersionSupportedCondition;
 
@@ -7846,22 +7846,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @interface GTLRCloudDeploy_ToolVersions : GTLRObject
 
-/** Optional. The docker version to use for Cloud Deploy operations. */
+/** Optional. The Docker version to use for Cloud Deploy operations. */
 @property(nonatomic, copy, nullable) NSString *docker;
 
-/** Optional. The helm version to use for Cloud Deploy operations. */
+/** Optional. The Helm version to use for Cloud Deploy operations. */
 @property(nonatomic, copy, nullable) NSString *helm;
 
 /** Optional. The kpt version to use for Cloud Deploy operations. */
 @property(nonatomic, copy, nullable) NSString *kpt;
 
-/** Optional. The kubectl version to use for Cloud Deploy operations. */
+/** Optional. The Kubectl version to use for Cloud Deploy operations. */
 @property(nonatomic, copy, nullable) NSString *kubectl;
 
-/** Optional. The kustomize version to use for Cloud Deploy operations. */
+/** Optional. The Kustomize version to use for Cloud Deploy operations. */
 @property(nonatomic, copy, nullable) NSString *kustomize;
 
-/** Optional. The skaffold version to use for Cloud Deploy operations. */
+/** Optional. The Skaffold version to use for Cloud Deploy operations. */
 @property(nonatomic, copy, nullable) NSString *skaffold;
 
 @end
@@ -7869,12 +7869,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 /**
  *  ToolVersionSupportedCondition contains information about when support for
- *  the release's version of a Tool ends.
+ *  the release's version of a tool ends.
  */
 @interface GTLRCloudDeploy_ToolVersionSupportedCondition : GTLRObject
 
 /**
- *  Output only. The time at which this release's version of the Tool will enter
+ *  Output only. The time at which this release's version of the tool will enter
  *  maintenance mode.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *maintenanceModeTime;
@@ -7887,26 +7887,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @property(nonatomic, strong, nullable) NSNumber *status;
 
 /**
- *  Output only. The time at which this release's version of the Tool will no
+ *  Output only. The time at which this release's version of the tool will no
  *  longer be supported.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *supportExpirationTime;
 
 /**
- *  Output only. The Tool support state for this release's version of the Tool.
+ *  Output only. The tool support state for this release's version of the tool.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDeploy_ToolVersionSupportedCondition_ToolVersionSupportState_ToolVersionSupportStateMaintenanceMode
- *        This Tool version is in maintenance mode. (Value:
+ *        This tool version is in maintenance mode. (Value:
  *        "TOOL_VERSION_SUPPORT_STATE_MAINTENANCE_MODE")
  *    @arg @c kGTLRCloudDeploy_ToolVersionSupportedCondition_ToolVersionSupportState_ToolVersionSupportStateSupported
- *        This Tool version is currently supported. (Value:
+ *        This tool version is currently supported. (Value:
  *        "TOOL_VERSION_SUPPORT_STATE_SUPPORTED")
  *    @arg @c kGTLRCloudDeploy_ToolVersionSupportedCondition_ToolVersionSupportState_ToolVersionSupportStateUnspecified
  *        Default value. This value is unused. (Value:
  *        "TOOL_VERSION_SUPPORT_STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudDeploy_ToolVersionSupportedCondition_ToolVersionSupportState_ToolVersionSupportStateUnsupported
- *        This Tool version is no longer supported. (Value:
+ *        This tool version is no longer supported. (Value:
  *        "TOOL_VERSION_SUPPORT_STATE_UNSUPPORTED")
  */
 @property(nonatomic, copy, nullable) NSString *toolVersionSupportState;

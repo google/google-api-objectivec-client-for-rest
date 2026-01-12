@@ -98,8 +98,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 
 /**
  *  Required. The backup plan association project and location in the format
- *  `projects/{project_id}/locations/{location}`. In Cloud BackupDR locations
- *  map to GCP regions, for example **us-central1**.
+ *  `projects/{project_id}/locations/{location}`. In Backup and DR locations map
+ *  to Google Cloud regions, for example **us-central1**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -126,8 +126,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  @param object The @c GTLRBackupdr_BackupPlanAssociation to include in the
  *    query.
  *  @param parent Required. The backup plan association project and location in
- *    the format `projects/{project_id}/locations/{location}`. In Cloud BackupDR
- *    locations map to GCP regions, for example **us-central1**.
+ *    the format `projects/{project_id}/locations/{location}`. In Backup and DR
+ *    locations map to Google Cloud regions, for example **us-central1**.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsCreate
  */
@@ -231,7 +231,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Required. The type of the GCP resource. Ex: sql.googleapis.com/Instance */
+/**
+ *  Required. The type of the Google Cloud resource. Ex:
+ *  sql.googleapis.com/Instance
+ */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
 /**
@@ -311,9 +314,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 /**
  *  Required. The project and location for which to retrieve backup Plan
  *  Associations information, in the format
- *  `projects/{project_id}/locations/{location}`. In Cloud BackupDR, locations
- *  map to GCP regions, for example **us-central1**. To retrieve backup plan
- *  associations for all locations, use "-" for the `{location}` value.
+ *  `projects/{project_id}/locations/{location}`. In Backup and DR, locations
+ *  map to Google Cloud regions, for example **us-central1**. To retrieve backup
+ *  plan associations for all locations, use "-" for the `{location}` value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -324,9 +327,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *
  *  @param parent Required. The project and location for which to retrieve
  *    backup Plan Associations information, in the format
- *    `projects/{project_id}/locations/{location}`. In Cloud BackupDR, locations
- *    map to GCP regions, for example **us-central1**. To retrieve backup plan
- *    associations for all locations, use "-" for the `{location}` value.
+ *    `projects/{project_id}/locations/{location}`. In Backup and DR, locations
+ *    map to Google Cloud regions, for example **us-central1**. To retrieve
+ *    backup plan associations for all locations, use "-" for the `{location}`
+ *    value.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsList
  *
@@ -454,8 +458,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 
 /**
  *  Required. The `BackupPlan` project and location in the format
- *  `projects/{project}/locations/{location}`. In Cloud BackupDR locations map
- *  to GCP regions, for example **us-central1**.
+ *  `projects/{project}/locations/{location}`. In Google Cloud Backup and DR
+ *  locations map to Google Cloud regions, for example **us-central1**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -481,8 +485,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *
  *  @param object The @c GTLRBackupdr_BackupPlan to include in the query.
  *  @param parent Required. The `BackupPlan` project and location in the format
- *    `projects/{project}/locations/{location}`. In Cloud BackupDR locations map
- *    to GCP regions, for example **us-central1**.
+ *    `projects/{project}/locations/{location}`. In Google Cloud Backup and DR
+ *    locations map to Google Cloud regions, for example **us-central1**.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansCreate
  */
@@ -603,9 +607,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 
 /**
  *  Required. The project and location for which to retrieve `BackupPlans`
- *  information. Format: `projects/{project}/locations/{location}`. In Cloud
- *  BackupDR, locations map to GCP regions, for e.g. **us-central1**. To
- *  retrieve backup plans for all locations, use "-" for the `{location}` value.
+ *  information. Format: `projects/{project}/locations/{location}`. In Google
+ *  Cloud Backup and DR, locations map to Google Cloud regions, for example
+ *  **us-central1**. To retrieve backup plans for all locations, use "-" for the
+ *  `{location}` value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -616,9 +621,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *
  *  @param parent Required. The project and location for which to retrieve
  *    `BackupPlans` information. Format:
- *    `projects/{project}/locations/{location}`. In Cloud BackupDR, locations
- *    map to GCP regions, for e.g. **us-central1**. To retrieve backup plans for
- *    all locations, use "-" for the `{location}` value.
+ *    `projects/{project}/locations/{location}`. In Google Cloud Backup and DR,
+ *    locations map to Google Cloud regions, for example **us-central1**. To
+ *    retrieve backup plans for all locations, use "-" for the `{location}`
+ *    value.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansList
  *
@@ -753,7 +759,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Required. The project and location for which to retrieve
  *  `BackupPlanRevisions` information. Format:
  *  `projects/{project}/locations/{location}/backupPlans/{backup_plan}`. In
- *  Cloud BackupDR, locations map to GCP regions, for e.g. **us-central1**.
+ *  Google Cloud Backup and DR, locations map to Google Cloud regions, for
+ *  example **us-central1**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -765,7 +772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  @param parent Required. The project and location for which to retrieve
  *    `BackupPlanRevisions` information. Format:
  *    `projects/{project}/locations/{location}/backupPlans/{backup_plan}`. In
- *    Cloud BackupDR, locations map to GCP regions, for e.g. **us-central1**.
+ *    Google Cloud Backup and DR, locations map to Google Cloud regions, for
+ *    example **us-central1**.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsBackupPlansRevisionsList
  *
@@ -958,7 +966,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. The type of the GCP resource. Ex: sqladmin.googleapis.com/Instance
+ *  Required. The type of the Google Cloud resource. Ex:
+ *  sqladmin.googleapis.com/Instance
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
@@ -1964,7 +1973,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** Required. The type of the GCP resource. Ex: sql.googleapis.com/Instance */
+/**
+ *  Required. The type of the Google Cloud resource. Ex:
+ *  sql.googleapis.com/Instance
+ */
 @property(nonatomic, copy, nullable) NSString *resourceType;
 
 /**
@@ -2402,9 +2414,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 /**
  *  Required. The project and location for which to retrieve management servers
  *  information, in the format 'projects/{project_id}/locations/{location}'. In
- *  Cloud BackupDR, locations map to Google Cloud regions, for example
- *  **us-central1**. To retrieve management servers for all locations, use "-"
- *  for the '{location}' value.
+ *  Google Cloud Backup and DR, locations map to Google Cloud regions, for
+ *  example **us-central1**. To retrieve management servers for all locations,
+ *  use "-" for the '{location}' value.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2415,9 +2427,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *
  *  @param parent Required. The project and location for which to retrieve
  *    management servers information, in the format
- *    'projects/{project_id}/locations/{location}'. In Cloud BackupDR, locations
- *    map to Google Cloud regions, for example **us-central1**. To retrieve
- *    management servers for all locations, use "-" for the '{location}' value.
+ *    'projects/{project_id}/locations/{location}'. In Google Cloud Backup and
+ *    DR, locations map to Google Cloud regions, for example **us-central1**. To
+ *    retrieve management servers for all locations, use "-" for the
+ *    '{location}' value.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsManagementServersList
  *
@@ -2442,8 +2455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 /**
  *  Required. The project and location to be used to check CSS metadata for
  *  target project information, in the format
- *  'projects/{project_id}/locations/{location}'. In Cloud BackupDR, locations
- *  map to Google Cloud regions, for example **us-central1**.
+ *  'projects/{project_id}/locations/{location}'. In Google Cloud Backup and DR,
+ *  locations map to Google Cloud regions, for example **us-central1**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -2456,8 +2469,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *    include in the query.
  *  @param parent Required. The project and location to be used to check CSS
  *    metadata for target project information, in the format
- *    'projects/{project_id}/locations/{location}'. In Cloud BackupDR, locations
- *    map to Google Cloud regions, for example **us-central1**.
+ *    'projects/{project_id}/locations/{location}'. In Google Cloud Backup and
+ *    DR, locations map to Google Cloud regions, for example **us-central1**.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsManagementServersMsComplianceMetadata
  */
@@ -2739,8 +2752,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 
 /**
  *  Required. The project and location for which to retrieve resource backup
- *  configs. Format: 'projects/{project_id}/locations/{location}'. In Cloud
- *  Backup and DR, locations map to Google Cloud regions, for example
+ *  configs. Format: 'projects/{project_id}/locations/{location}'. In Google
+ *  Cloud Backup and DR, locations map to Google Cloud regions, for example
  *  **us-central1**.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -2752,8 +2765,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *
  *  @param parent Required. The project and location for which to retrieve
  *    resource backup configs. Format:
- *    'projects/{project_id}/locations/{location}'. In Cloud Backup and DR,
- *    locations map to Google Cloud regions, for example **us-central1**.
+ *    'projects/{project_id}/locations/{location}'. In Google Cloud Backup and
+ *    DR, locations map to Google Cloud regions, for example **us-central1**.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsList
  *

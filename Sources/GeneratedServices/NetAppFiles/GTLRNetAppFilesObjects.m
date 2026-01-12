@@ -1115,7 +1115,8 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 //
 
 @implementation GTLRNetAppFiles_LocationMetadata
-@dynamic hasVcp, supportedFlexPerformance, supportedServiceLevels;
+@dynamic hasOntapProxy, hasVcp, supportedFlexPerformance,
+         supportedServiceLevels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

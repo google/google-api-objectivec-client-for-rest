@@ -3,6 +3,8 @@
 // ----------------------------------------------------------------------------
 // API:
 //   App Hub API (apphub/v1)
+// Description:
+//   App Hub lets you build, operate, and manage applications on Google Cloud.
 // Documentation:
 //   https://cloud.google.com/app-hub/docs/
 
@@ -36,6 +38,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAppHubCloudPlatform;
 
 /**
  *  Service for executing App Hub API queries.
+ *
+ *  App Hub lets you build, operate, and manage applications on Google Cloud.
  */
 @interface GTLRAppHubService : GTLRService
 

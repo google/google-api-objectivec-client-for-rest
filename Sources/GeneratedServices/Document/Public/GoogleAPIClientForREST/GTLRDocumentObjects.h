@@ -6394,6 +6394,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** The entity validation output for this revision. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentEntityValidationOutput *entityValidationOutput;
 
+/** Optional. The history of this revision. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance *provenance;
+
 /** The revision id. */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 

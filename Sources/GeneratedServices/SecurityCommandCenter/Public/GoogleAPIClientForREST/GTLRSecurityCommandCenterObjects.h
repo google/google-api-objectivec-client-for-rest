@@ -22,6 +22,8 @@
 @class GTLRSecurityCommandCenter_AiModel;
 @class GTLRSecurityCommandCenter_Allowed;
 @class GTLRSecurityCommandCenter_Application;
+@class GTLRSecurityCommandCenter_ArtifactGuardPolicies;
+@class GTLRSecurityCommandCenter_ArtifactGuardPolicy;
 @class GTLRSecurityCommandCenter_Asset;
 @class GTLRSecurityCommandCenter_Asset_ResourceProperties;
 @class GTLRSecurityCommandCenter_AssetDiscoveryConfig;
@@ -127,6 +129,8 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicies;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Attack;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AwsAccount;
@@ -238,6 +242,10 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourcePathNode;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceValueConfig_ResourceLabelsSelector;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Role;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Secret;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretEnvironmentVariable;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretFilePath;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityBulletin;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityMarks;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecurityMarks_Marks;
@@ -300,6 +308,10 @@
 @class GTLRSecurityCommandCenter_ResourcePathNode;
 @class GTLRSecurityCommandCenter_ResourceValueConfigMetadata;
 @class GTLRSecurityCommandCenter_Role;
+@class GTLRSecurityCommandCenter_Secret;
+@class GTLRSecurityCommandCenter_SecretEnvironmentVariable;
+@class GTLRSecurityCommandCenter_SecretFilePath;
+@class GTLRSecurityCommandCenter_SecretStatus;
 @class GTLRSecurityCommandCenter_SecurityBulletin;
 @class GTLRSecurityCommandCenter_SecurityCenterProperties;
 @class GTLRSecurityCommandCenter_SecurityMarks;
@@ -369,6 +381,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AiModel_Deployment
  *  Value: "VERTEX_AI"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AiModel_DeploymentPlatform_VertexAi;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_ArtifactGuardPolicy.type
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ARTIFACT_GUARD_POLICY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ArtifactGuardPolicy_Type_ArtifactGuardPolicyTypeUnspecified;
+/**
+ *  Vulnerability type.
+ *
+ *  Value: "VULNERABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_ArtifactGuardPolicy_Type_Vulnerability;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_AssetDiscoveryConfig.inclusionMode
@@ -1085,6 +1113,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetecti
  *  Value: "INHERITED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_EventThreatDetectionCustomModule_EnablementState_Inherited;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_File.fileLoadState
+
+/**
+ *  The file state is unspecified.
+ *
+ *  Value: "FILE_LOAD_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_File_FileLoadState_FileLoadStateUnspecified;
+/**
+ *  The file is being used by an active process at the time of scanning.
+ *
+ *  Value: "LOADED_BY_PROCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_File_FileLoadState_LoadedByProcess;
+/**
+ *  The file is not being used by any active process at the time of scanning.
+ *
+ *  Value: "NOT_LOADED_BY_PROCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_File_FileLoadState_NotLoadedByProcess;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_FileOperation.type
@@ -1949,6 +1999,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel_DeploymentPlatform_VertexAi;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy.type
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "ARTIFACT_GUARD_POLICY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy_Type_ArtifactGuardPolicyTypeUnspecified;
+/**
+ *  Vulnerability type.
+ *
+ *  Value: "VULNERABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy_Type_Vulnerability;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure.state
 
 /**
@@ -2448,6 +2514,28 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "EVENT_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File.fileLoadState
+
+/**
+ *  The file state is unspecified.
+ *
+ *  Value: "FILE_LOAD_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File_FileLoadState_FileLoadStateUnspecified;
+/**
+ *  The file is being used by an active process at the time of scanning.
+ *
+ *  Value: "LOADED_BY_PROCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File_FileLoadState_LoadedByProcess;
+/**
+ *  The file is not being used by any active process at the time of scanning.
+ *
+ *  Value: "NOT_LOADED_BY_PROCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File_FileLoadState_NotLoadedByProcess;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation.type
@@ -5249,6 +5337,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Role_Kind_Role;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus.validity
+
+/**
+ *  Validation is supported but the validation failed.
+ *
+ *  Value: "SECRET_VALIDITY_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityFailed;
+/**
+ *  The secret is confirmed to be invalid.
+ *
+ *  Value: "SECRET_VALIDITY_INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityInvalid;
+/**
+ *  Default value; no validation was attempted.
+ *
+ *  Value: "SECRET_VALIDITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityUnspecified;
+/**
+ *  There is no mechanism to validate the secret.
+ *
+ *  Value: "SECRET_VALIDITY_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityUnsupported;
+/**
+ *  The secret is confirmed to be valid.
+ *
+ *  Value: "SECRET_VALIDITY_VALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityValid;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SensitiveDataProtectionMapping.highSensitivityMapping
 
 /**
@@ -7576,6 +7698,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Role_Kind_KindUnsp
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Role_Kind_Role;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_SecretStatus.validity
+
+/**
+ *  Validation is supported but the validation failed.
+ *
+ *  Value: "SECRET_VALIDITY_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityFailed;
+/**
+ *  The secret is confirmed to be invalid.
+ *
+ *  Value: "SECRET_VALIDITY_INVALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityInvalid;
+/**
+ *  Default value; no validation was attempted.
+ *
+ *  Value: "SECRET_VALIDITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityUnspecified;
+/**
+ *  There is no mechanism to validate the secret.
+ *
+ *  Value: "SECRET_VALIDITY_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityUnsupported;
+/**
+ *  The secret is confirmed to be valid.
+ *
+ *  Value: "SECRET_VALIDITY_VALID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityValid;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_SensitivityScore.score
 
 /**
@@ -8033,6 +8189,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  For example, `http://example.com?p=aMmYgI6H`.
  */
 @property(nonatomic, copy, nullable) NSString *fullUri;
+
+@end
+
+
+/**
+ *  Represents the result of evaluating artifact guard policies.
+ */
+@interface GTLRSecurityCommandCenter_ArtifactGuardPolicies : GTLRObject
+
+/** A list of failing policies. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_ArtifactGuardPolicy *> *failingPolicies;
+
+/** The ID of the resource that has policies configured for it. */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+@end
+
+
+/**
+ *  Represents an artifact guard policy.
+ */
+@interface GTLRSecurityCommandCenter_ArtifactGuardPolicy : GTLRObject
+
+/**
+ *  The reason for the policy failure, for example, "severity=HIGH AND
+ *  max_vuln_count=2".
+ */
+@property(nonatomic, copy, nullable) NSString *failureReason;
+
+/**
+ *  The ID of the failing policy, for example,
+ *  "organizations/3392779/locations/global/policies/prod-policy".
+ */
+@property(nonatomic, copy, nullable) NSString *policyId;
+
+/**
+ *  The type of the policy evaluation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_ArtifactGuardPolicy_Type_ArtifactGuardPolicyTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "ARTIFACT_GUARD_POLICY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_ArtifactGuardPolicy_Type_Vulnerability
+ *        Vulnerability type. (Value: "VULNERABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -10214,6 +10416,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_DiskPath *diskPath;
 
 /**
+ *  The load state of the file.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_File_FileLoadState_FileLoadStateUnspecified
+ *        The file state is unspecified. (Value: "FILE_LOAD_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_File_FileLoadState_LoadedByProcess The
+ *        file is being used by an active process at the time of scanning.
+ *        (Value: "LOADED_BY_PROCESS")
+ *    @arg @c kGTLRSecurityCommandCenter_File_FileLoadState_NotLoadedByProcess
+ *        The file is not being used by any active process at the time of
+ *        scanning. (Value: "NOT_LOADED_BY_PROCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *fileLoadState;
+
+/**
  *  The length in bytes of the file prefix that was hashed. If hashed_size ==
  *  size, any hashes reported represent the entire file.
  *
@@ -10301,6 +10518,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** Represents an application associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Application *application;
+
+/** ArtifactGuardPolicies associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_ArtifactGuardPolicies *artifactGuardPolicies;
 
 /** The results of an attack path simulation relevant to this finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AttackExposure *attackExposure;
@@ -10595,6 +10815,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  time.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Secret associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Secret *secret;
 
 /**
  *  Output only. User specified security marks. These marks are entirely managed
@@ -12360,6 +12583,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Represents the result of evaluating artifact guard policies.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicies : GTLRObject
+
+/** A list of failing policies. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy *> *failingPolicies;
+
+/** The ID of the resource that has policies configured for it. */
+@property(nonatomic, copy, nullable) NSString *resourceId;
+
+@end
+
+
+/**
+ *  Represents an artifact guard policy.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy : GTLRObject
+
+/**
+ *  The reason for the policy failure, for example, "severity=HIGH AND
+ *  max_vuln_count=2".
+ */
+@property(nonatomic, copy, nullable) NSString *failureReason;
+
+/**
+ *  The ID of the failing policy, for example,
+ *  "organizations/3392779/locations/global/policies/prod-policy".
+ */
+@property(nonatomic, copy, nullable) NSString *policyId;
+
+/**
+ *  The type of the policy evaluation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy_Type_ArtifactGuardPolicyTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "ARTIFACT_GUARD_POLICY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicy_Type_Vulnerability
+ *        Vulnerability type. (Value: "VULNERABILITY")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Information about DDoS attack volume and classification.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Attack : GTLRObject
@@ -13927,6 +14196,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiskPath *diskPath;
 
 /**
+ *  The load state of the file.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File_FileLoadState_FileLoadStateUnspecified
+ *        The file state is unspecified. (Value: "FILE_LOAD_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File_FileLoadState_LoadedByProcess
+ *        The file is being used by an active process at the time of scanning.
+ *        (Value: "LOADED_BY_PROCESS")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File_FileLoadState_NotLoadedByProcess
+ *        The file is not being used by any active process at the time of
+ *        scanning. (Value: "NOT_LOADED_BY_PROCESS")
+ */
+@property(nonatomic, copy, nullable) NSString *fileLoadState;
+
+/**
  *  The length in bytes of the file prefix that was hashed. If hashed_size ==
  *  size, any hashes reported represent the entire file.
  *
@@ -14014,6 +14298,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** Represents an application associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application *application;
+
+/** ArtifactGuardPolicies associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ArtifactGuardPolicies *artifactGuardPolicies;
 
 /** The results of an attack path simulation relevant to this finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AttackExposure *attackExposure;
@@ -14330,6 +14617,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  customer or partner defined string.
  */
 @property(nonatomic, copy, nullable) NSString *resourceName;
+
+/** Secret associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Secret *secret;
 
 /**
  *  Output only. User specified security marks. These marks are entirely managed
@@ -16410,6 +16700,84 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** Role namespace. */
 @property(nonatomic, copy, nullable) NSString *ns;
+
+@end
+
+
+/**
+ *  Details about a secret or credential associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Secret : GTLRObject
+
+/** The environment variable containing the secret. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretEnvironmentVariable *environmentVariable;
+
+/** The file containing the secret. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretFilePath *filePath;
+
+/** The status of the secret. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus *status;
+
+/** The type of secret, for example, GCP_API_KEY. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Environment variable containing the secret.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretEnvironmentVariable : GTLRObject
+
+/**
+ *  Environment variable name as a JSON encoded string. Note that value is not
+ *  included since the value contains the secret data, which is sensitive core
+ *  content.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+@end
+
+
+/**
+ *  File path containing the secret.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretFilePath : GTLRObject
+
+/** Path to the file. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  The status of the secret.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus : GTLRObject
+
+/** Time that the secret was found. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdatedTime;
+
+/**
+ *  The validity of the secret.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityFailed
+ *        Validation is supported but the validation failed. (Value:
+ *        "SECRET_VALIDITY_FAILED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityInvalid
+ *        The secret is confirmed to be invalid. (Value:
+ *        "SECRET_VALIDITY_INVALID")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityUnspecified
+ *        Default value; no validation was attempted. (Value:
+ *        "SECRET_VALIDITY_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityUnsupported
+ *        There is no mechanism to validate the secret. (Value:
+ *        "SECRET_VALIDITY_UNSUPPORTED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2SecretStatus_Validity_SecretValidityValid
+ *        The secret is confirmed to be valid. (Value: "SECRET_VALIDITY_VALID")
+ */
+@property(nonatomic, copy, nullable) NSString *validity;
 
 @end
 
@@ -19077,6 +19445,84 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Request message for running asset discovery for an organization.
  */
 @interface GTLRSecurityCommandCenter_RunAssetDiscoveryRequest : GTLRObject
+@end
+
+
+/**
+ *  Details about a secret or credential associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_Secret : GTLRObject
+
+/** The environment variable containing the secret. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecretEnvironmentVariable *environmentVariable;
+
+/** The file containing the secret. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecretFilePath *filePath;
+
+/** The status of the secret. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_SecretStatus *status;
+
+/** The type of secret, for example, GCP_API_KEY. */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Environment variable containing the secret.
+ */
+@interface GTLRSecurityCommandCenter_SecretEnvironmentVariable : GTLRObject
+
+/**
+ *  Environment variable name as a JSON encoded string. Note that value is not
+ *  included since the value contains the secret data, which is sensitive core
+ *  content.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+@end
+
+
+/**
+ *  File path containing the secret.
+ */
+@interface GTLRSecurityCommandCenter_SecretFilePath : GTLRObject
+
+/** Path to the file. */
+@property(nonatomic, copy, nullable) NSString *path;
+
+@end
+
+
+/**
+ *  The status of the secret.
+ */
+@interface GTLRSecurityCommandCenter_SecretStatus : GTLRObject
+
+/** Time that the secret was found. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastUpdatedTime;
+
+/**
+ *  The validity of the secret.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityFailed
+ *        Validation is supported but the validation failed. (Value:
+ *        "SECRET_VALIDITY_FAILED")
+ *    @arg @c kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityInvalid
+ *        The secret is confirmed to be invalid. (Value:
+ *        "SECRET_VALIDITY_INVALID")
+ *    @arg @c kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityUnspecified
+ *        Default value; no validation was attempted. (Value:
+ *        "SECRET_VALIDITY_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityUnsupported
+ *        There is no mechanism to validate the secret. (Value:
+ *        "SECRET_VALIDITY_UNSUPPORTED")
+ *    @arg @c kGTLRSecurityCommandCenter_SecretStatus_Validity_SecretValidityValid
+ *        The secret is confirmed to be valid. (Value: "SECRET_VALIDITY_VALID")
+ */
+@property(nonatomic, copy, nullable) NSString *validity;
+
 @end
 
 

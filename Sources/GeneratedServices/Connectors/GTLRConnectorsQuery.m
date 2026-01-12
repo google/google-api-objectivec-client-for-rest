@@ -67,7 +67,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsGet
 
-@dynamic name, view;
+@dynamic executionConfigHeaders, name, view;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -86,7 +90,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsActionsList
 
-@dynamic pageSize, pageToken, parent, view;
+@dynamic executionConfigHeaders, pageSize, pageToken, parent, view;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -124,7 +132,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsCheckStatus
 
-@dynamic name;
+@dynamic executionConfigHeaders, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -143,7 +155,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesCreate
 
-@dynamic parent;
+@dynamic executionConfigHeaders, parent;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithObject:(GTLRConnectors_Entity *)object
                          parent:(NSString *)parent {
@@ -170,7 +186,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesDelete
 
-@dynamic name;
+@dynamic executionConfigHeaders, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -189,7 +209,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesDeleteEntitiesWithConditions
 
-@dynamic conditions, entityType;
+@dynamic conditions, entityType, executionConfigHeaders;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithEntityType:(NSString *)entityType {
   NSArray *pathParams = @[ @"entityType" ];
@@ -208,7 +232,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesGet
 
-@dynamic name;
+@dynamic executionConfigHeaders, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -227,7 +255,12 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesList
 
-@dynamic conditions, pageSize, pageToken, parent, sortBy, sortOrder;
+@dynamic conditions, executionConfigHeaders, pageSize, pageToken, parent,
+         sortBy, sortOrder;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -254,7 +287,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesPatch
 
-@dynamic name;
+@dynamic executionConfigHeaders, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithObject:(GTLRConnectors_Entity *)object
                            name:(NSString *)name {
@@ -281,7 +318,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesEntitiesUpdateEntitiesWithConditions
 
-@dynamic conditions, entityType;
+@dynamic conditions, entityType, executionConfigHeaders;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithObject:(GTLRConnectors_Entity *)object
                      entityType:(NSString *)entityType {
@@ -308,7 +349,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesGet
 
-@dynamic contextMetadata, name, view;
+@dynamic contextMetadata, executionConfigHeaders, name, view;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -327,7 +372,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsEntityTypesList
 
-@dynamic pageSize, pageToken, parent, view;
+@dynamic executionConfigHeaders, pageSize, pageToken, parent, view;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -427,7 +476,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesGet
 
-@dynamic name;
+@dynamic executionConfigHeaders, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -444,9 +497,40 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @end
 
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesGetResourcePost
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRConnectors_GetResourcePostRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesGetResourcePost *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_GetResourceResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.resources.getResourcePost";
+  return query;
+}
+
+@end
+
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsResourcesList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic executionConfigHeaders, pageSize, pageToken, parent;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];
@@ -458,6 +542,33 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
   query.parent = parent;
   query.expectedObjectClass = [GTLRConnectors_ListResourcesResponse class];
   query.loggingName = @"connectors.projects.locations.connections.resources.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsTools
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRConnectors_ListToolsPostRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/tools";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsTools *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRConnectors_ListToolsResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.tools";
   return query;
 }
 
@@ -492,7 +603,11 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsToolsList
 
-@dynamic pageSize, pageToken, parent;
+@dynamic executionConfigHeaders, pageSize, pageToken, parent;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"executionConfigHeaders" : @"executionConfig.headers" };
+}
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

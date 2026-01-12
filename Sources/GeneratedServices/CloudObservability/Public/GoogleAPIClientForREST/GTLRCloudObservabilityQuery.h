@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Observability API (observability/v1)
+// Description:
+//   Provides functionality for configuring the observability scope, which
+//   controls the log, metric, and trace data that you can view.
 // Documentation:
 //   https://cloud.google.com/stackdriver/docs/
 
@@ -32,148 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get Settings
- *
- *  Method: observability.folders.locations.getSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
- */
-@interface GTLRCloudObservabilityQuery_FoldersLocationsGetSettings : GTLRCloudObservabilityQuery
-
-/**
- *  Required. Name of the settings to retrieve. Name format:
- *  "projects/[PROJECT_ID]/locations/[LOCATION]/settings"
- *  "folders/[FOLDER_ID]/locations/[LOCATION]/settings"
- *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION]/settings"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudObservability_Settings.
- *
- *  Get Settings
- *
- *  @param name Required. Name of the settings to retrieve. Name format:
- *    "projects/[PROJECT_ID]/locations/[LOCATION]/settings"
- *    "folders/[FOLDER_ID]/locations/[LOCATION]/settings"
- *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION]/settings"
- *
- *  @return GTLRCloudObservabilityQuery_FoldersLocationsGetSettings
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Update Settings
- *
- *  Method: observability.folders.locations.updateSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
- */
-@interface GTLRCloudObservabilityQuery_FoldersLocationsUpdateSettings : GTLRCloudObservabilityQuery
-
-/** Identifier. The resource name of the settings. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. The field mask specifying which fields of the settings are to be
- *  updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRCloudObservability_Operation.
- *
- *  Update Settings
- *
- *  @param object The @c GTLRCloudObservability_Settings to include in the
- *    query.
- *  @param name Identifier. The resource name of the settings.
- *
- *  @return GTLRCloudObservabilityQuery_FoldersLocationsUpdateSettings
- */
-+ (instancetype)queryWithObject:(GTLRCloudObservability_Settings *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Get Settings
- *
- *  Method: observability.organizations.locations.getSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
- */
-@interface GTLRCloudObservabilityQuery_OrganizationsLocationsGetSettings : GTLRCloudObservabilityQuery
-
-/**
- *  Required. Name of the settings to retrieve. Name format:
- *  "projects/[PROJECT_ID]/locations/[LOCATION]/settings"
- *  "folders/[FOLDER_ID]/locations/[LOCATION]/settings"
- *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION]/settings"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudObservability_Settings.
- *
- *  Get Settings
- *
- *  @param name Required. Name of the settings to retrieve. Name format:
- *    "projects/[PROJECT_ID]/locations/[LOCATION]/settings"
- *    "folders/[FOLDER_ID]/locations/[LOCATION]/settings"
- *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION]/settings"
- *
- *  @return GTLRCloudObservabilityQuery_OrganizationsLocationsGetSettings
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Update Settings
- *
- *  Method: observability.organizations.locations.updateSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
- */
-@interface GTLRCloudObservabilityQuery_OrganizationsLocationsUpdateSettings : GTLRCloudObservabilityQuery
-
-/** Identifier. The resource name of the settings. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. The field mask specifying which fields of the settings are to be
- *  updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRCloudObservability_Operation.
- *
- *  Update Settings
- *
- *  @param object The @c GTLRCloudObservability_Settings to include in the
- *    query.
- *  @param name Identifier. The resource name of the settings.
- *
- *  @return GTLRCloudObservabilityQuery_OrganizationsLocationsUpdateSettings
- */
-+ (instancetype)queryWithObject:(GTLRCloudObservability_Settings *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Gets information about a location.
  *
  *  Method: observability.projects.locations.get
@@ -194,40 +55,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Resource name for the location.
  *
  *  @return GTLRCloudObservabilityQuery_ProjectsLocationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Get Settings
- *
- *  Method: observability.projects.locations.getSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
- */
-@interface GTLRCloudObservabilityQuery_ProjectsLocationsGetSettings : GTLRCloudObservabilityQuery
-
-/**
- *  Required. Name of the settings to retrieve. Name format:
- *  "projects/[PROJECT_ID]/locations/[LOCATION]/settings"
- *  "folders/[FOLDER_ID]/locations/[LOCATION]/settings"
- *  "organizations/[ORGANIZATION_ID]/locations/[LOCATION]/settings"
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRCloudObservability_Settings.
- *
- *  Get Settings
- *
- *  @param name Required. Name of the settings to retrieve. Name format:
- *    "projects/[PROJECT_ID]/locations/[LOCATION]/settings"
- *    "folders/[FOLDER_ID]/locations/[LOCATION]/settings"
- *    "organizations/[ORGANIZATION_ID]/locations/[LOCATION]/settings"
- *
- *  @return GTLRCloudObservabilityQuery_ProjectsLocationsGetSettings
  */
 + (instancetype)queryWithName:(NSString *)name;
 
@@ -720,43 +547,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRCloudObservabilityQuery_ProjectsLocationsTraceScopesPatch
  */
 + (instancetype)queryWithObject:(GTLRCloudObservability_TraceScope *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Update Settings
- *
- *  Method: observability.projects.locations.updateSettings
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
- */
-@interface GTLRCloudObservabilityQuery_ProjectsLocationsUpdateSettings : GTLRCloudObservabilityQuery
-
-/** Identifier. The resource name of the settings. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. The field mask specifying which fields of the settings are to be
- *  updated.
- *
- *  String format is a comma-separated list of fields.
- */
-@property(nonatomic, copy, nullable) NSString *updateMask;
-
-/**
- *  Fetches a @c GTLRCloudObservability_Operation.
- *
- *  Update Settings
- *
- *  @param object The @c GTLRCloudObservability_Settings to include in the
- *    query.
- *  @param name Identifier. The resource name of the settings.
- *
- *  @return GTLRCloudObservabilityQuery_ProjectsLocationsUpdateSettings
- */
-+ (instancetype)queryWithObject:(GTLRCloudObservability_Settings *)object
                            name:(NSString *)name;
 
 @end

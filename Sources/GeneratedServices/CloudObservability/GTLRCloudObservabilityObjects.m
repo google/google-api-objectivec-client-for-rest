@@ -3,6 +3,9 @@
 // ----------------------------------------------------------------------------
 // API:
 //   Observability API (observability/v1)
+// Description:
+//   Provides functionality for configuring the observability scope, which
+//   controls the log, metric, and trace data that you can view.
 // Documentation:
 //   https://cloud.google.com/stackdriver/docs/
 
@@ -187,16 +190,6 @@
 
 @implementation GTLRCloudObservability_Scope
 @dynamic logScope, name, traceScope, updateTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudObservability_Settings
-//
-
-@implementation GTLRCloudObservability_Settings
-@dynamic defaultStorageLocation, kmsKeyName, name, serviceAccountId;
 @end
 
 
