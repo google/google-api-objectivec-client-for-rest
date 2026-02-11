@@ -1,17 +1,17 @@
 /* Copyright (c) 2011 Google Inc.
-*
-* Licensed under the Apache License, Version 2.0 (the "License");
-* you may not use this file except in compliance with the License.
-* You may obtain a copy of the License at
-*
-*     http://www.apache.org/licenses/LICENSE-2.0
-*
-* Unless required by applicable law or agreed to in writing, software
-* distributed under the License is distributed on an "AS IS" BASIS,
-* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-* See the License for the specific language governing permissions and
-* limitations under the License.
-*/
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 
 #import <GoogleAPIClientForREST/GTLRBatchResult.h>
 
@@ -95,9 +95,11 @@ static NSString *const kGTLRBatchResultResponseHeaders = @"responseHeaders";
 - (instancetype)initWithCoder:(NSCoder *)decoder {
   self = [super initWithCoder:decoder];
   if (self) {
+    NSSet *expectedClasses =
+        [NSSet setWithObjects:[NSArray class], [NSString class], nil];
     NSArray<NSString *> *keys =
-        [decoder decodeObjectOfClass:[NSArray class]
-                              forKey:kGTLRBatchResultSuccessesKeys];
+        [decoder decodeObjectOfClasses:expectedClasses
+                                forKey:kGTLRBatchResultSuccessesKeys];
     if (keys.count) {
       NSMutableDictionary *dict =
           [NSMutableDictionary dictionaryWithCapacity:keys.count];
@@ -113,8 +115,8 @@ static NSString *const kGTLRBatchResultResponseHeaders = @"responseHeaders";
       self.successes = dict;
     }
 
-    keys = [decoder decodeObjectOfClass:[NSArray class]
-                                 forKey:kGTLRBatchResultFailuresKeys];
+    keys = [decoder decodeObjectOfClasses:expectedClasses
+                                   forKey:kGTLRBatchResultFailuresKeys];
     if (keys.count) {
       NSMutableDictionary *dict =
           [NSMutableDictionary dictionaryWithCapacity:keys.count];
@@ -130,9 +132,11 @@ static NSString *const kGTLRBatchResultResponseHeaders = @"responseHeaders";
       self.failures = dict;
     }
 
+    expectedClasses =
+        [NSSet setWithObjects:[NSDictionary class], [NSString class], nil];
     self.responseHeaders =
-        [decoder decodeObjectOfClass:[NSDictionary class]
-                              forKey:kGTLRBatchResultResponseHeaders];
+        [decoder decodeObjectOfClasses:expectedClasses
+                                forKey:kGTLRBatchResultResponseHeaders];
   }
   return self;
 }
