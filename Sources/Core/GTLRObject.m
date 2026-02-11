@@ -121,12 +121,10 @@ static NSMutableDictionary *DeepMutableCopyOfJSONDictionary(NSDictionary *initia
 - (instancetype)initWithCoder:(NSCoder *)decoder {
   self = [super init];
   if (self) {
-    // NSDictionary/NSArray seem to allow strings and numbers with secure coding
-    // just fine, but to allow sub arrays or dictionaries (or an null) the
-    // classes have to be explicitly listed to decode correctly.
     NSSet *expectedClasses =
         [NSSet setWithObjects:
-           [NSMutableDictionary class], [NSMutableArray class], [NSNull class], nil];
+           [NSMutableDictionary class], [NSMutableArray class], [NSNull class], [NSString class],
+           [NSNumber class], nil];
     _json = [decoder decodeObjectOfClasses:expectedClasses
                                     forKey:kGTLRObjectJSONCoderKey];
   }
