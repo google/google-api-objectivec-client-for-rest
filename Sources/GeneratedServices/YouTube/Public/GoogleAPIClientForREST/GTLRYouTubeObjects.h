@@ -87,6 +87,7 @@
 @class GTLRYouTube_LiveBroadcastStatus;
 @class GTLRYouTube_LiveChatBanSnippet;
 @class GTLRYouTube_LiveChatFanFundingEventDetails;
+@class GTLRYouTube_LiveChatGiftDetails;
 @class GTLRYouTube_LiveChatGiftMembershipReceivedDetails;
 @class GTLRYouTube_LiveChatMemberMilestoneChatDetails;
 @class GTLRYouTube_LiveChatMembershipGiftingDetails;
@@ -178,11 +179,7 @@
 @class GTLRYouTube_VideoRating;
 @class GTLRYouTube_VideoRecordingDetails;
 @class GTLRYouTube_VideoSnippet;
-@class GTLRYouTube_VideoStat;
 @class GTLRYouTube_VideoStatistics;
-@class GTLRYouTube_VideoStatsContentDetails;
-@class GTLRYouTube_VideoStatsSnippet;
-@class GTLRYouTube_VideoStatsStatistics;
 @class GTLRYouTube_VideoStatus;
 @class GTLRYouTube_VideoSuggestions;
 @class GTLRYouTube_VideoSuggestionsTagSuggestion;
@@ -3846,6 +3843,12 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatBanSnippet_Type_Temporar
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_ChatEndedEvent;
 /** Value: "fanFundingEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent;
+/**
+ *  A virtual gift sent by a viewer to support a creator.
+ *
+ *  Value: "giftEvent"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_GiftEvent;
 /** Value: "giftMembershipReceivedEvent" */
 FOUNDATION_EXTERN NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_GiftMembershipReceivedEvent;
 /** Value: "invalidType" */
@@ -5177,36 +5180,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarni
  *    @arg @c kGTLRYouTube_ActivitySnippet_Type_Upload Value "upload"
  */
 @property(nonatomic, copy, nullable) NSString *type;
-
-@end
-
-
-/**
- *  Response for the Videos.stats API. Returns VideoStat information about a
- *  batch of videos. VideoStat contains a subset of the information in Video
- *  that is relevant to statistics and content details.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "items" property.
- */
-@interface GTLRYouTube_BatchGetStatsResponse : GTLRCollectionObject
-
-/** Output only. Etag of this resource. */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  Output only. The videos' stats information.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRYouTube_VideoStat *> *items;
-
-/**
- *  Output only. Identifies what kind of resource this is. Value: the fixed
- *  string "youtube#batchGetStatsResponse".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -9284,6 +9257,50 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details about the gift event, this is only set if the type is 'giftEvent'.
+ */
+@interface GTLRYouTube_LiveChatGiftDetails : GTLRObject
+
+/** The alternative text to be used for accessibility. */
+@property(nonatomic, copy, nullable) NSString *altText;
+
+/**
+ *  The number of times the gift has been sent in a row.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *comboCount;
+
+/** The duration of the gift. */
+@property(nonatomic, strong, nullable) GTLRDuration *giftDuration;
+
+/** The name of the gift. */
+@property(nonatomic, copy, nullable) NSString *giftName;
+
+/** The URL of the gift image. */
+@property(nonatomic, copy, nullable) NSString *giftUrl;
+
+/**
+ *  Whether the gift involves a visual effect.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hasVisualEffect;
+
+/**
+ *  The cost of the gift in jewels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *jewelsCount;
+
+/** The BCP-47 language code of the gift. */
+@property(nonatomic, copy, nullable) NSString *language;
+
+@end
+
+
+/**
  *  GTLRYouTube_LiveChatGiftMembershipReceivedDetails
  */
 @interface GTLRYouTube_LiveChatGiftMembershipReceivedDetails : GTLRObject
@@ -9524,7 +9541,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  Next ID: 34
+ *  Next ID: 35
  */
 @interface GTLRYouTube_LiveChatMessageSnippet : GTLRObject
 
@@ -9555,6 +9572,11 @@ GTLR_DEPRECATED
  *  'fanFundingEvent'.
  */
 @property(nonatomic, strong, nullable) GTLRYouTube_LiveChatFanFundingEventDetails *fanFundingEventDetails GTLR_DEPRECATED;
+
+/**
+ *  Details about the gift event, this is only set if the type is 'giftEvent'.
+ */
+@property(nonatomic, strong, nullable) GTLRYouTube_LiveChatGiftDetails *giftDetails;
 
 /**
  *  Details about the Gift Membership Received event, this is only set if the
@@ -9628,6 +9650,8 @@ GTLR_DEPRECATED
  *        "chatEndedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent Value
  *        "fanFundingEvent"
+ *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_GiftEvent A virtual gift
+ *        sent by a viewer to support a creator. (Value: "giftEvent")
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_GiftMembershipReceivedEvent
  *        Value "giftMembershipReceivedEvent"
  *    @arg @c kGTLRYouTube_LiveChatMessageSnippet_Type_InvalidType Value
@@ -13187,48 +13211,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  A *VideoStat* resource represents a YouTube video's stats.
- */
-@interface GTLRYouTube_VideoStat : GTLRObject
-
-/**
- *  Output only. The VideoStatsContentDetails object contains information about
- *  the video content, including the length of the video.
- */
-@property(nonatomic, strong, nullable) GTLRYouTube_VideoStatsContentDetails *contentDetails;
-
-/** Output only. Etag of this resource. */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  Output only. The ID that YouTube uses to uniquely identify the video.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, copy, nullable) NSString *identifier;
-
-/**
- *  Output only. Identifies what kind of resource this is. Value: the fixed
- *  string "youtube#videoStats".
- */
-@property(nonatomic, copy, nullable) NSString *kind;
-
-/**
- *  Output only. The VideoStatsSnippet object contains basic details about the
- *  video, such publish time.
- */
-@property(nonatomic, strong, nullable) GTLRYouTube_VideoStatsSnippet *snippet;
-
-/**
- *  Output only. The VideoStatsStatistics object contains statistics about the
- *  video.
- */
-@property(nonatomic, strong, nullable) GTLRYouTube_VideoStatsStatistics *statistics;
-
-@end
-
-
-/**
  *  Statistics about the video, such as the number of times the video was viewed
  *  or liked.
  */
@@ -13268,70 +13250,6 @@ GTLR_DEPRECATED
  *  The number of times the video has been viewed.
  *
  *  Uses NSNumber of unsignedLongLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *viewCount;
-
-@end
-
-
-/**
- *  Details about the content of a YouTube Video. This is a subset of the
- *  information in VideoContentDetails specifically for the Videos.stats API.
- */
-@interface GTLRYouTube_VideoStatsContentDetails : GTLRObject
-
-/**
- *  Output only. The length of the video. The property value is a
- *  [`google.protobuf.Duration`](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#duration)
- *  object.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *duration;
-
-@end
-
-
-/**
- *  Basic details about a video. This is a subset of the information in
- *  VideoSnippet specifically for the Videos.stats API.
- */
-@interface GTLRYouTube_VideoStatsSnippet : GTLRObject
-
-/**
- *  Output only. The date and time that the video was uploaded. The property
- *  value is a
- *  [`google.protobuf.Timestamp`](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)
- *  object.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *publishTime;
-
-@end
-
-
-/**
- *  Statistics about the video, such as the number of times the video was viewed
- *  or liked.
- */
-@interface GTLRYouTube_VideoStatsStatistics : GTLRObject
-
-/**
- *  Output only. The number of comments for the video.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *commentCount;
-
-/**
- *  Output only. The number of users who have indicated that they liked the
- *  video by giving it a positive rating.
- *
- *  Uses NSNumber of longLongValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *likeCount;
-
-/**
- *  Output only. The number of times the video has been viewed.
- *
- *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *viewCount;
 

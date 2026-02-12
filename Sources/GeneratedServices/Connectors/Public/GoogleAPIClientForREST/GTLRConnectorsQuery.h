@@ -866,6 +866,69 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified;
 @end
 
 /**
+ *  Generate toolspec override for the given list of toolNames.
+ *
+ *  Method: connectors.projects.locations.connections.generateConnectionToolspecOverride
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsGenerateConnectionToolspecOverride : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Connection. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_GenerateCustomToolspecResponse.
+ *
+ *  Generate toolspec override for the given list of toolNames.
+ *
+ *  @param object The @c GTLRConnectors_GenerateCustomToolspecRequest to include
+ *    in the query.
+ *  @param name Required. Resource name of the Connection. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsGenerateConnectionToolspecOverride
+ */
++ (instancetype)queryWithObject:(GTLRConnectors_GenerateCustomToolspecRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists custom tool names.
+ *
+ *  Method: connectors.projects.locations.connections.listCustomToolNames
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConnectorsCloudPlatform
+ */
+@interface GTLRConnectorsQuery_ProjectsLocationsConnectionsListCustomToolNames : GTLRConnectorsQuery
+
+/**
+ *  Required. Resource name of the Connection. Format:
+ *  projects/{project}/locations/{location}/connections/{connection}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConnectors_ListCustomToolNamesResponse.
+ *
+ *  Lists custom tool names.
+ *
+ *  @param name Required. Resource name of the Connection. Format:
+ *    projects/{project}/locations/{location}/connections/{connection}
+ *
+ *  @return GTLRConnectorsQuery_ProjectsLocationsConnectionsListCustomToolNames
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  RefreshAccessToken exchanges the OAuth refresh token (and other necessary
  *  data) for a new access token (and new associated credentials).
  *

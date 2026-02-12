@@ -39,6 +39,7 @@
 @class GTLRAndroidPublisher_AutoRenewingPlan;
 @class GTLRAndroidPublisher_BaseDetails;
 @class GTLRAndroidPublisher_BasePlan;
+@class GTLRAndroidPublisher_BasePriceOfferPhase;
 @class GTLRAndroidPublisher_Bundle;
 @class GTLRAndroidPublisher_BuyerAddress;
 @class GTLRAndroidPublisher_CanceledStateContext;
@@ -55,6 +56,7 @@
 @class GTLRAndroidPublisher_DeactivateOneTimeProductOfferRequest;
 @class GTLRAndroidPublisher_DeactivatePurchaseOptionRequest;
 @class GTLRAndroidPublisher_DeactivateSubscriptionOfferRequest;
+@class GTLRAndroidPublisher_DeferralContext;
 @class GTLRAndroidPublisher_DeferredItemRemoval;
 @class GTLRAndroidPublisher_DeferredItemReplacement;
 @class GTLRAndroidPublisher_DeleteOneTimeProductOfferRequest;
@@ -83,6 +85,7 @@
 @class GTLRAndroidPublisher_ExternalTransactionAddress;
 @class GTLRAndroidPublisher_ExternalTransactionTestPurchase;
 @class GTLRAndroidPublisher_FreeTrialDetails;
+@class GTLRAndroidPublisher_FreeTrialOfferPhase;
 @class GTLRAndroidPublisher_FullRefund;
 @class GTLRAndroidPublisher_GeneratedApksPerSigningKey;
 @class GTLRAndroidPublisher_GeneratedAssetPackSlice;
@@ -104,6 +107,8 @@
 @class GTLRAndroidPublisher_InstallmentsBasePlanType;
 @class GTLRAndroidPublisher_IntroductoryPriceDetails;
 @class GTLRAndroidPublisher_IntroductoryPriceInfo;
+@class GTLRAndroidPublisher_IntroductoryPriceOfferPhase;
+@class GTLRAndroidPublisher_ItemExpiryTimeDetails;
 @class GTLRAndroidPublisher_ItemReplacement;
 @class GTLRAndroidPublisher_LanguageTargeting;
 @class GTLRAndroidPublisher_LineItem;
@@ -119,6 +124,7 @@
 @class GTLRAndroidPublisher_MultiAbi;
 @class GTLRAndroidPublisher_MultiAbiTargeting;
 @class GTLRAndroidPublisher_OfferDetails;
+@class GTLRAndroidPublisher_OfferPhase;
 @class GTLRAndroidPublisher_OfferPhaseDetails;
 @class GTLRAndroidPublisher_OfferTag;
 @class GTLRAndroidPublisher_OneTimeCode;
@@ -164,6 +170,7 @@
 @class GTLRAndroidPublisher_ProductLineItem;
 @class GTLRAndroidPublisher_ProductOfferDetails;
 @class GTLRAndroidPublisher_ProrationPeriodDetails;
+@class GTLRAndroidPublisher_ProrationPeriodOfferPhase;
 @class GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings;
 @class GTLRAndroidPublisher_PurchaseStateContext;
 @class GTLRAndroidPublisher_RecurringExternalTransaction;
@@ -1794,6 +1801,34 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProrationPeriodDetails_
  *  Value: "OFFER_PHASE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProrationPeriodDetails_OriginalOfferPhase_OfferPhaseUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAndroidPublisher_ProrationPeriodOfferPhase.originalOfferPhaseType
+
+/**
+ *  The subscription is in the base pricing phase (e.g. full price).
+ *
+ *  Value: "BASE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProrationPeriodOfferPhase_OriginalOfferPhaseType_Base;
+/**
+ *  The subscription is in a free trial.
+ *
+ *  Value: "FREE_TRIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProrationPeriodOfferPhase_OriginalOfferPhaseType_FreeTrial;
+/**
+ *  The subscription is in an introductory pricing phase.
+ *
+ *  Value: "INTRODUCTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProrationPeriodOfferPhase_OriginalOfferPhaseType_Introductory;
+/**
+ *  Unspecified original offer phase type.
+ *
+ *  Value: "ORIGINAL_OFFER_PHASE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ProrationPeriodOfferPhase_OriginalOfferPhaseType_OriginalOfferPhaseTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRAndroidPublisher_PurchaseOptionTaxAndComplianceSettings.withdrawalRightType
@@ -3605,6 +3640,13 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details about base price offer phase.
+ */
+@interface GTLRAndroidPublisher_BasePriceOfferPhase : GTLRObject
+@end
+
+
+/**
  *  Request message for BatchDeleteOneTimeProductOffers.
  */
 @interface GTLRAndroidPublisher_BatchDeleteOneTimeProductOffersRequest : GTLRObject
@@ -4276,6 +4318,16 @@ GTLR_DEPRECATED
 /** The intital price to convert other regions from. Tax exclusive. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *price;
 
+/**
+ *  Optional. Product tax category code in context. Product tax category
+ *  determines the transaction tax rates applied to the product that will be
+ *  factored into the price calculation. If not set, tax rates for the default
+ *  product tax category will be used. Refer to the [Help Center
+ *  article](https://support.google.com/googleplay/android-developer/answer/16408159)
+ *  for more information.
+ */
+@property(nonatomic, copy, nullable) NSString *productTaxCategoryCode;
+
 @end
 
 
@@ -4518,6 +4570,34 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Deferral context of the purchases.subscriptionsv2.defer API.
+ */
+@interface GTLRAndroidPublisher_DeferralContext : GTLRObject
+
+/**
+ *  Required. The duration by which all subscription items should be deferred.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *deferDuration;
+
+/**
+ *  Required. The API will fail if the etag does not match the latest etag for
+ *  this subscription. The etag is retrieved from purchases.subscriptionsv2.get:
+ *  https://developers.google.com/android-publisher/api-ref/rest/v3/purchases.subscriptionsv2/get
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  If set to "true", the request is a dry run to validate the effect of Defer,
+ *  the subscription would not be impacted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
+@end
+
+
+/**
  *  Information related to deferred item replacement.
  */
 @interface GTLRAndroidPublisher_DeferredItemRemoval : GTLRObject
@@ -4531,6 +4611,28 @@ GTLR_DEPRECATED
 
 /** The product_id going to replace the existing product_id. */
 @property(nonatomic, copy, nullable) NSString *productId;
+
+@end
+
+
+/**
+ *  Request for the v2 purchases.subscriptions.defer API.
+ */
+@interface GTLRAndroidPublisher_DeferSubscriptionPurchaseRequest : GTLRObject
+
+/** Required. Details about the subscription deferral. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_DeferralContext *deferralContext;
+
+@end
+
+
+/**
+ *  Response for the v2 purchases.subscriptions.defer API.
+ */
+@interface GTLRAndroidPublisher_DeferSubscriptionPurchaseResponse : GTLRObject
+
+/** The new expiry time for each subscription items. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ItemExpiryTimeDetails *> *itemExpiryTimeDetails;
 
 @end
 
@@ -5428,6 +5530,13 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details about free trial offer phase.
+ */
+@interface GTLRAndroidPublisher_FreeTrialOfferPhase : GTLRObject
+@end
+
+
+/**
  *  A full refund of the remaining amount of a transaction.
  */
 @interface GTLRAndroidPublisher_FullRefund : GTLRObject
@@ -6267,6 +6376,27 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Details about introductory price offer phase.
+ */
+@interface GTLRAndroidPublisher_IntroductoryPriceOfferPhase : GTLRObject
+@end
+
+
+/**
+ *  Expiry time details of a subscription item.
+ */
+@interface GTLRAndroidPublisher_ItemExpiryTimeDetails : GTLRObject
+
+/** The new expiry time for this subscription item. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expiryTime;
+
+/** The product ID of the subscription item (for example, 'premium_plan'). */
+@property(nonatomic, copy, nullable) NSString *productId;
+
+@end
+
+
+/**
  *  Details about a subscription line item that is being replaced.
  */
 @interface GTLRAndroidPublisher_ItemReplacement : GTLRObject
@@ -6333,7 +6463,7 @@ GTLR_DEPRECATED
 
 /**
  *  Item's listed price on Play Store, this may or may not include tax. Excludes
- *  any discounts or promotions.
+ *  Google-funded discounts only.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_Money *listingPrice;
 
@@ -6874,6 +7004,26 @@ GTLR_DEPRECATED
  *  from the base plan.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *offerTags;
+
+@end
+
+
+/**
+ *  Offer phase details.
+ */
+@interface GTLRAndroidPublisher_OfferPhase : GTLRObject
+
+/** Set when the offer phase is a base plan pricing phase. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_BasePriceOfferPhase *basePrice;
+
+/** Set when the offer phase is a free trial. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_FreeTrialOfferPhase *freeTrial;
+
+/** Set when the offer phase is an introductory price offer phase. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_IntroductoryPriceOfferPhase *introductoryPrice;
+
+/** Set when the offer phase is a proration period. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_ProrationPeriodOfferPhase *prorationPeriod;
 
 @end
 
@@ -8347,6 +8497,33 @@ GTLR_DEPRECATED
  *        "OFFER_PHASE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *originalOfferPhase;
+
+@end
+
+
+/**
+ *  Details about proration period offer phase.
+ */
+@interface GTLRAndroidPublisher_ProrationPeriodOfferPhase : GTLRObject
+
+/**
+ *  The original offer phase type before the proration period. Only set when the
+ *  proration period is updated from an existing offer phase.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisher_ProrationPeriodOfferPhase_OriginalOfferPhaseType_Base
+ *        The subscription is in the base pricing phase (e.g. full price).
+ *        (Value: "BASE")
+ *    @arg @c kGTLRAndroidPublisher_ProrationPeriodOfferPhase_OriginalOfferPhaseType_FreeTrial
+ *        The subscription is in a free trial. (Value: "FREE_TRIAL")
+ *    @arg @c kGTLRAndroidPublisher_ProrationPeriodOfferPhase_OriginalOfferPhaseType_Introductory
+ *        The subscription is in an introductory pricing phase. (Value:
+ *        "INTRODUCTORY")
+ *    @arg @c kGTLRAndroidPublisher_ProrationPeriodOfferPhase_OriginalOfferPhaseType_OriginalOfferPhaseTypeUnspecified
+ *        Unspecified original offer phase type. (Value:
+ *        "ORIGINAL_OFFER_PHASE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *originalOfferPhaseType;
 
 @end
 
@@ -10003,6 +10180,9 @@ GTLR_DEPRECATED
 /** The offer details for this item. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_OfferDetails *offerDetails;
 
+/** Current offer phase details for this item. */
+@property(nonatomic, strong, nullable) GTLRAndroidPublisher_OfferPhase *offerPhase;
+
 /** The item is prepaid. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_PrepaidPlan *prepaidPlan;
 
@@ -10085,6 +10265,13 @@ GTLR_DEPRECATED
  *  SUBSCRIPTION_STATE_EXPIRED.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_CanceledStateContext *canceledStateContext;
+
+/**
+ *  Entity tag representing the current state of the subscription. The developer
+ *  will provide this etag for subscription actions. This etag is always present
+ *  for auto-renewing and prepaid subscriptions.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
 
 /** User account identifier in the third-party service. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_ExternalAccountIdentifiers *externalAccountIdentifiers;
@@ -10784,12 +10971,12 @@ GTLR_DEPRECATED
 
 
 /**
- *  Representation of a single country where the contents of a track are
+ *  Representation of a single country where the contents of a track can be made
  *  available.
  */
 @interface GTLRAndroidPublisher_TrackTargetedCountry : GTLRObject
 
-/** The country to target, as a two-letter CLDR code. */
+/** The country that can be targeted, as a two-letter CLDR code. */
 @property(nonatomic, copy, nullable) NSString *countryCode;
 
 @end

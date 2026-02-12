@@ -19,6 +19,16 @@ NSString * const kGTLRNetworkconnectivityAutoSubnetworkConfigIpStackIpv4Only = @
 NSString * const kGTLRNetworkconnectivityAutoSubnetworkConfigIpStackIpv6Only = @"IPV6_ONLY";
 NSString * const kGTLRNetworkconnectivityAutoSubnetworkConfigIpStackSubnetIpStackUnspecified = @"SUBNET_IP_STACK_UNSPECIFIED";
 
+// deleteMode
+NSString * const kGTLRNetworkconnectivityDeleteModeDeleteModeUnspecified = @"DELETE_MODE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivityDeleteModeDeprogram   = @"DEPROGRAM";
+NSString * const kGTLRNetworkconnectivityDeleteModeSkipDeprogramming = @"SKIP_DEPROGRAMMING";
+
+// insertMode
+NSString * const kGTLRNetworkconnectivityInsertModeFailIfExists = @"FAIL_IF_EXISTS";
+NSString * const kGTLRNetworkconnectivityInsertModeInsertModeUnspecified = @"INSERT_MODE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivityInsertModeOverwrite   = @"OVERWRITE";
+
 // subnetworkMode
 NSString * const kGTLRNetworkconnectivitySubnetworkModeAutoCreated = @"AUTO_CREATED";
 NSString * const kGTLRNetworkconnectivitySubnetworkModeSubnetworkModeUnspecified = @"SUBNETWORK_MODE_UNSPECIFIED";
@@ -36,6 +46,94 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 @implementation GTLRNetworkconnectivityQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsCreate
+
+@dynamic automatedDnsRecordId, insertMode, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_AutomatedDnsRecord *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/automatedDnsRecords";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.automatedDnsRecords.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsDelete
+
+@dynamic deleteMode, ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.automatedDnsRecords.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_AutomatedDnsRecord class];
+  query.loggingName = @"networkconnectivity.projects.locations.automatedDnsRecords.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/automatedDnsRecords";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_ListAutomatedDnsRecordsResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.automatedDnsRecords.list";
+  return query;
+}
 
 @end
 

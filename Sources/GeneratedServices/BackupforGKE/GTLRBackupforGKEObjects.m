@@ -340,6 +340,55 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupforGKE_BackupRuleDetail
+//
+
+@implementation GTLRBackupforGKE_BackupRuleDetail
+@dynamic backupWindow, backupWindowTimezone, recurrence, recurrenceSchedule,
+         retentionDays, ruleName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_BDRBackupPlanJobLog
+//
+
+@implementation GTLRBackupforGKE_BDRBackupPlanJobLog
+@dynamic backupPlanName, endTime, errorCode, errorMessage, errorType,
+         jobCategory, jobId, jobStatus, newBackupPlanRevisionId,
+         newBackupPlanRevisionName, previousBackupPlanRevisionId,
+         previousBackupPlanRevisionName, previousBackupRules, resourceType,
+         revisedBackupRules, startTime, workloadsAffectedCount;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"previousBackupRules" : [GTLRBackupforGKE_BackupRuleDetail class],
+    @"revisedBackupRules" : [GTLRBackupforGKE_BackupRuleDetail class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_BDRBackupRestoreJobLog
+//
+
+@implementation GTLRBackupforGKE_BDRBackupRestoreJobLog
+@dynamic backupConsistencyTime, backupName, backupPlanName, backupRetentionDays,
+         backupRule, backupVaultName, endTime, errorCode, errorMessage,
+         errorType, incrementalBackupSizeGib, jobCategory, jobId, jobStatus,
+         recoveryPointTime, resourceType, restoreResourceLocation,
+         restoreResourceName, sourceResourceId, sourceResourceLocation,
+         sourceResourceName, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupforGKE_Binding
 //
 
@@ -497,6 +546,45 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 @implementation GTLRBackupforGKE_GetBackupIndexDownloadUrlResponse
 @dynamic signedUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_GetTagsRequest
+//
+
+@implementation GTLRBackupforGKE_GetTagsRequest
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_GetTagsResponse
+//
+
+@implementation GTLRBackupforGKE_GetTagsResponse
+@dynamic ETag, name, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_GetTagsResponse_Tags
+//
+
+@implementation GTLRBackupforGKE_GetTagsResponse_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -1297,6 +1385,64 @@ NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_VolumeTypeUnspecifie
 
 @implementation GTLRBackupforGKE_SetIamPolicyRequest
 @dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_SetTagsRequest
+//
+
+@implementation GTLRBackupforGKE_SetTagsRequest
+@dynamic ETag, name, requestId, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_SetTagsRequest_Tags
+//
+
+@implementation GTLRBackupforGKE_SetTagsRequest_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_SetTagsResponse
+//
+
+@implementation GTLRBackupforGKE_SetTagsResponse
+@dynamic ETag, name, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupforGKE_SetTagsResponse_Tags
+//
+
+@implementation GTLRBackupforGKE_SetTagsResponse_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 

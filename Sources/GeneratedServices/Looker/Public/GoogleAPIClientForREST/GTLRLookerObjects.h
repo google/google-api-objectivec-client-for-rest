@@ -238,6 +238,34 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_LookerCo
 FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_PlatformEdition_PlatformEditionUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRLooker_Instance.softDeleteReason
+
+/**
+ *  Instance is soft deleted due to billing account issues.
+ *
+ *  Value: "BILLING_ACCOUNT_ISSUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_SoftDeleteReason_BillingAccountIssue;
+/**
+ *  Instance is soft deleted by the customer.
+ *
+ *  Value: "CUSTOMER_REQUEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_SoftDeleteReason_CustomerRequest;
+/**
+ *  Soft delete reason is unspecified. This is the default value.
+ *
+ *  Value: "SOFT_DELETE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_SoftDeleteReason_SoftDeleteReasonUnspecified;
+/**
+ *  Instance is soft deleted due to trial expiration.
+ *
+ *  Value: "TRIAL_EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLooker_Instance_SoftDeleteReason_TrialExpired;
+
+// ----------------------------------------------------------------------------
 // GTLRLooker_Instance.state
 
 /**
@@ -718,6 +746,14 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 @property(nonatomic, strong, nullable) GTLRLooker_AdminSettings *adminSettings;
 
 /**
+ *  Optional. Indicates whether catalog integration is enabled for the Looker
+ *  instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *catalogIntegrationEnabled;
+
+/**
  *  Optional. Storage class of the instance.
  *
  *  Likely values:
@@ -907,6 +943,23 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
+ *  Output only. The reason for the instance being in a soft-deleted state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLooker_Instance_SoftDeleteReason_BillingAccountIssue Instance
+ *        is soft deleted due to billing account issues. (Value:
+ *        "BILLING_ACCOUNT_ISSUE")
+ *    @arg @c kGTLRLooker_Instance_SoftDeleteReason_CustomerRequest Instance is
+ *        soft deleted by the customer. (Value: "CUSTOMER_REQUEST")
+ *    @arg @c kGTLRLooker_Instance_SoftDeleteReason_SoftDeleteReasonUnspecified
+ *        Soft delete reason is unspecified. This is the default value. (Value:
+ *        "SOFT_DELETE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRLooker_Instance_SoftDeleteReason_TrialExpired Instance is
+ *        soft deleted due to trial expiration. (Value: "TRIAL_EXPIRED")
+ */
+@property(nonatomic, copy, nullable) NSString *softDeleteReason;
+
+/**
  *  Output only. The state of the instance.
  *
  *  Likely values:
@@ -930,6 +983,11 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  *        progress. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. The time when the Looker instance was suspended (soft deleted).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *suspendedTime;
 
 /** Output only. The time when the Looker instance was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -1552,6 +1610,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  */
 @property(nonatomic, strong, nullable) NSNumber *seconds;
 
+@end
+
+
+/**
+ *  Request options for undeleting an instance.
+ */
+@interface GTLRLooker_UndeleteInstanceRequest : GTLRObject
 @end
 
 

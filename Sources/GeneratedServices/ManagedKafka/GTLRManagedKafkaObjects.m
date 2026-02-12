@@ -24,6 +24,7 @@ NSString * const kGTLRManagedKafka_Cluster_State_Active        = @"ACTIVE";
 NSString * const kGTLRManagedKafka_Cluster_State_Creating      = @"CREATING";
 NSString * const kGTLRManagedKafka_Cluster_State_Deleting      = @"DELETING";
 NSString * const kGTLRManagedKafka_Cluster_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRManagedKafka_Cluster_State_Updating      = @"UPDATING";
 
 // GTLRManagedKafka_ConnectCluster.state
 NSString * const kGTLRManagedKafka_ConnectCluster_State_Active = @"ACTIVE";

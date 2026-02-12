@@ -36,7 +36,9 @@
 @class GTLRDatastream_EncryptionNotEnforced;
 @class GTLRDatastream_Error;
 @class GTLRDatastream_Error_Details;
+@class GTLRDatastream_ErrorInfo_Metadata;
 @class GTLRDatastream_EventFilter;
+@class GTLRDatastream_FieldViolation;
 @class GTLRDatastream_ForwardSshTunnelConnectivity;
 @class GTLRDatastream_GcsDestinationConfig;
 @class GTLRDatastream_GcsProfile;
@@ -45,6 +47,8 @@
 @class GTLRDatastream_IngestionTimePartition;
 @class GTLRDatastream_IntegerRangePartition;
 @class GTLRDatastream_JsonFileFormat;
+@class GTLRDatastream_Link;
+@class GTLRDatastream_LocalizedMessage;
 @class GTLRDatastream_Location;
 @class GTLRDatastream_Location_Labels;
 @class GTLRDatastream_Location_Metadata;
@@ -99,10 +103,13 @@
 @class GTLRDatastream_PostgresqlSourceConfig;
 @class GTLRDatastream_PostgresqlSslConfig;
 @class GTLRDatastream_PostgresqlTable;
+@class GTLRDatastream_PreconditionFailureViolation;
 @class GTLRDatastream_PrivateConnection;
 @class GTLRDatastream_PrivateConnection_Labels;
 @class GTLRDatastream_PrivateConnectivity;
 @class GTLRDatastream_PscInterfaceConfig;
+@class GTLRDatastream_QuotaFailureViolation;
+@class GTLRDatastream_QuotaFailureViolation_QuotaDimensions;
 @class GTLRDatastream_Route;
 @class GTLRDatastream_Route_Labels;
 @class GTLRDatastream_RuleSet;
@@ -118,6 +125,13 @@
 @class GTLRDatastream_SourceConfig;
 @class GTLRDatastream_SourceHierarchyDatasets;
 @class GTLRDatastream_SourceObjectIdentifier;
+@class GTLRDatastream_SpannerColumn;
+@class GTLRDatastream_SpannerDatabase;
+@class GTLRDatastream_SpannerObjectIdentifier;
+@class GTLRDatastream_SpannerProfile;
+@class GTLRDatastream_SpannerSchema;
+@class GTLRDatastream_SpannerSourceConfig;
+@class GTLRDatastream_SpannerTable;
 @class GTLRDatastream_SpecificStartPosition;
 @class GTLRDatastream_SqlServerChangeTables;
 @class GTLRDatastream_SqlServerColumn;
@@ -408,6 +422,34 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_PrivateConnection_State_Faile
 FOUNDATION_EXTERN NSString * const kGTLRDatastream_PrivateConnection_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRDatastream_SpannerSourceConfig.spannerRpcPriority
+
+/**
+ *  High RPC priority.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_High;
+/**
+ *  Low RPC priority.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_Low;
+/**
+ *  Medium RPC priority.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_Medium;
+/**
+ *  Unspecified RPC priority.
+ *
+ *  Value: "SPANNER_RPC_PRIORITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_SpannerRpcPriorityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRDatastream_Stream.state
 
 /**
@@ -594,6 +636,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Salesforce data source objects to avoid backfilling */
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *salesforceExcludedObjects;
 
+/** Spanner data source objects to avoid backfilling. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SpannerDatabase *spannerExcludedObjects;
+
 /** SQLServer data source objects to avoid backfilling */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *sqlServerExcludedObjects;
 
@@ -661,6 +706,18 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Backfill strategy to disable automatic backfill for the Stream's objects.
  */
 @interface GTLRDatastream_BackfillNoneStrategy : GTLRObject
+@end
+
+
+/**
+ *  Describes violations in a client request. This error type focuses on the
+ *  syntactic aspects of the request.
+ */
+@interface GTLRDatastream_BadRequest : GTLRObject
+
+/** Describes all violations in a client request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_FieldViolation *> *fieldViolations;
+
 @end
 
 
@@ -740,7 +797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  BigQuery warehouse profile.
+ *  Profile for connecting to a BigQuery destination.
  */
 @interface GTLRDatastream_BigQueryProfile : GTLRObject
 @end
@@ -842,7 +899,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_ConnectionProfile : GTLRObject
 
-/** BigQuery Connection Profile configuration. */
+/** Profile for connecting to a BigQuery destination. */
 @property(nonatomic, strong, nullable) GTLRDatastream_BigQueryProfile *bigqueryProfile;
 
 /** Output only. The create time of the resource. */
@@ -854,31 +911,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Forward SSH tunnel connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatastream_ForwardSshTunnelConnectivity *forwardSshConnectivity;
 
-/** Cloud Storage ConnectionProfile configuration. */
+/** Profile for connecting to a Cloud Storage destination. */
 @property(nonatomic, strong, nullable) GTLRDatastream_GcsProfile *gcsProfile;
 
 /** Labels. */
 @property(nonatomic, strong, nullable) GTLRDatastream_ConnectionProfile_Labels *labels;
 
-/** MongoDB Connection Profile configuration. */
+/** Profile for connecting to a MongoDB source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MongodbProfile *mongodbProfile;
 
-/** MySQL ConnectionProfile configuration. */
+/** Profile for connecting to a MySQL source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlProfile *mysqlProfile;
 
 /** Output only. Identifier. The resource's name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Oracle ConnectionProfile configuration. */
+/** Profile for connecting to an Oracle source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleProfile *oracleProfile;
 
-/** PostgreSQL Connection Profile configuration. */
+/** Profile for connecting to a PostgreSQL source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlProfile *postgresqlProfile;
 
 /** Private connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PrivateConnectivity *privateConnectivity;
 
-/** Salesforce Connection Profile configuration. */
+/** Profile for connecting to a Salesforce source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceProfile *salesforceProfile;
 
 /**
@@ -895,7 +952,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
-/** SQLServer Connection Profile configuration. */
+/** Profile for connecting to a Spanner source. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SpannerProfile *spannerProfile;
+
+/** Profile for connecting to a SQLServer source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerProfile *sqlServerProfile;
 
 /** Static Service IP connectivity. */
@@ -960,6 +1020,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  https://cloud.google.com/bigquery/docs/locations for supported locations.
  */
 @property(nonatomic, copy, nullable) NSString *location;
+
+@end
+
+
+/**
+ *  Describes additional debugging info.
+ */
+@interface GTLRDatastream_DebugInfo : GTLRObject
+
+/** Additional debugging information provided by the server. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/** The stack trace entries indicating where the error occurred. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *stackEntries;
 
 @end
 
@@ -1034,6 +1108,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *salesforceOrg;
 
 /**
+ *  Optional. Spanner database to enrich with child data objects and metadata.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_SpannerDatabase *spannerDatabase;
+
+/**
  *  Optional. SQLServer RDBMS to enrich with child data objects and metadata.
  */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *sqlServerRdbms;
@@ -1060,6 +1139,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** Enriched Salesforce organization. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *salesforceOrg;
+
+/** Enriched Spanner database. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SpannerDatabase *spannerDatabase;
 
 /** Enriched SQLServer RDBMS object. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *sqlServerRdbms;
@@ -1158,14 +1240,77 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Describes the cause of the error with structured details. Example of an
+ *  error when contacting the "pubsub.googleapis.com" API when it is not
+ *  enabled: { "reason": "API_DISABLED" "domain": "googleapis.com" "metadata": {
+ *  "resource": "projects/123", "service": "pubsub.googleapis.com" } } This
+ *  response indicates that the pubsub.googleapis.com API is not enabled.
+ *  Example of an error that is returned when attempting to create a Spanner
+ *  instance in a region that is out of stock: { "reason": "STOCKOUT" "domain":
+ *  "spanner.googleapis.com", "metadata": { "availableRegions":
+ *  "us-central1,us-east2" } }
+ */
+@interface GTLRDatastream_ErrorInfo : GTLRObject
+
+/**
+ *  The logical grouping to which the "reason" belongs. The error domain is
+ *  typically the registered service name of the tool or product that generates
+ *  the error. Example: "pubsub.googleapis.com". If the error is generated by
+ *  some common infrastructure, the error domain must be a globally unique value
+ *  that identifies the infrastructure. For Google API infrastructure, the error
+ *  domain is "googleapis.com".
+ */
+@property(nonatomic, copy, nullable) NSString *domain;
+
+/**
+ *  Additional structured details about this error. Keys must match a regular
+ *  expression of `a-z+` but should ideally be lowerCamelCase. Also, they must
+ *  be limited to 64 characters in length. When identifying the current value of
+ *  an exceeded limit, the units should be contained in the key, not the value.
+ *  For example, rather than `{"instanceLimit": "100/request"}`, should be
+ *  returned as, `{"instanceLimitPerRequest": "100"}`, if the client exceeds the
+ *  number of instances that can be created in a single (batch) request.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_ErrorInfo_Metadata *metadata;
+
+/**
+ *  The reason of the error. This is a constant value that identifies the
+ *  proximate cause of the error. Error reasons are unique within a particular
+ *  domain of errors. This should be at most 63 characters and match a regular
+ *  expression of `A-Z+[A-Z0-9]`, which represents UPPER_SNAKE_CASE.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  Additional structured details about this error. Keys must match a regular
+ *  expression of `a-z+` but should ideally be lowerCamelCase. Also, they must
+ *  be limited to 64 characters in length. When identifying the current value of
+ *  an exceeded limit, the units should be contained in the key, not the value.
+ *  For example, rather than `{"instanceLimit": "100/request"}`, should be
+ *  returned as, `{"instanceLimitPerRequest": "100"}`, if the client exceeds the
+ *  number of instances that can be created in a single (batch) request.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDatastream_ErrorInfo_Metadata : GTLRObject
+@end
+
+
+/**
  *  Represents a filter for included data on a stream object.
  */
 @interface GTLRDatastream_EventFilter : GTLRObject
 
 /**
  *  An SQL-query Where clause selecting which data should be included, not
- *  including the "WHERE" keyword. E.g., "t.key1 = 'value1' AND t.key2 =
- *  'value2'".
+ *  including the "WHERE" keyword. e.g., `t.key1 = 'value1' AND t.key2 =
+ *  'value2'`
  */
 @property(nonatomic, copy, nullable) NSString *sqlWhereClause;
 
@@ -1185,6 +1330,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 /** list of static ips by account */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *staticIps;
+
+@end
+
+
+/**
+ *  A message type used to describe a single bad request field.
+ */
+@interface GTLRDatastream_FieldViolation : GTLRObject
+
+/**
+ *  A description of why the request element is bad.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  A path that leads to a field in the request body. The value will be a
+ *  sequence of dot-separated identifiers that identify a protocol buffer field.
+ *  Consider the following: message CreateContactRequest { message EmailAddress
+ *  { enum Type { TYPE_UNSPECIFIED = 0; HOME = 1; WORK = 2; } optional string
+ *  email = 1; repeated EmailType type = 2; } string full_name = 1; repeated
+ *  EmailAddress email_addresses = 2; } In this example, in proto `field` could
+ *  take one of the following values: * `full_name` for a violation in the
+ *  `full_name` value * `email_addresses[1].email` for a violation in the
+ *  `email` field of the first `email_addresses` message *
+ *  `email_addresses[3].type[2]` for a violation in the second `type` value in
+ *  the third `email_addresses` message. In JSON, the same values are
+ *  represented as: * `fullName` for a violation in the `fullName` value *
+ *  `emailAddresses[1].email` for a violation in the `email` field of the first
+ *  `emailAddresses` message * `emailAddresses[3].type[2]` for a violation in
+ *  the second `type` value in the third `emailAddresses` message.
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/**
+ *  Provides a localized error message for field-level errors that is safe to
+ *  return to the API consumer.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_LocalizedMessage *localizedMessage;
+
+/**
+ *  The reason of the field-level error. This is a constant value that
+ *  identifies the proximate cause of the field-level error. It should uniquely
+ *  identify the type of the FieldViolation within the scope of the
+ *  google.rpc.ErrorInfo.domain. This should be at most 63 characters and match
+ *  a regular expression of `A-Z+[A-Z0-9]`, which represents UPPER_SNAKE_CASE.
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 
@@ -1248,14 +1442,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Cloud Storage bucket profile.
+ *  Profile for connecting to a Cloud Storage destination.
  */
 @interface GTLRDatastream_GcsProfile : GTLRObject
 
 /** Required. The Cloud Storage bucket name. */
 @property(nonatomic, copy, nullable) NSString *bucket;
 
-/** The root path inside the Cloud Storage bucket. */
+/** Optional. The root path inside the Cloud Storage bucket. */
 @property(nonatomic, copy, nullable) NSString *rootPath;
 
 @end
@@ -1265,6 +1459,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  Use GTID based replication.
  */
 @interface GTLRDatastream_Gtid : GTLRObject
+@end
+
+
+/**
+ *  Provides links to documentation or for performing an out of band action. For
+ *  example, if a quota check failed with an error indicating the calling
+ *  project hasn't enabled the accessed service, this can contain a URL pointing
+ *  directly to the right place in the developer console to flip the bit.
+ */
+@interface GTLRDatastream_Help : GTLRObject
+
+/**
+ *  URL(s) pointing to additional information on handling the current error.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_Link *> *links;
+
 @end
 
 
@@ -1379,6 +1589,24 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *        "SCHEMA_FILE_FORMAT_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *schemaFileFormat;
+
+@end
+
+
+/**
+ *  Describes a URL link.
+ */
+@interface GTLRDatastream_Link : GTLRObject
+
+/**
+ *  Describes what the link offers.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The URL of the link. */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -1584,6 +1812,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Provides a localized error message that is safe to return to the user which
+ *  can be attached to an RPC error.
+ */
+@interface GTLRDatastream_LocalizedMessage : GTLRObject
+
+/**
+ *  The locale used following the specification defined at
+ *  https://www.rfc-editor.org/rfc/bcp/bcp47.txt. Examples are: "en-US",
+ *  "fr-CH", "es-MX"
+ */
+@property(nonatomic, copy, nullable) NSString *locale;
+
+/** The localized error message in the above locale. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
  *  A resource that represents a Google Cloud location.
  */
 @interface GTLRDatastream_Location : GTLRObject
@@ -1712,7 +1959,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_MongodbCollection : GTLRObject
 
-/** Collection name. */
+/** The collection name. */
 @property(nonatomic, copy, nullable) NSString *collection;
 
 /** Fields in the collection. */
@@ -1729,7 +1976,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Collections in the database. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_MongodbCollection *> *collections;
 
-/** Database name. */
+/** The database name. */
 @property(nonatomic, copy, nullable) NSString *database;
 
 @end
@@ -1740,7 +1987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_MongodbField : GTLRObject
 
-/** Field name. */
+/** The field name. */
 @property(nonatomic, copy, nullable) NSString *field;
 
 @end
@@ -1761,7 +2008,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  MongoDB profile.
+ *  Profile for connecting to a MongoDB source.
  */
 @interface GTLRDatastream_MongodbProfile : GTLRObject
 
@@ -1837,14 +2084,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  MongoDB source configuration.
+ *  Configuration for syncing data from a MongoDB source.
  */
 @interface GTLRDatastream_MongodbSourceConfig : GTLRObject
 
-/** MongoDB collections to exclude from the stream. */
+/** The MongoDB collections to exclude from the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MongodbCluster *excludeObjects;
 
-/** MongoDB collections to include in the stream. */
+/** The MongoDB collections to include in the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MongodbCluster *includeObjects;
 
 /**
@@ -1945,7 +2192,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Column collation. */
 @property(nonatomic, copy, nullable) NSString *collation;
 
-/** Column name. */
+/** The column name. */
 @property(nonatomic, copy, nullable) NSString *column;
 
 /**
@@ -2004,7 +2251,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_MysqlDatabase : GTLRObject
 
-/** Database name. */
+/** The database name. */
 @property(nonatomic, copy, nullable) NSString *database;
 
 /** Tables in the database. */
@@ -2057,7 +2304,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  MySQL database profile.
+ *  Profile for connecting to a MySQL source.
  */
 @interface GTLRDatastream_MysqlProfile : GTLRObject
 
@@ -2104,20 +2351,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  MySQL source configuration
+ *  Configuration for syncing data from a MySQL source.
  */
 @interface GTLRDatastream_MysqlSourceConfig : GTLRObject
 
 /** Use Binary log position based replication. */
 @property(nonatomic, strong, nullable) GTLRDatastream_BinaryLogPosition *binaryLogPosition;
 
-/** MySQL objects to exclude from the stream. */
+/** The MySQL objects to exclude from the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *excludeObjects;
 
 /** Use GTID based replication. */
 @property(nonatomic, strong, nullable) GTLRDatastream_Gtid *gtid;
 
-/** MySQL objects to retrieve from the source. */
+/** The MySQL objects to retrieve from the source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_MysqlRdbms *includeObjects;
 
 /**
@@ -2199,7 +2446,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_MysqlColumn *> *mysqlColumns;
 
-/** Table name. */
+/** The table name. */
 @property(nonatomic, copy, nullable) NSString *table;
 
 @end
@@ -2435,7 +2682,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_OracleColumn : GTLRObject
 
-/** Column name. */
+/** The column name. */
 @property(nonatomic, copy, nullable) NSString *column;
 
 /** The Oracle data type. */
@@ -2504,7 +2751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Oracle database profile.
+ *  Profile for connecting to an Oracle source.
  */
 @interface GTLRDatastream_OracleProfile : GTLRObject
 
@@ -2579,7 +2826,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Tables in the schema. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_OracleTable *> *oracleTables;
 
-/** Schema name. */
+/** The schema name. */
 @property(nonatomic, copy, nullable) NSString *schema;
 
 @end
@@ -2601,7 +2848,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Oracle data source configuration
+ *  Configuration for syncing data from an Oracle source.
  */
 @interface GTLRDatastream_OracleSourceConfig : GTLRObject
 
@@ -2611,10 +2858,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Drop large object values. */
 @property(nonatomic, strong, nullable) GTLRDatastream_DropLargeObjects *dropLargeObjects;
 
-/** Oracle objects to exclude from the stream. */
+/** The Oracle objects to exclude from the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *excludeObjects;
 
-/** Oracle objects to include in the stream. */
+/** The Oracle objects to include in the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_OracleRdbms *includeObjects;
 
 /** Use LogMiner. */
@@ -2683,7 +2930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_OracleColumn *> *oracleColumns;
 
-/** Table name. */
+/** The table name. */
 @property(nonatomic, copy, nullable) NSString *table;
 
 @end
@@ -2694,7 +2941,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_PostgresqlColumn : GTLRObject
 
-/** Column name. */
+/** The column name. */
 @property(nonatomic, copy, nullable) NSString *column;
 
 /** The PostgreSQL data type. */
@@ -2760,7 +3007,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  PostgreSQL database profile.
+ *  Profile for connecting to a PostgreSQL source.
  */
 @interface GTLRDatastream_PostgresqlProfile : GTLRObject
 
@@ -2823,21 +3070,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Tables in the schema. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_PostgresqlTable *> *postgresqlTables;
 
-/** Schema name. */
+/** The schema name. */
 @property(nonatomic, copy, nullable) NSString *schema;
 
 @end
 
 
 /**
- *  PostgreSQL data source configuration
+ *  Configuration for syncing data from a PostgreSQL source.
  */
 @interface GTLRDatastream_PostgresqlSourceConfig : GTLRObject
 
-/** PostgreSQL objects to exclude from the stream. */
+/** The PostgreSQL objects to exclude from the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *excludeObjects;
 
-/** PostgreSQL objects to include in the stream. */
+/** The PostgreSQL objects to include in the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_PostgresqlRdbms *includeObjects;
 
 /**
@@ -2895,8 +3142,52 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_PostgresqlColumn *> *postgresqlColumns;
 
-/** Table name. */
+/** The table name. */
 @property(nonatomic, copy, nullable) NSString *table;
+
+@end
+
+
+/**
+ *  Describes what preconditions have failed. For example, if an RPC failed
+ *  because it required the Terms of Service to be acknowledged, it could list
+ *  the terms of service violation in the PreconditionFailure message.
+ */
+@interface GTLRDatastream_PreconditionFailure : GTLRObject
+
+/** Describes all precondition violations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_PreconditionFailureViolation *> *violations;
+
+@end
+
+
+/**
+ *  A message type used to describe a single precondition failure.
+ */
+@interface GTLRDatastream_PreconditionFailureViolation : GTLRObject
+
+/**
+ *  A description of how the precondition failed. Developers can use this
+ *  description to understand how to fix the failure. For example: "Terms of
+ *  service not accepted".
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The subject, relative to the type, that failed. For example,
+ *  "google.com/cloud" relative to the "TOS" type would indicate which terms of
+ *  service is being referenced.
+ */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+/**
+ *  The type of PreconditionFailure. We recommend using a service-specific enum
+ *  type to define the supported precondition violation subjects. For example,
+ *  "TOS" for "Terms of Service violation".
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -3016,6 +3307,211 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
+ *  Describes how a quota check failed. For example if a daily limit was
+ *  exceeded for the calling project, a service could respond with a
+ *  QuotaFailure detail containing the project id and the description of the
+ *  quota limit that was exceeded. If the calling project hasn't enabled the
+ *  service in the developer console, then a service could respond with the
+ *  project id and set `service_disabled` to true. Also see RetryInfo and Help
+ *  types for other details about handling a quota failure.
+ */
+@interface GTLRDatastream_QuotaFailure : GTLRObject
+
+/** Describes all quota violations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_QuotaFailureViolation *> *violations;
+
+@end
+
+
+/**
+ *  A message type used to describe a single quota violation. For example, a
+ *  daily quota or a custom quota that was exceeded.
+ */
+@interface GTLRDatastream_QuotaFailureViolation : GTLRObject
+
+/**
+ *  The API Service from which the `QuotaFailure.Violation` orginates. In some
+ *  cases, Quota issues originate from an API Service other than the one that
+ *  was called. In other words, a dependency of the called API Service could be
+ *  the cause of the `QuotaFailure`, and this field would have the dependency
+ *  API service name. For example, if the called API is Kubernetes Engine API
+ *  (container.googleapis.com), and a quota violation occurs in the Kubernetes
+ *  Engine API itself, this field would be "container.googleapis.com". On the
+ *  other hand, if the quota violation occurs when the Kubernetes Engine API
+ *  creates VMs in the Compute Engine API (compute.googleapis.com), this field
+ *  would be "compute.googleapis.com".
+ */
+@property(nonatomic, copy, nullable) NSString *apiService;
+
+/**
+ *  A description of how the quota check failed. Clients can use this
+ *  description to find more about the quota configuration in the service's
+ *  public documentation, or find the relevant quota limit to adjust through
+ *  developer console. For example: "Service disabled" or "Daily Limit for read
+ *  operations exceeded".
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The new quota value being rolled out at the time of the violation. At the
+ *  completion of the rollout, this value will be enforced in place of
+ *  quota_value. If no rollout is in progress at the time of the violation, this
+ *  field is not set. For example, if at the time of the violation a rollout is
+ *  in progress changing the number of CPUs quota from 10 to 20, 20 would be the
+ *  value of this field.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *futureQuotaValue;
+
+/**
+ *  The dimensions of the violated quota. Every non-global quota is enforced on
+ *  a set of dimensions. While quota metric defines what to count, the
+ *  dimensions specify for what aspects the counter should be increased. For
+ *  example, the quota "CPUs per region per VM family" enforces a limit on the
+ *  metric "compute.googleapis.com/cpus_per_vm_family" on dimensions "region"
+ *  and "vm_family". And if the violation occurred in region "us-central1" and
+ *  for VM family "n1", the quota_dimensions would be, { "region":
+ *  "us-central1", "vm_family": "n1", } When a quota is enforced globally, the
+ *  quota_dimensions would always be empty.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_QuotaFailureViolation_QuotaDimensions *quotaDimensions;
+
+/**
+ *  The id of the violated quota. Also know as "limit name", this is the unique
+ *  identifier of a quota in the context of an API service. For example,
+ *  "CPUS-PER-VM-FAMILY-per-project-region".
+ */
+@property(nonatomic, copy, nullable) NSString *quotaId;
+
+/**
+ *  The metric of the violated quota. A quota metric is a named counter to
+ *  measure usage, such as API requests or CPUs. When an activity occurs in a
+ *  service, such as Virtual Machine allocation, one or more quota metrics may
+ *  be affected. For example, "compute.googleapis.com/cpus_per_vm_family",
+ *  "storage.googleapis.com/internet_egress_bandwidth".
+ */
+@property(nonatomic, copy, nullable) NSString *quotaMetric;
+
+/**
+ *  The enforced quota value at the time of the `QuotaFailure`. For example, if
+ *  the enforced quota value at the time of the `QuotaFailure` on the number of
+ *  CPUs is "10", then the value of this field would reflect this quantity.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quotaValue;
+
+/**
+ *  The subject on which the quota check failed. For example, "clientip:" or
+ *  "project:".
+ */
+@property(nonatomic, copy, nullable) NSString *subject;
+
+@end
+
+
+/**
+ *  The dimensions of the violated quota. Every non-global quota is enforced on
+ *  a set of dimensions. While quota metric defines what to count, the
+ *  dimensions specify for what aspects the counter should be increased. For
+ *  example, the quota "CPUs per region per VM family" enforces a limit on the
+ *  metric "compute.googleapis.com/cpus_per_vm_family" on dimensions "region"
+ *  and "vm_family". And if the violation occurred in region "us-central1" and
+ *  for VM family "n1", the quota_dimensions would be, { "region":
+ *  "us-central1", "vm_family": "n1", } When a quota is enforced globally, the
+ *  quota_dimensions would always be empty.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDatastream_QuotaFailureViolation_QuotaDimensions : GTLRObject
+@end
+
+
+/**
+ *  Contains metadata about the request that clients can attach when filing a
+ *  bug or providing other forms of feedback.
+ */
+@interface GTLRDatastream_RequestInfo : GTLRObject
+
+/**
+ *  An opaque string that should only be interpreted by the service generating
+ *  it. For example, it can be used to identify requests in the service's logs.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Any data that was used to serve this request. For example, an encrypted
+ *  stack trace that can be sent back to the service provider for debugging.
+ */
+@property(nonatomic, copy, nullable) NSString *servingData;
+
+@end
+
+
+/**
+ *  Describes the resource that is being accessed.
+ */
+@interface GTLRDatastream_ResourceInfo : GTLRObject
+
+/**
+ *  Describes what error is encountered when accessing this resource. For
+ *  example, updating a cloud project may require the `writer` permission on the
+ *  developer console project.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  The owner of the resource (optional). For example, "user:" or "project:".
+ */
+@property(nonatomic, copy, nullable) NSString *owner;
+
+/**
+ *  The name of the resource being accessed. For example, a shared calendar
+ *  name: "example.com_4fghdhgsrgh\@group.calendar.google.com", if the current
+ *  error is google.rpc.Code.PERMISSION_DENIED.
+ */
+@property(nonatomic, copy, nullable) NSString *resourceName;
+
+/**
+ *  A name for the type of resource being accessed, e.g. "sql table", "cloud
+ *  storage bucket", "file", "Google calendar"; or the type URL of the resource:
+ *  e.g. "type.googleapis.com/google.pubsub.v1.Topic".
+ */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+@end
+
+
+/**
+ *  Describes when the clients can retry a failed request. Clients could ignore
+ *  the recommendation here or retry when this information is missing from error
+ *  responses. It's always recommended that clients should use exponential
+ *  backoff when retrying. Clients should wait until `retry_delay` amount of
+ *  time has passed since receiving the error response before retrying. If
+ *  retrying requests also fail, clients should use an exponential backoff
+ *  scheme to gradually increase the delay between retries based on
+ *  `retry_delay`, until either a maximum number of retries have been reached or
+ *  a maximum retry delay cap has been reached.
+ */
+@interface GTLRDatastream_RetryInfo : GTLRObject
+
+/**
+ *  Clients should wait at least this long between retrying the same request.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *retryDelay;
+
+@end
+
+
+/**
  *  The route resource is the child of the private connection resource, used for
  *  defining a route for a private connection.
  */
@@ -3104,7 +3600,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** The data type. */
 @property(nonatomic, copy, nullable) NSString *dataType;
 
-/** Field name. */
+/** The field name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -3128,7 +3624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SalesforceField *> *fields;
 
-/** Object name. */
+/** The object name. */
 @property(nonatomic, copy, nullable) NSString *objectName;
 
 @end
@@ -3157,7 +3653,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Salesforce profile
+ *  Profile for connecting to a Salesforce source.
  */
 @interface GTLRDatastream_SalesforceProfile : GTLRObject
 
@@ -3174,20 +3670,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  Salesforce source configuration
+ *  Configuration for syncing data from a Salesforce source.
  */
 @interface GTLRDatastream_SalesforceSourceConfig : GTLRObject
 
-/** Salesforce objects to exclude from the stream. */
+/** The Salesforce objects to exclude from the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *excludeObjects;
 
-/** Salesforce objects to retrieve from the source. */
+/** The Salesforce objects to retrieve from the source. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceOrg *includeObjects;
 
 /**
  *  Required. Salesforce objects polling interval. The interval at which new
- *  changes will be polled for each object. The duration must be between 5
- *  minutes and 24 hours.
+ *  changes will be polled for each object. The duration must be from `5
+ *  minutes` to `24 hours`, inclusive.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *pollingInterval;
 
@@ -3292,6 +3788,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, copy, nullable) NSString *sourceConnectionProfile;
 
+/** Spanner data source configuration. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SpannerSourceConfig *spannerSourceConfig;
+
 /** SQLServer data source configuration. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerSourceConfig *sqlServerSourceConfig;
 
@@ -3336,8 +3835,177 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Salesforce data source object identifier. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SalesforceObjectIdentifier *salesforceIdentifier;
 
+/** Spanner data source object identifier. */
+@property(nonatomic, strong, nullable) GTLRDatastream_SpannerObjectIdentifier *spannerIdentifier;
+
 /** SQLServer data source object identifier. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerObjectIdentifier *sqlServerIdentifier;
+
+@end
+
+
+/**
+ *  Spanner column.
+ */
+@interface GTLRDatastream_SpannerColumn : GTLRObject
+
+/** Required. The column name. */
+@property(nonatomic, copy, nullable) NSString *column;
+
+/** Optional. Spanner data type. */
+@property(nonatomic, copy, nullable) NSString *dataType;
+
+/**
+ *  Optional. Whether or not the column is a primary key.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isPrimaryKey;
+
+/**
+ *  Optional. The ordinal position of the column in the table.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ordinalPosition;
+
+@end
+
+
+/**
+ *  Spanner database structure.
+ */
+@interface GTLRDatastream_SpannerDatabase : GTLRObject
+
+/** Optional. Spanner schemas in the database. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SpannerSchema *> *schemas;
+
+@end
+
+
+/**
+ *  Spanner data source object identifier.
+ */
+@interface GTLRDatastream_SpannerObjectIdentifier : GTLRObject
+
+/** Optional. The schema name. */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/** Required. The table name. */
+@property(nonatomic, copy, nullable) NSString *table;
+
+@end
+
+
+/**
+ *  Profile for connecting to a Spanner source.
+ */
+@interface GTLRDatastream_SpannerProfile : GTLRObject
+
+/**
+ *  Required. Immutable. Cloud Spanner database resource. This field is
+ *  immutable. Must be in the format:
+ *  projects/{project}/instances/{instance}/databases/{database_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Optional. The Spanner endpoint to connect to. Defaults to the global
+ *  endpoint (https://spanner.googleapis.com). Must be in the format:
+ *  https://spanner.{region}.rep.googleapis.com.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+@end
+
+
+/**
+ *  Spanner schema.
+ */
+@interface GTLRDatastream_SpannerSchema : GTLRObject
+
+/** Required. The schema name. */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/** Optional. Spanner tables in the schema. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SpannerTable *> *tables;
+
+@end
+
+
+/**
+ *  Configuration for syncing data from a Spanner source.
+ */
+@interface GTLRDatastream_SpannerSourceConfig : GTLRObject
+
+/**
+ *  Optional. Whether to use Data Boost for Spanner backfills. Defaults to false
+ *  if not set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backfillDataBoostEnabled;
+
+/** Required. Immutable. The change stream name to use for the stream. */
+@property(nonatomic, copy, nullable) NSString *changeStreamName;
+
+/**
+ *  Optional. The Spanner objects to avoid retrieving. If some objects are both
+ *  included and excluded, an error will be thrown.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_SpannerDatabase *excludeObjects;
+
+/** Optional. The FGAC role to use for the stream. */
+@property(nonatomic, copy, nullable) NSString *fgacRole;
+
+/**
+ *  Optional. The Spanner objects to retrieve from the data source. If some
+ *  objects are both included and excluded, an error will be thrown.
+ */
+@property(nonatomic, strong, nullable) GTLRDatastream_SpannerDatabase *includeObjects;
+
+/**
+ *  Optional. Maximum number of concurrent backfill tasks.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentBackfillTasks;
+
+/**
+ *  Optional. Maximum number of concurrent CDC tasks.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxConcurrentCdcTasks;
+
+/**
+ *  Optional. The RPC priority to use for the stream.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_High High
+ *        RPC priority. (Value: "HIGH")
+ *    @arg @c kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_Low Low RPC
+ *        priority. (Value: "LOW")
+ *    @arg @c kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_Medium
+ *        Medium RPC priority. (Value: "MEDIUM")
+ *    @arg @c kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_SpannerRpcPriorityUnspecified
+ *        Unspecified RPC priority. (Value: "SPANNER_RPC_PRIORITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *spannerRpcPriority;
+
+@end
+
+
+/**
+ *  Spanner table.
+ */
+@interface GTLRDatastream_SpannerTable : GTLRObject
+
+/** Optional. Spanner columns in the table. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SpannerColumn *> *columns;
+
+/** Required. The table name. */
+@property(nonatomic, copy, nullable) NSString *table;
 
 @end
 
@@ -3377,7 +4045,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_SqlServerColumn : GTLRObject
 
-/** Column name. */
+/** The column name. */
 @property(nonatomic, copy, nullable) NSString *column;
 
 /** The SQLServer data type. */
@@ -3454,7 +4122,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  SQLServer database profile.
+ *  Profile for connecting to a SQLServer source.
  */
 @interface GTLRDatastream_SqlServerProfile : GTLRObject
 
@@ -3508,7 +4176,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @interface GTLRDatastream_SqlServerSchema : GTLRObject
 
-/** Schema name. */
+/** The schema name. */
 @property(nonatomic, copy, nullable) NSString *schema;
 
 /** Tables in the schema. */
@@ -3518,17 +4186,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 
 
 /**
- *  SQLServer data source configuration
+ *  Configuration for syncing data from a SQLServer source.
  */
 @interface GTLRDatastream_SqlServerSourceConfig : GTLRObject
 
 /** CDC reader reads from change tables. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerChangeTables *changeTables;
 
-/** SQLServer objects to exclude from the stream. */
+/** The SQLServer objects to exclude from the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *excludeObjects;
 
-/** SQLServer objects to include in the stream. */
+/** The SQLServer objects to include in the stream. */
 @property(nonatomic, strong, nullable) GTLRDatastream_SqlServerRdbms *includeObjects;
 
 /**
@@ -3588,7 +4256,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_SqlServerColumn *> *columns;
 
-/** Table name. */
+/** The table name. */
 @property(nonatomic, copy, nullable) NSString *table;
 
 @end

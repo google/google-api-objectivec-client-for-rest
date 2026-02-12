@@ -11,6 +11,14 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRStorageBatchOperations_BucketOperation.state
+NSString * const kGTLRStorageBatchOperations_BucketOperation_State_Canceled = @"CANCELED";
+NSString * const kGTLRStorageBatchOperations_BucketOperation_State_Failed = @"FAILED";
+NSString * const kGTLRStorageBatchOperations_BucketOperation_State_Queued = @"QUEUED";
+NSString * const kGTLRStorageBatchOperations_BucketOperation_State_Running = @"RUNNING";
+NSString * const kGTLRStorageBatchOperations_BucketOperation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRStorageBatchOperations_BucketOperation_State_Succeeded = @"SUCCEEDED";
+
 // GTLRStorageBatchOperations_ErrorSummary.errorCode
 NSString * const kGTLRStorageBatchOperations_ErrorSummary_ErrorCode_Aborted = @"ABORTED";
 NSString * const kGTLRStorageBatchOperations_ErrorSummary_ErrorCode_AlreadyExists = @"ALREADY_EXISTS";
@@ -33,6 +41,7 @@ NSString * const kGTLRStorageBatchOperations_ErrorSummary_ErrorCode_Unknown = @"
 // GTLRStorageBatchOperations_Job.state
 NSString * const kGTLRStorageBatchOperations_Job_State_Canceled = @"CANCELED";
 NSString * const kGTLRStorageBatchOperations_Job_State_Failed  = @"FAILED";
+NSString * const kGTLRStorageBatchOperations_Job_State_Queued  = @"QUEUED";
 NSString * const kGTLRStorageBatchOperations_Job_State_Running = @"RUNNING";
 NSString * const kGTLRStorageBatchOperations_Job_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRStorageBatchOperations_Job_State_Succeeded = @"SUCCEEDED";
@@ -82,6 +91,26 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"buckets" : [GTLRStorageBatchOperations_Bucket class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageBatchOperations_BucketOperation
+//
+
+@implementation GTLRStorageBatchOperations_BucketOperation
+@dynamic bucketName, completeTime, counters, createTime, deleteObject,
+         errorSummaries, manifest, name, prefixList, putMetadata, putObjectHold,
+         rewriteObject, startTime, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errorSummaries" : [GTLRStorageBatchOperations_ErrorSummary class]
   };
   return map;
 }
@@ -190,8 +219,9 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 
 @implementation GTLRStorageBatchOperations_Job
 @dynamic bucketList, completeTime, counters, createTime, deleteObject,
-         descriptionProperty, dryRun, errorSummaries, loggingConfig, name,
-         putMetadata, putObjectHold, rewriteObject, scheduleTime, state;
+         descriptionProperty, dryRun, errorSummaries, isMultiBucketJob,
+         loggingConfig, name, putMetadata, putObjectHold, rewriteObject,
+         scheduleTime, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -202,6 +232,29 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
     @"errorSummaries" : [GTLRStorageBatchOperations_ErrorSummary class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageBatchOperations_ListBucketOperationsResponse
+//
+
+@implementation GTLRStorageBatchOperations_ListBucketOperationsResponse
+@dynamic bucketOperations, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bucketOperations" : [GTLRStorageBatchOperations_BucketOperation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"bucketOperations";
 }
 
 @end

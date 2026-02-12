@@ -128,6 +128,25 @@
 
 @end
 
+@implementation GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesGetTags
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:getTags";
+  GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesGetTags *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMemorystoreforMemcached_GetTagsResponse class];
+  query.loggingName = @"memcache.projects.locations.instances.getTags";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -196,6 +215,33 @@
   query.instance = instance;
   query.expectedObjectClass = [GTLRCloudMemorystoreforMemcached_Operation class];
   query.loggingName = @"memcache.projects.locations.instances.rescheduleMaintenance";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesSetTags
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudMemorystoreforMemcached_SetTagsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:setTags";
+  GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesSetTags *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudMemorystoreforMemcached_SetTagsResponse class];
+  query.loggingName = @"memcache.projects.locations.instances.setTags";
   return query;
 }
 

@@ -86,6 +86,7 @@
 @class GTLRCloudRedis_PscServiceAttachment;
 @class GTLRCloudRedis_RDBConfig;
 @class GTLRCloudRedis_RemoteCluster;
+@class GTLRCloudRedis_ResourceFlags;
 @class GTLRCloudRedis_ResourceMaintenanceDenySchedule;
 @class GTLRCloudRedis_ResourceMaintenanceInfo;
 @class GTLRCloudRedis_ResourceMaintenanceSchedule;
@@ -98,6 +99,7 @@
 @class GTLRCloudRedis_TimeOfDay;
 @class GTLRCloudRedis_TlsCertificate;
 @class GTLRCloudRedis_TypedValue;
+@class GTLRCloudRedis_UpcomingMaintenance;
 @class GTLRCloudRedis_UpdateInfo;
 @class GTLRCloudRedis_UserLabels;
 @class GTLRCloudRedis_UserLabels_Labels;
@@ -1540,6 +1542,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Curr
 /** Value: "STATE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_StateUnspecified;
 /**
+ *  Instance is in STOPPED state.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Stopped;
+/**
  *  When instance is suspended
  *
  *  Value: "SUSPENDED"
@@ -1603,6 +1611,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Expe
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_StateOther;
 /** Value: "STATE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_StateUnspecified;
+/**
+ *  Instance is in STOPPED state.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_Stopped;
 /**
  *  When instance is suspended
  *
@@ -3517,6 +3531,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_
  *  Value: "SPECIFIC_TIME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_SpecificTime;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_ResourceMaintenanceInfo.maintenanceState
+
+/**
+ *  Database resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Creating;
+/**
+ *  Database resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Deleting;
+/**
+ *  Database resource encountered an error and is in indeterministic state.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Error;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "MAINTENANCE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_MaintenanceStateUnspecified;
+/**
+ *  Database resource has been created and is ready to use.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Ready;
+/**
+ *  Database resource is unheathy and under repair.
+ *
+ *  Value: "REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Repairing;
+/**
+ *  Database resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_ResourceMaintenanceSchedule.day
@@ -5470,7 +5530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 30
+ *  Common model for database resource instance metadata. Next ID: 31
  */
 @interface GTLRCloudRedis_DatabaseResourceMetadata : GTLRObject
 
@@ -5504,6 +5564,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        For rest of the other category (Value: "STATE_OTHER")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_StateUnspecified
  *        Value "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Stopped
+ *        Instance is in STOPPED state. (Value: "STOPPED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Suspended
  *        When instance is suspended (Value: "SUSPENDED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Unhealthy
@@ -5551,6 +5613,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        For rest of the other category (Value: "STATE_OTHER")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_StateUnspecified
  *        Value "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_Stopped
+ *        Instance is in STOPPED state. (Value: "STOPPED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_Suspended
  *        When instance is suspended (Value: "SUSPENDED")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_Unhealthy
@@ -5643,6 +5707,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  number.
  */
 @property(nonatomic, copy, nullable) NSString *resourceContainer;
+
+/** Optional. List of resource flags for the database resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_ResourceFlags *> *resourceFlags;
 
 /**
  *  Required. Different from DatabaseResourceId.unique_id, a resource name can
@@ -8260,6 +8327,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  Message type for storing resource flags.
+ */
+@interface GTLRCloudRedis_ResourceFlags : GTLRObject
+
+/** Optional. Key of the resource flag. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Optional. Value of the resource flag. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Deny maintenance period for the database resource. It specifies the time
  *  range during which the maintenance cannot start. This is configured by the
  *  customer.
@@ -8289,14 +8370,59 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 /** Optional. List of Deny maintenance period for the database resource. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_ResourceMaintenanceDenySchedule *> *denyMaintenanceSchedules;
 
+/**
+ *  Optional. Whether the instance is in stopped state. This information is
+ *  temporarily being captured in maintenanceInfo, till STOPPED state is
+ *  supported by DB Center.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isInstanceStopped;
+
 /** Optional. Maintenance window for the database resource. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_ResourceMaintenanceSchedule *maintenanceSchedule;
+
+/**
+ *  Output only. Current state of maintenance on the database resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Creating
+ *        Database resource is being created. (Value: "CREATING")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Deleting
+ *        Database resource is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Error
+ *        Database resource encountered an error and is in indeterministic
+ *        state. (Value: "ERROR")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_MaintenanceStateUnspecified
+ *        Unspecified state. (Value: "MAINTENANCE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Ready
+ *        Database resource has been created and is ready to use. (Value:
+ *        "READY")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Repairing
+ *        Database resource is unheathy and under repair. (Value: "REPAIRING")
+ *    @arg @c kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Updating
+ *        Database resource is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceState;
 
 /**
  *  Optional. Current Maintenance version of the database resource. Example:
  *  "MYSQL_8_0_41.R20250531.01_15"
  */
 @property(nonatomic, copy, nullable) NSString *maintenanceVersion;
+
+/**
+ *  Optional. Upcoming maintenance for the database resource. This field is
+ *  populated once SLM generates and publishes upcoming maintenance window.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_UpcomingMaintenance *upcomingMaintenance;
+
+/**
+ *  Optional. This field will contain the date when the last version update was
+ *  applied to the database resource. This will be used to calculate the age of
+ *  the maintenance version.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *versionUpdateTime;
 
 @end
 
@@ -8592,6 +8718,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** For string value */
 @property(nonatomic, copy, nullable) NSString *stringValue;
+
+@end
+
+
+/**
+ *  Upcoming maintenance for the database resource. This is generated by SLM
+ *  once the upcoming maintenance schedule is published.
+ */
+@interface GTLRCloudRedis_UpcomingMaintenance : GTLRObject
+
+/** Optional. The end time of the upcoming maintenance. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Optional. The start time of the upcoming maintenance. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 

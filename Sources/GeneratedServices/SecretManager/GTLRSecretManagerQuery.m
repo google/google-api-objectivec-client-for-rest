@@ -62,6 +62,82 @@
 
 @end
 
+@implementation GTLRSecretManagerQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRSecretManagerQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_Empty class];
+  query.loggingName = @"secretmanager.projects.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecretManagerQuery_ProjectsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_Empty class];
+  query.loggingName = @"secretmanager.projects.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRSecretManagerQuery_ProjectsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_Operation class];
+  query.loggingName = @"secretmanager.projects.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRSecretManagerQuery_ProjectsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/operations";
+  GTLRSecretManagerQuery_ProjectsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRSecretManager_ListOperationsResponse class];
+  query.loggingName = @"secretmanager.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRSecretManagerQuery_ProjectsLocationsSecretsAddVersion
 
 @dynamic parent;

@@ -239,7 +239,7 @@ NSString * const kGTLRManagedKafkaViewSchemaRegistryViewUnspecified = @"SCHEMA_R
 
 @implementation GTLRManagedKafkaQuery_ProjectsLocationsClustersConsumerGroupsList
 
-@dynamic pageSize, pageToken, parent, view;
+@dynamic filter, pageSize, pageToken, parent, view;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

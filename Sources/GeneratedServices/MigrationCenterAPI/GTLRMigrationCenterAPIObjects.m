@@ -220,6 +220,11 @@ NSString * const kGTLRMigrationCenterAPI_RunningService_State_Paused = @"PAUSED"
 NSString * const kGTLRMigrationCenterAPI_RunningService_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRMigrationCenterAPI_RunningService_State_Stopped = @"STOPPED";
 
+// GTLRMigrationCenterAPI_SignedUriDestination.fileFormat
+NSString * const kGTLRMigrationCenterAPI_SignedUriDestination_FileFormat_Csv = @"CSV";
+NSString * const kGTLRMigrationCenterAPI_SignedUriDestination_FileFormat_FileFormatUnspecified = @"FILE_FORMAT_UNSPECIFIED";
+NSString * const kGTLRMigrationCenterAPI_SignedUriDestination_FileFormat_Xlsx = @"XLSX";
+
 // GTLRMigrationCenterAPI_SoleTenancyPreferences.commitmentPlan
 NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_Commitment1Year = @"COMMITMENT_1_YEAR";
 NSString * const kGTLRMigrationCenterAPI_SoleTenancyPreferences_CommitmentPlan_Commitment3Year = @"COMMITMENT_3_YEAR";
@@ -622,6 +627,99 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMigrationCenterAPI_AssetsExportJob
+//
+
+@implementation GTLRMigrationCenterAPI_AssetsExportJob
+@dynamic condition, createTime, inventory, labels, name, networkDependencies,
+         performanceData, recentExecutions, showHidden, signedUriDestination,
+         updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"recentExecutions" : [GTLRMigrationCenterAPI_AssetsExportJobExecution class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_AssetsExportJob_Labels
+//
+
+@implementation GTLRMigrationCenterAPI_AssetsExportJob_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_AssetsExportJobExecution
+//
+
+@implementation GTLRMigrationCenterAPI_AssetsExportJobExecution
+@dynamic endTime, executionId, expireTime, requestedAssetCount, result,
+         startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_AssetsExportJobExecutionResult
+//
+
+@implementation GTLRMigrationCenterAPI_AssetsExportJobExecutionResult
+@dynamic error, outputFiles, signedUris;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_AssetsExportJobExportCondition
+//
+
+@implementation GTLRMigrationCenterAPI_AssetsExportJobExportCondition
+@dynamic filter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_AssetsExportJobInventory
+//
+
+@implementation GTLRMigrationCenterAPI_AssetsExportJobInventory
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_AssetsExportJobNetworkDependencies
+//
+
+@implementation GTLRMigrationCenterAPI_AssetsExportJobNetworkDependencies
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_AssetsExportJobPerformanceData
+//
+
+@implementation GTLRMigrationCenterAPI_AssetsExportJobPerformanceData
+@dynamic maxDays;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMigrationCenterAPI_AwsEc2PlatformDetails
 //
 
@@ -803,6 +901,16 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 
 @implementation GTLRMigrationCenterAPI_CpuUsageSample
 @dynamic utilizedPercentage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_CsvOutputFile
+//
+
+@implementation GTLRMigrationCenterAPI_CsvOutputFile
+@dynamic columnsCount, rowCount, signedUri;
 @end
 
 
@@ -1516,6 +1624,28 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
     @"insights" : [GTLRMigrationCenterAPI_Insight class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_ListAssetsExportJobsResponse
+//
+
+@implementation GTLRMigrationCenterAPI_ListAssetsExportJobsResponse
+@dynamic assetsExportJobs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"assetsExportJobs" : [GTLRMigrationCenterAPI_AssetsExportJob class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"assetsExportJobs";
 }
 
 @end
@@ -2245,6 +2375,34 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMigrationCenterAPI_OutputFile
+//
+
+@implementation GTLRMigrationCenterAPI_OutputFile
+@dynamic csvOutputFile, fileSizeBytes, xlsxOutputFile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_OutputFileList
+//
+
+@implementation GTLRMigrationCenterAPI_OutputFileList
+@dynamic entries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRMigrationCenterAPI_OutputFile class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMigrationCenterAPI_PerformanceSample
 //
 
@@ -2692,6 +2850,26 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMigrationCenterAPI_RunAssetsExportJobRequest
+//
+
+@implementation GTLRMigrationCenterAPI_RunAssetsExportJobRequest
+@dynamic requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_RunAssetsExportJobResponse
+//
+
+@implementation GTLRMigrationCenterAPI_RunAssetsExportJobResponse
+@dynamic assetsExportJobExecution;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMigrationCenterAPI_RunImportJobRequest
 //
 
@@ -2805,6 +2983,44 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 
 @implementation GTLRMigrationCenterAPI_Settings
 @dynamic disableCloudLogging, name, preferenceSet;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_SignedUri
+//
+
+@implementation GTLRMigrationCenterAPI_SignedUri
+@dynamic file, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_SignedUriDestination
+//
+
+@implementation GTLRMigrationCenterAPI_SignedUriDestination
+@dynamic fileFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_SignedUris
+//
+
+@implementation GTLRMigrationCenterAPI_SignedUris
+@dynamic signedUris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"signedUris" : [GTLRMigrationCenterAPI_SignedUri class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3048,4 +3264,14 @@ NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails_EsxHyperthreading
 @implementation GTLRMigrationCenterAPI_VmwarePlatformDetails
 @dynamic esxHyperthreading, esxVersion, osid, vcenterFolder, vcenterUri,
          vcenterVersion, vcenterVmId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRMigrationCenterAPI_XlsxOutputFile
+//
+
+@implementation GTLRMigrationCenterAPI_XlsxOutputFile
+@dynamic signedUri;
 @end

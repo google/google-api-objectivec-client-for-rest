@@ -367,7 +367,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_BaseImage
-@dynamic layerCount, name, repository;
+@dynamic layerCount, name, registry, repository;
 @end
 
 
@@ -633,7 +633,8 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 
 @implementation GTLROnDemandScanning_DiscoveryOccurrence
 @dynamic analysisCompleted, analysisError, analysisStatus, analysisStatusError,
-         archiveTime, continuousAnalysis, cpe, files, lastScanTime, sbomStatus;
+         archiveTime, continuousAnalysis, cpe, files, lastScanTime,
+         lastVulnerabilityUpdateTime, sbomStatus;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -799,7 +800,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_GrafeasV1BaseImage
-@dynamic layerCount, name, repository;
+@dynamic layerCount, name, registry, repository;
 @end
 
 

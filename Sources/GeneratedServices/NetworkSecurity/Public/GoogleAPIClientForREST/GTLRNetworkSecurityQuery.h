@@ -422,7 +422,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a new FirewallEndpoint in a given project and location.
+ *  Creates a new FirewallEndpoint in a given organization and location.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.create
  *
@@ -459,7 +459,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Creates a new FirewallEndpoint in a given project and location.
+ *  Creates a new FirewallEndpoint in a given organization and location.
  *
  *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
  *    query.
@@ -473,7 +473,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single Endpoint.
+ *  Deletes a single org Endpoint.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.delete
  *
@@ -503,7 +503,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Deletes a single Endpoint.
+ *  Deletes a single org Endpoint.
  *
  *  @param name Required. Name of the resource
  *
@@ -514,7 +514,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single Endpoint.
+ *  Gets details of a single org Endpoint.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.get
  *
@@ -529,7 +529,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_FirewallEndpoint.
  *
- *  Gets details of a single Endpoint.
+ *  Gets details of a single org Endpoint.
  *
  *  @param name Required. Name of the resource
  *
@@ -540,7 +540,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists FirewallEndpoints in a given project and location.
+ *  Lists FirewallEndpoints in a given organization and location.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.list
  *
@@ -570,7 +570,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListFirewallEndpointsResponse.
  *
- *  Lists FirewallEndpoints in a given project and location.
+ *  Lists FirewallEndpoints in a given organization and location.
  *
  *  @param parent Required. Parent value for ListEndpointsRequest
  *
@@ -585,7 +585,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update a single Endpoint.
+ *  Update a single org Endpoint.
  *
  *  Method: networksecurity.organizations.locations.firewallEndpoints.patch
  *
@@ -626,7 +626,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Update a single Endpoint.
+ *  Update a single org Endpoint.
  *
  *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
  *    query.
@@ -919,13 +919,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfileGroupsList : GTLRNetworkSecurityQuery
 
-/** Maximum number of SecurityProfileGroups to return per call. */
+/** Optional. Maximum number of SecurityProfileGroups to return per call. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListSecurityProfileGroupsResponse` Indicates
- *  that this is a continuation of a prior `ListSecurityProfileGroups` call, and
- *  that the system should return the next page of data.
+ *  Optional. The value returned by the last `ListSecurityProfileGroupsResponse`
+ *  Indicates that this is a continuation of a prior `ListSecurityProfileGroups`
+ *  call, and that the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1121,13 +1121,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetworkSecurityQuery_OrganizationsLocationsSecurityProfilesList : GTLRNetworkSecurityQuery
 
-/** Maximum number of SecurityProfiles to return per call. */
+/** Optional. Maximum number of SecurityProfiles to return per call. */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The value returned by the last `ListSecurityProfilesResponse` Indicates that
- *  this is a continuation of a prior `ListSecurityProfiles` call, and that the
- *  system should return the next page of data.
+ *  Optional. The value returned by the last `ListSecurityProfilesResponse`
+ *  Indicates that this is a continuation of a prior `ListSecurityProfiles`
+ *  call, and that the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -3402,7 +3402,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a single Endpoint.
+ *  Deletes a single project Endpoint.
  *
  *  Method: networksecurity.projects.locations.firewallEndpoints.delete
  *
@@ -3432,7 +3432,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Deletes a single Endpoint.
+ *  Deletes a single project Endpoint.
  *
  *  @param name Required. Name of the resource
  *
@@ -3443,7 +3443,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets details of a single Endpoint.
+ *  Gets details of a single project Endpoint.
  *
  *  Method: networksecurity.projects.locations.firewallEndpoints.get
  *
@@ -3458,7 +3458,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_FirewallEndpoint.
  *
- *  Gets details of a single Endpoint.
+ *  Gets details of a single project Endpoint.
  *
  *  @param name Required. Name of the resource
  *
@@ -3514,7 +3514,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Update a single Endpoint.
+ *  Update a single project Endpoint.
  *
  *  Method: networksecurity.projects.locations.firewallEndpoints.patch
  *
@@ -3555,7 +3555,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_Operation.
  *
- *  Update a single Endpoint.
+ *  Update a single project Endpoint.
  *
  *  @param object The @c GTLRNetworkSecurity_FirewallEndpoint to include in the
  *    query.
@@ -4917,7 +4917,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: networksecurity.projects.locations.list
  *
@@ -4957,7 +4961,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkSecurity_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

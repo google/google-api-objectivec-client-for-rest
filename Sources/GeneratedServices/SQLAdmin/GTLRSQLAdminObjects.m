@@ -53,6 +53,7 @@ NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8044 = @"MYSQL_8_0_44
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8045 = @"MYSQL_8_0_45";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql8046 = @"MYSQL_8_0_46";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql84  = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql97  = @"MYSQL_9_7";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -76,6 +77,9 @@ NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Enterprise = 
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2025Enterprise = @"SQLSERVER_2025_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2025Express = @"SQLSERVER_2025_EXPRESS";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2025Standard = @"SQLSERVER_2025_STANDARD";
 
 // GTLRSQLAdmin_Backup.state
 NSString * const kGTLRSQLAdmin_Backup_State_Deleting           = @"DELETING";
@@ -147,6 +151,7 @@ NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8044 = @"MYSQL_8_0
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8045 = @"MYSQL_8_0_45";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql8046 = @"MYSQL_8_0_46";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql97 = @"MYSQL_9_7";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -170,6 +175,9 @@ NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Enterprise
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2025Enterprise = @"SQLSERVER_2025_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2025Express = @"SQLSERVER_2025_EXPRESS";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2025Standard = @"SQLSERVER_2025_STANDARD";
 
 // GTLRSQLAdmin_BackupRun.status
 NSString * const kGTLRSQLAdmin_BackupRun_Status_Deleted        = @"DELETED";
@@ -222,6 +230,7 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8044 = @"MYS
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8045 = @"MYSQL_8_0_45";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql8046 = @"MYSQL_8_0_46";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql97 = @"MYSQL_9_7";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -245,6 +254,9 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Ente
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2025Enterprise = @"SQLSERVER_2025_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2025Express = @"SQLSERVER_2025_EXPRESS";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2025Standard = @"SQLSERVER_2025_STANDARD";
 
 // GTLRSQLAdmin_ConnectSettings.mdxProtocolSupport
 NSString * const kGTLRSQLAdmin_ConnectSettings_MdxProtocolSupport_ClientProtocolType = @"CLIENT_PROTOCOL_TYPE";
@@ -290,6 +302,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8044 = @"MY
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8045 = @"MYSQL_8_0_45";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql8046 = @"MYSQL_8_0_46";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84 = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql97 = @"MYSQL_9_7";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -313,6 +326,9 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Ent
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2025Enterprise = @"SQLSERVER_2025_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2025Express = @"SQLSERVER_2025_EXPRESS";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2025Standard = @"SQLSERVER_2025_STANDARD";
 
 // GTLRSQLAdmin_DatabaseInstance.instanceType
 NSString * const kGTLRSQLAdmin_DatabaseInstance_InstanceType_CloudSqlInstance = @"CLOUD_SQL_INSTANCE";
@@ -351,8 +367,14 @@ NSString * const kGTLRSQLAdmin_DnsNameMapping_ConnectionType_PrivateServicesAcce
 NSString * const kGTLRSQLAdmin_DnsNameMapping_ConnectionType_Public = @"PUBLIC";
 
 // GTLRSQLAdmin_DnsNameMapping.dnsScope
+NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_Cluster = @"CLUSTER";
 NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_DnsScopeUnspecified = @"DNS_SCOPE_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_Instance = @"INSTANCE";
+
+// GTLRSQLAdmin_DnsNameMapping.recordManager
+NSString * const kGTLRSQLAdmin_DnsNameMapping_RecordManager_CloudSqlAutomation = @"CLOUD_SQL_AUTOMATION";
+NSString * const kGTLRSQLAdmin_DnsNameMapping_RecordManager_Customer = @"CUSTOMER";
+NSString * const kGTLRSQLAdmin_DnsNameMapping_RecordManager_RecordManagerUnspecified = @"RECORD_MANAGER_UNSPECIFIED";
 
 // GTLRSQLAdmin_ExecuteSqlPayload.partialResultMode
 NSString * const kGTLRSQLAdmin_ExecuteSqlPayload_PartialResultMode_AllowPartialResult = @"ALLOW_PARTIAL_RESULT";
@@ -400,6 +422,7 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8044        = @"MYSQL_8_0_44"
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8045        = @"MYSQL_8_0_45";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8046        = @"MYSQL_8_0_46";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql84          = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql97          = @"MYSQL_9_7";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres10       = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres11       = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres12       = @"POSTGRES_12";
@@ -423,6 +446,9 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Enterprise = @"SQLSER
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2025Enterprise = @"SQLSERVER_2025_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2025Express = @"SQLSERVER_2025_EXPRESS";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2025Standard = @"SQLSERVER_2025_STANDARD";
 
 // GTLRSQLAdmin_Flag.flagScope
 NSString * const kGTLRSQLAdmin_Flag_FlagScope_SqlFlagScopeConnectionPool = @"SQL_FLAG_SCOPE_CONNECTION_POOL";
@@ -591,6 +617,7 @@ NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabase
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8045 = @"MYSQL_8_0_45";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql8046 = @"MYSQL_8_0_46";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql84 = @"MYSQL_8_4";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql97 = @"MYSQL_9_7";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres10 = @"POSTGRES_10";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres11 = @"POSTGRES_11";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres12 = @"POSTGRES_12";
@@ -614,6 +641,9 @@ NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabase
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Express = @"SQLSERVER_2022_EXPRESS";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Standard = @"SQLSERVER_2022_STANDARD";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Web = @"SQLSERVER_2022_WEB";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2025Enterprise = @"SQLSERVER_2025_ENTERPRISE";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2025Express = @"SQLSERVER_2025_EXPRESS";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2025Standard = @"SQLSERVER_2025_STANDARD";
 
 // GTLRSQLAdmin_PreCheckResponse.messageType
 NSString * const kGTLRSQLAdmin_PreCheckResponse_MessageType_Error = @"ERROR";
@@ -1016,8 +1046,9 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 @implementation GTLRSQLAdmin_CloneContext
 @dynamic allocatedIpRange, binLogCoordinates, databaseNames,
-         destinationInstanceName, kind, pitrTimestampMs, pointInTime,
-         preferredSecondaryZone, preferredZone, sourceInstanceDeletionTime;
+         destinationInstanceName, destinationNetwork, destinationProject, kind,
+         pitrTimestampMs, pointInTime, preferredSecondaryZone, preferredZone,
+         sourceInstanceDeletionTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1378,7 +1409,7 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_DnsNameMapping
-@dynamic connectionType, dnsScope, name;
+@dynamic connectionType, dnsScope, name, recordManager;
 @end
 
 
@@ -1397,8 +1428,8 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_ExecuteSqlPayload
-@dynamic autoIamAuthn, database, partialResultMode, rowLimit, sqlStatement,
-         user;
+@dynamic application, autoIamAuthn, database, partialResultMode, rowLimit,
+         sqlStatement, user;
 @end
 
 
@@ -1721,8 +1752,9 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_InsightsConfig
-@dynamic queryInsightsEnabled, queryPlansPerMinute, queryStringLength,
-         recordApplicationTags, recordClientAddress;
+@dynamic enhancedQueryInsightsEnabled, queryInsightsEnabled,
+         queryPlansPerMinute, queryStringLength, recordApplicationTags,
+         recordClientAddress;
 @end
 
 

@@ -1103,6 +1103,32 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns tags directly bound to a GCP resource.
+ *
+ *  Method: gkebackup.projects.locations.backupPlans.getTags
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansGetTags : GTLRBackupforGKEQuery
+
+/** Required. The full resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_GetTagsResponse.
+ *
+ *  Returns tags directly bound to a GCP resource.
+ *
+ *  @param name Required. The full resource name of the service resource.
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansGetTags
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists BackupPlans in a given location.
  *
  *  Method: gkebackup.projects.locations.backupPlans.list
@@ -1246,6 +1272,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates tags directly bound to a GCP resource.
+ *
+ *  Method: gkebackup.projects.locations.backupPlans.setTags
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansSetTags : GTLRBackupforGKEQuery
+
+/** Required. The full resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_SetTagsResponse.
+ *
+ *  Updates tags directly bound to a GCP resource.
+ *
+ *  @param object The @c GTLRBackupforGKE_SetTagsRequest to include in the
+ *    query.
+ *  @param name Required. The full resource name of the service resource.
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansSetTags
+ */
++ (instancetype)queryWithObject:(GTLRBackupforGKE_SetTagsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Returns permissions that a caller has on the specified resource. If the
  *  resource does not exist, this will return an empty set of permissions, not a
  *  `NOT_FOUND` error. Note: This operation is designed to be used for building
@@ -1316,7 +1371,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: gkebackup.projects.locations.list
  *
@@ -1356,7 +1415,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRBackupforGKE_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -1992,6 +2055,32 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns tags directly bound to a GCP resource.
+ *
+ *  Method: gkebackup.projects.locations.restorePlans.getTags
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansGetTags : GTLRBackupforGKEQuery
+
+/** Required. The full resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_GetTagsResponse.
+ *
+ *  Returns tags directly bound to a GCP resource.
+ *
+ *  @param name Required. The full resource name of the service resource.
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansGetTags
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2705,6 +2794,35 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRBackupforGKE_SetIamPolicyRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Updates tags directly bound to a GCP resource.
+ *
+ *  Method: gkebackup.projects.locations.restorePlans.setTags
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupforGKECloudPlatform
+ */
+@interface GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansSetTags : GTLRBackupforGKEQuery
+
+/** Required. The full resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBackupforGKE_SetTagsResponse.
+ *
+ *  Updates tags directly bound to a GCP resource.
+ *
+ *  @param object The @c GTLRBackupforGKE_SetTagsRequest to include in the
+ *    query.
+ *  @param name Required. The full resource name of the service resource.
+ *
+ *  @return GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansSetTags
+ */
++ (instancetype)queryWithObject:(GTLRBackupforGKE_SetTagsRequest *)object
+                           name:(NSString *)name;
 
 @end
 

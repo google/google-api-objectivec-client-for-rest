@@ -626,7 +626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 
 /**
  *  Required. Name of the pretargeting configuration to get. Format:
- *  bidders/{bidderAccountId}/pretargetingConfig/{configId}
+ *  bidders/{bidderAccountId}/pretargetingConfigs/{configId}
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -636,7 +636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *  Gets a pretargeting configuration.
  *
  *  @param name Required. Name of the pretargeting configuration to get. Format:
- *    bidders/{bidderAccountId}/pretargetingConfig/{configId}
+ *    bidders/{bidderAccountId}/pretargetingConfigs/{configId}
  *
  *  @return GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsGet
  */

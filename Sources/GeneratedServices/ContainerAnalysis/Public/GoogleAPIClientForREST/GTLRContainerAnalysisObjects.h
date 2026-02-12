@@ -3712,6 +3712,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 /** The last time this resource was scanned. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastScanTime;
 
+/** The last time vulnerability scan results changed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastVulnerabilityUpdateTime;
+
 /** The status of an SBOM generation. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_SBOMStatus *sbomStatus;
 
@@ -6658,6 +6661,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  A type of analysis that can be done for a resource.
  */
 @interface GTLRContainerAnalysis_Note : GTLRObject
+
+/** The timestamp when the advisory was first published by the source feed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *advisoryPublishTime;
 
 /** A note describing an attestation role. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_AttestationNote *attestation;

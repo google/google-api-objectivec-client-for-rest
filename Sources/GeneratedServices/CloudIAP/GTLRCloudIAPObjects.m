@@ -331,7 +331,8 @@ NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_PolicyTypeUnspecified =
 //
 
 @implementation GTLRCloudIAP_OAuthSettings
-@dynamic loginHint, programmaticClients;
+@dynamic clientId, clientSecret, clientSecretSha256, loginHint,
+         programmaticClients;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

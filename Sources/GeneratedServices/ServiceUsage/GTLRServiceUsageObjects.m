@@ -332,7 +332,14 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_Aspect
-@dynamic kind, spec;
+@dynamic kind, rules, spec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRServiceUsage_AspectRule class]
+  };
+  return map;
+}
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -349,6 +356,30 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_Aspect_Spec
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AspectRule
+//
+
+@implementation GTLRServiceUsage_AspectRule
+@dynamic config, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_AspectRule_Config
+//
+
+@implementation GTLRServiceUsage_AspectRule_Config
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1441,10 +1472,69 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaMcpEnableRule
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaMcpEnableRule
+@dynamic mcpServices;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mcpServices" : [GTLRServiceUsage_GoogleApiServiceusageV2betaMcpService class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaMcpPolicy
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaMcpPolicy
+@dynamic createTime, ETag, mcpEnableRules, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"mcpEnableRules" : [GTLRServiceUsage_GoogleApiServiceusageV2betaMcpEnableRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaMcpService
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaMcpService
+@dynamic service;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateConsumerPolicyMetadata
 //
 
 @implementation GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateConsumerPolicyMetadata
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateMcpPolicyMetadata
+//
+
+@implementation GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateMcpPolicyMetadata
 @end
 
 

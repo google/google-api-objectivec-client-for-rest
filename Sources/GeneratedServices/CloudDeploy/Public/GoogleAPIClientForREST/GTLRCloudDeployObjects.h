@@ -2649,6 +2649,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_TimedPromoteReleaseOperation *timedPromoteReleaseOperation;
 
+/** Output only. Unique identifier of the `AutomationRun`. */
+@property(nonatomic, copy, nullable) NSString *uid;
+
 /** Output only. Time at which the automationRun was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
@@ -3019,6 +3022,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serviceUrls;
 
+/**
+ *  Output only. The Cloud Run worker pool associated with a `Rollout`. Format
+ *  is `projects/{project}/locations/{location}/workerPools/{worker_pool}`.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPool;
+
 @end
 
 
@@ -3033,6 +3042,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *  Format is `projects/{project}/locations/{location}/services/{service}`.
  */
 @property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Output only. The name of the Cloud Run Worker Pool in the rendered manifest.
+ *  Format is
+ *  `projects/{project}/locations/{location}/workerPools/{worker_pool}`.
+ */
+@property(nonatomic, copy, nullable) NSString *workerPool;
 
 @end
 

@@ -37,6 +37,8 @@ NSString * const kGTLRAdsenseDimensionsAdUnitSizeCode        = @"AD_UNIT_SIZE_CO
 NSString * const kGTLRAdsenseDimensionsAdUnitSizeName        = @"AD_UNIT_SIZE_NAME";
 NSString * const kGTLRAdsenseDimensionsBidTypeCode           = @"BID_TYPE_CODE";
 NSString * const kGTLRAdsenseDimensionsBidTypeName           = @"BID_TYPE_NAME";
+NSString * const kGTLRAdsenseDimensionsBrowserTypeCode       = @"BROWSER_TYPE_CODE";
+NSString * const kGTLRAdsenseDimensionsBrowserTypeName       = @"BROWSER_TYPE_NAME";
 NSString * const kGTLRAdsenseDimensionsBuyerNetworkId        = @"BUYER_NETWORK_ID";
 NSString * const kGTLRAdsenseDimensionsBuyerNetworkName      = @"BUYER_NETWORK_NAME";
 NSString * const kGTLRAdsenseDimensionsContentPlatformCode   = @"CONTENT_PLATFORM_CODE";
@@ -57,6 +59,8 @@ NSString * const kGTLRAdsenseDimensionsDomainRegistrant      = @"DOMAIN_REGISTRA
 NSString * const kGTLRAdsenseDimensionsHostedAdClientId      = @"HOSTED_AD_CLIENT_ID";
 NSString * const kGTLRAdsenseDimensionsHostedCustomChannelId = @"HOSTED_CUSTOM_CHANNEL_ID";
 NSString * const kGTLRAdsenseDimensionsMonth                 = @"MONTH";
+NSString * const kGTLRAdsenseDimensionsOsTypeCode            = @"OS_TYPE_CODE";
+NSString * const kGTLRAdsenseDimensionsOsTypeName            = @"OS_TYPE_NAME";
 NSString * const kGTLRAdsenseDimensionsOwnedSiteDomainName   = @"OWNED_SITE_DOMAIN_NAME";
 NSString * const kGTLRAdsenseDimensionsOwnedSiteId           = @"OWNED_SITE_ID";
 NSString * const kGTLRAdsenseDimensionsPageUrl               = @"PAGE_URL";
@@ -75,6 +79,8 @@ NSString * const kGTLRAdsenseDimensionsTrafficSourceName     = @"TRAFFIC_SOURCE_
 NSString * const kGTLRAdsenseDimensionsUrlChannelId          = @"URL_CHANNEL_ID";
 NSString * const kGTLRAdsenseDimensionsUrlChannelName        = @"URL_CHANNEL_NAME";
 NSString * const kGTLRAdsenseDimensionsWebsearchQueryString  = @"WEBSEARCH_QUERY_STRING";
+NSString * const kGTLRAdsenseDimensionsWebviewTypeCode       = @"WEBVIEW_TYPE_CODE";
+NSString * const kGTLRAdsenseDimensionsWebviewTypeName       = @"WEBVIEW_TYPE_NAME";
 NSString * const kGTLRAdsenseDimensionsWeek                  = @"WEEK";
 
 // metrics

@@ -127,7 +127,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: documentai.projects.locations.list
  *
@@ -167,7 +171,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDocument_GoogleCloudLocationListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -1238,8 +1246,8 @@ GTLR_DEPRECATED
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. We will return the schema groups sorted by creation time. The page
- *  token will point to the next Schema.
+ *  Optional. Returns the schema groups sorted by creation time. The page token
+ *  will point to the next Schema.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1281,7 +1289,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. The update mask to apply to the resource. **Note:** Only the
- *  following fields can be updated: - display_name. - labels.
+ *  following fields can be updated: - `display_name` - `labels`
  *
  *  String format is a comma-separated list of fields.
  */
@@ -1454,8 +1462,8 @@ GTLR_DEPRECATED
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. We will return the SchemaVersion sorted by creation time. The page
- *  token will point to the next SchemaVersion.
+ *  Optional. Returns the SchemaVersion sorted by creation time. The page token
+ *  will point to the next SchemaVersion.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1500,7 +1508,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. The update mask to apply to the resource. **Note:** Only the
- *  following fields can be updated: - display_name. - labels.
+ *  following fields can be updated: - `display_name` - `labels`
  *
  *  String format is a comma-separated list of fields.
  */

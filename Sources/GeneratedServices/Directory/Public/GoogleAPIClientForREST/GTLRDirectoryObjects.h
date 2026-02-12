@@ -2844,6 +2844,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 
 
 /**
+ *  A response for counting ChromeOS devices.
+ */
+@interface GTLRDirectory_CountChromeOsDevicesResponse : GTLRObject
+
+/**
+ *  The total number of devices matching the request.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *count;
+
+@end
+
+
+/**
  *  Request for adding a new printer.
  */
 @interface GTLRDirectory_CreatePrinterRequest : GTLRObject
@@ -5920,6 +5935,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
  *  Directory users guest creation request message.
  */
 @interface GTLRDirectory_UsersCreateGuestRequest : GTLRObject
+
+/** Optional. Immutable ID of the Google Workspace account. */
+@property(nonatomic, copy, nullable) NSString *customer;
 
 /** Immutable. External email of the guest user being created. */
 @property(nonatomic, copy, nullable) NSString *primaryGuestEmail;

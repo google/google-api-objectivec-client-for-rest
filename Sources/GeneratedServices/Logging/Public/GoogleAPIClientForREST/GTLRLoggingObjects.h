@@ -31,6 +31,10 @@
 @class GTLRLogging_Explicit;
 @class GTLRLogging_Exponential;
 @class GTLRLogging_Expr;
+@class GTLRLogging_FieldSource;
+@class GTLRLogging_FilterExpression;
+@class GTLRLogging_FilterPredicate;
+@class GTLRLogging_FunctionApplication;
 @class GTLRLogging_GetPolicyOptions;
 @class GTLRLogging_HttpRequest;
 @class GTLRLogging_IndexConfig;
@@ -69,9 +73,12 @@
 @class GTLRLogging_Operation_Response;
 @class GTLRLogging_OpsAnalyticsQuery;
 @class GTLRLogging_Policy;
+@class GTLRLogging_ProjectedField;
 @class GTLRLogging_Query;
+@class GTLRLogging_QueryBuilderConfig;
 @class GTLRLogging_RecentQuery;
 @class GTLRLogging_SavedQuery;
+@class GTLRLogging_SortOrderParameter;
 @class GTLRLogging_SourceLocation;
 @class GTLRLogging_SourceReference;
 @class GTLRLogging_Status;
@@ -218,6 +225,98 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_DefaultSinkConfig_Mode_FilterWri
  *  Value: "OVERWRITE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLogging_DefaultSinkConfig_Mode_Overwrite;
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_FilterExpression.comparator
+
+/**
+ *  Invalid value, do not use.
+ *
+ *  Value: "COMPARATOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterExpression_Comparator_ComparatorUnspecified;
+/**
+ *  The value is equal to the inputted value.
+ *
+ *  Value: "EQUALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterExpression_Comparator_Equals;
+/**
+ *  The value is greater than the inputted value.
+ *
+ *  Value: "GREATER_THAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterExpression_Comparator_GreaterThan;
+/**
+ *  The value is greater than or equal to the inputted value.
+ *
+ *  Value: "GREATER_THAN_EQUALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterExpression_Comparator_GreaterThanEquals;
+/**
+ *  The value is in the inputted array value.
+ *
+ *  Value: "IN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterExpression_Comparator_In;
+/**
+ *  Requires the filter_value to be a Value type with null_value set to true.
+ *
+ *  Value: "IS_NULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterExpression_Comparator_IsNull;
+/**
+ *  The value is less than the inputted value.
+ *
+ *  Value: "LESS_THAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterExpression_Comparator_LessThan;
+/**
+ *  The value is less than or equal to the inputted value.
+ *
+ *  Value: "LESS_THAN_EQUALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterExpression_Comparator_LessThanEquals;
+/**
+ *  The value is like the inputted value.
+ *
+ *  Value: "LIKE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterExpression_Comparator_Like;
+/**
+ *  The value is equal to the inputted regex value.
+ *
+ *  Value: "MATCHES_REGEXP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterExpression_Comparator_MatchesRegexp;
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_FilterPredicate.operatorType
+
+/**
+ *  AND will be the default operator type.
+ *
+ *  Value: "AND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterPredicate_OperatorType_And;
+/**
+ *  LEAF operator type.
+ *
+ *  Value: "LEAF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterPredicate_OperatorType_Leaf;
+/**
+ *  Invalid value, do not use.
+ *
+ *  Value: "OPERATOR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterPredicate_OperatorType_OperatorTypeUnspecified;
+/**
+ *  OR operator type.
+ *
+ *  Value: "OR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_FilterPredicate_OperatorType_Or;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_IndexConfig.type
@@ -881,6 +980,39 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_Laun
 FOUNDATION_EXTERN NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented;
 
 // ----------------------------------------------------------------------------
+// GTLRLogging_ProjectedField.operation
+
+/**
+ *  Apply an aggregation function to this field across grouped results.
+ *  Corresponds to applying a function like COUNT, SUM, AVG in the SELECT list.
+ *  Requires sql_aggregation_function to be set.
+ *
+ *  Value: "AGGREGATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_ProjectedField_Operation_Aggregate;
+/**
+ *  Invalid value. Operation must be specified.
+ *
+ *  Value: "FIELD_OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_ProjectedField_Operation_FieldOperationUnspecified;
+/**
+ *  Group the query results by the distinct values of this field. Corresponds to
+ *  including the field (potentially truncated) in the GROUP BY clause.
+ *
+ *  Value: "GROUP_BY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_ProjectedField_Operation_GroupBy;
+/**
+ *  Select the field directly without grouping or aggregation. Corresponds to
+ *  including the raw field (potentially with cast, regex, or alias) in the
+ *  SELECT list.
+ *
+ *  Value: "NO_SETTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_ProjectedField_Operation_NoSetting;
+
+// ----------------------------------------------------------------------------
 // GTLRLogging_SavedQuery.visibility
 
 /**
@@ -902,6 +1034,36 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SavedQuery_Visibility_Shared;
  *  Value: "VISIBILITY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRLogging_SavedQuery_Visibility_VisibilityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRLogging_SortOrderParameter.sortOrderDirection
+
+/**
+ *  The lowest-valued entries will be selected.
+ *
+ *  Value: "SORT_ORDER_ASCENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderAscending;
+/**
+ *  The highest-valued entries will be selected.
+ *
+ *  Value: "SORT_ORDER_DESCENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderDescending;
+/**
+ *  No sorting will be applied. This is used to determine if the query is in
+ *  pass thru mode. To correctly chart a query in pass thru mode, NONE will need
+ *  to be sent
+ *
+ *  Value: "SORT_ORDER_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderNone;
+/**
+ *  Invalid value, do not use.
+ *
+ *  Value: "SORT_ORDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRLogging_SuppressionInfo.reason
@@ -1039,12 +1201,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Optional. Whether to use BigQuery's partition tables
- *  (https://cloud.google.com/bigquery/docs/partitioned-tables). By default,
- *  Cloud Logging creates dated tables based on the log entries' timestamps,
- *  e.g. syslog_20170523. With partitioned tables the date suffix is no longer
- *  present and special query syntax
- *  (https://cloud.google.com/bigquery/docs/querying-partitioned-tables) has to
- *  be used instead. In both cases, tables are sharded based on UTC timezone.
+ *  (https://docs.cloud.google.com/bigquery/docs/partitioned-tables). By
+ *  default, Cloud Logging creates dated tables based on the log entries'
+ *  timestamps, e.g. syslog_20170523. With partitioned tables the date suffix is
+ *  no longer present and special query syntax
+ *  (https://docs.cloud.google.com/bigquery/docs/querying-partitioned-tables)
+ *  has to be used instead. In both cases, tables are sharded based on UTC
+ *  timezone.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1237,9 +1400,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  with a project, folder, organization, billing account, or flexible
  *  resource.Note: CMEK for the Log Router can currently only be configured for
  *  Google Cloud organizations. Once configured, it applies to all projects and
- *  folders in the Google Cloud organization.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  folders in the Google Cloud organization.See Configure CMEK for Cloud
+ *  Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  */
 @interface GTLRLogging_CmekSettings : GTLRObject
 
@@ -1258,9 +1422,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  the key that was in use when they started. Decryption operations will be
  *  completed using the key that was used at the time of encryption unless
  *  access to that key has been revoked.To disable CMEK for the Log Router, set
- *  this field to an empty string.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  this field to an empty string.See Configure CMEK for Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
@@ -1285,9 +1449,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  access your Cloud KMS key.Before enabling CMEK for Log Router, you must
  *  first assign the cloudkms.cryptoKeyEncrypterDecrypter role to the service
  *  account that the Log Router will use to access your Cloud KMS key. Use
- *  GetCmekSettings to obtain the service account ID.See Enabling CMEK for Log
- *  Router (https://cloud.google.com/logging/docs/routing/managed-encryption)
- *  for more information.
+ *  GetCmekSettings to obtain the service account ID.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountId;
 
@@ -1484,9 +1649,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Optional. An advanced logs filter
- *  (https://cloud.google.com/logging/docs/view/advanced-queries). The only
- *  exported log entries are those that are in the resource owning the sink and
- *  that match the filter.For
+ *  (https://docs.cloud.google.com/logging/docs/view/building-queries#queries-by-expression).
+ *  The only exported log entries are those that are in the resource owning the
+ *  sink and that match the filter.For
  *  example:logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND severity>=ERRORTo
  *  match all logs, don't add exclusions and use the following line as the value
  *  of filter:logName:*Cannot be empty or unset when the value of mode is
@@ -1642,6 +1807,207 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  purpose. This can be used e.g. in UIs which allow to enter the expression.
  */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A source that can be used to represent a field within various parts of a
+ *  structured query, such as in SELECT, WHERE, or ORDER BY clauses.
+ */
+@interface GTLRLogging_FieldSource : GTLRObject
+
+/**
+ *  The alias name for a field that has already been aliased within a different
+ *  ProjectedField type elsewhere in the query model. The alias must be defined
+ *  in the QueryBuilderConfig's field_sources list, otherwise the model is
+ *  invalid.
+ */
+@property(nonatomic, copy, nullable) NSString *aliasRef;
+
+/**
+ *  The type of the selected field. This comes from the schema. Can be one of
+ *  the BigQuery data types: - STRING - INT64 - FLOAT64 - BOOL - TIMESTAMP -
+ *  DATE - RECORD - JSON
+ */
+@property(nonatomic, copy, nullable) NSString *columnType;
+
+/**
+ *  The fully qualified, dot-delimited path to the selected atomic field (the
+ *  leaf value). This path is used for primary selection and actions like
+ *  drill-down or projection.The path components should match the exact field
+ *  names or keys as they appear in the underlying data schema. For JSON fields,
+ *  this means respecting the original casing (e.g., camelCase or snake_case as
+ *  present in the JSON).To reference field names containing special characters
+ *  (e.g., hyphens, spaces), enclose the individual path segment in backticks
+ *  (`).Examples: * json_payload.labels.message * json_payload.request_id *
+ *  httpRequest.status * json_payload.\\my-custom-field`.value *jsonPayload.`my
+ *  key with spaces`.data`
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/**
+ *  Whether the field is a JSON field, or has a parent that is a JSON field.
+ *  This value is used to determine JSON extractions in generated SQL queries.
+ *  Note that this is_json flag may be true when the column_type is not JSON if
+ *  the parent is a JSON field. Ex: - A json_payload.message field might have
+ *  is_json=true, since the 'json_payload' parent is of type JSON, and
+ *  columnType='STRING' if the 'message' field is of type STRING.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isJson;
+
+/**
+ *  The dot-delimited path of the parent container that holds the target
+ *  field.This path defines the structural hierarchy and is essential for
+ *  correctly generating SQL when field keys contain special characters (e.g.,
+ *  dots or brackets).Example: json_payload.labels (This points to the 'labels'
+ *  object). This is an empty string if the target field is at the root level.
+ */
+@property(nonatomic, copy, nullable) NSString *parentPath;
+
+/**
+ *  A projected field option for when a user wants to use a field with some
+ *  additional transformations such as casting or extractions.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_ProjectedField *projectedField;
+
+@end
+
+
+/**
+ *  This is a leaf of the FilterPredicate. Ex: { field:
+ *  json_payload.message.error_code, filter_value: {numeric_value: 400},
+ *  comparator: EQUAL_TO} The field will be schema field that is selected using
+ *  the . annotation to display the drill down value. The value will be the user
+ *  inputted text that the filter is comparing against.
+ */
+@interface GTLRLogging_FilterExpression : GTLRObject
+
+/**
+ *  The comparison type to use for the filter.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_FilterExpression_Comparator_ComparatorUnspecified
+ *        Invalid value, do not use. (Value: "COMPARATOR_UNSPECIFIED")
+ *    @arg @c kGTLRLogging_FilterExpression_Comparator_Equals The value is equal
+ *        to the inputted value. (Value: "EQUALS")
+ *    @arg @c kGTLRLogging_FilterExpression_Comparator_GreaterThan The value is
+ *        greater than the inputted value. (Value: "GREATER_THAN")
+ *    @arg @c kGTLRLogging_FilterExpression_Comparator_GreaterThanEquals The
+ *        value is greater than or equal to the inputted value. (Value:
+ *        "GREATER_THAN_EQUALS")
+ *    @arg @c kGTLRLogging_FilterExpression_Comparator_In The value is in the
+ *        inputted array value. (Value: "IN")
+ *    @arg @c kGTLRLogging_FilterExpression_Comparator_IsNull Requires the
+ *        filter_value to be a Value type with null_value set to true. (Value:
+ *        "IS_NULL")
+ *    @arg @c kGTLRLogging_FilterExpression_Comparator_LessThan The value is
+ *        less than the inputted value. (Value: "LESS_THAN")
+ *    @arg @c kGTLRLogging_FilterExpression_Comparator_LessThanEquals The value
+ *        is less than or equal to the inputted value. (Value:
+ *        "LESS_THAN_EQUALS")
+ *    @arg @c kGTLRLogging_FilterExpression_Comparator_Like The value is like
+ *        the inputted value. (Value: "LIKE")
+ *    @arg @c kGTLRLogging_FilterExpression_Comparator_MatchesRegexp The value
+ *        is equal to the inputted regex value. (Value: "MATCHES_REGEXP")
+ */
+@property(nonatomic, copy, nullable) NSString *comparator;
+
+/**
+ *  Can be one of the FieldSource types: field name, alias ref, variable ref, or
+ *  a literal value.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_FieldSource *fieldSource;
+
+/**
+ *  The field. This will be the field that is set as the Right Hand Side of the
+ *  filter.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_FieldSource *fieldSourceValue;
+
+/**
+ *  Determines if the NOT flag should be added to the comparator.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isNegation;
+
+/**
+ *  The Value will be used to hold user defined constants set as the Right Hand
+ *  Side of the filter.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id literalValue;
+
+@end
+
+
+/**
+ *  A filter for a query. This equates to the WHERE clause in SQL.
+ */
+@interface GTLRLogging_FilterPredicate : GTLRObject
+
+/**
+ *  The children of the filter predicate. This equates to the branches of the
+ *  filter predicate that could contain further nested leaves.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_FilterPredicate *> *childPredicates;
+
+/**
+ *  The leaves of the filter predicate. This equates to the last leaves of the
+ *  filter predicate associated with an operator.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_FilterExpression *leafPredicate;
+
+/**
+ *  The operator type for the filter. Currently there is no support for multiple
+ *  levels of nesting, so this will be a single value with no joining of
+ *  different operator types
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_FilterPredicate_OperatorType_And AND will be the
+ *        default operator type. (Value: "AND")
+ *    @arg @c kGTLRLogging_FilterPredicate_OperatorType_Leaf LEAF operator type.
+ *        (Value: "LEAF")
+ *    @arg @c kGTLRLogging_FilterPredicate_OperatorType_OperatorTypeUnspecified
+ *        Invalid value, do not use. (Value: "OPERATOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRLogging_FilterPredicate_OperatorType_Or OR operator type.
+ *        (Value: "OR")
+ */
+@property(nonatomic, copy, nullable) NSString *operatorType;
+
+@end
+
+
+/**
+ *  Defines the aggregation function to apply to this field. This message is
+ *  used only when operation is set to AGGREGATE.
+ */
+@interface GTLRLogging_FunctionApplication : GTLRObject
+
+/**
+ *  Optional. Parameters to be applied to the aggregation. Aggregations that
+ *  support or require parameters are listed above.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) NSArray *parameters;
+
+/**
+ *  Required. Specifies the aggregation function. Use one of the following
+ *  string identifiers: "average": Computes the average (AVG). Applies only to
+ *  numeric values. "count": Counts the number of values (COUNT).
+ *  "count-distinct": Counts the number of distinct values (COUNT DISTINCT).
+ *  "count-distinct-approx": Approximates the count of distinct values
+ *  (APPROX_COUNT_DISTINCT). "max": Finds the maximum value (MAX). Applies only
+ *  to numeric values. "min": Finds the minimum value (MIN). Applies only to
+ *  numeric values. "sum": Computes the sum (SUM). Applies only to numeric
+ *  values.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -1808,8 +2174,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Required. The LogEntry field path to index.Note that some paths are
  *  automatically indexed, and other paths are not eligible for indexing. See
  *  indexing documentation(
- *  https://cloud.google.com/logging/docs/analyze/custom-index) for details.For
- *  example: jsonPayload.request.status
+ *  https://docs.cloud.google.com/logging/docs/analyze/custom-index) for
+ *  details.For example: jsonPayload.request.status
  */
 @property(nonatomic, copy, nullable) NSString *fieldPath;
 
@@ -2655,8 +3021,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Output only. The resource name of the bucket.For
  *  example:projects/my-project/locations/global/buckets/my-bucketFor a list of
  *  supported locations, see Supported Regions
- *  (https://cloud.google.com/logging/docs/region-support)For the location of
- *  global it is unspecified where log entries are actually stored.After a
+ *  (https://docs.cloud.google.com/logging/docs/region-support)For the location
+ *  of global it is unspecified where log entries are actually stored.After a
  *  bucket has been created, the location cannot be changed.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2751,7 +3117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Optional. A map of key, value pairs that provides additional information
  *  about the log entry. The labels can be user-defined or
  *  system-defined.User-defined labels are arbitrary key, value pairs that you
- *  can use to classify logs.System-defined labels are defined by GCP services
+ *  can use to classify logs.System-defined labels are defined by cloud services
  *  for platform logs. They have two components - a service namespace component
  *  and the attribute name. For example:
  *  compute.googleapis.com/resource_name.Cloud Logging truncates label keys that
@@ -2846,25 +3212,23 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntrySourceLocation *sourceLocation;
 
 /**
- *  Optional. The ID of the Cloud Trace (https://cloud.google.com/trace) span
- *  associated with the current operation in which the log is being written. For
- *  example, if a span has the REST resource name of
- *  "projects/some-project/traces/some-trace/spans/some-span-id", then the
- *  span_id field is "some-span-id".A Span
- *  (https://cloud.google.com/trace/docs/reference/v2/rest/v2/projects.traces/batchWrite#Span)
+ *  Optional. The ID of the Cloud Trace
+ *  (https://docs.cloud.google.com/trace/docs) span associated with the current
+ *  operation in which the log is being written.A Span
+ *  (https://docs.cloud.google.com/trace/docs/reference/v2/rest/v2/projects.traces/batchWrite#Span)
  *  represents a single operation within a trace. Whereas a trace may involve
  *  multiple different microservices running on multiple different machines, a
  *  span generally corresponds to a single logical operation being performed in
  *  a single instance of a microservice on one specific machine. Spans are the
  *  nodes within the tree that is a trace.Applications that are instrumented for
- *  tracing (https://cloud.google.com/trace/docs/setup) will generally assign a
- *  new, unique span ID on each incoming request. It is also common to create
- *  and record additional spans corresponding to internal processing elements as
- *  well as issuing requests to dependencies.The span ID is expected to be a
- *  16-character, hexadecimal encoding of an 8-byte array and should not be
- *  zero. It should be unique within the trace and should, ideally, be generated
- *  in a manner that is uniformly random.Example values: 000000000000004a
- *  7a2190356c3fc94b 0000f00300090021 d39223e101960076
+ *  tracing (https://docs.cloud.google.com/trace/docs/setup) will generally
+ *  assign a new, unique span ID on each incoming request. It is also common to
+ *  create and record additional spans corresponding to internal processing
+ *  elements as well as issuing requests to dependencies.The span ID is expected
+ *  to be a 16-character, hexadecimal encoding of an 8-byte array and should not
+ *  be zero. It should be unique within the trace and should, ideally, be
+ *  generated in a manner that is uniformly random.Example values:
+ *  000000000000004a 7a2190356c3fc94b 0000f00300090021 d39223e101960076
  */
 @property(nonatomic, copy, nullable) NSString *spanId;
 
@@ -2892,14 +3256,16 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
 /**
- *  Optional. The REST resource name of the trace being written to Cloud Trace
- *  (https://cloud.google.com/trace) in association with this log entry. For
- *  example, if your trace data is stored in the Cloud project
+ *  Optional. The trace ID being written to Cloud Trace
+ *  (https://docs.cloud.google.com/trace/docs) in association with this log
+ *  entry. For example, if your trace data is stored in the Cloud project
  *  "my-trace-project" and if the service that is creating the log entry
  *  receives a trace header that includes the trace ID "12345", then the service
- *  should use "projects/my-trace-project/traces/12345".The trace field provides
- *  the link between logs and traces. By using this field, you can navigate from
- *  a log entry to a trace.
+ *  should use "12345".The REST resource name of the trace is also supported,
+ *  but using this format is not recommended. An example trace REST resource
+ *  name is similar to "projects/my-trace-project/traces/12345".The trace field
+ *  provides the link between logs and traces. By using this field, you can
+ *  navigate from a log entry to a trace.
  */
 @property(nonatomic, copy, nullable) NSString *trace;
 
@@ -2935,7 +3301,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Optional. A map of key, value pairs that provides additional information
  *  about the log entry. The labels can be user-defined or
  *  system-defined.User-defined labels are arbitrary key, value pairs that you
- *  can use to classify logs.System-defined labels are defined by GCP services
+ *  can use to classify logs.System-defined labels are defined by cloud services
  *  for platform logs. They have two components - a service namespace component
  *  and the attribute name. For example:
  *  compute.googleapis.com/resource_name.Cloud Logging truncates label keys that
@@ -3092,10 +3458,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Required. An advanced logs filter
- *  (https://cloud.google.com/logging/docs/view/advanced-queries) that matches
- *  the log entries to be excluded. By using the sample function
- *  (https://cloud.google.com/logging/docs/view/advanced-queries#sample), you
- *  can exclude less than 100% of the matching log entries.For example, the
+ *  (https://docs.cloud.google.com/logging/docs/view/building-queries#queries-by-expression)
+ *  that matches the log entries to be excluded. By using the sample function
+ *  (https://docs.cloud.google.com/logging/docs/view/logging-query-language#sample),
+ *  you can exclude less than 100% of the matching log entries.For example, the
  *  following query matches 99% of low-severity log entries from Google Cloud
  *  Storage buckets:resource.type=gcs_bucket severity<ERROR sample(insertId,
  *  0.99)
@@ -3402,8 +3768,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  "logging.googleapis.com/projects/[PROJECT_ID]/locations/[LOCATION_ID]/buckets/[BUCKET_ID]"
  *  The sink's writer_identity, set when the sink is created, must have
  *  permission to write to the destination or else the log entries are not
- *  exported. For more information, see Exporting Logs with Sinks
- *  (https://cloud.google.com/logging/docs/api/tasks/exporting-logs).
+ *  exported. For more information, see Route logs to supported destinations
+ *  (https://docs.cloud.google.com/logging/docs/export/configure_export_v2).
  */
 @property(nonatomic, copy, nullable) NSString *destination;
 
@@ -3424,9 +3790,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Optional. An advanced logs filter
- *  (https://cloud.google.com/logging/docs/view/advanced-queries). The only
- *  exported log entries are those that are in the resource owning the sink and
- *  that match the filter.For
+ *  (https://docs.cloud.google.com/logging/docs/view/building-queries#queries-by-expression).
+ *  The only exported log entries are those that are in the resource owning the
+ *  sink and that match the filter.For
  *  example:logName="projects/[PROJECT_ID]/logs/[LOG_ID]" AND severity>=ERROR
  */
 @property(nonatomic, copy, nullable) NSString *filter;
@@ -3509,8 +3875,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  automatically by sinks.create and sinks.update based on the value of
  *  unique_writer_identity in those methods.Until you grant this identity
  *  write-access to the destination, log entry exports from this sink will fail.
- *  For more information, see Granting Access for a Resource
- *  (https://cloud.google.com/iam/docs/granting-roles-to-service-accounts#granting_access_to_a_service_account_for_a_resource).
+ *  For more information, see Manage access to projects, folders, and
+ *  organizations
+ *  (https://docs.cloud.google.com/iam/docs/granting-roles-to-service-accounts#granting_access_to_a_service_account_for_a_resource).
  *  Consult the destination service's documentation to determine the appropriate
  *  IAM roles to assign to the identity.Sinks that have a destination that is a
  *  log bucket in the same project as the sink cannot have a writer_identity and
@@ -4147,16 +4514,21 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  Describes an analytics query that can be run in the Log Analytics page of
- *  Google Cloud console.Preview: This is a preview feature and may be subject
- *  to change before final release.
+ *  Describes a query that can be run in Log Analytics.
  */
 @interface GTLRLogging_OpsAnalyticsQuery : GTLRObject
 
 /**
- *  Required. A logs analytics SQL query, which generally follows BigQuery
- *  format.This is the SQL query that appears in the Log Analytics UI's query
- *  editor.
+ *  Optional. A query builder configuration used in Log Analytics.If both
+ *  query_builder and sql_query_text fields are set, then the sql_query_text
+ *  will be used, if its non-empty. At least one of the two fields must be set.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_QueryBuilderConfig *queryBuilder;
+
+/**
+ *  Optional. A Log Analytics SQL query in text format.If both sql_query_text
+ *  and query_builder fields are set, then the sql_query_text will be used, if
+ *  its non-empty. At least one of the two fields must be set.
  */
 @property(nonatomic, copy, nullable) NSString *sqlQueryText;
 
@@ -4251,6 +4623,89 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  Represents a field selected in the query, analogous to an item in a SQL
+ *  SELECT clause. It specifies the source field and optionally applies
+ *  transformations like aggregation, casting, regex extraction, or assigns an
+ *  alias. Use ProjectedField when you need more than just the raw source field
+ *  name (for which you might use FieldSource directly in QueryBuilderConfig's
+ *  field_sources list if no transformations or specific operation type are
+ *  needed).
+ */
+@interface GTLRLogging_ProjectedField : GTLRObject
+
+/**
+ *  The alias name for the field. Valid alias examples are: - single word alias:
+ *  TestAlias - numbers in an alias: Alias123 - multi word alias should be
+ *  enclosed in quotes: "Test Alias" Invalid alias examples are: - alias
+ *  containing keywords: WHERE, SELECT, FROM, etc. - alias starting with a
+ *  number: 1stAlias
+ */
+@property(nonatomic, copy, nullable) NSString *alias;
+
+/**
+ *  The cast for the field. This can any SQL cast type. Examples: - STRING -
+ *  CHAR - DATE - TIMESTAMP - DATETIME - INT - FLOAT
+ */
+@property(nonatomic, copy, nullable) NSString *cast;
+
+/**
+ *  The field name. This will be the field that is selected using the dot
+ *  notation to display the drill down value.
+ */
+@property(nonatomic, copy, nullable) NSString *field;
+
+/**
+ *  Specifies the role of this field (direct selection, grouping, or
+ *  aggregation).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_ProjectedField_Operation_Aggregate Apply an
+ *        aggregation function to this field across grouped results. Corresponds
+ *        to applying a function like COUNT, SUM, AVG in the SELECT list.
+ *        Requires sql_aggregation_function to be set. (Value: "AGGREGATE")
+ *    @arg @c kGTLRLogging_ProjectedField_Operation_FieldOperationUnspecified
+ *        Invalid value. Operation must be specified. (Value:
+ *        "FIELD_OPERATION_UNSPECIFIED")
+ *    @arg @c kGTLRLogging_ProjectedField_Operation_GroupBy Group the query
+ *        results by the distinct values of this field. Corresponds to including
+ *        the field (potentially truncated) in the GROUP BY clause. (Value:
+ *        "GROUP_BY")
+ *    @arg @c kGTLRLogging_ProjectedField_Operation_NoSetting Select the field
+ *        directly without grouping or aggregation. Corresponds to including the
+ *        raw field (potentially with cast, regex, or alias) in the SELECT list.
+ *        (Value: "NO_SETTING")
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/**
+ *  The re2 extraction for the field. This will be used to extract the value
+ *  from the field using REGEXP_EXTRACT. More information on re2 can be found
+ *  here: https://github.com/google/re2/wiki/Syntax. Meta characters like +?()|
+ *  will need to be escaped. Examples: - ".(autoscaler.*)$" will be converted to
+ *  REGEXP_EXTRACT(JSON_VALUE(field),"request(.*(autoscaler.*)$)")in SQL. -
+ *  "\\(test_value\\)$" will be converted to
+ *  REGEXP_EXTRACT(JSON_VALUE(field),"request(\\(test_value\\)$)") in SQL.
+ */
+@property(nonatomic, copy, nullable) NSString *regexExtraction;
+
+/** The function to apply to the field. */
+@property(nonatomic, strong, nullable) GTLRLogging_FunctionApplication *sqlAggregationFunction;
+
+/**
+ *  The truncation granularity when grouping by a time/date field. This will be
+ *  used to truncate the field to the granularity specified. This can be either
+ *  a date or a time granularity found at
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions#timestamp_trunc_granularity_date
+ *  and
+ *  https://cloud.google.com/bigquery/docs/reference/standard-sql/timestamp_functions#timestamp_trunc_granularity_time
+ *  respectively.
+ */
+@property(nonatomic, copy, nullable) NSString *truncationGranularity;
+
+@end
+
+
+/**
  *  Describes a Cloud Logging query that can be run in Logs Explorer UI or via
  *  the logging API.In addition to the query itself, additional information may
  *  be stored to capture the display configuration and other UI state used in
@@ -4260,8 +4715,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  Required. An advanced query using the Logging Query Language
- *  (https://cloud.google.com/logging/docs/view/logging-query-language). The
- *  maximum length of the filter is 20000 characters.
+ *  (https://docs.cloud.google.com/logging/docs/view/logging-query-language).
+ *  The maximum length of the filter is 20000 characters.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4286,6 +4741,60 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  Defines a structured query configuration that can be used instead of writing
+ *  raw SQL. This configuration represents the components of a SQL query (FROM,
+ *  SELECT, WHERE, ORDER BY, LIMIT) and is typically converted into an
+ *  executable query (e.g., BigQuery SQL) by the backend service to retrieve
+ *  data for analysis or visualization.
+ */
+@interface GTLRLogging_QueryBuilderConfig : GTLRObject
+
+/**
+ *  Defines the items to include in the query result, analogous to a SQL SELECT
+ *  clause.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_FieldSource *> *fieldSources;
+
+/**
+ *  The filter to use for the query. This equates to the WHERE clause in SQL.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_FilterPredicate *filter;
+
+/**
+ *  The limit to use for the query. This equates to the LIMIT clause in SQL. A
+ *  limit of 0 will be treated as not enabled.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *limit;
+
+/**
+ *  The sort orders to use for the query. This equates to the ORDER BY clause in
+ *  SQL.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRLogging_SortOrderParameter *> *orderBys;
+
+/**
+ *  Required. The view/resource to query. For now only a single view/resource
+ *  will be sent, but there are plans to allow multiple views in the future.
+ *  Marking as repeated for that purpose. Example: -
+ *  "projects/123/locations/global/buckets/456/views/_Default" -
+ *  "projects/123/locations/global/metricBuckets/456/views/_Default"
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceNames;
+
+/**
+ *  The plain text search to use for the query. There is no support for multiple
+ *  search terms. This uses the SEARCH functionality in BigQuery. For example, a
+ *  search_term = 'ERROR' would result in the following SQL:SELECT * FROM
+ *  resource WHERE SEARCH(resource, 'ERROR') LIMIT 100
+ */
+@property(nonatomic, copy, nullable) NSString *searchTerm;
+
+@end
+
+
+/**
  *  Describes a recent query executed on the Logs Explorer or Log Analytics page
  *  within the last ~ 30 days.
  */
@@ -4301,7 +4810,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Output only. Resource name of the recent query.In the format:
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/recentQueries/[QUERY_ID]" For
  *  a list of supported locations, see Supported Regions
- *  (https://cloud.google.com/logging/docs/region-support)The QUERY_ID is a
+ *  (https://docs.cloud.google.com/logging/docs/region-support)The QUERY_ID is a
  *  system generated alphanumeric ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -4509,7 +5018,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  Output only. Resource name of the saved query.In the format:
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
  *  a list of supported locations, see Supported Regions
- *  (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *  (https://docs.cloud.google.com/logging/docs/region-support#bucket-regions)After
  *  the saved query is created, the location cannot be changed.If the user
  *  doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
  */
@@ -4593,10 +5102,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  service account has the required roles/cloudkms.cryptoKeyEncrypterDecrypter
  *  role assigned for the key.The Cloud KMS key used by the Log Router can be
  *  updated by changing the kms_key_name to a new valid key name.To disable CMEK
- *  for the Log Router, set this field to an empty string.See Enabling CMEK for
- *  Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  for the Log Router, set this field to an empty string.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
@@ -4605,9 +5114,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  access your Cloud KMS key.Before enabling CMEK, you must first assign the
  *  role roles/cloudkms.cryptoKeyEncrypterDecrypter to the service account that
  *  will be used to access your Cloud KMS key. Use GetSettings to obtain the
- *  service account ID.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  service account ID.See Configure CMEK for Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  */
 @property(nonatomic, copy, nullable) NSString *kmsServiceAccountId;
 
@@ -4630,6 +5139,39 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  when created, such as custom log buckets.
  */
 @property(nonatomic, copy, nullable) NSString *storageLocation;
+
+@end
+
+
+/**
+ *  A sort order for a query based on a column.
+ */
+@interface GTLRLogging_SortOrderParameter : GTLRObject
+
+/**
+ *  The field to sort on. Can be one of the FieldSource types: field name, alias
+ *  ref, variable ref, or a literal value.
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_FieldSource *fieldSource;
+
+/**
+ *  The sort order to use for the query.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderAscending
+ *        The lowest-valued entries will be selected. (Value:
+ *        "SORT_ORDER_ASCENDING")
+ *    @arg @c kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderDescending
+ *        The highest-valued entries will be selected. (Value:
+ *        "SORT_ORDER_DESCENDING")
+ *    @arg @c kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderNone
+ *        No sorting will be applied. This is used to determine if the query is
+ *        in pass thru mode. To correctly chart a query in pass thru mode, NONE
+ *        will need to be sent (Value: "SORT_ORDER_NONE")
+ *    @arg @c kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderUnspecified
+ *        Invalid value, do not use. (Value: "SORT_ORDER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sortOrderDirection;
 
 @end
 
@@ -4732,7 +5274,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 /**
  *  A field from the LogEntry that is added to the summary line
- *  (https://cloud.google.com/logging/docs/view/logs-explorer-interface#add-summary-fields)
+ *  (https://docs.cloud.google.com/logging/docs/view/logs-explorer-interface#preferences)
  *  for a query in the Logs Explorer.
  */
 @interface GTLRLogging_SummaryField : GTLRObject

@@ -1253,6 +1253,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /** The name of the base image. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** The registry in which the base image is from. */
+@property(nonatomic, copy, nullable) NSString *registry;
+
 /** The repository name in which the base image is from. */
 @property(nonatomic, copy, nullable) NSString *repository;
 
@@ -1917,6 +1920,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 /** The last time this resource was scanned. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastScanTime;
 
+/** The last time vulnerability scan results changed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastVulnerabilityUpdateTime;
+
 /** The status of an SBOM generation. */
 @property(nonatomic, strong, nullable) GTLROnDemandScanning_SBOMStatus *sbomStatus;
 
@@ -2141,6 +2147,9 @@ FOUNDATION_EXTERN NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence
 
 /** The name of the base image. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** The registry in which the base image is from. */
+@property(nonatomic, copy, nullable) NSString *registry;
 
 /** The repository name in which the base image is from. */
 @property(nonatomic, copy, nullable) NSString *repository;

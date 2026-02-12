@@ -111,7 +111,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateIn
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateRepairing;
 /**
- *  State TERMINATED
+ *  Reused for soft-deleted state because semantically equivalent to `DELETED`
+ *  as implied by go/aip/164.
  *
  *  Value: "STATE_TERMINATED"
  */
@@ -717,11 +718,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  */
 @property(nonatomic, copy, nullable) NSString *customerDomainPrefix;
 
+/** Output only. Timestamp in UTC of when this resource was soft-deleted. */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
 /** Required. A user friendly name for the ContactCenter. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Optional. Early release channel. */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_Early *early;
+
+/**
+ *  Output only. Timestamp in UTC of when this resource is considered expired.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
 /** Optional. Feature configuration to populate the feature flags. */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_FeatureConfig *featureConfig;
@@ -750,6 +759,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 
 /** Output only. TODO(b/283407860) Deprecate this field. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *privateComponents;
+
+/**
+ *  Output only. Timestamp in UTC of when this resource is going to be
+ *  hard-deleted.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *purgeTime;
 
 /** Output only. UJET release version, unique for each new release. */
 @property(nonatomic, copy, nullable) NSString *releaseVersion;
@@ -781,8 +796,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *        REPAIRING. This State must ONLY be used by Multiregional Instances
  *        after a fallback was triggered. Customers are not able to update
  *        instancs in this state. (Value: "STATE_REPAIRING")
- *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateTerminated State
- *        TERMINATED (Value: "STATE_TERMINATED")
+ *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateTerminated Reused for
+ *        soft-deleted state because semantically equivalent to `DELETED` as
+ *        implied by go/aip/164. (Value: "STATE_TERMINATED")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateTerminating State
  *        TERMINATING (Value: "STATE_TERMINATING")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateTerminatingFailed State
@@ -1123,7 +1139,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCCAIPlatform_ShiftTemplate *> *shiftTemplates;
 
-/** Optional. Parameters for the solver. */
+/** Required. Parameters for the solver. */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_SolverConfig *solverConfig;
 
 /**
@@ -1674,15 +1690,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
 @property(nonatomic, strong, nullable) NSArray<NSString *> *assignableEmployeeIds;
 
 /**
- *  Fixed number of days off per week. An employee has a given day off if they
- *  are not assigned to a shift that starts on that day. A week is 7 days and
- *  begins on Sunday.
+ *  Optional. Fixed number of days off per week. An employee has a given day off
+ *  if they are not assigned to a shift that starts on that day. A week is 7
+ *  days and begins on Sunday.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *daysOffCountPerWeek;
 
-/** Fixed dates when shifts from this template should not be generated. */
+/**
+ *  Optional. Fixed dates when shifts from this template should not be
+ *  generated.
+ */
 @property(nonatomic, strong, nullable) GTLRCCAIPlatform_DateList *daysOffDates;
 
 /**

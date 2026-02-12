@@ -108,6 +108,11 @@ NSString * const kGTLRCloudFunctions_Runtime_Stage_Development = @"DEVELOPMENT";
 NSString * const kGTLRCloudFunctions_Runtime_Stage_Ga          = @"GA";
 NSString * const kGTLRCloudFunctions_Runtime_Stage_RuntimeStageUnspecified = @"RUNTIME_STAGE_UNSPECIFIED";
 
+// GTLRCloudFunctions_ServiceConfig.directVpcEgress
+NSString * const kGTLRCloudFunctions_ServiceConfig_DirectVpcEgress_DirectVpcEgressUnspecified = @"DIRECT_VPC_EGRESS_UNSPECIFIED";
+NSString * const kGTLRCloudFunctions_ServiceConfig_DirectVpcEgress_VpcEgressAllTraffic = @"VPC_EGRESS_ALL_TRAFFIC";
+NSString * const kGTLRCloudFunctions_ServiceConfig_DirectVpcEgress_VpcEgressPrivateRangesOnly = @"VPC_EGRESS_PRIVATE_RANGES_ONLY";
+
 // GTLRCloudFunctions_ServiceConfig.ingressSettings
 NSString * const kGTLRCloudFunctions_ServiceConfig_IngressSettings_AllowAll = @"ALLOW_ALL";
 NSString * const kGTLRCloudFunctions_ServiceConfig_IngressSettings_AllowInternalAndGclb = @"ALLOW_INTERNAL_AND_GCLB";
@@ -282,6 +287,24 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 //
 
 @implementation GTLRCloudFunctions_DetachFunctionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudFunctions_DirectVpcNetworkInterface
+//
+
+@implementation GTLRCloudFunctions_DirectVpcNetworkInterface
+@dynamic network, subnetwork, tags;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tags" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -803,14 +826,16 @@ NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_UpgradeStateUnspec
 
 @implementation GTLRCloudFunctions_ServiceConfig
 @dynamic allTrafficOnLatestRevision, availableCpu, availableMemory,
-         binaryAuthorizationPolicy, environmentVariables, ingressSettings,
-         maxInstanceCount, maxInstanceRequestConcurrency, minInstanceCount,
-         revision, secretEnvironmentVariables, secretVolumes, securityLevel,
-         service, serviceAccountEmail, timeoutSeconds, uri, vpcConnector,
+         binaryAuthorizationPolicy, directVpcEgress, directVpcNetworkInterface,
+         environmentVariables, ingressSettings, maxInstanceCount,
+         maxInstanceRequestConcurrency, minInstanceCount, revision,
+         secretEnvironmentVariables, secretVolumes, securityLevel, service,
+         serviceAccountEmail, timeoutSeconds, uri, vpcConnector,
          vpcConnectorEgressSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"directVpcNetworkInterface" : [GTLRCloudFunctions_DirectVpcNetworkInterface class],
     @"secretEnvironmentVariables" : [GTLRCloudFunctions_SecretEnvVar class],
     @"secretVolumes" : [GTLRCloudFunctions_SecretVolume class]
   };

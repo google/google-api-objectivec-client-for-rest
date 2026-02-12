@@ -226,6 +226,231 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates an Instance.
+ *
+ *  Method: run.projects.locations.instances.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsInstancesCreate : GTLRCloudRunQuery
+
+/**
+ *  Optional. The unique identifier for the Instance. It must begin with letter,
+ *  and cannot end with hyphen; must contain fewer than 50 characters. The name
+ *  of the instance becomes {parent}/instances/{instance_id}. If not provided,
+ *  the server will generate a unique `instance_id`.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceId;
+
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. Indicates that the request should be validated and default values
+ *  populated, without persisting the request or creating any resources.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
+ *
+ *  Creates an Instance.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleCloudRunV2Instance to include in the
+ *    query.
+ *  @param parent NSString
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2Instance *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Instance
+ *
+ *  Method: run.projects.locations.instances.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsInstancesDelete : GTLRCloudRunQuery
+
+/**
+ *  Optional. A system-generated fingerprint for this version of the resource.
+ *  May be used to detect modification conflict during updates.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Indicates that the request should be validated without actually
+ *  deleting any resources.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
+ *
+ *  Deletes a Instance
+ *
+ *  @param name NSString
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Instance
+ *
+ *  Method: run.projects.locations.instances.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsInstancesGet : GTLRCloudRunQuery
+
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2Instance.
+ *
+ *  Gets a Instance
+ *
+ *  @param name NSString
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Instances. Results are sorted by creation time, descending.
+ *
+ *  Method: run.projects.locations.instances.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsInstancesList : GTLRCloudRunQuery
+
+/** Optional. Maximum number of Instances to return in this call. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token received from a previous call to ListInstances. All
+ *  other parameters must match.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The location and project to list resources on. Format:
+ *  projects/{project}/locations/{location}, where {project} can be project id
+ *  or number.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, returns deleted (but unexpired) resources along with
+ *  active ones.
+ */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleCloudRunV2ListInstancesResponse.
+ *
+ *  Lists Instances. Results are sorted by creation time, descending.
+ *
+ *  @param parent Required. The location and project to list resources on.
+ *    Format: projects/{project}/locations/{location}, where {project} can be
+ *    project id or number.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Starts an Instance.
+ *
+ *  Method: run.projects.locations.instances.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsInstancesStart : GTLRCloudRunQuery
+
+/**
+ *  Required. The name of the Instance to stop. Format:
+ *  `projects/{project}/locations/{location}/instances/{instance}`, where
+ *  `{project}` can be project id or number.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
+ *
+ *  Starts an Instance.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleCloudRunV2StartInstanceRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Instance to stop. Format:
+ *    `projects/{project}/locations/{location}/instances/{instance}`, where
+ *    `{project}` can be project id or number.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesStart
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2StartInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Stops an Instance.
+ *
+ *  Method: run.projects.locations.instances.stop
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsInstancesStop : GTLRCloudRunQuery
+
+/**
+ *  Required. The name of the Instance to stop. Format:
+ *  `projects/{project}/locations/{location}/instances/{instance}`, where
+ *  `{project}` can be project id or number.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
+ *
+ *  Stops an Instance.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleCloudRunV2StopInstanceRequest to
+ *    include in the query.
+ *  @param name Required. The name of the Instance to stop. Format:
+ *    `projects/{project}/locations/{location}/instances/{instance}`, where
+ *    `{project}` can be project id or number.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesStop
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2StopInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a Job.
  *
  *  Method: run.projects.locations.jobs.create
@@ -236,8 +461,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsCreate : GTLRCloudRunQuery
 
 /**
- *  Required. The unique identifier for the Job. The name of the job becomes
- *  {parent}/jobs/{job_id}.
+ *  Optional. The unique identifier for the Job. The name of the job becomes
+ *  {parent}/jobs/{job_id}. If not provided, the server will generate a unique
+ *  `job_id`.
  */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
@@ -1083,9 +1309,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Required. The unique identifier for the Service. It must begin with letter,
+ *  Optional. The unique identifier for the Service. It must begin with letter,
  *  and cannot end with hyphen; must contain fewer than 50 characters. The name
- *  of the service becomes {parent}/services/{service_id}.
+ *  of the service becomes {parent}/services/{service_id}. If not provided, the
+ *  server will generate a unique `service_id`.
  */
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
@@ -1618,9 +1845,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL validateOnly;
 
 /**
- *  Required. The unique identifier for the WorkerPool. It must begin with
+ *  Optional. The unique identifier for the WorkerPool. It must begin with
  *  letter, and cannot end with hyphen; must contain fewer than 50 characters.
  *  The name of the worker pool becomes `{parent}/workerPools/{worker_pool_id}`.
+ *  If not provided, the server will generate a unique `worker_pool_id`.
  */
 @property(nonatomic, copy, nullable) NSString *workerPoolId;
 

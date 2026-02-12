@@ -181,6 +181,10 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Lake_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastore;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed_Labels;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedScope;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJobExportJobResult;
@@ -653,6 +657,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataD
  *  Value: "TABLE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_TableTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec.generationScopes
+
+/**
+ *  All the possible results will be generated.
+ *
+ *  Value: "ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_All;
+/**
+ *  Unspecified generation scope. If no generation scope is specified, all
+ *  available documentation components will be generated.
+ *
+ *  Value: "GENERATION_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_GenerationScopeUnspecified;
+/**
+ *  SQL queries will be generated.
+ *
+ *  Value: "SQL_QUERIES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_SqlQueries;
+/**
+ *  Table and column descriptions will be generated.
+ *
+ *  Value: "TABLE_AND_COLUMN_DESCRIPTIONS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_TableAndColumnDescriptions;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult.state
@@ -1896,6 +1929,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeM
  *  Value: "UPDATING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_Updating;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters.changeTypes
+
+/**
+ *  Unspecified change type. Defaults to UNSPECIFIED.
+ *
+ *  Value: "CHANGE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters_ChangeTypes_ChangeTypeUnspecified;
+/**
+ *  The change is a create event.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters_ChangeTypes_Create;
+/**
+ *  The change is a delete event.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters_ChangeTypes_Delete;
+/**
+ *  The change is an update event.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters_ChangeTypes_Update;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob.type
@@ -4550,6 +4611,14 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *catalogPublishingEnabled;
+
+/**
+ *  Optional. Specifies which components of the data documentation to generate.
+ *  Any component that is required to generate the specified components will
+ *  also be generated. If no generation scope is specified, all available
+ *  documentation components will be generated.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *generationScopes;
 
 @end
 
@@ -9209,6 +9278,36 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Response message for ListMetadataFeeds.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "metadataFeeds" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListMetadataFeedsResponse : GTLRCollectionObject
+
+/**
+ *  List of metadata feeds under the specified parent location.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed *> *metadataFeeds;
+
+/**
+ *  A token to retrieve the next page of results. If there are no more results
+ *  in the list, the value is empty.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that the service couldn't reach. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  List metadata jobs response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -9345,6 +9444,134 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1Zone *> *zones;
+
+@end
+
+
+/**
+ *  MetadataFeed contains information related to the metadata feed.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed : GTLRObject
+
+/** Output only. The time when the feed was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. The filters of the metadata feed. Only the changes that match the
+ *  filters are published.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters *filters;
+
+/** Optional. User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed_Labels *labels;
+
+/**
+ *  Identifier. The resource name of the metadata feed, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}/metadataFeeds/{metadata_feed_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The pubsub topic that you want the metadata feed messages to
+ *  publish to. Please grant Dataplex service account the permission to publish
+ *  messages to the topic. The service account is:
+ *  service-{PROJECT_NUMBER}\@gcp-sa-dataplex.iam.gserviceaccount.com.
+ */
+@property(nonatomic, copy, nullable) NSString *pubsubTopic;
+
+/**
+ *  Required. The scope of the metadata feed. Only the in scope changes are
+ *  published.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedScope *scope;
+
+/**
+ *  Output only. A system-generated, globally unique ID for the metadata job. If
+ *  the metadata job is deleted and then re-created with the same name, this ID
+ *  is different.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
+
+/** Output only. The time when the feed was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed_Labels : GTLRObject
+@end
+
+
+/**
+ *  Filters defines the type of changes that you want to listen to. You can have
+ *  multiple entry type filters and multiple aspect type filters. All of the
+ *  entry type filters are OR'ed together. All of the aspect type filters are
+ *  OR'ed together. All of the entry type filters and aspect type filters are
+ *  AND'ed together.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters : GTLRObject
+
+/**
+ *  Optional. The aspect types that you want to listen to. Depending on how the
+ *  aspect is attached to the entry, in the format:
+ *  projects/{project_id_or_number}/locations/{location}/aspectTypes/{aspect_type_id}.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aspectTypes;
+
+/**
+ *  Optional. The type of change that you want to listen to. If not specified,
+ *  all changes are published.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *changeTypes;
+
+/**
+ *  Optional. The entry types that you want to listen to, specified as relative
+ *  resource names in the format
+ *  projects/{project_id_or_number}/locations/{location}/entryTypes/{entry_type_id}.
+ *  Only entries that belong to the specified entry types are published.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entryTypes;
+
+@end
+
+
+/**
+ *  Scope defines the scope of the metadata feed. Scopes are exclusive. Only one
+ *  of the scopes can be specified.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedScope : GTLRObject
+
+/**
+ *  Optional. The entry groups whose entries you want to listen to. Must be in
+ *  the format:
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *entryGroups;
+
+/**
+ *  Optional. Whether the metadata feed is at the organization-level. If true,
+ *  all changes happened to the entries in the same organization as the feed are
+ *  published. If false, you must specify a list of projects or a list of entry
+ *  groups whose entries you want to listen to.The default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *organizationLevel;
+
+/**
+ *  Optional. The projects whose entries you want to listen to. Must be in the
+ *  same organization as the feed. Must be in the format:
+ *  projects/{project_id_or_number}.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *projects;
 
 @end
 

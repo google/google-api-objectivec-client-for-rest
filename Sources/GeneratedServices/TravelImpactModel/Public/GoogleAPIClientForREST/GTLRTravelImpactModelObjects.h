@@ -86,6 +86,126 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_So
 FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Tim;
 
 // ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_McpToolDataHandlingProfile.inputDataAccessLevel
+
+/**
+ *  Confidential data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_CONFIDENTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelConfidential;
+/**
+ *  Need-to-know data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_NEED_TO_KNOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNeedToKnow;
+/**
+ *  The tool does not access any data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_NO_DATA_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNoDataAccess;
+/**
+ *  Personally Identifiable Information (PII) data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_PII"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPii;
+/**
+ *  Public data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPublic;
+/**
+ *  The default value. This value is unused.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUnspecified;
+/**
+ *  User data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUser;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_McpToolDataHandlingProfile.outputDataAccessLevel
+
+/**
+ *  Confidential data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_CONFIDENTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelConfidential;
+/**
+ *  Need-to-know data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_NEED_TO_KNOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNeedToKnow;
+/**
+ *  The tool does not access any data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_NO_DATA_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNoDataAccess;
+/**
+ *  Personally Identifiable Information (PII) data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_PII"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPii;
+/**
+ *  Public data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPublic;
+/**
+ *  The default value. This value is unused.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUnspecified;
+/**
+ *  User data.
+ *
+ *  Value: "DATA_ACCESS_LEVEL_USER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUser;
+
+// ----------------------------------------------------------------------------
+// GTLRTravelImpactModel_McpToolLifecycleProfile.launchState
+
+/**
+ *  The tool is currently in development.
+ *
+ *  Value: "LAUNCH_STATE_DEVELOPMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateDevelopment;
+/**
+ *  The tool is generally available.
+ *
+ *  Value: "LAUNCH_STATE_GENERAL_AVAILABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateGeneralAvailability;
+/**
+ *  The tool is in production preview.
+ *
+ *  Value: "LAUNCH_STATE_PRODUCTION_PREVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateProductionPreview;
+/**
+ *  The default value. This value is unused.
+ *
+ *  Value: "LAUNCH_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRTravelImpactModel_Scope3FlightEmissions.source
 
 /**
@@ -458,6 +578,94 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
 
 /** Required. IATA airport code for flight origin, e.g. "LHR". */
 @property(nonatomic, copy, nullable) NSString *origin;
+
+@end
+
+
+/**
+ *  Profile describing the data handling characteristics of an MCP tool. When
+ *  used within the McpTool.meta field, this message should be packed into a
+ *  google.protobuf.Any and associated with the key:
+ *  "google.com/tool.profiles/data_handling"
+ */
+@interface GTLRTravelImpactModel_McpToolDataHandlingProfile : GTLRObject
+
+/**
+ *  // The data access level of the tool's inputs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelConfidential
+ *        Confidential data. (Value: "DATA_ACCESS_LEVEL_CONFIDENTIAL")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNeedToKnow
+ *        Need-to-know data. (Value: "DATA_ACCESS_LEVEL_NEED_TO_KNOW")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNoDataAccess
+ *        The tool does not access any data. (Value:
+ *        "DATA_ACCESS_LEVEL_NO_DATA_ACCESS")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPii
+ *        Personally Identifiable Information (PII) data. (Value:
+ *        "DATA_ACCESS_LEVEL_PII")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPublic
+ *        Public data. (Value: "DATA_ACCESS_LEVEL_PUBLIC")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUnspecified
+ *        The default value. This value is unused. (Value:
+ *        "DATA_ACCESS_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUser
+ *        User data. (Value: "DATA_ACCESS_LEVEL_USER")
+ */
+@property(nonatomic, copy, nullable) NSString *inputDataAccessLevel;
+
+/**
+ *  The data access level of the tool's outputs.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelConfidential
+ *        Confidential data. (Value: "DATA_ACCESS_LEVEL_CONFIDENTIAL")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNeedToKnow
+ *        Need-to-know data. (Value: "DATA_ACCESS_LEVEL_NEED_TO_KNOW")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNoDataAccess
+ *        The tool does not access any data. (Value:
+ *        "DATA_ACCESS_LEVEL_NO_DATA_ACCESS")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPii
+ *        Personally Identifiable Information (PII) data. (Value:
+ *        "DATA_ACCESS_LEVEL_PII")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPublic
+ *        Public data. (Value: "DATA_ACCESS_LEVEL_PUBLIC")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUnspecified
+ *        The default value. This value is unused. (Value:
+ *        "DATA_ACCESS_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUser
+ *        User data. (Value: "DATA_ACCESS_LEVEL_USER")
+ */
+@property(nonatomic, copy, nullable) NSString *outputDataAccessLevel;
+
+@end
+
+
+/**
+ *  Profile describing the lifecycle stage of an MCP tool. When used within the
+ *  McpTool.meta field, this message should be packed into a google.protobuf.Any
+ *  and associated with the key: "google.com/tool.profiles/lifecycle"
+ */
+@interface GTLRTravelImpactModel_McpToolLifecycleProfile : GTLRObject
+
+/**
+ *  Output only. The current launch state of the MCP tool.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateDevelopment
+ *        The tool is currently in development. (Value:
+ *        "LAUNCH_STATE_DEVELOPMENT")
+ *    @arg @c kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateGeneralAvailability
+ *        The tool is generally available. (Value:
+ *        "LAUNCH_STATE_GENERAL_AVAILABILITY")
+ *    @arg @c kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateProductionPreview
+ *        The tool is in production preview. (Value:
+ *        "LAUNCH_STATE_PRODUCTION_PREVIEW")
+ *    @arg @c kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateUnspecified
+ *        The default value. This value is unused. (Value:
+ *        "LAUNCH_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *launchState;
 
 @end
 

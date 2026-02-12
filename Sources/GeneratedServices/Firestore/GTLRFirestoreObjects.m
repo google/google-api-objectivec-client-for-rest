@@ -1403,6 +1403,15 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1LocationMetadata
+@dynamic availableStoragePlacements;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"availableStoragePlacements" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 

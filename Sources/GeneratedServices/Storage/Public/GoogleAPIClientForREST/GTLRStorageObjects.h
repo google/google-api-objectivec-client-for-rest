@@ -2710,6 +2710,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
  */
 @property(nonatomic, strong, nullable) GTLRStorage_RelocateBucketRequest_DestinationCustomPlacementConfig *destinationCustomPlacementConfig;
 
+/**
+ *  Resource name of a Cloud KMS key, of the form
+ *  projects/my-project/locations/global/keyRings/my-kr/cryptoKeys/my-key. If
+ *  set, is used to encrypt all objects in the destination bucket.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationKmsKeyName;
+
 /** The new location the bucket will be relocated to. */
 @property(nonatomic, copy, nullable) NSString *destinationLocation;
 

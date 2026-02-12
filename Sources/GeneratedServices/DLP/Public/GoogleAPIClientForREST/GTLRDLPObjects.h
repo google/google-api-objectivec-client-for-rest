@@ -18,6 +18,9 @@
 
 @class GTLRDLP_GooglePrivacyDlpV2Action;
 @class GTLRDLP_GooglePrivacyDlpV2ActionDetails;
+@class GTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings;
+@class GTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes;
+@class GTLRDLP_GooglePrivacyDlpV2AdjustmentRule;
 @class GTLRDLP_GooglePrivacyDlpV2AllInfoTypes;
 @class GTLRDLP_GooglePrivacyDlpV2AllOtherBigQueryTables;
 @class GTLRDLP_GooglePrivacyDlpV2AllOtherDatabaseResources;
@@ -127,9 +130,11 @@
 @class GTLRDLP_GooglePrivacyDlpV2DocumentFallbackLocation;
 @class GTLRDLP_GooglePrivacyDlpV2DocumentLocation;
 @class GTLRDLP_GooglePrivacyDlpV2Domain;
+@class GTLRDLP_GooglePrivacyDlpV2Encloses;
 @class GTLRDLP_GooglePrivacyDlpV2EntityId;
 @class GTLRDLP_GooglePrivacyDlpV2Error;
 @class GTLRDLP_GooglePrivacyDlpV2ExcludeByHotword;
+@class GTLRDLP_GooglePrivacyDlpV2ExcludeByImageFindings;
 @class GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes;
 @class GTLRDLP_GooglePrivacyDlpV2ExclusionRule;
 @class GTLRDLP_GooglePrivacyDlpV2Export;
@@ -151,6 +156,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Finding_Labels;
 @class GTLRDLP_GooglePrivacyDlpV2FindingLimits;
 @class GTLRDLP_GooglePrivacyDlpV2FixedSizeBucketingConfig;
+@class GTLRDLP_GooglePrivacyDlpV2FullyInside;
 @class GTLRDLP_GooglePrivacyDlpV2GlobalProcessing;
 @class GTLRDLP_GooglePrivacyDlpV2HotwordRule;
 @class GTLRDLP_GooglePrivacyDlpV2HybridContentItem;
@@ -159,6 +165,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2HybridInspectStatistics;
 @class GTLRDLP_GooglePrivacyDlpV2HybridOptions;
 @class GTLRDLP_GooglePrivacyDlpV2HybridOptions_Labels;
+@class GTLRDLP_GooglePrivacyDlpV2ImageContainmentType;
 @class GTLRDLP_GooglePrivacyDlpV2ImageFallbackLocation;
 @class GTLRDLP_GooglePrivacyDlpV2ImageLocation;
 @class GTLRDLP_GooglePrivacyDlpV2ImageRedactionConfig;
@@ -218,6 +225,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2OtherCloudSingleResourceReference;
 @class GTLRDLP_GooglePrivacyDlpV2OtherInfoTypeSummary;
 @class GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig;
+@class GTLRDLP_GooglePrivacyDlpV2Overlap;
 @class GTLRDLP_GooglePrivacyDlpV2PartitionId;
 @class GTLRDLP_GooglePrivacyDlpV2PathElement;
 @class GTLRDLP_GooglePrivacyDlpV2PrimitiveTransformation;
@@ -331,6 +339,131 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings.minLikelihood
+
+/**
+ *  Default value; same as POSSIBLE.
+ *
+ *  Value: "LIKELIHOOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_LikelihoodUnspecified;
+/**
+ *  Low chance of a false positive.
+ *
+ *  Value: "LIKELY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_Likely;
+/**
+ *  Some matching signals. The default value.
+ *
+ *  Value: "POSSIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_Possible;
+/**
+ *  High chance of a false positive.
+ *
+ *  Value: "UNLIKELY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_Unlikely;
+/**
+ *  Confidence level is high. Lowest chance of a false positive.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_VeryLikely;
+/**
+ *  Highest chance of a false positive.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_VeryUnlikely;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes.matchingType
+
+/**
+ *  Full match. - Dictionary: join of Dictionary results matched the complete
+ *  finding quote - Regex: all regex matches fill a finding quote from start to
+ *  end - Exclude infoType: completely inside affecting infoTypes findings
+ *
+ *  Value: "MATCHING_TYPE_FULL_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeFullMatch;
+/**
+ *  Inverse match. - Dictionary: no tokens in the finding match the dictionary -
+ *  Regex: finding doesn't match the regex - Exclude infoType: no intersection
+ *  with affecting infoTypes findings
+ *
+ *  Value: "MATCHING_TYPE_INVERSE_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeInverseMatch;
+/**
+ *  Partial match. - Dictionary: at least one of the tokens in the finding
+ *  matches - Regex: substring of the finding matches - Exclude infoType:
+ *  intersects with affecting infoTypes findings
+ *
+ *  Value: "MATCHING_TYPE_PARTIAL_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypePartialMatch;
+/**
+ *  Rule-specific match. The matching logic is based on the specific rule being
+ *  used. This is required for rules where the matching behavior is not a simple
+ *  string comparison (e.g., image containment). This matching type can only be
+ *  used with the `ExcludeByImageFindings` rule. - Exclude by image findings:
+ *  The matching logic is defined within `ExcludeByImageFindings` based on
+ *  spatial relationships between bounding boxes.
+ *
+ *  Value: "MATCHING_TYPE_RULE_SPECIFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeRuleSpecific;
+/**
+ *  Invalid.
+ *
+ *  Value: "MATCHING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes.minLikelihood
+
+/**
+ *  Default value; same as POSSIBLE.
+ *
+ *  Value: "LIKELIHOOD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_LikelihoodUnspecified;
+/**
+ *  Low chance of a false positive.
+ *
+ *  Value: "LIKELY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_Likely;
+/**
+ *  Some matching signals. The default value.
+ *
+ *  Value: "POSSIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_Possible;
+/**
+ *  High chance of a false positive.
+ *
+ *  Value: "UNLIKELY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_Unlikely;
+/**
+ *  Confidence level is high. Lowest chance of a false positive.
+ *
+ *  Value: "VERY_LIKELY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_VeryLikely;
+/**
+ *  Highest chance of a false positive.
+ *
+ *  Value: "VERY_UNLIKELY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_VeryUnlikely;
 
 // ----------------------------------------------------------------------------
 // GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions.bucketTypes
@@ -2039,6 +2172,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_Matc
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypePartialMatch;
 /**
+ *  Rule-specific match. The matching logic is based on the specific rule being
+ *  used. This is required for rules where the matching behavior is not a simple
+ *  string comparison (e.g., image containment). This matching type can only be
+ *  used with the `ExcludeByImageFindings` rule. - Exclude by image findings:
+ *  The matching logic is defined within `ExcludeByImageFindings` based on
+ *  spatial relationships between bounding boxes.
+ *
+ *  Value: "MATCHING_TYPE_RULE_SPECIFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeRuleSpecific;
+/**
  *  Invalid.
  *
  *  Value: "MATCHING_TYPE_UNSPECIFIED"
@@ -3627,6 +3771,159 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Request message for ActivateJobTrigger.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ActivateJobTriggerRequest : GTLRObject
+@end
+
+
+/**
+ *  AdjustmentRule condition for image findings. This rule is silently ignored
+ *  if the content being inspected is not an image.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings : GTLRObject
+
+/**
+ *  Specifies the required spatial relationship between the bounding boxes of
+ *  the target finding and the context infoType findings.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ImageContainmentType *imageContainmentType;
+
+/**
+ *  A list of image-supported infoTypes—excluding [document
+ *  infoTypes](https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference#documents)—to
+ *  be used as context for the adjustment rule. Sensitive Data Protection
+ *  adjusts the likelihood of an image finding if its bounding box has the
+ *  specified spatial relationship (defined by `image_containment_type`) with a
+ *  finding of an infoType in this list. For example, you can create a rule to
+ *  adjust the likelihood of a `US_PASSPORT` finding if it is enclosed by a
+ *  finding of `OBJECT_TYPE/PERSON/PASSPORT`. To configure this, set
+ *  `US_PASSPORT` in `InspectionRuleSet.info_types`. Add an `adjustment_rule`
+ *  with an `adjust_by_image_findings.info_types` that contains
+ *  `OBJECT_TYPE/PERSON/PASSPORT` and `image_containment_type` set to
+ *  `encloses`. In this case, the likelihood of the `US_PASSPORT` finding is
+ *  adjusted, but the likelihood of the `OBJECT_TYPE/PERSON/PASSPORT` finding is
+ *  not.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
+
+/**
+ *  Required. Minimum likelihood of the `adjust_by_image_findings.info_types`
+ *  finding. If the likelihood is lower than this value, Sensitive Data
+ *  Protection doesn't adjust the likelihood of the
+ *  `InspectionRuleSet.info_types` finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_LikelihoodUnspecified
+ *        Default value; same as POSSIBLE. (Value: "LIKELIHOOD_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_Likely
+ *        Low chance of a false positive. (Value: "LIKELY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_Possible
+ *        Some matching signals. The default value. (Value: "POSSIBLE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_Unlikely
+ *        High chance of a false positive. (Value: "UNLIKELY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_VeryLikely
+ *        Confidence level is high. Lowest chance of a false positive. (Value:
+ *        "VERY_LIKELY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_VeryUnlikely
+ *        Highest chance of a false positive. (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *minLikelihood;
+
+@end
+
+
+/**
+ *  AdjustmentRule condition for matching infoTypes.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes : GTLRObject
+
+/**
+ *  Sensitive Data Protection adjusts the likelihood of a finding if that
+ *  finding also matches one of these infoTypes. For example, you can create a
+ *  rule to adjust the likelihood of a `PHONE_NUMBER` finding if the string is
+ *  found within a document that is classified as `DOCUMENT_TYPE/HR/RESUME`. To
+ *  configure this, set `PHONE_NUMBER` in `InspectionRuleSet.info_types`. Add an
+ *  `adjustment_rule` with an `adjust_by_matching_info_types.info_types` that
+ *  contains `DOCUMENT_TYPE/HR/RESUME`. In this case, the likelihood of the
+ *  `PHONE_NUMBER` finding is adjusted, but the likelihood of the
+ *  `DOCUMENT_TYPE/HR/RESUME` finding is not.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
+
+/**
+ *  How the adjustment rule is applied. Only MATCHING_TYPE_PARTIAL_MATCH is
+ *  supported: - Partial match: adjusts the findings of infoTypes specified in
+ *  the inspection rule when they have a nonempty intersection with a finding of
+ *  an infoType specified in this adjustment rule.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeFullMatch
+ *        Full match. - Dictionary: join of Dictionary results matched the
+ *        complete finding quote - Regex: all regex matches fill a finding quote
+ *        from start to end - Exclude infoType: completely inside affecting
+ *        infoTypes findings (Value: "MATCHING_TYPE_FULL_MATCH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeInverseMatch
+ *        Inverse match. - Dictionary: no tokens in the finding match the
+ *        dictionary - Regex: finding doesn't match the regex - Exclude
+ *        infoType: no intersection with affecting infoTypes findings (Value:
+ *        "MATCHING_TYPE_INVERSE_MATCH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypePartialMatch
+ *        Partial match. - Dictionary: at least one of the tokens in the finding
+ *        matches - Regex: substring of the finding matches - Exclude infoType:
+ *        intersects with affecting infoTypes findings (Value:
+ *        "MATCHING_TYPE_PARTIAL_MATCH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeRuleSpecific
+ *        Rule-specific match. The matching logic is based on the specific rule
+ *        being used. This is required for rules where the matching behavior is
+ *        not a simple string comparison (e.g., image containment). This
+ *        matching type can only be used with the `ExcludeByImageFindings` rule.
+ *        - Exclude by image findings: The matching logic is defined within
+ *        `ExcludeByImageFindings` based on spatial relationships between
+ *        bounding boxes. (Value: "MATCHING_TYPE_RULE_SPECIFIC")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeUnspecified
+ *        Invalid. (Value: "MATCHING_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *matchingType;
+
+/**
+ *  Required. Minimum likelihood of the
+ *  `adjust_by_matching_info_types.info_types` finding. If the likelihood is
+ *  lower than this value, Sensitive Data Protection doesn't adjust the
+ *  likelihood of the `InspectionRuleSet.info_types` finding.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_LikelihoodUnspecified
+ *        Default value; same as POSSIBLE. (Value: "LIKELIHOOD_UNSPECIFIED")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_Likely
+ *        Low chance of a false positive. (Value: "LIKELY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_Possible
+ *        Some matching signals. The default value. (Value: "POSSIBLE")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_Unlikely
+ *        High chance of a false positive. (Value: "UNLIKELY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_VeryLikely
+ *        Confidence level is high. Lowest chance of a false positive. (Value:
+ *        "VERY_LIKELY")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_VeryUnlikely
+ *        Highest chance of a false positive. (Value: "VERY_UNLIKELY")
+ */
+@property(nonatomic, copy, nullable) NSString *minLikelihood;
+
+@end
+
+
+/**
+ *  Rule that specifies conditions when a certain infoType's finding details
+ *  should be adjusted.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2AdjustmentRule : GTLRObject
+
+/** AdjustmentRule condition for image findings. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings *adjustByImageFindings;
+
+/** Set of infoTypes for which findings would affect this rule. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes *adjustByMatchingInfoTypes;
+
+/** Likelihood adjustment to apply to the infoType. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2LikelihoodAdjustment *likelihoodAdjustment;
+
 @end
 
 
@@ -5440,7 +5737,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Set of detection rules to apply to all findings of this CustomInfoType.
  *  Rules are applied in order that they are specified. Not supported for the
- *  `surrogate_type` CustomInfoType.
+ *  `surrogate_type`, `metadata_key_value_expression`, and `prompt`
+ *  CustomInfoType.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2DetectionRule *> *detectionRules;
 
@@ -5449,7 +5747,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  If set to EXCLUSION_TYPE_EXCLUDE this infoType will not cause a finding to
- *  be returned. It still can be used for rules matching.
+ *  be returned. It still can be used for rules matching. Not supported for the
+ *  `metadata_key_value_expression` and `prompt` CustomInfoType.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeExclude
@@ -7380,6 +7679,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Defines a condition where one bounding box encloses another.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2Encloses : GTLRObject
+@end
+
+
+/**
  *  An entity in a dataset is a field or set of fields that correspond to a
  *  single person. For example, in medical records the `EntityId` might be a
  *  patient identifier, or for financial records it might be an account
@@ -7450,6 +7756,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  The rule to exclude image findings based on spatial relationships with other
+ *  image findings. For example, exclude an image finding if it overlaps with
+ *  another image finding. This rule is silently ignored if the content being
+ *  inspected is not an image.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ExcludeByImageFindings : GTLRObject
+
+/**
+ *  Specifies the required spatial relationship between the bounding boxes of
+ *  the target finding and the context infoType findings.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ImageContainmentType *imageContainmentType;
+
+/**
+ *  A list of image-supported infoTypes—excluding [document
+ *  infoTypes](https://cloud.google.com/sensitive-data-protection/docs/infotypes-reference#documents)—to
+ *  be used as context for the exclusion rule. A finding is excluded if its
+ *  bounding box has the specified spatial relationship (defined by
+ *  `image_containment_type`) with a finding of an infoType in this list. For
+ *  example, if `InspectionRuleSet.info_types` includes `OBJECT_TYPE/PERSON` and
+ *  this `exclusion_rule` specifies `info_types` as
+ *  `OBJECT_TYPE/PERSON/PASSPORT` with `image_containment_type` set to
+ *  `encloses`, then `OBJECT_TYPE/PERSON` findings will be excluded if they are
+ *  fully contained within the bounding box of an `OBJECT_TYPE/PERSON/PASSPORT`
+ *  finding.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
+
+@end
+
+
+/**
  *  List of excluded infoTypes.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes : GTLRObject
@@ -7483,6 +7821,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ExcludeByHotword *excludeByHotword;
 
+/**
+ *  Exclude findings based on image containment rules. For example, exclude an
+ *  image finding if it overlaps with another image finding.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ExcludeByImageFindings *excludeByImageFindings;
+
 /** Set of infoTypes for which findings would affect this rule. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes *excludeInfoTypes;
 
@@ -7505,6 +7849,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        matches - Regex: substring of the finding matches - Exclude infoType:
  *        intersects with affecting infoTypes findings (Value:
  *        "MATCHING_TYPE_PARTIAL_MATCH")
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeRuleSpecific
+ *        Rule-specific match. The matching logic is based on the specific rule
+ *        being used. This is required for rules where the matching behavior is
+ *        not a simple string comparison (e.g., image containment). This
+ *        matching type can only be used with the `ExcludeByImageFindings` rule.
+ *        - Exclude by image findings: The matching logic is defined within
+ *        `ExcludeByImageFindings` based on spatial relationships between
+ *        bounding boxes. (Value: "MATCHING_TYPE_RULE_SPECIFIC")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeUnspecified
  *        Invalid. (Value: "MATCHING_TYPE_UNSPECIFIED")
  */
@@ -8206,6 +8558,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Defines a condition where one bounding box is fully inside another.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2FullyInside : GTLRObject
+@end
+
+
+/**
  *  Processing occurs in the global region.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2GlobalProcessing : GTLRObject
@@ -8447,6 +8806,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        fetch them all at once.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2HybridOptions_Labels : GTLRObject
+@end
+
+
+/**
+ *  Specifies the relationship between bounding boxes for image findings.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ImageContainmentType : GTLRObject
+
+/**
+ *  The context finding's bounding box must fully contain the target finding's
+ *  bounding box.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Encloses *encloses;
+
+/**
+ *  The context finding's bounding box must be fully inside the target finding's
+ *  bounding box.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2FullyInside *fullyInside;
+
+/**
+ *  The context finding's bounding box and the target finding's bounding box
+ *  must have a non-zero intersection.
+ */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Overlap *overlaps;
+
 @end
 
 
@@ -9118,6 +9503,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  `InspectionRuleSet`.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2InspectionRule : GTLRObject
+
+/** Adjustment rule. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2AdjustmentRule *adjustmentRule;
 
 /** Exclusion rule. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ExclusionRule *exclusionRule;
@@ -10456,6 +10844,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2BigQueryTable *table;
 
+@end
+
+
+/**
+ *  Defines a condition for overlapping bounding boxes.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2Overlap : GTLRObject
 @end
 
 

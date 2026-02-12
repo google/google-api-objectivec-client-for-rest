@@ -50,6 +50,7 @@
 @class GTLRFirebaseAppHosting_Operation;
 @class GTLRFirebaseAppHosting_Operation_Metadata;
 @class GTLRFirebaseAppHosting_Operation_Response;
+@class GTLRFirebaseAppHosting_Path;
 @class GTLRFirebaseAppHosting_Redirect;
 @class GTLRFirebaseAppHosting_Rollout;
 @class GTLRFirebaseAppHosting_Rollout_Annotations;
@@ -144,6 +145,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Build_State_Failed;
  *  Value: "READY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Build_State_Ready;
+/**
+ *  The build was skipped.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Build_State_Skipped;
 /**
  *  The build is in an unknown state.
  *
@@ -647,6 +654,42 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_A
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Availability_Runtime;
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseAppHosting_EnvironmentVariable.origin
+
+/**
+ *  Variable is defined in apphosting.yaml file.
+ *
+ *  Value: "APPHOSTING_YAML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_ApphostingYaml;
+/**
+ *  Variable was set on the backend resource (e.g. via API or Console).
+ *  Represents variables from `Backend.override_env`
+ *
+ *  Value: "BACKEND_OVERRIDES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_BackendOverrides;
+/**
+ *  Variable was provided specifically for the build upon creation via the
+ *  `Build.Config.env` field. Only used for pre-built images.
+ *
+ *  Value: "BUILD_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_BuildConfig;
+/**
+ *  Variable is defined provided by the firebase platform.
+ *
+ *  Value: "FIREBASE_SYSTEM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_FirebaseSystem;
+/**
+ *  Source is unspecified.
+ *
+ *  Value: "ORIGIN_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_OriginUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseAppHosting_Error.errorSource
 
 /**
@@ -749,6 +792,34 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_LiveMigrationStep_Ste
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_LiveMigrationStep_StepState_StepStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRFirebaseAppHosting_Path.type
+
+/**
+ *  The pattern is a glob.
+ *
+ *  Value: "GLOB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Path_Type_Glob;
+/**
+ *  The pattern type is unspecified - this is an invalid value.
+ *
+ *  Value: "PATTERN_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Path_Type_PatternTypeUnspecified;
+/**
+ *  The pattern is a prefix.
+ *
+ *  Value: "PREFIX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Path_Type_Prefix;
+/**
+ *  RE2 - regular expression (https://github.com/google/re2/wiki/Syntax).
+ *
+ *  Value: "RE2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Path_Type_Re2;
+
+// ----------------------------------------------------------------------------
 // GTLRFirebaseAppHosting_Rollout.state
 
 /**
@@ -790,6 +861,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Progres
  *  Value: "QUEUED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Queued;
+/**
+ *  The rollout has been skipped.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Skipped;
 /**
  *  The rollout is in an unknown state.
  *
@@ -1090,6 +1167,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
  *        this build is ready. The build may or may not be serving traffic - see
  *        `Backend.traffic` for the current state, or `Backend.traffic_statuses`
  *        for the desired state. (Value: "READY")
+ *    @arg @c kGTLRFirebaseAppHosting_Build_State_Skipped The build was skipped.
+ *        (Value: "SKIPPED")
  *    @arg @c kGTLRFirebaseAppHosting_Build_State_StateUnspecified The build is
  *        in an unknown state. (Value: "STATE_UNSPECIFIED")
  */
@@ -1232,6 +1311,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
  *  Additional configuration of the backend for this build.
  */
 @interface GTLRFirebaseAppHosting_Config : GTLRObject
+
+/**
+ *  Output only. [OUTPUT_ONLY] This field represents all environment variables
+ *  employed during both the build and runtime. This list reflects the result of
+ *  merging variables from all sources (Backend.override_env, Build.Config.env,
+ *  YAML, defaults, system). Each variable includes its `origin`
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseAppHosting_EnvironmentVariable *> *effectiveEnv;
 
 /**
  *  Optional. Supplied environment variables for a specific build. Provided at
@@ -1845,6 +1932,36 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
 @property(nonatomic, strong, nullable) NSArray<NSString *> *availability;
 
 /**
+ *  Output only. The high-level origin category of the environment variable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_ApphostingYaml
+ *        Variable is defined in apphosting.yaml file. (Value:
+ *        "APPHOSTING_YAML")
+ *    @arg @c kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_BackendOverrides
+ *        Variable was set on the backend resource (e.g. via API or Console).
+ *        Represents variables from `Backend.override_env` (Value:
+ *        "BACKEND_OVERRIDES")
+ *    @arg @c kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_BuildConfig
+ *        Variable was provided specifically for the build upon creation via the
+ *        `Build.Config.env` field. Only used for pre-built images. (Value:
+ *        "BUILD_CONFIG")
+ *    @arg @c kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_FirebaseSystem
+ *        Variable is defined provided by the firebase platform. (Value:
+ *        "FIREBASE_SYSTEM")
+ *    @arg @c kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_OriginUnspecified
+ *        Source is unspecified. (Value: "ORIGIN_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *origin;
+
+/**
+ *  Output only. Specific detail about the source. For APPHOSTING_YAML origins,
+ *  this will contain the exact filename, such as "apphosting.yaml" or
+ *  "apphosting.staging.yaml".
+ */
+@property(nonatomic, copy, nullable) NSString *originFileName;
+
+/**
  *  A fully qualified secret version. The value of the secret will be accessed
  *  once while building the application and once per cold start of the container
  *  at runtime. The service account used by Cloud Build and by Cloud Run must
@@ -2330,6 +2447,33 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
 
 
 /**
+ *  A file path pattern to match against.
+ */
+@interface GTLRFirebaseAppHosting_Path : GTLRObject
+
+/** Optional. The pattern to match against. */
+@property(nonatomic, copy, nullable) NSString *pattern;
+
+/**
+ *  Optional. The type of pattern to match against.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseAppHosting_Path_Type_Glob The pattern is a glob.
+ *        (Value: "GLOB")
+ *    @arg @c kGTLRFirebaseAppHosting_Path_Type_PatternTypeUnspecified The
+ *        pattern type is unspecified - this is an invalid value. (Value:
+ *        "PATTERN_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRFirebaseAppHosting_Path_Type_Prefix The pattern is a prefix.
+ *        (Value: "PREFIX")
+ *    @arg @c kGTLRFirebaseAppHosting_Path_Type_Re2 RE2 - regular expression
+ *        (https://github.com/google/re2/wiki/Syntax). (Value: "RE2")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  Specifies redirect behavior for a domain.
  */
 @interface GTLRFirebaseAppHosting_Redirect : GTLRObject
@@ -2431,6 +2575,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
  *    @arg @c kGTLRFirebaseAppHosting_Rollout_State_Queued The rollout is
  *        waiting for actuation to begin. This may be because it is waiting on
  *        another rollout to complete. (Value: "QUEUED")
+ *    @arg @c kGTLRFirebaseAppHosting_Rollout_State_Skipped The rollout has been
+ *        skipped. (Value: "SKIPPED")
  *    @arg @c kGTLRFirebaseAppHosting_Rollout_State_StateUnspecified The rollout
  *        is in an unknown state. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRFirebaseAppHosting_Rollout_State_Succeeded The rollout has
@@ -2499,6 +2645,24 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
  *  were disabled.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *disabledTime;
+
+/**
+ *  Optional. A list of file paths patterns to exclude from triggering a
+ *  rollout. Patterns in this list take precedence over required_paths.
+ *  **Note**: All paths must be in the ignored_paths in order for the rollout to
+ *  be skipped. Limited to 100 paths. Example: ignored_paths: { pattern:
+ *  "foo/bar/excluded/ *” type: GLOB }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseAppHosting_Path *> *ignoredPaths;
+
+/**
+ *  Optional. A list of file paths patterns that trigger a build and rollout if
+ *  at least one of the changed files in the commit are present in this list.
+ *  This field is optional; the rollout policy will default to triggering on all
+ *  paths if not populated. Limited to 100 paths. Example: “required_paths: {
+ *  pattern: "foo/bar/ *” type: GLOB }
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseAppHosting_Path *> *requiredPaths;
 
 @end
 

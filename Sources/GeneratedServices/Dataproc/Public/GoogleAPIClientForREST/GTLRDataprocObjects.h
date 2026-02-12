@@ -207,6 +207,8 @@
 @class GTLRDataproc_SparkApplication;
 @class GTLRDataproc_SparkBatch;
 @class GTLRDataproc_SparkConnectConfig;
+@class GTLRDataproc_SparkConnectExecutionInfo;
+@class GTLRDataproc_SparkConnectSessionInfo;
 @class GTLRDataproc_SparkHistoryServerConfig;
 @class GTLRDataproc_SparkJob;
 @class GTLRDataproc_SparkJob_Properties;
@@ -1442,6 +1444,58 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponen
  *  Value: "ZOOKEEPER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_SparkConnectExecutionInfo.state
+
+/**
+ *  Execution state is canceled.
+ *
+ *  Value: "EXECUTION_STATE_CANCELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateCanceled;
+/**
+ *  Execution state is closed.
+ *
+ *  Value: "EXECUTION_STATE_CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateClosed;
+/**
+ *  Execution state is compiled.
+ *
+ *  Value: "EXECUTION_STATE_COMPILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateCompiled;
+/**
+ *  Execution state is failed.
+ *
+ *  Value: "EXECUTION_STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateFailed;
+/**
+ *  Execution state is finished.
+ *
+ *  Value: "EXECUTION_STATE_FINISHED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateFinished;
+/**
+ *  Execution state is ready.
+ *
+ *  Value: "EXECUTION_STATE_READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateReady;
+/**
+ *  Execution state is started.
+ *
+ *  Value: "EXECUTION_STATE_STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateStarted;
+/**
+ *  Execution state is unknown.
+ *
+ *  Value: "EXECUTION_STATE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_SqlExecutionUiData_Jobs.job
@@ -6233,8 +6287,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  ListOperationsRequest.return_partial_success and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  ListOperationsRequest.return_partial_success and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -7388,7 +7443,10 @@ GTLR_DEPRECATED
  */
 @interface GTLRDataproc_PyPiRepositoryConfig : GTLRObject
 
-/** Optional. PyPi repository address */
+/**
+ *  Optional. The PyPi repository address. Note: This field is not available for
+ *  batch workloads.
+ */
 @property(nonatomic, copy, nullable) NSString *pypiRepository;
 
 @end
@@ -8102,8 +8160,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDataproc_AutotuningConfig *autotuningConfig;
 
 /**
- *  Optional. Cohort identifier. Identifies families of the workloads having the
- *  same shape, e.g. daily ETL jobs.
+ *  Optional. Cohort identifier. Identifies families of the workloads that have
+ *  the same shape, for example, daily ETL jobs.
  */
 @property(nonatomic, copy, nullable) NSString *cohort;
 
@@ -9406,6 +9464,123 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Represents the lifecycle and details of an Execution via Spark Connect
+ */
+@interface GTLRDataproc_SparkConnectExecutionInfo : GTLRObject
+
+/**
+ *  Timestamp when the execution was closed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *closeTimestamp;
+
+/** Detailed information about the execution. */
+@property(nonatomic, copy, nullable) NSString *detail;
+
+/**
+ *  Timestamp when the execution finished.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *finishTimestamp;
+
+/** Optional. List of job ids associated with the execution. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *jobIds;
+
+/** Required. Job tag of the execution. */
+@property(nonatomic, copy, nullable) NSString *jobTag;
+
+/** Unique identifier for the operation. */
+@property(nonatomic, copy, nullable) NSString *operationId;
+
+/**
+ *  Required. Session ID, ties the execution to a specific Spark Connect
+ *  session.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+/** Optional. Tags associated with the Spark session. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sparkSessionTags;
+
+/** Optional. List of sql execution ids associated with the execution. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sqlExecIds;
+
+/**
+ *  Timestamp when the execution started.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTimestamp;
+
+/**
+ *  Output only. Current state of the execution.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateCanceled
+ *        Execution state is canceled. (Value: "EXECUTION_STATE_CANCELED")
+ *    @arg @c kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateClosed
+ *        Execution state is closed. (Value: "EXECUTION_STATE_CLOSED")
+ *    @arg @c kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateCompiled
+ *        Execution state is compiled. (Value: "EXECUTION_STATE_COMPILED")
+ *    @arg @c kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateFailed
+ *        Execution state is failed. (Value: "EXECUTION_STATE_FAILED")
+ *    @arg @c kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateFinished
+ *        Execution state is finished. (Value: "EXECUTION_STATE_FINISHED")
+ *    @arg @c kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateReady
+ *        Execution state is ready. (Value: "EXECUTION_STATE_READY")
+ *    @arg @c kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateStarted
+ *        Execution state is started. (Value: "EXECUTION_STATE_STARTED")
+ *    @arg @c kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateUnknown
+ *        Execution state is unknown. (Value: "EXECUTION_STATE_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** statement of the execution. */
+@property(nonatomic, copy, nullable) NSString *statement;
+
+/** User ID of the user who started the execution. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  Represents session-level information for Spark Connect
+ */
+@interface GTLRDataproc_SparkConnectSessionInfo : GTLRObject
+
+/**
+ *  Timestamp when the session finished.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *finishTimestamp;
+
+/** Required. Session ID of the session. */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+/**
+ *  Timestamp when the session started.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *startTimestamp;
+
+/**
+ *  Optional. Total number of executions in the session.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalExecution;
+
+/** User ID of the user who started the session. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
  *  Spark History Server configuration for the workload.
  */
 @interface GTLRDataproc_SparkHistoryServerConfig : GTLRObject
@@ -9883,6 +10058,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDataproc_RddOperationGraph *rddOperationGraph;
 @property(nonatomic, strong, nullable) GTLRDataproc_RddStorageInfo *rddStorageInfo;
 @property(nonatomic, strong, nullable) GTLRDataproc_ResourceProfileInfo *resourceProfileInfo;
+
+/** Spark Connect Execution Info */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkConnectExecutionInfo *sparkConnectExecutionInfo;
+
+/** Spark Connect Session Info */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkConnectSessionInfo *sparkConnectSessionInfo;
+
 @property(nonatomic, strong, nullable) GTLRDataproc_SparkPlanGraph *sparkPlanGraph;
 @property(nonatomic, strong, nullable) GTLRDataproc_SpeculationStageSummary *speculationStageSummary;
 @property(nonatomic, strong, nullable) GTLRDataproc_SqlExecutionUiData *sqlExecutionUiData;

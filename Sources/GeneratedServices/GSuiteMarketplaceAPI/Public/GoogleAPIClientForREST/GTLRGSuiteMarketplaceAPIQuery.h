@@ -33,8 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the status of a license for a customer to determine if they have access
- *  for a given app.
+ *  Gets the customer's licensing status to determine if they have access to a
+ *  given app. For more information, see [Getting app installation and licensing
+ *  details](https://developers.google.com/workspace/marketplace/example-calls-marketplace-api).
  *
  *  Method: appsmarket.customerLicense.get
  *
@@ -43,20 +44,21 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRGSuiteMarketplaceAPIQuery_CustomerLicenseGet : GTLRGSuiteMarketplaceAPIQuery
 
-/** Application Id */
+/** The ID of the application. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
 
-/** Customer Id */
+/** The ID of the customer. */
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
  *  Fetches a @c GTLRGSuiteMarketplaceAPI_CustomerLicense.
  *
- *  Gets the status of a license for a customer to determine if they have access
- *  for a given app.
+ *  Gets the customer's licensing status to determine if they have access to a
+ *  given app. For more information, see [Getting app installation and licensing
+ *  details](https://developers.google.com/workspace/marketplace/example-calls-marketplace-api).
  *
- *  @param applicationId Application Id
- *  @param customerId Customer Id
+ *  @param applicationId The ID of the application.
+ *  @param customerId The ID of the customer.
  *
  *  @return GTLRGSuiteMarketplaceAPIQuery_CustomerLicenseGet
  */
@@ -66,7 +68,10 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets the user's licensing status for their permission to use a given app.
+ *  Gets the user's licensing status to determine if they have permission to use
+ *  a given app. For more information, see [Getting app installation and
+ *  licensing
+ *  details](https://developers.google.com/workspace/marketplace/example-calls-marketplace-api).
  *
  *  Method: appsmarket.userLicense.get
  *
@@ -75,19 +80,22 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRGSuiteMarketplaceAPIQuery_UserLicenseGet : GTLRGSuiteMarketplaceAPIQuery
 
-/** Application Id */
+/** The ID of the application. */
 @property(nonatomic, copy, nullable) NSString *applicationId;
 
-/** User Id */
+/** The ID of the user. */
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
  *  Fetches a @c GTLRGSuiteMarketplaceAPI_UserLicense.
  *
- *  Gets the user's licensing status for their permission to use a given app.
+ *  Gets the user's licensing status to determine if they have permission to use
+ *  a given app. For more information, see [Getting app installation and
+ *  licensing
+ *  details](https://developers.google.com/workspace/marketplace/example-calls-marketplace-api).
  *
- *  @param applicationId Application Id
- *  @param userId User Id
+ *  @param applicationId The ID of the application.
+ *  @param userId The ID of the user.
  *
  *  @return GTLRGSuiteMarketplaceAPIQuery_UserLicenseGet
  */

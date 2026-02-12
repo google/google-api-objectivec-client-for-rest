@@ -58,6 +58,79 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets a BucketOperation.
+ *
+ *  Method: storagebatchoperations.projects.locations.jobs.bucketOperations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageBatchOperationsCloudPlatform
+ */
+@interface GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsBucketOperationsGet : GTLRStorageBatchOperationsQuery
+
+/**
+ *  Required. `name` of the bucket operation to retrieve. Format:
+ *  projects/{project_id}/locations/global/jobs/{job_id}/bucketOperations/{bucket_operation_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRStorageBatchOperations_BucketOperation.
+ *
+ *  Gets a BucketOperation.
+ *
+ *  @param name Required. `name` of the bucket operation to retrieve. Format:
+ *    projects/{project_id}/locations/global/jobs/{job_id}/bucketOperations/{bucket_operation_id}.
+ *
+ *  @return GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsBucketOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists BucketOperations in a given project and job.
+ *
+ *  Method: storagebatchoperations.projects.locations.jobs.bucketOperations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageBatchOperationsCloudPlatform
+ */
+@interface GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsBucketOperationsList : GTLRStorageBatchOperationsQuery
+
+/** Optional. Filters results as defined by https://google.aip.dev/160. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field to sort by. Supported fields are name, create_time. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The list page size. Default page size is 100. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. The list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Format: projects/{project_id}/locations/global/jobs/{job_id}. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRStorageBatchOperations_ListBucketOperationsResponse.
+ *
+ *  Lists BucketOperations in a given project and job.
+ *
+ *  @param parent Required. Format:
+ *    projects/{project_id}/locations/global/jobs/{job_id}.
+ *
+ *  @return GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsBucketOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Cancels a batch job.
  *
  *  Method: storagebatchoperations.projects.locations.jobs.cancel
@@ -143,6 +216,14 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeStorageBatchOperationsCloudPlatform
  */
 @interface GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsDelete : GTLRStorageBatchOperationsQuery
+
+/**
+ *  Optional. If set to true, any child bucket operations of the job will also
+ *  be deleted. Highly recommended to be set to true by all clients. Users
+ *  cannot mutate bucket operations directly, so only the jobs.delete permission
+ *  is required to delete a job (and its child bucket operations).
+ */
+@property(nonatomic, assign) BOOL force;
 
 /**
  *  Required. The `name` of the job to delete. Format:
@@ -246,7 +327,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: storagebatchoperations.projects.locations.list
  *
@@ -286,7 +371,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRStorageBatchOperations_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

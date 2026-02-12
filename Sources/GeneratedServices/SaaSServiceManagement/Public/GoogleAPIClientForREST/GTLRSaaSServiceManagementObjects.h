@@ -1189,6 +1189,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Output only. The timestamp when the resource was marked for deletion
+ *  (deletion is an asynchronous operation).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
  *  Optional. Output only. Output only snapshot of the effective unit filter at
  *  Rollout start time. Contains a CEL(https://github.com/google/cel-spec)
  *  expression consisting of a conjunction of Rollout.unit_filter and
@@ -1565,12 +1571,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @interface GTLRSaaSServiceManagement_RolloutStats : GTLRObject
 
 /**
- *  Output only. A breakdown of the progress of operations triggered by the
- *  rollout. Provides a count of Operations by their state. This can be used to
- *  determine the number of units which have been updated, or are scheduled to
- *  be updated. There will be at most one entry per group. Possible values for
- *  operation groups are: - "SCHEDULED" - "PENDING" - "RUNNING" - "SUCCEEDED" -
- *  "FAILED" - "CANCELLED"
+ *  Optional. Output only. Unordered list. A breakdown of the progress of
+ *  operations triggered by the rollout. Provides a count of Operations by their
+ *  state. This can be used to determine the number of units which have been
+ *  updated, or are scheduled to be updated. There will be at most one entry per
+ *  group. Possible values for operation groups are: - "SCHEDULED" - "PENDING" -
+ *  "RUNNING" - "SUCCEEDED" - "FAILED" - "CANCELLED"
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_Aggregate *> *operationsByState;
 
@@ -2272,6 +2278,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 /** Output only. The timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The timestamp when the resource was marked for deletion
+ *  (deletion is an asynchronous operation).
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
 @property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_Deprovision *deprovision;
 

@@ -142,6 +142,117 @@ NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecified = @"REPORT_VIE
 
 @end
 
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsCreate
+
+@dynamic assetsExportJobId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRMigrationCenterAPI_AssetsExportJob *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/assetsExportJobs";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_Operation class];
+  query.loggingName = @"migrationcenter.projects.locations.assetsExportJobs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_Operation class];
+  query.loggingName = @"migrationcenter.projects.locations.assetsExportJobs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_AssetsExportJob class];
+  query.loggingName = @"migrationcenter.projects.locations.assetsExportJobs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/assetsExportJobs";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_ListAssetsExportJobsResponse class];
+  query.loggingName = @"migrationcenter.projects.locations.assetsExportJobs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsRun
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRMigrationCenterAPI_RunAssetsExportJobRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:run";
+  GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsRun *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRMigrationCenterAPI_Operation class];
+  query.loggingName = @"migrationcenter.projects.locations.assetsExportJobs.run";
+  return query;
+}
+
+@end
+
 @implementation GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsGet
 
 @dynamic name, view;

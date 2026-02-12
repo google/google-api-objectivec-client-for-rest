@@ -275,6 +275,180 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
 @end
 
 /**
+ *  Creates a new assets export job.
+ *
+ *  Method: migrationcenter.projects.locations.assetsExportJobs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsCreate : GTLRMigrationCenterAPIQuery
+
+/** Required. The ID to use for the asset export job. */
+@property(nonatomic, copy, nullable) NSString *assetsExportJobId;
+
+/**
+ *  Required. The parent resource where the assts export job will be created.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_Operation.
+ *
+ *  Creates a new assets export job.
+ *
+ *  @param object The @c GTLRMigrationCenterAPI_AssetsExportJob to include in
+ *    the query.
+ *  @param parent Required. The parent resource where the assts export job will
+ *    be created.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsCreate
+ */
++ (instancetype)queryWithObject:(GTLRMigrationCenterAPI_AssetsExportJob *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an assets export job.
+ *
+ *  Method: migrationcenter.projects.locations.assetsExportJobs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsDelete : GTLRMigrationCenterAPIQuery
+
+/** Required. The name of the assets export job to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_Operation.
+ *
+ *  Deletes an assets export job.
+ *
+ *  @param name Required. The name of the assets export job to delete.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of an assets export job.
+ *
+ *  Method: migrationcenter.projects.locations.assetsExportJobs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsGet : GTLRMigrationCenterAPIQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_AssetsExportJob.
+ *
+ *  Gets the details of an assets export job.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the assets export jobs in a given project and location.
+ *
+ *  Method: migrationcenter.projects.locations.assetsExportJobs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsList : GTLRMigrationCenterAPIQuery
+
+/**
+ *  Optional. Requested page size. The server may return fewer items than
+ *  requested. If unspecified, the server will pick an appropriate default
+ *  value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results that the server should
+ *  return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent resource. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_ListAssetsExportJobsResponse.
+ *
+ *  Lists all the assets export jobs in a given project and location.
+ *
+ *  @param parent Required. Parent resource.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Runs an assets export job, returning an AssetsExportJobExecution.
+ *
+ *  Method: migrationcenter.projects.locations.assetsExportJobs.run
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMigrationCenterAPICloudPlatform
+ */
+@interface GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsRun : GTLRMigrationCenterAPIQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMigrationCenterAPI_Operation.
+ *
+ *  Runs an assets export job, returning an AssetsExportJobExecution.
+ *
+ *  @param object The @c GTLRMigrationCenterAPI_RunAssetsExportJobRequest to
+ *    include in the query.
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRMigrationCenterAPIQuery_ProjectsLocationsAssetsExportJobsRun
+ */
++ (instancetype)queryWithObject:(GTLRMigrationCenterAPI_RunAssetsExportJobRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Gets the details of an asset.
  *
  *  Method: migrationcenter.projects.locations.assets.get
@@ -1552,7 +1726,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: migrationcenter.projects.locations.list
  *
@@ -1592,7 +1770,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPIViewReportViewUnspecif
 /**
  *  Fetches a @c GTLRMigrationCenterAPI_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

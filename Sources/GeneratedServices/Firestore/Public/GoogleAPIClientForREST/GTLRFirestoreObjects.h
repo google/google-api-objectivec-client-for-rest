@@ -4040,6 +4040,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *  The metadata message for google.cloud.location.Location.metadata.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1LocationMetadata : GTLRObject
+
+/**
+ *  The storage placements available in the location. When the location
+ *  represents a Standard Managed Multi-Region (SMMR) like "us", this field
+ *  lists the available Google-Managed Multi-Regions (GMMRs) within it, such as
+ *  "nam5" or "eur3".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableStoragePlacements;
+
 @end
 
 
@@ -4286,10 +4295,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 /**
  *  The TTL (time-to-live) configuration for documents that have this `Field`
  *  set. Storing a timestamp value into a TTL-enabled field will be treated as
- *  the document's absolute expiration time. Timestamp values in the past
- *  indicate that the document is eligible for immediate expiration. Using any
- *  other data type or leaving the field absent will disable expiration for the
- *  individual document.
+ *  the document's absolute expiration time. For Enterprise edition databases,
+ *  the timestamp value may also be stored in an array value in the TTL-enabled
+ *  field. Timestamp values in the past indicate that the document is eligible
+ *  for immediate expiration. Using any other data type or leaving the field
+ *  absent will disable expiration for the individual document.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1TtlConfig : GTLRObject
 

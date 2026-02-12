@@ -185,7 +185,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<NSString *> *content;
 
 /**
- *  Required. The resource name for the dataset to use for adaptive MT.
+ *  Required. The resource name for the dataset to use for adaptive MT
+ *  translation.
  *  `projects/{project}/locations/{location-id}/adaptiveMtDatasets/{dataset}`
  */
 @property(nonatomic, copy, nullable) NSString *dataset;

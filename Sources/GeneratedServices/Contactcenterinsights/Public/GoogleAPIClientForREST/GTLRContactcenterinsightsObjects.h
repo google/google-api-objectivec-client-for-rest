@@ -30,10 +30,15 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkDeleteFeedbackLabelsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1CallAnnotation;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConstraintEvaluationResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConstraintEvaluationResultRuleConstraintResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_DialogflowIntents;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Labels;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCallMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationInfo;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationResultRuleCorrelationResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSilence;
@@ -80,6 +85,17 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FaqAnswerData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1FeedbackLabel;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GcsSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscript;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessage_ChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessage_UserProvidedChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessages;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageUserMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponse;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponse_ChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1HoldData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ImportIssueModelRequestGcsSource;
@@ -113,6 +129,8 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPoint;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasure;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointDialogflowInteractionMeasure;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceTimeSeries;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RedactionConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1RuntimeAnnotation;
@@ -127,6 +145,9 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartReplyData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SmartReplyData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1SpeechConfig;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigMetadataFullConversationCorrelationStats;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigResponseDetailedCorrelationResults;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UndeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UpdateQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1UploadConversationRequest;
@@ -149,6 +170,8 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AssessmentRule;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedView;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRuleLabelingCondition;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteConversationsRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDeleteFeedbackLabelsRequest;
@@ -165,10 +188,19 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponseTimeSeries;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CalculateStatsResponseTimeSeriesInterval;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CallAnnotation;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ChartDataSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConstraintEvaluationResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConstraintEvaluationResultRuleConstraintResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Container;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_DialogflowIntents;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Labels;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCallMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationInfo;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationResultRuleCorrelationResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataOptions;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSourceTurnLevelAudio;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationLevelSentiment;
@@ -183,9 +215,15 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentDialogflowSegmentMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentWordInfo;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationConfig;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationRule;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationTypeConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateIssueRequest;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfig;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeleteQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DeployIssueModelRequest;
@@ -217,6 +255,28 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FaqAnswerData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1FeedbackLabel;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GcsSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscript;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessage_ChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessage_UserProvidedChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessages;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageUserMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsights;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsights_ChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsights_Request;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartCheckpoint;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversation;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessage_ChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageUserMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsRequest_UserProvidedChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponse;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponse_ChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1HoldData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ImportIssueModelRequestGcsSource;
@@ -260,10 +320,15 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainBulkDownloadFeedbackLabelsRequestGcsDestination;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainBulkDownloadFeedbackLabelsRequestSheetsDestination;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainCallAnnotation;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConstraintEvaluationResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConstraintEvaluationResultRuleConstraintResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversation;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversation_DialogflowIntents;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversation_Labels;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCallMetadata;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationInfo;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationResult;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationResultRuleCorrelationResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationDataSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationLevelSentiment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationLevelSilence;
@@ -310,6 +375,17 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainFaqAnswerData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainFeedbackLabel;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGcsSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscript;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessage_ChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessage_UserProvidedChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessages;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageUserMessage;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponse;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponse_ChartSpec;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainHoldData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainImportIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainImportIssueModelRequestGcsSource;
@@ -343,6 +419,8 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPoint;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointConversationMeasure;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointConversationMeasureQaTagScore;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointDialogflowInteractionMeasure;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceTimeSeries;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainRedactionConfig;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainRuntimeAnnotation;
@@ -357,6 +435,9 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSmartReplyData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSmartReplyData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainSpeechConfig;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigMetadataFullConversationCorrelationStats;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigResponseDetailedCorrelationResults;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainUndeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainUpdateQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainUploadConversationRequest;
@@ -376,6 +457,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionAnswerChoice;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionMetrics;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionQaQuestionDataOptions;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTag;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionTuningMetadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecard;
@@ -384,10 +466,14 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardResultScoreSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaScorecardRevision;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryInterval;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetrics;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetrics_Request;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSlice;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPoint;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasure;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointDialogflowInteractionMeasure;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceTimeSeries;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewRequestAgentSource;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1RedactionConfig;
@@ -408,11 +494,16 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartReplyData;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SmartReplyData_Metadata;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigMetadataFullConversationCorrelationStats;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigRequestConversations;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigResponseDetailedCorrelationResults;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UndeployIssueModelRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UpdateQaQuestionTagRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationRequest;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UserInfo;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1View;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Widget;
 @class GTLRContactcenterinsights_GoogleIamV1AuditConfig;
 @class GTLRContactcenterinsights_GoogleIamV1AuditLogConfig;
 @class GTLRContactcenterinsights_GoogleIamV1Binding;
@@ -498,7 +589,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Medium_Chat;
 /**
- *  Default value, if unspecified will default to PHONE_CALL.
+ *  Default value for unspecified.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -509,6 +600,43 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "PHONE_CALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Medium_PhoneCall;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationInfo.correlationTypes
+
+/**
+ *  Default value for unspecified.
+ *
+ *  Value: "CORRELATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationInfo_CorrelationTypes_CorrelationTypeUnspecified;
+/**
+ *  This conversation represents a full conversation of potentially multiple
+ *  segments.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationInfo_CorrelationTypes_Full;
+/**
+ *  This conversation represents a partial conversation of potentially multiple
+ *  segments but is not a full conversation.
+ *
+ *  Value: "PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationInfo_CorrelationTypes_Partial;
+/**
+ *  This conversation represents a segment of a full conversation. The lowest
+ *  level of granularity.
+ *
+ *  Value: "SEGMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationInfo_CorrelationTypes_Segment;
+/**
+ *  This conversation represents a synthetic conversation.
+ *
+ *  Value: "SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationInfo_CorrelationTypes_Synthetic;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant.role
@@ -1002,6 +1130,68 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ExportInsightsDataRequest_WriteDisposition_WriteTruncate;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput.textType
+
+/**
+ *  The text is a final response to the user question.
+ *
+ *  Value: "FINAL_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_FinalResponse;
+/**
+ *  The text is an informational message about the agent's progress, such as a
+ *  tool being invoked. This is distinct from the agent's internal thought
+ *  process (`THOUGHT`) and the final answer to the user (`FINAL_RESPONSE`).
+ *  These messages provide insight into the agent's actions.
+ *
+ *  Value: "PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Progress;
+/**
+ *  The text is a thinking plan generated by the thinking tool.
+ *
+ *  Value: "THOUGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Thought;
+/**
+ *  The default text type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput.textType
+
+/**
+ *  The text is the final answer from LLM.
+ *
+ *  Value: "FINAL_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_FinalResponse;
+/**
+ *  The text is an informational message about the agent's progress, such as a
+ *  tool being invoked. This is distinct from the agent's internal thought
+ *  process (`THOUGHT`) and the final answer to the user (`FINAL_RESPONSE`).
+ *  These messages provide insight into the agent's actions.
+ *
+ *  Value: "PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Progress;
+/**
+ *  The text is part of LLM reasoning.
+ *
+ *  Value: "THOUGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Thought;
+/**
+ *  The type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestGcsSource.bucketObjectType
 
 /**
@@ -1033,7 +1223,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig_Medium_Chat;
 /**
- *  Default value, if unspecified will default to PHONE_CALL.
+ *  Default value for unspecified.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -1118,7 +1308,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_Chat;
 /**
- *  Default value, if unspecified will default to PHONE_CALL.
+ *  Default value for unspecified.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -1285,6 +1475,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Assessment_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule.labelKeyType
+
+/**
+ *  The label key is custom defined by the user.
+ *
+ *  Value: "LABEL_KEY_TYPE_CUSTOM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule_LabelKeyType_LabelKeyTypeCustom;
+/**
+ *  Unspecified label key type.
+ *
+ *  Value: "LABEL_KEY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule_LabelKeyType_LabelKeyTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkDownloadFeedbackLabelsRequest.feedbackLabelType
 
 /**
@@ -1358,6 +1564,98 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkUploadFeedbackLabelsRequestGcsSource_Format_Json;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart.chartType
+
+/**
+ *  Unspecified chart type.
+ *
+ *  Value: "CHART_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartType_ChartTypeUnspecified;
+/**
+ *  Pre-defined chart type.
+ *
+ *  Value: "SYSTEM_DEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartType_SystemDefined;
+/**
+ *  Configurable chart type.
+ *
+ *  Value: "USER_DEFINED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartType_UserDefined;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart.chartVisualizationType
+
+/**
+ *  Area chart.
+ *
+ *  Value: "AREA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Area;
+/**
+ *  Bar chart.
+ *
+ *  Value: "BAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Bar;
+/**
+ *  Unspecified chart visualization type.
+ *
+ *  Value: "CHART_VISUALIZATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_ChartVisualizationTypeUnspecified;
+/**
+ *  Gauge chart.
+ *
+ *  Value: "GAUGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Gauge;
+/**
+ *  Line chart.
+ *
+ *  Value: "LINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Line;
+/**
+ *  Pie chart.
+ *
+ *  Value: "PIE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Pie;
+/**
+ *  Sankey chart.
+ *
+ *  Value: "SANKEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Sankey;
+/**
+ *  Scatter chart.
+ *
+ *  Value: "SCATTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Scatter;
+/**
+ *  Score card chart.
+ *
+ *  Value: "SCORE_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_ScoreCard;
+/**
+ *  Sunburst chart.
+ *
+ *  Value: "SUNBURST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Sunburst;
+/**
+ *  Table chart.
+ *
+ *  Value: "TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Table;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation.medium
 
 /**
@@ -1367,7 +1665,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Medium_Chat;
 /**
- *  Default value, if unspecified will default to PHONE_CALL.
+ *  Default value for unspecified.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -1378,6 +1676,43 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "PHONE_CALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Medium_PhoneCall;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationInfo.correlationTypes
+
+/**
+ *  Default value for unspecified.
+ *
+ *  Value: "CORRELATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationInfo_CorrelationTypes_CorrelationTypeUnspecified;
+/**
+ *  This conversation represents a full conversation of potentially multiple
+ *  segments.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationInfo_CorrelationTypes_Full;
+/**
+ *  This conversation represents a partial conversation of potentially multiple
+ *  segments but is not a full conversation.
+ *
+ *  Value: "PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationInfo_CorrelationTypes_Partial;
+/**
+ *  This conversation represents a segment of a full conversation. The lowest
+ *  level of granularity.
+ *
+ *  Value: "SEGMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationInfo_CorrelationTypes_Segment;
+/**
+ *  This conversation represents a synthetic conversation.
+ *
+ *  Value: "SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationInfo_CorrelationTypes_Synthetic;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationParticipant.role
@@ -1469,6 +1804,46 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dataset_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange.unit
+
+/**
+ *  Day.
+ *
+ *  Value: "DAY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_Day;
+/**
+ *  Month.
+ *
+ *  Value: "MONTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_Month;
+/**
+ *  Quarter.
+ *
+ *  Value: "QUARTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_Quarter;
+/**
+ *  Unspecified.
+ *
+ *  Value: "TIME_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_TimeUnitUnspecified;
+/**
+ *  Week.
+ *
+ *  Value: "WEEK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_Week;
+/**
+ *  Year.
+ *
+ *  Value: "YEAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_Year;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dimension.dimensionKey
@@ -1871,6 +2246,99 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ExportInsightsDataRequest_WriteDisposition_WriteTruncate;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput.textType
+
+/**
+ *  The text is a final response to the user question.
+ *
+ *  Value: "FINAL_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_FinalResponse;
+/**
+ *  The text is an informational message about the agent's progress, such as a
+ *  tool being invoked. This is distinct from the agent's internal thought
+ *  process (`THOUGHT`) and the final answer to the user (`FINAL_RESPONSE`).
+ *  These messages provide insight into the agent's actions.
+ *
+ *  Value: "PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Progress;
+/**
+ *  The text is a thinking plan generated by the thinking tool.
+ *
+ *  Value: "THOUGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Thought;
+/**
+ *  The default text type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput.type
+
+/**
+ *  The text is a final response to the user question.
+ *
+ *  Value: "FINAL_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput_Type_FinalResponse;
+/**
+ *  The text is an informational message about the agent's progress, such as a
+ *  tool being invoked. This is distinct from the agent's internal thought
+ *  process (`THOUGHT`) and the final answer to the user (`FINAL_RESPONSE`).
+ *  These messages provide insight into the agent's actions.
+ *
+ *  Value: "PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput_Type_Progress;
+/**
+ *  The text is a thinking plan generated by the thinking tool.
+ *
+ *  Value: "THOUGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput_Type_Thought;
+/**
+ *  The default text type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput.textType
+
+/**
+ *  The text is the final answer from LLM.
+ *
+ *  Value: "FINAL_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_FinalResponse;
+/**
+ *  The text is an informational message about the agent's progress, such as a
+ *  tool being invoked. This is distinct from the agent's internal thought
+ *  process (`THOUGHT`) and the final answer to the user (`FINAL_RESPONSE`).
+ *  These messages provide insight into the agent's actions.
+ *
+ *  Value: "PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Progress;
+/**
+ *  The text is part of LLM reasoning.
+ *
+ *  Value: "THOUGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Thought;
+/**
+ *  The type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestGcsSource.bucketObjectType
 
 /**
@@ -1902,7 +2370,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig_Medium_Chat;
 /**
- *  Default value, if unspecified will default to PHONE_CALL.
+ *  Default value for unspecified.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -1987,7 +2455,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig_Medium_Chat;
 /**
- *  Default value, if unspecified will default to PHONE_CALL.
+ *  Default value for unspecified.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -2112,7 +2580,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversation_Medium_Chat;
 /**
- *  Default value, if unspecified will default to PHONE_CALL.
+ *  Default value for unspecified.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -2123,6 +2591,43 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  *  Value: "PHONE_CALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversation_Medium_PhoneCall;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationInfo.correlationTypes
+
+/**
+ *  Default value for unspecified.
+ *
+ *  Value: "CORRELATION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationInfo_CorrelationTypes_CorrelationTypeUnspecified;
+/**
+ *  This conversation represents a full conversation of potentially multiple
+ *  segments.
+ *
+ *  Value: "FULL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationInfo_CorrelationTypes_Full;
+/**
+ *  This conversation represents a partial conversation of potentially multiple
+ *  segments but is not a full conversation.
+ *
+ *  Value: "PARTIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationInfo_CorrelationTypes_Partial;
+/**
+ *  This conversation represents a segment of a full conversation. The lowest
+ *  level of granularity.
+ *
+ *  Value: "SEGMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationInfo_CorrelationTypes_Segment;
+/**
+ *  This conversation represents a synthetic conversation.
+ *
+ *  Value: "SYNTHETIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationInfo_CorrelationTypes_Synthetic;
 
 // ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationParticipant.role
@@ -2616,6 +3121,68 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainExportInsightsDataRequest_WriteDisposition_WriteTruncate;
 
 // ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput.textType
+
+/**
+ *  The text is a final response to the user question.
+ *
+ *  Value: "FINAL_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_FinalResponse;
+/**
+ *  The text is an informational message about the agent's progress, such as a
+ *  tool being invoked. This is distinct from the agent's internal thought
+ *  process (`THOUGHT`) and the final answer to the user (`FINAL_RESPONSE`).
+ *  These messages provide insight into the agent's actions.
+ *
+ *  Value: "PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Progress;
+/**
+ *  The text is a thinking plan generated by the thinking tool.
+ *
+ *  Value: "THOUGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Thought;
+/**
+ *  The default text type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput.textType
+
+/**
+ *  The text is the final answer from LLM.
+ *
+ *  Value: "FINAL_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput_TextType_FinalResponse;
+/**
+ *  The text is an informational message about the agent's progress, such as a
+ *  tool being invoked. This is distinct from the agent's internal thought
+ *  process (`THOUGHT`) and the final answer to the user (`FINAL_RESPONSE`).
+ *  These messages provide insight into the agent's actions.
+ *
+ *  Value: "PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Progress;
+/**
+ *  The text is part of LLM reasoning.
+ *
+ *  Value: "THOUGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Thought;
+/**
+ *  The type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput_TextType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainIngestConversationsRequestGcsSource.bucketObjectType
 
 /**
@@ -2647,7 +3214,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainIngestConversationsRequestTranscriptObjectConfig_Medium_Chat;
 /**
- *  Default value, if unspecified will default to PHONE_CALL.
+ *  Default value for unspecified.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -2732,7 +3299,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContact
  */
 FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainIssueModelInputDataConfig_Medium_Chat;
 /**
- *  Default value, if unspecified will default to PHONE_CALL.
+ *  Default value for unspecified.
  *
  *  Value: "MEDIUM_UNSPECIFIED"
  */
@@ -3837,6 +4404,44 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 
 /**
+ *  The result of testing a constraint expression on a pair of conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConstraintEvaluationResult : GTLRObject
+
+/** The first conversation resource name. */
+@property(nonatomic, copy, nullable) NSString *conversationA;
+
+/** The second conversation resource name. */
+@property(nonatomic, copy, nullable) NSString *conversationB;
+
+/** The results for each applicable constraint rule. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConstraintEvaluationResultRuleConstraintResult *> *ruleConstraintResults;
+
+@end
+
+
+/**
+ *  The result of a single constraint rule on the pair of conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConstraintEvaluationResultRuleConstraintResult : GTLRObject
+
+/**
+ *  Whether the constraint expression evaluated to true for (A, B) or (B, A).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *constraintMet;
+
+/** The error status if the constraint expression failed to evaluate. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleRpcStatus *error;
+
+/** The rule ID. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+@end
+
+
+/**
  *  The conversation resource.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation : GTLRObject
@@ -3849,6 +4454,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** Call-specific metadata. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCallMetadata *callMetadata;
+
+/** Output only. Info for correlating across conversations. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationInfo *correlationInfo;
 
 /** Output only. The time at which the conversation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -3888,16 +4496,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationSummarizationSuggestionData *latestSummary;
 
 /**
- *  Immutable. The conversation medium, if unspecified will default to
- *  PHONE_CALL.
+ *  Immutable. The conversation medium.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Medium_Chat
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Medium_MediumUnspecified
- *        Default value, if unspecified will default to PHONE_CALL. (Value:
- *        "MEDIUM_UNSPECIFIED")
+ *        Default value for unspecified. (Value: "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1Conversation_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -4002,6 +4608,64 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *customerChannel;
+
+@end
+
+
+/**
+ *  Info for correlating across conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationInfo : GTLRObject
+
+/**
+ *  Output only. The correlation types of this conversation. A single
+ *  conversation can have multiple correlation types. For example a conversation
+ *  that only has a single segment is both a SEGMENT and a FULL_CONVERSATION.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *correlationTypes;
+
+/**
+ *  Output only. The full conversation correlation id this conversation is a
+ *  segment of.
+ */
+@property(nonatomic, copy, nullable) NSString *fullConversationCorrelationId;
+
+/**
+ *  Output only. The full conversation correlation id this conversation is a
+ *  merged conversation of.
+ */
+@property(nonatomic, copy, nullable) NSString *mergedFullConversationCorrelationId;
+
+@end
+
+
+/**
+ *  The result of testing correlation config on a single conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationResult : GTLRObject
+
+/** The conversation resource name. */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/** The results for each correlation rule. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationResultRuleCorrelationResult *> *ruleResults;
+
+@end
+
+
+/**
+ *  The result of a single correlation rule.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationResultRuleCorrelationResult : GTLRObject
+
+/** The correlation ID generated by the join key expression. */
+@property(nonatomic, copy, nullable) NSString *correlationId;
+
+/** The error status if the join key expression failed to evaluate. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleRpcStatus *error;
+
+/** The rule ID. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
 
 @end
 
@@ -5443,6 +6107,258 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 
 /**
+ *  The conversation transcript for the chart.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscript : GTLRObject
+
+/** The conversation id of the chart. */
+@property(nonatomic, copy, nullable) NSString *conversationId;
+
+/** Output only. The create time of the conversation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Ordered list of messages, including user inputs and system responses. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessage *> *messages;
+
+/** Output only. The update time of the conversation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The message in the conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessage : GTLRObject
+
+/**
+ *  Output only. For user messages, this is the time at which the system
+ *  received the message. For system messages, this is the time at which the
+ *  system generated the message.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The message id of the message. */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/** A wrapper for system messages per turn. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessages *systemMessageWrapper;
+
+/** A message from the user that is interacting with the system. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageUserMessage *userMessage;
+
+@end
+
+
+/**
+ *  A message from the system in response to the user. This message can also be
+ *  a message from the user as historical context for multiturn conversations
+ *  with the system.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessage : GTLRObject
+
+/** Chart spec from LLM */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessage_ChartSpec *chartSpec;
+
+/** Raw SQL from LLM, before templatization */
+@property(nonatomic, copy, nullable) NSString *generatedSqlQuery;
+
+/** A direct natural language response to the user message. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput *textMessage;
+
+/** Optional. User provided chart spec */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessage_UserProvidedChartSpec *userProvidedChartSpec;
+
+/** Optional. User provided SQL query */
+@property(nonatomic, copy, nullable) NSString *userProvidedSqlQuery;
+
+@end
+
+
+/**
+ *  Chart spec from LLM
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessage_ChartSpec : GTLRObject
+@end
+
+
+/**
+ *  Optional. User provided chart spec
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessage_UserProvidedChartSpec : GTLRObject
+@end
+
+
+/**
+ *  A wrapper for system messages per turn.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessages : GTLRObject
+
+/** A message from the system in response to the user. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessage *> *systemMessages;
+
+@end
+
+
+/**
+ *  A text output message from the system.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput : GTLRObject
+
+/** The parts of the message. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *text;
+
+/**
+ *  The type of the text message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_FinalResponse
+ *        The text is a final response to the user question. (Value:
+ *        "FINAL_RESPONSE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Progress
+ *        The text is an informational message about the agent's progress, such
+ *        as a tool being invoked. This is distinct from the agent's internal
+ *        thought process (`THOUGHT`) and the final answer to the user
+ *        (`FINAL_RESPONSE`). These messages provide insight into the agent's
+ *        actions. (Value: "PROGRESS")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Thought
+ *        The text is a thinking plan generated by the thinking tool. (Value:
+ *        "THOUGHT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_TypeUnspecified
+ *        The default text type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *textType;
+
+@end
+
+
+/**
+ *  The user message.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscriptMessageUserMessage : GTLRObject
+
+/** A message from the user that is interacting with the system. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  The metadata for generative insights.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsMetadata : GTLRObject
+
+/** The error message when the generative insights request fails. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *errorMessages;
+
+@end
+
+
+/**
+ *  The response for generative insights.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponse : GTLRObject
+
+/**
+ *  The full list of generative responses. Each response is ordered by time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponse *> *generativeResponses;
+
+/** The transcript of the generative insights conversation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightConversationTranscript *transcript;
+
+@end
+
+
+/**
+ *  Wrapper for storing the generative response for a chart.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponse : GTLRObject
+
+/**
+ *  The chart spec for the data. This will be specified in the vega-lite or vega
+ *  format.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponse_ChartSpec *chartSpec;
+
+/**
+ *  The generated SQL query from the LLM. Will be populated during the chart
+ *  building phase. The generated SQL will be cached in the corresponding chart
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *generatedSqlQuery;
+
+/**
+ *  The text output from the LLM. Will be populated during the chart building
+ *  phase. For a reloaded chart, this will NOT be populated. May contain THOUGHT
+ *  or a FINAL response or some in-progress response.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput *textMessage;
+
+/**
+ *  The text output from the LLM. Will be populated during the chart building
+ *  phase. For a reloaded chart, this will NOT be populated. May contain THOUGHT
+ *  or a FINAL response or some in-progress response.
+ */
+@property(nonatomic, copy, nullable) NSString *textOutput GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  The chart spec for the data. This will be specified in the vega-lite or vega
+ *  format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponse_ChartSpec : GTLRObject
+@end
+
+
+/**
+ *  Wrapper for text output.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput : GTLRObject
+
+/** The text output from the LLM. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *text;
+
+/**
+ *  The type of text output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_FinalResponse
+ *        The text is the final answer from LLM. (Value: "FINAL_RESPONSE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Progress
+ *        The text is an informational message about the agent's progress, such
+ *        as a tool being invoked. This is distinct from the agent's internal
+ *        thought process (`THOUGHT`) and the final answer to the user
+ *        (`FINAL_RESPONSE`). These messages provide insight into the agent's
+ *        actions. (Value: "PROGRESS")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Thought
+ *        The text is part of LLM reasoning. (Value: "THOUGHT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_TypeUnspecified
+ *        The type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *textType;
+
+@end
+
+
+/**
  *  The data for a hold annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1HoldData : GTLRObject
@@ -5740,8 +6656,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig_Medium_MediumUnspecified
- *        Default value, if unspecified will default to PHONE_CALL. (Value:
- *        "MEDIUM_UNSPECIFIED")
+ *        Default value for unspecified. (Value: "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IngestConversationsRequestTranscriptObjectConfig_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -6011,8 +6926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_MediumUnspecified
- *        Default value, if unspecified will default to PHONE_CALL. (Value:
- *        "MEDIUM_UNSPECIFIED")
+ *        Default value for unspecified. (Value: "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1IssueModelInputDataConfig_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -6577,6 +7491,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 /** The measure related to conversations. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasure *conversationMeasure;
 
+/** The measure related to dialogflow interactions. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointDialogflowInteractionMeasure *dialogflowInteractionMeasure;
+
 /**
  *  The interval that this data point represents. * If this is the total data
  *  point, the interval is [starting create time, ending create time) from the
@@ -6592,6 +7509,94 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  The measure related to conversations.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasure : GTLRObject
+
+/**
+ *  The number of conversations that were assigned to an AA human supervisor.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorAssignedConversationsCount;
+
+/**
+ *  The number of conversations that were dropped, i.e. escalated but not
+ *  assigned to an AA human supervisor.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorDroppedConversationsCount;
+
+/**
+ *  The number of conversations that were escalated to an AA human supervisor
+ *  for intervention.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorEscalatedConversationsCount;
+
+/**
+ *  The number of conversations scanned by the AA human supervisor.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorMonitoredConversationsCount;
+
+/**
+ *  The number of conversations transferred to a human agent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorTransferredToHumanAgentConvCount;
+
+/**
+ *  Count of agent messages that triggered an Ai Coach Suggestion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionAgentMessageTriggerCount;
+
+/**
+ *  Count of Ai Coach Suggestion that has been used by agents.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionAgentUsageCount;
+
+/**
+ *  Proportion of Ai Coach Suggestion that has been used by agents.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionAgentUsageRatio;
+
+/**
+ *  Count of customer messages that triggered an Ai Coach Suggestion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionCustomerMessageTriggerCount;
+
+/**
+ *  Proportion of customer messages that triggered an Ai Coach Suggestion.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionCustomerMessageTriggerRatio;
+
+/**
+ *  Count of end_of_utterance trigger event messages that triggered an Ai Coach
+ *  Suggestion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionMessageTriggerCount;
+
+/**
+ *  Proportion of end_of_utterance trigger event messages that triggered an Ai
+ *  Coach Suggestion.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionMessageTriggerRatio;
 
 /**
  *  The average agent's sentiment score.
@@ -6645,11 +7650,107 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, strong, nullable) NSNumber *averageSilencePercentage;
 
 /**
+ *  Average edit distance of the summarization suggestions. Edit distance (also
+ *  called as levenshtein distance) is calculated by summing up number of
+ *  insertions, deletions and substitutions required to transform the
+ *  summization feedback to the original summary suggestion.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageSummarizationSuggestionEditDistance;
+
+/**
+ *  Normalized Average edit distance of the summarization suggestions. Edit
+ *  distance (also called as levenshtein distance) is calculated by summing up
+ *  number of insertions, deletions and substitutions required to transform the
+ *  summization feedback to the original summary suggestion. Normalized edit
+ *  distance is the average of (edit distance / summary length).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageSummarizationSuggestionNormalizedEditDistance;
+
+/**
  *  The average turn count.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *averageTurnCount;
+
+/**
+ *  The exponential moving average of the sentiment score of client turns in the
+ *  conversation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avgConversationClientTurnSentimentEma;
+
+/**
+ *  The number of conversations that were contained.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containedConversationCount;
+
+/**
+ *  The percentage of conversations that were contained.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containedConversationRatio;
+
+/**
+ *  Count of conversations that has Ai Coach Suggestions.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationAiCoachSuggestionCount;
+
+/**
+ *  Proportion of conversations that has Ai Coach Suggestions.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationAiCoachSuggestionRatio;
+
+/**
+ *  The average latency of conversational agents' audio in audio out latency per
+ *  interaction. This is computed as the average of the all the interactions'
+ *  audio in audio out latencies in a conversation and averaged across
+ *  conversations.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageAudioInAudioOutLatency;
+
+/**
+ *  The average latency of conversational agents' latency per interaction. This
+ *  is computed as the average of the all the iteractions' end to end latencies
+ *  in a conversation and averaged across conversations. The e2e latency is the
+ *  time between the end of the user utterance and the start of the agent
+ *  utterance on the interaction level.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageEndToEndLatency;
+
+/**
+ *  The average latency of conversational agents' LLM call latency per
+ *  interaction. This is computed as the average of the all the interactions LLM
+ *  call latencies in a conversation and averaged across conversations.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageLlmCallLatency;
+
+/**
+ *  The macro average latency of conversational agents' TTS latency per
+ *  interaction. This is computed as the average of the all the interactions'
+ *  TTS latencies in a conversation and averaged across conversations.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageTtsLatency;
 
 /**
  *  The conversation count.
@@ -6658,8 +7759,175 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  */
 @property(nonatomic, strong, nullable) NSNumber *conversationCount;
 
+/**
+ *  Proportion of conversations that had a suggested summary.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationSuggestedSummaryRatio;
+
+/**
+ *  The agent message count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationTotalAgentMessageCount;
+
+/**
+ *  The customer message count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationTotalCustomerMessageCount;
+
+/**
+ *  Average latency of dialogflow webhook calls.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowAverageWebhookLatency;
+
+/**
+ *  count of conversations that was handed off from virtual agent to human
+ *  agent.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowConversationsEscalationCount;
+
+/**
+ *  Proportion of conversations that was handed off from virtual agent to human
+ *  agent.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowConversationsEscalationRatio;
+
+/**
+ *  Proportion of dialogflow interactions that has empty input.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowInteractionsNoInputRatio;
+
+/**
+ *  Proportion of dialogflow interactions that has no intent match for the
+ *  input.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowInteractionsNoMatchRatio;
+
+/**
+ *  Proportion of dialogflow webhook calls that failed.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowWebhookFailureRatio;
+
+/**
+ *  Proportion of dialogflow webhook calls that timed out.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowWebhookTimeoutRatio;
+
+/**
+ *  Proportion of knowledge assist (Proactive Generative Knowledge Assist)
+ *  queries that had negative feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistNegativeFeedbackRatio;
+
+/**
+ *  Proportion of knowledge assist (Proactive Generative Knowledge Assist)
+ *  queries that had positive feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistPositiveFeedbackRatio;
+
+/**
+ *  Count of knowledge assist results (Proactive Generative Knowledge Assist)
+ *  shown to the user.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistResultCount;
+
+/**
+ *  Proportion of knowledge assist (Proactive Generative Knowledge Assist)
+ *  queries that had a URL clicked.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistUriClickRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries made by
+ *  the agent compared to the total number of knowledge search queries made.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchAgentQuerySourceRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries that
+ *  had negative feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchNegativeFeedbackRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries that
+ *  had positive feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchPositiveFeedbackRatio;
+
+/**
+ *  Count of knowledge search results (Generative Knowledge Assist) shown to the
+ *  user.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchResultCount;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries
+ *  suggested compared to the total number of knowledge search queries made.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchSuggestedQuerySourceRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries that
+ *  had a URL clicked.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchUriClickRatio;
+
 /** Average QA normalized score for all the tags. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore *> *qaTagScores;
+
+/**
+ *  Proportion of summarization suggestions that were manually edited.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *summarizationSuggestionEditRatio;
+
+/**
+ *  Count of summarization suggestions results.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *summarizationSuggestionResultCount;
 
 @end
 
@@ -6678,6 +7946,74 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** Tag name. */
 @property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  The measure related to dialogflow interactions.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointDialogflowInteractionMeasure : GTLRObject
+
+/**
+ *  The percentile result for audio in audio out latency in milliseconds per
+ *  dialogflow interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult *percentileAudioInAudioOutLatency;
+
+/**
+ *  The percentile result for end to end chat latency in milliseconds per
+ *  dialogflow interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult *percentileEndToEndLatency;
+
+/**
+ *  The percentile result for LLM latency in milliseconds per dialogflow
+ *  interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult *percentileLlmCallLatency;
+
+/**
+ *  The percentile result for tool use latency in milliseconds per dialogflow
+ *  interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult *percentileToolUseLatency;
+
+/**
+ *  The percentile result for TTS latency in milliseconds per dialogflow
+ *  interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult *percentileTtsLatency;
+
+@end
+
+
+/**
+ *  The percentile result. Currently supported percentiles are 50th, 90th, and
+ *  99th.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1QueryMetricsResponseSliceDataPointPercentileResult : GTLRObject
+
+/**
+ *  The 50th percentile value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p50;
+
+/**
+ *  The 90th percentile value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p90;
+
+/**
+ *  The 99th percentile value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p99;
 
 @end
 
@@ -7073,6 +8409,109 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  *  `projects/{project_id}/locations/{location}/recognizer/{recognizer}`
  */
 @property(nonatomic, copy, nullable) NSString *speechRecognizer;
+
+@end
+
+
+/**
+ *  Metadata for testing correlation config.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The dataset used for sampling conversations. */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/** The statistics for the operation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigMetadataFullConversationCorrelationStats *stats;
+
+@end
+
+
+/**
+ *  Statistics for TestCorrelationConfig operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigMetadataFullConversationCorrelationStats : GTLRObject
+
+/**
+ *  A list of errors that occurred during correlation, one for each conversation
+ *  that failed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError *> *conversationCorrelationErrors;
+
+/**
+ *  The number of conversations correlated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *correlatedConversationsCount;
+
+/**
+ *  The number of conversations that failed correlation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedConversationsCount;
+
+/**
+ *  Partial errors during test correlation config operation that might cause the
+ *  operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/**
+ *  The number of conversations sampled.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampledConversationsCount;
+
+@end
+
+
+/**
+ *  An error that occurred during correlation for a specific conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError : GTLRObject
+
+/** The conversation resource name that had an error during correlation. */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/** The error status. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleRpcStatus *status;
+
+@end
+
+
+/**
+ *  The response of testing correlation config.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigResponse : GTLRObject
+
+/** Results for the DETAILED_SYNC execution mode. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigResponseDetailedCorrelationResults *detailedResults;
+
+/**
+ *  Partial errors during test correlation config operation that might cause the
+ *  operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+@end
+
+
+/**
+ *  Wrapper for detailed, step-by-step results.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1TestCorrelationConfigResponseDetailedCorrelationResults : GTLRObject
+
+/** A list of constraint evaluation results for each pair of conversations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConstraintEvaluationResult *> *constraintResults;
+
+/** A list of join key correlation results for each conversation tested. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationResult *> *joinKeyResults;
 
 @end
 
@@ -7817,6 +9256,86 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 
 /**
+ *  Rule for auto-labeling conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule : GTLRObject
+
+/**
+ *  Whether the rule is active.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *active;
+
+/**
+ *  Conditions to apply for auto-labeling the label_key. Representing sequential
+ *  block of if .. else if .. else statements. The value of the first matching
+ *  condition will be used.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRuleLabelingCondition *> *conditions;
+
+/** Output only. The time at which this rule was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The description of the rule.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The user-provided display name of the rule. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The label key. This is also the {auto_labeling_rule} in the resource name.
+ *  Only settable if label_key_type is LABEL_KEY_TYPE_CUSTOM.
+ */
+@property(nonatomic, copy, nullable) NSString *labelKey;
+
+/**
+ *  The type of the label key.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule_LabelKeyType_LabelKeyTypeCustom
+ *        The label key is custom defined by the user. (Value:
+ *        "LABEL_KEY_TYPE_CUSTOM")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule_LabelKeyType_LabelKeyTypeUnspecified
+ *        Unspecified label key type. (Value: "LABEL_KEY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *labelKeyType;
+
+/**
+ *  Identifier. The resource name of the auto-labeling rule. Format:
+ *  projects/{project}/locations/{location}/autoLabelingRules/{auto_labeling_rule}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The most recent time at which the rule was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Condition for auto-labeling conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRuleLabelingCondition : GTLRObject
+
+/**
+ *  A optional CEL expression to be evaluated as a boolean value. Once evaluated
+ *  as true, then we will proceed with the value evaluation. An empty condition
+ *  will be auto evaluated as true.
+ */
+@property(nonatomic, copy, nullable) NSString *condition;
+
+/** CEL expression to be evaluated as the value. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  The metadata for a bulk analyze conversations operation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsMetadata : GTLRObject
@@ -8523,6 +10042,201 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configurable dashboard's widget that displays data as a chart.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart : GTLRObject
+
+/**
+ *  Output only. Chart type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartType_ChartTypeUnspecified
+ *        Unspecified chart type. (Value: "CHART_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartType_SystemDefined
+ *        Pre-defined chart type. (Value: "SYSTEM_DEFINED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartType_UserDefined
+ *        Configurable chart type. (Value: "USER_DEFINED")
+ */
+@property(nonatomic, copy, nullable) NSString *chartType;
+
+/**
+ *  Chart visualization type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Area
+ *        Area chart. (Value: "AREA")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Bar
+ *        Bar chart. (Value: "BAR")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_ChartVisualizationTypeUnspecified
+ *        Unspecified chart visualization type. (Value:
+ *        "CHART_VISUALIZATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Gauge
+ *        Gauge chart. (Value: "GAUGE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Line
+ *        Line chart. (Value: "LINE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Pie
+ *        Pie chart. (Value: "PIE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Sankey
+ *        Sankey chart. (Value: "SANKEY")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Scatter
+ *        Scatter chart. (Value: "SCATTER")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_ScoreCard
+ *        Score card chart. (Value: "SCORE_CARD")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Sunburst
+ *        Sunburst chart. (Value: "SUNBURST")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart_ChartVisualizationType_Table
+ *        Table chart. (Value: "TABLE")
+ */
+@property(nonatomic, copy, nullable) NSString *chartVisualizationType;
+
+/** Output only. Chart create time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ChartDataSource *dataSource;
+
+/** Date range config applied to the chart. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfig *dateRangeConfig;
+
+/**
+ *  Chart description
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** User provided display name of the chart. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Filter applied to all charts in the container. Should support scope later.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The height of the chart in grid units.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *height;
+
+/**
+ *  Identifier. Chart resource name. Format:
+ *  projects/{project}/locations/{location}/dashboards/{dashboard}/charts/{chart}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Chart last update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  The width of the chart in grid units.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
+ *  The request data for visualizing the dataset in the chart.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ChartDataSource : GTLRObject
+
+/** Use natural language query to generate the chart. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsights *generativeInsights;
+
+/** Use the existing QueryMetrics to generate the chart. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetrics *queryMetrics;
+
+@end
+
+
+/**
+ *  The result of testing a constraint expression on a pair of conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConstraintEvaluationResult : GTLRObject
+
+/** The first conversation resource name. */
+@property(nonatomic, copy, nullable) NSString *conversationA;
+
+/** The second conversation resource name. */
+@property(nonatomic, copy, nullable) NSString *conversationB;
+
+/** The results for each applicable constraint rule. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConstraintEvaluationResultRuleConstraintResult *> *ruleConstraintResults;
+
+@end
+
+
+/**
+ *  The result of a single constraint rule on the pair of conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConstraintEvaluationResultRuleConstraintResult : GTLRObject
+
+/**
+ *  Whether the constraint expression evaluated to true for (A, B) or (B, A).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *constraintMet;
+
+/** The error status if the constraint expression failed to evaluate. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleRpcStatus *error;
+
+/** The rule ID. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+@end
+
+
+/**
+ *  Configurable dashboard's container. Container can contain multiple widgets.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Container : GTLRObject
+
+/** Output only. Unique ID for the container. */
+@property(nonatomic, copy, nullable) NSString *containerId;
+
+/** Date range config applied to all charts in the container. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfig *dateRangeConfig;
+
+/**
+ *  Container description
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** User provided display name of the Container. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Filter applied to all charts in the container. Should support scope later.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The height of the container in grid units.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *height;
+
+/** Widgets in the Container. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Widget *> *widgets;
+
+/**
+ *  The width of the container in grid units.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *width;
+
+@end
+
+
+/**
  *  The conversation resource.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation : GTLRObject
@@ -8535,6 +10249,9 @@ GTLR_DEPRECATED
 
 /** Call-specific metadata. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCallMetadata *callMetadata;
+
+/** Output only. Info for correlating across conversations. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationInfo *correlationInfo;
 
 /** Output only. The time at which the conversation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -8574,16 +10291,14 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationSummarizationSuggestionData *latestSummary;
 
 /**
- *  Immutable. The conversation medium, if unspecified will default to
- *  PHONE_CALL.
+ *  Immutable. The conversation medium.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Medium_Chat
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Medium_MediumUnspecified
- *        Default value, if unspecified will default to PHONE_CALL. (Value:
- *        "MEDIUM_UNSPECIFIED")
+ *        Default value for unspecified. (Value: "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -8688,6 +10403,81 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *customerChannel;
+
+@end
+
+
+/**
+ *  Info for correlating across conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationInfo : GTLRObject
+
+/**
+ *  Output only. The correlation types of this conversation. A single
+ *  conversation can have multiple correlation types. For example a conversation
+ *  that only has a single segment is both a SEGMENT and a FULL_CONVERSATION.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *correlationTypes;
+
+/**
+ *  Output only. The full conversation correlation id this conversation is a
+ *  segment of.
+ */
+@property(nonatomic, copy, nullable) NSString *fullConversationCorrelationId;
+
+/**
+ *  Output only. The full conversation correlation id this conversation is a
+ *  merged conversation of.
+ */
+@property(nonatomic, copy, nullable) NSString *mergedFullConversationCorrelationId;
+
+@end
+
+
+/**
+ *  The result of testing correlation config on a single conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationResult : GTLRObject
+
+/** The conversation resource name. */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/** The results for each correlation rule. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationResultRuleCorrelationResult *> *ruleResults;
+
+@end
+
+
+/**
+ *  The result of a single correlation rule.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationResultRuleCorrelationResult : GTLRObject
+
+/** The correlation ID generated by the join key expression. */
+@property(nonatomic, copy, nullable) NSString *correlationId;
+
+/** The error status if the join key expression failed to evaluate. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleRpcStatus *error;
+
+/** The rule ID. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+@end
+
+
+/**
+ *  Options for configuring what metadata is included in the conversation data
+ *  used in QAI and Discovery Engine.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataOptions : GTLRObject
+
+/**
+ *  Whether to include the per turn Dialogflow interaction data in conversation
+ *  transcript.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeDialogflowInteractionData;
 
 @end
 
@@ -9083,6 +10873,78 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A configuration that defines how to correlate conversations for a given a
+ *  given project.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationConfig : GTLRObject
+
+/** Output only. The time at which the correlation config was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The correlation type config for full conversations. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationTypeConfig *fullConversationConfig;
+
+/**
+ *  Immutable. Identifier. The resource name of the correlation config. Format:
+ *  projects/{project}/locations/{location}/correlationConfig
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time at which the correlation config was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A correlation rule that defines how to join conversations for a given
+ *  correlation type.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationRule : GTLRObject
+
+/**
+ *  Optional. Whether the config is active to be evaluated.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *active;
+
+/**
+ *  Optional. A cel expression (go/cel) to be evaluated as a boolean value. Two
+ *  variables conversation_a and conversation_b will be available for
+ *  evaluation. This expression should evaluate to true if conversation_a and
+ *  conversation_b should be joined. This is used as an extra constraint on top
+ *  of the join_key_expression to further refine the group of conversations that
+ *  are joined together and will be evaluated in both directions. for two
+ *  conversations c1 and c2 and the result will be OR'd. We will evaluate: f(c1,
+ *  c2) OR f(c2, c1)
+ */
+@property(nonatomic, copy, nullable) NSString *constraintExpression;
+
+/**
+ *  Optional. A cel expression (go/cel) to be evaluated as a string value. This
+ *  string value will be used as the join key for the correlation.
+ */
+@property(nonatomic, copy, nullable) NSString *joinKeyExpression;
+
+/** Required. The unique identifier of the rule. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+@end
+
+
+/**
+ *  A list of correlation rules for a given correlation type.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationTypeConfig : GTLRObject
+
+/** A list of correlation rules to be evaluated for correlation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationRule *> *correlationRules;
+
+@end
+
+
+/**
  *  Metadata for a create analysis operation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CreateAnalysisOperationMetadata : GTLRObject
@@ -9165,6 +11027,59 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configurable dashboard
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard : GTLRObject
+
+/** Output only. Dashboard creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Date range config applied to all charts in the dashboard. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfig *dateRangeConfig;
+
+/**
+ *  Dashboard description
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** User provided display name of the dashboard. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Filter applied to all charts in the dashboard. Should support scope later.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Identifier. Dashboard resource name. Format:
+ *  projects/{project}/locations/{location}/dashboards/{dashboard}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Whether the dashboard is read-only. All predefined dashboards
+ *  are read-only and cannot be modified by the user.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOnly;
+
+/**
+ *  The dashboard's root widget container. We want to display the dashboard
+ *  layout in a tree-like structure, where the root container contains other
+ *  widgets (containers or charts) as children.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Container *rootContainer;
+
+/** Output only. Dashboard last update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Dataset resource represents a collection of conversations that may be
  *  bounded (Static Dataset, e.g. golden dataset for training), or unbounded
  *  (Dynamic Dataset, e.g. live traffic, or agent training traffic)
@@ -9209,6 +11124,54 @@ GTLR_DEPRECATED
 
 /** Output only. Dataset update time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Date range configuration for dashboard charts.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfig : GTLRObject
+
+/** An absolute date range. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryInterval *absoluteDateRange;
+
+/** A relative date range. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange *relativeDateRange;
+
+@end
+
+
+/**
+ *  Relative date range configuration.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange : GTLRObject
+
+/**
+ *  Required. The quantity of units in the past.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *quantity;
+
+/**
+ *  Required. The unit of time.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_Day
+ *        Day. (Value: "DAY")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_Month
+ *        Month. (Value: "MONTH")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_Quarter
+ *        Quarter. (Value: "QUARTER")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_TimeUnitUnspecified
+ *        Unspecified. (Value: "TIME_UNIT_UNSPECIFIED")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_Week
+ *        Week. (Value: "WEEK")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DateRangeConfigRelativeDateRange_Unit_Year
+ *        Year. (Value: "YEAR")
+ */
+@property(nonatomic, copy, nullable) NSString *unit;
 
 @end
 
@@ -10184,6 +12147,524 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The conversation transcript for the chart.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscript : GTLRObject
+
+/** The conversation id of the chart. */
+@property(nonatomic, copy, nullable) NSString *conversationId;
+
+/** Output only. The create time of the conversation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Ordered list of messages, including user inputs and system responses. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessage *> *messages;
+
+/** Output only. The update time of the conversation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The message in the conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessage : GTLRObject
+
+/**
+ *  Output only. For user messages, this is the time at which the system
+ *  received the message. For system messages, this is the time at which the
+ *  system generated the message.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The message id of the message. */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/** A wrapper for system messages per turn. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessages *systemMessageWrapper;
+
+/** A message from the user that is interacting with the system. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageUserMessage *userMessage;
+
+@end
+
+
+/**
+ *  A message from the system in response to the user. This message can also be
+ *  a message from the user as historical context for multiturn conversations
+ *  with the system.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessage : GTLRObject
+
+/** Chart spec from LLM */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessage_ChartSpec *chartSpec;
+
+/** Raw SQL from LLM, before templatization */
+@property(nonatomic, copy, nullable) NSString *generatedSqlQuery;
+
+/** A direct natural language response to the user message. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput *textMessage;
+
+/** Optional. User provided chart spec */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessage_UserProvidedChartSpec *userProvidedChartSpec;
+
+/** Optional. User provided SQL query */
+@property(nonatomic, copy, nullable) NSString *userProvidedSqlQuery;
+
+@end
+
+
+/**
+ *  Chart spec from LLM
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessage_ChartSpec : GTLRObject
+@end
+
+
+/**
+ *  Optional. User provided chart spec
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessage_UserProvidedChartSpec : GTLRObject
+@end
+
+
+/**
+ *  A wrapper for system messages per turn.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessages : GTLRObject
+
+/** A message from the system in response to the user. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessage *> *systemMessages;
+
+@end
+
+
+/**
+ *  A text output message from the system.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput : GTLRObject
+
+/** The parts of the message. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *text;
+
+/**
+ *  The type of the text message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_FinalResponse
+ *        The text is a final response to the user question. (Value:
+ *        "FINAL_RESPONSE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Progress
+ *        The text is an informational message about the agent's progress, such
+ *        as a tool being invoked. This is distinct from the agent's internal
+ *        thought process (`THOUGHT`) and the final answer to the user
+ *        (`FINAL_RESPONSE`). These messages provide insight into the agent's
+ *        actions. (Value: "PROGRESS")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Thought
+ *        The text is a thinking plan generated by the thinking tool. (Value:
+ *        "THOUGHT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_TypeUnspecified
+ *        The default text type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *textType;
+
+@end
+
+
+/**
+ *  The user message.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscriptMessageUserMessage : GTLRObject
+
+/** A message from the user that is interacting with the system. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  Request that use natural language query to generate the chart.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsights : GTLRObject
+
+/** The chart checkpoint used to generate the chart. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartCheckpoint *chartCheckpoint;
+
+/** Output only. The chart conversations used to generate the chart. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversation *> *chartConversations GTLR_DEPRECATED;
+
+/** Chart spec for the chart. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsights_ChartSpec *chartSpec;
+
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsights_Request *request;
+
+/**
+ *  Optional. For charts with comparison, this key will determine the metric
+ *  that will be compared between the current and another dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *sqlComparisonKey;
+
+/** SQL query used to generate the chart. */
+@property(nonatomic, copy, nullable) NSString *sqlQuery;
+
+@end
+
+
+/**
+ *  Chart spec for the chart.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsights_ChartSpec : GTLRObject
+@end
+
+
+/**
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsights_Request
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsights_Request : GTLRObject
+@end
+
+
+/**
+ *  The current chart checkpoint state.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartCheckpoint : GTLRObject
+
+/** The revision id of the chart. */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/** The session id of the chart. */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+@end
+
+
+/**
+ *  The conversation used to generate the chart.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversation : GTLRObject
+
+/** The conversation id of the chart. */
+@property(nonatomic, copy, nullable) NSString *conversationId;
+
+/** The create time of the conversation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Ordered list of messages, including user inputs and system responses. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessage *> *messages;
+
+/** The update time of the conversation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The message in the conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessage : GTLRObject
+
+/**
+ *  For user messages, this is the time at which the system received the
+ *  message. For system messages, this is the time at which the system generated
+ *  the message.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The message id of the message. */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/** A message from the system in response to the user. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessage *systemMessage;
+
+/** A message from the user that is interacting with the system. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageUserMessage *userMessage;
+
+@end
+
+
+/**
+ *  A message from the system in response to the user. This message can also be
+ *  a message from the user as historical context for multiturn conversations
+ *  with the system.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessage : GTLRObject
+
+/** Chart spec from LLM */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessage_ChartSpec *chartSpec;
+
+/** Raw SQL from LLM, before templatization */
+@property(nonatomic, copy, nullable) NSString *generatedSqlQuery;
+
+/** A direct natural language response to the user message. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput *textOutput;
+
+@end
+
+
+/**
+ *  Chart spec from LLM
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessage_ChartSpec : GTLRObject
+@end
+
+
+/**
+ *  A text output message from the system.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput : GTLRObject
+
+/** The parts of the message. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *texts;
+
+/**
+ *  The type of the text message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput_Type_FinalResponse
+ *        The text is a final response to the user question. (Value:
+ *        "FINAL_RESPONSE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput_Type_Progress
+ *        The text is an informational message about the agent's progress, such
+ *        as a tool being invoked. This is distinct from the agent's internal
+ *        thought process (`THOUGHT`) and the final answer to the user
+ *        (`FINAL_RESPONSE`). These messages provide insight into the agent's
+ *        actions. (Value: "PROGRESS")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput_Type_Thought
+ *        The text is a thinking plan generated by the thinking tool. (Value:
+ *        "THOUGHT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageSystemMessageTextOutput_Type_TypeUnspecified
+ *        The default text type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The user message.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsChartConversationMessageUserMessage : GTLRObject
+
+/** A message from the user that is interacting with the system. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  The metadata for generative insights.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsMetadata : GTLRObject
+
+/** The error message when the generative insights request fails. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *errorMessages;
+
+@end
+
+
+/**
+ *  The request for generative insights.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsRequest : GTLRObject
+
+/**
+ *  The full name of the chart resource this request corresponds to. Format:
+ *  projects/{project}/locations/{location}/dashboards/{dashboard}/charts/{chart}
+ */
+@property(nonatomic, copy, nullable) NSString *chart;
+
+/**
+ *  Optional. Filter for the data that can be specified in addition to the
+ *  natural language query. This `filter` is specifically used for charts where
+ *  comparisons are possible. For example, "compare to last month" or "compare
+ *  to previous quarter".
+ */
+@property(nonatomic, copy, nullable) NSString *comparisonFilter;
+
+/**
+ *  Filter for the data that can be specified in addition to the natural
+ *  language query. Users are encouraged to use this field to populate
+ *  time-windows.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The natural language query specified by the user. If this field is
+ *  specified, `sql_query` will be ignored.
+ */
+@property(nonatomic, copy, nullable) NSString *naturalLanguageQuery;
+
+/**
+ *  Optional. The revision id that maps to the state of the chart state
+ *  revision. When specified, the backend will reload the chart with the sql and
+ *  visual spec from that revision.
+ */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+/**
+ *  Optional. The session id of the conversation. If the session id is not
+ *  specified, backend will generate a random session id. If the session id is
+ *  specified, will associate user-provided user_query with the provided session
+ *  id.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionId;
+
+/**
+ *  Optional. For charts with comparison, this key will determine the metric
+ *  that will be compared between the current and another dataset.
+ */
+@property(nonatomic, copy, nullable) NSString *sqlComparisonKey;
+
+/**
+ *  Optional. The SQL query specified by the user. This query must be in
+ *  BigQuery SQL dialect. The `filter` field will also be ignored, as it is
+ *  assumed that any filtering is already included in the SQL query.
+ */
+@property(nonatomic, copy, nullable) NSString *sqlQuery;
+
+/**
+ *  Optional. The user provided chart spec for the chart. This will be used to
+ *  override the visual spec generated by the LLM.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsRequest_UserProvidedChartSpec *userProvidedChartSpec;
+
+@end
+
+
+/**
+ *  Optional. The user provided chart spec for the chart. This will be used to
+ *  override the visual spec generated by the LLM.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsRequest_UserProvidedChartSpec : GTLRObject
+@end
+
+
+/**
+ *  The response for generative insights.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponse : GTLRObject
+
+/**
+ *  The full list of generative responses. Each response is ordered by time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponse *> *generativeResponses;
+
+/** The transcript of the generative insights conversation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightConversationTranscript *transcript;
+
+@end
+
+
+/**
+ *  Wrapper for storing the generative response for a chart.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponse : GTLRObject
+
+/**
+ *  The chart spec for the data. This will be specified in the vega-lite or vega
+ *  format.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponse_ChartSpec *chartSpec;
+
+/**
+ *  The generated SQL query from the LLM. Will be populated during the chart
+ *  building phase. The generated SQL will be cached in the corresponding chart
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *generatedSqlQuery;
+
+/**
+ *  The text output from the LLM. Will be populated during the chart building
+ *  phase. For a reloaded chart, this will NOT be populated. May contain THOUGHT
+ *  or a FINAL response or some in-progress response.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput *textMessage;
+
+/**
+ *  The text output from the LLM. Will be populated during the chart building
+ *  phase. For a reloaded chart, this will NOT be populated. May contain THOUGHT
+ *  or a FINAL response or some in-progress response.
+ */
+@property(nonatomic, copy, nullable) NSString *textOutput GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  The chart spec for the data. This will be specified in the vega-lite or vega
+ *  format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponse_ChartSpec : GTLRObject
+@end
+
+
+/**
+ *  Wrapper for text output.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput : GTLRObject
+
+/** The text output from the LLM. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *text;
+
+/**
+ *  The type of text output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_FinalResponse
+ *        The text is the final answer from LLM. (Value: "FINAL_RESPONSE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Progress
+ *        The text is an informational message about the agent's progress, such
+ *        as a tool being invoked. This is distinct from the agent's internal
+ *        thought process (`THOUGHT`) and the final answer to the user
+ *        (`FINAL_RESPONSE`). These messages provide insight into the agent's
+ *        actions. (Value: "PROGRESS")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Thought
+ *        The text is part of LLM reasoning. (Value: "THOUGHT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsResponseGenerativeResponseTextOutput_TextType_TypeUnspecified
+ *        The type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *textType;
+
+@end
+
+
+/**
  *  The data for a hold annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1HoldData : GTLRObject
@@ -10481,8 +12962,7 @@ GTLR_DEPRECATED
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig_Medium_MediumUnspecified
- *        Default value, if unspecified will default to PHONE_CALL. (Value:
- *        "MEDIUM_UNSPECIFIED")
+ *        Default value for unspecified. (Value: "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IngestConversationsRequestTranscriptObjectConfig_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -10752,8 +13232,7 @@ GTLR_DEPRECATED
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig_Medium_MediumUnspecified
- *        Default value, if unspecified will default to PHONE_CALL. (Value:
- *        "MEDIUM_UNSPECIFIED")
+ *        Default value for unspecified. (Value: "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1IssueModelInputDataConfig_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -11040,6 +13519,61 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The response message for listing auto labeling rules.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "autoLabelingRules" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAutoLabelingRulesResponse : GTLRCollectionObject
+
+/**
+ *  The auto labeling rules.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule *> *autoLabelingRules;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response of listing charts.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "charts" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListChartsResponse : GTLRCollectionObject
+
+/**
+ *  The charts under the parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart *> *charts;
+
+/**
+ *  The value returned by the last `ListChartsResponse`. This value indicates
+ *  that this is a continuation of a prior `ListCharts` call and that the system
+ *  should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response of listing conversations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -11061,6 +13595,34 @@ GTLR_DEPRECATED
  *  A token which can be sent as `page_token` to retrieve the next page. If this
  *  field is set, it means there is another page available. If it is not set, it
  *  means no other pages are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  The response of listing dashboards.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "dashboards" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListDashboardsResponse : GTLRCollectionObject
+
+/**
+ *  The dashboards under the parent.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard *> *dashboards;
+
+/**
+ *  The value returned by the last `ListDashboardsResponse`. This value
+ *  indicates that this is a continuation of a prior `ListDashboards` call and
+ *  that the system should return the next page of data.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -12182,6 +14744,44 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The result of testing a constraint expression on a pair of conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConstraintEvaluationResult : GTLRObject
+
+/** The first conversation resource name. */
+@property(nonatomic, copy, nullable) NSString *conversationA;
+
+/** The second conversation resource name. */
+@property(nonatomic, copy, nullable) NSString *conversationB;
+
+/** The results for each applicable constraint rule. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConstraintEvaluationResultRuleConstraintResult *> *ruleConstraintResults;
+
+@end
+
+
+/**
+ *  The result of a single constraint rule on the pair of conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConstraintEvaluationResultRuleConstraintResult : GTLRObject
+
+/**
+ *  Whether the constraint expression evaluated to true for (A, B) or (B, A).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *constraintMet;
+
+/** The error status if the constraint expression failed to evaluate. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleRpcStatus *error;
+
+/** The rule ID. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
+
+@end
+
+
+/**
  *  The conversation resource.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversation : GTLRObject
@@ -12194,6 +14794,9 @@ GTLR_DEPRECATED
 
 /** Call-specific metadata. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCallMetadata *callMetadata;
+
+/** Output only. Info for correlating across conversations. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationInfo *correlationInfo;
 
 /** Output only. The time at which the conversation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -12233,16 +14836,14 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationSummarizationSuggestionData *latestSummary;
 
 /**
- *  Immutable. The conversation medium, if unspecified will default to
- *  PHONE_CALL.
+ *  Immutable. The conversation medium.
  *
  *  Likely values:
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversation_Medium_Chat
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversation_Medium_MediumUnspecified
- *        Default value, if unspecified will default to PHONE_CALL. (Value:
- *        "MEDIUM_UNSPECIFIED")
+ *        Default value for unspecified. (Value: "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversation_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -12347,6 +14948,64 @@ GTLR_DEPRECATED
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *customerChannel;
+
+@end
+
+
+/**
+ *  Info for correlating across conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationInfo : GTLRObject
+
+/**
+ *  Output only. The correlation types of this conversation. A single
+ *  conversation can have multiple correlation types. For example a conversation
+ *  that only has a single segment is both a SEGMENT and a FULL_CONVERSATION.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *correlationTypes;
+
+/**
+ *  Output only. The full conversation correlation id this conversation is a
+ *  segment of.
+ */
+@property(nonatomic, copy, nullable) NSString *fullConversationCorrelationId;
+
+/**
+ *  Output only. The full conversation correlation id this conversation is a
+ *  merged conversation of.
+ */
+@property(nonatomic, copy, nullable) NSString *mergedFullConversationCorrelationId;
+
+@end
+
+
+/**
+ *  The result of testing correlation config on a single conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationResult : GTLRObject
+
+/** The conversation resource name. */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/** The results for each correlation rule. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationResultRuleCorrelationResult *> *ruleResults;
+
+@end
+
+
+/**
+ *  The result of a single correlation rule.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationResultRuleCorrelationResult : GTLRObject
+
+/** The correlation ID generated by the join key expression. */
+@property(nonatomic, copy, nullable) NSString *correlationId;
+
+/** The error status if the join key expression failed to evaluate. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleRpcStatus *error;
+
+/** The rule ID. */
+@property(nonatomic, copy, nullable) NSString *ruleId;
 
 @end
 
@@ -13788,6 +16447,258 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The conversation transcript for the chart.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscript : GTLRObject
+
+/** The conversation id of the chart. */
+@property(nonatomic, copy, nullable) NSString *conversationId;
+
+/** Output only. The create time of the conversation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Ordered list of messages, including user inputs and system responses. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessage *> *messages;
+
+/** Output only. The update time of the conversation. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  The message in the conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessage : GTLRObject
+
+/**
+ *  Output only. For user messages, this is the time at which the system
+ *  received the message. For system messages, this is the time at which the
+ *  system generated the message.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The message id of the message. */
+@property(nonatomic, copy, nullable) NSString *messageId;
+
+/** A wrapper for system messages per turn. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessages *systemMessageWrapper;
+
+/** A message from the user that is interacting with the system. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageUserMessage *userMessage;
+
+@end
+
+
+/**
+ *  A message from the system in response to the user. This message can also be
+ *  a message from the user as historical context for multiturn conversations
+ *  with the system.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessage : GTLRObject
+
+/** Chart spec from LLM */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessage_ChartSpec *chartSpec;
+
+/** Raw SQL from LLM, before templatization */
+@property(nonatomic, copy, nullable) NSString *generatedSqlQuery;
+
+/** A direct natural language response to the user message. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput *textMessage;
+
+/** Optional. User provided chart spec */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessage_UserProvidedChartSpec *userProvidedChartSpec;
+
+/** Optional. User provided SQL query */
+@property(nonatomic, copy, nullable) NSString *userProvidedSqlQuery;
+
+@end
+
+
+/**
+ *  Chart spec from LLM
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessage_ChartSpec : GTLRObject
+@end
+
+
+/**
+ *  Optional. User provided chart spec
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessage_UserProvidedChartSpec : GTLRObject
+@end
+
+
+/**
+ *  A wrapper for system messages per turn.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessages : GTLRObject
+
+/** A message from the system in response to the user. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessage *> *systemMessages;
+
+@end
+
+
+/**
+ *  A text output message from the system.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput : GTLRObject
+
+/** The parts of the message. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *text;
+
+/**
+ *  The type of the text message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_FinalResponse
+ *        The text is a final response to the user question. (Value:
+ *        "FINAL_RESPONSE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Progress
+ *        The text is an informational message about the agent's progress, such
+ *        as a tool being invoked. This is distinct from the agent's internal
+ *        thought process (`THOUGHT`) and the final answer to the user
+ *        (`FINAL_RESPONSE`). These messages provide insight into the agent's
+ *        actions. (Value: "PROGRESS")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_Thought
+ *        The text is a thinking plan generated by the thinking tool. (Value:
+ *        "THOUGHT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageSystemMessageTextOutput_TextType_TypeUnspecified
+ *        The default text type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *textType;
+
+@end
+
+
+/**
+ *  The user message.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscriptMessageUserMessage : GTLRObject
+
+/** A message from the user that is interacting with the system. */
+@property(nonatomic, copy, nullable) NSString *text;
+
+@end
+
+
+/**
+ *  The metadata for generative insights.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsMetadata : GTLRObject
+
+/** The error message when the generative insights request fails. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *errorMessages;
+
+@end
+
+
+/**
+ *  The response for generative insights.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponse : GTLRObject
+
+/**
+ *  The full list of generative responses. Each response is ordered by time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponse *> *generativeResponses;
+
+/** The transcript of the generative insights conversation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightConversationTranscript *transcript;
+
+@end
+
+
+/**
+ *  Wrapper for storing the generative response for a chart.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponse : GTLRObject
+
+/**
+ *  The chart spec for the data. This will be specified in the vega-lite or vega
+ *  format.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponse_ChartSpec *chartSpec;
+
+/**
+ *  The generated SQL query from the LLM. Will be populated during the chart
+ *  building phase. The generated SQL will be cached in the corresponding chart
+ *  resource.
+ */
+@property(nonatomic, copy, nullable) NSString *generatedSqlQuery;
+
+/**
+ *  The text output from the LLM. Will be populated during the chart building
+ *  phase. For a reloaded chart, this will NOT be populated. May contain THOUGHT
+ *  or a FINAL response or some in-progress response.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput *textMessage;
+
+/**
+ *  The text output from the LLM. Will be populated during the chart building
+ *  phase. For a reloaded chart, this will NOT be populated. May contain THOUGHT
+ *  or a FINAL response or some in-progress response.
+ */
+@property(nonatomic, copy, nullable) NSString *textOutput GTLR_DEPRECATED;
+
+@end
+
+
+/**
+ *  The chart spec for the data. This will be specified in the vega-lite or vega
+ *  format.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponse_ChartSpec : GTLRObject
+@end
+
+
+/**
+ *  Wrapper for text output.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput : GTLRObject
+
+/** The text output from the LLM. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *text;
+
+/**
+ *  The type of text output.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput_TextType_FinalResponse
+ *        The text is the final answer from LLM. (Value: "FINAL_RESPONSE")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Progress
+ *        The text is an informational message about the agent's progress, such
+ *        as a tool being invoked. This is distinct from the agent's internal
+ *        thought process (`THOUGHT`) and the final answer to the user
+ *        (`FINAL_RESPONSE`). These messages provide insight into the agent's
+ *        actions. (Value: "PROGRESS")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput_TextType_Thought
+ *        The text is part of LLM reasoning. (Value: "THOUGHT")
+ *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainGenerativeInsightsResponseGenerativeResponseTextOutput_TextType_TypeUnspecified
+ *        The type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *textType;
+
+@end
+
+
+/**
  *  The data for a hold annotation.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainHoldData : GTLRObject
@@ -14085,8 +16996,7 @@ GTLR_DEPRECATED
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainIngestConversationsRequestTranscriptObjectConfig_Medium_MediumUnspecified
- *        Default value, if unspecified will default to PHONE_CALL. (Value:
- *        "MEDIUM_UNSPECIFIED")
+ *        Default value for unspecified. (Value: "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainIngestConversationsRequestTranscriptObjectConfig_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -14356,8 +17266,7 @@ GTLR_DEPRECATED
  *        The format for conversations that took place over chat. (Value:
  *        "CHAT")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainIssueModelInputDataConfig_Medium_MediumUnspecified
- *        Default value, if unspecified will default to PHONE_CALL. (Value:
- *        "MEDIUM_UNSPECIFIED")
+ *        Default value for unspecified. (Value: "MEDIUM_UNSPECIFIED")
  *    @arg @c kGTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainIssueModelInputDataConfig_Medium_PhoneCall
  *        The format for conversations that took place over the phone. (Value:
  *        "PHONE_CALL")
@@ -14922,6 +17831,9 @@ GTLR_DEPRECATED
 /** The measure related to conversations. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointConversationMeasure *conversationMeasure;
 
+/** The measure related to dialogflow interactions. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointDialogflowInteractionMeasure *dialogflowInteractionMeasure;
+
 /**
  *  The interval that this data point represents. * If this is the total data
  *  point, the interval is [starting create time, ending create time) from the
@@ -14937,6 +17849,94 @@ GTLR_DEPRECATED
  *  The measure related to conversations.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointConversationMeasure : GTLRObject
+
+/**
+ *  The number of conversations that were assigned to an AA human supervisor.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorAssignedConversationsCount;
+
+/**
+ *  The number of conversations that were dropped, i.e. escalated but not
+ *  assigned to an AA human supervisor.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorDroppedConversationsCount;
+
+/**
+ *  The number of conversations that were escalated to an AA human supervisor
+ *  for intervention.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorEscalatedConversationsCount;
+
+/**
+ *  The number of conversations scanned by the AA human supervisor.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorMonitoredConversationsCount;
+
+/**
+ *  The number of conversations transferred to a human agent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorTransferredToHumanAgentConvCount;
+
+/**
+ *  Count of agent messages that triggered an Ai Coach Suggestion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionAgentMessageTriggerCount;
+
+/**
+ *  Count of Ai Coach Suggestion that has been used by agents.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionAgentUsageCount;
+
+/**
+ *  Proportion of Ai Coach Suggestion that has been used by agents.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionAgentUsageRatio;
+
+/**
+ *  Count of customer messages that triggered an Ai Coach Suggestion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionCustomerMessageTriggerCount;
+
+/**
+ *  Proportion of customer messages that triggered an Ai Coach Suggestion.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionCustomerMessageTriggerRatio;
+
+/**
+ *  Count of end_of_utterance trigger event messages that triggered an Ai Coach
+ *  Suggestion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionMessageTriggerCount;
+
+/**
+ *  Proportion of end_of_utterance trigger event messages that triggered an Ai
+ *  Coach Suggestion.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionMessageTriggerRatio;
 
 /**
  *  The average agent's sentiment score.
@@ -14990,11 +17990,107 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *averageSilencePercentage;
 
 /**
+ *  Average edit distance of the summarization suggestions. Edit distance (also
+ *  called as levenshtein distance) is calculated by summing up number of
+ *  insertions, deletions and substitutions required to transform the
+ *  summization feedback to the original summary suggestion.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageSummarizationSuggestionEditDistance;
+
+/**
+ *  Normalized Average edit distance of the summarization suggestions. Edit
+ *  distance (also called as levenshtein distance) is calculated by summing up
+ *  number of insertions, deletions and substitutions required to transform the
+ *  summization feedback to the original summary suggestion. Normalized edit
+ *  distance is the average of (edit distance / summary length).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageSummarizationSuggestionNormalizedEditDistance;
+
+/**
  *  The average turn count.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *averageTurnCount;
+
+/**
+ *  The exponential moving average of the sentiment score of client turns in the
+ *  conversation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avgConversationClientTurnSentimentEma;
+
+/**
+ *  The number of conversations that were contained.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containedConversationCount;
+
+/**
+ *  The percentage of conversations that were contained.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containedConversationRatio;
+
+/**
+ *  Count of conversations that has Ai Coach Suggestions.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationAiCoachSuggestionCount;
+
+/**
+ *  Proportion of conversations that has Ai Coach Suggestions.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationAiCoachSuggestionRatio;
+
+/**
+ *  The average latency of conversational agents' audio in audio out latency per
+ *  interaction. This is computed as the average of the all the interactions'
+ *  audio in audio out latencies in a conversation and averaged across
+ *  conversations.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageAudioInAudioOutLatency;
+
+/**
+ *  The average latency of conversational agents' latency per interaction. This
+ *  is computed as the average of the all the iteractions' end to end latencies
+ *  in a conversation and averaged across conversations. The e2e latency is the
+ *  time between the end of the user utterance and the start of the agent
+ *  utterance on the interaction level.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageEndToEndLatency;
+
+/**
+ *  The average latency of conversational agents' LLM call latency per
+ *  interaction. This is computed as the average of the all the interactions LLM
+ *  call latencies in a conversation and averaged across conversations.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageLlmCallLatency;
+
+/**
+ *  The macro average latency of conversational agents' TTS latency per
+ *  interaction. This is computed as the average of the all the interactions'
+ *  TTS latencies in a conversation and averaged across conversations.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageTtsLatency;
 
 /**
  *  The conversation count.
@@ -15003,8 +18099,175 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *conversationCount;
 
+/**
+ *  Proportion of conversations that had a suggested summary.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationSuggestedSummaryRatio;
+
+/**
+ *  The agent message count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationTotalAgentMessageCount;
+
+/**
+ *  The customer message count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationTotalCustomerMessageCount;
+
+/**
+ *  Average latency of dialogflow webhook calls.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowAverageWebhookLatency;
+
+/**
+ *  count of conversations that was handed off from virtual agent to human
+ *  agent.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowConversationsEscalationCount;
+
+/**
+ *  Proportion of conversations that was handed off from virtual agent to human
+ *  agent.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowConversationsEscalationRatio;
+
+/**
+ *  Proportion of dialogflow interactions that has empty input.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowInteractionsNoInputRatio;
+
+/**
+ *  Proportion of dialogflow interactions that has no intent match for the
+ *  input.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowInteractionsNoMatchRatio;
+
+/**
+ *  Proportion of dialogflow webhook calls that failed.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowWebhookFailureRatio;
+
+/**
+ *  Proportion of dialogflow webhook calls that timed out.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowWebhookTimeoutRatio;
+
+/**
+ *  Proportion of knowledge assist (Proactive Generative Knowledge Assist)
+ *  queries that had negative feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistNegativeFeedbackRatio;
+
+/**
+ *  Proportion of knowledge assist (Proactive Generative Knowledge Assist)
+ *  queries that had positive feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistPositiveFeedbackRatio;
+
+/**
+ *  Count of knowledge assist results (Proactive Generative Knowledge Assist)
+ *  shown to the user.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistResultCount;
+
+/**
+ *  Proportion of knowledge assist (Proactive Generative Knowledge Assist)
+ *  queries that had a URL clicked.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistUriClickRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries made by
+ *  the agent compared to the total number of knowledge search queries made.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchAgentQuerySourceRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries that
+ *  had negative feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchNegativeFeedbackRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries that
+ *  had positive feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchPositiveFeedbackRatio;
+
+/**
+ *  Count of knowledge search results (Generative Knowledge Assist) shown to the
+ *  user.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchResultCount;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries
+ *  suggested compared to the total number of knowledge search queries made.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchSuggestedQuerySourceRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries that
+ *  had a URL clicked.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchUriClickRatio;
+
 /** Average QA normalized score for all the tags. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointConversationMeasureQaTagScore *> *qaTagScores;
+
+/**
+ *  Proportion of summarization suggestions that were manually edited.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *summarizationSuggestionEditRatio;
+
+/**
+ *  Count of summarization suggestions results.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *summarizationSuggestionResultCount;
 
 @end
 
@@ -15023,6 +18286,74 @@ GTLR_DEPRECATED
 
 /** Tag name. */
 @property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  The measure related to dialogflow interactions.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointDialogflowInteractionMeasure : GTLRObject
+
+/**
+ *  The percentile result for audio in audio out latency in milliseconds per
+ *  dialogflow interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult *percentileAudioInAudioOutLatency;
+
+/**
+ *  The percentile result for end to end chat latency in milliseconds per
+ *  dialogflow interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult *percentileEndToEndLatency;
+
+/**
+ *  The percentile result for LLM latency in milliseconds per dialogflow
+ *  interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult *percentileLlmCallLatency;
+
+/**
+ *  The percentile result for tool use latency in milliseconds per dialogflow
+ *  interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult *percentileToolUseLatency;
+
+/**
+ *  The percentile result for TTS latency in milliseconds per dialogflow
+ *  interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult *percentileTtsLatency;
+
+@end
+
+
+/**
+ *  The percentile result. Currently supported percentiles are 50th, 90th, and
+ *  99th.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainQueryMetricsResponseSliceDataPointPercentileResult : GTLRObject
+
+/**
+ *  The 50th percentile value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p50;
+
+/**
+ *  The 90th percentile value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p90;
+
+/**
+ *  The 99th percentile value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p99;
 
 @end
 
@@ -15418,6 +18749,109 @@ GTLR_DEPRECATED
  *  `projects/{project_id}/locations/{location}/recognizer/{recognizer}`
  */
 @property(nonatomic, copy, nullable) NSString *speechRecognizer;
+
+@end
+
+
+/**
+ *  Metadata for testing correlation config.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The dataset used for sampling conversations. */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/** The statistics for the operation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigMetadataFullConversationCorrelationStats *stats;
+
+@end
+
+
+/**
+ *  Statistics for TestCorrelationConfig operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigMetadataFullConversationCorrelationStats : GTLRObject
+
+/**
+ *  A list of errors that occurred during correlation, one for each conversation
+ *  that failed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError *> *conversationCorrelationErrors;
+
+/**
+ *  The number of conversations correlated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *correlatedConversationsCount;
+
+/**
+ *  The number of conversations that failed correlation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedConversationsCount;
+
+/**
+ *  Partial errors during test correlation config operation that might cause the
+ *  operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/**
+ *  The number of conversations sampled.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampledConversationsCount;
+
+@end
+
+
+/**
+ *  An error that occurred during correlation for a specific conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError : GTLRObject
+
+/** The conversation resource name that had an error during correlation. */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/** The error status. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleRpcStatus *status;
+
+@end
+
+
+/**
+ *  The response of testing correlation config.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigResponse : GTLRObject
+
+/** Results for the DETAILED_SYNC execution mode. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigResponseDetailedCorrelationResults *detailedResults;
+
+/**
+ *  Partial errors during test correlation config operation that might cause the
+ *  operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+@end
+
+
+/**
+ *  Wrapper for detailed, step-by-step results.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainTestCorrelationConfigResponseDetailedCorrelationResults : GTLRObject
+
+/** A list of constraint evaluation results for each pair of conversations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConstraintEvaluationResult *> *constraintResults;
+
+/** A list of join key correlation results for each conversation tested. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationResult *> *joinKeyResults;
 
 @end
 
@@ -15997,6 +19431,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionPredefinedQuestionConfig *predefinedQuestionConfig;
 
+/** Options for configuring the data used to generate the QA question. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionQaQuestionDataOptions *qaQuestionDataOptions;
+
 /** Question text. E.g., "Did the agent greet the customer?" */
 @property(nonatomic, copy, nullable) NSString *questionBody;
 
@@ -16129,6 +19566,20 @@ GTLR_DEPRECATED
  *        "PREDEFINED_QUESTION_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Options for configuring the data used to generate the QA question.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QaQuestionQaQuestionDataOptions : GTLRObject
+
+/**
+ *  Options for configuring the conversation data used to generate the QA
+ *  question.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataOptions *conversationDataOptions;
 
 @end
 
@@ -16465,6 +19916,28 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Request data that use the existing QueryMetrics.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetrics : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetrics_Request *request;
+
+@end
+
+
+/**
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetrics_Request
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetrics_Request : GTLRObject
+@end
+
+
+/**
  *  The metadata from querying metrics.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsMetadata : GTLRObject
@@ -16615,6 +20088,9 @@ GTLR_DEPRECATED
 /** The measure related to conversations. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasure *conversationMeasure;
 
+/** The measure related to dialogflow interactions. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointDialogflowInteractionMeasure *dialogflowInteractionMeasure;
+
 /**
  *  The interval that this data point represents. * If this is the total data
  *  point, the interval is [starting create time, ending create time) from the
@@ -16630,6 +20106,94 @@ GTLR_DEPRECATED
  *  The measure related to conversations.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasure : GTLRObject
+
+/**
+ *  The number of conversations that were assigned to an AA human supervisor.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorAssignedConversationsCount;
+
+/**
+ *  The number of conversations that were dropped, i.e. escalated but not
+ *  assigned to an AA human supervisor.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorDroppedConversationsCount;
+
+/**
+ *  The number of conversations that were escalated to an AA human supervisor
+ *  for intervention.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorEscalatedConversationsCount;
+
+/**
+ *  The number of conversations scanned by the AA human supervisor.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorMonitoredConversationsCount;
+
+/**
+ *  The number of conversations transferred to a human agent.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aaSupervisorTransferredToHumanAgentConvCount;
+
+/**
+ *  Count of agent messages that triggered an Ai Coach Suggestion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionAgentMessageTriggerCount;
+
+/**
+ *  Count of Ai Coach Suggestion that has been used by agents.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionAgentUsageCount;
+
+/**
+ *  Proportion of Ai Coach Suggestion that has been used by agents.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionAgentUsageRatio;
+
+/**
+ *  Count of customer messages that triggered an Ai Coach Suggestion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionCustomerMessageTriggerCount;
+
+/**
+ *  Proportion of customer messages that triggered an Ai Coach Suggestion.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionCustomerMessageTriggerRatio;
+
+/**
+ *  Count of end_of_utterance trigger event messages that triggered an Ai Coach
+ *  Suggestion.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionMessageTriggerCount;
+
+/**
+ *  Proportion of end_of_utterance trigger event messages that triggered an Ai
+ *  Coach Suggestion.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *aiCoachSuggestionMessageTriggerRatio;
 
 /**
  *  The average agent's sentiment score.
@@ -16683,11 +20247,107 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *averageSilencePercentage;
 
 /**
+ *  Average edit distance of the summarization suggestions. Edit distance (also
+ *  called as levenshtein distance) is calculated by summing up number of
+ *  insertions, deletions and substitutions required to transform the
+ *  summization feedback to the original summary suggestion.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageSummarizationSuggestionEditDistance;
+
+/**
+ *  Normalized Average edit distance of the summarization suggestions. Edit
+ *  distance (also called as levenshtein distance) is calculated by summing up
+ *  number of insertions, deletions and substitutions required to transform the
+ *  summization feedback to the original summary suggestion. Normalized edit
+ *  distance is the average of (edit distance / summary length).
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *averageSummarizationSuggestionNormalizedEditDistance;
+
+/**
  *  The average turn count.
  *
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *averageTurnCount;
+
+/**
+ *  The exponential moving average of the sentiment score of client turns in the
+ *  conversation.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *avgConversationClientTurnSentimentEma;
+
+/**
+ *  The number of conversations that were contained.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containedConversationCount;
+
+/**
+ *  The percentage of conversations that were contained.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *containedConversationRatio;
+
+/**
+ *  Count of conversations that has Ai Coach Suggestions.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationAiCoachSuggestionCount;
+
+/**
+ *  Proportion of conversations that has Ai Coach Suggestions.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationAiCoachSuggestionRatio;
+
+/**
+ *  The average latency of conversational agents' audio in audio out latency per
+ *  interaction. This is computed as the average of the all the interactions'
+ *  audio in audio out latencies in a conversation and averaged across
+ *  conversations.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageAudioInAudioOutLatency;
+
+/**
+ *  The average latency of conversational agents' latency per interaction. This
+ *  is computed as the average of the all the iteractions' end to end latencies
+ *  in a conversation and averaged across conversations. The e2e latency is the
+ *  time between the end of the user utterance and the start of the agent
+ *  utterance on the interaction level.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageEndToEndLatency;
+
+/**
+ *  The average latency of conversational agents' LLM call latency per
+ *  interaction. This is computed as the average of the all the interactions LLM
+ *  call latencies in a conversation and averaged across conversations.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageLlmCallLatency;
+
+/**
+ *  The macro average latency of conversational agents' TTS latency per
+ *  interaction. This is computed as the average of the all the interactions'
+ *  TTS latencies in a conversation and averaged across conversations.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationalAgentsAverageTtsLatency;
 
 /**
  *  The conversation count.
@@ -16696,8 +20356,175 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *conversationCount;
 
+/**
+ *  Proportion of conversations that had a suggested summary.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationSuggestedSummaryRatio;
+
+/**
+ *  The agent message count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationTotalAgentMessageCount;
+
+/**
+ *  The customer message count.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversationTotalCustomerMessageCount;
+
+/**
+ *  Average latency of dialogflow webhook calls.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowAverageWebhookLatency;
+
+/**
+ *  count of conversations that was handed off from virtual agent to human
+ *  agent.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowConversationsEscalationCount;
+
+/**
+ *  Proportion of conversations that was handed off from virtual agent to human
+ *  agent.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowConversationsEscalationRatio;
+
+/**
+ *  Proportion of dialogflow interactions that has empty input.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowInteractionsNoInputRatio;
+
+/**
+ *  Proportion of dialogflow interactions that has no intent match for the
+ *  input.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowInteractionsNoMatchRatio;
+
+/**
+ *  Proportion of dialogflow webhook calls that failed.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowWebhookFailureRatio;
+
+/**
+ *  Proportion of dialogflow webhook calls that timed out.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dialogflowWebhookTimeoutRatio;
+
+/**
+ *  Proportion of knowledge assist (Proactive Generative Knowledge Assist)
+ *  queries that had negative feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistNegativeFeedbackRatio;
+
+/**
+ *  Proportion of knowledge assist (Proactive Generative Knowledge Assist)
+ *  queries that had positive feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistPositiveFeedbackRatio;
+
+/**
+ *  Count of knowledge assist results (Proactive Generative Knowledge Assist)
+ *  shown to the user.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistResultCount;
+
+/**
+ *  Proportion of knowledge assist (Proactive Generative Knowledge Assist)
+ *  queries that had a URL clicked.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeAssistUriClickRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries made by
+ *  the agent compared to the total number of knowledge search queries made.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchAgentQuerySourceRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries that
+ *  had negative feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchNegativeFeedbackRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries that
+ *  had positive feedback.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchPositiveFeedbackRatio;
+
+/**
+ *  Count of knowledge search results (Generative Knowledge Assist) shown to the
+ *  user.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchResultCount;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries
+ *  suggested compared to the total number of knowledge search queries made.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchSuggestedQuerySourceRatio;
+
+/**
+ *  Proportion of knowledge search (Generative Knowledge Assist) queries that
+ *  had a URL clicked.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *knowledgeSearchUriClickRatio;
+
 /** Average QA normalized score for all the tags. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointConversationMeasureQaTagScore *> *qaTagScores;
+
+/**
+ *  Proportion of summarization suggestions that were manually edited.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *summarizationSuggestionEditRatio;
+
+/**
+ *  Count of summarization suggestions results.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *summarizationSuggestionResultCount;
 
 @end
 
@@ -16716,6 +20543,74 @@ GTLR_DEPRECATED
 
 /** Tag name. */
 @property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  The measure related to dialogflow interactions.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointDialogflowInteractionMeasure : GTLRObject
+
+/**
+ *  The percentile result for audio in audio out latency in milliseconds per
+ *  dialogflow interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult *percentileAudioInAudioOutLatency;
+
+/**
+ *  The percentile result for end to end chat latency in milliseconds per
+ *  dialogflow interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult *percentileEndToEndLatency;
+
+/**
+ *  The percentile result for LLM latency in milliseconds per dialogflow
+ *  interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult *percentileLlmCallLatency;
+
+/**
+ *  The percentile result for tool use latency in milliseconds per dialogflow
+ *  interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult *percentileToolUseLatency;
+
+/**
+ *  The percentile result for TTS latency in milliseconds per dialogflow
+ *  interaction level.
+ */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult *percentileTtsLatency;
+
+@end
+
+
+/**
+ *  The percentile result. Currently supported percentiles are 50th, 90th, and
+ *  99th.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryMetricsResponseSliceDataPointPercentileResult : GTLRObject
+
+/**
+ *  The 50th percentile value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p50;
+
+/**
+ *  The 90th percentile value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p90;
+
+/**
+ *  The 99th percentile value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *p99;
 
 @end
 
@@ -17390,6 +21285,177 @@ GTLR_DEPRECATED
 
 
 /**
+ *  The request message for testing auto labeling rules.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestAutoLabelingRuleRequest : GTLRObject
+
+/** Required. The auto labeling rule to test. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule *autoLabelingRule;
+
+/** Required. Conversation data to test rules against. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation *conversation;
+
+@end
+
+
+/**
+ *  The response message for testing auto labeling rules.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestAutoLabelingRuleResponse : GTLRObject
+
+/** The result of the test auto labeling rule. */
+@property(nonatomic, copy, nullable) NSString *labelResult;
+
+@end
+
+
+/**
+ *  Metadata for testing correlation config.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigMetadata : GTLRObject
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** The dataset used for sampling conversations. */
+@property(nonatomic, copy, nullable) NSString *dataset;
+
+/** The statistics for the operation. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigMetadataFullConversationCorrelationStats *stats;
+
+@end
+
+
+/**
+ *  Statistics for TestCorrelationConfig operation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigMetadataFullConversationCorrelationStats : GTLRObject
+
+/**
+ *  A list of errors that occurred during correlation, one for each conversation
+ *  that failed.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError *> *conversationCorrelationErrors;
+
+/**
+ *  The number of conversations correlated.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *correlatedConversationsCount;
+
+/**
+ *  The number of conversations that failed correlation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedConversationsCount;
+
+/**
+ *  Partial errors during test correlation config operation that might cause the
+ *  operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+/**
+ *  The number of conversations sampled.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sampledConversationsCount;
+
+@end
+
+
+/**
+ *  An error that occurred during correlation for a specific conversation.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigMetadataFullConversationCorrelationStatsConversationCorrelationError : GTLRObject
+
+/** The conversation resource name that had an error during correlation. */
+@property(nonatomic, copy, nullable) NSString *conversation;
+
+/** The error status. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleRpcStatus *status;
+
+@end
+
+
+/**
+ *  The request to test correlation config.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigRequest : GTLRObject
+
+/** Optional. A list of conversations to test against. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigRequestConversations *conversations;
+
+/** Required. The correlation config to test. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationConfig *correlationConfig;
+
+/**
+ *  Optional. Filter to select conversations to test correlation against.
+ *  Conversations matching this filter will be sampled based on start time. The
+ *  most recent `max_sample_count` conversations will be selected. If no
+ *  conversations match the filter, the request will fail with an
+ *  `INVALID_ARGUMENT` error.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of conversations to sample when using the
+ *  `filter`. If not set, defaults to 1000. Values greater than 1000 are coerced
+ *  to 1000. This field is ignored if `conversations` is provided.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxSampleCount;
+
+@end
+
+
+/**
+ *  Wrapper for a list of conversations.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigRequestConversations : GTLRObject
+
+/** Optional. The conversations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation *> *conversations;
+
+@end
+
+
+/**
+ *  The response of testing correlation config.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigResponse : GTLRObject
+
+/** Results for the DETAILED_SYNC execution mode. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigResponseDetailedCorrelationResults *detailedResults;
+
+/**
+ *  Partial errors during test correlation config operation that might cause the
+ *  operation output to be incomplete.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
+
+@end
+
+
+/**
+ *  Wrapper for detailed, step-by-step results.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigResponseDetailedCorrelationResults : GTLRObject
+
+/** A list of constraint evaluation results for each pair of conversations. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConstraintEvaluationResult *> *constraintResults;
+
+/** A list of join key correlation results for each conversation tested. */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationCorrelationResult *> *joinKeyResults;
+
+@end
+
+
+/**
  *  Request for TuneQaScorecardRevision endpoint.
  */
 @interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TuneQaScorecardRevisionRequest : GTLRObject
@@ -17592,6 +21658,31 @@ GTLR_DEPRECATED
  *  https://cloud.google.com/contact-center/insights/docs/filtering for details.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Represents a dashboard element, could be a nested Container or Chart.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Widget : GTLRObject
+
+/** A chart widget. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart *chart;
+
+/**
+ *  A reference to a chart widget. Format:
+ *  projects/{project}/locations/{location}/dashboards/{dashboard}/charts/{chart}
+ */
+@property(nonatomic, copy, nullable) NSString *chartReference;
+
+/** A container widget. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Container *container;
+
+/**
+ *  Filter applied to all charts in the container. Should support scope later.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 @end
 

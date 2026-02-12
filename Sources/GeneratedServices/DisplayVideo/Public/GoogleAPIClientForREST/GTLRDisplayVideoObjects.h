@@ -16964,7 +16964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_AdGroupAd : GTLRObject
 
 /**
- *  The unique ID of the ad. Assigned by the system.
+ *  Output only. The unique ID of the ad. Assigned by the system.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -16980,14 +16980,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSNumber *adGroupId;
 
-/** The policy approval status of the ad. */
+/** Output only. The policy approval status of the ad. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicy *adPolicy;
 
 /** List of URLs used by the ad. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdUrl *> *adUrls;
 
 /**
- *  The unique ID of the advertiser the ad belongs to.
+ *  Output only. The unique ID of the advertiser the ad belongs to.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -17054,7 +17054,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_MastheadAd *mastheadAd;
 
-/** The resource name of the ad. */
+/** Output only. The resource name of the ad. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -29766,7 +29766,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_ListAdGroupAdsResponse : GTLRCollectionObject
 
 /**
- *  The list of ad group ads. This list will be absent if empty.
+ *  The list of ads. This list will be absent if empty.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

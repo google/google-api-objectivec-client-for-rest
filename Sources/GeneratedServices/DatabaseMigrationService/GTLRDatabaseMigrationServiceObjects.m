@@ -627,6 +627,24 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_BadRequest
+//
+
+@implementation GTLRDatabaseMigrationService_BadRequest
+@dynamic fieldViolations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldViolations" : [GTLRDatabaseMigrationService_FieldViolation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_BinaryLogParser
 //
 
@@ -994,6 +1012,24 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_DebugInfo
+//
+
+@implementation GTLRDatabaseMigrationService_DebugInfo
+@dynamic detail, stackEntries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stackEntries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_DemoteDestinationRequest
 //
 
@@ -1171,6 +1207,30 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_ErrorInfo
+//
+
+@implementation GTLRDatabaseMigrationService_ErrorInfo
+@dynamic domain, metadata, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ErrorInfo_Metadata
+//
+
+@implementation GTLRDatabaseMigrationService_ErrorInfo_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_Expr
 //
 
@@ -1197,6 +1257,21 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
     @"staticIps" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_FieldViolation
+//
+
+@implementation GTLRDatabaseMigrationService_FieldViolation
+@dynamic descriptionProperty, field, localizedMessage, reason;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -1295,6 +1370,24 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_Help
+//
+
+@implementation GTLRDatabaseMigrationService_Help
+@dynamic links;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"links" : [GTLRDatabaseMigrationService_Link class]
+  };
+  return map;
 }
 
 @end
@@ -1405,6 +1498,21 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_IntComparisonFilter
 @dynamic value, valueComparison;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_Link
+//
+
+@implementation GTLRDatabaseMigrationService_Link
+@dynamic descriptionProperty, url;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -1586,6 +1694,16 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
   return @"privateConnections";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_LocalizedMessage
+//
+
+@implementation GTLRDatabaseMigrationService_LocalizedMessage
+@dynamic locale, message;
 @end
 
 
@@ -2041,6 +2159,39 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_PreconditionFailure
+//
+
+@implementation GTLRDatabaseMigrationService_PreconditionFailure
+@dynamic violations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"violations" : [GTLRDatabaseMigrationService_PreconditionFailureViolation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_PreconditionFailureViolation
+//
+
+@implementation GTLRDatabaseMigrationService_PreconditionFailureViolation
+@dynamic descriptionProperty, subject, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_PrimaryInstanceSettings
 //
 
@@ -2157,6 +2308,79 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_QuotaFailure
+//
+
+@implementation GTLRDatabaseMigrationService_QuotaFailure
+@dynamic violations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"violations" : [GTLRDatabaseMigrationService_QuotaFailureViolation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_QuotaFailureViolation
+//
+
+@implementation GTLRDatabaseMigrationService_QuotaFailureViolation
+@dynamic apiService, descriptionProperty, futureQuotaValue, quotaDimensions,
+         quotaId, quotaMetric, quotaValue, subject;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_QuotaFailureViolation_QuotaDimensions
+//
+
+@implementation GTLRDatabaseMigrationService_QuotaFailureViolation_QuotaDimensions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_RequestInfo
+//
+
+@implementation GTLRDatabaseMigrationService_RequestInfo
+@dynamic requestId, servingData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_ResourceInfo
+//
+
+@implementation GTLRDatabaseMigrationService_ResourceInfo
+@dynamic descriptionProperty, owner, resourceName, resourceType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_RestartMigrationJobRequest
 //
 
@@ -2172,6 +2396,16 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 @implementation GTLRDatabaseMigrationService_ResumeMigrationJobRequest
 @dynamic skipValidation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatabaseMigrationService_RetryInfo
+//
+
+@implementation GTLRDatabaseMigrationService_RetryInfo
+@dynamic retryDelay;
 @end
 
 

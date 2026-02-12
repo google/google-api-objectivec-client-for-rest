@@ -1967,7 +1967,7 @@ NSString * const kGTLRSQLAdminModeSyncFromPrimary         = @"SYNC_FROM_PRIMARY"
 
 @implementation GTLRSQLAdminQuery_UsersUpdate
 
-@dynamic databaseRoles, host, instance, name, project;
+@dynamic databaseRoles, host, instance, name, project, revokeExistingRoles;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

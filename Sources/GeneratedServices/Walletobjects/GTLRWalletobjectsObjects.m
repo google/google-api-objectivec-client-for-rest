@@ -628,7 +628,7 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 
 @implementation GTLRWalletobjects_Blobstore2Info
 @dynamic blobGeneration, blobId, downloadExternalReadToken, downloadReadHandle,
-         readToken, uploadMetadataContainer;
+         readToken, uploadFragmentListCreationInfo, uploadMetadataContainer;
 @end
 
 

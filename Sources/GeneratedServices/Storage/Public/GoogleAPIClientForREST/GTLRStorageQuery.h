@@ -1771,6 +1771,52 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
+ *  Deletes a folder recursively. Only applicable to buckets with hierarchical
+ *  namespace enabled.
+ *
+ *  Method: storage.folders.deleteRecursive
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeStorageCloudPlatform
+ *    @c kGTLRAuthScopeStorageDevstorageFullControl
+ *    @c kGTLRAuthScopeStorageDevstorageReadWrite
+ */
+@interface GTLRStorageQuery_FoldersDeleteRecursive : GTLRStorageQuery
+
+/** Name of the bucket in which the folder resides. */
+@property(nonatomic, copy, nullable) NSString *bucket;
+
+/** Name of a folder. */
+@property(nonatomic, copy, nullable) NSString *folder;
+
+/**
+ *  If set, only deletes the folder if its metageneration matches this value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationMatch;
+
+/**
+ *  If set, only deletes the folder if its metageneration does not match this
+ *  value.
+ */
+@property(nonatomic, assign) long long ifMetagenerationNotMatch;
+
+/**
+ *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
+ *
+ *  Deletes a folder recursively. Only applicable to buckets with hierarchical
+ *  namespace enabled.
+ *
+ *  @param bucket Name of the bucket in which the folder resides.
+ *  @param folder Name of a folder.
+ *
+ *  @return GTLRStorageQuery_FoldersDeleteRecursive
+ */
++ (instancetype)queryWithBucket:(NSString *)bucket
+                         folder:(NSString *)folder;
+
+@end
+
+/**
  *  Returns metadata for the specified folder. Only applicable to buckets with
  *  hierarchical namespace enabled.
  *
@@ -2879,6 +2925,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        OWNER access, and allUsers get READER access. (Value: "publicRead")
  */
 @property(nonatomic, copy, nullable) NSString *destinationPredefinedAcl;
+
+/**
+ *  Specifies which groups of Object Contexts from the source object(s) should
+ *  be dropped from the destination object.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dropContextGroups;
 
 /**
  *  Makes the operation conditional on whether the object's current generation
@@ -4019,6 +4071,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
  *        OWNER access, and allUsers get READER access. (Value: "publicRead")
  */
 @property(nonatomic, copy, nullable) NSString *destinationPredefinedAcl;
+
+/**
+ *  Specifies which groups of Object Contexts from the source object should be
+ *  dropped from the destination object.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dropContextGroups;
 
 /**
  *  Makes the operation conditional on whether the object's current generation

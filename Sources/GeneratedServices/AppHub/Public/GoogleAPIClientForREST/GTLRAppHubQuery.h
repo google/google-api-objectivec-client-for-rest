@@ -1198,9 +1198,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRAppHubQuery_ProjectsLocationsExtendedMetadataSchemasGet : GTLRAppHubQuery
 
 /**
- *  Required. Schema resource name Format:
- *  projects//locations//extendedMetadataSchemas/ could be
- *  "apphub.googleapis.com/Name"
+ *  Required. Schema resource name. Format:
+ *  `projects/{project}/locations/{location}/extendedMetadataSchemas/{extended_metadata_schema}`.
+ *  `{extended_metadata_schema}` has the format
+ *  `"apphub.googleapis.com/{SchemaName}"`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1209,9 +1210,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Gets an Extended Metadata Schema.
  *
- *  @param name Required. Schema resource name Format:
- *    projects//locations//extendedMetadataSchemas/ could be
- *    "apphub.googleapis.com/Name"
+ *  @param name Required. Schema resource name. Format:
+ *    `projects/{project}/locations/{location}/extendedMetadataSchemas/{extended_metadata_schema}`.
+ *    `{extended_metadata_schema}` has the format
+ *    `"apphub.googleapis.com/{SchemaName}"`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsExtendedMetadataSchemasGet
  */
@@ -1302,7 +1304,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Required. The name of the boundary to retrieve. Format:
- *  projects/{project}/locations/{location}/boundary
+ *  `projects/{project}/locations/{location}/boundary`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1312,7 +1314,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets a Boundary.
  *
  *  @param name Required. The name of the boundary to retrieve. Format:
- *    projects/{project}/locations/{location}/boundary
+ *    `projects/{project}/locations/{location}/boundary`.
  *
  *  @return GTLRAppHubQuery_ProjectsLocationsGetBoundary
  */

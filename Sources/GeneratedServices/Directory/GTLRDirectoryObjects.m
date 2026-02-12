@@ -953,6 +953,16 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDirectory_CountChromeOsDevicesResponse
+//
+
+@implementation GTLRDirectory_CountChromeOsDevicesResponse
+@dynamic count;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDirectory_CreatePrinterRequest
 //
 
@@ -2197,7 +2207,7 @@ NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_User = @"user";
 //
 
 @implementation GTLRDirectory_UsersCreateGuestRequest
-@dynamic primaryGuestEmail;
+@dynamic customer, primaryGuestEmail;
 @end
 
 

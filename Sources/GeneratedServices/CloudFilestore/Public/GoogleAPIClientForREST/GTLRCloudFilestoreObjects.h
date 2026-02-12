@@ -508,6 +508,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_Addre
  *  Value: "MODE_IPV4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4;
+/**
+ *  Use the IPv6 internet protocol. Only supported when using Private Service
+ *  Connect.
+ *
+ *  Value: "MODE_IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv6;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFilestore_NfsExportOptions.accessMode
@@ -2313,7 +2320,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 
 /**
  *  Internet protocol versions for which the instance has IP addresses assigned.
- *  For this version, only MODE_IPV4 is supported.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *modes;
 

@@ -4776,7 +4776,7 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. The sort string to specify the sorting of search results. The
- *  syntax of the sort string is the same as SearchRequest.sort.
+ *  syntax of the sort string is the same as SearchRequest.order_by.
  */
 @property(nonatomic, copy, nullable) NSString *sortBy;
 
@@ -4793,7 +4793,7 @@ GTLR_DEPRECATED
 /**
  *  Optional. This field specifies the selected answer during the conversational
  *  search. This should be a subset of
- *  ConversationalSearchResponse.followup_question.suggested_answers.
+ *  ConversationalSearchResponse.FollowupQuestion.SuggestedAnswer.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchRequestUserAnswerSelectedAnswer *selectedAnswer;
 
@@ -4887,7 +4887,7 @@ GTLR_DEPRECATED
 /**
  *  This is the incremental additional filters implied from the current user
  *  answer. User should add the suggested addition filters to the previous
- *  ConversationalSearchRequest.search_params.filter and SearchRequest.filter,
+ *  ConversationalSearchRequest.SearchParams.filter and SearchRequest.filter,
  *  and use the merged filter in the follow up requests.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2ConversationalSearchResponseConversationalFilteringResultAdditionalFilter *additionalFilter;
@@ -5099,7 +5099,10 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Required. The output location of the data. */
+/**
+ *  Required. The output location of the data. Only `bigquery_destination` is
+ *  supported, and `bigquery_destination.table_type` must be set to `view`.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2OutputConfig *outputConfig;
 
 @end
@@ -8252,7 +8255,9 @@ GTLR_DEPRECATED
 /**
  *  Optional. An id corresponding to a place, such as a store id or region id.
  *  When specified, we use the price from the local inventory with the matching
- *  product's LocalInventory.place_id for revenue optimization.
+ *  product's LocalInventory.place_id for revenue optimization. Note, the
+ *  currency of the local inventory's price must match the currency of the
+ *  product's price.
  */
 @property(nonatomic, copy, nullable) NSString *placeId;
 
@@ -8482,8 +8487,8 @@ GTLR_DEPRECATED
 /**
  *  This field specifies the conversation id, which maintains the state of the
  *  conversation between client side and server side. Use the value from the
- *  previous ConversationalSearchResult.conversation_id. For the initial
- *  request, this should be empty.
+ *  previous SearchResponse.ConversationalSearchResult.conversation_id. For the
+ *  initial request, this should be empty.
  */
 @property(nonatomic, copy, nullable) NSString *conversationId;
 
@@ -8517,7 +8522,7 @@ GTLR_DEPRECATED
 /**
  *  This field specifies the selected attributes during the conversational
  *  search. This should be a subset of
- *  ConversationalSearchResult.suggested_answers.
+ *  SearchResponse.ConversationalSearchResult.suggested_answers.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRetail_GoogleCloudRetailV2SearchRequestConversationalSearchSpecUserAnswerSelectedAnswer *selectedAnswer;
 

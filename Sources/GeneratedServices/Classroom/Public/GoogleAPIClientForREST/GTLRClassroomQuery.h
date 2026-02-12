@@ -3123,14 +3123,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
 
 /**
  *  Returns a list of student submissions that the requester is permitted to
- *  view, factoring in the OAuth scopes of the request. `-` may be specified as
- *  the `course_work_id` to include student submissions for multiple course work
- *  items. Course students may only view their own work. Course teachers and
- *  domain administrators may view all student submissions. This method returns
- *  the following error codes: * `PERMISSION_DENIED` if the requesting user is
- *  not permitted to access the requested course or course work, or for access
- *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
- *  the requested course does not exist.
+ *  view, factoring in the OAuth scopes of the request. A hyphen (`-`) may be
+ *  specified as the `course_work_id` to include student submissions for
+ *  multiple course work items. Course students may only view their own work.
+ *  Course teachers and domain administrators may view all student submissions.
+ *  This method returns the following error codes: * `PERMISSION_DENIED` if the
+ *  requesting user is not permitted to access the requested course or course
+ *  work, or for access errors. * `INVALID_ARGUMENT` if the request is
+ *  malformed. * `NOT_FOUND` if the requested course does not exist.
  *
  *  Method: classroom.courses.courseWork.studentSubmissions.list
  *
@@ -3218,14 +3218,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  *  Fetches a @c GTLRClassroom_ListStudentSubmissionsResponse.
  *
  *  Returns a list of student submissions that the requester is permitted to
- *  view, factoring in the OAuth scopes of the request. `-` may be specified as
- *  the `course_work_id` to include student submissions for multiple course work
- *  items. Course students may only view their own work. Course teachers and
- *  domain administrators may view all student submissions. This method returns
- *  the following error codes: * `PERMISSION_DENIED` if the requesting user is
- *  not permitted to access the requested course or course work, or for access
- *  errors. * `INVALID_ARGUMENT` if the request is malformed. * `NOT_FOUND` if
- *  the requested course does not exist.
+ *  view, factoring in the OAuth scopes of the request. A hyphen (`-`) may be
+ *  specified as the `course_work_id` to include student submissions for
+ *  multiple course work items. Course students may only view their own work.
+ *  Course teachers and domain administrators may view all student submissions.
+ *  This method returns the following error codes: * `PERMISSION_DENIED` if the
+ *  requesting user is not permitted to access the requested course or course
+ *  work, or for access errors. * `INVALID_ARGUMENT` if the request is
+ *  malformed. * `NOT_FOUND` if the requested course does not exist.
  *
  *  @param courseId Identifier of the course. This identifier can be either the
  *    Classroom-assigned identifier or an alias.
@@ -4499,6 +4499,343 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroomStatesTurnedIn;
  */
 + (instancetype)queryWithCourseId:(NSString *)courseId
                            postId:(NSString *)postId;
+
+@end
+
+/**
+ *  Creates a student group for a course. This method returns the following
+ *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
+ *  to create the student group or for access errors. * `NOT_FOUND` if the
+ *  course does not exist or the requesting user doesn't have access to the
+ *  course. * `FAILED_PRECONDITION` if creating the student group would exceed
+ *  the maximum number of student groups per course.
+ *
+ *  Method: classroom.courses.studentGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomRosters
+ */
+@interface GTLRClassroomQuery_CoursesStudentGroupsCreate : GTLRClassroomQuery
+
+/** Required. The identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Fetches a @c GTLRClassroom_StudentGroup.
+ *
+ *  Creates a student group for a course. This method returns the following
+ *  error codes: * `PERMISSION_DENIED` if the requesting user is not permitted
+ *  to create the student group or for access errors. * `NOT_FOUND` if the
+ *  course does not exist or the requesting user doesn't have access to the
+ *  course. * `FAILED_PRECONDITION` if creating the student group would exceed
+ *  the maximum number of student groups per course.
+ *
+ *  @param object The @c GTLRClassroom_StudentGroup to include in the query.
+ *  @param courseId Required. The identifier of the course.
+ *
+ *  @return GTLRClassroomQuery_CoursesStudentGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_StudentGroup *)object
+                       courseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Deletes a student group. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting user is not permitted to delete the
+ *  requested student group or for access errors. * `NOT_FOUND` if the student
+ *  group does not exist or the user does not have access to the student group.
+ *
+ *  Method: classroom.courses.studentGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomRosters
+ */
+@interface GTLRClassroomQuery_CoursesStudentGroupsDelete : GTLRClassroomQuery
+
+/**
+ *  Required. The identifier of the course containing the student group to
+ *  delete.
+ */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Required. The identifier of the student group to delete.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Deletes a student group. This method returns the following error codes: *
+ *  `PERMISSION_DENIED` if the requesting user is not permitted to delete the
+ *  requested student group or for access errors. * `NOT_FOUND` if the student
+ *  group does not exist or the user does not have access to the student group.
+ *
+ *  @param courseId Required. The identifier of the course containing the
+ *    student group to delete.
+ *  @param identifier Required. The identifier of the student group to delete.
+ *
+ *  @return GTLRClassroomQuery_CoursesStudentGroupsDelete
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Returns a list of groups in a course. This method returns the following
+ *  error codes: * `NOT_FOUND` if the course does not exist.
+ *
+ *  Method: classroom.courses.studentGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomRosters
+ *    @c kGTLRAuthScopeClassroomRostersReadonly
+ */
+@interface GTLRClassroomQuery_CoursesStudentGroupsList : GTLRClassroomQuery
+
+/** Required. The identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Maximum number of items to return. Zero or unspecified indicates that the
+ *  server may assign a maximum, which is currently set to 75 items. The server
+ *  may return fewer than the specified number of results.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  nextPageToken value returned from a previous list call, indicating that the
+ *  subsequent page of results should be returned. The list request must be
+ *  otherwise identical to the one that resulted in this token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListStudentGroupsResponse.
+ *
+ *  Returns a list of groups in a course. This method returns the following
+ *  error codes: * `NOT_FOUND` if the course does not exist.
+ *
+ *  @param courseId Required. The identifier of the course.
+ *
+ *  @return GTLRClassroomQuery_CoursesStudentGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId;
+
+@end
+
+/**
+ *  Updates one or more fields in a student group. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
+ *  permitted to modify the requested student group or for access errors. *
+ *  `NOT_FOUND` if the student group does not exist or the user does not have
+ *  access to the student group. * `INVALID_ARGUMENT` if invalid fields are
+ *  specified in the update mask or if no update mask is supplied.
+ *
+ *  Method: classroom.courses.studentGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomRosters
+ */
+@interface GTLRClassroomQuery_CoursesStudentGroupsPatch : GTLRClassroomQuery
+
+/** Required. Identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Required. Identifier of the student group.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Required. Mask that identifies which fields on the student group to update.
+ *  This field is required to do an update. The update fails if invalid fields
+ *  are specified. The following fields can be specified by teachers: * `title`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRClassroom_StudentGroup.
+ *
+ *  Updates one or more fields in a student group. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
+ *  permitted to modify the requested student group or for access errors. *
+ *  `NOT_FOUND` if the student group does not exist or the user does not have
+ *  access to the student group. * `INVALID_ARGUMENT` if invalid fields are
+ *  specified in the update mask or if no update mask is supplied.
+ *
+ *  @param object The @c GTLRClassroom_StudentGroup to include in the query.
+ *  @param courseId Required. Identifier of the course.
+ *  @param identifier Required. Identifier of the student group.
+ *
+ *  @return GTLRClassroomQuery_CoursesStudentGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_StudentGroup *)object
+                       courseId:(NSString *)courseId
+                     identifier:(NSString *)identifier;
+
+@end
+
+/**
+ *  Creates a student group member for a student group. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
+ *  permitted to create the student group or member for access errors. *
+ *  `NOT_FOUND` if the student group does not exist or the user does not have
+ *  access to the student group. * `ALREADY_EXISTS` if the student group member
+ *  already exists. * `FAILED_PRECONDITION` if attempting to add a member to a
+ *  student group that has reached its member limit.
+ *
+ *  Method: classroom.courses.studentGroups.studentGroupMembers.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomRosters
+ */
+@interface GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersCreate : GTLRClassroomQuery
+
+/** Required. The identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** Required. The identifier of the student group. */
+@property(nonatomic, copy, nullable) NSString *studentGroupId;
+
+/**
+ *  Fetches a @c GTLRClassroom_StudentGroupMember.
+ *
+ *  Creates a student group member for a student group. This method returns the
+ *  following error codes: * `PERMISSION_DENIED` if the requesting user is not
+ *  permitted to create the student group or member for access errors. *
+ *  `NOT_FOUND` if the student group does not exist or the user does not have
+ *  access to the student group. * `ALREADY_EXISTS` if the student group member
+ *  already exists. * `FAILED_PRECONDITION` if attempting to add a member to a
+ *  student group that has reached its member limit.
+ *
+ *  @param object The @c GTLRClassroom_StudentGroupMember to include in the
+ *    query.
+ *  @param courseId Required. The identifier of the course.
+ *  @param studentGroupId Required. The identifier of the student group.
+ *
+ *  @return GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersCreate
+ */
++ (instancetype)queryWithObject:(GTLRClassroom_StudentGroupMember *)object
+                       courseId:(NSString *)courseId
+                 studentGroupId:(NSString *)studentGroupId;
+
+@end
+
+/**
+ *  Deletes a student group member. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  delete the requested student group member or for access errors. *
+ *  `NOT_FOUND` if the student group member does not exist or the user does not
+ *  have access to the student group.
+ *
+ *  Method: classroom.courses.studentGroups.studentGroupMembers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomRosters
+ */
+@interface GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersDelete : GTLRClassroomQuery
+
+/**
+ *  Required. The identifier of the course containing the relevant student
+ *  group.
+ */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Required. The identifier of the student group containing the student group
+ *  member to delete.
+ */
+@property(nonatomic, copy, nullable) NSString *studentGroupId;
+
+/** Required. The identifier of the student group member to delete. */
+@property(nonatomic, copy, nullable) NSString *userId;
+
+/**
+ *  Fetches a @c GTLRClassroom_Empty.
+ *
+ *  Deletes a student group member. This method returns the following error
+ *  codes: * `PERMISSION_DENIED` if the requesting user is not permitted to
+ *  delete the requested student group member or for access errors. *
+ *  `NOT_FOUND` if the student group member does not exist or the user does not
+ *  have access to the student group.
+ *
+ *  @param courseId Required. The identifier of the course containing the
+ *    relevant student group.
+ *  @param studentGroupId Required. The identifier of the student group
+ *    containing the student group member to delete.
+ *  @param userId Required. The identifier of the student group member to
+ *    delete.
+ *
+ *  @return GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersDelete
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                   studentGroupId:(NSString *)studentGroupId
+                           userId:(NSString *)userId;
+
+@end
+
+/**
+ *  Returns a list of students in a group. This method returns the following
+ *  error codes: * `NOT_FOUND` if the course or student group does not exist.
+ *
+ *  Method: classroom.courses.studentGroups.studentGroupMembers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeClassroomRosters
+ *    @c kGTLRAuthScopeClassroomRostersReadonly
+ */
+@interface GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersList : GTLRClassroomQuery
+
+/** Required. The identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  Maximum number of items to return. Zero or unspecified indicates that the
+ *  server may assign a maximum. The server may return fewer than the specified
+ *  number of results.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  nextPageToken value returned from a previous list call, indicating that the
+ *  subsequent page of results should be returned. The list request must be
+ *  otherwise identical to the one that resulted in this token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The identifier of the student group. */
+@property(nonatomic, copy, nullable) NSString *studentGroupId;
+
+/**
+ *  Fetches a @c GTLRClassroom_ListStudentGroupMembersResponse.
+ *
+ *  Returns a list of students in a group. This method returns the following
+ *  error codes: * `NOT_FOUND` if the course or student group does not exist.
+ *
+ *  @param courseId Required. The identifier of the course.
+ *  @param studentGroupId Required. The identifier of the student group.
+ *
+ *  @return GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                   studentGroupId:(NSString *)studentGroupId;
 
 @end
 

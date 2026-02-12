@@ -14,6 +14,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRContainer_AdditionalIPRangesConfig.status
+NSString * const kGTLRContainer_AdditionalIPRangesConfig_Status_Active = @"ACTIVE";
+NSString * const kGTLRContainer_AdditionalIPRangesConfig_Status_Draining = @"DRAINING";
+NSString * const kGTLRContainer_AdditionalIPRangesConfig_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
 // GTLRContainer_AdvancedDatapathObservabilityConfig.relayMode
 NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_Disabled = @"DISABLED";
 NSString * const kGTLRContainer_AdvancedDatapathObservabilityConfig_RelayMode_ExternalLb = @"EXTERNAL_LB";
@@ -70,6 +75,10 @@ NSString * const kGTLRContainer_Cluster_Status_Reconciling     = @"RECONCILING";
 NSString * const kGTLRContainer_Cluster_Status_Running         = @"RUNNING";
 NSString * const kGTLRContainer_Cluster_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 NSString * const kGTLRContainer_Cluster_Status_Stopping        = @"STOPPING";
+
+// GTLRContainer_ClusterAutoscaling.autopilotGeneralProfile
+NSString * const kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_AutopilotGeneralProfileUnspecified = @"AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED";
+NSString * const kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_NoPerformance = @"NO_PERFORMANCE";
 
 // GTLRContainer_ClusterAutoscaling.autoscalingProfile
 NSString * const kGTLRContainer_ClusterAutoscaling_AutoscalingProfile_Balanced = @"BALANCED";
@@ -192,6 +201,10 @@ NSString * const kGTLRContainer_GatewayAPIConfig_Channel_ChannelUnspecified = @"
 // GTLRContainer_GkeAutoUpgradeConfig.patchMode
 NSString * const kGTLRContainer_GkeAutoUpgradeConfig_PatchMode_Accelerated = @"ACCELERATED";
 NSString * const kGTLRContainer_GkeAutoUpgradeConfig_PatchMode_PatchModeUnspecified = @"PATCH_MODE_UNSPECIFIED";
+
+// GTLRContainer_GPUDirectConfig.gpuDirectStrategy
+NSString * const kGTLRContainer_GPUDirectConfig_GpuDirectStrategy_GpuDirectStrategyUnspecified = @"GPU_DIRECT_STRATEGY_UNSPECIFIED";
+NSString * const kGTLRContainer_GPUDirectConfig_GpuDirectStrategy_Rdma = @"RDMA";
 
 // GTLRContainer_GPUDriverInstallationConfig.gpuDriverVersion
 NSString * const kGTLRContainer_GPUDriverInstallationConfig_GpuDriverVersion_Default = @"DEFAULT";
@@ -533,6 +546,7 @@ NSString * const kGTLRContainer_UpgradeInfoEvent_State_Succeeded = @"SUCCEEDED";
 // GTLRContainer_UpgradeSettings.strategy
 NSString * const kGTLRContainer_UpgradeSettings_Strategy_BlueGreen = @"BLUE_GREEN";
 NSString * const kGTLRContainer_UpgradeSettings_Strategy_NodePoolUpdateStrategyUnspecified = @"NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED";
+NSString * const kGTLRContainer_UpgradeSettings_Strategy_ShortLived = @"SHORT_LIVED";
 NSString * const kGTLRContainer_UpgradeSettings_Strategy_Surge = @"SURGE";
 
 // GTLRContainer_UsableSubnetworkSecondaryRange.status
@@ -573,7 +587,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_AdditionalIPRangesConfig
-@dynamic podIpv4RangeNames, subnetwork;
+@dynamic podIpv4RangeNames, status, subnetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -636,7 +650,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
          highScaleCheckpointingConfig, horizontalPodAutoscaling,
          httpLoadBalancing, kubernetesDashboard, lustreCsiDriverConfig,
          networkPolicyConfig, parallelstoreCsiDriverConfig, rayOperatorConfig,
-         statefulHaConfig;
+         sliceControllerConfig, statefulHaConfig;
 @end
 
 
@@ -860,6 +874,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_BootDiskProfile
+//
+
+@implementation GTLRContainer_BootDiskProfile
+@dynamic swapSizeGib, swapSizePercent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_CancelOperationRequest
 //
 
@@ -1032,9 +1056,9 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_ClusterAutoscaling
-@dynamic autoprovisioningLocations, autoprovisioningNodePoolDefaults,
-         autoscalingProfile, defaultComputeClassConfig,
-         enableNodeAutoprovisioning, resourceLimits;
+@dynamic autopilotGeneralProfile, autoprovisioningLocations,
+         autoprovisioningNodePoolDefaults, autoscalingProfile,
+         defaultComputeClassConfig, enableNodeAutoprovisioning, resourceLimits;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1319,6 +1343,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_DedicatedLocalSsdProfile
+//
+
+@implementation GTLRContainer_DedicatedLocalSsdProfile
+@dynamic diskCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_DefaultComputeClassConfig
 //
 
@@ -1426,11 +1460,31 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_EncryptionConfig
+//
+
+@implementation GTLRContainer_EncryptionConfig
+@dynamic disabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_EnterpriseConfig
 //
 
 @implementation GTLRContainer_EnterpriseConfig
 @dynamic clusterTier, desiredTier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_EphemeralLocalSsdProfile
+//
+
+@implementation GTLRContainer_EphemeralLocalSsdProfile
+@dynamic swapSizeGib, swapSizePercent;
 @end
 
 
@@ -1651,6 +1705,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_GPUDirectConfig
+//
+
+@implementation GTLRContainer_GPUDirectConfig
+@dynamic gpuDirectStrategy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_GPUDriverInstallationConfig
 //
 
@@ -1860,7 +1924,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_LinuxNodeConfig
-@dynamic cgroupMode, hugepages, nodeKernelModuleLoading, sysctls,
+@dynamic cgroupMode, hugepages, nodeKernelModuleLoading, swapConfig, sysctls,
          transparentHugepageDefrag, transparentHugepageEnabled;
 @end
 
@@ -2281,17 +2345,17 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NodeConfig
 @dynamic accelerators, advancedMachineFeatures, bootDisk, bootDiskKmsKey,
-         confidentialNodes, containerdConfig, diskSizeGb, diskType,
-         effectiveCgroupMode, enableConfidentialStorage,
+         confidentialNodes, consolidationDelay, containerdConfig, diskSizeGb,
+         diskType, effectiveCgroupMode, enableConfidentialStorage,
          ephemeralStorageLocalSsdConfig, fastSocket, flexStart, gcfsConfig,
-         gvnic, imageType, kubeletConfig, labels, linuxNodeConfig,
-         localNvmeSsdBlockConfig, localSsdCount, localSsdEncryptionMode,
-         loggingConfig, machineType, maxRunDuration, metadata, minCpuPlatform,
-         nodeGroup, oauthScopes, preemptible, reservationAffinity,
-         resourceLabels, resourceManagerTags, sandboxConfig, secondaryBootDisks,
-         secondaryBootDiskUpdateStrategy, serviceAccount,
-         shieldedInstanceConfig, soleTenantConfig, spot, storagePools, tags,
-         taints, windowsNodeConfig, workloadMetadataConfig;
+         gpuDirectConfig, gvnic, imageType, kubeletConfig, labels,
+         linuxNodeConfig, localNvmeSsdBlockConfig, localSsdCount,
+         localSsdEncryptionMode, loggingConfig, machineType, maxRunDuration,
+         metadata, minCpuPlatform, nodeGroup, oauthScopes, preemptible,
+         reservationAffinity, resourceLabels, resourceManagerTags,
+         sandboxConfig, secondaryBootDisks, secondaryBootDiskUpdateStrategy,
+         serviceAccount, shieldedInstanceConfig, soleTenantConfig, spot,
+         storagePools, tags, taints, windowsNodeConfig, workloadMetadataConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3365,6 +3429,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_SliceControllerConfig
+//
+
+@implementation GTLRContainer_SliceControllerConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_SoleTenantConfig
 //
 
@@ -3460,6 +3534,17 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_SwapConfig
+//
+
+@implementation GTLRContainer_SwapConfig
+@dynamic bootDiskProfile, dedicatedLocalSsdProfile, enabled, encryptionConfig,
+         ephemeralLocalSsdProfile;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_TimeWindow
 //
 
@@ -3524,14 +3609,14 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_UpdateNodePoolRequest
-@dynamic accelerators, bootDisk, clusterId, confidentialNodes, containerdConfig,
-         diskSizeGb, diskType, ETag, fastSocket, flexStart, gcfsConfig, gvnic,
-         imageType, kubeletConfig, labels, linuxNodeConfig, locations,
-         loggingConfig, machineType, maxRunDuration, name, nodeDrainConfig,
-         nodeNetworkConfig, nodePoolId, nodeVersion, projectId,
-         queuedProvisioning, resourceLabels, resourceManagerTags, storagePools,
-         tags, taints, upgradeSettings, windowsNodeConfig,
-         workloadMetadataConfig, zoneProperty;
+@dynamic accelerators, bootDisk, clusterId, confidentialNodes,
+         consolidationDelay, containerdConfig, diskSizeGb, diskType, ETag,
+         fastSocket, flexStart, gcfsConfig, gvnic, imageType, kubeletConfig,
+         labels, linuxNodeConfig, locations, loggingConfig, machineType,
+         maxRunDuration, name, nodeDrainConfig, nodeNetworkConfig, nodePoolId,
+         nodeVersion, projectId, queuedProvisioning, resourceLabels,
+         resourceManagerTags, storagePools, tags, taints, upgradeSettings,
+         windowsNodeConfig, workloadMetadataConfig, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

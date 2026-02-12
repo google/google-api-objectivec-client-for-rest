@@ -3912,6 +3912,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @interface GTLRDataflow_GetWorkerStacktracesRequest : GTLRObject
 
 /**
+ *  The end time for the stacktrace query. The returned stacktraces will be a
+ *  recent stack trace at or shortly before this time.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
  *  The worker for which to get stacktraces. The returned stacktraces will be
  *  for the SDK harness running on this worker.
  */
@@ -7913,6 +7919,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 
 /** Set of computation configuration information. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataflow_StreamingComputationConfig *> *streamingComputationConfigs;
+
+/**
+ *  Optional. The state tag encoding format version for streaming engine jobs.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *streamingEngineStateTagEncodingVersion;
 
 /** Map from user step names to state families. */
 @property(nonatomic, strong, nullable) GTLRDataflow_StreamingConfigTask_UserStepToStateFamilyNameMap *userStepToStateFamilyNameMap;

@@ -549,7 +549,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1AppVersion : GTLRObject
 
 /**
- *  Numeric version code of the app version (set by the app's developer).
+ *  Optional. Numeric version code of the app version (set by the app's
+ *  developer).
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -763,7 +764,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 /** Summary about data freshness in this resource. */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1FreshnessInfo *freshnessInfo;
 
-/** The resource name. Format: apps/{app}/errorCountMetricSet */
+/** Identifier. The resource name. Format: apps/{app}/errorCountMetricSet */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -925,7 +926,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  */
 @property(nonatomic, copy, nullable) NSString *issue;
 
-/** The resource name of the report. Format: apps/{app}/{report} */
+/**
+ *  Identifier. The resource name of the report. Format: apps/{app}/{report}
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /** The OS version on which an event in this error report occurred on. */
@@ -1208,7 +1211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow : GTLRObject
 
 /**
- *  Granularity of the aggregation period of the row.
+ *  Optional. Granularity of the aggregation period of the row.
  *
  *  Likely values:
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricsRow_AggregationPeriod_AggregationPeriodUnspecified
@@ -1223,15 +1226,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
  */
 @property(nonatomic, copy, nullable) NSString *aggregationPeriod;
 
-/** Dimension columns in the row. */
+/** Optional. Dimension columns in the row. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1DimensionValue *> *dimensions;
 
-/** Metric columns in the row. */
+/** Optional. Metric columns in the row. */
 @property(nonatomic, strong, nullable) NSArray<GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1MetricValue *> *metrics;
 
 /**
- *  Starting date (and time for hourly aggregation) of the period covered by
- *  this row.
+ *  Optional. Starting date (and time for hourly aggregation) of the period
+ *  covered by this row.
  */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GoogleTypeDateTime *startTime;
 
@@ -1261,7 +1264,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1OsVersion : GTLRObject
 
 /**
- *  Numeric version code of the OS - API level
+ *  Optional. Numeric version code of the OS - API level
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1276,12 +1279,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryAnrRateMetricSetRequest : GTLRObject
 
 /**
- *  Dimensions to slice the metrics by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device,
- *  e.g., 26. * `versionCode` (int64): version of the app that was running on
- *  the user's device. * `deviceModel` (string): unique identifier of the user's
- *  device model. The form of the identifier is 'deviceBrand/device', where
- *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Optional. Dimensions to slice the metrics by. **Supported dimensions:** *
+ *  `apiLevel` (string): the API level of Android that was running on the user's
+ *  device, e.g., 26. * `versionCode` (int64): version of the app that was
+ *  running on the user's device. * `deviceModel` (string): unique identifier of
+ *  the user's device model. The form of the identifier is 'deviceBrand/device',
+ *  where deviceBrand corresponds to Build.BRAND and device corresponds to
  *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
  *  identifier of the user's device brand, e.g., google. * `deviceType`
  *  (string): the type (also known as form factor) of the user's device, e.g.,
@@ -1308,14 +1311,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
 /**
- *  Filters to apply to data. The filtering expression follows
+ *  Optional. Filters to apply to data. The filtering expression follows
  *  [AIP-160](https://google.aip.dev/160) standard and supports filtering by
  *  equality of all breakdown dimensions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Metrics to aggregate. **Supported metrics:** * `anrRate`
+ *  Optional. Metrics to aggregate. **Supported metrics:** * `anrRate`
  *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
  *  period that experienced at least one ANR. * `anrRate7dUserWeighted`
  *  (`google.type.Decimal`): Rolling average value of `anrRate` in the last 7
@@ -1345,23 +1348,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /**
- *  Maximum size of the returned data. If unspecified, at most 1000 rows will be
- *  returned. The maximum value is 100,000; values above 100,000 will be coerced
- *  to 100,000.
+ *  Optional. Maximum size of the returned data. If unspecified, at most 1000
+ *  rows will be returned. The maximum value is 100,000; values above 100,000
+ *  will be coerced to 100,000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  A page token, received from a previous call. Provide this to retrieve the
- *  subsequent page. When paginating, all other parameters provided to the
- *  request must match the call that provided the page token.
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Specification of the timeline aggregation parameters. **Supported
+ *  Optional. Specification of the timeline aggregation parameters. **Supported
  *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
  *  intervals. Due to historical constraints, the default and only supported
  *  timezone is `America/Los_Angeles`. * HOURLY: metrics are aggregated in
@@ -1370,12 +1373,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec *timelineSpec;
 
 /**
- *  User view to select. The output data will correspond to the selected view.
- *  **Supported values:** * `OS_PUBLIC` To select data from all publicly
- *  released Android versions. This is the default. Supports all the above
- *  dimensions. * `APP_TESTERS` To select data from users who have opted in to
- *  be testers. Supports all the above dimensions. * `OS_BETA` To select data
- *  from beta android versions only, excluding data from released android
+ *  Optional. User view to select. The output data will correspond to the
+ *  selected view. **Supported values:** * `OS_PUBLIC` To select data from all
+ *  publicly released Android versions. This is the default. Supports all the
+ *  above dimensions. * `APP_TESTERS` To select data from users who have opted
+ *  in to be testers. Supports all the above dimensions. * `OS_BETA` To select
+ *  data from beta android versions only, excluding data from released android
  *  versions. Only the following dimensions are supported: * `versionCode`
  *  (int64): version of the app that was running on the user's device. *
  *  `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004".
@@ -1430,12 +1433,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryCrashRateMetricSetRequest : GTLRObject
 
 /**
- *  Dimensions to slice the metrics by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device,
- *  e.g., 26. * `versionCode` (int64): version of the app that was running on
- *  the user's device. * `deviceModel` (string): unique identifier of the user's
- *  device model. The form of the identifier is 'deviceBrand/device', where
- *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Optional. Dimensions to slice the metrics by. **Supported dimensions:** *
+ *  `apiLevel` (string): the API level of Android that was running on the user's
+ *  device, e.g., 26. * `versionCode` (int64): version of the app that was
+ *  running on the user's device. * `deviceModel` (string): unique identifier of
+ *  the user's device model. The form of the identifier is 'deviceBrand/device',
+ *  where deviceBrand corresponds to Build.BRAND and device corresponds to
  *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
  *  identifier of the user's device brand, e.g., google. * `deviceType`
  *  (string): the type (also known as form factor) of the user's device, e.g.,
@@ -1462,14 +1465,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
 /**
- *  Filters to apply to data. The filtering expression follows
+ *  Optional. Filters to apply to data. The filtering expression follows
  *  [AIP-160](https://google.aip.dev/160) standard and supports filtering by
  *  equality of all breakdown dimensions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Metrics to aggregate. **Supported metrics:** * `crashRate`
+ *  Optional. Metrics to aggregate. **Supported metrics:** * `crashRate`
  *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
  *  period that experienced at least one crash. * `crashRate7dUserWeighted`
  *  (`google.type.Decimal`): Rolling average value of `crashRate` in the last 7
@@ -1501,23 +1504,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /**
- *  Maximum size of the returned data. If unspecified, at most 1000 rows will be
- *  returned. The maximum value is 100,000; values above 100,000 will be coerced
- *  to 100,000.
+ *  Optional. Maximum size of the returned data. If unspecified, at most 1000
+ *  rows will be returned. The maximum value is 100,000; values above 100,000
+ *  will be coerced to 100,000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  A page token, received from a previous call. Provide this to retrieve the
- *  subsequent page. When paginating, all other parameters provided to the
- *  request must match the call that provided the page token.
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Specification of the timeline aggregation parameters. **Supported
+ *  Optional. Specification of the timeline aggregation parameters. **Supported
  *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
  *  intervals. Due to historical constraints, the default and only supported
  *  timezone is `America/Los_Angeles`. * HOURLY: metrics are aggregated in
@@ -1526,12 +1529,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec *timelineSpec;
 
 /**
- *  User view to select. The output data will correspond to the selected view.
- *  **Supported values:** * `OS_PUBLIC` To select data from all publicly
- *  released Android versions. This is the default. Supports all the above
- *  dimensions. * `APP_TESTERS` To select data from users who have opted in to
- *  be testers. Supports all the above dimensions. * `OS_BETA` To select data
- *  from beta android versions only, excluding data from released android
+ *  Optional. User view to select. The output data will correspond to the
+ *  selected view. **Supported values:** * `OS_PUBLIC` To select data from all
+ *  publicly released Android versions. This is the default. Supports all the
+ *  above dimensions. * `APP_TESTERS` To select data from users who have opted
+ *  in to be testers. Supports all the above dimensions. * `OS_BETA` To select
+ *  data from beta android versions only, excluding data from released android
  *  versions. Only the following dimensions are supported: * `versionCode`
  *  (int64): version of the app that was running on the user's device. *
  *  `osBuild` (string): OS build of the user's device, e.g., "T1B2.220916.004".
@@ -1586,19 +1589,20 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryErrorCountMetricSetRequest : GTLRObject
 
 /**
- *  Dimensions to slice the data by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device,
- *  e.g., 26. * `versionCode` (int64): unique identifier of the user's device
- *  model. The form of the identifier is 'deviceBrand/device', where deviceBrand
- *  corresponds to Build.BRAND and device corresponds to Build.DEVICE, e.g.,
- *  google/coral. * `deviceModel` (string): unique identifier of the user's
- *  device model. * `deviceType` (string): identifier of the device's form
- *  factor, e.g., PHONE. * `reportType` (string): the type of error. The value
- *  should correspond to one of the possible values in ErrorType. * `issueId`
- *  (string): the id an error was assigned to. The value should correspond to
- *  the `{issue}` component of the issue name. * `deviceRamBucket` (int64): RAM
- *  of the device, in MB, in buckets (3GB, 4GB, etc.). * `deviceSocMake`
- *  (string): Make of the device's primary system-on-chip, e.g., Samsung.
+ *  Optional. Dimensions to slice the data by. **Supported dimensions:** *
+ *  `apiLevel` (string): the API level of Android that was running on the user's
+ *  device, e.g., 26. * `versionCode` (int64): unique identifier of the user's
+ *  device model. The form of the identifier is 'deviceBrand/device', where
+ *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Build.DEVICE, e.g., google/coral. * `deviceModel` (string): unique
+ *  identifier of the user's device model. * `deviceType` (string): identifier
+ *  of the device's form factor, e.g., PHONE. * `reportType` (string): the type
+ *  of error. The value should correspond to one of the possible values in
+ *  ErrorType. * `issueId` (string): the id an error was assigned to. The value
+ *  should correspond to the `{issue}` component of the issue name. *
+ *  `deviceRamBucket` (int64): RAM of the device, in MB, in buckets (3GB, 4GB,
+ *  etc.). * `deviceSocMake` (string): Make of the device's primary
+ *  system-on-chip, e.g., Samsung.
  *  [Reference](https://developer.android.com/reference/android/os/Build#SOC_MANUFACTURER)
  *  * `deviceSocModel` (string): Model of the device's primary system-on-chip,
  *  e.g., "Exynos 2100".
@@ -1617,7 +1621,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
 /**
- *  Filters to apply to data. The filtering expression follows
+ *  Optional. Filters to apply to data. The filtering expression follows
  *  [AIP-160](https://google.aip.dev/160) standard and supports filtering by
  *  equality of all breakdown dimensions and: * `isUserPerceived` (string):
  *  denotes whether error is user perceived or not, USER_PERCEIVED or
@@ -1626,7 +1630,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Metrics to aggregate. **Supported metrics:** * `errorReportCount`
+ *  Optional. Metrics to aggregate. **Supported metrics:** * `errorReportCount`
  *  (`google.type.Decimal`): Absolute count of individual error reports that
  *  have been received for an app. * `distinctUsers` (`google.type.Decimal`):
  *  Count of distinct users for which reports have been received. Care must be
@@ -1637,23 +1641,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /**
- *  Maximum size of the returned data. If unspecified, at most 1000 rows will be
- *  returned. The maximum value is 100000; values above 100000 will be coerced
- *  to 100000.
+ *  Optional. Maximum size of the returned data. If unspecified, at most 1000
+ *  rows will be returned. The maximum value is 100000; values above 100000 will
+ *  be coerced to 100000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  A page token, received from a previous call. Provide this to retrieve the
- *  subsequent page. When paginating, all other parameters provided to the
- *  request must match the call that provided the page token.
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Specification of the timeline aggregation parameters. **Supported
+ *  Optional. Specification of the timeline aggregation parameters. **Supported
  *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
  *  intervals. The default and only supported timezone is `America/Los_Angeles`.
  */
@@ -1692,12 +1696,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest : GTLRObject
 
 /**
- *  Dimensions to slice the data by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device,
- *  e.g., 26. * `versionCode` (int64): version of the app that was running on
- *  the user's device. * `deviceModel` (string): unique identifier of the user's
- *  device model. The form of the identifier is 'deviceBrand/device', where
- *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Optional. Dimensions to slice the data by. **Supported dimensions:** *
+ *  `apiLevel` (string): the API level of Android that was running on the user's
+ *  device, e.g., 26. * `versionCode` (int64): version of the app that was
+ *  running on the user's device. * `deviceModel` (string): unique identifier of
+ *  the user's device model. The form of the identifier is 'deviceBrand/device',
+ *  where deviceBrand corresponds to Build.BRAND and device corresponds to
  *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
  *  identifier of the user's device brand, e.g., google. * `deviceType`
  *  (string): the type (also known as form factor) of the user's device, e.g.,
@@ -1724,16 +1728,16 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
 /**
- *  Filters to apply to data. The filtering expression follows
+ *  Optional. Filters to apply to data. The filtering expression follows
  *  [AIP-160](https://google.aip.dev/160) standard and supports filtering by
  *  equality of all breakdown dimensions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Metrics to aggregate. **Supported metrics:** * `excessiveWakeupRate`
- *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
- *  period that had more than 10 wakeups per hour. *
+ *  Optional. Metrics to aggregate. **Supported metrics:** *
+ *  `excessiveWakeupRate` (`google.type.Decimal`): Percentage of distinct users
+ *  in the aggregation period that had more than 10 wakeups per hour. *
  *  `excessiveWakeupRate7dUserWeighted` (`google.type.Decimal`): Rolling average
  *  value of `excessiveWakeupRate` in the last 7 days. The daily values are
  *  weighted by the count of distinct users for the day. *
@@ -1752,23 +1756,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /**
- *  Maximum size of the returned data. If unspecified, at most 1000 rows will be
- *  returned. The maximum value is 100000; values above 100000 will be coerced
- *  to 100000.
+ *  Optional. Maximum size of the returned data. If unspecified, at most 1000
+ *  rows will be returned. The maximum value is 100000; values above 100000 will
+ *  be coerced to 100000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  A page token, received from a previous call. Provide this to retrieve the
- *  subsequent page. When paginating, all other parameters provided to the
- *  request must match the call that provided the page token.
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Specification of the timeline aggregation parameters. **Supported
+ *  Optional. Specification of the timeline aggregation parameters. **Supported
  *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
  *  intervals. Due to historical constraints, the only supported timezone is
  *  `America/Los_Angeles`.
@@ -1776,8 +1780,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec *timelineSpec;
 
 /**
- *  User view to select. The output data will correspond to the selected view.
- *  The only supported value is `OS_PUBLIC`.
+ *  Optional. User view to select. The output data will correspond to the
+ *  selected view. The only supported value is `OS_PUBLIC`.
  *
  *  Likely values:
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryExcessiveWakeupRateMetricSetRequest_UserCohort_AppTesters
@@ -1974,12 +1978,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest : GTLRObject
 
 /**
- *  Dimensions to slice the data by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device,
- *  e.g., 26. * `versionCode` (int64): version of the app that was running on
- *  the user's device. * `deviceModel` (string): unique identifier of the user's
- *  device model. The form of the identifier is 'deviceBrand/device', where
- *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Optional. Dimensions to slice the data by. **Supported dimensions:** *
+ *  `apiLevel` (string): the API level of Android that was running on the user's
+ *  device, e.g., 26. * `versionCode` (int64): version of the app that was
+ *  running on the user's device. * `deviceModel` (string): unique identifier of
+ *  the user's device model. The form of the identifier is 'deviceBrand/device',
+ *  where deviceBrand corresponds to Build.BRAND and device corresponds to
  *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
  *  identifier of the user's device brand, e.g., google. * `deviceType`
  *  (string): the type (also known as form factor) of the user's device, e.g.,
@@ -2006,26 +2010,27 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
 /**
- *  Filters to apply to data. The filtering expression follows
+ *  Optional. Filters to apply to data. The filtering expression follows
  *  [AIP-160](https://google.aip.dev/160) standard and supports filtering by
  *  equality of all breakdown dimensions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Metrics to aggregate. **Supported metrics:** * `slowRenderingRate20Fps`
- *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
- *  period that had a slow rendering. * `slowRenderingRate20Fps7dUserWeighted`
- *  (`google.type.Decimal`): Rolling average value of `slowRenderingRate20Fps`
- *  in the last 7 days. The daily values are weighted by the count of distinct
- *  users for the day. * `slowRenderingRate20Fps28dUserWeighted`
- *  (`google.type.Decimal`): Rolling average value of `slowRenderingRate20Fps`
- *  in the last 28 days. The daily values are weighted by the count of distinct
- *  users for the day. * `slowRenderingRate30Fps` (`google.type.Decimal`):
- *  Percentage of distinct users in the aggregation period that had a slow
- *  rendering. * `slowRenderingRate30Fps7dUserWeighted` (`google.type.Decimal`):
- *  Rolling average value of `slowRenderingRate30Fps` in the last 7 days. The
- *  daily values are weighted by the count of distinct users for the day. *
+ *  Optional. Metrics to aggregate. **Supported metrics:** *
+ *  `slowRenderingRate20Fps` (`google.type.Decimal`): Percentage of distinct
+ *  users in the aggregation period that had a slow rendering. *
+ *  `slowRenderingRate20Fps7dUserWeighted` (`google.type.Decimal`): Rolling
+ *  average value of `slowRenderingRate20Fps` in the last 7 days. The daily
+ *  values are weighted by the count of distinct users for the day. *
+ *  `slowRenderingRate20Fps28dUserWeighted` (`google.type.Decimal`): Rolling
+ *  average value of `slowRenderingRate20Fps` in the last 28 days. The daily
+ *  values are weighted by the count of distinct users for the day. *
+ *  `slowRenderingRate30Fps` (`google.type.Decimal`): Percentage of distinct
+ *  users in the aggregation period that had a slow rendering. *
+ *  `slowRenderingRate30Fps7dUserWeighted` (`google.type.Decimal`): Rolling
+ *  average value of `slowRenderingRate30Fps` in the last 7 days. The daily
+ *  values are weighted by the count of distinct users for the day. *
  *  `slowRenderingRate30Fps28dUserWeighted` (`google.type.Decimal`): Rolling
  *  average value of `slowRenderingRate30Fps` in the last 28 days. The daily
  *  values are weighted by the count of distinct users for the day. *
@@ -2040,23 +2045,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /**
- *  Maximum size of the returned data. If unspecified, at most 1000 rows will be
- *  returned. The maximum value is 100000; values above 100000 will be coerced
- *  to 100000.
+ *  Optional. Maximum size of the returned data. If unspecified, at most 1000
+ *  rows will be returned. The maximum value is 100000; values above 100000 will
+ *  be coerced to 100000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  A page token, received from a previous call. Provide this to retrieve the
- *  subsequent page. When paginating, all other parameters provided to the
- *  request must match the call that provided the page token.
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Specification of the timeline aggregation parameters. **Supported
+ *  Optional. Specification of the timeline aggregation parameters. **Supported
  *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
  *  intervals. Due to historical constraints, the only supported timezone is
  *  `America/Los_Angeles`.
@@ -2064,8 +2069,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec *timelineSpec;
 
 /**
- *  User view to select. The output data will correspond to the selected view.
- *  The only supported value is `OS_PUBLIC`.
+ *  Optional. User view to select. The output data will correspond to the
+ *  selected view. The only supported value is `OS_PUBLIC`.
  *
  *  Likely values:
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowRenderingRateMetricSetRequest_UserCohort_AppTesters
@@ -2117,12 +2122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest : GTLRObject
 
 /**
- *  Dimensions to slice the data by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device,
- *  e.g., 26. * `versionCode` (int64): version of the app that was running on
- *  the user's device. * `deviceModel` (string): unique identifier of the user's
- *  device model. The form of the identifier is 'deviceBrand/device', where
- *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Optional. Dimensions to slice the data by. **Supported dimensions:** *
+ *  `apiLevel` (string): the API level of Android that was running on the user's
+ *  device, e.g., 26. * `versionCode` (int64): version of the app that was
+ *  running on the user's device. * `deviceModel` (string): unique identifier of
+ *  the user's device model. The form of the identifier is 'deviceBrand/device',
+ *  where deviceBrand corresponds to Build.BRAND and device corresponds to
  *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
  *  identifier of the user's device brand, e.g., google. * `deviceType`
  *  (string): the type (also known as form factor) of the user's device, e.g.,
@@ -2149,14 +2154,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
 /**
- *  Filters to apply to data. The filtering expression follows
+ *  Optional. Filters to apply to data. The filtering expression follows
  *  [AIP-160](https://google.aip.dev/160) standard and supports filtering by
  *  equality of all breakdown dimensions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Metrics to aggregate. **Supported metrics:** * `slowStartRate`
+ *  Optional. Metrics to aggregate. **Supported metrics:** * `slowStartRate`
  *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
  *  period that had a slow start. * `slowStartRate7dUserWeighted`
  *  (`google.type.Decimal`): Rolling average value of `slowStartRate` in the
@@ -2175,23 +2180,23 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /**
- *  Maximum size of the returned data. If unspecified, at most 1000 rows will be
- *  returned. The maximum value is 100000; values above 100000 will be coerced
- *  to 100000.
+ *  Optional. Maximum size of the returned data. If unspecified, at most 1000
+ *  rows will be returned. The maximum value is 100000; values above 100000 will
+ *  be coerced to 100000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  A page token, received from a previous call. Provide this to retrieve the
- *  subsequent page. When paginating, all other parameters provided to the
- *  request must match the call that provided the page token.
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Specification of the timeline aggregation parameters. **Supported
+ *  Optional. Specification of the timeline aggregation parameters. **Supported
  *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
  *  intervals. Due to historical constraints, the only supported timezone is
  *  `America/Los_Angeles`.
@@ -2199,8 +2204,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec *timelineSpec;
 
 /**
- *  User view to select. The output data will correspond to the selected view.
- *  The only supported value is `OS_PUBLIC`.
+ *  Optional. User view to select. The output data will correspond to the
+ *  selected view. The only supported value is `OS_PUBLIC`.
  *
  *  Likely values:
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QuerySlowStartRateMetricSetRequest_UserCohort_AppTesters
@@ -2252,12 +2257,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetRequest : GTLRObject
 
 /**
- *  Dimensions to slice the data by. **Supported dimensions:** * `apiLevel`
- *  (string): the API level of Android that was running on the user's device,
- *  e.g., 26. * `versionCode` (int64): version of the app that was running on
- *  the user's device. * `deviceModel` (string): unique identifier of the user's
- *  device model. The form of the identifier is 'deviceBrand/device', where
- *  deviceBrand corresponds to Build.BRAND and device corresponds to
+ *  Optional. Dimensions to slice the data by. **Supported dimensions:** *
+ *  `apiLevel` (string): the API level of Android that was running on the user's
+ *  device, e.g., 26. * `versionCode` (int64): version of the app that was
+ *  running on the user's device. * `deviceModel` (string): unique identifier of
+ *  the user's device model. The form of the identifier is 'deviceBrand/device',
+ *  where deviceBrand corresponds to Build.BRAND and device corresponds to
  *  Build.DEVICE, e.g., google/coral. * `deviceBrand` (string): unique
  *  identifier of the user's device brand, e.g., google. * `deviceType`
  *  (string): the type (also known as form factor) of the user's device, e.g.,
@@ -2284,51 +2289,51 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
 /**
- *  Filters to apply to data. The filtering expression follows
+ *  Optional. Filters to apply to data. The filtering expression follows
  *  [AIP-160](https://google.aip.dev/160) standard and supports filtering by
  *  equality of all breakdown dimensions.
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Metrics to aggregate. **Supported metrics:** * `stuckBgWakelockRate`
- *  (`google.type.Decimal`): Percentage of distinct users in the aggregation
- *  period that had a wakelock held in the background for longer than 1 hour. *
- *  `stuckBgWakelockRate7dUserWeighted` (`google.type.Decimal`): Rolling average
- *  value of `stuckBgWakelockRate` in the last 7 days. The daily values are
- *  weighted by the count of distinct users for the day. *
- *  `stuckBgWakelockRate28dUserWeighted` (`google.type.Decimal`): Rolling
- *  average value of `stuckBgWakelockRate` in the last 28 days. The daily values
- *  are weighted by the count of distinct users for the day. * `distinctUsers`
- *  (`google.type.Decimal`): Count of distinct users in the aggregation period
- *  that were used as normalization value for the `stuckBgWakelockRate` metric.
- *  A user is counted in this metric if they app was doing any work on the
- *  device, i.e., not just active foreground usage but also background work.
- *  Care must be taken not to aggregate this count further, as it may result in
- *  users being counted multiple times. The value is rounded to the nearest
- *  multiple of 10, 100, 1,000 or 1,000,000, depending on the magnitude of the
- *  value.
+ *  Optional. Metrics to aggregate. **Supported metrics:** *
+ *  `stuckBgWakelockRate` (`google.type.Decimal`): Percentage of distinct users
+ *  in the aggregation period that had a wakelock held in the background for
+ *  longer than 1 hour. * `stuckBgWakelockRate7dUserWeighted`
+ *  (`google.type.Decimal`): Rolling average value of `stuckBgWakelockRate` in
+ *  the last 7 days. The daily values are weighted by the count of distinct
+ *  users for the day. * `stuckBgWakelockRate28dUserWeighted`
+ *  (`google.type.Decimal`): Rolling average value of `stuckBgWakelockRate` in
+ *  the last 28 days. The daily values are weighted by the count of distinct
+ *  users for the day. * `distinctUsers` (`google.type.Decimal`): Count of
+ *  distinct users in the aggregation period that were used as normalization
+ *  value for the `stuckBgWakelockRate` metric. A user is counted in this metric
+ *  if they app was doing any work on the device, i.e., not just active
+ *  foreground usage but also background work. Care must be taken not to
+ *  aggregate this count further, as it may result in users being counted
+ *  multiple times. The value is rounded to the nearest multiple of 10, 100,
+ *  1,000 or 1,000,000, depending on the magnitude of the value.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *metrics;
 
 /**
- *  Maximum size of the returned data. If unspecified, at most 1000 rows will be
- *  returned. The maximum value is 100000; values above 100000 will be coerced
- *  to 100000.
+ *  Optional. Maximum size of the returned data. If unspecified, at most 1000
+ *  rows will be returned. The maximum value is 100000; values above 100000 will
+ *  be coerced to 100000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  A page token, received from a previous call. Provide this to retrieve the
- *  subsequent page. When paginating, all other parameters provided to the
- *  request must match the call that provided the page token.
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Specification of the timeline aggregation parameters. **Supported
+ *  Optional. Specification of the timeline aggregation parameters. **Supported
  *  aggregation periods:** * DAILY: metrics are aggregated in calendar date
  *  intervals. Due to historical constraints, the only supported timezone is
  *  `America/Los_Angeles`.
@@ -2336,8 +2341,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec *timelineSpec;
 
 /**
- *  User view to select. The output data will correspond to the selected view.
- *  The only supported value is `OS_PUBLIC`.
+ *  Optional. User view to select. The output data will correspond to the
+ *  selected view. The only supported value is `OS_PUBLIC`.
  *
  *  Likely values:
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1QueryStuckBackgroundWakelockRateMetricSetRequest_UserCohort_AppTesters
@@ -2719,8 +2724,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @interface GTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec : GTLRObject
 
 /**
- *  Type of the aggregation period of the datapoints in the timeline. Intervals
- *  are identified by the date and time at the start of the interval.
+ *  Optional. Type of the aggregation period of the datapoints in the timeline.
+ *  Intervals are identified by the date and time at the start of the interval.
  *
  *  Likely values:
  *    @arg @c kGTLRPlaydeveloperreporting_GooglePlayDeveloperReportingV1beta1TimelineSpec_AggregationPeriod_AggregationPeriodUnspecified
@@ -2736,15 +2741,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPlaydeveloperreporting_GooglePlayDevelop
 @property(nonatomic, copy, nullable) NSString *aggregationPeriod;
 
 /**
- *  Ending datapoint of the timeline (exclusive). See start_time for
+ *  Optional. Ending datapoint of the timeline (exclusive). See start_time for
  *  restrictions. The timezone of the end point must match the timezone of the
  *  start point.
  */
 @property(nonatomic, strong, nullable) GTLRPlaydeveloperreporting_GoogleTypeDateTime *endTime;
 
 /**
- *  Starting datapoint of the timeline (inclusive). Must be aligned to the
- *  aggregation period as follows: * HOURLY: the 'minutes', 'seconds' and
+ *  Optional. Starting datapoint of the timeline (inclusive). Must be aligned to
+ *  the aggregation period as follows: * HOURLY: the 'minutes', 'seconds' and
  *  'nanos' fields must be unset. The time_zone can be left unset (defaults to
  *  UTC) or set explicitly to "UTC". Setting any other utc_offset or timezone id
  *  will result in a validation error. * DAILY: the 'hours', 'minutes',

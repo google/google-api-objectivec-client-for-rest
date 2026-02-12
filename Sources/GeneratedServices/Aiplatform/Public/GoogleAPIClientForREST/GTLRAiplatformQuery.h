@@ -12378,7 +12378,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsPatch : GTLRAiplatformQuery
 
-/** Output only. The resource name of the Endpoint. */
+/** Identifier. The resource name of the Endpoint. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -12396,7 +12396,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1Endpoint to
  *    include in the query.
- *  @param name Output only. The resource name of the Endpoint.
+ *  @param name Identifier. The resource name of the Endpoint.
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsPatch
  */
@@ -12681,7 +12681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsEndpointsUpdate : GTLRAiplatformQuery
 
-/** Output only. The resource name of the Endpoint. */
+/** Identifier. The resource name of the Endpoint. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -12692,7 +12692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1UpdateEndpointLongRunningRequest to
  *    include in the query.
- *  @param name Output only. The resource name of the Endpoint.
+ *  @param name Identifier. The resource name of the Endpoint.
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsUpdate
  */
@@ -19320,7 +19320,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: aiplatform.projects.locations.list
  *
@@ -19360,7 +19364,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Fetches a @c GTLRAiplatform_GoogleCloudLocationListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -28119,6 +28127,55 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesGetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists reasoning engines in a location.
  *
  *  Method: aiplatform.projects.locations.reasoningEngines.list
@@ -29912,6 +29969,46 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSetIamPolicy : GTLRAiplatformQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+ *  `PERMISSION_DENIED` errors.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Streams queries using a reasoning engine.
  *
  *  Method: aiplatform.projects.locations.reasoningEngines.streamQuery
@@ -29943,6 +30040,54 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1StreamQueryReasoningEngineRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: aiplatform.projects.locations.reasoningEngines.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesTestIamPermissions : GTLRAiplatformQuery
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  `NOT_FOUND` error. Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesTestIamPermissions
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -34314,14 +34459,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
- *  Cancels a TuningJob. Starts asynchronous cancellation on the TuningJob. The
+ *  Cancels a tuning job. Starts an asynchronous cancellation request. The
  *  server makes a best effort to cancel the job, but success is not guaranteed.
  *  Clients can use GenAiTuningService.GetTuningJob or other methods to check
  *  whether the cancellation succeeded or whether the job completed despite
- *  cancellation. On successful cancellation, the TuningJob is not deleted;
- *  instead it becomes a job with a TuningJob.error value with a
- *  google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and
- *  TuningJob.state is set to `CANCELLED`.
+ *  cancellation. On successful cancellation, the tuning job is not deleted.
+ *  Instead, its state is set to `CANCELLED`, and `error` is set to a status
+ *  with a `google.rpc.Status.code` of 1, corresponding to `Code.CANCELLED`.
  *
  *  Method: aiplatform.projects.locations.tuningJobs.cancel
  *
@@ -34331,7 +34475,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsCancel : GTLRAiplatformQuery
 
 /**
- *  Required. The name of the TuningJob to cancel. Format:
+ *  Required. The name of the tuning job to cancel. Format:
  *  `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -34339,19 +34483,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Fetches a @c GTLRAiplatform_GoogleProtobufEmpty.
  *
- *  Cancels a TuningJob. Starts asynchronous cancellation on the TuningJob. The
+ *  Cancels a tuning job. Starts an asynchronous cancellation request. The
  *  server makes a best effort to cancel the job, but success is not guaranteed.
  *  Clients can use GenAiTuningService.GetTuningJob or other methods to check
  *  whether the cancellation succeeded or whether the job completed despite
- *  cancellation. On successful cancellation, the TuningJob is not deleted;
- *  instead it becomes a job with a TuningJob.error value with a
- *  google.rpc.Status.code of 1, corresponding to `Code.CANCELLED`, and
- *  TuningJob.state is set to `CANCELLED`.
+ *  cancellation. On successful cancellation, the tuning job is not deleted.
+ *  Instead, its state is set to `CANCELLED`, and `error` is set to a status
+ *  with a `google.rpc.Status.code` of 1, corresponding to `Code.CANCELLED`.
  *
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1CancelTuningJobRequest to include in
  *    the query.
- *  @param name Required. The name of the TuningJob to cancel. Format:
+ *  @param name Required. The name of the tuning job to cancel. Format:
  *    `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsCancel
@@ -34362,8 +34505,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
- *  Creates a TuningJob. A created TuningJob right away will be attempted to be
- *  run.
+ *  Creates a tuning job. A created tuning job will be subsequently executed to
+ *  start the model tuning process.
  *
  *  Method: aiplatform.projects.locations.tuningJobs.create
  *
@@ -34373,7 +34516,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsCreate : GTLRAiplatformQuery
 
 /**
- *  Required. The resource name of the Location to create the TuningJob in.
+ *  Required. The resource name of the location to create the tuning job in.
  *  Format: `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -34381,13 +34524,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1TuningJob.
  *
- *  Creates a TuningJob. A created TuningJob right away will be attempted to be
- *  run.
+ *  Creates a tuning job. A created tuning job will be subsequently executed to
+ *  start the model tuning process.
  *
  *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1TuningJob to
  *    include in the query.
- *  @param parent Required. The resource name of the Location to create the
- *    TuningJob in. Format: `projects/{project}/locations/{location}`
+ *  @param parent Required. The resource name of the location to create the
+ *    tuning job in. Format: `projects/{project}/locations/{location}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsCreate
  */
@@ -34397,7 +34540,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
- *  Gets a TuningJob.
+ *  Gets a tuning job.
  *
  *  Method: aiplatform.projects.locations.tuningJobs.get
  *
@@ -34407,7 +34550,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsGet : GTLRAiplatformQuery
 
 /**
- *  Required. The name of the TuningJob resource. Format:
+ *  Required. The name of the tuning job to retrieve. Format:
  *  `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -34415,9 +34558,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1TuningJob.
  *
- *  Gets a TuningJob.
+ *  Gets a tuning job.
  *
- *  @param name Required. The name of the TuningJob resource. Format:
+ *  @param name Required. The name of the tuning job to retrieve. Format:
  *    `projects/{project}/locations/{location}/tuningJobs/{tuning_job}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsGet
@@ -34427,7 +34570,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
- *  Lists TuningJobs in a Location.
+ *  Lists tuning jobs in a location.
  *
  *  Method: aiplatform.projects.locations.tuningJobs.list
  *
@@ -34443,14 +34586,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. The standard list page token. Typically obtained via
+ *  Optional. The standard list page token. Typically obtained from
  *  ListTuningJobsResponse.next_page_token of the previous
- *  GenAiTuningService.ListTuningJob][] call.
+ *  GenAiTuningService.ListTuningJobs call.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the Location to list the TuningJobs from.
+ *  Required. The resource name of the location to list the tuning jobs from.
  *  Format: `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -34458,10 +34601,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1ListTuningJobsResponse.
  *
- *  Lists TuningJobs in a Location.
+ *  Lists tuning jobs in a location.
  *
- *  @param parent Required. The resource name of the Location to list the
- *    TuningJobs from. Format: `projects/{project}/locations/{location}`
+ *  @param parent Required. The resource name of the location to list the tuning
+ *    jobs from. Format: `projects/{project}/locations/{location}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsList
  *
@@ -34630,7 +34773,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
- *  Rebase a TunedModel.
+ *  Rebase a tuned model. A rebase operation takes a model that was previously
+ *  tuned on a base model version, and retunes it on a new base model version.
+ *  The rebase operation creates a new tuning job and a new tuned model.
  *
  *  Method: aiplatform.projects.locations.tuningJobs.rebaseTunedModel
  *
@@ -34640,7 +34785,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsTuningJobsRebaseTunedModel : GTLRAiplatformQuery
 
 /**
- *  Required. The resource name of the Location into which to rebase the Model.
+ *  Required. The resource name of the location in which to rebase the Model.
  *  Format: `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
@@ -34648,13 +34793,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 /**
  *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
  *
- *  Rebase a TunedModel.
+ *  Rebase a tuned model. A rebase operation takes a model that was previously
+ *  tuned on a base model version, and retunes it on a new base model version.
+ *  The rebase operation creates a new tuning job and a new tuned model.
  *
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1RebaseTunedModelRequest to include
  *    in the query.
- *  @param parent Required. The resource name of the Location into which to
- *    rebase the Model. Format: `projects/{project}/locations/{location}`
+ *  @param parent Required. The resource name of the location in which to rebase
+ *    the Model. Format: `projects/{project}/locations/{location}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsTuningJobsRebaseTunedModel
  */

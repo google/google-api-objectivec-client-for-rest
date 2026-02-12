@@ -658,7 +658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
 
 /**
  *  Optional. The resource name of the CRM node being attached to the boundary.
- *  Format: `projects/{project-number}`
+ *  Format: `projects/{project-number}` or `projects/{project-id}`
  */
 @property(nonatomic, copy, nullable) NSString *crmNode;
 

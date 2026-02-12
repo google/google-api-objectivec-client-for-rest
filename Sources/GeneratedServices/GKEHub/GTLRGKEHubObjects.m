@@ -393,6 +393,11 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Certi
 NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Disabled = @"DISABLED";
 NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabled = @"ENABLED";
 
+// GTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail.code
+NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail_Code_IdentityProviderStateError = @"IDENTITY_PROVIDER_STATE_ERROR";
+NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail_Code_IdentityProviderStateOk = @"IDENTITY_PROVIDER_STATE_OK";
+NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail_Code_IdentityProviderStateUnspecified = @"IDENTITY_PROVIDER_STATE_UNSPECIFIED";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRGKEHub_AppDevExperienceState
@@ -908,7 +913,7 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabl
 @implementation GTLRGKEHub_FeatureState
 @dynamic appdevexperience, clusterupgrade, configmanagement, identityservice,
          metering, policycontroller, rbacrolebindingactuation, servicemesh,
-         state;
+         state, workloadidentity;
 @end
 
 
@@ -1779,4 +1784,48 @@ NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabl
 
 @implementation GTLRGKEHub_WorkloadCertificateSpec
 @dynamic certificateManagement;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail
+//
+
+@implementation GTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail
+@dynamic code, descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_WorkloadIdentityState
+//
+
+@implementation GTLRGKEHub_WorkloadIdentityState
+@dynamic descriptionProperty, identityProviderStateDetails;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRGKEHub_WorkloadIdentityState_IdentityProviderStateDetails
+//
+
+@implementation GTLRGKEHub_WorkloadIdentityState_IdentityProviderStateDetails
+
++ (Class)classForAdditionalProperties {
+  return [GTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail class];
+}
+
 @end

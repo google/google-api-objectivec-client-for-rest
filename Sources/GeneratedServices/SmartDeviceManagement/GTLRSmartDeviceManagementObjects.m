@@ -17,7 +17,7 @@
 //
 
 @implementation GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Device
-@dynamic name, parentRelations, traits, type;
+@dynamic ghpName, name, parentRelations, traits, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -151,7 +151,7 @@
 //
 
 @implementation GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1ParentRelation
-@dynamic displayName, parent;
+@dynamic displayName, ghpParent, parent;
 @end
 
 
@@ -185,7 +185,7 @@
 //
 
 @implementation GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Structure
-@dynamic name, traits;
+@dynamic ghpName, name, traits;
 @end
 
 

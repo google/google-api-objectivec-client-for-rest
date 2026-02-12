@@ -11,6 +11,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRKmsinventory_GoogleCloudKmsInventoryV1Warning.warningCode
+NSString * const kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_InsufficientPermissionsPartialData = @"INSUFFICIENT_PERMISSIONS_PARTIAL_DATA";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_OrgLessProjectPartialData = @"ORG_LESS_PROJECT_PARTIAL_DATA";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_ResourceLimitExceededPartialData = @"RESOURCE_LIMIT_EXCEEDED_PARTIAL_DATA";
+NSString * const kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_WarningCodeUnspecified = @"WARNING_CODE_UNSPECIFIED";
+
 // GTLRKmsinventory_GoogleCloudKmsV1CryptoKey.purpose
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_AsymmetricDecrypt = @"ASYMMETRIC_DECRYPT";
 NSString * const kGTLRKmsinventory_GoogleCloudKmsV1CryptoKey_Purpose_AsymmetricSign = @"ASYMMETRIC_SIGN";
@@ -228,7 +234,15 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Forma
 
 @implementation GTLRKmsinventory_GoogleCloudKmsInventoryV1ProtectedResourcesSummary
 @dynamic cloudProducts, locations, name, projectCount, resourceCount,
-         resourceTypes;
+         resourceTypes, warnings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"warnings" : [GTLRKmsinventory_GoogleCloudKmsInventoryV1Warning class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -293,6 +307,16 @@ NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperationAttestation_Forma
   return @"protectedResources";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRKmsinventory_GoogleCloudKmsInventoryV1Warning
+//
+
+@implementation GTLRKmsinventory_GoogleCloudKmsInventoryV1Warning
+@dynamic displayMessage, warningCode;
 @end
 
 

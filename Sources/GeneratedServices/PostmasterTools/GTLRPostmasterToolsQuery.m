@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Gmail Postmaster Tools API (gmailpostmastertools/v1)
+//   Gmail Postmaster Tools API (gmailpostmastertools/v2)
 // Description:
 //   The Postmaster Tools API is a RESTful API that provides programmatic access
 //   to email traffic metrics (like spam reports, delivery errors etc) otherwise
@@ -12,11 +12,36 @@
 
 #import <GoogleAPIClientForREST/GTLRPostmasterToolsQuery.h>
 
-#import <GoogleAPIClientForREST/GTLRPostmasterToolsObjects.h>
-
 @implementation GTLRPostmasterToolsQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRPostmasterToolsQuery_DomainsDomainStatsQuery
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRPostmasterTools_QueryDomainStatsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/domainStats:query";
+  GTLRPostmasterToolsQuery_DomainsDomainStatsQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRPostmasterTools_QueryDomainStatsResponse class];
+  query.loggingName = @"gmailpostmastertools.domains.domainStats.query";
+  return query;
+}
 
 @end
 
@@ -26,7 +51,7 @@
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
+  NSString *pathURITemplate = @"v2/{+name}";
   GTLRPostmasterToolsQuery_DomainsGet *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -39,12 +64,31 @@
 
 @end
 
+@implementation GTLRPostmasterToolsQuery_DomainsGetComplianceStatus
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRPostmasterToolsQuery_DomainsGetComplianceStatus *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRPostmasterTools_DomainComplianceStatus class];
+  query.loggingName = @"gmailpostmastertools.domains.getComplianceStatus";
+  return query;
+}
+
+@end
+
 @implementation GTLRPostmasterToolsQuery_DomainsList
 
 @dynamic pageSize, pageToken;
 
 + (instancetype)query {
-  NSString *pathURITemplate = @"v1/domains";
+  NSString *pathURITemplate = @"v2/domains";
   GTLRPostmasterToolsQuery_DomainsList *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:nil
@@ -56,52 +100,23 @@
 
 @end
 
-@implementation GTLRPostmasterToolsQuery_DomainsTrafficStatsGet
+@implementation GTLRPostmasterToolsQuery_DomainStatsBatchQuery
 
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRPostmasterToolsQuery_DomainsTrafficStatsGet *query =
++ (instancetype)queryWithObject:(GTLRPostmasterTools_BatchQueryDomainStatsRequest *)object {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSString *pathURITemplate = @"v2/domainStats:batchQuery";
+  GTLRPostmasterToolsQuery_DomainStatsBatchQuery *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRPostmasterTools_TrafficStats class];
-  query.loggingName = @"gmailpostmastertools.domains.trafficStats.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRPostmasterToolsQuery_DomainsTrafficStatsList
-
-@dynamic endDateDay, endDateMonth, endDateYear, pageSize, pageToken, parent,
-         startDateDay, startDateMonth, startDateYear;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"endDateDay" : @"endDate.day",
-    @"endDateMonth" : @"endDate.month",
-    @"endDateYear" : @"endDate.year",
-    @"startDateDay" : @"startDate.day",
-    @"startDateMonth" : @"startDate.month",
-    @"startDateYear" : @"startDate.year"
-  };
-  return map;
-}
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/trafficStats";
-  GTLRPostmasterToolsQuery_DomainsTrafficStatsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRPostmasterTools_ListTrafficStatsResponse class];
-  query.loggingName = @"gmailpostmastertools.domains.trafficStats.list";
+                               HTTPMethod:@"POST"
+                       pathParameterNames:nil];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLRPostmasterTools_BatchQueryDomainStatsResponse class];
+  query.loggingName = @"gmailpostmastertools.domainStats.batchQuery";
   return query;
 }
 

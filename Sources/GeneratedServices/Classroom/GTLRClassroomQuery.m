@@ -1965,6 +1965,193 @@ NSString * const kGTLRClassroomStatesTurnedIn                  = @"TURNED_IN";
 
 @end
 
+@implementation GTLRClassroomQuery_CoursesStudentGroupsCreate
+
+@dynamic courseId;
+
++ (instancetype)queryWithObject:(GTLRClassroom_StudentGroup *)object
+                       courseId:(NSString *)courseId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"courseId" ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/studentGroups";
+  GTLRClassroomQuery_CoursesStudentGroupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.expectedObjectClass = [GTLRClassroom_StudentGroup class];
+  query.loggingName = @"classroom.courses.studentGroups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesStudentGroupsDelete
+
+@dynamic courseId, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                       identifier:(NSString *)identifier {
+  NSArray *pathParams = @[
+    @"courseId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/studentGroups/{id}";
+  GTLRClassroomQuery_CoursesStudentGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.studentGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesStudentGroupsList
+
+@dynamic courseId, pageSize, pageToken;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId {
+  NSArray *pathParams = @[ @"courseId" ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/studentGroups";
+  GTLRClassroomQuery_CoursesStudentGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.expectedObjectClass = [GTLRClassroom_ListStudentGroupsResponse class];
+  query.loggingName = @"classroom.courses.studentGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesStudentGroupsPatch
+
+@dynamic courseId, identifier, updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (instancetype)queryWithObject:(GTLRClassroom_StudentGroup *)object
+                       courseId:(NSString *)courseId
+                     identifier:(NSString *)identifier {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"id"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/studentGroups/{id}";
+  GTLRClassroomQuery_CoursesStudentGroupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.identifier = identifier;
+  query.expectedObjectClass = [GTLRClassroom_StudentGroup class];
+  query.loggingName = @"classroom.courses.studentGroups.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersCreate
+
+@dynamic courseId, studentGroupId;
+
++ (instancetype)queryWithObject:(GTLRClassroom_StudentGroupMember *)object
+                       courseId:(NSString *)courseId
+                 studentGroupId:(NSString *)studentGroupId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"courseId", @"studentGroupId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/studentGroups/{studentGroupId}/studentGroupMembers";
+  GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.courseId = courseId;
+  query.studentGroupId = studentGroupId;
+  query.expectedObjectClass = [GTLRClassroom_StudentGroupMember class];
+  query.loggingName = @"classroom.courses.studentGroups.studentGroupMembers.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersDelete
+
+@dynamic courseId, studentGroupId, userId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                   studentGroupId:(NSString *)studentGroupId
+                           userId:(NSString *)userId {
+  NSArray *pathParams = @[
+    @"courseId", @"studentGroupId", @"userId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/studentGroups/{studentGroupId}/studentGroupMembers/{userId}";
+  GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.studentGroupId = studentGroupId;
+  query.userId = userId;
+  query.expectedObjectClass = [GTLRClassroom_Empty class];
+  query.loggingName = @"classroom.courses.studentGroups.studentGroupMembers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersList
+
+@dynamic courseId, pageSize, pageToken, studentGroupId;
+
++ (instancetype)queryWithCourseId:(NSString *)courseId
+                   studentGroupId:(NSString *)studentGroupId {
+  NSArray *pathParams = @[
+    @"courseId", @"studentGroupId"
+  ];
+  NSString *pathURITemplate = @"v1/courses/{courseId}/studentGroups/{studentGroupId}/studentGroupMembers";
+  GTLRClassroomQuery_CoursesStudentGroupsStudentGroupMembersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.courseId = courseId;
+  query.studentGroupId = studentGroupId;
+  query.expectedObjectClass = [GTLRClassroom_ListStudentGroupMembersResponse class];
+  query.loggingName = @"classroom.courses.studentGroups.studentGroupMembers.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRClassroomQuery_CoursesStudentsCreate
 
 @dynamic courseId, enrollmentCode;

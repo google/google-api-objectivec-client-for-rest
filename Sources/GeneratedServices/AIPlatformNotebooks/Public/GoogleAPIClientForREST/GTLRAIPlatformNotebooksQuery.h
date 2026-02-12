@@ -394,7 +394,12 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Format: `parent=projects/{project_id}/locations/{location}` */
+/**
+ *  Required. The parent of the instance. Formats: -
+ *  `projects/{project_id}/locations/{location}` to list instances in a specific
+ *  zone. - `projects/{project_id}/locations/-` to list instances in all
+ *  locations.
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -402,8 +407,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists instances in a given project and location.
  *
- *  @param parent Required. Format:
- *    `parent=projects/{project_id}/locations/{location}`
+ *  @param parent Required. The parent of the instance. Formats: -
+ *    `projects/{project_id}/locations/{location}` to list instances in a
+ *    specific zone. - `projects/{project_id}/locations/-` to list instances in
+ *    all locations.
  *
  *  @return GTLRAIPlatformNotebooksQuery_ProjectsLocationsInstancesList
  *
@@ -864,7 +871,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: notebooks.projects.locations.list
  *
@@ -904,7 +915,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRAIPlatformNotebooks_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

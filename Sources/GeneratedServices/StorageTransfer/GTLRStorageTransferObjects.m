@@ -649,7 +649,9 @@ NSString * const kGTLRStorageTransfer_TransferOptions_OverwriteWhen_OverwriteWhe
          objectsCopiedToSink, objectsDeletedFromSink, objectsDeletedFromSource,
          objectsFailedToDeleteFromSink, objectsFoundFromSource,
          objectsFoundOnlyFromSink, objectsFromSourceFailed,
-         objectsFromSourceSkippedBySync;
+         objectsFromSourceSkippedBySync,
+         unrestoredDeepArchiveObjectsSkippedCount,
+         unsupportedS3GlacierObjectsSkippedCount;
 @end
 
 

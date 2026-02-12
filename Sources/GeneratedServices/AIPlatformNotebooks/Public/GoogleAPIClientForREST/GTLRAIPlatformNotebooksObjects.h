@@ -1611,9 +1611,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Locations that could not be reached. For example, ['us-west1-a',
- *  'us-central1-b']. A ListInstancesResponse will only contain either instances
- *  or unreachables,
+ *  Unordered list. Locations that could not be reached. For example,
+ *  ['projects/{project_id}/locations/us-west1-a',
+ *  'projects/{project_id}/locations/us-central1-b']. A ListInstancesResponse
+ *  will only contain either instances or unreachables,
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

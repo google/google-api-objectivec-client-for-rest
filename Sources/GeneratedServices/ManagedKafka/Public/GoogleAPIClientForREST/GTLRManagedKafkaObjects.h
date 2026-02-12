@@ -121,6 +121,12 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Cluster_State_Deleting;
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Cluster_State_StateUnspecified;
+/**
+ *  The cluster is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_Cluster_State_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRManagedKafka_ConnectCluster.state
@@ -816,6 +822,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
  *        deleted. (Value: "DELETING")
  *    @arg @c kGTLRManagedKafka_Cluster_State_StateUnspecified A state was not
  *        specified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRManagedKafka_Cluster_State_Updating The cluster is being
+ *        updated. (Value: "UPDATING")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 

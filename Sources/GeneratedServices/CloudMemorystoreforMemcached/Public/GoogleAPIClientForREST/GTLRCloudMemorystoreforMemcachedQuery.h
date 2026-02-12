@@ -205,6 +205,32 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns tags directly bound to a GCP resource.
+ *
+ *  Method: memcache.projects.locations.instances.getTags
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
+ */
+@interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesGetTags : GTLRCloudMemorystoreforMemcachedQuery
+
+/** Required. The full resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudMemorystoreforMemcached_GetTagsResponse.
+ *
+ *  Returns tags directly bound to a GCP resource.
+ *
+ *  @param name Required. The full resource name of the service resource.
+ *
+ *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesGetTags
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists Instances in a given location.
  *
  *  Method: memcache.projects.locations.instances.list
@@ -352,6 +378,35 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Updates tags directly bound to a GCP resource.
+ *
+ *  Method: memcache.projects.locations.instances.setTags
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudMemorystoreforMemcachedCloudPlatform
+ */
+@interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesSetTags : GTLRCloudMemorystoreforMemcachedQuery
+
+/** Required. The full resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudMemorystoreforMemcached_SetTagsResponse.
+ *
+ *  Updates tags directly bound to a GCP resource.
+ *
+ *  @param object The @c GTLRCloudMemorystoreforMemcached_SetTagsRequest to
+ *    include in the query.
+ *  @param name Required. The full resource name of the service resource.
+ *
+ *  @return GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsInstancesSetTags
+ */
++ (instancetype)queryWithObject:(GTLRCloudMemorystoreforMemcached_SetTagsRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates the defined Memcached parameters for an existing instance. This
  *  method only stages the parameters, it must be followed by `ApplyParameters`
  *  to apply the parameters to nodes of the Memcached instance.
@@ -428,7 +483,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: memcache.projects.locations.list
  *
@@ -438,8 +497,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRCloudMemorystoreforMemcachedQuery_ProjectsLocationsList : GTLRCloudMemorystoreforMemcachedQuery
 
 /**
- *  Optional. Unless explicitly documented otherwise, don't use this unsupported
- *  field which is primarily intended for internal usage.
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -468,7 +527,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudMemorystoreforMemcached_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -615,9 +678,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

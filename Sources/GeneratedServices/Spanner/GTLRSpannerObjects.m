@@ -19,6 +19,12 @@ NSString * const kGTLRSpanner_Backup_DatabaseDialect_DatabaseDialectUnspecified 
 NSString * const kGTLRSpanner_Backup_DatabaseDialect_GoogleStandardSql = @"GOOGLE_STANDARD_SQL";
 NSString * const kGTLRSpanner_Backup_DatabaseDialect_Postgresql = @"POSTGRESQL";
 
+// GTLRSpanner_Backup.minimumRestorableEdition
+NSString * const kGTLRSpanner_Backup_MinimumRestorableEdition_EditionUnspecified = @"EDITION_UNSPECIFIED";
+NSString * const kGTLRSpanner_Backup_MinimumRestorableEdition_Enterprise = @"ENTERPRISE";
+NSString * const kGTLRSpanner_Backup_MinimumRestorableEdition_EnterprisePlus = @"ENTERPRISE_PLUS";
+NSString * const kGTLRSpanner_Backup_MinimumRestorableEdition_Standard = @"STANDARD";
+
 // GTLRSpanner_Backup.state
 NSString * const kGTLRSpanner_Backup_State_Creating         = @"CREATING";
 NSString * const kGTLRSpanner_Backup_State_Ready            = @"READY";
@@ -388,7 +394,9 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_AutoscalingConfigOverrides
-@dynamic autoscalingLimits, autoscalingTargetHighPriorityCpuUtilizationPercent;
+@dynamic autoscalingLimits, autoscalingTargetHighPriorityCpuUtilizationPercent,
+         autoscalingTargetTotalCpuUtilizationPercent,
+         disableHighPriorityCpuAutoscaling, disableTotalCpuAutoscaling;
 @end
 
 
@@ -408,7 +416,8 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_AutoscalingTargets
-@dynamic highPriorityCpuUtilizationPercent, storageUtilizationPercent;
+@dynamic highPriorityCpuUtilizationPercent, storageUtilizationPercent,
+         totalCpuUtilizationPercent;
 @end
 
 
@@ -421,8 +430,9 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 @dynamic backupSchedules, createTime, database, databaseDialect, encryptionInfo,
          encryptionInformation, exclusiveSizeBytes, expireTime,
          freeableSizeBytes, incrementalBackupChainId, instancePartitions,
-         maxExpireTime, name, oldestVersionTime, referencingBackups,
-         referencingDatabases, sizeBytes, state, versionTime;
+         maxExpireTime, minimumRestorableEdition, name, oldestVersionTime,
+         referencingBackups, referencingDatabases, sizeBytes, state,
+         versionTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -614,6 +624,30 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 
 @implementation GTLRSpanner_ChildLink
 @dynamic childIndex, type, variable;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ClientContext
+//
+
+@implementation GTLRSpanner_ClientContext
+@dynamic secureContext;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSpanner_ClientContext_SecureContext
+//
+
+@implementation GTLRSpanner_ClientContext_SecureContext
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -2523,7 +2557,7 @@ NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUnitUnspecified = @"K
 //
 
 @implementation GTLRSpanner_RequestOptions
-@dynamic priority, requestTag, transactionTag;
+@dynamic clientContext, priority, requestTag, transactionTag;
 @end
 
 

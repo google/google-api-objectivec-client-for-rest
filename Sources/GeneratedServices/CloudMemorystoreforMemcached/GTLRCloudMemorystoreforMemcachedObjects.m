@@ -179,7 +179,12 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_GetTagsResponse
-@dynamic name, tags, tagsEtag;
+@dynamic ETag, name, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 
@@ -863,7 +868,12 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_SetTagsRequest
-@dynamic name, requestId, tags, tagsEtag;
+@dynamic ETag, name, requestId, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 
@@ -887,7 +897,12 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_SetTagsResponse
-@dynamic name, tags, tagsEtag;
+@dynamic ETag, name, tags;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 

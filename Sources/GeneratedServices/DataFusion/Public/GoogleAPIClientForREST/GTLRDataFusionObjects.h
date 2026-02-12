@@ -1136,8 +1136,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1209,6 +1210,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified;
  *  Logging configuration for a Data Fusion instance.
  */
 @interface GTLRDataFusion_LoggingConfig : GTLRObject
+
+/**
+ *  Optional. Option to enable the InstanceV2 logging for this instance. This
+ *  field is supported only in CDF patch revision versions 6.11.1.1 and above.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableInstanceV2Logs;
 
 /**
  *  Optional. Option to determine whether instance logs should be written to

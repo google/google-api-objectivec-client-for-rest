@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Policy Troubleshooter API (policytroubleshooter/v1)
+//   Policy Troubleshooter API (policytroubleshooter/v3)
 // Documentation:
 //   https://cloud.google.com/iam/
 

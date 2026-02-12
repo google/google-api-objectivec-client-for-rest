@@ -95,6 +95,7 @@ NSString * const kGTLRCloudFilestore_NetworkConfig_ConnectMode_PrivateServiceCon
 // GTLRCloudFilestore_NetworkConfig.modes
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_AddressModeUnspecified = @"ADDRESS_MODE_UNSPECIFIED";
 NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv4 = @"MODE_IPV4";
+NSString * const kGTLRCloudFilestore_NetworkConfig_Modes_ModeIpv6 = @"MODE_IPV6";
 
 // GTLRCloudFilestore_NfsExportOptions.accessMode
 NSString * const kGTLRCloudFilestore_NfsExportOptions_AccessMode_AccessModeUnspecified = @"ACCESS_MODE_UNSPECIFIED";

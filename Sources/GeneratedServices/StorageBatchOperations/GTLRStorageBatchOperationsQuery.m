@@ -33,6 +33,44 @@
 
 @end
 
+@implementation GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsBucketOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsBucketOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRStorageBatchOperations_BucketOperation class];
+  query.loggingName = @"storagebatchoperations.projects.locations.jobs.bucketOperations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsBucketOperationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/bucketOperations";
+  GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsBucketOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRStorageBatchOperations_ListBucketOperationsResponse class];
+  query.loggingName = @"storagebatchoperations.projects.locations.jobs.bucketOperations.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsCancel
 
 @dynamic name;
@@ -89,7 +127,7 @@
 
 @implementation GTLRStorageBatchOperationsQuery_ProjectsLocationsJobsDelete
 
-@dynamic name, requestId;
+@dynamic force, name, requestId;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

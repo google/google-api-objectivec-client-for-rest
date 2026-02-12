@@ -78,7 +78,7 @@
 //
 
 @implementation GTLRReports_Activity_Events_Item
-@dynamic name, parameters, resourceIds, type;
+@dynamic name, parameters, resourceIds, status, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -165,6 +165,16 @@
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_ActivityEventsStatus
+//
+
+@implementation GTLRReports_ActivityEventsStatus
+@dynamic errorCode, errorMessage, eventStatus, httpStatusCode;
 @end
 
 

@@ -917,6 +917,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAl
 @property(nonatomic, strong, nullable) NSNumber *ancestorHasActiveKeyVersion;
 
 /**
+ *  Output only. Field to differentiate ancestor enrolled services from locally
+ *  enrolled services.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAccessApproval_EnrolledService *> *ancestorsEnrolledServices;
+
+/**
  *  Optional. Policy configuration for Access Approval that sets the operating
  *  mode. The available policies are Transparency, Streamlined Support, and
  *  Approval Required.

@@ -357,6 +357,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql804
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql84;
 /**
+ *  The database version is MySQL 9.7.
+ *
+ *  Value: "MYSQL_9_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql97;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -494,6 +500,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserve
  *  Value: "SQLSERVER_2022_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Web;
+/**
+ *  The database version is SQL Server 2025 Enterprise.
+ *
+ *  Value: "SQLSERVER_2025_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2025Enterprise;
+/**
+ *  The database version is SQL Server 2025 Express.
+ *
+ *  Value: "SQLSERVER_2025_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2025Express;
+/**
+ *  The database version is SQL Server 2025 Standard.
+ *
+ *  Value: "SQLSERVER_2025_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2025Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Backup.state
@@ -863,6 +887,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql84;
 /**
+ *  The database version is MySQL 9.7.
+ *
+ *  Value: "MYSQL_9_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql97;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -1000,6 +1030,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlse
  *  Value: "SQLSERVER_2022_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Web;
+/**
+ *  The database version is SQL Server 2025 Enterprise.
+ *
+ *  Value: "SQLSERVER_2025_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2025Enterprise;
+/**
+ *  The database version is SQL Server 2025 Express.
+ *
+ *  Value: "SQLSERVER_2025_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2025Express;
+/**
+ *  The database version is SQL Server 2025 Standard.
+ *
+ *  Value: "SQLSERVER_2025_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2025Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_BackupRun.status
@@ -1283,6 +1331,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84;
 /**
+ *  The database version is MySQL 9.7.
+ *
+ *  Value: "MYSQL_9_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql97;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -1420,6 +1474,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  *  Value: "SQLSERVER_2022_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Web;
+/**
+ *  The database version is SQL Server 2025 Enterprise.
+ *
+ *  Value: "SQLSERVER_2025_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2025Enterprise;
+/**
+ *  The database version is SQL Server 2025 Express.
+ *
+ *  Value: "SQLSERVER_2025_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2025Express;
+/**
+ *  The database version is SQL Server 2025 Standard.
+ *
+ *  Value: "SQLSERVER_2025_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2025Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ConnectSettings.mdxProtocolSupport
@@ -1661,6 +1733,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84;
 /**
+ *  The database version is MySQL 9.7.
+ *
+ *  Value: "MYSQL_9_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql97;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -1798,6 +1876,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  *  Value: "SQLSERVER_2022_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Web;
+/**
+ *  The database version is SQL Server 2025 Enterprise.
+ *
+ *  Value: "SQLSERVER_2025_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2025Enterprise;
+/**
+ *  The database version is SQL Server 2025 Express.
+ *
+ *  Value: "SQLSERVER_2025_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2025Express;
+/**
+ *  The database version is SQL Server 2025 Standard.
+ *
+ *  Value: "SQLSERVER_2025_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2025Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_DatabaseInstance.instanceType
@@ -1982,17 +2078,48 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_ConnectionType_P
 // GTLRSQLAdmin_DnsNameMapping.dnsScope
 
 /**
- *  Unknown DNS scope.
+ *  Indicates a cluster-level DNS name.
+ *
+ *  Value: "CLUSTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_Cluster;
+/**
+ *  DNS scope not set. This value should not be used.
  *
  *  Value: "DNS_SCOPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_DnsScopeUnspecified;
 /**
- *  Indicates a instance-level DNS name.
+ *  Indicates an instance-level DNS name.
  *
  *  Value: "INSTANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_DnsScope_Instance;
+
+// ----------------------------------------------------------------------------
+// GTLRSQLAdmin_DnsNameMapping.recordManager
+
+/**
+ *  The record is managed by Cloud SQL, which will create, update, and delete
+ *  the DNS records for the zone automatically when the Cloud SQL database
+ *  instance is created or updated.
+ *
+ *  Value: "CLOUD_SQL_AUTOMATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_RecordManager_CloudSqlAutomation;
+/**
+ *  The record may be managed by the customer. It is not automatically managed
+ *  by Cloud SQL automation.
+ *
+ *  Value: "CUSTOMER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_RecordManager_Customer;
+/**
+ *  Record manager not set. This value should not be used.
+ *
+ *  Value: "RECORD_MANAGER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DnsNameMapping_RecordManager_RecordManagerUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_ExecuteSqlPayload.partialResultMode
@@ -2243,6 +2370,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql8046;
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql84;
 /**
+ *  The database version is MySQL 9.7.
+ *
+ *  Value: "MYSQL_9_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Mysql97;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -2380,6 +2513,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Sta
  *  Value: "SQLSERVER_2022_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2022Web;
+/**
+ *  The database version is SQL Server 2025 Enterprise.
+ *
+ *  Value: "SQLSERVER_2025_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2025Enterprise;
+/**
+ *  The database version is SQL Server 2025 Express.
+ *
+ *  Value: "SQLSERVER_2025_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2025Express;
+/**
+ *  The database version is SQL Server 2025 Standard.
+ *
+ *  Value: "SQLSERVER_2025_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2025Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_Flag.flagScope
@@ -3025,7 +3176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateB
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_UpdateDatabase;
 /**
- *  Updates an existing user in a Cloud SQL instance.
+ *  Updates an existing user in a Cloud SQL instance. If a user with the
+ *  specified username doesn't exist, a new user is created.
  *
  *  Value: "UPDATE_USER"
  */
@@ -3302,6 +3454,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeCont
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql84;
 /**
+ *  The database version is MySQL 9.7.
+ *
+ *  Value: "MYSQL_9_7"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql97;
+/**
  *  The database version is PostgreSQL 10.
  *
  *  Value: "POSTGRES_10"
@@ -3439,6 +3597,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeCont
  *  Value: "SQLSERVER_2022_WEB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Web;
+/**
+ *  The database version is SQL Server 2025 Enterprise.
+ *
+ *  Value: "SQLSERVER_2025_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2025Enterprise;
+/**
+ *  The database version is SQL Server 2025 Express.
+ *
+ *  Value: "SQLSERVER_2025_EXPRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2025Express;
+/**
+ *  The database version is SQL Server 2025 Standard.
+ *
+ *  Value: "SQLSERVER_2025_STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2025Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRSQLAdmin_PreCheckResponse.messageType
@@ -4635,6 +4811,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        "MYSQL_8_0_46")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql84 The database version
  *        is MySQL 8.4. (Value: "MYSQL_8_4")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Mysql97 The database version
+ *        is MySQL 9.7. (Value: "MYSQL_9_7")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres10 The database
  *        version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres11 The database
@@ -4691,6 +4869,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        "SQLSERVER_2022_STANDARD")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2022Web The database
  *        version is SQL Server 2022 Web. (Value: "SQLSERVER_2022_WEB")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2025Enterprise The
+ *        database version is SQL Server 2025 Enterprise. (Value:
+ *        "SQLSERVER_2025_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2025Express The
+ *        database version is SQL Server 2025 Express. (Value:
+ *        "SQLSERVER_2025_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2025Standard The
+ *        database version is SQL Server 2025 Standard. (Value:
+ *        "SQLSERVER_2025_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -5112,6 +5299,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        "MYSQL_8_0_46")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql84 The database
  *        version is MySQL 8.4. (Value: "MYSQL_8_4")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Mysql97 The database
+ *        version is MySQL 9.7. (Value: "MYSQL_9_7")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres10 The database
  *        version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres11 The database
@@ -5168,6 +5357,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        "SQLSERVER_2022_STANDARD")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2022Web The
  *        database version is SQL Server 2022 Web. (Value: "SQLSERVER_2022_WEB")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2025Enterprise
+ *        The database version is SQL Server 2025 Enterprise. (Value:
+ *        "SQLSERVER_2025_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2025Express The
+ *        database version is SQL Server 2025 Express. (Value:
+ *        "SQLSERVER_2025_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2025Standard The
+ *        database version is SQL Server 2025 Standard. (Value:
+ *        "SQLSERVER_2025_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -5383,6 +5581,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 /** Required. Name of the Cloud SQL instance to be created as a clone. */
 @property(nonatomic, copy, nullable) NSString *destinationInstanceName;
+
+/**
+ *  Optional. The fully qualified URI of the VPC network to which the cloned
+ *  instance will be connected via Private Services Access for private IP. For
+ *  example:`projects/my-network-project/global/networks/my-network`. This field
+ *  is only required for cross-project cloning.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationNetwork;
+
+/**
+ *  Optional. The project ID of the destination project where the cloned
+ *  instance will be created. To perform a cross-project clone, this field is
+ *  required. If not specified, the clone is created in the same project as the
+ *  source instance.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationProject;
 
 /** This is always `sql#cloneContext`. */
 @property(nonatomic, copy, nullable) NSString *kind;
@@ -5619,6 +5833,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        (Value: "MYSQL_8_0_46")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql84 The database
  *        version is MySQL 8.4. (Value: "MYSQL_8_4")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Mysql97 The database
+ *        version is MySQL 9.7. (Value: "MYSQL_9_7")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres11 The
@@ -5675,6 +5891,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        "SQLSERVER_2022_STANDARD")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2022Web The
  *        database version is SQL Server 2022 Web. (Value: "SQLSERVER_2022_WEB")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2025Enterprise
+ *        The database version is SQL Server 2025 Enterprise. (Value:
+ *        "SQLSERVER_2025_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2025Express
+ *        The database version is SQL Server 2025 Express. (Value:
+ *        "SQLSERVER_2025_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2025Standard
+ *        The database version is SQL Server 2025 Standard. (Value:
+ *        "SQLSERVER_2025_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -5952,6 +6177,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        (Value: "MYSQL_8_0_46")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql84 The
  *        database version is MySQL 8.4. (Value: "MYSQL_8_4")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Mysql97 The
+ *        database version is MySQL 9.7. (Value: "MYSQL_9_7")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres10 The
  *        database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres11 The
@@ -6011,6 +6238,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2022Web
  *        The database version is SQL Server 2022 Web. (Value:
  *        "SQLSERVER_2022_WEB")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2025Enterprise
+ *        The database version is SQL Server 2025 Enterprise. (Value:
+ *        "SQLSERVER_2025_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2025Express
+ *        The database version is SQL Server 2025 Express. (Value:
+ *        "SQLSERVER_2025_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2025Standard
+ *        The database version is SQL Server 2025 Standard. (Value:
+ *        "SQLSERVER_2025_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *databaseVersion;
 
@@ -6562,15 +6798,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *  Output only. The scope that the DNS name applies to.
  *
  *  Likely values:
- *    @arg @c kGTLRSQLAdmin_DnsNameMapping_DnsScope_DnsScopeUnspecified Unknown
- *        DNS scope. (Value: "DNS_SCOPE_UNSPECIFIED")
- *    @arg @c kGTLRSQLAdmin_DnsNameMapping_DnsScope_Instance Indicates a
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_DnsScope_Cluster Indicates a
+ *        cluster-level DNS name. (Value: "CLUSTER")
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_DnsScope_DnsScopeUnspecified DNS
+ *        scope not set. This value should not be used. (Value:
+ *        "DNS_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_DnsScope_Instance Indicates an
  *        instance-level DNS name. (Value: "INSTANCE")
  */
 @property(nonatomic, copy, nullable) NSString *dnsScope;
 
-/** The DNS name. */
+/** Output only. The DNS name. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The manager for this DNS record.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_RecordManager_CloudSqlAutomation The
+ *        record is managed by Cloud SQL, which will create, update, and delete
+ *        the DNS records for the zone automatically when the Cloud SQL database
+ *        instance is created or updated. (Value: "CLOUD_SQL_AUTOMATION")
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_RecordManager_Customer The record may
+ *        be managed by the customer. It is not automatically managed by Cloud
+ *        SQL automation. (Value: "CUSTOMER")
+ *    @arg @c kGTLRSQLAdmin_DnsNameMapping_RecordManager_RecordManagerUnspecified
+ *        Record manager not set. This value should not be used. (Value:
+ *        "RECORD_MANAGER_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *recordManager;
 
 @end
 
@@ -6589,6 +6845,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *  The request payload used to execute SQL statements.
  */
 @interface GTLRSQLAdmin_ExecuteSqlPayload : GTLRObject
+
+/**
+ *  Optional. Specifies the name of the application that is making the request.
+ *  This field is used for telemetry. Only alphanumeric characters, dashes, and
+ *  underscores are allowed. The maximum length is 32 characters.
+ */
+@property(nonatomic, copy, nullable) NSString *application;
 
 /**
  *  Optional. When set to true, the API caller identity associated with the
@@ -7493,6 +7756,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *  enabled and optional configuration.
  */
 @interface GTLRSQLAdmin_InsightsConfig : GTLRObject
+
+/**
+ *  Optional. Whether enhanced query insights feature is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enhancedQueryInsightsEnabled;
 
 /**
  *  Whether Query Insights feature is enabled.
@@ -8546,7 +8816,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_UpdateDatabase Updates a
  *        database in the Cloud SQL instance. (Value: "UPDATE_DATABASE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_UpdateUser Updates an
- *        existing user in a Cloud SQL instance. (Value: "UPDATE_USER")
+ *        existing user in a Cloud SQL instance. If a user with the specified
+ *        username doesn't exist, a new user is created. (Value: "UPDATE_USER")
  */
 @property(nonatomic, copy, nullable) NSString *operationType;
 
@@ -9068,6 +9339,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        (Value: "MYSQL_8_0_46")
  *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql84
  *        The database version is MySQL 8.4. (Value: "MYSQL_8_4")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Mysql97
+ *        The database version is MySQL 9.7. (Value: "MYSQL_9_7")
  *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres10
  *        The database version is PostgreSQL 10. (Value: "POSTGRES_10")
  *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres11
@@ -9127,6 +9400,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2022Web
  *        The database version is SQL Server 2022 Web. (Value:
  *        "SQLSERVER_2022_WEB")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2025Enterprise
+ *        The database version is SQL Server 2025 Enterprise. (Value:
+ *        "SQLSERVER_2025_ENTERPRISE")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2025Express
+ *        The database version is SQL Server 2025 Express. (Value:
+ *        "SQLSERVER_2025_EXPRESS")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2025Standard
+ *        The database version is SQL Server 2025 Standard. (Value:
+ *        "SQLSERVER_2025_STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *targetDatabaseVersion;
 

@@ -38,6 +38,9 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Device : GTLRObject
 
+/** Output only. The GHP device ID of the device. */
+@property(nonatomic, copy, nullable) NSString *ghpName;
+
 /**
  *  Required. The resource name of the device. For example:
  *  "enterprises/XYZ/devices/123".
@@ -171,6 +174,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
+ *  Output only. The GHP name of the relation -- e.g., structure/room where the
+ *  device is assigned to. For example: "homegraph.googleapis.com/Structure/ABC"
+ *  or "homegraph.googleapis.com/Room/ABC"
+ */
+@property(nonatomic, copy, nullable) NSString *ghpParent;
+
+/**
  *  Output only. The name of the relation -- e.g., structure/room where the
  *  device is assigned to. For example: "enterprises/XYZ/structures/ABC" or
  *  "enterprises/XYZ/structures/ABC/rooms/123"
@@ -215,6 +225,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  hotel room.
  */
 @interface GTLRSmartDeviceManagement_GoogleHomeEnterpriseSdmV1Structure : GTLRObject
+
+/**
+ *  Output only. The unique identifier for the structure in Google Home
+ *  Platform. Format: homegraph.googleapis.com/Structure/{structure_id}
+ */
+@property(nonatomic, copy, nullable) NSString *ghpName;
 
 /**
  *  Output only. The resource name of the structure. For example:

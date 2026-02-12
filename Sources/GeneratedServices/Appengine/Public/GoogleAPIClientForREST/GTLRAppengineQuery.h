@@ -1033,7 +1033,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  Method: appengine.apps.locations.list
  *
@@ -1078,7 +1082,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 /**
  *  Fetches a @c GTLRAppengine_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  @param appsId Part of `name`. The resource that owns the locations
  *    collection, if applicable.
@@ -1529,49 +1537,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @return GTLRAppengineQuery_AppsServicesVersionsDelete
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
-                     servicesId:(NSString *)servicesId
-                     versionsId:(NSString *)versionsId;
-
-@end
-
-/**
- *  Exports a user image to Artifact Registry.
- *
- *  Method: appengine.apps.services.versions.exportAppImage
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeAppengineCloudPlatform
- */
-@interface GTLRAppengineQuery_AppsServicesVersionsExportAppImage : GTLRAppengineQuery
-
-/**
- *  Part of `name`. Required. Name of the App Engine version resource. Format:
- *  apps/{app}/services/{service}/versions/{version}
- */
-@property(nonatomic, copy, nullable) NSString *appsId;
-
-/** Part of `name`. See documentation of `appsId`. */
-@property(nonatomic, copy, nullable) NSString *servicesId;
-
-/** Part of `name`. See documentation of `appsId`. */
-@property(nonatomic, copy, nullable) NSString *versionsId;
-
-/**
- *  Fetches a @c GTLRAppengine_Operation.
- *
- *  Exports a user image to Artifact Registry.
- *
- *  @param object The @c GTLRAppengine_ExportAppImageRequest to include in the
- *    query.
- *  @param appsId Part of `name`. Required. Name of the App Engine version
- *    resource. Format: apps/{app}/services/{service}/versions/{version}
- *  @param servicesId Part of `name`. See documentation of `appsId`.
- *  @param versionsId Part of `name`. See documentation of `appsId`.
- *
- *  @return GTLRAppengineQuery_AppsServicesVersionsExportAppImage
- */
-+ (instancetype)queryWithObject:(GTLRAppengine_ExportAppImageRequest *)object
-                         appsId:(NSString *)appsId
                      servicesId:(NSString *)servicesId
                      versionsId:(NSString *)versionsId;
 
@@ -2861,24 +2826,32 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @end
 
 /**
- *  Exports a user image to Artifact Registry.
+ *  Enables debugging on a VM instance. This allows you to use the SSH command
+ *  to connect to the virtual machine where the instance lives. While in "debug
+ *  mode", the instance continues to serve live traffic. You should delete the
+ *  instance when you are done debugging and then allow the system to take over
+ *  and determine if another instance should be started.Only applicable for
+ *  instances in App Engine flexible environment.
  *
- *  Method: appengine.projects.locations.applications.services.versions.exportAppImage
+ *  Method: appengine.projects.locations.applications.services.versions.instances.debug
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeAppengineCloudPlatform
  */
-@interface GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsExportAppImage : GTLRAppengineQuery
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsInstancesDebug : GTLRAppengineQuery
 
 /** Part of `name`. See documentation of `projectsId`. */
 @property(nonatomic, copy, nullable) NSString *applicationsId;
 
 /** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *instancesId;
+
+/** Part of `name`. See documentation of `projectsId`. */
 @property(nonatomic, copy, nullable) NSString *locationsId;
 
 /**
- *  Part of `name`. Required. Name of the App Engine version resource. Format:
- *  apps/{app}/services/{service}/versions/{version}
+ *  Part of `name`. Required. Name of the resource requested. Example:
+ *  apps/myapp/services/default/versions/v1/instances/instance-1.
  */
 @property(nonatomic, copy, nullable) NSString *projectsId;
 
@@ -2891,25 +2864,107 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 /**
  *  Fetches a @c GTLRAppengine_Operation.
  *
- *  Exports a user image to Artifact Registry.
+ *  Enables debugging on a VM instance. This allows you to use the SSH command
+ *  to connect to the virtual machine where the instance lives. While in "debug
+ *  mode", the instance continues to serve live traffic. You should delete the
+ *  instance when you are done debugging and then allow the system to take over
+ *  and determine if another instance should be started.Only applicable for
+ *  instances in App Engine flexible environment.
  *
- *  @param object The @c GTLRAppengine_ExportAppImageRequest to include in the
+ *  @param object The @c GTLRAppengine_DebugInstanceRequest to include in the
  *    query.
- *  @param projectsId Part of `name`. Required. Name of the App Engine version
- *    resource. Format: apps/{app}/services/{service}/versions/{version}
+ *  @param projectsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/services/default/versions/v1/instances/instance-1.
  *  @param locationsId Part of `name`. See documentation of `projectsId`.
  *  @param applicationsId Part of `name`. See documentation of `projectsId`.
  *  @param servicesId Part of `name`. See documentation of `projectsId`.
  *  @param versionsId Part of `name`. See documentation of `projectsId`.
+ *  @param instancesId Part of `name`. See documentation of `projectsId`.
  *
- *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsExportAppImage
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsInstancesDebug
  */
-+ (instancetype)queryWithObject:(GTLRAppengine_ExportAppImageRequest *)object
++ (instancetype)queryWithObject:(GTLRAppengine_DebugInstanceRequest *)object
                      projectsId:(NSString *)projectsId
                     locationsId:(NSString *)locationsId
                  applicationsId:(NSString *)applicationsId
                      servicesId:(NSString *)servicesId
-                     versionsId:(NSString *)versionsId;
+                     versionsId:(NSString *)versionsId
+                    instancesId:(NSString *)instancesId;
+
+@end
+
+/**
+ *  Stops a running instance.The instance might be automatically recreated based
+ *  on the scaling settings of the version. For more information, see "How
+ *  Instances are Managed" (standard environment
+ *  (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed)
+ *  | flexible environment
+ *  (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To
+ *  ensure that instances are not re-created and avoid getting billed, you can
+ *  stop all instances within the target version by changing the serving status
+ *  of the version to STOPPED with the apps.services.versions.patch
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch)
+ *  method.
+ *
+ *  Method: appengine.projects.locations.applications.services.versions.instances.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsInstancesDelete : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *instancesId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Required. Name of the resource requested. Example:
+ *  apps/myapp/services/default/versions/v1/instances/instance-1.
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *servicesId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *versionsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_Operation.
+ *
+ *  Stops a running instance.The instance might be automatically recreated based
+ *  on the scaling settings of the version. For more information, see "How
+ *  Instances are Managed" (standard environment
+ *  (https://cloud.google.com/appengine/docs/standard/python/how-instances-are-managed)
+ *  | flexible environment
+ *  (https://cloud.google.com/appengine/docs/flexible/python/how-instances-are-managed)).To
+ *  ensure that instances are not re-created and avoid getting billed, you can
+ *  stop all instances within the target version by changing the serving status
+ *  of the version to STOPPED with the apps.services.versions.patch
+ *  (https://cloud.google.com/appengine/docs/admin-api/reference/rest/v1/apps.services.versions/patch)
+ *  method.
+ *
+ *  @param projectsId Part of `name`. Required. Name of the resource requested.
+ *    Example: apps/myapp/services/default/versions/v1/instances/instance-1.
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *  @param servicesId Part of `name`. See documentation of `projectsId`.
+ *  @param versionsId Part of `name`. See documentation of `projectsId`.
+ *  @param instancesId Part of `name`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsInstancesDelete
+ */
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+                         servicesId:(NSString *)servicesId
+                         versionsId:(NSString *)versionsId
+                        instancesId:(NSString *)instancesId;
 
 @end
 

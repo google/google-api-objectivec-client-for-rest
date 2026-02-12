@@ -38,6 +38,24 @@ NSString * const kGTLRLogging_DefaultSinkConfig_Mode_Append    = @"APPEND";
 NSString * const kGTLRLogging_DefaultSinkConfig_Mode_FilterWriteModeUnspecified = @"FILTER_WRITE_MODE_UNSPECIFIED";
 NSString * const kGTLRLogging_DefaultSinkConfig_Mode_Overwrite = @"OVERWRITE";
 
+// GTLRLogging_FilterExpression.comparator
+NSString * const kGTLRLogging_FilterExpression_Comparator_ComparatorUnspecified = @"COMPARATOR_UNSPECIFIED";
+NSString * const kGTLRLogging_FilterExpression_Comparator_Equals = @"EQUALS";
+NSString * const kGTLRLogging_FilterExpression_Comparator_GreaterThan = @"GREATER_THAN";
+NSString * const kGTLRLogging_FilterExpression_Comparator_GreaterThanEquals = @"GREATER_THAN_EQUALS";
+NSString * const kGTLRLogging_FilterExpression_Comparator_In   = @"IN";
+NSString * const kGTLRLogging_FilterExpression_Comparator_IsNull = @"IS_NULL";
+NSString * const kGTLRLogging_FilterExpression_Comparator_LessThan = @"LESS_THAN";
+NSString * const kGTLRLogging_FilterExpression_Comparator_LessThanEquals = @"LESS_THAN_EQUALS";
+NSString * const kGTLRLogging_FilterExpression_Comparator_Like = @"LIKE";
+NSString * const kGTLRLogging_FilterExpression_Comparator_MatchesRegexp = @"MATCHES_REGEXP";
+
+// GTLRLogging_FilterPredicate.operatorType
+NSString * const kGTLRLogging_FilterPredicate_OperatorType_And = @"AND";
+NSString * const kGTLRLogging_FilterPredicate_OperatorType_Leaf = @"LEAF";
+NSString * const kGTLRLogging_FilterPredicate_OperatorType_OperatorTypeUnspecified = @"OPERATOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRLogging_FilterPredicate_OperatorType_Or  = @"OR";
+
 // GTLRLogging_IndexConfig.type
 NSString * const kGTLRLogging_IndexConfig_Type_IndexTypeInteger = @"INDEX_TYPE_INTEGER";
 NSString * const kGTLRLogging_IndexConfig_Type_IndexTypeString = @"INDEX_TYPE_STRING";
@@ -156,10 +174,22 @@ NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_LaunchStag
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Prelaunch = @"PRELAUNCH";
 NSString * const kGTLRLogging_MonitoredResourceDescriptor_LaunchStage_Unimplemented = @"UNIMPLEMENTED";
 
+// GTLRLogging_ProjectedField.operation
+NSString * const kGTLRLogging_ProjectedField_Operation_Aggregate = @"AGGREGATE";
+NSString * const kGTLRLogging_ProjectedField_Operation_FieldOperationUnspecified = @"FIELD_OPERATION_UNSPECIFIED";
+NSString * const kGTLRLogging_ProjectedField_Operation_GroupBy = @"GROUP_BY";
+NSString * const kGTLRLogging_ProjectedField_Operation_NoSetting = @"NO_SETTING";
+
 // GTLRLogging_SavedQuery.visibility
 NSString * const kGTLRLogging_SavedQuery_Visibility_Private    = @"PRIVATE";
 NSString * const kGTLRLogging_SavedQuery_Visibility_Shared     = @"SHARED";
 NSString * const kGTLRLogging_SavedQuery_Visibility_VisibilityUnspecified = @"VISIBILITY_UNSPECIFIED";
+
+// GTLRLogging_SortOrderParameter.sortOrderDirection
+NSString * const kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderAscending = @"SORT_ORDER_ASCENDING";
+NSString * const kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderDescending = @"SORT_ORDER_DESCENDING";
+NSString * const kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderNone = @"SORT_ORDER_NONE";
+NSString * const kGTLRLogging_SortOrderParameter_SortOrderDirection_SortOrderUnspecified = @"SORT_ORDER_UNSPECIFIED";
 
 // GTLRLogging_SuppressionInfo.reason
 NSString * const kGTLRLogging_SuppressionInfo_Reason_NotConsumed = @"NOT_CONSUMED";
@@ -424,6 +454,62 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_FieldSource
+//
+
+@implementation GTLRLogging_FieldSource
+@dynamic aliasRef, columnType, field, isJson, parentPath, projectedField;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_FilterExpression
+//
+
+@implementation GTLRLogging_FilterExpression
+@dynamic comparator, fieldSource, fieldSourceValue, isNegation, literalValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_FilterPredicate
+//
+
+@implementation GTLRLogging_FilterPredicate
+@dynamic childPredicates, leafPredicate, operatorType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"childPredicates" : [GTLRLogging_FilterPredicate class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_FunctionApplication
+//
+
+@implementation GTLRLogging_FunctionApplication
+@dynamic parameters, type;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameters" : [NSObject class]
+  };
+  return map;
 }
 
 @end
@@ -1321,7 +1407,7 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 //
 
 @implementation GTLRLogging_OpsAnalyticsQuery
-@dynamic sqlQueryText;
+@dynamic queryBuilder, sqlQueryText;
 @end
 
 
@@ -1349,6 +1435,17 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLogging_ProjectedField
+//
+
+@implementation GTLRLogging_ProjectedField
+@dynamic alias, cast, field, operation, regexExtraction, sqlAggregationFunction,
+         truncationGranularity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLogging_Query
 //
 
@@ -1358,6 +1455,26 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"summaryFields" : [GTLRLogging_SummaryField class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_QueryBuilderConfig
+//
+
+@implementation GTLRLogging_QueryBuilderConfig
+@dynamic fieldSources, filter, limit, orderBys, resourceNames, searchTerm;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldSources" : [GTLRLogging_FieldSource class],
+    @"orderBys" : [GTLRLogging_SortOrderParameter class],
+    @"resourceNames" : [NSString class]
   };
   return map;
 }
@@ -1433,6 +1550,16 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 @implementation GTLRLogging_Settings
 @dynamic defaultSinkConfig, disableDefaultSink, kmsKeyName, kmsServiceAccountId,
          loggingServiceAccountId, name, storageLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_SortOrderParameter
+//
+
+@implementation GTLRLogging_SortOrderParameter
+@dynamic fieldSource, sortOrderDirection;
 @end
 
 

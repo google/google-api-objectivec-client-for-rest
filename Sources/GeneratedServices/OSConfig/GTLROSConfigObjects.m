@@ -116,6 +116,39 @@ NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResourceAptRepository_A
 
 // ----------------------------------------------------------------------------
 //
+//   GTLROSConfig_GoogleCloudOsconfigCommonV1alphaOperationMetadata
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigCommonV1alphaOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_GoogleCloudOsconfigCommonV1mainOperationMetadata
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigCommonV1mainOperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROSConfig_GoogleCloudOsconfigCommonV1OperationMetadata
+//
+
+@implementation GTLROSConfig_GoogleCloudOsconfigCommonV1OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLROSConfig_GoogleCloudOsconfigV1OSPolicyAssignmentOperationMetadata
 //
 

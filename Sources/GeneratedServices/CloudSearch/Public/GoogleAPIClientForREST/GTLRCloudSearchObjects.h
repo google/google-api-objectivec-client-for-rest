@@ -8,7 +8,7 @@
 //   data. The Cloud Search API allows indexing of non-Google Workspace data
 //   into Cloud Search.
 // Documentation:
-//   https://developers.google.com/cloud-search/docs/guides/
+//   https://developers.google.com/workspace/cloud-search/docs/guides/
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -175,7 +175,6 @@
 @class GTLRCloudSearch_SearchApplicationSessionStats;
 @class GTLRCloudSearch_SearchApplicationUserStats;
 @class GTLRCloudSearch_SearchQualityMetadata;
-@class GTLRCloudSearch_SearchResponse;
 @class GTLRCloudSearch_SearchResult;
 @class GTLRCloudSearch_Snippet;
 @class GTLRCloudSearch_SortOptions;
@@ -2898,33 +2897,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableDebugging;
-
-@end
-
-
-/**
- *  Debug Search Response.
- */
-@interface GTLRCloudSearch_DebugResponse : GTLRObject
-
-/**
- *  Serialized string of GenericSearchRequest.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *gsrRequest;
-
-/**
- *  Serialized string of GenericSearchResponse.
- *
- *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
- *  web-safe format).
- */
-@property(nonatomic, copy, nullable) NSString *gsrResponse;
-
-/** Search response. */
-@property(nonatomic, strong, nullable) GTLRCloudSearch_SearchResponse *searchResponse;
 
 @end
 
@@ -5759,7 +5731,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  the version of the currently indexed item. The maximum length for this field
  *  is 1024 bytes. For information on how item version affects the deletion
  *  process, refer to [Handle revisions after manual
- *  deletes](https://developers.google.com/cloud-search/docs/guides/operations).
+ *  deletes](https://developers.google.com/workspace/cloud-search/docs/guides/operations).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -5771,7 +5743,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Access control list information for the item. For more information see [Map
- *  ACLs](https://developers.google.com/cloud-search/docs/guides/acls).
+ *  ACLs](https://developers.google.com/workspace/cloud-search/docs/guides/acls).
  */
 @interface GTLRCloudSearch_ItemAcl : GTLRObject
 
@@ -6173,6 +6145,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudSearch_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -7143,7 +7123,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  supported for Text properties. IsReturnable must be true to set this option.
  *  In a given datasource maximum of 5 properties can be marked as
  *  is_wildcard_searchable. For more details, see [Define object
- *  properties](https://developers.google.com/cloud-search/docs/guides/schema-guide#properties)
+ *  properties](https://developers.google.com/workspace/cloud-search/docs/guides/schema-guide#properties)
  *
  *  Uses NSNumber of boolValue.
  */
@@ -7352,6 +7332,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  NOT_ENOUGH_RESULTS_FOUND_FOR_USER_QUERY.
  */
 @property(nonatomic, copy, nullable) NSString *interpretedQuery;
+
+/**
+ *  The actual number of results returned by the interpreted query.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *interpretedQueryActualResultCount;
+
+/**
+ *  The estimated number of results returned by the interpreted query.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *interpretedQueryEstimatedResultCount;
 
 /**
  *  The reason for interpretation of the query. This field will not be
@@ -8110,7 +8104,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  The search API request. NEXT ID: 17
+ *  The search API request. NEXT ID: 24
  */
 @interface GTLRCloudSearch_SearchRequest : GTLRObject
 
@@ -8164,7 +8158,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  The search API response. NEXT ID: 17
+ *  The search API response. NEXT ID: 19
  */
 @interface GTLRCloudSearch_SearchResponse : GTLRObject
 
@@ -8223,7 +8217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  Results containing indexed information for a document.
+ *  Results containing indexed information for a document. Next ID: 16
  */
 @interface GTLRCloudSearch_SearchResult : GTLRObject
 
@@ -8858,7 +8852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 /**
  *  Only applies to
- *  [`settings.datasources.patch`](https://developers.google.com/cloud-search/docs/reference/rest/v1/settings.datasources/patch).
+ *  [`settings.datasources.patch`](https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/settings.datasources/patch).
  *  Update mask to control which fields to update. Example field paths: `name`,
  *  `displayName`. * If `update_mask` is non-empty, then only the fields
  *  specified in the `update_mask` are updated. * If you specify a field in the

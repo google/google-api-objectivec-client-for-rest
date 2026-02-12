@@ -4978,6 +4978,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 /** Output only. Server-defined URL of this resource */
 @property(nonatomic, copy, nullable) NSString *selfLink;
 
+/**
+ *  Optional. TargetProxies defines a list of TargetTcpProxies this TlsRoute is
+ *  attached to, as one of the routing rules to route the requests served by the
+ *  TargetTcpProxy. Each TargetTcpProxy reference should match the pattern:
+ *  `projects/ * /locations/ * /targetTcpProxies/`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetProxies;
+
 /** Output only. The timestamp when the resource was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 

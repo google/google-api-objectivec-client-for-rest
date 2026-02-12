@@ -767,13 +767,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DependencyErro
 // GTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation.sourceTypes
 
 /**
- *  GCP internal load balancer.
+ *  Google Cloud internal load balancer.
  *
  *  Value: "GCP_ILB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1DiscoveredApiObservation_SourceTypes_GcpIlb;
 /**
- *  GCP external load balancer.
+ *  Google Cloud external load balancer.
  *
  *  Value: "GCP_XLB"
  */
@@ -3301,9 +3301,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, strong, nullable) NSArray<GTLRAPIhub_GoogleCloudApihubV1SourceMetadata *> *sourceMetadata;
 
 /**
- *  Optional. The project to which the deployment belongs. For GCP gateways,
- *  this will refer to the project identifier. For others like Edge/OPDK, this
- *  will refer to the org identifier.
+ *  Optional. The project to which the deployment belongs. For Google Cloud
+ *  gateways, this will refer to the project identifier. For others like
+ *  Edge/OPDK, this will refer to the org identifier.
  */
 @property(nonatomic, copy, nullable) NSString *sourceProject;
 
@@ -3426,8 +3426,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. For an observation pushed from a gcp resource, this would be the
- *  gcp project id.
+ *  Optional. For an observation pushed from a Google Cloud resource, this would
+ *  be the Google Cloud project id.
  */
 @property(nonatomic, copy, nullable) NSString *origin;
 
@@ -5302,9 +5302,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /**
  *  Optional. The source project id of the plugin instance. This will be the id
- *  of runtime project in case of gcp based plugins and org id in case of non
- *  gcp based plugins. This field will be a required field for Google provided
- *  on-ramp plugins.
+ *  of runtime project in case of Google Cloud based plugins and org id in case
+ *  of non-Google Cloud based plugins. This field will be a required field for
+ *  Google provided on-ramp plugins.
  */
 @property(nonatomic, copy, nullable) NSString *sourceProjectId;
 
@@ -5409,8 +5409,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /**
  *  Output only. The configuration of resources created for a given plugin
- *  instance action. Note these will be returned only in case of Non-GCP plugins
- *  like OPDK.
+ *  instance action. Note these will be returned only in case of non-Google
+ *  Cloud plugins like OPDK.
  */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ResourceConfig *resourceConfig;
 
@@ -5428,7 +5428,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 /**
  *  Optional. The service account used to publish data. Note, the service
- *  account will only be accepted for non GCP plugins like OPDK.
+ *  account will only be accepted for non-Google Cloud plugins like OPDK.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 

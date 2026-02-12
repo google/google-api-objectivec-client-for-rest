@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Policy Troubleshooter API (policytroubleshooter/v1)
+//   Policy Troubleshooter API (policytroubleshooter/v3)
 // Documentation:
 //   https://cloud.google.com/iam/
 
@@ -11,59 +11,141 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation.access
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_AccessStateUnspecified = @"ACCESS_STATE_UNSPECIFIED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_Granted = @"GRANTED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_NotGranted = @"NOT_GRANTED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_UnknownConditional = @"UNKNOWN_CONDITIONAL";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Access_UnknownInfoDenied = @"UNKNOWN_INFO_DENIED";
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation.allowAccessState
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_AllowAccessState_AllowAccessStateGranted = @"ALLOW_ACCESS_STATE_GRANTED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_AllowAccessState_AllowAccessStateNotGranted = @"ALLOW_ACCESS_STATE_NOT_GRANTED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_AllowAccessState_AllowAccessStateUnknownConditional = @"ALLOW_ACCESS_STATE_UNKNOWN_CONDITIONAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_AllowAccessState_AllowAccessStateUnknownInfo = @"ALLOW_ACCESS_STATE_UNKNOWN_INFO";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_AllowAccessState_AllowAccessStateUnspecified = @"ALLOW_ACCESS_STATE_UNSPECIFIED";
 
-// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation.relevance
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_High = @"HIGH";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Relevance_Normal = @"NORMAL";
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation.relevance
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_Relevance_HeuristicRelevanceHigh = @"HEURISTIC_RELEVANCE_HIGH";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_Relevance_HeuristicRelevanceNormal = @"HEURISTIC_RELEVANCE_NORMAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
 
-// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation.rolePermission
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionIncluded = @"ROLE_PERMISSION_INCLUDED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionNotIncluded = @"ROLE_PERMISSION_NOT_INCLUDED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionUnknownInfoDenied = @"ROLE_PERMISSION_UNKNOWN_INFO_DENIED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermission_RolePermissionUnspecified = @"ROLE_PERMISSION_UNSPECIFIED";
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation.rolePermission
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_RolePermission_RolePermissionIncluded = @"ROLE_PERMISSION_INCLUDED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_RolePermission_RolePermissionInclusionStateUnspecified = @"ROLE_PERMISSION_INCLUSION_STATE_UNSPECIFIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_RolePermission_RolePermissionNotIncluded = @"ROLE_PERMISSION_NOT_INCLUDED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_RolePermission_RolePermissionUnknownInfo = @"ROLE_PERMISSION_UNKNOWN_INFO";
 
-// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation.rolePermissionRelevance
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_High = @"HIGH";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_RolePermissionRelevance_Normal = @"NORMAL";
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation.rolePermissionRelevance
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_RolePermissionRelevance_HeuristicRelevanceHigh = @"HEURISTIC_RELEVANCE_HIGH";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_RolePermissionRelevance_HeuristicRelevanceNormal = @"HEURISTIC_RELEVANCE_NORMAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_RolePermissionRelevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
 
-// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership.membership
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipIncluded = @"MEMBERSHIP_INCLUDED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipNotIncluded = @"MEMBERSHIP_NOT_INCLUDED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownInfoDenied = @"MEMBERSHIP_UNKNOWN_INFO_DENIED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipUnknownUnsupported = @"MEMBERSHIP_UNKNOWN_UNSUPPORTED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Membership_MembershipUnspecified = @"MEMBERSHIP_UNSPECIFIED";
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership.membership
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership_Membership_MembershipMatched = @"MEMBERSHIP_MATCHED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership_Membership_MembershipMatchingStateUnspecified = @"MEMBERSHIP_MATCHING_STATE_UNSPECIFIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership_Membership_MembershipNotMatched = @"MEMBERSHIP_NOT_MATCHED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership_Membership_MembershipUnknownInfo = @"MEMBERSHIP_UNKNOWN_INFO";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership_Membership_MembershipUnknownUnsupported = @"MEMBERSHIP_UNKNOWN_UNSUPPORTED";
 
-// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership.relevance
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_High = @"HIGH";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership_Relevance_Normal = @"NORMAL";
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership.relevance
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership_Relevance_HeuristicRelevanceHigh = @"HEURISTIC_RELEVANCE_HIGH";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership_Relevance_HeuristicRelevanceNormal = @"HEURISTIC_RELEVANCE_NORMAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
 
-// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy.access
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_AccessStateUnspecified = @"ACCESS_STATE_UNSPECIFIED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_Granted = @"GRANTED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_NotGranted = @"NOT_GRANTED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_UnknownConditional = @"UNKNOWN_CONDITIONAL";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Access_UnknownInfoDenied = @"UNKNOWN_INFO_DENIED";
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation.allowAccessState
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation_AllowAccessState_AllowAccessStateGranted = @"ALLOW_ACCESS_STATE_GRANTED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation_AllowAccessState_AllowAccessStateNotGranted = @"ALLOW_ACCESS_STATE_NOT_GRANTED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation_AllowAccessState_AllowAccessStateUnknownConditional = @"ALLOW_ACCESS_STATE_UNKNOWN_CONDITIONAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation_AllowAccessState_AllowAccessStateUnknownInfo = @"ALLOW_ACCESS_STATE_UNKNOWN_INFO";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation_AllowAccessState_AllowAccessStateUnspecified = @"ALLOW_ACCESS_STATE_UNSPECIFIED";
 
-// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy.relevance
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_High = @"HIGH";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy_Relevance_Normal = @"NORMAL";
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation.relevance
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation_Relevance_HeuristicRelevanceHigh = @"HEURISTIC_RELEVANCE_HIGH";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation_Relevance_HeuristicRelevanceNormal = @"HEURISTIC_RELEVANCE_NORMAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
 
-// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse.access
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_AccessStateUnspecified = @"ACCESS_STATE_UNSPECIFIED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_Granted = @"GRANTED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_NotGranted = @"NOT_GRANTED";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_UnknownConditional = @"UNKNOWN_CONDITIONAL";
-NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse_Access_UnknownInfoDenied = @"UNKNOWN_INFO_DENIED";
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation.denyAccessState
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation_DenyAccessState_DenyAccessStateDenied = @"DENY_ACCESS_STATE_DENIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation_DenyAccessState_DenyAccessStateNotDenied = @"DENY_ACCESS_STATE_NOT_DENIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation_DenyAccessState_DenyAccessStateUnknownConditional = @"DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation_DenyAccessState_DenyAccessStateUnknownInfo = @"DENY_ACCESS_STATE_UNKNOWN_INFO";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation_DenyAccessState_DenyAccessStateUnspecified = @"DENY_ACCESS_STATE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation.relevance
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation_Relevance_HeuristicRelevanceHigh = @"HEURISTIC_RELEVANCE_HIGH";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation_Relevance_HeuristicRelevanceNormal = @"HEURISTIC_RELEVANCE_NORMAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation.denyAccessState
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_DenyAccessState_DenyAccessStateDenied = @"DENY_ACCESS_STATE_DENIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_DenyAccessState_DenyAccessStateNotDenied = @"DENY_ACCESS_STATE_NOT_DENIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_DenyAccessState_DenyAccessStateUnknownConditional = @"DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_DenyAccessState_DenyAccessStateUnknownInfo = @"DENY_ACCESS_STATE_UNKNOWN_INFO";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_DenyAccessState_DenyAccessStateUnspecified = @"DENY_ACCESS_STATE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation.relevance
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_Relevance_HeuristicRelevanceHigh = @"HEURISTIC_RELEVANCE_HIGH";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_Relevance_HeuristicRelevanceNormal = @"HEURISTIC_RELEVANCE_NORMAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching.membership
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching_Membership_MembershipMatched = @"MEMBERSHIP_MATCHED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching_Membership_MembershipMatchingStateUnspecified = @"MEMBERSHIP_MATCHING_STATE_UNSPECIFIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching_Membership_MembershipNotMatched = @"MEMBERSHIP_NOT_MATCHED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching_Membership_MembershipUnknownInfo = @"MEMBERSHIP_UNKNOWN_INFO";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching_Membership_MembershipUnknownUnsupported = @"MEMBERSHIP_UNKNOWN_UNSUPPORTED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching.relevance
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching_Relevance_HeuristicRelevanceHigh = @"HEURISTIC_RELEVANCE_HIGH";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching_Relevance_HeuristicRelevanceNormal = @"HEURISTIC_RELEVANCE_NORMAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching.permissionMatchingState
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching_PermissionMatchingState_PermissionPatternMatched = @"PERMISSION_PATTERN_MATCHED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching_PermissionMatchingState_PermissionPatternMatchingStateUnspecified = @"PERMISSION_PATTERN_MATCHING_STATE_UNSPECIFIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching_PermissionMatchingState_PermissionPatternNotMatched = @"PERMISSION_PATTERN_NOT_MATCHED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching.relevance
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching_Relevance_HeuristicRelevanceHigh = @"HEURISTIC_RELEVANCE_HIGH";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching_Relevance_HeuristicRelevanceNormal = @"HEURISTIC_RELEVANCE_NORMAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy.allowAccessState
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy_AllowAccessState_AllowAccessStateGranted = @"ALLOW_ACCESS_STATE_GRANTED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy_AllowAccessState_AllowAccessStateNotGranted = @"ALLOW_ACCESS_STATE_NOT_GRANTED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy_AllowAccessState_AllowAccessStateUnknownConditional = @"ALLOW_ACCESS_STATE_UNKNOWN_CONDITIONAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy_AllowAccessState_AllowAccessStateUnknownInfo = @"ALLOW_ACCESS_STATE_UNKNOWN_INFO";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy_AllowAccessState_AllowAccessStateUnspecified = @"ALLOW_ACCESS_STATE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy.relevance
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy_Relevance_HeuristicRelevanceHigh = @"HEURISTIC_RELEVANCE_HIGH";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy_Relevance_HeuristicRelevanceNormal = @"HEURISTIC_RELEVANCE_NORMAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy.denyAccessState
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy_DenyAccessState_DenyAccessStateDenied = @"DENY_ACCESS_STATE_DENIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy_DenyAccessState_DenyAccessStateNotDenied = @"DENY_ACCESS_STATE_NOT_DENIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy_DenyAccessState_DenyAccessStateUnknownConditional = @"DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy_DenyAccessState_DenyAccessStateUnknownInfo = @"DENY_ACCESS_STATE_UNKNOWN_INFO";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy_DenyAccessState_DenyAccessStateUnspecified = @"DENY_ACCESS_STATE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy.relevance
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy_Relevance_HeuristicRelevanceHigh = @"HEURISTIC_RELEVANCE_HIGH";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy_Relevance_HeuristicRelevanceNormal = @"HEURISTIC_RELEVANCE_NORMAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource.denyAccessState
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource_DenyAccessState_DenyAccessStateDenied = @"DENY_ACCESS_STATE_DENIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource_DenyAccessState_DenyAccessStateNotDenied = @"DENY_ACCESS_STATE_NOT_DENIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource_DenyAccessState_DenyAccessStateUnknownConditional = @"DENY_ACCESS_STATE_UNKNOWN_CONDITIONAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource_DenyAccessState_DenyAccessStateUnknownInfo = @"DENY_ACCESS_STATE_UNKNOWN_INFO";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource_DenyAccessState_DenyAccessStateUnspecified = @"DENY_ACCESS_STATE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource.relevance
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource_Relevance_HeuristicRelevanceHigh = @"HEURISTIC_RELEVANCE_HIGH";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource_Relevance_HeuristicRelevanceNormal = @"HEURISTIC_RELEVANCE_NORMAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource_Relevance_HeuristicRelevanceUnspecified = @"HEURISTIC_RELEVANCE_UNSPECIFIED";
+
+// GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyResponse.overallAccessState
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyResponse_OverallAccessState_CanAccess = @"CAN_ACCESS";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyResponse_OverallAccessState_CannotAccess = @"CANNOT_ACCESS";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyResponse_OverallAccessState_OverallAccessStateUnspecified = @"OVERALL_ACCESS_STATE_UNSPECIFIED";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyResponse_OverallAccessState_UnknownConditional = @"UNKNOWN_CONDITIONAL";
+NSString * const kGTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyResponse_OverallAccessState_UnknownInfo = @"UNKNOWN_INFO";
 
 // GTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig.logType
 NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
@@ -73,34 +155,35 @@ NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_Log
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1AccessTuple
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AccessTuple
 //
 
-@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1AccessTuple
-@dynamic fullResourceName, permission, principal;
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AccessTuple
+@dynamic conditionContext, fullResourceName, permission, permissionFqdn,
+         principal;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation
 //
 
-@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation
-@dynamic access, condition, memberships, relevance, role, rolePermission,
-         rolePermissionRelevance;
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation
+@dynamic allowAccessState, combinedMembership, condition, conditionExplanation,
+         memberships, relevance, role, rolePermission, rolePermissionRelevance;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Memberships
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_Memberships
 //
 
-@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation_Memberships
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation_Memberships
 
 + (Class)classForAdditionalProperties {
-  return [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership class];
+  return [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership class];
 }
 
 @end
@@ -108,25 +191,25 @@ NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_Log
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership
 //
 
-@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanationAnnotatedMembership
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanationAnnotatedAllowMembership
 @dynamic membership, relevance;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation
 //
 
-@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy
-@dynamic access, bindingExplanations, fullResourceName, policy, relevance;
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowPolicyExplanation
+@dynamic allowAccessState, explainedPolicies, relevance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"bindingExplanations" : [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1BindingExplanation class]
+    @"explainedPolicies" : [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy class]
   };
   return map;
 }
@@ -136,30 +219,280 @@ NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_Log
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyRequest
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionContext
 //
 
-@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyRequest
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionContext
+@dynamic destination, effectiveTags, request, resource;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"effectiveTags" : [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionContextEffectiveTag class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionContextEffectiveTag
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionContextEffectiveTag
+@dynamic inherited, namespacedTagKey, namespacedTagValue, tagKey,
+         tagKeyParentName, tagValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionContextPeer
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionContextPeer
+@dynamic ip, port;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionContextRequest
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionContextRequest
+@dynamic receiveTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionContextResource
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionContextResource
+@dynamic name, service, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionExplanation
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionExplanation
+@dynamic errors, evaluationStates, value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRPolicyTroubleshooter_GoogleRpcStatus class],
+    @"evaluationStates" : [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionExplanationEvaluationState class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionExplanationEvaluationState
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ConditionExplanationEvaluationState
+@dynamic end, errors, start, value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"errors" : [GTLRPolicyTroubleshooter_GoogleRpcStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyPolicyExplanation
+@dynamic denyAccessState, explainedResources, permissionDeniable, relevance;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"explainedResources" : [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation
+@dynamic combinedDeniedPermission, combinedDeniedPrincipal,
+         combinedExceptionPermission, combinedExceptionPrincipal, condition,
+         conditionExplanation, deniedPermissions, deniedPrincipals,
+         denyAccessState, exceptionPermissions, exceptionPrincipals, relevance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_DeniedPermissions
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_DeniedPermissions
+
++ (Class)classForAdditionalProperties {
+  return [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_DeniedPrincipals
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_DeniedPrincipals
+
++ (Class)classForAdditionalProperties {
+  return [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_ExceptionPermissions
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_ExceptionPermissions
+
++ (Class)classForAdditionalProperties {
+  return [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_ExceptionPrincipals
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation_ExceptionPrincipals
+
++ (Class)classForAdditionalProperties {
+  return [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedDenyPrincipalMatching
+@dynamic membership, relevance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanationAnnotatedPermissionMatching
+@dynamic permissionMatchingState, relevance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedAllowPolicy
+@dynamic allowAccessState, bindingExplanations, fullResourceName, policy,
+         relevance;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"bindingExplanations" : [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3AllowBindingExplanation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy
+@dynamic denyAccessState, policy, relevance, ruleExplanations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ruleExplanations" : [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3DenyRuleExplanation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyResource
+@dynamic denyAccessState, explainedPolicies, fullResourceName, relevance;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"explainedPolicies" : [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3ExplainedDenyPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyRequest
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyRequest
 @dynamic accessTuple;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse
+//   GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyResponse
 //
 
-@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse
-@dynamic access, errors, explainedPolicies;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"errors" : [GTLRPolicyTroubleshooter_GoogleRpcStatus class],
-    @"explainedPolicies" : [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1ExplainedPolicy class]
-  };
-  return map;
-}
-
+@implementation GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyResponse
+@dynamic accessTuple, allowPolicyExplanation, denyPolicyExplanation,
+         overallAccessState;
 @end
 
 
@@ -235,6 +568,86 @@ NSString * const kGTLRPolicyTroubleshooter_GoogleIamV1AuditLogConfig_LogType_Log
     @"bindings" : [GTLRPolicyTroubleshooter_GoogleIamV1Binding class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleIamV2DenyRule
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleIamV2DenyRule
+@dynamic denialCondition, deniedPermissions, deniedPrincipals,
+         exceptionPermissions, exceptionPrincipals;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deniedPermissions" : [NSString class],
+    @"deniedPrincipals" : [NSString class],
+    @"exceptionPermissions" : [NSString class],
+    @"exceptionPrincipals" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleIamV2Policy
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleIamV2Policy
+@dynamic annotations, createTime, deleteTime, displayName, ETag, kind, name,
+         rules, uid, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRPolicyTroubleshooter_GoogleIamV2PolicyRule class]
+  };
+  return map;
+}
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleIamV2Policy_Annotations
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleIamV2Policy_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPolicyTroubleshooter_GoogleIamV2PolicyRule
+//
+
+@implementation GTLRPolicyTroubleshooter_GoogleIamV2PolicyRule
+@dynamic denyRule, descriptionProperty;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

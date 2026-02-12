@@ -20,6 +20,8 @@
 @class GTLRBackupdr_AlloyDBClusterBackupPlanAssociationProperties;
 @class GTLRBackupdr_AlloyDbClusterBackupProperties;
 @class GTLRBackupdr_AlloyDBClusterDataSourceProperties;
+@class GTLRBackupdr_AlloyDBClusterDataSourceReferenceProperties;
+@class GTLRBackupdr_AlloyDbPitrWindow;
 @class GTLRBackupdr_AttachedDisk;
 @class GTLRBackupdr_AuditConfig;
 @class GTLRBackupdr_AuditLogConfig;
@@ -2111,6 +2113,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Properties for an AlloyDB cluster backup plan association.
  */
 @interface GTLRBackupdr_AlloyDBClusterBackupPlanAssociationProperties : GTLRObject
+
+/** Output only. The cluster UID of the AlloyDB cluster. */
+@property(nonatomic, copy, nullable) NSString *clusterUid;
+
 @end
 
 
@@ -2156,8 +2162,59 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @interface GTLRBackupdr_AlloyDBClusterDataSourceProperties : GTLRObject
 
+/**
+ *  Output only. The cluster UID of the AlloyDB cluster backed up by the
+ *  datasource.
+ */
+@property(nonatomic, copy, nullable) NSString *clusterUid;
+
 /** Output only. Name of the AlloyDB cluster backed up by the datasource. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Point in time recovery windows. The order is guaranteed to be
+ *  ascending by start time.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_AlloyDbPitrWindow *> *pitrWindows;
+
+@end
+
+
+/**
+ *  AlloyDBClusterDataSourceReferenceProperties represents the properties of an
+ *  AlloyDB cluster that are stored in the DataSourceReference.
+ */
+@interface GTLRBackupdr_AlloyDBClusterDataSourceReferenceProperties : GTLRObject
+
+/**
+ *  Output only. Name of the AlloyDB cluster backed up by the datasource.
+ *  Format: projects/{project}/locations/{location}/clusters/{cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Point in time recovery window for an AlloyDB cluster.
+ */
+@interface GTLRBackupdr_AlloyDbPitrWindow : GTLRObject
+
+/**
+ *  Output only. The end time of the PITR window. It is not set if the
+ *  corresponding Backup Plan Association is active.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Log retention days for the PITR window.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *logRetentionDays;
+
+/** Output only. The start time of the PITR window. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 @end
 
@@ -4294,6 +4351,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  The Google Cloud resource that the DataSource is associated with.
  */
 @interface GTLRBackupdr_DataSourceGcpResourceInfo : GTLRObject
+
+/** Output only. The properties of the AlloyDB cluster. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_AlloyDBClusterDataSourceReferenceProperties *alloyDbClusterProperties;
 
 /** Output only. The properties of the Cloud SQL instance. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_CloudSqlInstanceDataSourceReferenceProperties *cloudSqlInstanceProperties;
@@ -6508,7 +6568,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Output only. Whether the target resource is protected by a backup vault.
  *  This is true if the backup_configs_details is not empty and any of the
  *  ResourceBackupConfig.backup_configs_details has a backup configuration with
- *  BackupConfigDetails.backup_vault set. set.
+ *  BackupConfigDetails.backup_vault set.
  *
  *  Uses NSNumber of boolValue.
  */

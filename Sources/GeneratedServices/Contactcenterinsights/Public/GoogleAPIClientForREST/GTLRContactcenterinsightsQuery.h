@@ -1308,6 +1308,42 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Natural language based Insights which powers the next generation of
+ *  dashboards in Insights. Next generation of QueryMetrics.
+ *
+ *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.generativeInsights
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsGenerativeInsights : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The location of the data.
+ *  "projects/{project}/locations/{location}"
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Natural language based Insights which powers the next generation of
+ *  dashboards in Insights. Next generation of QueryMetrics.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsRequest
+ *    to include in the query.
+ *  @param location Required. The location of the data.
+ *    "projects/{project}/locations/{location}"
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsGenerativeInsights
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsRequest *)object
+                       location:(NSString *)location;
+
+@end
+
+/**
  *  Get AuthorizedView
  *
  *  Method: contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.get
@@ -2039,6 +2075,233 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates an auto labeling rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.autoLabelingRules.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesCreate : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The ID to use for the auto labeling rule, which will become the
+ *  final component of the auto labeling rule's resource name.
+ */
+@property(nonatomic, copy, nullable) NSString *autoLabelingRuleId;
+
+/**
+ *  Required. The project and location to create the auto labeling rule in.
+ *  Format: projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule.
+ *
+ *  Creates an auto labeling rule.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule
+ *    to include in the query.
+ *  @param parent Required. The project and location to create the auto labeling
+ *    rule in. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes an auto labeling rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.autoLabelingRules.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesDelete : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The name of the auto labeling rule to delete. Format:
+ *  projects/{project}/locations/{location}/autoLabelingRules/{auto_labeling_rule}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes an auto labeling rule.
+ *
+ *  @param name Required. The name of the auto labeling rule to delete. Format:
+ *    projects/{project}/locations/{location}/autoLabelingRules/{auto_labeling_rule}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets an auto labeling rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.autoLabelingRules.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesGet : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The name of the auto labeling rule to get. Format:
+ *  projects/{project}/locations/{location}/autoLabelingRules/{auto_labeling_rule}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule.
+ *
+ *  Gets an auto labeling rule.
+ *
+ *  @param name Required. The name of the auto labeling rule to get. Format:
+ *    projects/{project}/locations/{location}/autoLabelingRules/{auto_labeling_rule}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists auto labeling rules.
+ *
+ *  Method: contactcenterinsights.projects.locations.autoLabelingRules.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. The maximum number of auto labeling rules to return in a single
+ *  response. If unspecified, at most 100 rules will be returned. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The next_page_token value returned from a previous List request,
+ *  if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project and location to list auto labeling rules from. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAutoLabelingRulesResponse.
+ *
+ *  Lists auto labeling rules.
+ *
+ *  @param parent Required. The project and location to list auto labeling rules
+ *    from. Format: projects/{project}/locations/{location}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an auto labeling rule.
+ *
+ *  Method: contactcenterinsights.projects.locations.autoLabelingRules.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Identifier. The resource name of the auto-labeling rule. Format:
+ *  projects/{project}/locations/{location}/autoLabelingRules/{auto_labeling_rule}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule.
+ *
+ *  Updates an auto labeling rule.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule
+ *    to include in the query.
+ *  @param name Identifier. The resource name of the auto-labeling rule. Format:
+ *    projects/{project}/locations/{location}/autoLabelingRules/{auto_labeling_rule}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Tests auto labeling rules against a conversation.
+ *
+ *  Method: contactcenterinsights.projects.locations.autoLabelingRules.test
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesTest : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The parent project and location. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestAutoLabelingRuleResponse.
+ *
+ *  Tests auto labeling rules against a conversation.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestAutoLabelingRuleRequest
+ *    to include in the query.
+ *  @param parent Required. The parent project and location. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesTest
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestAutoLabelingRuleRequest *)object
+                         parent:(NSString *)parent;
 
 @end
 
@@ -3219,6 +3482,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
+ *  Optional. If set to true, the conversation will be updated with auto
+ *  labeling results.
+ */
+@property(nonatomic, assign) BOOL conversationAutoLabelingUpdateConfigAllowAutoLabelingUpdate;
+
+/**
  *  Immutable. The resource name of the conversation. Format:
  *  projects/{project}/locations/{location}/conversations/{conversation}
  */
@@ -3348,6 +3617,360 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1UploadConversationRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a Chart.
+ *
+ *  Method: contactcenterinsights.projects.locations.dashboards.charts.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsCreate : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. A unique ID for the new Chart. This ID will become the final
+ *  component of the Chart's resource name. If no ID is specified, a
+ *  server-generated ID will be used. This value should be 4-64 characters and
+ *  must match the regular expression `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
+ */
+@property(nonatomic, copy, nullable) NSString *chartId;
+
+/** Required. The parent resource of the chart. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart.
+ *
+ *  Creates a Chart.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the chart.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Chart.
+ *
+ *  Method: contactcenterinsights.projects.locations.dashboards.charts.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the chart to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes a Chart.
+ *
+ *  @param name Required. The name of the chart to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Chart.
+ *
+ *  Method: contactcenterinsights.projects.locations.dashboards.charts.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the chart to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart.
+ *
+ *  Gets a Chart.
+ *
+ *  @param name Required. The name of the chart to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Charts.
+ *
+ *  Method: contactcenterinsights.projects.locations.dashboards.charts.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsList : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource of the charts. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListChartsResponse.
+ *
+ *  Lists Charts.
+ *
+ *  @param parent Required. The parent resource of the charts.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Chart.
+ *
+ *  Method: contactcenterinsights.projects.locations.dashboards.charts.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Identifier. Chart resource name. Format:
+ *  projects/{project}/locations/{location}/dashboards/{dashboard}/charts/{chart}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. List of fields to be updated. All possible fields can be updated
+ *  by passing `*`, or a subset of the following updateable fields can be
+ *  provided: * `display_name`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart.
+ *
+ *  Updates a Chart.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart to
+ *    include in the query.
+ *  @param name Identifier. Chart resource name. Format:
+ *    projects/{project}/locations/{location}/dashboards/{dashboard}/charts/{chart}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a Dashboard.
+ *
+ *  Method: contactcenterinsights.projects.locations.dashboards.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsCreate : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. A unique ID for the new Dashboard. This ID will become the final
+ *  component of the Dashboard's resource name. If no ID is specified, a
+ *  server-generated ID will be used. This value should be 4-64 characters and
+ *  must match the regular expression `^[a-z]([a-z0-9-]{0,61}[a-z0-9])?$`.
+ */
+@property(nonatomic, copy, nullable) NSString *dashboardId;
+
+/** Required. The parent resource of the dashboard. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard.
+ *
+ *  Creates a Dashboard.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard to
+ *    include in the query.
+ *  @param parent Required. The parent resource of the dashboard.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsCreate
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a Dashboard.
+ *
+ *  Method: contactcenterinsights.projects.locations.dashboards.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the dashboard to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes a Dashboard.
+ *
+ *  @param name Required. The name of the dashboard to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a Dashboard.
+ *
+ *  Method: contactcenterinsights.projects.locations.dashboards.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the dashboard to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard.
+ *
+ *  Gets a Dashboard.
+ *
+ *  @param name Required. The name of the dashboard to get.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Dashboards.
+ *
+ *  Method: contactcenterinsights.projects.locations.dashboards.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. The filter expression to filter dashboards listed in the response.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The order by expression to order dashboards listed in the
+ *  response.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of dashboards to return. The service may return
+ *  fewer than this value. The default and maximum value is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The value returned by the last `ListDashboardsResponse`. This
+ *  value indicates that this is a continuation of a prior `ListDashboards` call
+ *  and that the system should return the next page of data.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of the dashboards. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListDashboardsResponse.
+ *
+ *  Lists Dashboards.
+ *
+ *  @param parent Required. The parent resource of the dashboards.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a Dashboard.
+ *
+ *  Method: contactcenterinsights.projects.locations.dashboards.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsPatch : GTLRContactcenterinsightsQuery
+
+/**
+ *  Identifier. Dashboard resource name. Format:
+ *  projects/{project}/locations/{location}/dashboards/{dashboard}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. List of fields to be updated. All possible fields can be updated
+ *  by passing `*`, or a subset of the following updateable fields can be
+ *  provided: * `display_name` * `root_container`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard.
+ *
+ *  Updates a Dashboard.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard to
+ *    include in the query.
+ *  @param name Identifier. Dashboard resource name. Format:
+ *    projects/{project}/locations/{location}/dashboards/{dashboard}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsPatch
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -4254,6 +4877,73 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1InitializeEncryptionSpecRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Natural language based Insights which powers the next generation of
+ *  dashboards in Insights. Next generation of QueryMetrics.
+ *
+ *  Method: contactcenterinsights.projects.locations.generativeInsights
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsGenerativeInsights : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The location of the data.
+ *  "projects/{project}/locations/{location}"
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Natural language based Insights which powers the next generation of
+ *  dashboards in Insights. Next generation of QueryMetrics.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsRequest
+ *    to include in the query.
+ *  @param location Required. The location of the data.
+ *    "projects/{project}/locations/{location}"
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsGenerativeInsights
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsRequest *)object
+                       location:(NSString *)location;
+
+@end
+
+/**
+ *  Gets correlation config.
+ *
+ *  Method: contactcenterinsights.projects.locations.getCorrelationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsGetCorrelationConfig : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The name of the correlation config resource to get. Format:
+ *  projects/{project}/locations/{location}/correlationConfig
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationConfig.
+ *
+ *  Gets correlation config.
+ *
+ *  @param name Required. The name of the correlation config resource to get.
+ *    Format: projects/{project}/locations/{location}/correlationConfig
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsGetCorrelationConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -6078,6 +6768,82 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
  */
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1QueryPerformanceOverviewRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Tests correlation config on a conversation.
+ *
+ *  Method: contactcenterinsights.projects.locations.testCorrelationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsTestCorrelationConfig : GTLRContactcenterinsightsQuery
+
+/**
+ *  Required. The location to test correlation config. Format:
+ *  projects/{project}/locations/{location}
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Tests correlation config on a conversation.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigRequest
+ *    to include in the query.
+ *  @param location Required. The location to test correlation config. Format:
+ *    projects/{project}/locations/{location}
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsTestCorrelationConfig
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigRequest *)object
+                       location:(NSString *)location;
+
+@end
+
+/**
+ *  Updates correlation config.
+ *
+ *  Method: contactcenterinsights.projects.locations.updateCorrelationConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsUpdateCorrelationConfig : GTLRContactcenterinsightsQuery
+
+/**
+ *  Immutable. Identifier. The resource name of the correlation config. Format:
+ *  projects/{project}/locations/{location}/correlationConfig
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationConfig.
+ *
+ *  Updates correlation config.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationConfig
+ *    to include in the query.
+ *  @param name Immutable. Identifier. The resource name of the correlation
+ *    config. Format: projects/{project}/locations/{location}/correlationConfig
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsUpdateCorrelationConfig
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationConfig *)object
+                           name:(NSString *)name;
 
 @end
 

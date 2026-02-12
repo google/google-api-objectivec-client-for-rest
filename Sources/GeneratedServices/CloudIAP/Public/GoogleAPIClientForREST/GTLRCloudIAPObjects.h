@@ -737,6 +737,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @interface GTLRCloudIAP_OAuthSettings : GTLRObject
 
 /**
+ *  Optional. OAuth 2.0 client ID used in the OAuth flow to generate an access
+ *  token. If this field is set, you can skip obtaining the OAuth credentials in
+ *  this step:
+ *  https://developers.google.com/identity/protocols/OAuth2?hl=en_US#1.-obtain-oauth-2.0-credentials-from-the-google-api-console.
+ *  However, this could allow for client sharing. The risks of client sharing
+ *  are outlined here:
+ *  https://cloud.google.com/iap/docs/sharing-oauth-clients#risks.
+ */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/** Optional. Input only. OAuth secret paired with client ID */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/** Output only. OAuth secret sha256 paired with client ID */
+@property(nonatomic, copy, nullable) NSString *clientSecretSha256;
+
+/**
  *  Domain hint to send as hd=? parameter in OAuth request flow. Enables
  *  redirect to primary IDP by skipping Google's login screen.
  *  https://developers.google.com/identity/protocols/OpenIDConnect#hd-param

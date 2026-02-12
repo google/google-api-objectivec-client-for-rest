@@ -76,7 +76,6 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3CommonOperationMetadata;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetDocumentWarehouseConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetGCSManagedConfig;
-@class GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetSpannerIndexingConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetUnmanagedDatasetConfig;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentId;
 @class GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentIdGCSManagedDocumentId;
@@ -172,6 +171,8 @@
 @class GTLRDocument_GoogleCloudDocumentaiV1Evaluation_EntityMetrics;
 @class GTLRDocument_GoogleCloudDocumentaiV1EvaluationConfidenceLevelMetrics;
 @class GTLRDocument_GoogleCloudDocumentaiV1EvaluationCounters;
+@class GTLRDocument_GoogleCloudDocumentaiV1EvaluationEvaluationRevision;
+@class GTLRDocument_GoogleCloudDocumentaiV1EvaluationEvaluationRevision_EntityMetrics;
 @class GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics;
 @class GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics;
 @class GTLRDocument_GoogleCloudDocumentaiV1EvaluationReference;
@@ -2082,7 +2083,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) GTLRDocument_CloudAiDocumentaiLabHifiaToolsValidationValidatorInputValidationRuleChildAlignmentRule *childAlignmentRule;
 
 /**
- *  Description of the validation rule. This has no use but for documentation
+ *  Description of the validation rule. This has no use but for documentation.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -2688,7 +2689,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Display name to show to users. */
+/** Display name to show users. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
@@ -2737,7 +2738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /**
  *  If specified, lists all the possible values for this entity. This should not
  *  be more than a handful of values. If the number of values is >10 or could
- *  change frequently use the `EntityType.value_ontology` field and specify a
+ *  change frequently, use the `EntityType.value_ontology` field and specify a
  *  list of all possible values in a value ontology file.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeEnumValues *enumValues;
@@ -2747,8 +2748,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  "Common Type". The following naming conventions are used: - Use
  *  `snake_casing`. - Name matching is case-sensitive. - Maximum 64 characters.
  *  - Must start with a letter. - Allowed characters: ASCII letters
- *  `[a-z0-9_-]`. (For backward compatibility internal infrastructure and
- *  tooling can handle any ascii character.) - The `/` is sometimes used to
+ *  `[a-z0-9_-]`. (For backward compatibility, internal infrastructure and
+ *  tooling can handle any ASCII character.) - The `/` is sometimes used to
  *  denote a property of a type. For example `line_item/amount`. This convention
  *  is deprecated, but will still be honored for backward compatibility.
  */
@@ -2873,7 +2874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *prefixedNamingOnProperties;
 
 /**
- *  If set, we will skip the naming format validation in the schema. So the
+ *  If set, this will skip the naming format validation in the schema. So the
  *  string values in `DocumentSchema.EntityType.name` and
  *  `DocumentSchema.EntityType.Property.name` will not be checked.
  *
@@ -2961,7 +2962,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3EvaluationMetrics : GTLRObject
 
 /**
- *  The calculated f1 score.
+ *  The calculated F1 score.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -3639,7 +3640,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiUiv1beta3ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo : GTLRObject
 
 /**
- *  Whether finetuning is allowed for this base processor version.
+ *  Whether fine tuning is allowed for this base processor version.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3647,7 +3648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  The minimum number of labeled documents in the training dataset required for
- *  finetuning.
+ *  fine tuning.
  *
  *  Uses NSNumber of intValue.
  */
@@ -3865,7 +3866,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Display name to show to users. */
+/** Display name to show users. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /** Entity types of the schema. */
@@ -4597,13 +4598,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /**
- *  Optional. A lightweight indexing source with low latency and high
- *  reliability, but lacking advanced features like CMEK and content-based
- *  search.
- */
-@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetSpannerIndexingConfig *spannerIndexingConfig;
-
-/**
  *  Required. State of the dataset. Ignored when updating dataset.
  *
  *  Likely values:
@@ -4660,13 +4654,6 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3GcsPrefix *gcsPrefix;
 
-@end
-
-
-/**
- *  Configuration specific to spanner-based indexing.
- */
-@interface GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetSpannerIndexingConfig : GTLRObject
 @end
 
 
@@ -4792,8 +4779,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Display name to show to users. */
+/** Display name to show users. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Document level prompt provided by the user. This custom text is
+ *  injected into the AI model's prompt to provide extra, document-wide guidance
+ *  for processing.
+ */
+@property(nonatomic, copy, nullable) NSString *documentPrompt;
 
 /** Entity types of the schema. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityType *> *entityTypes;
@@ -4834,7 +4828,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /**
  *  If specified, lists all the possible values for this entity. This should not
  *  be more than a handful of values. If the number of values is >10 or could
- *  change frequently use the `EntityType.value_ontology` field and specify a
+ *  change frequently, use the `EntityType.value_ontology` field and specify a
  *  list of all possible values in a value ontology file.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeEnumValues *enumValues;
@@ -4844,8 +4838,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  "Common Type". The following naming conventions are used: - Use
  *  `snake_casing`. - Name matching is case-sensitive. - Maximum 64 characters.
  *  - Must start with a letter. - Allowed characters: ASCII letters
- *  `[a-z0-9_-]`. (For backward compatibility internal infrastructure and
- *  tooling can handle any ascii character.) - The `/` is sometimes used to
+ *  `[a-z0-9_-]`. (For backward compatibility, internal infrastructure and
+ *  tooling can handle any ASCII character.) - The `/` is sometimes used to
  *  denote a property of a type. For example `line_item/amount`. This convention
  *  is deprecated, but will still be honored for backward compatibility.
  */
@@ -4970,7 +4964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *prefixedNamingOnProperties;
 
 /**
- *  If set, we will skip the naming format validation in the schema. So the
+ *  If set, this will skip the naming format validation in the schema. So the
  *  string values in `DocumentSchema.EntityType.name` and
  *  `DocumentSchema.EntityType.Property.name` will not be checked.
  *
@@ -5043,7 +5037,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3EvaluationMetrics : GTLRObject
 
 /**
- *  The calculated f1 score.
+ *  The calculated F1 score.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5589,7 +5583,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiV1beta3ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo : GTLRObject
 
 /**
- *  Whether finetuning is allowed for this base processor version.
+ *  Whether fine tuning is allowed for this base processor version.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -5597,7 +5591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  The minimum number of labeled documents in the training dataset required for
- *  finetuning.
+ *  fine tuning.
  *
  *  Uses NSNumber of intValue.
  */
@@ -6055,7 +6049,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentEntity *> *entities;
 
 /**
- *  The entity revision id that `document.entities` field is based on. If this
+ *  The entity revision ID that `document.entities` field is based on. If this
  *  field is set and `entities_revisions` is not empty, the entities in
  *  `document.entities` field are the entities in the entity revision with this
  *  id and `document.entity_validation_output` field is the
@@ -6428,7 +6422,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** Optional. Deprecated. Use `id` field instead. */
 @property(nonatomic, copy, nullable) NSString *mentionId;
 
-/** Optional. Text value of the entity e.g. `1600 Amphitheatre Pkwy`. */
+/**
+ *  Optional. Text value of the entity, for example, `1600 Amphitheatre Pkwy`.
+ */
 @property(nonatomic, copy, nullable) NSString *mentionText;
 
 /**
@@ -6449,7 +6445,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  Optional. Normalized entity value. Absent if the extracted value could not
- *  be converted or the type (e.g. address) is not supported for certain
+ *  be converted or the type (for example, address) is not supported for certain
  *  parsers. This field is also only populated for certain supported document
  *  types.
  */
@@ -6484,7 +6480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentTextAnchor *textAnchor;
 
-/** Required. Entity type from a schema e.g. `Address`. */
+/** Required. Entity type from a schema, for example, `Address`. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -6778,8 +6774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageMatrix *> *transforms;
 
 /**
- *  A list of detected non-text visual elements e.g. checkbox, signature etc. on
- *  the page.
+ *  A list of detected non-text visual elements, for example, checkbox,
+ *  signature etc. on the page.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentPageVisualElement *> *visualElements;
 
@@ -6957,8 +6953,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, copy, nullable) NSString *correctedValueText;
 
 /**
- *  Layout for the FormField name. e.g. `Address`, `Email`, `Grand total`,
- *  `Phone number`, etc.
+ *  Layout for the FormField name. For example, `Address`, `Email`, `Grand
+ *  total`, `Phone number`, etc.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentPageLayout *fieldName;
 
@@ -7073,8 +7069,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  Confidence of the current Layout within context of the object this layout is
- *  for. e.g. confidence can be for a single token, a table, a visual element,
- *  etc. depending on context. Range `[0, 1]`.
+ *  for. For example, confidence can be for a single token, a table, a visual
+ *  element, etc. depending on context. Range `[0, 1]`.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -7408,7 +7404,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
- *  Detected non-text visual elements e.g. checkbox, signature etc. on the page.
+ *  Detected non-text visual elements, for example, checkbox, signature etc. on
+ *  the page.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentPageVisualElement : GTLRObject
 
@@ -7575,7 +7572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentRevisionHumanReview : GTLRObject
 
-/** Human review state. e.g. `requested`, `succeeded`, `rejected`. */
+/** Human review state. For example, `requested`, `succeeded`, `rejected`. */
 @property(nonatomic, copy, nullable) NSString *state;
 
 /**
@@ -7610,8 +7607,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** Display name to show to users. */
+/** Display name to show users. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Document level prompt provided by the user. This custom text is
+ *  injected into the AI model's prompt to provide extra, document-wide guidance
+ *  for processing.
+ */
+@property(nonatomic, copy, nullable) NSString *documentPrompt;
 
 /** Entity types of the schema. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityType *> *entityTypes;
@@ -7641,7 +7645,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /**
  *  If specified, lists all the possible values for this entity. This should not
  *  be more than a handful of values. If the number of values is >10 or could
- *  change frequently use the `EntityType.value_ontology` field and specify a
+ *  change frequently, use the `EntityType.value_ontology` field and specify a
  *  list of all possible values in a value ontology file.
  */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeEnumValues *enumValues;
@@ -7651,8 +7655,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  "Common Type". The following naming conventions are used: - Use
  *  `snake_casing`. - Name matching is case-sensitive. - Maximum 64 characters.
  *  - Must start with a letter. - Allowed characters: ASCII letters
- *  `[a-z0-9_-]`. (For backward compatibility internal infrastructure and
- *  tooling can handle any ascii character.) - The `/` is sometimes used to
+ *  `[a-z0-9_-]`. (For backward compatibility, internal infrastructure and
+ *  tooling can handle any ASCII character.) - The `/` is sometimes used to
  *  denote a property of a type. For example `line_item/amount`. This convention
  *  is deprecated, but will still be honored for backward compatibility.
  */
@@ -7766,7 +7770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *prefixedNamingOnProperties;
 
 /**
- *  If set, we will skip the naming format validation in the schema. So the
+ *  If set, this will skip the naming format validation in the schema. So the
  *  string values in `DocumentSchema.EntityType.name` and
  *  `DocumentSchema.EntityType.Property.name` will not be checked.
  *
@@ -8028,6 +8032,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Contains all revisions of the evaluation, excluding the latest one. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDocument_GoogleCloudDocumentaiV1EvaluationEvaluationRevision *> *revisions;
+
 @end
 
 
@@ -8101,12 +8108,45 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
+ *  A revision of the evaluation.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationEvaluationRevision : GTLRObject
+
+/** Output only. Metrics for all the entities in aggregate. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics *allEntitiesMetrics;
+
+/** Output only. Counters for the documents used in the evaluation. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationCounters *documentCounters;
+
+/** Output only. Metrics across confidence levels, for different entities. */
+@property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1EvaluationEvaluationRevision_EntityMetrics *entityMetrics;
+
+/** Output only. The revision ID of the evaluation. */
+@property(nonatomic, copy, nullable) NSString *revisionId;
+
+@end
+
+
+/**
+ *  Output only. Metrics across confidence levels, for different entities.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationEvaluationRevision_EntityMetrics : GTLRObject
+@end
+
+
+/**
  *  Evaluation metrics, either in aggregate or about a specific entity.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1EvaluationMetrics : GTLRObject
 
 /**
- *  The calculated f1 score.
+ *  The calculated F1 score.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -8577,7 +8617,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** Required. The user-defined name of the Schema. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Optional. The GCP labels for the Schema. */
+/** Optional. The {{gcp_name_short}} labels for the Schema. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1NextSchema_Labels *labels;
 
 /**
@@ -8593,7 +8633,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
- *  Optional. The GCP labels for the Schema.
+ *  Optional. The {{gcp_name_short}} labels for the Schema.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -9248,7 +9288,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @interface GTLRDocument_GoogleCloudDocumentaiV1ProcessorVersionGenAiModelInfoFoundationGenAiModelInfo : GTLRObject
 
 /**
- *  Whether finetuning is allowed for this base processor version.
+ *  Whether fine tuning is allowed for this base processor version.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -9256,7 +9296,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 /**
  *  The minimum number of labeled documents in the training dataset required for
- *  finetuning.
+ *  fine tuning.
  *
  *  Uses NSNumber of intValue.
  */
@@ -9507,7 +9547,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 /** Required. The user-defined name of the SchemaVersion. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Optional. The GCP labels for the SchemaVersion. */
+/** Optional. The {{gcp_name_short}} labels for the SchemaVersion. */
 @property(nonatomic, strong, nullable) GTLRDocument_GoogleCloudDocumentaiV1SchemaVersion_Labels *labels;
 
 /**
@@ -9523,7 +9563,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 
 
 /**
- *  Optional. The GCP labels for the SchemaVersion.
+ *  Optional. The {{gcp_name_short}} labels for the SchemaVersion.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

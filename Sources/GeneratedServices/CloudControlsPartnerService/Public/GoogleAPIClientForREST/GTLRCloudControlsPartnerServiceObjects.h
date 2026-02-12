@@ -376,6 +376,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_Workload_Par
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_Workload_Partner_PartnerSovereignControlsByTSystems;
 /**
+ *  Enum representing Telefonica (Spain) partner.
+ *
+ *  Value: "PARTNER_SPAIN_DATA_BOUNDARY_BY_TELEFONICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_Workload_Partner_PartnerSpainDataBoundaryByTelefonica;
+/**
  *  Unknown Partner.
  *
  *  Value: "PARTNER_UNSPECIFIED"
@@ -1185,6 +1191,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudControlsPartnerService_WorkloadOnbo
  *    @arg @c kGTLRCloudControlsPartnerService_Workload_Partner_PartnerSovereignControlsByTSystems
  *        Enum representing T_SYSTEM (TSI) partner. (Value:
  *        "PARTNER_SOVEREIGN_CONTROLS_BY_T_SYSTEMS")
+ *    @arg @c kGTLRCloudControlsPartnerService_Workload_Partner_PartnerSpainDataBoundaryByTelefonica
+ *        Enum representing Telefonica (Spain) partner. (Value:
+ *        "PARTNER_SPAIN_DATA_BOUNDARY_BY_TELEFONICA")
  *    @arg @c kGTLRCloudControlsPartnerService_Workload_Partner_PartnerUnspecified
  *        Unknown Partner. (Value: "PARTNER_UNSPECIFIED")
  */

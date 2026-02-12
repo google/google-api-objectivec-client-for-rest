@@ -128,6 +128,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRPubsub_AIInference
+//
+
+@implementation GTLRPubsub_AIInference
+@dynamic endpoint, serviceAccountEmail, unstructuredInference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRPubsub_AnalyticsHubSubscriptionInfo
 //
 
@@ -570,7 +580,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 //
 
 @implementation GTLRPubsub_MessageTransform
-@dynamic disabled, enabled, javascriptUdf;
+@dynamic aiInference, disabled, enabled, javascriptUdf;
 @end
 
 
@@ -994,6 +1004,30 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_UnstructuredInference
+//
+
+@implementation GTLRPubsub_UnstructuredInference
+@dynamic parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_UnstructuredInference_Parameters
+//
+
+@implementation GTLRPubsub_UnstructuredInference_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

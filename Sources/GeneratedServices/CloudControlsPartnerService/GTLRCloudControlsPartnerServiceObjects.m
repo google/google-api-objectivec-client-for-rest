@@ -78,6 +78,7 @@ NSString * const kGTLRCloudControlsPartnerService_Workload_Partner_PartnerSovere
 NSString * const kGTLRCloudControlsPartnerService_Workload_Partner_PartnerSovereignControlsByPsn = @"PARTNER_SOVEREIGN_CONTROLS_BY_PSN";
 NSString * const kGTLRCloudControlsPartnerService_Workload_Partner_PartnerSovereignControlsBySiaMinsait = @"PARTNER_SOVEREIGN_CONTROLS_BY_SIA_MINSAIT";
 NSString * const kGTLRCloudControlsPartnerService_Workload_Partner_PartnerSovereignControlsByTSystems = @"PARTNER_SOVEREIGN_CONTROLS_BY_T_SYSTEMS";
+NSString * const kGTLRCloudControlsPartnerService_Workload_Partner_PartnerSpainDataBoundaryByTelefonica = @"PARTNER_SPAIN_DATA_BOUNDARY_BY_TELEFONICA";
 NSString * const kGTLRCloudControlsPartnerService_Workload_Partner_PartnerUnspecified = @"PARTNER_UNSPECIFIED";
 
 // GTLRCloudControlsPartnerService_WorkloadOnboardingStep.completionState

@@ -166,9 +166,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  When set to `true`, operations that are reachable are returned as normal,
  *  and those that are unreachable are returned in the
- *  [ListOperationsResponse.unreachable] field. This can only be `true` when
- *  reading across collections e.g. when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not by default supported and
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
  *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -204,8 +204,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. The maximum number of results returned by this request. Currently,
- *  the default maximum is set to 1000. If `page_size` isn't provided or the
- *  size provided is a number larger than 1000, it's automatically set to 1000.
+ *  the default maximum is set to 256. If `page_size` <= 256, the request
+ *  proceeds. Else, the request fails with an `TU_INVALID_PAGE_SIZE` error.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

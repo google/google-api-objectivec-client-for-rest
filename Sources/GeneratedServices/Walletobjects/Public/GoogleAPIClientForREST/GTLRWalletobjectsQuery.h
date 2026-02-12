@@ -390,13 +390,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Modifies linked offer objects for the event ticket object with the given ID.
+ *  Deprecated: Use Auto Linked Passes instead. Modifies linked offer objects
+ *  for the event ticket object with the given ID.
  *
  *  Method: walletobjects.eventticketobject.modifylinkedofferobjects
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeWalletobjectsWalletObjectIssuer
  */
+GTLR_DEPRECATED
 @interface GTLRWalletobjectsQuery_EventticketobjectModifylinkedofferobjects : GTLRWalletobjectsQuery
 
 /**
@@ -411,7 +413,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWalletobjects_EventTicketObject.
  *
- *  Modifies linked offer objects for the event ticket object with the given ID.
+ *  Deprecated: Use Auto Linked Passes instead. Modifies linked offer objects
+ *  for the event ticket object with the given ID.
  *
  *  @param object The @c GTLRWalletobjects_ModifyLinkedOfferObjectsRequest to
  *    include in the query.
@@ -2312,13 +2315,15 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Modifies linked offer objects for the loyalty object with the given ID.
+ *  Deprecated: Use Auto Linked Passes instead. Modifies linked offer objects
+ *  for the loyalty object with the given ID.
  *
  *  Method: walletobjects.loyaltyobject.modifylinkedofferobjects
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeWalletobjectsWalletObjectIssuer
  */
+GTLR_DEPRECATED
 @interface GTLRWalletobjectsQuery_LoyaltyobjectModifylinkedofferobjects : GTLRWalletobjectsQuery
 
 /**
@@ -2333,7 +2338,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRWalletobjects_LoyaltyObject.
  *
- *  Modifies linked offer objects for the loyalty object with the given ID.
+ *  Deprecated: Use Auto Linked Passes instead. Modifies linked offer objects
+ *  for the loyalty object with the given ID.
  *
  *  @param object The @c GTLRWalletobjects_ModifyLinkedOfferObjectsRequest to
  *    include in the query.

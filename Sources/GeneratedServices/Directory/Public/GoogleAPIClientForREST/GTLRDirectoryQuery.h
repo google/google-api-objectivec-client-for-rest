@@ -863,6 +863,51 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Counts ChromeOS devices matching the request.
+ *
+ *  Method: admin.customer.devices.chromeos.countChromeOsDevices
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeos
+ *    @c kGTLRAuthScopeDirectoryDirectoryDeviceChromeosReadonly
+ */
+@interface GTLRDirectoryQuery_CustomerDevicesChromeosCountChromeOsDevices : GTLRDirectoryQuery
+
+/** Required. Immutable ID of the Google Workspace account. */
+@property(nonatomic, copy, nullable) NSString *customerId;
+
+/**
+ *  Optional. Search string in the format given at
+ *  https://developers.google.com/workspace/admin/directory/v1/list-query-operators
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Return devices from all child orgunits, as well as the specified
+ *  org unit. If this is set to true, 'orgUnitPath' must be provided.
+ */
+@property(nonatomic, assign) BOOL includeChildOrgunits;
+
+/**
+ *  Optional. The full path of the organizational unit (minus the leading `/`)
+ *  or its unique ID.
+ */
+@property(nonatomic, copy, nullable) NSString *orgUnitPath;
+
+/**
+ *  Fetches a @c GTLRDirectory_CountChromeOsDevicesResponse.
+ *
+ *  Counts ChromeOS devices matching the request.
+ *
+ *  @param customerId Required. Immutable ID of the Google Workspace account.
+ *
+ *  @return GTLRDirectoryQuery_CustomerDevicesChromeosCountChromeOsDevices
+ */
++ (instancetype)queryWithCustomerId:(NSString *)customerId;
+
+@end
+
+/**
  *  Issues a command for the device to execute.
  *
  *  Method: admin.customer.devices.chromeos.issueCommand

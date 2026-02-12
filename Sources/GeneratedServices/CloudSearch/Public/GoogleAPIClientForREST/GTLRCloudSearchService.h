@@ -8,7 +8,7 @@
 //   data. The Cloud Search API allows indexing of non-Google Workspace data
 //   into Cloud Search.
 // Documentation:
-//   https://developers.google.com/cloud-search/docs/guides/
+//   https://developers.google.com/workspace/cloud-search/docs/guides/
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 

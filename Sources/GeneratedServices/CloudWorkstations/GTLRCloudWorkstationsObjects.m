@@ -249,9 +249,9 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 @implementation GTLRCloudWorkstations_GceInstance
 @dynamic accelerators, boostConfigs, bootDiskSizeGb, confidentialInstanceConfig,
          disablePublicIpAddresses, disableSsh, enableNestedVirtualization,
-         machineType, pooledInstances, poolSize, serviceAccount,
-         serviceAccountScopes, shieldedInstanceConfig, startupScriptUri, tags,
-         vmTags;
+         instanceMetadata, machineType, pooledInstances, poolSize,
+         serviceAccount, serviceAccountScopes, shieldedInstanceConfig,
+         startupScriptUri, tags, vmTags;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -261,6 +261,20 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
     @"tags" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudWorkstations_GceInstance_InstanceMetadata
+//
+
+@implementation GTLRCloudWorkstations_GceInstance_InstanceMetadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

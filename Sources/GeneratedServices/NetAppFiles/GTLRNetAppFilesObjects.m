@@ -622,6 +622,24 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetAppFiles_EstablishVolumePeeringRequest
+//
+
+@implementation GTLRNetAppFiles_EstablishVolumePeeringRequest
+@dynamic peerClusterName, peerIpAddresses, peerSvmName, peerVolumeName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"peerIpAddresses" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetAppFiles_ExportPolicy
 //
 

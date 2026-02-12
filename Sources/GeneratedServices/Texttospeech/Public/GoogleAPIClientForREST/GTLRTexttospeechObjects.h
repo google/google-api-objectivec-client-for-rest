@@ -241,6 +241,14 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 @interface GTLRTexttospeech_AdvancedVoiceOptions : GTLRObject
 
 /**
+ *  Optional. If true, textnorm will be applied to text input. This feature is
+ *  enabled by default. Only applies for Gemini TTS.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableTextnorm;
+
+/**
  *  Only for Journey voices. If false, the synthesis is context aware and has a
  *  higher latency.
  *
@@ -807,7 +815,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  */
 @interface GTLRTexttospeech_SynthesizeSpeechRequest : GTLRObject
 
-/** Advanced voice options. */
+/** Optional. Advanced voice options. */
 @property(nonatomic, strong, nullable) GTLRTexttospeech_AdvancedVoiceOptions *advancedVoiceOptions;
 
 /** Required. The configuration of the synthesized audio. */

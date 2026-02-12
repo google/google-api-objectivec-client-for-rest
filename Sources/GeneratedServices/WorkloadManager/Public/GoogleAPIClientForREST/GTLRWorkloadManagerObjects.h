@@ -28,6 +28,7 @@
 @class GTLRWorkloadManager_BigQueryDestination;
 @class GTLRWorkloadManager_CloudResource;
 @class GTLRWorkloadManager_Command;
+@class GTLRWorkloadManager_ComponentHealth;
 @class GTLRWorkloadManager_DatabaseProperties;
 @class GTLRWorkloadManager_Evaluation;
 @class GTLRWorkloadManager_Evaluation_Labels;
@@ -36,6 +37,7 @@
 @class GTLRWorkloadManager_ExecutionResult;
 @class GTLRWorkloadManager_ExternalDataSources;
 @class GTLRWorkloadManager_GceInstanceFilter;
+@class GTLRWorkloadManager_HealthCheck;
 @class GTLRWorkloadManager_IAMPermission;
 @class GTLRWorkloadManager_Insight;
 @class GTLRWorkloadManager_InstanceProperties;
@@ -57,6 +59,8 @@
 @class GTLRWorkloadManager_ResourceStatus;
 @class GTLRWorkloadManager_Rule;
 @class GTLRWorkloadManager_RuleExecutionResult;
+@class GTLRWorkloadManager_RuleOutput;
+@class GTLRWorkloadManager_RuleOutput_Details;
 @class GTLRWorkloadManager_SapComponent;
 @class GTLRWorkloadManager_SapDiscovery;
 @class GTLRWorkloadManager_SapDiscoveryComponent;
@@ -402,6 +406,68 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_Resou
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_CloudResource_Kind_ResourceKindUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRWorkloadManager_ComponentHealth.componentHealthType
+
+/**
+ *  optional
+ *
+ *  Value: "TYPE_OPTIONAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeOptional;
+/**
+ *  required
+ *
+ *  Value: "TYPE_REQUIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeRequired;
+/**
+ *  special
+ *
+ *  Value: "TYPE_SPECIAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeSpecial;
+/**
+ *  Unspecified
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_ComponentHealth.state
+
+/**
+ *  Has critical issues.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_State_Critical;
+/**
+ *  Unspecified.
+ *
+ *  Value: "HEALTH_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_State_HealthStateUnspecified;
+/**
+ *  Healthy workload.
+ *
+ *  Value: "HEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_State_Healthy;
+/**
+ *  Unhealthy workload.
+ *
+ *  Value: "UNHEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_State_Unhealthy;
+/**
+ *  Unsupported.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ComponentHealth_State_Unsupported;
+
+// ----------------------------------------------------------------------------
 // GTLRWorkloadManager_DatabaseProperties.databaseType
 
 /**
@@ -590,6 +656,46 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ExternalDataSources_Type
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ExternalDataSources_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_HealthCheck.state
+
+/**
+ *  degraded
+ *
+ *  Value: "DEGRADED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_Degraded;
+/**
+ *  failed
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_Failed;
+/**
+ *  passed
+ *
+ *  Value: "PASSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_Passed;
+/**
+ *  skipped
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_Skipped;
+/**
+ *  Unspecified
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_StateUnspecified;
+/**
+ *  unsupported
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_HealthCheck_State_Unsupported;
 
 // ----------------------------------------------------------------------------
 // GTLRWorkloadManager_InstanceProperties.roles
@@ -1305,6 +1411,40 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_WorkloadType_WorkloadTypeUnspecified;
 
+// ----------------------------------------------------------------------------
+// GTLRWorkloadManager_WorkloadProfileHealth.state
+
+/**
+ *  Has critical issues.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Critical;
+/**
+ *  Unspecified.
+ *
+ *  Value: "HEALTH_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_HealthStateUnspecified;
+/**
+ *  Healthy workload.
+ *
+ *  Value: "HEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Healthy;
+/**
+ *  Unhealthy workload.
+ *
+ *  Value: "UNHEALTHY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unhealthy;
+/**
+ *  Unsupported.
+ *
+ *  Value: "UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported;
+
 /**
  *  * An AgentCommand specifies a one-time executable program for the agent to
  *  run.
@@ -1733,6 +1873,55 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 
 /**
+ *  HealthCondition contains the detailed health check of each component.
+ */
+@interface GTLRWorkloadManager_ComponentHealth : GTLRObject
+
+/** The component of a workload. */
+@property(nonatomic, copy, nullable) NSString *component;
+
+/** The detailed health checks of the component. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_HealthCheck *> *componentHealthChecks;
+
+/**
+ *  Output only. The type of the component health.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeOptional
+ *        optional (Value: "TYPE_OPTIONAL")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeRequired
+ *        required (Value: "TYPE_REQUIRED")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeSpecial
+ *        special (Value: "TYPE_SPECIAL")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_ComponentHealthType_TypeUnspecified
+ *        Unspecified (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *componentHealthType;
+
+/**
+ *  Output only. The health state of the component.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_State_Critical Has critical
+ *        issues. (Value: "CRITICAL")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_State_HealthStateUnspecified
+ *        Unspecified. (Value: "HEALTH_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_State_Healthy Healthy
+ *        workload. (Value: "HEALTHY")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_State_Unhealthy Unhealthy
+ *        workload. (Value: "UNHEALTHY")
+ *    @arg @c kGTLRWorkloadManager_ComponentHealth_State_Unsupported
+ *        Unsupported. (Value: "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Sub component health. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ComponentHealth *> *subComponentsHealth;
+
+@end
+
+
+/**
  *  Database Properties.
  */
 @interface GTLRWorkloadManager_DatabaseProperties : GTLRObject
@@ -1741,7 +1930,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_BackupProperties *backupProperties;
 
 /**
- *  Output only. Type of the database. HANA, DB2, etc.
+ *  Output only. Type of the database. `HANA`, `DB2`, etc.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Ase SAP
@@ -2007,9 +2196,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 @interface GTLRWorkloadManager_ExternalDataSources : GTLRObject
 
 /**
- *  Required. The asset type of the external data source this can be one of
- *  go/cai-asset-types to override the default asset type or it can be a custom
- *  type defined by the user custom type must match the asset type in the rule
+ *  Required. The asset type of the external data source. This can be a
+ *  supported Cloud Asset Inventory asset type (see
+ *  https://cloud.google.com/asset-inventory/docs/supported-asset-types) to
+ *  override the default asset type, or it can be a custom type defined by the
+ *  user.
  */
 @property(nonatomic, copy, nullable) NSString *assetType;
 
@@ -2046,6 +2237,46 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 /** Service account of compute engine */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAccounts;
+
+@end
+
+
+/**
+ *  HealthCheck contains the detailed health check of a component based on
+ *  asource.
+ */
+@interface GTLRWorkloadManager_HealthCheck : GTLRObject
+
+/** Output only. The message of the health check. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Output only. The health check source metric name. */
+@property(nonatomic, copy, nullable) NSString *metric;
+
+/** Output only. The resource the check performs on. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_CloudResource *resource;
+
+/** Output only. The source of the health check. */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Output only. The state of the health check.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_Degraded degraded (Value:
+ *        "DEGRADED")
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_Failed failed (Value:
+ *        "FAILED")
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_Passed passed (Value:
+ *        "PASSED")
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_Skipped skipped (Value:
+ *        "SKIPPED")
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_StateUnspecified
+ *        Unspecified (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_HealthCheck_State_Unsupported unsupported
+ *        (Value: "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -2590,7 +2821,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 
 /**
- *  Product contains the details of a product.
+ *  Contains the details of a product.
  */
 @interface GTLRWorkloadManager_Product : GTLRObject
 
@@ -2788,6 +3019,32 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 
 /**
+ *  The rule output of the violation.
+ */
+@interface GTLRWorkloadManager_RuleOutput : GTLRObject
+
+/** Output only. Violation details generated by rule. */
+@property(nonatomic, strong, nullable) GTLRWorkloadManager_RuleOutput_Details *details;
+
+/** Output only. The message generated by rule. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Output only. Violation details generated by rule.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRWorkloadManager_RuleOutput_Details : GTLRObject
+@end
+
+
+/**
  *  Message for creating a Execution
  */
 @interface GTLRWorkloadManager_RunEvaluationRequest : GTLRObject
@@ -2828,8 +3085,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_DatabaseProperties *databaseProperties;
 
 /**
- *  A list of host URIs that are part of the HA configuration if present. An
- *  empty list indicates the component is not configured for HA.
+ *  List of host URIs that are part of the HA configuration if present. An empty
+ *  list indicates the component is not configured for HA.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *haHosts;
 
@@ -3511,11 +3768,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
  */
 @interface GTLRWorkloadManager_SapWorkload : GTLRObject
 
-/** Output only. the acsc componment */
+/** Output only. application component */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapComponent *application;
 
 /**
- *  Output only. the architecture
+ *  Output only. The architecture.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_SapWorkload_Architecture_ArchitectureUnspecified
@@ -3536,13 +3793,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
  */
 @property(nonatomic, copy, nullable) NSString *architecture;
 
-/** Output only. the database componment */
+/** Output only. database component */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapComponent *database;
 
 /** Output only. The metadata for SAP workload. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_SapWorkload_Metadata *metadata;
 
-/** Output only. the products on this workload. */
+/** Output only. The products on this workload. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Product *> *products;
 
 @end
@@ -3872,7 +4129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 @property(nonatomic, copy, nullable) NSString *maintenanceStatus;
 
 /**
- *  Optional. Instance maintenance behavior. Could be "MIGRATE" or "TERMINATE".
+ *  Optional. Instance maintenance behavior. Could be `MIGRATE` or `TERMINATE`.
  */
 @property(nonatomic, copy, nullable) NSString *onHostMaintenance;
 
@@ -3893,8 +4150,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 /** The name of the asset. */
 @property(nonatomic, copy, nullable) NSString *asset;
 
-/** Details of the violation. TODO(b/452163887) */
+/** Details of the violation. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_ViolationDetails_Observed *observed;
+
+/** Output only. The rule output of the violation. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_RuleOutput *> *ruleOutput;
 
 /** The service account associated with the resource. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
@@ -3903,7 +4163,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 
 /**
- *  Details of the violation. TODO(b/452163887)
+ *  Details of the violation.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3915,7 +4175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
 
 
 /**
- *  workload resource
+ *  Workload resource.
  */
 @interface GTLRWorkloadManager_WorkloadProfile : GTLRObject
 
@@ -3961,6 +4221,37 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfile_Workload
  *        fetch them all at once.
  */
 @interface GTLRWorkloadManager_WorkloadProfile_Labels : GTLRObject
+@end
+
+
+/**
+ *  WorkloadProfileHealth contains the detailed health check of workload.
+ */
+@interface GTLRWorkloadManager_WorkloadProfileHealth : GTLRObject
+
+/** The time when the health check was performed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *checkTime;
+
+/** The detailed condition reports of each component. */
+@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ComponentHealth *> *componentsHealth;
+
+/**
+ *  Output only. The health state of the workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfileHealth_State_Critical Has
+ *        critical issues. (Value: "CRITICAL")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfileHealth_State_HealthStateUnspecified
+ *        Unspecified. (Value: "HEALTH_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfileHealth_State_Healthy Healthy
+ *        workload. (Value: "HEALTHY")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfileHealth_State_Unhealthy
+ *        Unhealthy workload. (Value: "UNHEALTHY")
+ *    @arg @c kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported
+ *        Unsupported. (Value: "UNSUPPORTED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 

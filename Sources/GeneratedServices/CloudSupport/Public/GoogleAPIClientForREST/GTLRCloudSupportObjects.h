@@ -387,6 +387,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Media_ReferenceType_Path;
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
  */
+@property(nonatomic, copy, nullable) NSString *uploadFragmentListCreationInfo;
+
+/**
+ *  # gdata.* are outside protos with mising documentation
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
 @property(nonatomic, copy, nullable) NSString *uploadMetadataContainer;
 
 @end

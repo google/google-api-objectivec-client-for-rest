@@ -17,6 +17,489 @@
 
 @end
 
+@implementation GTLRCloudObservabilityQuery_FoldersLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_FoldersLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Location class];
+  query.loggingName = @"observability.folders.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_FoldersLocationsList
+
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/locations";
+  GTLRCloudObservabilityQuery_FoldersLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_ListLocationsResponse class];
+  query.loggingName = @"observability.folders.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_FoldersLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudObservabilityQuery_FoldersLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Empty class];
+  query.loggingName = @"observability.folders.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_FoldersLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_FoldersLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Empty class];
+  query.loggingName = @"observability.folders.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_FoldersLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_FoldersLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Operation class];
+  query.loggingName = @"observability.folders.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_FoldersLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/operations";
+  GTLRCloudObservabilityQuery_FoldersLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_ListOperationsResponse class];
+  query.loggingName = @"observability.folders.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_OrganizationsLocationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_OrganizationsLocationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Location class];
+  query.loggingName = @"observability.organizations.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_OrganizationsLocationsList
+
+@dynamic extraLocationTypes, filter, name, pageSize, pageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"extraLocationTypes" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/locations";
+  GTLRCloudObservabilityQuery_OrganizationsLocationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_ListLocationsResponse class];
+  query.loggingName = @"observability.organizations.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Empty class];
+  query.loggingName = @"observability.organizations.locations.operations.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Empty class];
+  query.loggingName = @"observability.organizations.locations.operations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Operation class];
+  query.loggingName = @"observability.organizations.locations.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsList
+
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}/operations";
+  GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_ListOperationsResponse class];
+  query.loggingName = @"observability.organizations.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Dataset class];
+  query.loggingName = @"observability.projects.locations.buckets.datasets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksCreate
+
+@dynamic linkId, parent;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_Link *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/links";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudObservability_Operation class];
+  query.loggingName = @"observability.projects.locations.buckets.datasets.links.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Operation class];
+  query.loggingName = @"observability.projects.locations.buckets.datasets.links.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Link class];
+  query.loggingName = @"observability.projects.locations.buckets.datasets.links.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/links";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudObservability_ListLinksResponse class];
+  query.loggingName = @"observability.projects.locations.buckets.datasets.links.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_Link *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Operation class];
+  query.loggingName = @"observability.projects.locations.buckets.datasets.links.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsList
+
+@dynamic pageSize, pageToken, parent, showDeleted;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/datasets";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudObservability_ListDatasetsResponse class];
+  query.loggingName = @"observability.projects.locations.buckets.datasets.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsViewsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsViewsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_View class];
+  query.loggingName = @"observability.projects.locations.buckets.datasets.views.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsViewsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/views";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsViewsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudObservability_ListViewsResponse class];
+  query.loggingName = @"observability.projects.locations.buckets.datasets.views.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Bucket class];
+  query.loggingName = @"observability.projects.locations.buckets.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsBucketsList
+
+@dynamic pageSize, pageToken, parent, showDeleted;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/buckets";
+  GTLRCloudObservabilityQuery_ProjectsLocationsBucketsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudObservability_ListBucketsResponse class];
+  query.loggingName = @"observability.projects.locations.buckets.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudObservabilityQuery_ProjectsLocationsGet
 
 @dynamic name;
