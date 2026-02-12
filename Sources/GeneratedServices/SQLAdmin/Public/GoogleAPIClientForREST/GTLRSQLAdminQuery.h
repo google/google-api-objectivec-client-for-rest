@@ -2937,6 +2937,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  Optional. Specifies whether to revoke existing roles that are not present in
+ *  the `database_roles` field. If `false` or unset, the database roles
+ *  specified in `database_roles` are added to the user's existing roles.
+ */
+@property(nonatomic, assign) BOOL revokeExistingRoles;
+
+/**
  *  Fetches a @c GTLRSQLAdmin_Operation.
  *
  *  Updates an existing user in a Cloud SQL instance.

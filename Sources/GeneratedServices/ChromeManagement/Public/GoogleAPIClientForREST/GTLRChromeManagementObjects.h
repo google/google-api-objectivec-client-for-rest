@@ -1002,6 +1002,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi;
 /**
+ *  Spin.AI V2.
+ *
+ *  Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI_V2"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAiV2;
+/**
  *  Default value when no provider is specified.
  *
  *  Value: "RISK_ASSESSMENT_PROVIDER_UNSPECIFIED"
@@ -5396,6 +5402,8 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *        LayerX Security. (Value: "RISK_ASSESSMENT_PROVIDER_LAYERX")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAi
  *        Spin.Ai. (Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderSpinAiV2
+ *        Spin.AI V2. (Value: "RISK_ASSESSMENT_PROVIDER_SPIN_AI_V2")
  *    @arg @c kGTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry_Provider_RiskAssessmentProviderUnspecified
  *        Default value when no provider is specified. (Value:
  *        "RISK_ASSESSMENT_PROVIDER_UNSPECIFIED")

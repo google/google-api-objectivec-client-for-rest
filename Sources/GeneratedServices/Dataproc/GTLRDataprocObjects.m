@@ -252,6 +252,16 @@ NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Trino = @"TRINO
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zeppelin = @"ZEPPELIN";
 NSString * const kGTLRDataproc_SoftwareConfig_OptionalComponents_Zookeeper = @"ZOOKEEPER";
 
+// GTLRDataproc_SparkConnectExecutionInfo.state
+NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateCanceled = @"EXECUTION_STATE_CANCELED";
+NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateClosed = @"EXECUTION_STATE_CLOSED";
+NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateCompiled = @"EXECUTION_STATE_COMPILED";
+NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateFailed = @"EXECUTION_STATE_FAILED";
+NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateFinished = @"EXECUTION_STATE_FINISHED";
+NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateReady = @"EXECUTION_STATE_READY";
+NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateStarted = @"EXECUTION_STATE_STARTED";
+NSString * const kGTLRDataproc_SparkConnectExecutionInfo_State_ExecutionStateUnknown = @"EXECUTION_STATE_UNKNOWN";
+
 // GTLRDataproc_SqlExecutionUiData_Jobs.job
 NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusFailed = @"JOB_EXECUTION_STATUS_FAILED";
 NSString * const kGTLRDataproc_SqlExecutionUiData_Jobs_Job_JobExecutionStatusRunning = @"JOB_EXECUTION_STATUS_RUNNING";
@@ -3969,6 +3979,38 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_SparkConnectExecutionInfo
+//
+
+@implementation GTLRDataproc_SparkConnectExecutionInfo
+@dynamic closeTimestamp, detail, finishTimestamp, jobIds, jobTag, operationId,
+         sessionId, sparkSessionTags, sqlExecIds, startTimestamp, state,
+         statement, userId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"jobIds" : [NSString class],
+    @"sparkSessionTags" : [NSString class],
+    @"sqlExecIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkConnectSessionInfo
+//
+
+@implementation GTLRDataproc_SparkConnectSessionInfo
+@dynamic finishTimestamp, sessionId, startTimestamp, totalExecution, userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_SparkHistoryServerConfig
 //
 
@@ -4253,7 +4295,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
          eventTimestamp, executorStageSummary, executorSummary, jobData,
          nativeBuildInfoUiData, nativeSqlExecutionUiData, poolData,
          processSummary, rddOperationGraph, rddStorageInfo, resourceProfileInfo,
-         sparkPlanGraph, speculationStageSummary, sqlExecutionUiData, stageData,
+         sparkConnectExecutionInfo, sparkConnectSessionInfo, sparkPlanGraph,
+         speculationStageSummary, sqlExecutionUiData, stageData,
          streamBlockData, streamingQueryData, streamingQueryProgress, taskData;
 @end
 

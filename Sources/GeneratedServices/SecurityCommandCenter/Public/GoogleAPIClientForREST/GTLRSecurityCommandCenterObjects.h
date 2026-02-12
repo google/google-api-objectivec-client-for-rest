@@ -18,6 +18,9 @@
 @class GTLRSecurityCommandCenter_Access;
 @class GTLRSecurityCommandCenter_AccessReview;
 @class GTLRSecurityCommandCenter_AdaptiveProtection;
+@class GTLRSecurityCommandCenter_AdcApplication;
+@class GTLRSecurityCommandCenter_AdcApplicationTemplateRevision;
+@class GTLRSecurityCommandCenter_AdcSharedTemplateRevision;
 @class GTLRSecurityCommandCenter_AffectedResources;
 @class GTLRSecurityCommandCenter_AiModel;
 @class GTLRSecurityCommandCenter_Allowed;
@@ -125,6 +128,9 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Access;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AccessReview;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdaptiveProtection;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplication;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplicationTemplateRevision;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcSharedTemplateRevision;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AffectedResources;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed;
@@ -195,6 +201,9 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueFindingSecurityBulletin;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueMute;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcApplication;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcApplicationTemplateRevision;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcSharedTemplateRevision;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplication;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributes;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributesContactInfo;
@@ -8099,6 +8108,51 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Represents an ADC application associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_AdcApplication : GTLRObject
+
+/** Consumer provided attributes for the AppHub application. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplicationAttributes *attributes;
+
+/**
+ *  The resource name of an ADC Application. Format:
+ *  projects/{project}/locations/{location}/spaces/{space}/applications/{application}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents an ADC template associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_AdcApplicationTemplateRevision : GTLRObject
+
+/**
+ *  The resource name of an ADC Application Template Revision. Format:
+ *  projects/{project}/locations/{location}/spaces/{space}/applicationTemplates/{application_template}/revisions/{revision}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents an ADC shared template associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_AdcSharedTemplateRevision : GTLRObject
+
+/**
+ *  The resource name of an ADC Shared Template Revision. Format:
+ *  projects/{project}/locations/{location}/spaces/{space}/applicationTemplates/{application_template}/revisions/{revision}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Details about resources affected by this finding.
  */
 @interface GTLRSecurityCommandCenter_AffectedResources : GTLRObject
@@ -11873,6 +11927,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource : GTLRObject
 
+/** The ADC application associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AdcApplication *adcApplication;
+
+/** The ADC template associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AdcApplicationTemplateRevision *adcApplicationTemplate;
+
+/** The ADC shared template associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AdcSharedTemplateRevision *adcSharedTemplate;
+
 /** The App Hub application this resource belongs to. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplication *application;
 
@@ -12483,6 +12546,51 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *confidence;
+
+@end
+
+
+/**
+ *  Represents an ADC application associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplication : GTLRObject
+
+/** Consumer provided attributes for the AppHub application. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplicationAttributes *attributes;
+
+/**
+ *  The resource name of an ADC Application. Format:
+ *  projects/{project}/locations/{location}/spaces/{space}/applications/{application}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents an ADC template associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplicationTemplateRevision : GTLRObject
+
+/**
+ *  The resource name of an ADC Application Template Revision. Format:
+ *  projects/{project}/locations/{location}/spaces/{space}/applicationTemplates/{application_template}/revisions/{revision}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents an ADC shared template associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcSharedTemplateRevision : GTLRObject
+
+/**
+ *  The resource name of an ADC Shared Template Revision. Format:
+ *  projects/{project}/locations/{location}/spaces/{space}/applicationTemplates/{application_template}/revisions/{revision}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -15244,6 +15352,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource : GTLRObject
 
+/** The ADC application associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcApplication *adcApplication;
+
+/** The ADC template associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcApplicationTemplateRevision *adcApplicationTemplate;
+
+/** The ADC shared template associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcSharedTemplateRevision *adcSharedTemplate;
+
 /**
  *  The AppHub application associated with the resource, if any. Only populated
  *  for the primary resource.
@@ -15294,6 +15411,51 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 /** The type of the resource associated with the issue. */
 @property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents an ADC application associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcApplication : GTLRObject
+
+/** Consumer provided attributes for the AppHub application. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceApplicationAttributes *attributes;
+
+/**
+ *  The resource name of an ADC Application. Format:
+ *  projects/{project}/locations/{location}/spaces/{space}/applications/{application}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents an ADC template associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcApplicationTemplateRevision : GTLRObject
+
+/**
+ *  The resource name of an ADC Application Template Revision. Format:
+ *  projects/{project}/locations/{location}/spaces/{space}/applicationTemplates/{application_template}/revisions/{revision}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Represents an ADC shared template associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcSharedTemplateRevision : GTLRObject
+
+/**
+ *  The resource name of an ADC Shared Template Revision. Format:
+ *  projects/{project}/locations/{location}/spaces/{space}/applicationTemplates/{application_template}/revisions/{revision}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -16325,6 +16487,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Information related to the Google Cloud resource.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource : GTLRObject
+
+/** The ADC application associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplication *adcApplication;
+
+/** The ADC template associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplicationTemplateRevision *adcApplicationTemplate;
+
+/** The ADC shared template associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcSharedTemplateRevision *adcSharedTemplate;
 
 /** The App Hub application this resource belongs to. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ResourceApplication *application;
@@ -19250,6 +19421,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  this finding.
  */
 @interface GTLRSecurityCommandCenter_Resource : GTLRObject
+
+/** The ADC application associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AdcApplication *adcApplication;
+
+/** The ADC template associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AdcApplicationTemplateRevision *adcApplicationTemplate;
+
+/** The ADC shared template associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AdcSharedTemplateRevision *adcSharedTemplate;
 
 /** The App Hub application this resource belongs to. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1ResourceApplication *application;

@@ -345,6 +345,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 @property(nonatomic, copy, nullable) NSString *actorIpAddress;
 
 /**
+ *  Optional. Used to filter on the `oAuthClientId` field present in
+ *  [`ApplicationInfo`](#applicationinfo) message. **Usage** ```
+ *  GET...&applicationInfoFilter=oAuthClientId="clientId"
+ *  GET...&applicationInfoFilter=oAuthClientId=%22clientId%22 ```
+ */
+@property(nonatomic, copy, nullable) NSString *applicationInfoFilter;
+
+/**
  *  Application name for which the events are to be retrieved.
  *
  *  Likely values:
@@ -565,6 +573,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
+ *  Optional. Used to filter on the `regionCode` field present in
+ *  [`NetworkInfo`](#networkinfo) message. **Usage** ```
+ *  GET...&networkInfoFilter=regionCode="IN"
+ *  GET...&networkInfoFilter=regionCode=%22IN%22 ```
+ */
+@property(nonatomic, copy, nullable) NSString *networkInfoFilter;
+
+/**
  *  ID of the organizational unit to report on. Activity records will be shown
  *  only for users who belong to the specified organizational unit. Data before
  *  Dec 17, 2018 doesn't appear in the filtered results.
@@ -634,6 +650,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  greater than 30 days.
  */
 @property(nonatomic, copy, nullable) NSString *startTime;
+
+/**
+ *  Optional. Used to filter on the `statusCode` field present in
+ *  [`Status`](#status) message. **Usage** ```
+ *  GET...&statusFilter=statusCode="200"
+ *  GET...&statusFilter=statusCode=%22200%22 ```
+ */
+@property(nonatomic, copy, nullable) NSString *statusFilter;
 
 /**
  *  Represents the profile ID or the user email for which the data should be

@@ -14428,6 +14428,29 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleIamV1Policy class];
+  query.loggingName = @"aiplatform.projects.locations.reasoningEngines.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -15387,6 +15410,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleIamV1Policy class];
+  query.loggingName = @"aiplatform.projects.locations.reasoningEngines.setIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesStreamQuery
 
 @dynamic name;
@@ -15409,6 +15459,32 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.name = name;
   query.expectedObjectClass = [GTLRAiplatform_GoogleApiHttpBody class];
   query.loggingName = @"aiplatform.projects.locations.reasoningEngines.streamQuery";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesTestIamPermissions
+
+@dynamic permissions, resource;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
+  GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"aiplatform.projects.locations.reasoningEngines.testIamPermissions";
   return query;
 }
 

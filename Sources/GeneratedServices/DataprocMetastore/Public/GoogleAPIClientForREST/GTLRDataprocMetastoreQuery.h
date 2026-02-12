@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Dataproc Metastore API (metastore/v2)
+//   Dataproc Metastore API (metastore/v1)
 // Description:
 //   The Dataproc Metastore API is used to manage the lifecycle and
 //   configuration of metastore services.
@@ -35,6 +35,633 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a metastore federation in a project and location.
+ *
+ *  Method: metastore.projects.locations.federations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsCreate : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The ID of the metastore federation, which is used as the final
+ *  component of the metastore federation's name.This value must be between 2
+ *  and 63 characters long inclusive, begin with a letter, end with a letter or
+ *  number, and consist of alpha-numeric ASCII characters or hyphens.
+ */
+@property(nonatomic, copy, nullable) NSString *federationId;
+
+/**
+ *  Required. The relative resource name of the location in which to create a
+ *  federation service, in the following
+ *  form:projects/{project_number}/locations/{location_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Creates a metastore federation in a project and location.
+ *
+ *  @param object The @c GTLRDataprocMetastore_Federation to include in the
+ *    query.
+ *  @param parent Required. The relative resource name of the location in which
+ *    to create a federation service, in the following
+ *    form:projects/{project_number}/locations/{location_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_Federation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single federation.
+ *
+ *  Method: metastore.projects.locations.federations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsDelete : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore federation to delete,
+ *  in the following
+ *  form:projects/{project_number}/locations/{location_id}/federations/{federation_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Deletes a single federation.
+ *
+ *  @param name Required. The relative resource name of the metastore federation
+ *    to delete, in the following
+ *    form:projects/{project_number}/locations/{location_id}/federations/{federation_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a single federation.
+ *
+ *  Method: metastore.projects.locations.federations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGet : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore federation to
+ *  retrieve, in the following
+ *  form:projects/{project_number}/locations/{location_id}/federations/{federation_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Federation.
+ *
+ *  Gets the details of a single federation.
+ *
+ *  @param name Required. The relative resource name of the metastore federation
+ *    to retrieve, in the following
+ *    form:projects/{project_number}/locations/{location_id}/federations/{federation_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: metastore.projects.locations.federations.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGetIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Lists federations in a project and location.
+ *
+ *  Method: metastore.projects.locations.federations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsList : GTLRDataprocMetastoreQuery
+
+/** Optional. The filter to apply to list results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify the ordering of results as described in Sorting Order
+ *  (https://cloud.google.com/apis/design/design_patterns#sorting_order). If not
+ *  specified, the results will be sorted in the default order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of federations to return. The response may
+ *  contain less than the maximum number. If unspecified, no more than 500
+ *  services are returned. The maximum value is 1000; values above 1000 are
+ *  changed to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous ListFederationServices
+ *  call. Provide this token to retrieve the subsequent page.To retrieve the
+ *  first page, supply an empty page token.When paginating, other parameters
+ *  provided to ListFederationServices must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The relative resource name of the location of metastore
+ *  federations to list, in the following form:
+ *  projects/{project_number}/locations/{location_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_ListFederationsResponse.
+ *
+ *  Lists federations in a project and location.
+ *
+ *  @param parent Required. The relative resource name of the location of
+ *    metastore federations to list, in the following form:
+ *    projects/{project_number}/locations/{location_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the fields of a federation.
+ *
+ *  Method: metastore.projects.locations.federations.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsPatch : GTLRDataprocMetastoreQuery
+
+/**
+ *  Immutable. The relative resource name of the federation, of the form:
+ *  projects/{project_number}/locations/{location_id}/federations/{federation_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. A field mask used to specify the fields to be overwritten in the
+ *  metastore federation resource by the update. Fields specified in the
+ *  update_mask are relative to the resource (not to the full request). A field
+ *  is overwritten if it is in the mask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Updates the fields of a federation.
+ *
+ *  @param object The @c GTLRDataprocMetastore_Federation to include in the
+ *    query.
+ *  @param name Immutable. The relative resource name of the federation, of the
+ *    form:
+ *    projects/{project_number}/locations/{location_id}/federations/{federation_id}`.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_Federation *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: metastore.projects.locations.federations.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsSetIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRDataprocMetastore_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: metastore.projects.locations.federations.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsTestIamPermissions : GTLRDataprocMetastoreQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRDataprocMetastore_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsFederationsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
+ *  Method: metastore.projects.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsGet : GTLRDataprocMetastoreQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service.
+ *
+ *  Method: metastore.projects.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsList : GTLRDataprocMetastoreQuery
+
+/**
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like "displayName=tokyo", and is documented in more
+ *  detail in AIP-160 (https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from the next_page_token field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
+ *
+ *  Method: metastore.projects.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsCancel : GTLRDataprocMetastoreQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
+ *  Code.CANCELLED.
+ *
+ *  @param object The @c GTLRDataprocMetastore_CancelOperationRequest to include
+ *    in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED.
+ *
+ *  Method: metastore.projects.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsDelete : GTLRDataprocMetastoreQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  google.rpc.Code.UNIMPLEMENTED.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: metastore.projects.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsGet : GTLRDataprocMetastoreQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
+ *
+ *  Method: metastore.projects.locations.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsList : GTLRDataprocMetastoreQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to true, operations that are reachable are returned as normal, and
+ *  those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field.This can only be true when reading
+ *  across collections. For example, when parent is set to
+ *  "projects/example/locations/-".This field is not supported by default and
+ *  will result in an UNIMPLEMENTED error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns UNIMPLEMENTED.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Alter metadata resource location. The metadata resource can be a database,
  *  table, or partition. This functionality only updates the parent directory
  *  for the respective metadata resource and does not transfer any existing data
@@ -55,7 +682,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
  *  Alter metadata resource location. The metadata resource can be a database,
  *  table, or partition. This functionality only updates the parent directory
@@ -63,15 +690,15 @@ NS_ASSUME_NONNULL_BEGIN
  *  to the new location.
  *
  *  @param object The @c
- *    GTLRDataprocMetastore_GoogleCloudMetastoreV2AlterMetadataResourceLocationRequest
- *    to include in the query.
+ *    GTLRDataprocMetastore_AlterMetadataResourceLocationRequest to include in
+ *    the query.
  *  @param service Required. The relative resource name of the metastore service
  *    to mutate metadata, in the following
  *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
  *
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesAlterLocation
  */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_GoogleCloudMetastoreV2AlterMetadataResourceLocationRequest *)object
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_AlterMetadataResourceLocationRequest *)object
                         service:(NSString *)service;
 
 @end
@@ -94,12 +721,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
  *  Alter metadata table properties.
  *
- *  @param object The @c
- *    GTLRDataprocMetastore_GoogleCloudMetastoreV2AlterTablePropertiesRequest to
+ *  @param object The @c GTLRDataprocMetastore_AlterTablePropertiesRequest to
  *    include in the query.
  *  @param service Required. The relative resource name of the Dataproc
  *    Metastore service that's being used to mutate metadata table properties,
@@ -108,7 +734,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesAlterTableProperties
  */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_GoogleCloudMetastoreV2AlterTablePropertiesRequest *)object
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_AlterTablePropertiesRequest *)object
                         service:(NSString *)service;
 
 @end
@@ -152,19 +778,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
  *  Creates a new backup in a given project and location.
  *
- *  @param object The @c GTLRDataprocMetastore_GoogleCloudMetastoreV2Backup to
- *    include in the query.
+ *  @param object The @c GTLRDataprocMetastore_Backup to include in the query.
  *  @param parent Required. The relative resource name of the service in which
  *    to create a backup of the following
  *    form:projects/{project_number}/locations/{location_id}/services/{service_id}.
  *
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsCreate
  */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_GoogleCloudMetastoreV2Backup *)object
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_Backup *)object
                          parent:(NSString *)parent;
 
 @end
@@ -200,7 +825,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
  *  Deletes a single backup.
  *
@@ -232,7 +857,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleCloudMetastoreV2Backup.
+ *  Fetches a @c GTLRDataprocMetastore_Backup.
  *
  *  Gets details of a single backup.
  *
@@ -243,6 +868,56 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: metastore.projects.locations.services.backups.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsGetIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -290,8 +965,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c
- *  GTLRDataprocMetastore_GoogleCloudMetastoreV2ListBackupsResponse.
+ *  Fetches a @c GTLRDataprocMetastore_ListBackupsResponse.
  *
  *  Lists backups in a service.
  *
@@ -306,6 +980,118 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: metastore.projects.locations.services.backups.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsSetIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRDataprocMetastore_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesBackupsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Cancels the ongoing Managed Migration process.
+ *
+ *  Method: metastore.projects.locations.services.cancelMigration
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCancelMigration : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore service to cancel the
+ *  ongoing migration to, in the following
+ *  format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Cancels the ongoing Managed Migration process.
+ *
+ *  @param object The @c GTLRDataprocMetastore_CancelMigrationRequest to include
+ *    in the query.
+ *  @param service Required. The relative resource name of the metastore service
+ *    to cancel the ongoing migration to, in the following
+ *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCancelMigration
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_CancelMigrationRequest *)object
+                        service:(NSString *)service;
+
+@end
+
+/**
+ *  Completes the managed migration process. The Dataproc Metastore service will
+ *  switch to using its own backend database after successful migration.
+ *
+ *  Method: metastore.projects.locations.services.completeMigration
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCompleteMigration : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore service to complete
+ *  the migration to, in the following
+ *  format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Completes the managed migration process. The Dataproc Metastore service will
+ *  switch to using its own backend database after successful migration.
+ *
+ *  @param object The @c GTLRDataprocMetastore_CompleteMigrationRequest to
+ *    include in the query.
+ *  @param service Required. The relative resource name of the metastore service
+ *    to complete the migration to, in the following
+ *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCompleteMigration
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_CompleteMigrationRequest *)object
+                        service:(NSString *)service;
 
 @end
 
@@ -348,20 +1134,199 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *serviceId;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
  *  Creates a metastore service in a project and location.
  *
- *  @param object The @c GTLRDataprocMetastore_GoogleCloudMetastoreV2Service to
- *    include in the query.
+ *  @param object The @c GTLRDataprocMetastore_Service to include in the query.
  *  @param parent Required. The relative resource name of the location in which
  *    to create a metastore service, in the following
  *    form:projects/{project_number}/locations/{location_id}.
  *
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesCreate
  */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_GoogleCloudMetastoreV2Service *)object
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_Service *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: metastore.projects.locations.services.databases.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesGetIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: metastore.projects.locations.services.databases.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesSetIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRDataprocMetastore_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: metastore.projects.locations.services.databases.tables.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesGetIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: metastore.projects.locations.services.databases.tables.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesSetIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRDataprocMetastore_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesDatabasesTablesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -396,7 +1361,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
  *  Deletes a single service.
  *
@@ -428,20 +1393,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
  *  Exports metadata from a service.
  *
- *  @param object The @c
- *    GTLRDataprocMetastore_GoogleCloudMetastoreV2ExportMetadataRequest to
- *    include in the query.
+ *  @param object The @c GTLRDataprocMetastore_ExportMetadataRequest to include
+ *    in the query.
  *  @param service Required. The relative resource name of the metastore service
  *    to run export, in the following
  *    form:projects/{project_id}/locations/{location_id}/services/{service_id}.
  *
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesExportMetadata
  */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_GoogleCloudMetastoreV2ExportMetadataRequest *)object
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_ExportMetadataRequest *)object
                         service:(NSString *)service;
 
 @end
@@ -464,7 +1428,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleCloudMetastoreV2Service.
+ *  Fetches a @c GTLRDataprocMetastore_Service.
  *
  *  Gets the details of a single service.
  *
@@ -479,38 +1443,52 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Imports Metadata into a Dataproc Metastore service.
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
  *
- *  Method: metastore.projects.locations.services.importMetadata
+ *  Method: metastore.projects.locations.services.getIamPolicy
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
  */
-@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesImportMetadata : GTLRDataprocMetastoreQuery
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesGetIamPolicy : GTLRDataprocMetastoreQuery
 
 /**
- *  Immutable. The relative resource name of the metastore service to run
- *  import, in the following
- *  form:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
  */
-@property(nonatomic, copy, nullable) NSString *name;
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
- *
- *  Imports Metadata into a Dataproc Metastore service.
- *
- *  @param object The @c
- *    GTLRDataprocMetastore_GoogleCloudMetastoreV2ImportMetadataRequest to
- *    include in the query.
- *  @param name Immutable. The relative resource name of the metastore service
- *    to run import, in the following
- *    form:projects/{project_id}/locations/{location_id}/services/{service_id}.
- *
- *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesImportMetadata
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
  */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_GoogleCloudMetastoreV2ImportMetadataRequest *)object
-                           name:(NSString *)name;
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -558,8 +1536,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
- *  Fetches a @c
- *  GTLRDataprocMetastore_GoogleCloudMetastoreV2ListServicesResponse.
+ *  Fetches a @c GTLRDataprocMetastore_ListServicesResponse.
  *
  *  Lists services in a project and location.
  *
@@ -568,6 +1545,357 @@ NS_ASSUME_NONNULL_BEGIN
  *    form:projects/{project_number}/locations/{location_id}.
  *
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new MetadataImport in a given project and location.
+ *
+ *  Method: metastore.projects.locations.services.metadataImports.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsCreate : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The ID of the metadata import, which is used as the final
+ *  component of the metadata import's name.This value must be between 1 and 64
+ *  characters long, begin with a letter, end with a letter or number, and
+ *  consist of alpha-numeric ASCII characters or hyphens.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataImportId;
+
+/**
+ *  Required. The relative resource name of the service in which to create a
+ *  metastore import, in the following
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Creates a new MetadataImport in a given project and location.
+ *
+ *  @param object The @c GTLRDataprocMetastore_MetadataImport to include in the
+ *    query.
+ *  @param parent Required. The relative resource name of the service in which
+ *    to create a metastore import, in the following
+ *    form:projects/{project_number}/locations/{location_id}/services/{service_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_MetadataImport *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets details of a single import.
+ *
+ *  Method: metastore.projects.locations.services.metadataImports.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsGet : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metadata import to retrieve, in
+ *  the following
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports/{import_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_MetadataImport.
+ *
+ *  Gets details of a single import.
+ *
+ *  @param name Required. The relative resource name of the metadata import to
+ *    retrieve, in the following
+ *    form:projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports/{import_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists imports in a service.
+ *
+ *  Method: metastore.projects.locations.services.metadataImports.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsList : GTLRDataprocMetastoreQuery
+
+/** Optional. The filter to apply to list results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify the ordering of results as described in Sorting Order
+ *  (https://cloud.google.com/apis/design/design_patterns#sorting_order). If not
+ *  specified, the results will be sorted in the default order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of imports to return. The response may contain
+ *  less than the maximum number. If unspecified, no more than 500 imports are
+ *  returned. The maximum value is 1000; values above 1000 are changed to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  DataprocMetastore.ListServices call. Provide this token to retrieve the
+ *  subsequent page.To retrieve the first page, supply an empty page token.When
+ *  paginating, other parameters provided to DataprocMetastore.ListServices must
+ *  match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The relative resource name of the service whose metadata imports
+ *  to list, in the following
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_ListMetadataImportsResponse.
+ *
+ *  Lists imports in a service.
+ *
+ *  @param parent Required. The relative resource name of the service whose
+ *    metadata imports to list, in the following
+ *    form:projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a single import. Only the description field of MetadataImport is
+ *  supported to be updated.
+ *
+ *  Method: metastore.projects.locations.services.metadataImports.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsPatch : GTLRDataprocMetastoreQuery
+
+/**
+ *  Immutable. Identifier. The relative resource name of the metadata import, of
+ *  the
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports/{metadata_import_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. A field mask used to specify the fields to be overwritten in the
+ *  metadata import resource by the update. Fields specified in the update_mask
+ *  are relative to the resource (not to the full request). A field is
+ *  overwritten if it is in the mask.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Updates a single import. Only the description field of MetadataImport is
+ *  supported to be updated.
+ *
+ *  @param object The @c GTLRDataprocMetastore_MetadataImport to include in the
+ *    query.
+ *  @param name Immutable. Identifier. The relative resource name of the
+ *    metadata import, of the
+ *    form:projects/{project_number}/locations/{location_id}/services/{service_id}/metadataImports/{metadata_import_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMetadataImportsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_MetadataImport *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a single migration execution.
+ *
+ *  Method: metastore.projects.locations.services.migrationExecutions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsDelete : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the migrationExecution to delete, in
+ *  the following
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions/{migration_execution_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A request ID. Specify a unique request ID to allow the server to
+ *  ignore the request if it has completed. The server will ignore subsequent
+ *  requests that provide a duplicate request ID for at least 60 minutes after
+ *  the first request.For example, if an initial request times out, followed by
+ *  another request with the same request ID, the server ignores the second
+ *  request to prevent the creation of duplicate commitments.The request ID must
+ *  be a valid UUID
+ *  (https://en.wikipedia.org/wiki/Universally_unique_identifier#Format) A zero
+ *  UUID (00000000-0000-0000-0000-000000000000) is not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Deletes a single migration execution.
+ *
+ *  @param name Required. The relative resource name of the migrationExecution
+ *    to delete, in the following
+ *    form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions/{migration_execution_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single migration execution.
+ *
+ *  Method: metastore.projects.locations.services.migrationExecutions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsGet : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the migration execution to retrieve,
+ *  in the following
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions/{migration_execution_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_MigrationExecution.
+ *
+ *  Gets details of a single migration execution.
+ *
+ *  @param name Required. The relative resource name of the migration execution
+ *    to retrieve, in the following
+ *    form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions/{migration_execution_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists migration executions on a service.
+ *
+ *  Method: metastore.projects.locations.services.migrationExecutions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsList : GTLRDataprocMetastoreQuery
+
+/** Optional. The filter to apply to list results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Specify the ordering of results as described in Sorting Order
+ *  (https://cloud.google.com/apis/design/design_patterns#sorting_order). If not
+ *  specified, the results will be sorted in the default order.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of migration executions to return. The response
+ *  may contain less than the maximum number. If unspecified, no more than 500
+ *  migration executions are returned. The maximum value is 1000; values above
+ *  1000 are changed to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous
+ *  DataprocMetastore.ListMigrationExecutions call. Provide this token to
+ *  retrieve the subsequent page.To retrieve the first page, supply an empty
+ *  page token.When paginating, other parameters provided to
+ *  DataprocMetastore.ListMigrationExecutions must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The relative resource name of the service whose migration
+ *  executions to list, in the following
+ *  form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_ListMigrationExecutionsResponse.
+ *
+ *  Lists migration executions on a service.
+ *
+ *  @param parent Required. The relative resource name of the service whose
+ *    migration executions to list, in the following
+ *    form:projects/{project_number}/locations/{location_id}/services/{service_id}/migrationExecutions.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMigrationExecutionsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -595,12 +1923,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
  *  Move a table to another database.
  *
- *  @param object The @c
- *    GTLRDataprocMetastore_GoogleCloudMetastoreV2MoveTableToDatabaseRequest to
+ *  @param object The @c GTLRDataprocMetastore_MoveTableToDatabaseRequest to
  *    include in the query.
  *  @param service Required. The relative resource name of the metastore service
  *    to mutate metadata, in the following
@@ -608,7 +1935,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesMoveTableToDatabase
  */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_GoogleCloudMetastoreV2MoveTableToDatabaseRequest *)object
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_MoveTableToDatabaseRequest *)object
                         service:(NSString *)service;
 
 @end
@@ -624,8 +1951,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesPatch : GTLRDataprocMetastoreQuery
 
 /**
- *  Immutable. The relative resource name of the metastore service, in the
- *  following
+ *  Immutable. Identifier. The relative resource name of the metastore service,
+ *  in the following
  *  format:projects/{project_number}/locations/{location_id}/services/{service_id}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -654,19 +1981,18 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
  *  Updates the parameters of a single service.
  *
- *  @param object The @c GTLRDataprocMetastore_GoogleCloudMetastoreV2Service to
- *    include in the query.
- *  @param name Immutable. The relative resource name of the metastore service,
- *    in the following
+ *  @param object The @c GTLRDataprocMetastore_Service to include in the query.
+ *  @param name Immutable. Identifier. The relative resource name of the
+ *    metastore service, in the following
  *    format:projects/{project_number}/locations/{location_id}/services/{service_id}.
  *
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesPatch
  */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_GoogleCloudMetastoreV2Service *)object
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_Service *)object
                            name:(NSString *)name;
 
 @end
@@ -689,20 +2015,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
  *  Query Dataproc Metastore metadata.
  *
- *  @param object The @c
- *    GTLRDataprocMetastore_GoogleCloudMetastoreV2QueryMetadataRequest to
- *    include in the query.
+ *  @param object The @c GTLRDataprocMetastore_QueryMetadataRequest to include
+ *    in the query.
  *  @param service Required. The relative resource name of the metastore service
  *    to query metadata, in the following
  *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
  *
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesQueryMetadata
  */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_GoogleCloudMetastoreV2QueryMetadataRequest *)object
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_QueryMetadataRequest *)object
                         service:(NSString *)service;
 
 @end
@@ -725,21 +2050,139 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *service;
 
 /**
- *  Fetches a @c GTLRDataprocMetastore_GoogleLongrunningOperation.
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
  *
  *  Restores a service from a backup.
  *
- *  @param object The @c
- *    GTLRDataprocMetastore_GoogleCloudMetastoreV2RestoreServiceRequest to
- *    include in the query.
+ *  @param object The @c GTLRDataprocMetastore_RestoreServiceRequest to include
+ *    in the query.
  *  @param service Required. The relative resource name of the metastore service
  *    to run restore, in the following
  *    form:projects/{project_id}/locations/{location_id}/services/{service_id}.
  *
  *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesRestore
  */
-+ (instancetype)queryWithObject:(GTLRDataprocMetastore_GoogleCloudMetastoreV2RestoreServiceRequest *)object
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_RestoreServiceRequest *)object
                         service:(NSString *)service;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: metastore.projects.locations.services.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesSetIamPolicy : GTLRDataprocMetastoreQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRDataprocMetastore_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Starts the Managed Migration process.
+ *
+ *  Method: metastore.projects.locations.services.startMigration
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesStartMigration : GTLRDataprocMetastoreQuery
+
+/**
+ *  Required. The relative resource name of the metastore service to start
+ *  migrating to, in the following
+ *  format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_Operation.
+ *
+ *  Starts the Managed Migration process.
+ *
+ *  @param object The @c GTLRDataprocMetastore_StartMigrationRequest to include
+ *    in the query.
+ *  @param service Required. The relative resource name of the metastore service
+ *    to start migrating to, in the following
+ *    format:projects/{project_id}/locations/{location_id}/services/{service_id}.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesStartMigration
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_StartMigrationRequest *)object
+                        service:(NSString *)service;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: metastore.projects.locations.services.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataprocMetastoreCloudPlatform
+ */
+@interface GTLRDataprocMetastoreQuery_ProjectsLocationsServicesTestIamPermissions : GTLRDataprocMetastoreQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDataprocMetastore_TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRDataprocMetastore_TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRDataprocMetastoreQuery_ProjectsLocationsServicesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRDataprocMetastore_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

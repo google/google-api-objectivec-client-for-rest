@@ -64,6 +64,12 @@ NSString * const kGTLRDatastream_PrivateConnection_State_Failed = @"FAILED";
 NSString * const kGTLRDatastream_PrivateConnection_State_FailedToDelete = @"FAILED_TO_DELETE";
 NSString * const kGTLRDatastream_PrivateConnection_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRDatastream_SpannerSourceConfig.spannerRpcPriority
+NSString * const kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_High = @"HIGH";
+NSString * const kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_Low = @"LOW";
+NSString * const kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_Medium = @"MEDIUM";
+NSString * const kGTLRDatastream_SpannerSourceConfig_SpannerRpcPriority_SpannerRpcPriorityUnspecified = @"SPANNER_RPC_PRIORITY_UNSPECIFIED";
+
 // GTLRDatastream_Stream.state
 NSString * const kGTLRDatastream_Stream_State_Draining         = @"DRAINING";
 NSString * const kGTLRDatastream_Stream_State_Failed           = @"FAILED";
@@ -120,7 +126,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_BackfillAllStrategy
 @dynamic mongodbExcludedObjects, mysqlExcludedObjects, oracleExcludedObjects,
          postgresqlExcludedObjects, salesforceExcludedObjects,
-         sqlServerExcludedObjects;
+         spannerExcludedObjects, sqlServerExcludedObjects;
 @end
 
 
@@ -148,6 +154,24 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_BackfillNoneStrategy
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_BadRequest
+//
+
+@implementation GTLRDatastream_BadRequest
+@dynamic fieldViolations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"fieldViolations" : [GTLRDatastream_FieldViolation class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -267,7 +291,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @dynamic bigqueryProfile, createTime, displayName, forwardSshConnectivity,
          gcsProfile, labels, mongodbProfile, mysqlProfile, name, oracleProfile,
          postgresqlProfile, privateConnectivity, salesforceProfile,
-         satisfiesPzi, satisfiesPzs, sqlServerProfile,
+         satisfiesPzi, satisfiesPzs, spannerProfile, sqlServerProfile,
          staticServiceIpConnectivity, updateTime;
 @end
 
@@ -308,6 +332,24 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_DebugInfo
+//
+
+@implementation GTLRDatastream_DebugInfo
+@dynamic detail, stackEntries;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"stackEntries" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_DestinationConfig
 //
 
@@ -325,7 +367,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_DiscoverConnectionProfileRequest
 @dynamic connectionProfile, connectionProfileName, fullHierarchy,
          hierarchyDepth, mongodbCluster, mysqlRdbms, oracleRdbms,
-         postgresqlRdbms, salesforceOrg, sqlServerRdbms;
+         postgresqlRdbms, salesforceOrg, spannerDatabase, sqlServerRdbms;
 @end
 
 
@@ -336,7 +378,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_DiscoverConnectionProfileResponse
 @dynamic mongodbCluster, mysqlRdbms, oracleRdbms, postgresqlRdbms,
-         salesforceOrg, sqlServerRdbms;
+         salesforceOrg, spannerDatabase, sqlServerRdbms;
 @end
 
 
@@ -403,6 +445,30 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_ErrorInfo
+//
+
+@implementation GTLRDatastream_ErrorInfo
+@dynamic domain, metadata, reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_ErrorInfo_Metadata
+//
+
+@implementation GTLRDatastream_ErrorInfo_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_EventFilter
 //
 
@@ -424,6 +490,21 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
     @"staticIps" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_FieldViolation
+//
+
+@implementation GTLRDatastream_FieldViolation
+@dynamic descriptionProperty, field, localizedMessage, reason;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end
@@ -471,6 +552,24 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_Help
+//
+
+@implementation GTLRDatastream_Help
+@dynamic links;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"links" : [GTLRDatastream_Link class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_HostAddress
 //
 
@@ -506,6 +605,21 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_JsonFileFormat
 @dynamic compression, schemaFileFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_Link
+//
+
+@implementation GTLRDatastream_Link
+@dynamic descriptionProperty, url;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
 @end
 
 
@@ -665,6 +779,16 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
   return @"streams";
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_LocalizedMessage
+//
+
+@implementation GTLRDatastream_LocalizedMessage
+@dynamic locale, message;
 @end
 
 
@@ -1374,6 +1498,39 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatastream_PreconditionFailure
+//
+
+@implementation GTLRDatastream_PreconditionFailure
+@dynamic violations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"violations" : [GTLRDatastream_PreconditionFailureViolation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_PreconditionFailureViolation
+//
+
+@implementation GTLRDatastream_PreconditionFailureViolation
+@dynamic descriptionProperty, subject, type;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatastream_PrivateConnection
 //
 
@@ -1414,6 +1571,89 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_PscInterfaceConfig
 @dynamic networkAttachment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_QuotaFailure
+//
+
+@implementation GTLRDatastream_QuotaFailure
+@dynamic violations;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"violations" : [GTLRDatastream_QuotaFailureViolation class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_QuotaFailureViolation
+//
+
+@implementation GTLRDatastream_QuotaFailureViolation
+@dynamic apiService, descriptionProperty, futureQuotaValue, quotaDimensions,
+         quotaId, quotaMetric, quotaValue, subject;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_QuotaFailureViolation_QuotaDimensions
+//
+
+@implementation GTLRDatastream_QuotaFailureViolation_QuotaDimensions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_RequestInfo
+//
+
+@implementation GTLRDatastream_RequestInfo
+@dynamic requestId, servingData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_ResourceInfo
+//
+
+@implementation GTLRDatastream_ResourceInfo
+@dynamic descriptionProperty, owner, resourceName, resourceType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_RetryInfo
+//
+
+@implementation GTLRDatastream_RetryInfo
+@dynamic retryDelay;
 @end
 
 
@@ -1584,7 +1824,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 @implementation GTLRDatastream_SourceConfig
 @dynamic mongodbSourceConfig, mysqlSourceConfig, oracleSourceConfig,
          postgresqlSourceConfig, salesforceSourceConfig,
-         sourceConnectionProfile, sqlServerSourceConfig;
+         sourceConnectionProfile, spannerSourceConfig, sqlServerSourceConfig;
 @end
 
 
@@ -1605,7 +1845,104 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 
 @implementation GTLRDatastream_SourceObjectIdentifier
 @dynamic mongodbIdentifier, mysqlIdentifier, oracleIdentifier,
-         postgresqlIdentifier, salesforceIdentifier, sqlServerIdentifier;
+         postgresqlIdentifier, salesforceIdentifier, spannerIdentifier,
+         sqlServerIdentifier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SpannerColumn
+//
+
+@implementation GTLRDatastream_SpannerColumn
+@dynamic column, dataType, isPrimaryKey, ordinalPosition;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SpannerDatabase
+//
+
+@implementation GTLRDatastream_SpannerDatabase
+@dynamic schemas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schemas" : [GTLRDatastream_SpannerSchema class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SpannerObjectIdentifier
+//
+
+@implementation GTLRDatastream_SpannerObjectIdentifier
+@dynamic schema, table;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SpannerProfile
+//
+
+@implementation GTLRDatastream_SpannerProfile
+@dynamic database, host;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SpannerSchema
+//
+
+@implementation GTLRDatastream_SpannerSchema
+@dynamic schema, tables;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tables" : [GTLRDatastream_SpannerTable class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SpannerSourceConfig
+//
+
+@implementation GTLRDatastream_SpannerSourceConfig
+@dynamic backfillDataBoostEnabled, changeStreamName, excludeObjects, fgacRole,
+         includeObjects, maxConcurrentBackfillTasks, maxConcurrentCdcTasks,
+         spannerRpcPriority;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDatastream_SpannerTable
+//
+
+@implementation GTLRDatastream_SpannerTable
+@dynamic columns, table;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"columns" : [GTLRDatastream_SpannerColumn class]
+  };
+  return map;
+}
+
 @end
 
 

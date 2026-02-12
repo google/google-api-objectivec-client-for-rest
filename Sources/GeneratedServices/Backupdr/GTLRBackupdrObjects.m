@@ -453,6 +453,7 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_AlloyDBClusterBackupPlanAssociationProperties
+@dynamic clusterUid;
 @end
 
 
@@ -477,7 +478,35 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_AlloyDBClusterDataSourceProperties
+@dynamic clusterUid, name, pitrWindows;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"pitrWindows" : [GTLRBackupdr_AlloyDbPitrWindow class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_AlloyDBClusterDataSourceReferenceProperties
+//
+
+@implementation GTLRBackupdr_AlloyDBClusterDataSourceReferenceProperties
 @dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_AlloyDbPitrWindow
+//
+
+@implementation GTLRBackupdr_AlloyDbPitrWindow
+@dynamic endTime, logRetentionDays, startTime;
 @end
 
 
@@ -1121,7 +1150,8 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_DataSourceGcpResourceInfo
-@dynamic cloudSqlInstanceProperties, gcpResourcename, location, type;
+@dynamic alloyDbClusterProperties, cloudSqlInstanceProperties, gcpResourcename,
+         location, type;
 @end
 
 

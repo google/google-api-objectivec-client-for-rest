@@ -559,11 +559,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
 
 /**
  *  Optional. A unique ID used to identify the request. If the service receives
- *  two CreateBatchRequest
- *  (https://cloud.google.com/dataproc/docs/reference/rpc/google.cloud.dataproc.v1#google.cloud.dataproc.v1.CreateBatchRequest)s
- *  with the same request_id, the second request is ignored and the Operation
- *  that corresponds to the first Batch created and stored in the backend is
- *  returned.Recommendation: Set this value to a UUID
+ *  two CreateBatchRequests with the same request_id, the second request is
+ *  ignored and the operation that corresponds to the first Batch created and
+ *  stored in the backend is returned.Recommendation: Set this value to a UUID
  *  (https://en.wikipedia.org/wiki/Universally_unique_identifier).The value must
  *  contain only letters (a-z, A-Z), numbers (0-9), underscores (_), and hyphens
  *  (-). The maximum length is 40 characters.
@@ -1862,8 +1860,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  When set to true, operations that are reachable are returned as normal, and
  *  those that are unreachable are returned in the
  *  ListOperationsResponse.unreachable field.This can only be true when reading
- *  across collections e.g. when parent is set to
- *  "projects/example/locations/-".This field is not by default supported and
+ *  across collections. For example, when parent is set to
+ *  "projects/example/locations/-".This field is not supported by default and
  *  will result in an UNIMPLEMENTED error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */
@@ -5630,8 +5628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  When set to true, operations that are reachable are returned as normal, and
  *  those that are unreachable are returned in the
  *  ListOperationsResponse.unreachable field.This can only be true when reading
- *  across collections e.g. when parent is set to
- *  "projects/example/locations/-".This field is not by default supported and
+ *  across collections. For example, when parent is set to
+ *  "projects/example/locations/-".This field is not supported by default and
  *  will result in an UNIMPLEMENTED error if set unless explicitly documented
  *  otherwise in service or product specific documentation.
  */

@@ -17,6 +17,8 @@
 @class GTLRServiceConsumerManagement_Api;
 @class GTLRServiceConsumerManagement_Aspect;
 @class GTLRServiceConsumerManagement_Aspect_Spec;
+@class GTLRServiceConsumerManagement_AspectRule;
+@class GTLRServiceConsumerManagement_AspectRule_Config;
 @class GTLRServiceConsumerManagement_Authentication;
 @class GTLRServiceConsumerManagement_AuthenticationRule;
 @class GTLRServiceConsumerManagement_AuthProvider;
@@ -1114,6 +1116,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /** The type of this aspect configuration. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** Optional. Rules of the Configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_AspectRule *> *rules;
+
 /**
  *  Content of the configuration. The underlying schema should be defined by
  *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
@@ -1133,6 +1138,41 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceConsumerManagement_Aspect_Spec : GTLRObject
+@end
+
+
+/**
+ *  Rule-based configuration for an aspect.
+ */
+@interface GTLRServiceConsumerManagement_AspectRule : GTLRObject
+
+/**
+ *  Required. Rules of the configuration. The underlying schema should be
+ *  defined by Aspect owners as protobuf message under
+ *  `google/api/configaspects/proto`.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceConsumerManagement_AspectRule_Config *config;
+
+/**
+ *  Required. Selects the RPC methods to which this rule applies. Refer to
+ *  selector for syntax details.
+ */
+@property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
+ *  Required. Rules of the configuration. The underlying schema should be
+ *  defined by Aspect owners as protobuf message under
+ *  `google/api/configaspects/proto`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceConsumerManagement_AspectRule_Config : GTLRObject
 @end
 
 
@@ -1854,8 +1894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 /**
  *  The service controller environment to use. If empty, no control plane
- *  feature (like quota and billing) will be enabled. The recommended value for
- *  most services is servicecontrol.googleapis.com
+ *  features (like quota and billing) will be enabled. The recommended value for
+ *  most services is servicecontrol.googleapis.com.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
@@ -2872,8 +2912,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -4325,7 +4366,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 /**
  *  Configuration for network endpoints. If this is empty, then an endpoint with
  *  the same name as the service is automatically generated to service all
- *  defined APIs.
+ *  defined APIs. WARNING: Defining any entries in the `endpoints` list disables
+ *  the automatic generation of default endpoint variations (e.g.,
+ *  `{service}.clients6.google.com`, `content-{service}.googleapis.com`, and
+ *  mTLS variants like `{service}.mtls.googleapis.com`). To retain these default
+ *  variations, you are required to explicitly include your main service
+ *  endpoint (e.g., `myservice.googleapis.com`) in this list alongside any other
+ *  custom endpoints (like REP, GFE, etc.).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_Endpoint *> *endpoints;
 
@@ -4361,7 +4408,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
 
 /**
  *  Defines the monitored resources used by this service. This is required by
- *  the Service.monitoring and Service.logging configurations.
+ *  the `Service.monitoring` and `Service.logging` configurations.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceConsumerManagement_MonitoredResourceDescriptor *> *monitoredResources;
 
@@ -4711,6 +4758,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceConsumerManagement_V1GenerateDefa
  *  Resource constituting the TenancyUnit.
  */
 @interface GTLRServiceConsumerManagement_TenantResource : GTLRObject
+
+/**
+ *  Output only. The newly created regional resource name of the tenant project
+ *  that has been migrated from a global service. This field is only set for
+ *  migrated tenant projects. Format:
+ *  `services//{collection_id}/{RESOURCE_ID}/locations/{LOCATION}/tenantProjects/{TENANT_ID}`.
+ */
+@property(nonatomic, copy, nullable) NSString *migratedTenantProject;
 
 /**
  *  Output only. \@OutputOnly Identifier of the tenant resource. For cloud

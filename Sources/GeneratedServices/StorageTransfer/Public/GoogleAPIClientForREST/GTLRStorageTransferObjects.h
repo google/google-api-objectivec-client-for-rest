@@ -2410,6 +2410,22 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageTransfer_TransferOptions_Overwrit
  */
 @property(nonatomic, strong, nullable) NSNumber *objectsFromSourceSkippedBySync;
 
+/**
+ *  Number of unrestored deep archive objects skipped.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unrestoredDeepArchiveObjectsSkippedCount;
+
+/**
+ *  Number of glacier objects skipped, glacier objects are unsupported by
+ *  default regardless of the restore status. Allowlist the project to copy
+ *  glacier objects if needed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unsupportedS3GlacierObjectsSkippedCount;
+
 @end
 
 

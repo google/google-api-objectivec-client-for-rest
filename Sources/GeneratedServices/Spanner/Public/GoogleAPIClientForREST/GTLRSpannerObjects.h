@@ -31,6 +31,8 @@
 @class GTLRSpanner_Binding;
 @class GTLRSpanner_ChangeQuorumRequest;
 @class GTLRSpanner_ChildLink;
+@class GTLRSpanner_ClientContext;
+@class GTLRSpanner_ClientContext_SecureContext;
 @class GTLRSpanner_ColumnMetadata;
 @class GTLRSpanner_CommitStats;
 @class GTLRSpanner_ContextValue;
@@ -182,6 +184,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_DatabaseDialect_GoogleSta
  *  Value: "POSTGRESQL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_DatabaseDialect_Postgresql;
+
+// ----------------------------------------------------------------------------
+// GTLRSpanner_Backup.minimumRestorableEdition
+
+/**
+ *  Edition not specified.
+ *
+ *  Value: "EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_MinimumRestorableEdition_EditionUnspecified;
+/**
+ *  Enterprise edition.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_MinimumRestorableEdition_Enterprise;
+/**
+ *  Enterprise Plus edition.
+ *
+ *  Value: "ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_MinimumRestorableEdition_EnterprisePlus;
+/**
+ *  Standard edition.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSpanner_Backup_MinimumRestorableEdition_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRSpanner_Backup.state
@@ -1617,6 +1647,49 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, strong, nullable) NSNumber *autoscalingTargetHighPriorityCpuUtilizationPercent;
 
+/**
+ *  Optional. If specified, overrides the autoscaling target
+ *  `total_cpu_utilization_percent` in the top-level autoscaling configuration
+ *  for the selected replicas.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *autoscalingTargetTotalCpuUtilizationPercent;
+
+/**
+ *  Optional. If true, disables high priority CPU autoscaling for the selected
+ *  replicas and ignores high_priority_cpu_utilization_percent in the top-level
+ *  autoscaling configuration. When setting this field to true, setting
+ *  autoscaling_target_high_priority_cpu_utilization_percent field to a non-zero
+ *  value for the same replica is not supported. If false, the
+ *  autoscaling_target_high_priority_cpu_utilization_percent field in the
+ *  replica will be used if set to a non-zero value. Otherwise, the
+ *  high_priority_cpu_utilization_percent field in the top-level autoscaling
+ *  configuration will be used. Setting both
+ *  disable_high_priority_cpu_autoscaling and disable_total_cpu_autoscaling to
+ *  true for the same replica is not supported.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableHighPriorityCpuAutoscaling;
+
+/**
+ *  Optional. If true, disables total CPU autoscaling for the selected replicas
+ *  and ignores total_cpu_utilization_percent in the top-level autoscaling
+ *  configuration. When setting this field to true, setting
+ *  autoscaling_target_total_cpu_utilization_percent field to a non-zero value
+ *  for the same replica is not supported. If false, the
+ *  autoscaling_target_total_cpu_utilization_percent field in the replica will
+ *  be used if set to a non-zero value. Otherwise, the
+ *  total_cpu_utilization_percent field in the top-level autoscaling
+ *  configuration will be used. Setting both
+ *  disable_high_priority_cpu_autoscaling and disable_total_cpu_autoscaling to
+ *  true for the same replica is not supported.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableTotalCpuAutoscaling;
+
 @end
 
 
@@ -1671,10 +1744,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_AutoscalingTargets : GTLRObject
 
 /**
- *  Required. The target high priority cpu utilization percentage that the
+ *  Optional. The target high priority cpu utilization percentage that the
  *  autoscaler should be trying to achieve for the instance. This number is on a
  *  scale from 0 (no utilization) to 100 (full utilization). The valid range is
- *  [10, 90] inclusive.
+ *  [10, 90] inclusive. If not specified or set to 0, the autoscaler skips
+ *  scaling based on high priority CPU utilization.
  *
  *  Uses NSNumber of intValue.
  */
@@ -1689,6 +1763,19 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *storageUtilizationPercent;
+
+/**
+ *  Optional. The target total CPU utilization percentage that the autoscaler
+ *  should be trying to achieve for the instance. This number is on a scale from
+ *  0 (no utilization) to 100 (full utilization). The valid range is [10, 90]
+ *  inclusive. If not specified or set to 0, the autoscaler skips scaling based
+ *  on total CPU utilization. If both `high_priority_cpu_utilization_percent`
+ *  and `total_cpu_utilization_percent` are specified, the autoscaler provisions
+ *  the larger of the two required compute capacities to satisfy both targets.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalCpuUtilizationPercent;
 
 @end
 
@@ -1808,6 +1895,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  `Backup.max_expire_time`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *maxExpireTime;
+
+/**
+ *  Output only. The minimum edition required to successfully restore the
+ *  backup. Populated only if the edition is Enterprise or Enterprise Plus.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSpanner_Backup_MinimumRestorableEdition_EditionUnspecified
+ *        Edition not specified. (Value: "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRSpanner_Backup_MinimumRestorableEdition_Enterprise Enterprise
+ *        edition. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRSpanner_Backup_MinimumRestorableEdition_EnterprisePlus
+ *        Enterprise Plus edition. (Value: "ENTERPRISE_PLUS")
+ *    @arg @c kGTLRSpanner_Backup_MinimumRestorableEdition_Standard Standard
+ *        edition. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *minimumRestorableEdition;
 
 /**
  *  Output only for the CreateBackup operation. Required for the UpdateBackup
@@ -2293,6 +2396,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @property(nonatomic, copy, nullable) NSString *variable;
 
+@end
+
+
+/**
+ *  Container for various pieces of client-owned context attached to a request.
+ */
+@interface GTLRSpanner_ClientContext : GTLRObject
+
+/**
+ *  Optional. Map of parameter name to value for this request. These values will
+ *  be returned by any SECURE_CONTEXT() calls invoked by this request (e.g., by
+ *  queries against Parameterized Secure Views).
+ */
+@property(nonatomic, strong, nullable) GTLRSpanner_ClientContext_SecureContext *secureContext;
+
+@end
+
+
+/**
+ *  Optional. Map of parameter name to value for this request. These values will
+ *  be returned by any SECURE_CONTEXT() calls invoked by this request (e.g., by
+ *  queries against Parameterized Secure Views).
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSpanner_ClientContext_SecureContext : GTLRObject
 @end
 
 
@@ -6136,9 +6268,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @interface GTLRSpanner_PartitionQueryRequest : GTLRObject
 
 /**
- *  Parameter names and values that bind to placeholders in the SQL string. A
- *  parameter placeholder consists of the `\@` character followed by the
- *  parameter name (for example, `\@firstName`). Parameter names can contain
+ *  Optional. Parameter names and values that bind to placeholders in the SQL
+ *  string. A parameter placeholder consists of the `\@` character followed by
+ *  the parameter name (for example, `\@firstName`). Parameter names can contain
  *  letters, numbers, and underscores. Parameters can appear anywhere that a
  *  literal value is expected. The same parameter name can be used more than
  *  once, for example: `"WHERE id > \@msg_id AND id < \@msg_id + 100"` It's an
@@ -6147,9 +6279,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, strong, nullable) GTLRSpanner_PartitionQueryRequest_Params *params;
 
 /**
- *  It isn't always possible for Cloud Spanner to infer the right SQL type from
- *  a JSON value. For example, values of type `BYTES` and values of type
- *  `STRING` both appear in params as JSON strings. In these cases,
+ *  Optional. It isn't always possible for Cloud Spanner to infer the right SQL
+ *  type from a JSON value. For example, values of type `BYTES` and values of
+ *  type `STRING` both appear in params as JSON strings. In these cases,
  *  `param_types` can be used to specify the exact SQL type for some or all of
  *  the SQL query parameters. See the definition of Type for more information
  *  about SQL types.
@@ -6182,9 +6314,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
- *  Parameter names and values that bind to placeholders in the SQL string. A
- *  parameter placeholder consists of the `\@` character followed by the
- *  parameter name (for example, `\@firstName`). Parameter names can contain
+ *  Optional. Parameter names and values that bind to placeholders in the SQL
+ *  string. A parameter placeholder consists of the `\@` character followed by
+ *  the parameter name (for example, `\@firstName`). Parameter names can contain
  *  letters, numbers, and underscores. Parameters can appear anywhere that a
  *  literal value is expected. The same parameter name can be used more than
  *  once, for example: `"WHERE id > \@msg_id AND id < \@msg_id + 100"` It's an
@@ -6200,9 +6332,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 
 /**
- *  It isn't always possible for Cloud Spanner to infer the right SQL type from
- *  a JSON value. For example, values of type `BYTES` and values of type
- *  `STRING` both appear in params as JSON strings. In these cases,
+ *  Optional. It isn't always possible for Cloud Spanner to infer the right SQL
+ *  type from a JSON value. For example, values of type `BYTES` and values of
+ *  type `STRING` both appear in params as JSON strings. In these cases,
  *  `param_types` can be used to specify the exact SQL type for some or all of
  *  the SQL query parameters. See the definition of Type for more information
  *  about SQL types.
@@ -7037,6 +7169,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  */
 @interface GTLRSpanner_RequestOptions : GTLRObject
 
+/** Optional. Optional context that may be needed for some requests. */
+@property(nonatomic, strong, nullable) GTLRSpanner_ClientContext *clientContext;
+
 /**
  *  Priority for the request.
  *
@@ -7068,13 +7203,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /**
  *  A tag used for statistics collection about this transaction. Both
  *  `request_tag` and `transaction_tag` can be specified for a read or query
- *  that belongs to a transaction. The value of transaction_tag should be the
- *  same for all requests belonging to the same transaction. If this request
- *  doesn't belong to any transaction, `transaction_tag` is ignored. Legal
- *  characters for `transaction_tag` values are all printable characters (ASCII
- *  32 - 126) and the length of a `transaction_tag` is limited to 50 characters.
- *  Values that exceed this limit are truncated. Any leading underscore (_)
- *  characters are removed from the string.
+ *  that belongs to a transaction. To enable tagging on a transaction,
+ *  `transaction_tag` must be set to the same value for all requests belonging
+ *  to the same transaction, including BeginTransaction. If this request doesn't
+ *  belong to any transaction, `transaction_tag` is ignored. Legal characters
+ *  for `transaction_tag` values are all printable characters (ASCII 32 - 126)
+ *  and the length of a `transaction_tag` is limited to 50 characters. Values
+ *  that exceed this limit are truncated. Any leading underscore (_) characters
+ *  are removed from the string.
  */
 @property(nonatomic, copy, nullable) NSString *transactionTag;
 

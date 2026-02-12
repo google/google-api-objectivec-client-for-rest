@@ -1981,7 +1981,7 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 
 @implementation GTLRNetworkServices_TlsRoute
 @dynamic createTime, descriptionProperty, gateways, labels, meshes, name, rules,
-         selfLink, updateTime;
+         selfLink, targetProxies, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1991,7 +1991,8 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
   NSDictionary<NSString *, Class> *map = @{
     @"gateways" : [NSString class],
     @"meshes" : [NSString class],
-    @"rules" : [GTLRNetworkServices_TlsRouteRouteRule class]
+    @"rules" : [GTLRNetworkServices_TlsRouteRouteRule class],
+    @"targetProxies" : [NSString class]
   };
   return map;
 }

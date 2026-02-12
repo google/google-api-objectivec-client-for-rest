@@ -1735,7 +1735,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta3Dataset
 @dynamic documentWarehouseConfig, gcsManagedConfig, name, satisfiesPzi,
-         satisfiesPzs, spannerIndexingConfig, state, unmanagedDatasetConfig;
+         satisfiesPzs, state, unmanagedDatasetConfig;
 @end
 
 
@@ -1756,15 +1756,6 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetGCSManagedConfig
 @dynamic gcsPrefix;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetSpannerIndexingConfig
-//
-
-@implementation GTLRDocument_GoogleCloudDocumentaiV1beta3DatasetSpannerIndexingConfig
 @end
 
 
@@ -1871,7 +1862,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchema
-@dynamic descriptionProperty, displayName, entityTypes, metadata;
+@dynamic descriptionProperty, displayName, documentPrompt, entityTypes,
+         metadata;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3273,7 +3265,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentSchema
-@dynamic descriptionProperty, displayName, entityTypes, metadata;
+@dynamic descriptionProperty, displayName, documentPrompt, entityTypes,
+         metadata;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3489,7 +3482,15 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1Evaluation
 @dynamic allEntitiesMetrics, createTime, documentCounters, entityMetrics,
-         kmsKeyName, kmsKeyVersionName, name;
+         kmsKeyName, kmsKeyVersionName, name, revisions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"revisions" : [GTLRDocument_GoogleCloudDocumentaiV1EvaluationEvaluationRevision class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3525,6 +3526,30 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 @implementation GTLRDocument_GoogleCloudDocumentaiV1EvaluationCounters
 @dynamic evaluatedDocumentsCount, failedDocumentsCount, inputDocumentsCount,
          invalidDocumentsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1EvaluationEvaluationRevision
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1EvaluationEvaluationRevision
+@dynamic allEntitiesMetrics, documentCounters, entityMetrics, revisionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocument_GoogleCloudDocumentaiV1EvaluationEvaluationRevision_EntityMetrics
+//
+
+@implementation GTLRDocument_GoogleCloudDocumentaiV1EvaluationEvaluationRevision_EntityMetrics
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDocument_GoogleCloudDocumentaiV1EvaluationMultiConfidenceMetrics class];
+}
+
 @end
 
 

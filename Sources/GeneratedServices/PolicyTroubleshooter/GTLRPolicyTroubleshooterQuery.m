@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Policy Troubleshooter API (policytroubleshooter/v1)
+//   Policy Troubleshooter API (policytroubleshooter/v3)
 // Documentation:
 //   https://cloud.google.com/iam/
 
@@ -16,20 +16,20 @@
 
 @implementation GTLRPolicyTroubleshooterQuery_IamTroubleshoot
 
-+ (instancetype)queryWithObject:(GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyRequest *)object {
++ (instancetype)queryWithObject:(GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyRequest *)object {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
 #endif
     return nil;
   }
-  NSString *pathURITemplate = @"v1/iam:troubleshoot";
+  NSString *pathURITemplate = @"v3/iam:troubleshoot";
   GTLRPolicyTroubleshooterQuery_IamTroubleshoot *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:nil];
   query.bodyObject = object;
-  query.expectedObjectClass = [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse class];
+  query.expectedObjectClass = [GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyResponse class];
   query.loggingName = @"policytroubleshooter.iam.troubleshoot";
   return query;
 }

@@ -256,14 +256,16 @@ NSString * const kGTLRAccessApproval_SignatureInfo_GoogleKeyAlgorithm_RsaSignRaw
 //
 
 @implementation GTLRAccessApproval_Settings
-@dynamic activeKeyVersion, ancestorHasActiveKeyVersion, approvalPolicy,
-         effectiveApprovalPolicy, enrolledAncestor, enrolledServices,
-         invalidKeyVersion, name, notificationEmails, notificationPubsubTopic,
+@dynamic activeKeyVersion, ancestorHasActiveKeyVersion,
+         ancestorsEnrolledServices, approvalPolicy, effectiveApprovalPolicy,
+         enrolledAncestor, enrolledServices, invalidKeyVersion, name,
+         notificationEmails, notificationPubsubTopic,
          preferNoBroadApprovalRequests, preferredRequestExpirationDays,
          requestScopeMaxWidthPreference, requireCustomerVisibleJustification;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"ancestorsEnrolledServices" : [GTLRAccessApproval_EnrolledService class],
     @"enrolledServices" : [GTLRAccessApproval_EnrolledService class],
     @"notificationEmails" : [NSString class]
   };

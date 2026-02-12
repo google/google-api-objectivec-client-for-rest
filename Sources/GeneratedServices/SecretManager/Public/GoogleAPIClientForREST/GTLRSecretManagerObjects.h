@@ -26,6 +26,9 @@
 @class GTLRSecretManager_Location;
 @class GTLRSecretManager_Location_Labels;
 @class GTLRSecretManager_Location_Metadata;
+@class GTLRSecretManager_Operation;
+@class GTLRSecretManager_Operation_Metadata;
+@class GTLRSecretManager_Operation_Response;
 @class GTLRSecretManager_Policy;
 @class GTLRSecretManager_Replica;
 @class GTLRSecretManager_ReplicaStatus;
@@ -39,6 +42,8 @@
 @class GTLRSecretManager_Secret_VersionAliases;
 @class GTLRSecretManager_SecretPayload;
 @class GTLRSecretManager_SecretVersion;
+@class GTLRSecretManager_Status;
+@class GTLRSecretManager_Status_Details_Item;
 @class GTLRSecretManager_Topic;
 @class GTLRSecretManager_UserManaged;
 @class GTLRSecretManager_UserManagedStatus;
@@ -487,6 +492,38 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 
 /**
+ *  The response message for Operations.ListOperations.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "operations" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRSecretManager_ListOperationsResponse : GTLRCollectionObject
+
+/** The standard List next-page token. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of operations that matches the specified filter in the request.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecretManager_Operation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response message for SecretManagerService.ListSecrets.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -614,6 +651,124 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRSecretManager_Location_Metadata : GTLRObject
+@end
+
+
+/**
+ *  This resource represents a long-running operation that is the result of a
+ *  network API call.
+ */
+@interface GTLRSecretManager_Operation : GTLRObject
+
+/**
+ *  If the value is `false`, it means the operation is still in progress. If
+ *  `true`, the operation is completed, and either `error` or `response` is
+ *  available.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *done;
+
+/** The error result of the operation in case of failure or cancellation. */
+@property(nonatomic, strong, nullable) GTLRSecretManager_Status *error;
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_Operation_Metadata *metadata;
+
+/**
+ *  The server-assigned name, which is only unique within the same service that
+ *  originally returns it. If you use the default HTTP mapping, the `name`
+ *  should be a resource name ending with `operations/{unique_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_Operation_Response *response;
+
+@end
+
+
+/**
+ *  Service-specific metadata associated with the operation. It typically
+ *  contains progress information and common metadata such as create time. Some
+ *  services might not provide such metadata. Any method that returns a
+ *  long-running operation should document the metadata type, if any.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSecretManager_Operation_Metadata : GTLRObject
+@end
+
+
+/**
+ *  The normal, successful response of the operation. If the original method
+ *  returns no data on success, such as `Delete`, the response is
+ *  `google.protobuf.Empty`. If the original method is standard
+ *  `Get`/`Create`/`Update`, the response should be the resource. For other
+ *  methods, the response should have the type `XxxResponse`, where `Xxx` is the
+ *  original method name. For example, if the original method name is
+ *  `TakeSnapshot()`, the inferred response type is `TakeSnapshotResponse`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSecretManager_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRSecretManager_OperationMetadata : GTLRObject
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have been cancelled successfully have
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of
+ *  `1`, corresponding to `Code.CANCELLED`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
 @end
 
 
@@ -1122,6 +1277,51 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRSecretManager_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecretManager_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRSecretManager_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSecretManager_Status_Details_Item : GTLRObject
 @end
 
 

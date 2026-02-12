@@ -5876,57 +5876,6 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 
 @end
 
-/**
- *  Retrieves a batch of VideoStat resources, possibly filtered.
- *
- *  Method: youtube.youtube.v3.videos.batchGetStats
- */
-@interface GTLRYouTubeQuery_YoutubeV3VideosBatchGetStats : GTLRYouTubeQuery
-
-/**
- *  Required. Return videos with the given ids. The number of IDs specified
- *  cannot exceed 50.
- *
- *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *identifier;
-
-/**
- *  Optional. **Note:** This parameter is intended exclusively for YouTube
- *  content partners. The `onBehalfOfContentOwner` parameter indicates that the
- *  request's authorization credentials identify a YouTube CMS user who is
- *  acting on behalf of the content owner specified in the parameter value. This
- *  parameter is intended for YouTube content partners that own and manage many
- *  different YouTube channels. It allows content owners to authenticate once
- *  and get access to all their video and channel data, without having to
- *  provide authentication credentials for each individual channel. The CMS
- *  account that the user authenticates with must be linked to the specified
- *  YouTube content owner.
- */
-@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwner;
-
-/**
- *  Required. The `**part**` parameter specifies a comma-separated list of one
- *  or more `videoStat` resource properties that the API response will include.
- *  If the parameter identifies a property that contains child properties, the
- *  child properties will be included in the response. For example, in a
- *  `videoStat` resource, the `statistics` property contains `view_count` and
- *  `like_count`. As such, if you set `**part=snippet**`, the API response will
- *  contain all of those properties.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *part;
-
-/**
- *  Fetches a @c GTLRYouTube_BatchGetStatsResponse.
- *
- *  Retrieves a batch of VideoStat resources, possibly filtered.
- *
- *  @return GTLRYouTubeQuery_YoutubeV3VideosBatchGetStats
- */
-+ (instancetype)query;
-
-@end
-
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

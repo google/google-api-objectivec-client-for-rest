@@ -10,6 +10,17 @@
 
 #import <GoogleAPIClientForREST/GTLRKmsinventoryObjects.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// fallbackScope
+NSString * const kGTLRKmsinventoryFallbackScopeFallbackScopeProject = @"FALLBACK_SCOPE_PROJECT";
+NSString * const kGTLRKmsinventoryFallbackScopeFallbackScopeUnspecified = @"FALLBACK_SCOPE_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRKmsinventoryQuery
 
 @dynamic fields;
@@ -63,7 +74,7 @@
 
 @implementation GTLRKmsinventoryQuery_ProjectsLocationsKeyRingsCryptoKeysGetProtectedResourcesSummary
 
-@dynamic name;
+@dynamic fallbackScope, name;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -75,6 +86,32 @@
   query.name = name;
   query.expectedObjectClass = [GTLRKmsinventory_GoogleCloudKmsInventoryV1ProtectedResourcesSummary class];
   query.loggingName = @"kmsinventory.projects.locations.keyRings.cryptoKeys.getProtectedResourcesSummary";
+  return query;
+}
+
+@end
+
+@implementation GTLRKmsinventoryQuery_ProjectsProtectedResourcesSearch
+
+@dynamic cryptoKey, pageSize, pageToken, resourceTypes, scope;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceTypes" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithScope:(NSString *)scope {
+  NSArray *pathParams = @[ @"scope" ];
+  NSString *pathURITemplate = @"v1/{+scope}/protectedResources:search";
+  GTLRKmsinventoryQuery_ProjectsProtectedResourcesSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.scope = scope;
+  query.expectedObjectClass = [GTLRKmsinventory_GoogleCloudKmsInventoryV1SearchProtectedResourcesResponse class];
+  query.loggingName = @"kmsinventory.projects.protectedResources.search";
   return query;
 }
 

@@ -987,11 +987,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_HparamTuningTrial_Status_TrialS
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_IncrementalResultStats_DisabledReason_DisabledReasonUnspecified;
 /**
- *  Some other reason.
+ *  Incremental results are/were disabled for reasons not covered by the other
+ *  enum values, e.g. runtime issues.
  *
  *  Value: "OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_IncrementalResultStats_DisabledReason_Other;
+/**
+ *  Query includes an operation that is not supported.
+ *
+ *  Value: "UNSUPPORTED_OPERATOR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_IncrementalResultStats_DisabledReason_UnsupportedOperator;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_IndexUnusedReason.code
@@ -7735,25 +7742,31 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_IncrementalResultStats : GTLRObject
 
 /**
- *  Reason why incremental query results are/were not written by the query.
+ *  Output only. Reason why incremental query results are/were not written by
+ *  the query.
  *
  *  Likely values:
  *    @arg @c kGTLRBigquery_IncrementalResultStats_DisabledReason_DisabledReasonUnspecified
  *        Disabled reason not specified. (Value: "DISABLED_REASON_UNSPECIFIED")
- *    @arg @c kGTLRBigquery_IncrementalResultStats_DisabledReason_Other Some
- *        other reason. (Value: "OTHER")
+ *    @arg @c kGTLRBigquery_IncrementalResultStats_DisabledReason_Other
+ *        Incremental results are/were disabled for reasons not covered by the
+ *        other enum values, e.g. runtime issues. (Value: "OTHER")
+ *    @arg @c kGTLRBigquery_IncrementalResultStats_DisabledReason_UnsupportedOperator
+ *        Query includes an operation that is not supported. (Value:
+ *        "UNSUPPORTED_OPERATOR")
  */
 @property(nonatomic, copy, nullable) NSString *disabledReason;
 
 /**
- *  The time at which the result table's contents were modified. May be absent
- *  if no results have been written or the query has completed.
+ *  Output only. The time at which the result table's contents were modified.
+ *  May be absent if no results have been written or the query has completed.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *resultSetLastModifyTime;
 
 /**
- *  The time at which the result table's contents were completely replaced. May
- *  be absent if no results have been written or the query has completed.
+ *  Output only. The time at which the result table's contents were completely
+ *  replaced. May be absent if no results have been written or the query has
+ *  completed.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *resultSetLastReplaceTime;
 
@@ -8924,10 +8937,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Optional. Specifies whether to use BigQuery's legacy SQL dialect for this
- *  query. The default value is true. If set to false, the query will use
- *  BigQuery's GoogleSQL: https://cloud.google.com/bigquery/sql-reference/ When
- *  useLegacySql is set to false, the value of flattenResults is ignored; query
- *  will be run as if flattenResults is false.
+ *  query. The default value is true. If set to false, the query uses BigQuery's
+ *  [GoogleSQL](https://docs.cloud.google.com/bigquery/docs/introduction-sql).
+ *  When useLegacySql is set to false, the value of flattenResults is ignored;
+ *  query will be run as if flattenResults is false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -11485,10 +11498,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Specifies whether to use BigQuery's legacy SQL dialect for this query. The
- *  default value is true. If set to false, the query will use BigQuery's
- *  GoogleSQL: https://cloud.google.com/bigquery/sql-reference/ When
- *  useLegacySql is set to false, the value of flattenResults is ignored; query
- *  will be run as if flattenResults is false.
+ *  default value is true. If set to false, the query uses BigQuery's
+ *  [GoogleSQL](https://docs.cloud.google.com/bigquery/docs/introduction-sql).
+ *  When useLegacySql is set to false, the value of flattenResults is ignored;
+ *  query will be run as if flattenResults is false.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -15553,10 +15566,10 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /**
  *  Specifies whether to use BigQuery's legacy SQL for this view. The default
- *  value is true. If set to false, the view will use BigQuery's GoogleSQL:
- *  https://cloud.google.com/bigquery/sql-reference/ Queries and views that
- *  reference this view must use the same flag value. A wrapper is used here
- *  because the default value is True.
+ *  value is true. If set to false, the view uses BigQuery's
+ *  [GoogleSQL](https://docs.cloud.google.com/bigquery/docs/introduction-sql).
+ *  Queries and views that reference this view must use the same flag value. A
+ *  wrapper is used here because the default value is True.
  *
  *  Uses NSNumber of boolValue.
  */

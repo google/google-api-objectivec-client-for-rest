@@ -1869,6 +1869,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 /** Links to trigger different Google Maps actions. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceGoogleMapsLinks *googleMapsLinks;
 
+/**
+ *  The type label of the place on Google Maps, localized to the request
+ *  language if applicable, for example, "Restaurant", "Cafe", "Airport", etc.
+ *  The type label may be different from the primary type display name and may
+ *  not be a supported type in [Places API Place Types
+ *  table](https://developers.google.com/maps/documentation/places/web-service/place-types).
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeLocalizedText *googleMapsTypeLabel;
+
 /** A URL providing more information about this place. */
 @property(nonatomic, copy, nullable) NSString *googleMapsUri;
 

@@ -23,6 +23,8 @@
 @class GTLRServiceUsage_Api;
 @class GTLRServiceUsage_Aspect;
 @class GTLRServiceUsage_Aspect_Spec;
+@class GTLRServiceUsage_AspectRule;
+@class GTLRServiceUsage_AspectRule_Config;
 @class GTLRServiceUsage_Authentication;
 @class GTLRServiceUsage_AuthenticationRule;
 @class GTLRServiceUsage_AuthProvider;
@@ -69,6 +71,8 @@
 @class GTLRServiceUsage_GoogleApiServiceusageV2betaAnalysisResult;
 @class GTLRServiceUsage_GoogleApiServiceusageV2betaEnableRule;
 @class GTLRServiceUsage_GoogleApiServiceusageV2betaImpact;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaMcpEnableRule;
+@class GTLRServiceUsage_GoogleApiServiceusageV2betaMcpService;
 @class GTLRServiceUsage_GoSettings;
 @class GTLRServiceUsage_GoSettings_RenamedServices;
 @class GTLRServiceUsage_Http;
@@ -1398,6 +1402,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /** The type of this aspect configuration. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** Optional. Rules of the Configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_AspectRule *> *rules;
+
 /**
  *  Content of the configuration. The underlying schema should be defined by
  *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
@@ -1417,6 +1424,41 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceUsage_Aspect_Spec : GTLRObject
+@end
+
+
+/**
+ *  Rule-based configuration for an aspect.
+ */
+@interface GTLRServiceUsage_AspectRule : GTLRObject
+
+/**
+ *  Required. Rules of the configuration. The underlying schema should be
+ *  defined by Aspect owners as protobuf message under
+ *  `google/api/configaspects/proto`.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceUsage_AspectRule_Config *config;
+
+/**
+ *  Required. Selects the RPC methods to which this rule applies. Refer to
+ *  selector for syntax details.
+ */
+@property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
+ *  Required. Rules of the configuration. The underlying schema should be
+ *  defined by Aspect owners as protobuf message under
+ *  `google/api/configaspects/proto`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceUsage_AspectRule_Config : GTLRObject
 @end
 
 
@@ -2270,8 +2312,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  The service controller environment to use. If empty, no control plane
- *  feature (like quota and billing) will be enabled. The recommended value for
- *  most services is servicecontrol.googleapis.com
+ *  features (like quota and billing) will be enabled. The recommended value for
+ *  most services is servicecontrol.googleapis.com.
  */
 @property(nonatomic, copy, nullable) NSString *environment;
 
@@ -3113,7 +3155,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /**
  *  Configuration for network endpoints. If this is empty, then an endpoint with
  *  the same name as the service is automatically generated to service all
- *  defined APIs.
+ *  defined APIs. WARNING: Defining any entries in the `endpoints` list disables
+ *  the automatic generation of default endpoint variations (e.g.,
+ *  `{service}.clients6.google.com`, `content-{service}.googleapis.com`, and
+ *  mTLS variants like `{service}.mtls.googleapis.com`). To retain these default
+ *  variations, you are required to explicitly include your main service
+ *  endpoint (e.g., `myservice.googleapis.com`) in this list alongside any other
+ *  custom endpoints (like REP, GFE, etc.).
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Endpoint *> *endpoints;
 
@@ -3149,7 +3197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  Defines the monitored resources used by this service. This is required by
- *  the Service.monitoring and Service.logging configurations.
+ *  the `Service.monitoring` and `Service.logging` configurations.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_MonitoredResourceDescriptor *> *monitoredResources;
 
@@ -3629,9 +3677,78 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
+ *  McpEnableRule contains MCP enablement related rules.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaMcpEnableRule : GTLRObject
+
+/** List of enabled MCP services. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2betaMcpService *> *mcpServices;
+
+@end
+
+
+/**
+ *  MCP Consumer Policy is a set of rules that define MCP related policy for a
+ *  cloud resource hierarchy.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaMcpPolicy : GTLRObject
+
+/**
+ *  Output only. The time the policy was created. For singleton policies (such
+ *  as the `default` policy), this is the first touch of the policy.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  An opaque tag indicating the current version of the policy, used for
+ *  concurrency control.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** McpEnableRules contains MCP enablement related rules. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_GoogleApiServiceusageV2betaMcpEnableRule *> *mcpEnableRules;
+
+/**
+ *  Output only. The resource name of the policy. Only the `default` policy is
+ *  supported. We allow the following formats:
+ *  `projects/{PROJECT_NUMBER}/mcpPolicies/default`,
+ *  `projects/{PROJECT_ID}/mcpPolicies/default`,
+ *  `folders/{FOLDER_ID}/mcpPolicies/default`,
+ *  `organizations/{ORG_ID}/mcpPolicies/default`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The time the policy was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  McpService contains the service names that are enabled for MCP.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaMcpService : GTLRObject
+
+/**
+ *  The names of the services that are enabled for MCP. Example:
+ *  `services/library-example.googleapis.com`
+ */
+@property(nonatomic, copy, nullable) NSString *service;
+
+@end
+
+
+/**
  *  Metadata for the `UpdateConsumerPolicy` method.
  */
 @interface GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateConsumerPolicyMetadata : GTLRObject
+@end
+
+
+/**
+ *  Metadata for the `UpdateMcpPolicy` method.
+ */
+@interface GTLRServiceUsage_GoogleApiServiceusageV2betaUpdateMcpPolicyMetadata : GTLRObject
 @end
 
 
@@ -4135,8 +4252,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 

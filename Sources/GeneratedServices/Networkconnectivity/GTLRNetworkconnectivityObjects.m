@@ -26,6 +26,25 @@ NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_DataRead = @"DA
 NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRNetworkconnectivity_AutomatedDnsRecord.creationMode
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_CreationMode_ConsumerApi = @"CONSUMER_API";
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_CreationMode_CreationModeUnspecified = @"CREATION_MODE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_CreationMode_ServiceConnectionMap = @"SERVICE_CONNECTION_MAP";
+
+// GTLRNetworkconnectivity_AutomatedDnsRecord.recordType
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_A = @"A";
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_Aaaa = @"AAAA";
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_Cname = @"CNAME";
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_RecordTypeUnspecified = @"RECORD_TYPE_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_Txt = @"TXT";
+
+// GTLRNetworkconnectivity_AutomatedDnsRecord.state
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_State_FailedDeprogramming = @"FAILED_DEPROGRAMMING";
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_State_Programmed = @"PROGRAMMED";
+NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRNetworkconnectivity_CheckConsumerConfigRequest.requestedIpVersion
 NSString * const kGTLRNetworkconnectivity_CheckConsumerConfigRequest_RequestedIpVersion_Ipv4 = @"IPV4";
 NSString * const kGTLRNetworkconnectivity_CheckConsumerConfigRequest_RequestedIpVersion_Ipv6 = @"IPV6";
@@ -408,7 +427,7 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_AutoCreatedSubnetworkInfo
-@dynamic internalRange, internalRangeRef, subnetwork, subnetworkRef;
+@dynamic delinked, internalRange, internalRangeRef, subnetwork, subnetworkRef;
 @end
 
 
@@ -419,6 +438,42 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_AutomatedDnsCreationSpec
 @dynamic dnsSuffix, hostname, ttl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_AutomatedDnsRecord
+//
+
+@implementation GTLRNetworkconnectivity_AutomatedDnsRecord
+@dynamic consumerNetwork, createTime, creationMode, currentConfig,
+         descriptionProperty, dnsSuffix, dnsZone, ETag, fqdn, hostname, labels,
+         name, originalConfig, recordType, serviceClass, state, stateDetails,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"ETag" : @"etag"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_AutomatedDnsRecord_Labels
+//
+
+@implementation GTLRNetworkconnectivity_AutomatedDnsRecord_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -461,6 +516,24 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"errors" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_Config
+//
+
+@implementation GTLRNetworkconnectivity_Config
+@dynamic rrdatas, ttl;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rrdatas" : [NSString class]
   };
   return map;
 }
@@ -984,6 +1057,29 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
     @"uris" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_ListAutomatedDnsRecordsResponse
+//
+
+@implementation GTLRNetworkconnectivity_ListAutomatedDnsRecordsResponse
+@dynamic automatedDnsRecords, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"automatedDnsRecords" : [GTLRNetworkconnectivity_AutomatedDnsRecord class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"automatedDnsRecords";
 }
 
 @end

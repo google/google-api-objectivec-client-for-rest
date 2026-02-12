@@ -6132,6 +6132,13 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @interface GTLRComputeQuery_FirewallPoliciesListAssociations : GTLRComputeQuery
 
 /**
+ *  If set to "true", the response will contain a list of all associations for
+ *  the containing folders and the containing organization of the target. The
+ *  parameter has no effect if the target is an organization.
+ */
+@property(nonatomic, assign) BOOL includeInheritedPolicies;
+
+/**
  *  The target resource to list associations. It is an organization, or a
  *  folder.
  */
@@ -8981,6 +8988,18 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 /**
  *  Creates a network endpoint group in the specified project using the
  *  parameters that are included in the request.
+ *  Note: Use the following APIs to manage network endpoint groups:
+ *  -
+ *  To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+ *  NEGs): zonal
+ *  API
+ *  -
+ *  To manage NEGs with regional scope (such as regional internet NEGs,
+ *  serverless NEGs, Private Service Connect NEGs): regional
+ *  API
+ *  -
+ *  To manage NEGs with global scope (such as global internet NEGs):global
+ *  API
  *
  *  Method: compute.globalNetworkEndpointGroups.insert
  *
@@ -9013,6 +9032,18 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *
  *  Creates a network endpoint group in the specified project using the
  *  parameters that are included in the request.
+ *  Note: Use the following APIs to manage network endpoint groups:
+ *  -
+ *  To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+ *  NEGs): zonal
+ *  API
+ *  -
+ *  To manage NEGs with regional scope (such as regional internet NEGs,
+ *  serverless NEGs, Private Service Connect NEGs): regional
+ *  API
+ *  -
+ *  To manage NEGs with global scope (such as global internet NEGs):global
+ *  API
  *
  *  @param object The @c GTLRCompute_NetworkEndpointGroup to include in the
  *    query.
@@ -25244,6 +25275,18 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 /**
  *  Creates a network endpoint group in the specified project using the
  *  parameters that are included in the request.
+ *  Note: Use the following APIs to manage network endpoint groups:
+ *  -
+ *  To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+ *  NEGs): zonal
+ *  API
+ *  -
+ *  To manage NEGs with regional scope (such as regional internet NEGs,
+ *  serverless NEGs, Private Service Connect NEGs): regional
+ *  API
+ *  -
+ *  To manage NEGs with global scope (such as global internet NEGs):global
+ *  API
  *
  *  Method: compute.networkEndpointGroups.insert
  *
@@ -25285,6 +25328,18 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *
  *  Creates a network endpoint group in the specified project using the
  *  parameters that are included in the request.
+ *  Note: Use the following APIs to manage network endpoint groups:
+ *  -
+ *  To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+ *  NEGs): zonal
+ *  API
+ *  -
+ *  To manage NEGs with regional scope (such as regional internet NEGs,
+ *  serverless NEGs, Private Service Connect NEGs): regional
+ *  API
+ *  -
+ *  To manage NEGs with global scope (such as global internet NEGs):global
+ *  API
  *
  *  @param object The @c GTLRCompute_NetworkEndpointGroup to include in the
  *    query.
@@ -36289,6 +36344,47 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.regionHealthCheckServices.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthCheckServicesTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthCheckServicesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Returns the specified HealthCheck resource.
  *
  *  Method: compute.regionHealthChecks.get
@@ -40048,6 +40144,18 @@ GTLR_DEPRECATED
 /**
  *  Creates a network endpoint group in the specified project using the
  *  parameters that are included in the request.
+ *  Note: Use the following APIs to manage network endpoint groups:
+ *  -
+ *  To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+ *  NEGs): zonal
+ *  API
+ *  -
+ *  To manage NEGs with regional scope (such as regional internet NEGs,
+ *  serverless NEGs, Private Service Connect NEGs): regional
+ *  API
+ *  -
+ *  To manage NEGs with global scope (such as global internet NEGs):global
+ *  API
  *
  *  Method: compute.regionNetworkEndpointGroups.insert
  *
@@ -40087,6 +40195,18 @@ GTLR_DEPRECATED
  *
  *  Creates a network endpoint group in the specified project using the
  *  parameters that are included in the request.
+ *  Note: Use the following APIs to manage network endpoint groups:
+ *  -
+ *  To manage NEGs with zonal scope (such as zonal NEGs, hybrid connectivity
+ *  NEGs): zonal
+ *  API
+ *  -
+ *  To manage NEGs with regional scope (such as regional internet NEGs,
+ *  serverless NEGs, Private Service Connect NEGs): regional
+ *  API
+ *  -
+ *  To manage NEGs with global scope (such as global internet NEGs):global
+ *  API
  *
  *  @param object The @c GTLRCompute_NetworkEndpointGroup to include in the
  *    query.
@@ -45958,6 +46078,265 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Retrieves information about the specified reservation slot.
+ *
+ *  Method: compute.reservationSlots.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ReservationSlotsGet : GTLRComputeQuery
+
+/**
+ *  The name of the parent reservation and parent block, formatted as
+ *  reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/** The project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the reservation slot, formatted as RFC1035 or a resource ID
+ *  number.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationSlot;
+
+/**
+ *  The name of the zone for this request, formatted as RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_ReservationSlotsGetResponse.
+ *
+ *  Retrieves information about the specified reservation slot.
+ *
+ *  @param project The project ID for this request.
+ *  @param zoneProperty The name of the zone for this request, formatted as
+ *    RFC1035.
+ *  @param parentName The name of the parent reservation and parent block,
+ *    formatted as
+ *    reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+ *  @param reservationSlot The name of the reservation slot, formatted as
+ *    RFC1035 or a resource ID
+ *    number.
+ *
+ *  @return GTLRComputeQuery_ReservationSlotsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                      parentName:(NSString *)parentName
+                 reservationSlot:(NSString *)reservationSlot;
+
+@end
+
+/**
+ *  Retrieves a list of reservation slots under a single reservation.
+ *
+ *  Method: compute.reservationSlots.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ReservationSlotsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  The name of the parent reservation and parent block, formatted as
+ *  reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/** The project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ *  For example, when partial success behavior is enabled, aggregatedList for a
+ *  single zone scope either returns all resources in the zone or no resources,
+ *  with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The name of the zone for this request, formatted as RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_ReservationSlotsListResponse.
+ *
+ *  Retrieves a list of reservation slots under a single reservation.
+ *
+ *  @param project The project ID for this request.
+ *  @param zoneProperty The name of the zone for this request, formatted as
+ *    RFC1035.
+ *  @param parentName The name of the parent reservation and parent block,
+ *    formatted as
+ *    reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+ *
+ *  @return GTLRComputeQuery_ReservationSlotsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                      parentName:(NSString *)parentName;
+
+@end
+
+/**
+ *  Update a reservation slot in the specified sub-block.
+ *
+ *  Method: compute.reservationSlots.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ReservationSlotsUpdate : GTLRComputeQuery
+
+/** The name of the sub-block resource. */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/** The project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the slot resource. */
+@property(nonatomic, copy, nullable) NSString *reservationSlot;
+
+/**
+ *  The fields to be updated as part of this request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  The name of the zone for this request, formatted as RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Update a reservation slot in the specified sub-block.
+ *
+ *  @param object The @c GTLRCompute_ReservationSlot to include in the query.
+ *  @param project The project ID for this request.
+ *  @param zoneProperty The name of the zone for this request, formatted as
+ *    RFC1035.
+ *  @param parentName The name of the sub-block resource.
+ *  @param reservationSlot The name of the slot resource.
+ *
+ *  @return GTLRComputeQuery_ReservationSlotsUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ReservationSlot *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                     parentName:(NSString *)parentName
+                reservationSlot:(NSString *)reservationSlot;
 
 @end
 

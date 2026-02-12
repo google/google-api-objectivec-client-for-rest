@@ -584,16 +584,6 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRAppengine_ExportAppImageRequest
-//
-
-@implementation GTLRAppengine_ExportAppImageRequest
-@dynamic destinationRepository, serviceAccount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRAppengine_FeatureSettings
 //
 
@@ -1167,8 +1157,8 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 @implementation GTLRAppengine_ProjectsMetadata
 @dynamic consumerProjectId, consumerProjectNumber, consumerProjectState, gceTag,
-         p4ServiceAccount, producerProjectId, producerProjectNumber,
-         tenantProjectId, tenantProjectNumber;
+         isGceProjectDeprovisioning, p4ServiceAccount, producerProjectId,
+         producerProjectNumber, tenantProjectId, tenantProjectNumber;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -288,6 +288,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
 @property(nonatomic, copy, nullable) NSString *readToken;
 
 /**
+ *  A serialized Object Fragment List Creation Info passed from Bigstore ->
+ *  Scotty for a GCS upload. This field must never be consumed outside of
+ *  Bigstore, and is not applicable to non-GCS media uploads.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *uploadFragmentListCreationInfo;
+
+/**
  *  Metadata passed from Blobstore -> Scotty for a new GCS upload. This is a
  *  signed, serialized blobstore2.BlobMetadataContainer proto which must never
  *  be consumed outside of Bigstore, and is not applicable to non-GCS media

@@ -30,6 +30,7 @@ NSString * const kGTLRFirebaseAppHosting_Build_State_Built     = @"BUILT";
 NSString * const kGTLRFirebaseAppHosting_Build_State_Deploying = @"DEPLOYING";
 NSString * const kGTLRFirebaseAppHosting_Build_State_Failed    = @"FAILED";
 NSString * const kGTLRFirebaseAppHosting_Build_State_Ready     = @"READY";
+NSString * const kGTLRFirebaseAppHosting_Build_State_Skipped   = @"SKIPPED";
 NSString * const kGTLRFirebaseAppHosting_Build_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRFirebaseAppHosting_CustomDomainOperationMetadata.certState
@@ -115,6 +116,13 @@ NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Availability_Availa
 NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Availability_Build = @"BUILD";
 NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Availability_Runtime = @"RUNTIME";
 
+// GTLRFirebaseAppHosting_EnvironmentVariable.origin
+NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_ApphostingYaml = @"APPHOSTING_YAML";
+NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_BackendOverrides = @"BACKEND_OVERRIDES";
+NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_BuildConfig = @"BUILD_CONFIG";
+NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_FirebaseSystem = @"FIREBASE_SYSTEM";
+NSString * const kGTLRFirebaseAppHosting_EnvironmentVariable_Origin_OriginUnspecified = @"ORIGIN_UNSPECIFIED";
+
 // GTLRFirebaseAppHosting_Error.errorSource
 NSString * const kGTLRFirebaseAppHosting_Error_ErrorSource_CloudBuild = @"CLOUD_BUILD";
 NSString * const kGTLRFirebaseAppHosting_Error_ErrorSource_CloudRun = @"CLOUD_RUN";
@@ -134,6 +142,12 @@ NSString * const kGTLRFirebaseAppHosting_LiveMigrationStep_StepState_Preparing =
 NSString * const kGTLRFirebaseAppHosting_LiveMigrationStep_StepState_Processing = @"PROCESSING";
 NSString * const kGTLRFirebaseAppHosting_LiveMigrationStep_StepState_StepStateUnspecified = @"STEP_STATE_UNSPECIFIED";
 
+// GTLRFirebaseAppHosting_Path.type
+NSString * const kGTLRFirebaseAppHosting_Path_Type_Glob        = @"GLOB";
+NSString * const kGTLRFirebaseAppHosting_Path_Type_PatternTypeUnspecified = @"PATTERN_TYPE_UNSPECIFIED";
+NSString * const kGTLRFirebaseAppHosting_Path_Type_Prefix      = @"PREFIX";
+NSString * const kGTLRFirebaseAppHosting_Path_Type_Re2         = @"RE2";
+
 // GTLRFirebaseAppHosting_Rollout.state
 NSString * const kGTLRFirebaseAppHosting_Rollout_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRFirebaseAppHosting_Rollout_State_Failed  = @"FAILED";
@@ -141,6 +155,7 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Paused  = @"PAUSED";
 NSString * const kGTLRFirebaseAppHosting_Rollout_State_PendingBuild = @"PENDING_BUILD";
 NSString * const kGTLRFirebaseAppHosting_Rollout_State_Progressing = @"PROGRESSING";
 NSString * const kGTLRFirebaseAppHosting_Rollout_State_Queued  = @"QUEUED";
+NSString * const kGTLRFirebaseAppHosting_Rollout_State_Skipped = @"SKIPPED";
 NSString * const kGTLRFirebaseAppHosting_Rollout_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 
@@ -316,10 +331,11 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 //
 
 @implementation GTLRFirebaseAppHosting_Config
-@dynamic env, runConfig;
+@dynamic effectiveEnv, env, runConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"effectiveEnv" : [GTLRFirebaseAppHosting_EnvironmentVariable class],
     @"env" : [GTLRFirebaseAppHosting_EnvironmentVariable class]
   };
   return map;
@@ -504,7 +520,7 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 //
 
 @implementation GTLRFirebaseAppHosting_EnvironmentVariable
-@dynamic availability, secret, value, variable;
+@dynamic availability, origin, originFileName, secret, value, variable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -782,6 +798,16 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseAppHosting_Path
+//
+
+@implementation GTLRFirebaseAppHosting_Path
+@dynamic pattern, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseAppHosting_Redirect
 //
 
@@ -840,7 +866,16 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 //
 
 @implementation GTLRFirebaseAppHosting_RolloutPolicy
-@dynamic codebaseBranch, disabled, disabledTime;
+@dynamic codebaseBranch, disabled, disabledTime, ignoredPaths, requiredPaths;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ignoredPaths" : [GTLRFirebaseAppHosting_Path class],
+    @"requiredPaths" : [GTLRFirebaseAppHosting_Path class]
+  };
+  return map;
+}
+
 @end
 
 

@@ -159,6 +159,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Deployment_State_Succe
 
 // GTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest.responseView
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewBasic = @"DETECT_INTENT_RESPONSE_VIEW_BASIC";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewDefault = @"DETECT_INTENT_RESPONSE_VIEW_DEFAULT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewFull = @"DETECT_INTENT_RESPONSE_VIEW_FULL";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3DetectIntentRequest_ResponseView_DetectIntentResponseViewUnspecified = @"DETECT_INTENT_RESPONSE_VIEW_UNSPECIFIED";
 
@@ -531,10 +532,26 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfill
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_MergeBehaviorUnspecified = @"MERGE_BEHAVIOR_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3WebhookResponseFulfillmentResponse_MergeBehavior_Replace = @"REPLACE";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction.triggeringEvent
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction_TriggeringEvent_AgentMessage = @"AGENT_MESSAGE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction_TriggeringEvent_CustomerMessage = @"CUSTOMER_MESSAGE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction_TriggeringEvent_EndOfUtterance = @"END_OF_UTTERANCE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction_TriggeringEvent_ManualCall = @"MANUAL_CALL";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction_TriggeringEvent_ToolCallCompletion = @"TOOL_CALL_COMPLETION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction_TriggeringEvent_TriggerEventUnspecified = @"TRIGGER_EVENT_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata.trainingModelType
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_ModelTypeUnspecified = @"MODEL_TYPE_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_SmartReplyBertModel = @"SMART_REPLY_BERT_MODEL";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2ArticleSuggestionModelMetadata_TrainingModelType_SmartReplyDualEncoderModel = @"SMART_REPLY_DUAL_ENCODER_MODEL";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction.triggeringEvent
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction_TriggeringEvent_AgentMessage = @"AGENT_MESSAGE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction_TriggeringEvent_CustomerMessage = @"CUSTOMER_MESSAGE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction_TriggeringEvent_EndOfUtterance = @"END_OF_UTTERANCE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction_TriggeringEvent_ManualCall = @"MANUAL_CALL";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction_TriggeringEvent_ToolCallCompletion = @"TOOL_CALL_COMPLETION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction_TriggeringEvent_TriggerEventUnspecified = @"TRIGGER_EVENT_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata.participantRole
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1ClearSuggestionFeatureConfigOperationMetadata_ParticipantRole_AutomatedAgent = @"AUTOMATED_AGENT";
@@ -570,6 +587,15 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_Kin
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindMap = @"KIND_MAP";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindRegexp = @"KIND_REGEXP";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1EntityType_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo.ingestionStatus
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusContextNotAvailable = @"INGESTION_STATUS_CONTEXT_NOT_AVAILABLE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusInvalidEntry = @"INGESTION_STATUS_INVALID_ENTRY";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusInvalidFormat = @"INGESTION_STATUS_INVALID_FORMAT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusLanguageMismatch = @"INGESTION_STATUS_LANGUAGE_MISMATCH";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusParseFailed = @"INGESTION_STATUS_PARSE_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusSucceeded = @"INGESTION_STATUS_SUCCEEDED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusUnspecified = @"INGESTION_STATUS_UNSPECIFIED";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1Intent.defaultResponsePlatforms
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1Intent_DefaultResponsePlatforms_ActionsOnGoogle = @"ACTIONS_ON_GOOGLE";
@@ -655,6 +681,37 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAns
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Low = @"LOW";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_MatchConfidenceLevelUnspecified = @"MATCH_CONFIDENCE_LEVEL_UNSPECIFIED";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer_MatchConfidenceLevel_Medium = @"MEDIUM";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo.datastoreResponseReason
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationError = @"ANSWER_GENERATION_ERROR";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationGenAiDisabled = @"ANSWER_GENERATION_GEN_AI_DISABLED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationNotEnoughInfo = @"ANSWER_GENERATION_NOT_ENOUGH_INFO";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationNotGrounded = @"ANSWER_GENERATION_NOT_GROUNDED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationOutOfQuota = @"ANSWER_GENERATION_OUT_OF_QUOTA";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationRaiFailed = @"ANSWER_GENERATION_RAI_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_DatastoreResponseReason_DatastoreResponseReasonUnspecified = @"DATASTORE_RESPONSE_REASON_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_DatastoreResponseReason_None = @"NONE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_DatastoreResponseReason_SearchEmptyResults = @"SEARCH_EMPTY_RESULTS";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_DatastoreResponseReason_SearchOutOfQuota = @"SEARCH_OUT_OF_QUOTA";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo.queryCategorizationFailureReason
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryCategorizationFailureReason_QueryCategorizationFailed = @"QUERY_CATEGORIZATION_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryCategorizationFailureReason_QueryCategorizationFailureReasonUnspecified = @"QUERY_CATEGORIZATION_FAILURE_REASON_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryCategorizationFailureReason_QueryCategorizationInvalidConfig = @"QUERY_CATEGORIZATION_INVALID_CONFIG";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryCategorizationFailureReason_QueryCategorizationResultNotFound = @"QUERY_CATEGORIZATION_RESULT_NOT_FOUND";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo.queryGenerationFailureReason
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryGenerationFailureReason_NotInAllowlist = @"NOT_IN_ALLOWLIST";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationEmptyConversation = @"QUERY_GENERATION_EMPTY_CONVERSATION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationEmptyLastMessage = @"QUERY_GENERATION_EMPTY_LAST_MESSAGE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationFailed = @"QUERY_GENERATION_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationFailureReasonUnspecified = @"QUERY_GENERATION_FAILURE_REASON_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationLlmResponseParseFailed = @"QUERY_GENERATION_LLM_RESPONSE_PARSE_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationNoQueryGenerated = @"QUERY_GENERATION_NO_QUERY_GENERATED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationOutOfQuota = @"QUERY_GENERATION_OUT_OF_QUOTA";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationQueryRedacted = @"QUERY_GENERATION_QUERY_REDACTED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationRaiFailed = @"QUERY_GENERATION_RAI_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationTriggeringEventConditionNotMet = @"QUERY_GENERATION_TRIGGERING_EVENT_CONDITION_NOT_MET";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata.state
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeOperationMetadata_State_Done = @"DONE";
@@ -782,6 +839,15 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindMap 
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindRegexp = @"KIND_REGEXP";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2EntityType_Kind_KindUnspecified = @"KIND_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo.ingestionStatus
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusContextNotAvailable = @"INGESTION_STATUS_CONTEXT_NOT_AVAILABLE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusInvalidEntry = @"INGESTION_STATUS_INVALID_ENTRY";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusInvalidFormat = @"INGESTION_STATUS_INVALID_FORMAT";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusLanguageMismatch = @"INGESTION_STATUS_LANGUAGE_MISMATCH";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusParseFailed = @"INGESTION_STATUS_PARSE_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusSucceeded = @"INGESTION_STATUS_SUCCEEDED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo_IngestionStatus_IngestionStatusUnspecified = @"INGESTION_STATUS_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowV2Intent.defaultResponsePlatforms
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_ActionsOnGoogle = @"ACTIONS_ON_GOOGLE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2Intent_DefaultResponsePlatforms_Facebook = @"FACEBOOK";
@@ -837,6 +903,37 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentMessageMediaConten
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Example = @"EXAMPLE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_Template = @"TEMPLATE";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrase_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo.datastoreResponseReason
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationError = @"ANSWER_GENERATION_ERROR";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationGenAiDisabled = @"ANSWER_GENERATION_GEN_AI_DISABLED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationNotEnoughInfo = @"ANSWER_GENERATION_NOT_ENOUGH_INFO";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationNotGrounded = @"ANSWER_GENERATION_NOT_GROUNDED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationOutOfQuota = @"ANSWER_GENERATION_OUT_OF_QUOTA";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_DatastoreResponseReason_AnswerGenerationRaiFailed = @"ANSWER_GENERATION_RAI_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_DatastoreResponseReason_DatastoreResponseReasonUnspecified = @"DATASTORE_RESPONSE_REASON_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_DatastoreResponseReason_None = @"NONE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_DatastoreResponseReason_SearchEmptyResults = @"SEARCH_EMPTY_RESULTS";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_DatastoreResponseReason_SearchOutOfQuota = @"SEARCH_OUT_OF_QUOTA";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo.queryCategorizationFailureReason
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryCategorizationFailureReason_QueryCategorizationFailed = @"QUERY_CATEGORIZATION_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryCategorizationFailureReason_QueryCategorizationFailureReasonUnspecified = @"QUERY_CATEGORIZATION_FAILURE_REASON_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryCategorizationFailureReason_QueryCategorizationInvalidConfig = @"QUERY_CATEGORIZATION_INVALID_CONFIG";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryCategorizationFailureReason_QueryCategorizationResultNotFound = @"QUERY_CATEGORIZATION_RESULT_NOT_FOUND";
+
+// GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo.queryGenerationFailureReason
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryGenerationFailureReason_NotInAllowlist = @"NOT_IN_ALLOWLIST";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationEmptyConversation = @"QUERY_GENERATION_EMPTY_CONVERSATION";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationEmptyLastMessage = @"QUERY_GENERATION_EMPTY_LAST_MESSAGE";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationFailed = @"QUERY_GENERATION_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationFailureReasonUnspecified = @"QUERY_GENERATION_FAILURE_REASON_UNSPECIFIED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationLlmResponseParseFailed = @"QUERY_GENERATION_LLM_RESPONSE_PARSE_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationNoQueryGenerated = @"QUERY_GENERATION_NO_QUERY_GENERATED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationOutOfQuota = @"QUERY_GENERATION_OUT_OF_QUOTA";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationQueryRedacted = @"QUERY_GENERATION_QUERY_REDACTED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationRaiFailed = @"QUERY_GENERATION_RAI_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo_QueryGenerationFailureReason_QueryGenerationTriggeringEventConditionNotMet = @"QUERY_GENERATION_TRIGGERING_EVENT_CONDITION_NOT_MET";
 
 // GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata.state
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowV2KnowledgeOperationMetadata_State_Done = @"DONE";
@@ -5520,7 +5617,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3QueryResult
-@dynamic advancedSettings, allowAnswerFeedback, currentPage,
+@dynamic advancedSettings, allowAnswerFeedback, currentFlow, currentPage,
          dataStoreConnectionSignals, diagnosticInfo, dtmf, intent,
          intentDetectionConfidence, languageCode, match, parameters,
          responseMessages, sentimentAnalysisResult, text, transcript,
@@ -7129,7 +7226,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2AgentCoachingInstruction
 @dynamic agentAction, condition, displayDetails, displayName,
-         duplicateCheckResult, systemAction;
+         duplicateCheckResult, systemAction, triggeringEvent;
 @end
 
 
@@ -7342,7 +7439,7 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1AgentCoachingInstruction
 @dynamic agentAction, condition, displayDetails, displayName,
-         duplicateCheckResult, systemAction;
+         duplicateCheckResult, systemAction, triggeringEvent;
 @end
 
 
@@ -7825,6 +7922,35 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfo
+@dynamic contextReferenceRetrieved, ingestedParametersDebugInfo,
+         projectNotAllowlisted;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ingestedParametersDebugInfo" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1IngestedContextReferenceDebugInfoIngestedParameterDebugInfo
+@dynamic ingestionStatus, parameter;
 @end
 
 
@@ -8574,7 +8700,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswer
-@dynamic answerRecord, suggestedQuery, suggestedQueryAnswer;
+@dynamic answerRecord, knowledgeAssistDebugInfo, suggestedQuery,
+         suggestedQueryAnswer;
 @end
 
 
@@ -8647,6 +8774,36 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerSuggestedQuery
 @dynamic queryText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfo
+@dynamic datastoreResponseReason, ingestedContextReferenceDebugInfo,
+         knowledgeAssistBehavior, queryCategorizationFailureReason,
+         queryGenerationFailureReason, serviceLatency;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfoKnowledgeAssistBehavior
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistDebugInfoKnowledgeAssistBehavior
+@dynamic answerGenerationRewriterOn, appendedSearchContextCount,
+         conversationTranscriptHasMixedLanguages, disableSyncDelivery,
+         endUserMetadataIncluded, invalidItemsQuerySuggestionSkipped,
+         multipleQueriesGenerated, previousQueriesIncluded,
+         primaryQueryRedactedAndReplaced, queryContainedSearchContext,
+         queryGenerationAgentLanguageMismatch,
+         queryGenerationEndUserLanguageMismatch, returnQueryOnly,
+         thirdPartyConnectorAllowed, useCustomSafetyFilterLevel,
+         usePubsubDelivery, useTranslatedMessage;
 @end
 
 
@@ -8918,6 +9075,34 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1SentimentAnalysisResult
 @dynamic queryTextSentiment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1ServiceLatency
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ServiceLatency
+@dynamic internalServiceLatencies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"internalServiceLatencies" : [GTLRDialogflow_GoogleCloudDialogflowV2beta1ServiceLatencyInternalServiceLatency class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1ServiceLatencyInternalServiceLatency
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ServiceLatencyInternalServiceLatency
+@dynamic completeTime, latencyMs, startTime, step;
 @end
 
 
@@ -9619,6 +9804,35 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfo
+@dynamic contextReferenceRetrieved, ingestedParametersDebugInfo,
+         projectNotAllowlisted;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ingestedParametersDebugInfo" : [GTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2IngestedContextReferenceDebugInfoIngestedParameterDebugInfo
+@dynamic ingestionStatus, parameter;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowV2InitializeEncryptionSpecMetadata
 //
 
@@ -10161,7 +10375,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswer
-@dynamic answerRecord, suggestedQuery, suggestedQueryAnswer;
+@dynamic answerRecord, knowledgeAssistDebugInfo, suggestedQuery,
+         suggestedQueryAnswer;
 @end
 
 
@@ -10234,6 +10449,36 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerSuggestedQuery
 @dynamic queryText;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfo
+@dynamic datastoreResponseReason, ingestedContextReferenceDebugInfo,
+         knowledgeAssistBehavior, queryCategorizationFailureReason,
+         queryGenerationFailureReason, serviceLatency;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfoKnowledgeAssistBehavior
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistDebugInfoKnowledgeAssistBehavior
+@dynamic answerGenerationRewriterOn, appendedSearchContextCount,
+         conversationTranscriptHasMixedLanguages, disableSyncDelivery,
+         endUserMetadataIncluded, invalidItemsQuerySuggestionSkipped,
+         multipleQueriesGenerated, previousQueriesIncluded,
+         primaryQueryRedactedAndReplaced, queryContainedSearchContext,
+         queryGenerationAgentLanguageMismatch,
+         queryGenerationEndUserLanguageMismatch, returnQueryOnly,
+         thirdPartyConnectorAllowed, useCustomSafetyFilterLevel,
+         usePubsubDelivery, useTranslatedMessage;
 @end
 
 
@@ -10382,6 +10627,34 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2SentimentAnalysisResult
 @dynamic queryTextSentiment;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ServiceLatency
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ServiceLatency
+@dynamic internalServiceLatencies;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"internalServiceLatencies" : [GTLRDialogflow_GoogleCloudDialogflowV2ServiceLatencyInternalServiceLatency class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2ServiceLatencyInternalServiceLatency
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2ServiceLatencyInternalServiceLatency
+@dynamic completeTime, latencyMs, startTime, step;
 @end
 
 

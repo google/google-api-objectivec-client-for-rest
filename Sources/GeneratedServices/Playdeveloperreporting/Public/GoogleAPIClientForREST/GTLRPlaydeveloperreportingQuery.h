@@ -42,8 +42,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlaydeveloperreportingQuery_AnomaliesList : GTLRPlaydeveloperreportingQuery
 
 /**
- *  Filtering criteria for anomalies. For basic filter guidance, please check:
- *  https://google.aip.dev/160. **Supported functions:** *
+ *  Optional. Filtering criteria for anomalies. For basic filter guidance,
+ *  please check: https://google.aip.dev/160. **Supported functions:** *
  *  `activeBetween(startTime, endTime)`: If specified, only list anomalies that
  *  were active in between `startTime` (inclusive) and `endTime` (exclusive).
  *  Both parameters are expected to conform to an RFC-3339 formatted string
@@ -57,17 +57,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  Maximum size of the returned data. If unspecified, at most 10 anomalies will
- *  be returned. The maximum value is 100; values above 100 will be coerced to
- *  100.
+ *  Optional. Maximum size of the returned data. If unspecified, at most 10
+ *  anomalies will be returned. The maximum value is 100; values above 100 will
+ *  be coerced to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListErrorReports` call. Provide this
- *  to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListErrorReports` must match the call that provided the page
- *  token.
+ *  Optional. A page token, received from a previous `ListErrorReports` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListErrorReports` must match the call that provided
+ *  the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -137,17 +137,17 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlaydeveloperreportingQuery_AppsSearch : GTLRPlaydeveloperreportingQuery
 
 /**
- *  The maximum number of apps to return. The service may return fewer than this
- *  value. If unspecified, at most 50 apps will be returned. The maximum value
- *  is 1000; values above 1000 will be coerced to 1000.
+ *  Optional. The maximum number of apps to return. The service may return fewer
+ *  than this value. If unspecified, at most 50 apps will be returned. The
+ *  maximum value is 1000; values above 1000 will be coerced to 1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `SearchAccessibleApps` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `SearchAccessibleApps` must match the call that provided the
- *  page token.
+ *  Optional. A page token, received from a previous `SearchAccessibleApps`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `SearchAccessibleApps` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -359,39 +359,39 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlaydeveloperreportingQuery_VitalsErrorsIssuesSearch : GTLRPlaydeveloperreportingQuery
 
 /**
- *  A selection predicate to retrieve only a subset of the issues. Counts in the
- *  returned error issues will only reflect occurrences that matched the filter.
- *  For filtering basics, please check [AIP-160](https://google.aip.dev/160). **
- *  Supported field names:** * `apiLevel`: Matches error issues that occurred in
- *  the requested Android versions (specified as the numeric API level) only.
- *  Example: `apiLevel = 28 OR apiLevel = 29`. * `versionCode`: Matches error
- *  issues that occurred in the requested app version codes only. Example:
- *  `versionCode = 123 OR versionCode = 456`. * `deviceModel`: Matches error
- *  issues that occurred in the requested devices. Example: `deviceModel =
- *  "google/walleye" OR deviceModel = "google/marlin"`. * `deviceBrand`: Matches
- *  error issues that occurred in the requested device brands. Example:
- *  `deviceBrand = "Google". * `deviceType`: Matches error issues that occurred
- *  in the requested device types. Example: `deviceType = "PHONE"`. *
- *  `errorIssueType`: Matches error issues of the requested types only. Valid
- *  candidates: `CRASH`, `ANR`, `NON_FATAL`. Example: `errorIssueType = CRASH OR
- *  errorIssueType = ANR`. * `appProcessState`: Matches error issues on the
- *  process state of an app, indicating whether an app runs in the foreground
- *  (user-visible) or background. Valid candidates: `FOREGROUND`, `BACKGROUND`.
- *  Example: `appProcessState = FOREGROUND`. * `isUserPerceived`: Matches error
- *  issues that are user-perceived. It is not accompanied by any operators.
- *  Example: `isUserPerceived`. ** Supported operators:** * Comparison
- *  operators: The only supported comparison operator is equality. The filtered
- *  field must appear on the left hand side of the comparison. * Logical
- *  Operators: Logical operators `AND` and `OR` can be used to build complex
- *  filters following a conjunctive normal form (CNF), i.e., conjunctions of
- *  disjunctions. The `OR` operator takes precedence over `AND` so the use of
- *  parenthesis is not necessary when building CNF. The `OR` operator is only
- *  supported to build disjunctions that apply to the same field, e.g.,
- *  `versionCode = 123 OR errorIssueType = ANR` is not a valid filter. **
- *  Examples ** Some valid filtering expressions: * `versionCode = 123 AND
- *  errorIssueType = ANR` * `versionCode = 123 AND errorIssueType = OR
- *  errorIssueType = CRASH` * `versionCode = 123 AND (errorIssueType = OR
- *  errorIssueType = CRASH)`
+ *  Optional. A selection predicate to retrieve only a subset of the issues.
+ *  Counts in the returned error issues will only reflect occurrences that
+ *  matched the filter. For filtering basics, please check
+ *  [AIP-160](https://google.aip.dev/160). ** Supported field names:** *
+ *  `apiLevel`: Matches error issues that occurred in the requested Android
+ *  versions (specified as the numeric API level) only. Example: `apiLevel = 28
+ *  OR apiLevel = 29`. * `versionCode`: Matches error issues that occurred in
+ *  the requested app version codes only. Example: `versionCode = 123 OR
+ *  versionCode = 456`. * `deviceModel`: Matches error issues that occurred in
+ *  the requested devices. Example: `deviceModel = "google/walleye" OR
+ *  deviceModel = "google/marlin"`. * `deviceBrand`: Matches error issues that
+ *  occurred in the requested device brands. Example: `deviceBrand = "Google". *
+ *  `deviceType`: Matches error issues that occurred in the requested device
+ *  types. Example: `deviceType = "PHONE"`. * `errorIssueType`: Matches error
+ *  issues of the requested types only. Valid candidates: `CRASH`, `ANR`,
+ *  `NON_FATAL`. Example: `errorIssueType = CRASH OR errorIssueType = ANR`. *
+ *  `appProcessState`: Matches error issues on the process state of an app,
+ *  indicating whether an app runs in the foreground (user-visible) or
+ *  background. Valid candidates: `FOREGROUND`, `BACKGROUND`. Example:
+ *  `appProcessState = FOREGROUND`. * `isUserPerceived`: Matches error issues
+ *  that are user-perceived. It is not accompanied by any operators. Example:
+ *  `isUserPerceived`. ** Supported operators:** * Comparison operators: The
+ *  only supported comparison operator is equality. The filtered field must
+ *  appear on the left hand side of the comparison. * Logical Operators: Logical
+ *  operators `AND` and `OR` can be used to build complex filters following a
+ *  conjunctive normal form (CNF), i.e., conjunctions of disjunctions. The `OR`
+ *  operator takes precedence over `AND` so the use of parenthesis is not
+ *  necessary when building CNF. The `OR` operator is only supported to build
+ *  disjunctions that apply to the same field, e.g., `versionCode = 123 OR
+ *  errorIssueType = ANR` is not a valid filter. ** Examples ** Some valid
+ *  filtering expressions: * `versionCode = 123 AND errorIssueType = ANR` *
+ *  `versionCode = 123 AND errorIssueType = OR errorIssueType = CRASH` *
+ *  `versionCode = 123 AND (errorIssueType = OR errorIssueType = CRASH)`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -500,9 +500,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger intervalStartTimeYear;
 
 /**
- *  Specifies a field that will be used to order the results. ** Supported
- *  dimensions:** * `errorReportCount`: Orders issues by number of error
- *  reports. * `distinctUsers`: Orders issues by number of unique affected
+ *  Optional. Specifies a field that will be used to order the results. **
+ *  Supported dimensions:** * `errorReportCount`: Orders issues by number of
+ *  error reports. * `distinctUsers`: Orders issues by number of unique affected
  *  users. ** Supported operations:** * `asc` for ascending order. * `desc` for
  *  descending order. Format: A field and an operation, e.g., `errorReportCount
  *  desc` *Note:* currently only one field is supported at a time.
@@ -510,16 +510,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The maximum number of error issues to return. The service may return fewer
- *  than this value. If unspecified, at most 50 error issues will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ *  Optional. The maximum number of error issues to return. The service may
+ *  return fewer than this value. If unspecified, at most 50 error issues will
+ *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous call. Provide this to retrieve the
- *  subsequent page. When paginating, all other parameters provided to the
- *  request must match the call that provided the page token.
+ *  Optional. A page token, received from a previous call. Provide this to
+ *  retrieve the subsequent page. When paginating, all other parameters provided
+ *  to the request must match the call that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -565,8 +566,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRPlaydeveloperreportingQuery_VitalsErrorsReportsSearch : GTLRPlaydeveloperreportingQuery
 
 /**
- *  A selection predicate to retrieve only a subset of the reports. For
- *  filtering basics, please check [AIP-160](https://google.aip.dev/160). **
+ *  Optional. A selection predicate to retrieve only a subset of the reports.
+ *  For filtering basics, please check [AIP-160](https://google.aip.dev/160). **
  *  Supported field names:** * `apiLevel`: Matches error reports that occurred
  *  in the requested Android versions (specified as the numeric API level) only.
  *  Example: `apiLevel = 28 OR apiLevel = 29`. * `versionCode`: Matches error
@@ -709,17 +710,17 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger intervalStartTimeYear;
 
 /**
- *  The maximum number of reports to return. The service may return fewer than
- *  this value. If unspecified, at most 50 reports will be returned. The maximum
- *  value is 100; values above 100 will be coerced to 100.
+ *  Optional. The maximum number of reports to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 reports will be returned.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `SearchErrorReports` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `SearchErrorReports` must match the call that provided the page
- *  token.
+ *  Optional. A page token, received from a previous `SearchErrorReports` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `SearchErrorReports` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

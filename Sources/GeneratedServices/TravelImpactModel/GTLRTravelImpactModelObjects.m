@@ -24,6 +24,30 @@ NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Easa = @"EASA
 NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_SourceUnspecified = @"SOURCE_UNSPECIFIED";
 NSString * const kGTLRTravelImpactModel_FlightWithEmissions_Source_Tim = @"TIM";
 
+// GTLRTravelImpactModel_McpToolDataHandlingProfile.inputDataAccessLevel
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelConfidential = @"DATA_ACCESS_LEVEL_CONFIDENTIAL";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNeedToKnow = @"DATA_ACCESS_LEVEL_NEED_TO_KNOW";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNoDataAccess = @"DATA_ACCESS_LEVEL_NO_DATA_ACCESS";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPii = @"DATA_ACCESS_LEVEL_PII";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPublic = @"DATA_ACCESS_LEVEL_PUBLIC";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUnspecified = @"DATA_ACCESS_LEVEL_UNSPECIFIED";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUser = @"DATA_ACCESS_LEVEL_USER";
+
+// GTLRTravelImpactModel_McpToolDataHandlingProfile.outputDataAccessLevel
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelConfidential = @"DATA_ACCESS_LEVEL_CONFIDENTIAL";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNeedToKnow = @"DATA_ACCESS_LEVEL_NEED_TO_KNOW";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNoDataAccess = @"DATA_ACCESS_LEVEL_NO_DATA_ACCESS";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPii = @"DATA_ACCESS_LEVEL_PII";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPublic = @"DATA_ACCESS_LEVEL_PUBLIC";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUnspecified = @"DATA_ACCESS_LEVEL_UNSPECIFIED";
+NSString * const kGTLRTravelImpactModel_McpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUser = @"DATA_ACCESS_LEVEL_USER";
+
+// GTLRTravelImpactModel_McpToolLifecycleProfile.launchState
+NSString * const kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateDevelopment = @"LAUNCH_STATE_DEVELOPMENT";
+NSString * const kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateGeneralAvailability = @"LAUNCH_STATE_GENERAL_AVAILABILITY";
+NSString * const kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateProductionPreview = @"LAUNCH_STATE_PRODUCTION_PREVIEW";
+NSString * const kGTLRTravelImpactModel_McpToolLifecycleProfile_LaunchState_LaunchStateUnspecified = @"LAUNCH_STATE_UNSPECIFIED";
+
 // GTLRTravelImpactModel_Scope3FlightEmissions.source
 NSString * const kGTLRTravelImpactModel_Scope3FlightEmissions_Source_DistanceBasedEmissions = @"DISTANCE_BASED_EMISSIONS";
 NSString * const kGTLRTravelImpactModel_Scope3FlightEmissions_Source_Scope3DataTypeUnspecified = @"SCOPE3_DATA_TYPE_UNSPECIFIED";
@@ -203,6 +227,26 @@ NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_CabinClass_PremiumEc
 
 @implementation GTLRTravelImpactModel_Market
 @dynamic destination, origin;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_McpToolDataHandlingProfile
+//
+
+@implementation GTLRTravelImpactModel_McpToolDataHandlingProfile
+@dynamic inputDataAccessLevel, outputDataAccessLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTravelImpactModel_McpToolLifecycleProfile
+//
+
+@implementation GTLRTravelImpactModel_McpToolLifecycleProfile
+@dynamic launchState;
 @end
 
 

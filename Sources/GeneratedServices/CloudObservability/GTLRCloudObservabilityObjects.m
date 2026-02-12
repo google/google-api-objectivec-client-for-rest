@@ -13,6 +13,22 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudObservability_Bucket
+//
+
+@implementation GTLRCloudObservability_Bucket
+@dynamic cmekSettings, createTime, deleteTime, descriptionProperty, displayName,
+         name, purgeTime, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudObservability_CancelOperationRequest
 //
 
@@ -22,10 +38,117 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudObservability_CmekSettings
+//
+
+@implementation GTLRCloudObservability_CmekSettings
+@dynamic kmsKey, kmsKeyVersion, serviceAccountId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudObservability_Dataset
+//
+
+@implementation GTLRCloudObservability_Dataset
+@dynamic createTime, deleteTime, descriptionProperty, displayName, name,
+         purgeTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudObservability_Empty
 //
 
 @implementation GTLRCloudObservability_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudObservability_Link
+//
+
+@implementation GTLRCloudObservability_Link
+@dynamic createTime, descriptionProperty, displayName, name;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudObservability_ListBucketsResponse
+//
+
+@implementation GTLRCloudObservability_ListBucketsResponse
+@dynamic buckets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"buckets" : [GTLRCloudObservability_Bucket class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"buckets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudObservability_ListDatasetsResponse
+//
+
+@implementation GTLRCloudObservability_ListDatasetsResponse
+@dynamic datasets, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"datasets" : [GTLRCloudObservability_Dataset class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"datasets";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudObservability_ListLinksResponse
+//
+
+@implementation GTLRCloudObservability_ListLinksResponse
+@dynamic links, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"links" : [GTLRCloudObservability_Link class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"links";
+}
+
 @end
 
 
@@ -91,6 +214,28 @@
 
 + (NSString *)collectionItemsKey {
   return @"traceScopes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudObservability_ListViewsResponse
+//
+
+@implementation GTLRCloudObservability_ListViewsResponse
+@dynamic nextPageToken, views;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"views" : [GTLRCloudObservability_View class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"views";
 }
 
 @end
@@ -242,6 +387,21 @@
     @"resourceNames" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudObservability_View
+//
+
+@implementation GTLRCloudObservability_View
+@dynamic createTime, descriptionProperty, displayName, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
 }
 
 @end

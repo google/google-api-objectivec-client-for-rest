@@ -14,6 +14,7 @@
 
 @class GTLRStorageBatchOperations_Bucket;
 @class GTLRStorageBatchOperations_BucketList;
+@class GTLRStorageBatchOperations_BucketOperation;
 @class GTLRStorageBatchOperations_Counters;
 @class GTLRStorageBatchOperations_DeleteObject;
 @class GTLRStorageBatchOperations_ErrorLogEntry;
@@ -45,6 +46,46 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRStorageBatchOperations_BucketOperation.state
+
+/**
+ *  Cancelled by the user.
+ *
+ *  Value: "CANCELED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_BucketOperation_State_Canceled;
+/**
+ *  Terminated due to an unrecoverable failure.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_BucketOperation_State_Failed;
+/**
+ *  Created but not yet started.
+ *
+ *  Value: "QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_BucketOperation_State_Queued;
+/**
+ *  In progress.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_BucketOperation_State_Running;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_BucketOperation_State_StateUnspecified;
+/**
+ *  Completed successfully.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_BucketOperation_State_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRStorageBatchOperations_ErrorSummary.errorCode
@@ -226,6 +267,12 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_Job_State_Cancele
  */
 FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_Job_State_Failed;
 /**
+ *  Queued but not yet started.
+ *
+ *  Value: "QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_Job_State_Queued;
+/**
  *  In progress.
  *
  *  Value: "RUNNING"
@@ -379,6 +426,84 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  *  specified, an error will be returned.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorageBatchOperations_Bucket *> *buckets;
+
+@end
+
+
+/**
+ *  BucketOperation represents a bucket-level breakdown of a Job.
+ */
+@interface GTLRStorageBatchOperations_BucketOperation : GTLRObject
+
+/**
+ *  The bucket name of the objects to be transformed in the BucketOperation.
+ */
+@property(nonatomic, copy, nullable) NSString *bucketName;
+
+/** Output only. The time that the BucketOperation was completed. */
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/** Output only. Information about the progress of the bucket operation. */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_Counters *counters;
+
+/** Output only. The time that the BucketOperation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Delete objects. */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_DeleteObject *deleteObject;
+
+/**
+ *  Output only. Summarizes errors encountered with sample error log entries.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStorageBatchOperations_ErrorSummary *> *errorSummaries;
+
+/** Specifies objects in a manifest file. */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_Manifest *manifest;
+
+/**
+ *  Identifier. The resource name of the BucketOperation. This is defined by the
+ *  service. Format:
+ *  projects/{project}/locations/global/jobs/{job_id}/bucketOperations/{bucket_operation}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Specifies objects matching a prefix set. */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_PrefixList *prefixList;
+
+/**
+ *  Updates object metadata. Allows updating fixed-key and custom metadata and
+ *  fixed-key metadata i.e. Cache-Control, Content-Disposition,
+ *  Content-Encoding, Content-Language, Content-Type, Custom-Time.
+ */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_PutMetadata *putMetadata;
+
+/** Changes object hold status. */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_PutObjectHold *putObjectHold;
+
+/** Rewrite the object and updates metadata like KMS key. */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_RewriteObject *rewriteObject;
+
+/** Output only. The time that the BucketOperation was started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. State of the BucketOperation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRStorageBatchOperations_BucketOperation_State_Canceled
+ *        Cancelled by the user. (Value: "CANCELED")
+ *    @arg @c kGTLRStorageBatchOperations_BucketOperation_State_Failed
+ *        Terminated due to an unrecoverable failure. (Value: "FAILED")
+ *    @arg @c kGTLRStorageBatchOperations_BucketOperation_State_Queued Created
+ *        but not yet started. (Value: "QUEUED")
+ *    @arg @c kGTLRStorageBatchOperations_BucketOperation_State_Running In
+ *        progress. (Value: "RUNNING")
+ *    @arg @c kGTLRStorageBatchOperations_BucketOperation_State_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRStorageBatchOperations_BucketOperation_State_Succeeded
+ *        Completed successfully. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 @end
 
@@ -670,6 +795,14 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRStorageBatchOperations_ErrorSummary *> *errorSummaries;
 
+/**
+ *  Output only. If true, this Job operates on multiple buckets. Multibucket
+ *  jobs are subject to different quota limits than single-bucket jobs.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isMultiBucketJob;
+
 /** Optional. Logging configuration. */
 @property(nonatomic, strong, nullable) GTLRStorageBatchOperations_LoggingConfig *loggingConfig;
 
@@ -705,6 +838,8 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  *        user. (Value: "CANCELED")
  *    @arg @c kGTLRStorageBatchOperations_Job_State_Failed Terminated due to an
  *        unrecoverable failure. (Value: "FAILED")
+ *    @arg @c kGTLRStorageBatchOperations_Job_State_Queued Queued but not yet
+ *        started. (Value: "QUEUED")
  *    @arg @c kGTLRStorageBatchOperations_Job_State_Running In progress. (Value:
  *        "RUNNING")
  *    @arg @c kGTLRStorageBatchOperations_Job_State_StateUnspecified Default
@@ -713,6 +848,33 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  *        successfully. (Value: "SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Message for response to listing BucketOperations
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "bucketOperations" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRStorageBatchOperations_ListBucketOperationsResponse : GTLRCollectionObject
+
+/**
+ *  A list of storage batch bucket operations.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRStorageBatchOperations_BucketOperation *> *bucketOperations;
+
+/** A token identifying a page of results. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

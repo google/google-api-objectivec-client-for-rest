@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Gmail Postmaster Tools API (gmailpostmastertools/v1)
+//   Gmail Postmaster Tools API (gmailpostmastertools/v2)
 // Description:
 //   The Postmaster Tools API is a RESTful API that provides programmatic access
 //   to email traffic metrics (like spam reports, delivery errors etc) otherwise
@@ -15,23 +15,35 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRPostmasterTools_DeliveryError.errorClass
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorClass_DeliveryErrorClassUnspecified = @"DELIVERY_ERROR_CLASS_UNSPECIFIED";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorClass_PermanentError = @"PERMANENT_ERROR";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorClass_TemporaryError = @"TEMPORARY_ERROR";
+// GTLRPostmasterTools_BaseMetric.standardMetric
+NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetric_AuthSuccessRate = @"AUTH_SUCCESS_RATE";
+NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetric_DeliveryErrorCount = @"DELIVERY_ERROR_COUNT";
+NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetric_DeliveryErrorRate = @"DELIVERY_ERROR_RATE";
+NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetric_FeedbackLoopId = @"FEEDBACK_LOOP_ID";
+NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetric_FeedbackLoopSpamRate = @"FEEDBACK_LOOP_SPAM_RATE";
+NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetric_SpamRate = @"SPAM_RATE";
+NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetric_StandardMetricUnspecified = @"STANDARD_METRIC_UNSPECIFIED";
+NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetric_TlsEncryptionMessageCount = @"TLS_ENCRYPTION_MESSAGE_COUNT";
+NSString * const kGTLRPostmasterTools_BaseMetric_StandardMetric_TlsEncryptionRate = @"TLS_ENCRYPTION_RATE";
 
-// GTLRPostmasterTools_DeliveryError.errorType
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_BadAttachment = @"BAD_ATTACHMENT";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_BadDmarcPolicy = @"BAD_DMARC_POLICY";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_BadPtrRecord = @"BAD_PTR_RECORD";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_ContentSpammy = @"CONTENT_SPAMMY";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_DeliveryErrorTypeUnspecified = @"DELIVERY_ERROR_TYPE_UNSPECIFIED";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_DomainInRbl = @"DOMAIN_IN_RBL";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_IpInRbl = @"IP_IN_RBL";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_LowDomainReputation = @"LOW_DOMAIN_REPUTATION";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_LowIpReputation = @"LOW_IP_REPUTATION";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_RateLimitExceeded = @"RATE_LIMIT_EXCEEDED";
-NSString * const kGTLRPostmasterTools_DeliveryError_ErrorType_SuspectedSpam = @"SUSPECTED_SPAM";
+// GTLRPostmasterTools_ComplianceRowData.requirement
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_ComplianceRequirementUnspecified = @"COMPLIANCE_REQUIREMENT_UNSPECIFIED";
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_Dkim = @"DKIM";
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_DmarcAlignment = @"DMARC_ALIGNMENT";
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_DmarcPolicy = @"DMARC_POLICY";
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_DnsRecords = @"DNS_RECORDS";
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_Encryption = @"ENCRYPTION";
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_HonorUnsubscribe = @"HONOR_UNSUBSCRIBE";
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_MessageFormatting = @"MESSAGE_FORMATTING";
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_OneClickUnsubscribe = @"ONE_CLICK_UNSUBSCRIBE";
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_Spf = @"SPF";
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_SpfAndDkim = @"SPF_AND_DKIM";
+NSString * const kGTLRPostmasterTools_ComplianceRowData_Requirement_UserReportedSpamRate = @"USER_REPORTED_SPAM_RATE";
+
+// GTLRPostmasterTools_ComplianceStatus.status
+NSString * const kGTLRPostmasterTools_ComplianceStatus_Status_Compliant = @"COMPLIANT";
+NSString * const kGTLRPostmasterTools_ComplianceStatus_Status_NeedsWork = @"NEEDS_WORK";
+NSString * const kGTLRPostmasterTools_ComplianceStatus_Status_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRPostmasterTools_Domain.permission
 NSString * const kGTLRPostmasterTools_Domain_Permission_None   = @"NONE";
@@ -39,27 +51,157 @@ NSString * const kGTLRPostmasterTools_Domain_Permission_Owner  = @"OWNER";
 NSString * const kGTLRPostmasterTools_Domain_Permission_PermissionUnspecified = @"PERMISSION_UNSPECIFIED";
 NSString * const kGTLRPostmasterTools_Domain_Permission_Reader = @"READER";
 
-// GTLRPostmasterTools_IpReputation.reputation
-NSString * const kGTLRPostmasterTools_IpReputation_Reputation_Bad = @"BAD";
-NSString * const kGTLRPostmasterTools_IpReputation_Reputation_High = @"HIGH";
-NSString * const kGTLRPostmasterTools_IpReputation_Reputation_Low = @"LOW";
-NSString * const kGTLRPostmasterTools_IpReputation_Reputation_Medium = @"MEDIUM";
-NSString * const kGTLRPostmasterTools_IpReputation_Reputation_ReputationCategoryUnspecified = @"REPUTATION_CATEGORY_UNSPECIFIED";
+// GTLRPostmasterTools_Domain.verificationState
+NSString * const kGTLRPostmasterTools_Domain_VerificationState_Unverified = @"UNVERIFIED";
+NSString * const kGTLRPostmasterTools_Domain_VerificationState_VerificationStateUnspecified = @"VERIFICATION_STATE_UNSPECIFIED";
+NSString * const kGTLRPostmasterTools_Domain_VerificationState_Verified = @"VERIFIED";
 
-// GTLRPostmasterTools_TrafficStats.domainReputation
-NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_Bad = @"BAD";
-NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_High = @"HIGH";
-NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_Low = @"LOW";
-NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_Medium = @"MEDIUM";
-NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_ReputationCategoryUnspecified = @"REPUTATION_CATEGORY_UNSPECIFIED";
+// GTLRPostmasterTools_HonorUnsubscribeVerdict.reason
+NSString * const kGTLRPostmasterTools_HonorUnsubscribeVerdict_Reason_NotHonoring = @"NOT_HONORING";
+NSString * const kGTLRPostmasterTools_HonorUnsubscribeVerdict_Reason_NotHonoringTooFewCampaigns = @"NOT_HONORING_TOO_FEW_CAMPAIGNS";
+NSString * const kGTLRPostmasterTools_HonorUnsubscribeVerdict_Reason_NotHonoringTooManyCampaigns = @"NOT_HONORING_TOO_MANY_CAMPAIGNS";
+NSString * const kGTLRPostmasterTools_HonorUnsubscribeVerdict_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
+
+// GTLRPostmasterTools_OneClickUnsubscribeVerdict.reason
+NSString * const kGTLRPostmasterTools_OneClickUnsubscribeVerdict_Reason_NoUnsubGeneral = @"NO_UNSUB_GENERAL";
+NSString * const kGTLRPostmasterTools_OneClickUnsubscribeVerdict_Reason_NoUnsubPromoSpamReports = @"NO_UNSUB_PROMO_SPAM_REPORTS";
+NSString * const kGTLRPostmasterTools_OneClickUnsubscribeVerdict_Reason_NoUnsubSpamReports = @"NO_UNSUB_SPAM_REPORTS";
+NSString * const kGTLRPostmasterTools_OneClickUnsubscribeVerdict_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
+
+// GTLRPostmasterTools_QueryDomainStatsRequest.aggregationGranularity
+NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranularity_AggregationGranularityUnspecified = @"AGGREGATION_GRANULARITY_UNSPECIFIED";
+NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranularity_Daily = @"DAILY";
+NSString * const kGTLRPostmasterTools_QueryDomainStatsRequest_AggregationGranularity_Overall = @"OVERALL";
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPostmasterTools_DeliveryError
+//   GTLRPostmasterTools_BaseMetric
 //
 
-@implementation GTLRPostmasterTools_DeliveryError
-@dynamic errorClass, errorRatio, errorType;
+@implementation GTLRPostmasterTools_BaseMetric
+@dynamic standardMetric;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_BatchQueryDomainStatsRequest
+//
+
+@implementation GTLRPostmasterTools_BatchQueryDomainStatsRequest
+@dynamic requests;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"requests" : [GTLRPostmasterTools_QueryDomainStatsRequest class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_BatchQueryDomainStatsResponse
+//
+
+@implementation GTLRPostmasterTools_BatchQueryDomainStatsResponse
+@dynamic results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRPostmasterTools_BatchQueryDomainStatsResult class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_BatchQueryDomainStatsResult
+//
+
+@implementation GTLRPostmasterTools_BatchQueryDomainStatsResult
+@dynamic error, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_ComplianceRowData
+//
+
+@implementation GTLRPostmasterTools_ComplianceRowData
+@dynamic requirement, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_ComplianceStatus
+//
+
+@implementation GTLRPostmasterTools_ComplianceStatus
+@dynamic status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_Date
+//
+
+@implementation GTLRPostmasterTools_Date
+@dynamic day, month, year;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_DateList
+//
+
+@implementation GTLRPostmasterTools_DateList
+@dynamic dates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dates" : [GTLRPostmasterTools_Date class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_DateRange
+//
+
+@implementation GTLRPostmasterTools_DateRange
+@dynamic end, start;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_DateRanges
+//
+
+@implementation GTLRPostmasterTools_DateRanges
+@dynamic dateRanges;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dateRanges" : [GTLRPostmasterTools_DateRange class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -69,40 +211,55 @@ NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_ReputationCa
 //
 
 @implementation GTLRPostmasterTools_Domain
-@dynamic createTime, name, permission;
+@dynamic createTime, lastVerifyTime, name, permission, verificationState;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPostmasterTools_FeedbackLoop
+//   GTLRPostmasterTools_DomainComplianceData
 //
 
-@implementation GTLRPostmasterTools_FeedbackLoop
-@dynamic identifier, spamRatio;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"identifier" : @"id" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRPostmasterTools_IpReputation
-//
-
-@implementation GTLRPostmasterTools_IpReputation
-@dynamic ipCount, reputation, sampleIps;
+@implementation GTLRPostmasterTools_DomainComplianceData
+@dynamic domainId, honorUnsubscribeVerdict, oneClickUnsubscribeVerdict, rowData;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"sampleIps" : [NSString class]
+    @"rowData" : [GTLRPostmasterTools_ComplianceRowData class]
   };
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_DomainComplianceStatus
+//
+
+@implementation GTLRPostmasterTools_DomainComplianceStatus
+@dynamic complianceData, name, subdomainComplianceData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_DomainStat
+//
+
+@implementation GTLRPostmasterTools_DomainStat
+@dynamic date, metric, name, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_HonorUnsubscribeVerdict
+//
+
+@implementation GTLRPostmasterTools_HonorUnsubscribeVerdict
+@dynamic reason, status;
 @end
 
 
@@ -130,21 +287,38 @@ NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_ReputationCa
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPostmasterTools_ListTrafficStatsResponse
+//   GTLRPostmasterTools_MetricDefinition
 //
 
-@implementation GTLRPostmasterTools_ListTrafficStatsResponse
-@dynamic nextPageToken, trafficStats;
+@implementation GTLRPostmasterTools_MetricDefinition
+@dynamic baseMetric, filter, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_OneClickUnsubscribeVerdict
+//
+
+@implementation GTLRPostmasterTools_OneClickUnsubscribeVerdict
+@dynamic reason, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_QueryDomainStatsRequest
+//
+
+@implementation GTLRPostmasterTools_QueryDomainStatsRequest
+@dynamic aggregationGranularity, metricDefinitions, pageSize, pageToken, parent,
+         timeQuery;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"trafficStats" : [GTLRPostmasterTools_TrafficStats class]
+    @"metricDefinitions" : [GTLRPostmasterTools_MetricDefinition class]
   };
   return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"trafficStats";
 }
 
 @end
@@ -152,22 +326,91 @@ NSString * const kGTLRPostmasterTools_TrafficStats_DomainReputation_ReputationCa
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRPostmasterTools_TrafficStats
+//   GTLRPostmasterTools_QueryDomainStatsResponse
 //
 
-@implementation GTLRPostmasterTools_TrafficStats
-@dynamic deliveryErrors, dkimSuccessRatio, dmarcSuccessRatio, domainReputation,
-         inboundEncryptionRatio, ipReputations, name, outboundEncryptionRatio,
-         spammyFeedbackLoops, spfSuccessRatio, userReportedSpamRatio,
-         userReportedSpamRatioLowerBound, userReportedSpamRatioUpperBound;
+@implementation GTLRPostmasterTools_QueryDomainStatsResponse
+@dynamic domainStats, nextPageToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"deliveryErrors" : [GTLRPostmasterTools_DeliveryError class],
-    @"ipReputations" : [GTLRPostmasterTools_IpReputation class],
-    @"spammyFeedbackLoops" : [GTLRPostmasterTools_FeedbackLoop class]
+    @"domainStats" : [GTLRPostmasterTools_DomainStat class]
   };
   return map;
 }
 
++ (NSString *)collectionItemsKey {
+  return @"domainStats";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_StatisticValue
+//
+
+@implementation GTLRPostmasterTools_StatisticValue
+@dynamic doubleValue, floatValue, intValue, stringList, stringValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_Status
+//
+
+@implementation GTLRPostmasterTools_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRPostmasterTools_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_Status_Details_Item
+//
+
+@implementation GTLRPostmasterTools_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_StringList
+//
+
+@implementation GTLRPostmasterTools_StringList
+@dynamic values;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"values" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPostmasterTools_TimeQuery
+//
+
+@implementation GTLRPostmasterTools_TimeQuery
+@dynamic dateList, dateRanges;
 @end

@@ -68,7 +68,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
 
 /**
  *  Currently, it doesn't support **YouTube** products. Retrieves the products
- *  that can be resold by the partner. It should be autenticated with a service
+ *  that can be resold by the partner. It should be authenticated with a service
  *  account.
  *
  *  Method: paymentsresellersubscription.partners.products.list
@@ -117,7 +117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
  *  Fetches a @c GTLRPaymentsResellerSubscription_ListProductsResponse.
  *
  *  Currently, it doesn't support **YouTube** products. Retrieves the products
- *  that can be resold by the partner. It should be autenticated with a service
+ *  that can be resold by the partner. It should be authenticated with a service
  *  account.
  *
  *  @param parent Required. The parent, the partner that can resell. Format:
@@ -134,7 +134,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
 @end
 
 /**
- *  Currently, it is only enabeld for **YouTube**. Finds eligible promotions for
+ *  Currently, it is only enabled for **YouTube**. Finds eligible promotions for
  *  the current user. The API requires user authorization via OAuth. The bare
  *  minimum oauth scope `openid` is sufficient, which will skip the consent
  *  screen.
@@ -156,7 +156,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
  *  Fetches a @c
  *  GTLRPaymentsResellerSubscription_FindEligiblePromotionsResponse.
  *
- *  Currently, it is only enabeld for **YouTube**. Finds eligible promotions for
+ *  Currently, it is only enabled for **YouTube**. Finds eligible promotions for
  *  the current user. The API requires user authorization via OAuth. The bare
  *  minimum oauth scope `openid` is sufficient, which will skip the consent
  *  screen.
@@ -177,7 +177,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
 /**
  *  Currently, it doesn't support **YouTube** promotions. Retrieves the
  *  promotions, such as free trial, that can be used by the partner. It should
- *  be autenticated with a service account.
+ *  be authenticated with a service account.
  *
  *  Method: paymentsresellersubscription.partners.promotions.list
  *
@@ -203,8 +203,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
 
 /**
  *  Optional. The maximum number of promotions to return. The service may return
- *  fewer than this value. If unspecified, at most 50 products will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ *  fewer than this value. If unspecified, at most 50 promotions will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
@@ -227,7 +228,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
  *
  *  Currently, it doesn't support **YouTube** promotions. Retrieves the
  *  promotions, such as free trial, that can be used by the partner. It should
- *  be autenticated with a service account.
+ *  be authenticated with a service account.
  *
  *  @param parent Required. The parent, the partner that can resell. Format:
  *    partners/{partner}
@@ -302,8 +303,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
 /**
  *  Required. Identifies the subscription resource on the Partner side. The
  *  value is restricted to 63 ASCII characters at the maximum. If a subscription
- *  was previously created with the same subscription_id, we will directly
- *  return that one.
+ *  with the same ID already exists, the creation fails with an `ALREADY_EXISTS`
+ *  error.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 
@@ -441,7 +442,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
 @end
 
 /**
- *  Updates a line item of a subscription. It should be autenticated with a
+ *  Updates a line item of a subscription. It should be authenticated with a
  *  service account.
  *
  *  Method: paymentsresellersubscription.partners.subscriptions.lineItems.patch
@@ -469,7 +470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
 /**
  *  Fetches a @c GTLRPaymentsResellerSubscription_SubscriptionLineItem.
  *
- *  Updates a line item of a subscription. It should be autenticated with a
+ *  Updates a line item of a subscription. It should be authenticated with a
  *  service account.
  *
  *  @param object The @c GTLRPaymentsResellerSubscription_SubscriptionLineItem
@@ -526,8 +527,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscriptionCycleOptions
 /**
  *  Required. Identifies the subscription resource on the Partner side. The
  *  value is restricted to 63 ASCII characters at the maximum. If a subscription
- *  was previously created with the same subscription_id, we will directly
- *  return that one.
+ *  with the same ID already exists, the creation fails with an `ALREADY_EXISTS`
+ *  error.
  */
 @property(nonatomic, copy, nullable) NSString *subscriptionId;
 

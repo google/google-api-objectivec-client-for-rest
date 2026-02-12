@@ -932,6 +932,50 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRClassroom_ListStudentGroupMembersResponse
+//
+
+@implementation GTLRClassroom_ListStudentGroupMembersResponse
+@dynamic nextPageToken, studentGroupMembers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"studentGroupMembers" : [GTLRClassroom_StudentGroupMember class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"studentGroupMembers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_ListStudentGroupsResponse
+//
+
+@implementation GTLRClassroom_ListStudentGroupsResponse
+@dynamic nextPageToken, studentGroups;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"studentGroups" : [GTLRClassroom_StudentGroup class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"studentGroups";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRClassroom_ListStudentsResponse
 //
 
@@ -1246,6 +1290,31 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 
 @implementation GTLRClassroom_StudentContext
 @dynamic submissionId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_StudentGroup
+//
+
+@implementation GTLRClassroom_StudentGroup
+@dynamic courseId, identifier, title;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRClassroom_StudentGroupMember
+//
+
+@implementation GTLRClassroom_StudentGroupMember
+@dynamic courseId, studentGroupId, userId;
 @end
 
 

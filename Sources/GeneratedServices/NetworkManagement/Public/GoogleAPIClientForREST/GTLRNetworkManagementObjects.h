@@ -219,12 +219,34 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NonRou
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoServerlessIpRanges;
 /**
- *  Aborted because no valid source or destination endpoint is derived from the
- *  input test request.
+ *  Aborted because the source IP address is not contained within the subnet
+ *  ranges of the provided VPC network.
+ *
+ *  Value: "NO_SOURCE_GCP_NETWORK_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceGcpNetworkLocation;
+/**
+ *  Aborted because the source IP address can't be resolved as an Internet IP
+ *  address.
+ *
+ *  Value: "NO_SOURCE_INTERNET_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceInternetLocation;
+/**
+ *  Aborted because no valid source or destination endpoint can be derived from
+ *  the test request.
  *
  *  Value: "NO_SOURCE_LOCATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation;
+/**
+ *  Aborted because the source IP address is not contained within the
+ *  destination ranges of the routes towards non-GCP networks in the provided
+ *  VPC network.
+ *
+ *  Value: "NO_SOURCE_NON_GCP_NETWORK_LOCATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceNonGcpNetworkLocation;
 /**
  *  Aborted because user lacks permission to access all or part of the network
  *  configurations required to run the test.
@@ -272,6 +294,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_RouteC
  *  Value: "SOURCE_ENDPOINT_NOT_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound GTLR_DEPRECATED;
+/**
+ *  Aborted because tests with the external database as a source are not
+ *  supported. In such replication scenarios, the connection is initiated by the
+ *  Cloud SQL replica instance.
+ *
+ *  Value: "SOURCE_EXTERNAL_CLOUD_SQL_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceExternalCloudSqlUnsupported;
 /**
  *  Aborted because tests with a forwarding rule as a source are not supported.
  *
@@ -952,8 +982,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromExternalIpv6SourceToPrivateIpv6Address;
 /**
- *  Packet is sent from the Internet or Google service to the private IPv6
- *  address.
+ *  Packet is sent from the Internet to the private IPv4 address.
+ *
+ *  Value: "NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV4_ADDRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv4Address;
+/**
+ *  Packet is sent from the Internet to the private IPv6 address.
  *
  *  Value: "NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS"
  */
@@ -966,6 +1001,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute
  *  Value: "NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoTrafficSelectorToGcpDestination;
+/**
+ *  Packet is dropped because there is no valid matching route from the network
+ *  of the Google-managed service to the destination.
+ *
+ *  Value: "NO_VALID_ROUTE_FROM_GOOGLE_MANAGED_NETWORK_TO_DESTINATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoValidRouteFromGoogleManagedNetworkToDestination;
 /**
  *  Endpoint with only an internal IP address tries to access Google API and
  *  services, but Private Google Access is not enabled in the subnet or is not
@@ -1543,21 +1585,40 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerT
 // GTLRNetworkManagement_Endpoint.networkType
 
 /**
- *  A network hosted within Google Cloud. To receive more detailed output,
- *  specify the URI for the source or destination network.
+ *  A VPC network. Should be used for internal IP addresses in VPC networks. The
+ *  `network` field should be set to the URI of this network. Only endpoints
+ *  within this network will be considered.
  *
  *  Value: "GCP_NETWORK"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_GcpNetwork;
 /**
- *  Default type if unspecified.
+ *  Internet. Should be used for internet-routable external IP addresses or IP
+ *  addresses for global Google APIs and services.
+ *
+ *  Value: "INTERNET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_Internet;
+/**
+ *  Unspecified. The test will analyze all possible IP address locations. This
+ *  might take longer and produce inaccurate or ambiguous results, so prefer
+ *  specifying an explicit network type. The `project_id` field should be set to
+ *  the project where the GCP endpoint is located, or where the non-GCP endpoint
+ *  should be reachable from (via routes to non-GCP networks). The project might
+ *  also be inferred from the Connectivity Test project or other projects
+ *  referenced in the request.
  *
  *  Value: "NETWORK_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecified;
 /**
- *  A network hosted outside of Google Cloud. This can be an on-premises
- *  network, an internet resource or a network hosted by another cloud provider.
+ *  A non-GCP network (for example, an on-premises network or another cloud
+ *  provider network). Should be used for internal IP addresses outside of
+ *  Google Cloud. The `network` field should be set to the URI of the VPC
+ *  network containing a corresponding Cloud VPN tunnel, Cloud Interconnect VLAN
+ *  attachment, or a router appliance instance. Only endpoints reachable from
+ *  the provided VPC network via the routes to non-GCP networks will be
+ *  considered.
  *
  *  Value: "NON_GCP_NETWORK"
  */
@@ -2973,9 +3034,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Aborted because the source endpoint is a Cloud Run revision with
  *        direct VPC access enabled, but there are no reserved serverless IP
  *        ranges. (Value: "NO_SERVERLESS_IP_RANGES")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NoSourceGcpNetworkLocation
+ *        Aborted because the source IP address is not contained within the
+ *        subnet ranges of the provided VPC network. (Value:
+ *        "NO_SOURCE_GCP_NETWORK_LOCATION")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NoSourceInternetLocation
+ *        Aborted because the source IP address can't be resolved as an Internet
+ *        IP address. (Value: "NO_SOURCE_INTERNET_LOCATION")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation Aborted
- *        because no valid source or destination endpoint is derived from the
- *        input test request. (Value: "NO_SOURCE_LOCATION")
+ *        because no valid source or destination endpoint can be derived from
+ *        the test request. (Value: "NO_SOURCE_LOCATION")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_NoSourceNonGcpNetworkLocation
+ *        Aborted because the source IP address is not contained within the
+ *        destination ranges of the routes towards non-GCP networks in the
+ *        provided VPC network. (Value: "NO_SOURCE_NON_GCP_NETWORK_LOCATION")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied Aborted
  *        because user lacks permission to access all or part of the network
  *        configurations required to run the test. (Value: "PERMISSION_DENIED")
@@ -3000,6 +3072,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound
  *        Aborted because the source endpoint could not be found. Deprecated,
  *        not used in the new tests. (Value: "SOURCE_ENDPOINT_NOT_FOUND")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceExternalCloudSqlUnsupported
+ *        Aborted because tests with the external database as a source are not
+ *        supported. In such replication scenarios, the connection is initiated
+ *        by the Cloud SQL replica instance. (Value:
+ *        "SOURCE_EXTERNAL_CLOUD_SQL_UNSUPPORTED")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_SourceForwardingRuleUnsupported
  *        Aborted because tests with a forwarding rule as a source are not
  *        supported. (Value: "SOURCE_FORWARDING_RULE_UNSUPPORTED")
@@ -3823,14 +3900,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Packet is sent from the external IPv6 source address of an instance to
  *        the private IPv6 address of an instance. (Value:
  *        "NO_ROUTE_FROM_EXTERNAL_IPV6_SOURCE_TO_PRIVATE_IPV6_ADDRESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv4Address
+ *        Packet is sent from the Internet to the private IPv4 address. (Value:
+ *        "NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV4_ADDRESS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv6Address
- *        Packet is sent from the Internet or Google service to the private IPv6
- *        address. (Value: "NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS")
+ *        Packet is sent from the Internet to the private IPv6 address. (Value:
+ *        "NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoTrafficSelectorToGcpDestination
  *        Packet from the non-GCP (on-prem) or unknown GCP network is dropped
  *        due to the destination IP address not belonging to any IP prefix
  *        included to the local traffic selector of the VPN tunnel. (Value:
  *        "NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_NoValidRouteFromGoogleManagedNetworkToDestination
+ *        Packet is dropped because there is no valid matching route from the
+ *        network of the Google-managed service to the destination. (Value:
+ *        "NO_VALID_ROUTE_FROM_GOOGLE_MANAGED_NETWORK_TO_DESTINATION")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed
  *        Endpoint with only an internal IP address tries to access Google API
  *        and services, but Private Google Access is not enabled in the subnet
@@ -4333,23 +4417,44 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  */
 @property(nonatomic, copy, nullable) NSString *loadBalancerType;
 
-/** A VPC network URI. */
+/**
+ *  A VPC network URI. For source endpoints, used according to the
+ *  `network_type`. For destination endpoints, used only when the source is an
+ *  external IP address endpoint, and the destination is an internal IP address
+ *  endpoint.
+ */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Type of the network where the endpoint is located. Applicable only to source
- *  endpoint, as destination network type can be inferred from the source.
+ *  For source endpoints, type of the network where the endpoint is located. Not
+ *  relevant for destination endpoints.
  *
  *  Likely values:
- *    @arg @c kGTLRNetworkManagement_Endpoint_NetworkType_GcpNetwork A network
- *        hosted within Google Cloud. To receive more detailed output, specify
- *        the URI for the source or destination network. (Value: "GCP_NETWORK")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_NetworkType_GcpNetwork A VPC
+ *        network. Should be used for internal IP addresses in VPC networks. The
+ *        `network` field should be set to the URI of this network. Only
+ *        endpoints within this network will be considered. (Value:
+ *        "GCP_NETWORK")
+ *    @arg @c kGTLRNetworkManagement_Endpoint_NetworkType_Internet Internet.
+ *        Should be used for internet-routable external IP addresses or IP
+ *        addresses for global Google APIs and services. (Value: "INTERNET")
  *    @arg @c kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecified
- *        Default type if unspecified. (Value: "NETWORK_TYPE_UNSPECIFIED")
+ *        Unspecified. The test will analyze all possible IP address locations.
+ *        This might take longer and produce inaccurate or ambiguous results, so
+ *        prefer specifying an explicit network type. The `project_id` field
+ *        should be set to the project where the GCP endpoint is located, or
+ *        where the non-GCP endpoint should be reachable from (via routes to
+ *        non-GCP networks). The project might also be inferred from the
+ *        Connectivity Test project or other projects referenced in the request.
+ *        (Value: "NETWORK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpNetwork A
- *        network hosted outside of Google Cloud. This can be an on-premises
- *        network, an internet resource or a network hosted by another cloud
- *        provider. (Value: "NON_GCP_NETWORK")
+ *        non-GCP network (for example, an on-premises network or another cloud
+ *        provider network). Should be used for internal IP addresses outside of
+ *        Google Cloud. The `network` field should be set to the URI of the VPC
+ *        network containing a corresponding Cloud VPN tunnel, Cloud
+ *        Interconnect VLAN attachment, or a router appliance instance. Only
+ *        endpoints reachable from the provided VPC network via the routes to
+ *        non-GCP networks will be considered. (Value: "NON_GCP_NETWORK")
  */
 @property(nonatomic, copy, nullable) NSString *networkType;
 
@@ -4362,13 +4467,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 @property(nonatomic, strong, nullable) NSNumber *port;
 
 /**
- *  Project ID where the endpoint is located. The project ID can be derived from
- *  the URI if you provide a endpoint or network URI. The following are two
- *  cases where you may need to provide the project ID: 1. Only the IP address
- *  is specified, and the IP address is within a Google Cloud project. 2. When
- *  you are using Shared VPC and the IP address that you provide is from the
- *  service project. In this case, the network that the IP address resides in is
- *  defined in the host project.
+ *  For source endpoints, endpoint project ID. Used according to the
+ *  `network_type`. Not relevant for destination endpoints.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
 

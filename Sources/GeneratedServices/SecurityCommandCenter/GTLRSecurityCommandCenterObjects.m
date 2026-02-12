@@ -1477,6 +1477,36 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_AdcApplication
+//
+
+@implementation GTLRSecurityCommandCenter_AdcApplication
+@dynamic attributes, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AdcApplicationTemplateRevision
+//
+
+@implementation GTLRSecurityCommandCenter_AdcApplicationTemplateRevision
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_AdcSharedTemplateRevision
+//
+
+@implementation GTLRSecurityCommandCenter_AdcSharedTemplateRevision
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_AffectedResources
 //
 
@@ -2967,10 +2997,10 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1Resource
-@dynamic application, awsMetadata, azureMetadata, cloudProvider, displayName,
-         folders, location, name, organization, parent, parentDisplayName,
-         project, projectDisplayName, resourcePath, resourcePathString, service,
-         type;
+@dynamic adcApplication, adcApplicationTemplate, adcSharedTemplate, application,
+         awsMetadata, azureMetadata, cloudProvider, displayName, folders,
+         location, name, organization, parent, parentDisplayName, project,
+         projectDisplayName, resourcePath, resourcePathString, service, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3167,6 +3197,36 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdaptiveProtection
 @dynamic confidence;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplication
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplication
+@dynamic attributes, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplicationTemplateRevision
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplicationTemplateRevision
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcSharedTemplateRevision
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcSharedTemplateRevision
+@dynamic name;
 @end
 
 
@@ -4227,8 +4287,39 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResource
-@dynamic application, awsMetadata, azureMetadata, cloudProvider, displayName,
+@dynamic adcApplication, adcApplicationTemplate, adcSharedTemplate, application,
+         awsMetadata, azureMetadata, cloudProvider, displayName,
          googleCloudMetadata, name, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcApplication
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcApplication
+@dynamic attributes, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcApplicationTemplateRevision
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcApplicationTemplateRevision
+@dynamic name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcSharedTemplateRevision
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IssueResourceAdcSharedTemplateRevision
+@dynamic name;
 @end
 
 
@@ -4749,9 +4840,9 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Resource
-@dynamic application, awsMetadata, azureMetadata, cloudProvider, displayName,
-         gcpMetadata, location, name, resourcePath, resourcePathString, service,
-         type;
+@dynamic adcApplication, adcApplicationTemplate, adcSharedTemplate, application,
+         awsMetadata, azureMetadata, cloudProvider, displayName, gcpMetadata,
+         location, name, resourcePath, resourcePathString, service, type;
 @end
 
 
@@ -6149,8 +6240,9 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_Resource
-@dynamic application, awsMetadata, azureMetadata, cloudProvider, displayName,
-         folders, location, name, organization, parentDisplayName, parentName,
+@dynamic adcApplication, adcApplicationTemplate, adcSharedTemplate, application,
+         awsMetadata, azureMetadata, cloudProvider, displayName, folders,
+         location, name, organization, parentDisplayName, parentName,
          projectDisplayName, projectName, resourcePath, resourcePathString,
          service, type;
 

@@ -354,6 +354,10 @@ NSString * const kGTLRHangoutsChat_Membership_State_Joined     = @"JOINED";
 NSString * const kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified = @"MEMBERSHIP_STATE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_Membership_State_NotAMember = @"NOT_A_MEMBER";
 
+// GTLRHangoutsChat_QuotedMessageMetadata.quoteType
+NSString * const kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_QuoteTypeUnspecified = @"QUOTE_TYPE_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_Reply = @"REPLY";
+
 // GTLRHangoutsChat_RichLinkMetadata.richLinkType
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_CalendarEvent = @"CALENDAR_EVENT";
 NSString * const kGTLRHangoutsChat_RichLinkMetadata_RichLinkType_ChatSpace = @"CHAT_SPACE";
@@ -852,6 +856,16 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_ForwardedMetadata
+//
+
+@implementation GTLRHangoutsChat_ForwardedMetadata
+@dynamic space, spaceDisplayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_GoogleAppsCardV1Action
 //
 
@@ -1106,7 +1120,7 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 //
 
 @implementation GTLRHangoutsChat_GoogleAppsCardV1DataSourceConfig
-@dynamic platformDataSource, remoteDataSource;
+@dynamic minCharactersTrigger, platformDataSource, remoteDataSource;
 @end
 
 
@@ -2009,7 +2023,27 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 //
 
 @implementation GTLRHangoutsChat_QuotedMessageMetadata
-@dynamic lastUpdateTime, name;
+@dynamic forwardedMetadata, lastUpdateTime, name, quotedMessageSnapshot,
+         quoteType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_QuotedMessageSnapshot
+//
+
+@implementation GTLRHangoutsChat_QuotedMessageSnapshot
+@dynamic annotations, attachments, formattedText, sender, text;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"annotations" : [GTLRHangoutsChat_Annotation class],
+    @"attachments" : [GTLRHangoutsChat_Attachment class]
+  };
+  return map;
+}
+
 @end
 
 

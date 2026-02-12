@@ -77,6 +77,58 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 @end
 
 /**
+ *  Gets details of a discovered workload profile.
+ *
+ *  Method: workloadmanager.projects.locations.discoveredprofiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesGet : GTLRWorkloadManagerQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_WorkloadProfile.
+ *
+ *  Gets details of a discovered workload profile.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get the health of a discovered workload profile.
+ *
+ *  Method: workloadmanager.projects.locations.discoveredprofiles.health.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesHealthGet : GTLRWorkloadManagerQuery
+
+/** Required. The resource name */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_WorkloadProfileHealth.
+ *
+ *  Get the health of a discovered workload profile.
+ *
+ *  @param name Required. The resource name
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesHealthGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  List discovered workload profiles
  *
  *  Method: workloadmanager.projects.locations.discoveredprofiles.list
@@ -698,7 +750,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: workloadmanager.projects.locations.list
  *
@@ -738,7 +794,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 /**
  *  Fetches a @c GTLRWorkloadManager_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

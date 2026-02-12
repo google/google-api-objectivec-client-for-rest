@@ -2654,11 +2654,12 @@ NSString * const kGTLRDataLabeling_GoogleCloudDatalabelingV1beta1LabelVideoReque
 //
 
 @implementation GTLRDataLabeling_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRDataLabeling_GoogleLongrunningOperation class]
+    @"operations" : [GTLRDataLabeling_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

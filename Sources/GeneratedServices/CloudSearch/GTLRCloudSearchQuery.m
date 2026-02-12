@@ -8,7 +8,7 @@
 //   data. The Cloud Search API allows indexing of non-Google Workspace data
 //   into Cloud Search.
 // Documentation:
-//   https://developers.google.com/cloud-search/docs/guides/
+//   https://developers.google.com/workspace/cloud-search/docs/guides/
 
 #import <GoogleAPIClientForREST/GTLRCloudSearchQuery.h>
 
@@ -522,7 +522,7 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @implementation GTLRCloudSearchQuery_OperationsLroList
 
-@dynamic filter, name, pageSize, pageToken;
+@dynamic filter, name, pageSize, pageToken, returnPartialSuccess;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -534,28 +534,6 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
   query.name = name;
   query.expectedObjectClass = [GTLRCloudSearch_ListOperationsResponse class];
   query.loggingName = @"cloudsearch.operations.lro.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudSearchQuery_QueryDebugSearch
-
-+ (instancetype)queryWithObject:(GTLRCloudSearch_SearchRequest *)object {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSString *pathURITemplate = @"v1/query:debugSearch";
-  GTLRCloudSearchQuery_QueryDebugSearch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:nil];
-  query.bodyObject = object;
-  query.expectedObjectClass = [GTLRCloudSearch_DebugResponse class];
-  query.loggingName = @"cloudsearch.query.debugSearch";
   return query;
 }
 

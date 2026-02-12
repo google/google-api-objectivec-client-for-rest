@@ -8,7 +8,7 @@
 //   data. The Cloud Search API allows indexing of non-Google Workspace data
 //   into Cloud Search.
 // Documentation:
-//   https://developers.google.com/cloud-search/docs/guides/
+//   https://developers.google.com/workspace/cloud-search/docs/guides/
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -490,7 +490,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  currently indexed item. The maximum length for this field is 1024 bytes. For
  *  information on how item version affects the deletion process, refer to
  *  [Handle revisions after manual
- *  deletes](https://developers.google.com/cloud-search/docs/guides/operations).
+ *  deletes](https://developers.google.com/workspace/cloud-search/docs/guides/operations).
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -934,7 +934,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Uploads media for indexing. The upload endpoint supports direct and
  *  resumable upload protocols and is intended for large items that can not be
  *  [inlined during index
- *  requests](https://developers.google.com/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent).
+ *  requests](https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent).
  *  To index large content: 1. Call indexing.datasources.items.upload with the
  *  item name to begin an upload session and retrieve the UploadItemRef. 1. Call
  *  media.upload to upload the content, as a streaming request, using the same
@@ -943,7 +943,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent)
  *  with the UploadItemRef from step 1. For additional information, see [Create
  *  a content connector using the REST
- *  API](https://developers.google.com/cloud-search/docs/guides/content-connector#rest).
+ *  API](https://developers.google.com/workspace/cloud-search/docs/guides/content-connector#rest).
  *  **Note:** This API requires a service account to execute.
  *
  *  Method: cloudsearch.media.upload
@@ -965,7 +965,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  Uploads media for indexing. The upload endpoint supports direct and
  *  resumable upload protocols and is intended for large items that can not be
  *  [inlined during index
- *  requests](https://developers.google.com/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent).
+ *  requests](https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/indexing.datasources.items#itemcontent).
  *  To index large content: 1. Call indexing.datasources.items.upload with the
  *  item name to begin an upload session and retrieve the UploadItemRef. 1. Call
  *  media.upload to upload the content, as a streaming request, using the same
@@ -974,7 +974,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  [ItemContent](/cloud-search/docs/reference/rest/v1/indexing.datasources.items#ItemContent)
  *  with the UploadItemRef from step 1. For additional information, see [Create
  *  a content connector using the REST
- *  API](https://developers.google.com/cloud-search/docs/guides/content-connector#rest).
+ *  API](https://developers.google.com/workspace/cloud-search/docs/guides/content-connector#rest).
  *  **Note:** This API requires a service account to execute.
  *
  *  @param object The @c GTLRCloudSearch_Media to include in the query.
@@ -1055,6 +1055,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
  *  Fetches a @c GTLRCloudSearch_ListOperationsResponse.
  *
  *  Lists operations that match the specified filter in the request. If the
@@ -1073,46 +1084,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @end
 
 /**
- *  Returns Debug information for Cloud Search Query API provides the search
- *  method. **Note:** This API requires a standard end user account to execute.
- *  A service account can't perform Query API requests directly; to use a
- *  service account to perform queries, set up [Google Workspace domain-wide
- *  delegation of
- *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
- *
- *  Method: cloudsearch.query.debugSearch
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudSearchCloudSearch
- *    @c kGTLRAuthScopeCloudSearchCloudSearchQuery
- */
-@interface GTLRCloudSearchQuery_QueryDebugSearch : GTLRCloudSearchQuery
-
-/**
- *  Fetches a @c GTLRCloudSearch_DebugResponse.
- *
- *  Returns Debug information for Cloud Search Query API provides the search
- *  method. **Note:** This API requires a standard end user account to execute.
- *  A service account can't perform Query API requests directly; to use a
- *  service account to perform queries, set up [Google Workspace domain-wide
- *  delegation of
- *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
- *
- *  @param object The @c GTLRCloudSearch_SearchRequest to include in the query.
- *
- *  @return GTLRCloudSearchQuery_QueryDebugSearch
- */
-+ (instancetype)queryWithObject:(GTLRCloudSearch_SearchRequest *)object;
-
-@end
-
-/**
  *  Provides functionality to remove logged activity for a user. Currently to be
  *  used only for Chat 1p clients **Note:** This API requires a standard end
  *  user account to execute. A service account can't perform Remove Activity
  *  requests directly; to use a service account to perform queries, set up
  *  [Google Workspace domain-wide delegation of
- *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *  authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.removeActivity
  *
@@ -1130,7 +1107,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  user account to execute. A service account can't perform Remove Activity
  *  requests directly; to use a service account to perform queries, set up
  *  [Google Workspace domain-wide delegation of
- *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *  authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/).
  *
  *  @param object The @c GTLRCloudSearch_RemoveActivityRequest to include in the
  *    query.
@@ -1149,7 +1126,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  standard end user account to execute. A service account can't perform Query
  *  API requests directly; to use a service account to perform queries, set up
  *  [Google Workspace domain-wide delegation of
- *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *  authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.search
  *
@@ -1169,7 +1146,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  standard end user account to execute. A service account can't perform Query
  *  API requests directly; to use a service account to perform queries, set up
  *  [Google Workspace domain-wide delegation of
- *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *  authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/).
  *
  *  @param object The @c GTLRCloudSearch_SearchRequest to include in the query.
  *
@@ -1185,7 +1162,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  service account can't perform Query API requests directly; to use a service
  *  account to perform queries, set up [Google Workspace domain-wide delegation
  *  of
- *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *  authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.sources.list
  *
@@ -1241,7 +1218,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  service account can't perform Query API requests directly; to use a service
  *  account to perform queries, set up [Google Workspace domain-wide delegation
  *  of
- *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *  authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/).
  *
  *  @return GTLRCloudSearchQuery_QuerySourcesList
  *
@@ -1258,7 +1235,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  requires a standard end user account to execute. A service account can't
  *  perform Query API requests directly; to use a service account to perform
  *  queries, set up [Google Workspace domain-wide delegation of
- *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *  authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/).
  *
  *  Method: cloudsearch.query.suggest
  *
@@ -1275,7 +1252,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
  *  requires a standard end user account to execute. A service account can't
  *  perform Query API requests directly; to use a service account to perform
  *  queries, set up [Google Workspace domain-wide delegation of
- *  authority](https://developers.google.com/cloud-search/docs/guides/delegation/).
+ *  authority](https://developers.google.com/workspace/cloud-search/docs/guides/delegation/).
  *
  *  @param object The @c GTLRCloudSearch_SuggestRequest to include in the query.
  *
@@ -1452,7 +1429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  Only applies to
- *  [`settings.datasources.patch`](https://developers.google.com/cloud-search/docs/reference/rest/v1/settings.datasources/patch).
+ *  [`settings.datasources.patch`](https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/settings.datasources/patch).
  *  Update mask to control which fields to update. Example field paths: `name`,
  *  `displayName`. * If `update_mask` is non-empty, then only the fields
  *  specified in the `update_mask` are updated. * If you specify a field in the
@@ -1716,7 +1693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  Only applies to
- *  [`settings.searchapplications.patch`](https://developers.google.com/cloud-search/docs/reference/rest/v1/settings.searchapplications/patch).
+ *  [`settings.searchapplications.patch`](https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/settings.searchapplications/patch).
  *  Update mask to control which fields to update. Example field paths:
  *  `search_application.name`, `search_application.displayName`. * If
  *  `update_mask` is non-empty, then only the fields specified in the
@@ -1805,7 +1782,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 
 /**
  *  Only applies to
- *  [`settings.searchapplications.patch`](https://developers.google.com/cloud-search/docs/reference/rest/v1/settings.searchapplications/patch).
+ *  [`settings.searchapplications.patch`](https://developers.google.com/workspace/cloud-search/docs/reference/rest/v1/settings.searchapplications/patch).
  *  Update mask to control which fields to update. Example field paths:
  *  `search_application.name`, `search_application.displayName`. * If
  *  `update_mask` is non-empty, then only the fields specified in the

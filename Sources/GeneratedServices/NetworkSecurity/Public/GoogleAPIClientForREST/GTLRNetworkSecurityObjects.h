@@ -1050,6 +1050,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_S
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_MirroringEndpointGroup.type
+
+/**
+ *  An endpoint group that sends packets to a single deployment group.
+ *
+ *  Value: "DIRECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_Type_Direct;
+/**
+ *  Not set.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_MirroringEndpointGroupAssociation.state
 
 /**
@@ -5174,6 +5190,19 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        "STATE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Immutable. The type of the endpoint group. If left unspecified, defaults to
+ *  DIRECT.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroup_Type_Direct An
+ *        endpoint group that sends packets to a single deployment group.
+ *        (Value: "DIRECT")
+ *    @arg @c kGTLRNetworkSecurity_MirroringEndpointGroup_Type_TypeUnspecified
+ *        Not set. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Output only. The timestamp when the resource was most recently updated. See

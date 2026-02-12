@@ -2884,10 +2884,10 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @interface GTLROracleDatabase_AutonomousDatabase : GTLRObject
 
-/** Optional. The password for the default ADMIN user. */
+/** Optional. Immutable. The password for the default ADMIN user. */
 @property(nonatomic, copy, nullable) NSString *adminPassword;
 
-/** Optional. The subnet CIDR range for the Autonomous Database. */
+/** Optional. Immutable. The subnet CIDR range for the Autonomous Database. */
 @property(nonatomic, copy, nullable) NSString *cidr;
 
 /**
@@ -2896,9 +2896,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. The name of the Autonomous Database. The database name must be
- *  unique in the project. The name must begin with a letter and can contain a
- *  maximum of 30 alphanumeric characters.
+ *  Optional. Immutable. The name of the Autonomous Database. The database name
+ *  must be unique in the project. The name must begin with a letter and can
+ *  contain a maximum of 30 alphanumeric characters.
  */
 @property(nonatomic, copy, nullable) NSString *database;
 
@@ -2909,8 +2909,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) NSArray<NSString *> *disasterRecoverySupportedLocations;
 
 /**
- *  Optional. The display name for the Autonomous Database. The name does not
- *  have to be unique within your project.
+ *  Optional. Immutable. The display name for the Autonomous Database. The name
+ *  does not have to be unique within your project.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
@@ -2931,14 +2931,15 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The name of the VPC network used by the Autonomous Database in the
- *  following format: projects/{project}/global/networks/{network}
+ *  Optional. Immutable. The name of the VPC network used by the Autonomous
+ *  Database in the following format:
+ *  projects/{project}/global/networks/{network}
  */
 @property(nonatomic, copy, nullable) NSString *network;
 
 /**
- *  Optional. The name of the OdbNetwork associated with the Autonomous
- *  Database. Format:
+ *  Optional. Immutable. The name of the OdbNetwork associated with the
+ *  Autonomous Database. Format:
  *  projects/{project}/locations/{location}/odbNetworks/{odb_network} It is
  *  optional but if specified, this should match the parent ODBNetwork of the
  *  OdbSubnet.
@@ -2946,8 +2947,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, copy, nullable) NSString *odbNetwork;
 
 /**
- *  Optional. The name of the OdbSubnet associated with the Autonomous Database.
- *  Format:
+ *  Optional. Immutable. The name of the OdbSubnet associated with the
+ *  Autonomous Database. Format:
  *  projects/{project}/locations/{location}/odbNetworks/{odb_network}/odbSubnets/{odb_subnet}
  */
 @property(nonatomic, copy, nullable) NSString *odbSubnet;
@@ -2962,9 +2963,10 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) GTLROracleDatabase_AutonomousDatabaseProperties *properties;
 
 /**
- *  Optional. The source Autonomous Database configuration for the standby
- *  Autonomous Database. The source Autonomous Database is configured while
- *  creating the Peer Autonomous Database and can't be updated after creation.
+ *  Optional. Immutable. The source Autonomous Database configuration for the
+ *  standby Autonomous Database. The source Autonomous Database is configured
+ *  while creating the Peer Autonomous Database and can't be updated after
+ *  creation.
  */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_SourceConfig *sourceConfig;
 
@@ -3333,7 +3335,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) NSNumber *allocatedStorageSizeTb;
 
 /**
- *  Optional. The list of allowlisted IP addresses for the Autonomous Database.
+ *  Optional. Immutable. The list of allowlisted IP addresses for the Autonomous
+ *  Database.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowlistedIps;
 
@@ -3364,22 +3367,23 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) NSArray<NSString *> *availableUpgradeVersions;
 
 /**
- *  Optional. The retention period for the Autonomous Database. This field is
- *  specified in days, can range from 1 day to 60 days, and has a default value
- *  of 60 days.
+ *  Optional. Immutable. The retention period for the Autonomous Database. This
+ *  field is specified in days, can range from 1 day to 60 days, and has a
+ *  default value of 60 days.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *backupRetentionPeriodDays;
 
 /**
- *  Optional. The character set for the Autonomous Database. The default is
- *  AL32UTF8.
+ *  Optional. Immutable. The character set for the Autonomous Database. The
+ *  default is AL32UTF8.
  */
 @property(nonatomic, copy, nullable) NSString *characterSet;
 
 /**
- *  Optional. The number of compute servers for the Autonomous Database.
+ *  Optional. Immutable. The number of compute servers for the Autonomous
+ *  Database.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -3395,13 +3399,14 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) GTLROracleDatabase_AutonomousDatabaseConnectionUrls *connectionUrls;
 
 /**
- *  Optional. The number of CPU cores to be made available to the database.
+ *  Optional. Immutable. The number of CPU cores to be made available to the
+ *  database.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cpuCoreCount;
 
-/** Optional. The list of customer contacts. */
+/** Optional. Immutable. The list of customer contacts. */
 @property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_CustomerContact *> *customerContacts;
 
 /**
@@ -3454,21 +3459,23 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, copy, nullable) NSString *dataSafeState;
 
 /**
- *  Optional. The size of the data stored in the database, in gigabytes.
+ *  Optional. Immutable. The size of the data stored in the database, in
+ *  gigabytes.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dataStorageSizeGb;
 
 /**
- *  Optional. The size of the data stored in the database, in terabytes.
+ *  Optional. Immutable. The size of the data stored in the database, in
+ *  terabytes.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *dataStorageSizeTb;
 
 /**
- *  Optional. The edition of the Autonomous Databases.
+ *  Optional. Immutable. The edition of the Autonomous Databases.
  *
  *  Likely values:
  *    @arg @c kGTLROracleDatabase_AutonomousDatabaseProperties_DbEdition_DatabaseEditionUnspecified
@@ -3480,11 +3487,14 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @property(nonatomic, copy, nullable) NSString *dbEdition;
 
-/** Optional. The Oracle Database version for the Autonomous Database. */
+/**
+ *  Optional. Immutable. The Oracle Database version for the Autonomous
+ *  Database.
+ */
 @property(nonatomic, copy, nullable) NSString *dbVersion;
 
 /**
- *  Required. The workload type of the Autonomous Database.
+ *  Required. Immutable. The workload type of the Autonomous Database.
  *
  *  Likely values:
  *    @arg @c kGTLROracleDatabase_AutonomousDatabaseProperties_DbWorkload_Ajd
@@ -3527,8 +3537,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) GTLRDuration *failedDataRecoveryDuration;
 
 /**
- *  Optional. This field indicates if auto scaling is enabled for the Autonomous
- *  Database CPU core count.
+ *  Optional. Immutable. This field indicates if auto scaling is enabled for the
+ *  Autonomous Database CPU core count.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -3543,15 +3553,15 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) NSNumber *isLocalDataGuardEnabled;
 
 /**
- *  Optional. This field indicates if auto scaling is enabled for the Autonomous
- *  Database storage.
+ *  Optional. Immutable. This field indicates if auto scaling is enabled for the
+ *  Autonomous Database storage.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *isStorageAutoScalingEnabled;
 
 /**
- *  Required. The license type used for the Autonomous Database.
+ *  Required. Immutable. The license type used for the Autonomous Database.
  *
  *  Likely values:
  *    @arg @c kGTLROracleDatabase_AutonomousDatabaseProperties_LicenseType_BringYourOwnLicense
@@ -3602,7 +3612,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) GTLRDateTime *maintenanceEndTime;
 
 /**
- *  Optional. The maintenance schedule of the Autonomous Database.
+ *  Optional. Immutable. The maintenance schedule of the Autonomous Database.
  *
  *  Likely values:
  *    @arg @c kGTLROracleDatabase_AutonomousDatabaseProperties_MaintenanceScheduleType_Early
@@ -3633,16 +3643,16 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) NSNumber *memoryTableGbs;
 
 /**
- *  Optional. This field specifies if the Autonomous Database requires mTLS
- *  connections.
+ *  Optional. Immutable. This field specifies if the Autonomous Database
+ *  requires mTLS connections.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *mtlsConnectionRequired;
 
 /**
- *  Optional. The national character set for the Autonomous Database. The
- *  default is AL16UTF16.
+ *  Optional. Immutable. The national character set for the Autonomous Database.
+ *  The default is AL16UTF16.
  */
 @property(nonatomic, copy, nullable) NSString *nCharacterSet;
 
@@ -3723,10 +3733,15 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 /** Output only. The private endpoint for the Autonomous Database. */
 @property(nonatomic, copy, nullable) NSString *privateEndpoint;
 
-/** Optional. The private endpoint IP address for the Autonomous Database. */
+/**
+ *  Optional. Immutable. The private endpoint IP address for the Autonomous
+ *  Database.
+ */
 @property(nonatomic, copy, nullable) NSString *privateEndpointIp;
 
-/** Optional. The private endpoint label for the Autonomous Database. */
+/**
+ *  Optional. Immutable. The private endpoint label for the Autonomous Database.
+ */
 @property(nonatomic, copy, nullable) NSString *privateEndpointLabel;
 
 /**
@@ -3783,7 +3798,9 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @property(nonatomic, strong, nullable) NSArray<GTLROracleDatabase_ScheduledOperationDetails *> *scheduledOperationDetails;
 
-/** Optional. The ID of the Oracle Cloud Infrastructure vault secret. */
+/**
+ *  Optional. Immutable. The ID of the Oracle Cloud Infrastructure vault secret.
+ */
 @property(nonatomic, copy, nullable) NSString *secretId;
 
 /**
@@ -3888,7 +3905,7 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @property(nonatomic, strong, nullable) NSNumber *usedDataStorageSizeTbs;
 
-/** Optional. The ID of the Oracle Cloud Infrastructure vault. */
+/** Optional. Immutable. The ID of the Oracle Cloud Infrastructure vault. */
 @property(nonatomic, copy, nullable) NSString *vaultId;
 
 @end
@@ -6483,7 +6500,10 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @interface GTLROracleDatabase_FailoverAutonomousDatabaseRequest : GTLRObject
 
-/** Required. The peer database name to fail over to. */
+/**
+ *  Optional. The peer database name to fail over to. Required for cross-region
+ *  standby, and must be omitted for in-region Data Guard.
+ */
 @property(nonatomic, copy, nullable) NSString *peerAutonomousDatabase;
 
 @end
@@ -8073,7 +8093,10 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @interface GTLROracleDatabase_SwitchoverAutonomousDatabaseRequest : GTLRObject
 
-/** Required. The peer database name to switch over to. */
+/**
+ *  Optional. The peer database name to switch over to. Required for
+ *  cross-region standby, and must be omitted for in-region Data Guard.
+ */
 @property(nonatomic, copy, nullable) NSString *peerAutonomousDatabase;
 
 @end

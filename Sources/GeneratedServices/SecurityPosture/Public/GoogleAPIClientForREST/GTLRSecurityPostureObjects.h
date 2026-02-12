@@ -52,6 +52,7 @@
 @class GTLRSecurityPosture_ResourceTypes;
 @class GTLRSecurityPosture_SecurityHealthAnalyticsCustomModule;
 @class GTLRSecurityPosture_SecurityHealthAnalyticsModule;
+@class GTLRSecurityPosture_SeverityCountThreshold;
 @class GTLRSecurityPosture_Status;
 @class GTLRSecurityPosture_Status_Details_Item;
 @class GTLRSecurityPosture_Violation;
@@ -440,6 +441,40 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SecurityHealthAnalyticsM
 FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SecurityHealthAnalyticsModule_ModuleEnablementState_EnablementStateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityPosture_SeverityCountThreshold.severity
+
+/**
+ *  Critical severity.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_Critical;
+/**
+ *  High severity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_High;
+/**
+ *  Low severity.
+ *
+ *  Value: "LOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_Low;
+/**
+ *  Medium severity.
+ *
+ *  Value: "MEDIUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_Medium;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "SEVERITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_SeverityUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityPosture_Violation.severity
 
 /**
@@ -794,17 +829,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_Violation_Severity_Sever
  *  A condition that determines whether this rule is used to evaluate the
  *  policy. When set, the google.type.Expr.expression field must contain 1 to 10
  *  subexpressions, joined by the `||` or `&&` operators. Each subexpression
- *  must use the `resource.matchTag()` or `resource.matchTagId()` Common
- *  Expression Language (CEL) function. The `resource.matchTag()` function takes
- *  the following arguments: * `key_name`: the namespaced name of the tag key,
- *  with the organization ID and a slash (`/`) as a prefix; for example,
+ *  must use the `resource.matchTag()`, `resource.matchTagId()`,
+ *  `resource.hasTagKey()`, or `resource.hasTagKeyId()` Common Expression
+ *  Language (CEL) function. The `resource.matchTag()` function takes the
+ *  following arguments: * `key_name`: the namespaced name of the tag key, with
+ *  the organization ID and a slash (`/`) as a prefix; for example,
  *  `123456789012/environment` * `value_name`: the short name of the tag value
  *  For example: `resource.matchTag('123456789012/environment, 'prod')` The
  *  `resource.matchTagId()` function takes the following arguments: * `key_id`:
  *  the permanent ID of the tag key; for example, `tagKeys/123456789012` *
  *  `value_id`: the permanent ID of the tag value; for example,
  *  `tagValues/567890123456` For example:
- *  `resource.matchTagId('tagKeys/123456789012', 'tagValues/567890123456')`
+ *  `resource.matchTagId('tagKeys/123456789012', 'tagValues/567890123456')` The
+ *  `resource.hasTagKey()` function takes the following argument: * `key_name`:
+ *  the namespaced name of the tag key, with the organization ID and a slash
+ *  (`/`) as a prefix; for example, `123456789012/environment` For example:
+ *  `resource.hasTagKey('123456789012/environment')` The
+ *  `resource.hasTagKeyId()` function takes the following arguments: * `key_id`:
+ *  the permanent ID of the tag key; for example, `tagKeys/123456789012` For
+ *  example: `resource.hasTagKeyId('tagKeys/123456789012')`
  */
 @property(nonatomic, strong, nullable) GTLRSecurityPosture_Expr *condition;
 
@@ -910,6 +953,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_Violation_Severity_Sever
 
 
 /**
+ *  Represents the criteria for considering an IaC validation as a failure.
+ */
+@interface GTLRSecurityPosture_IacValidationFailureCriteria : GTLRObject
+
+/** Output only. The time at which the resource was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. The etag for optimistic concurrency. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The resource name of the IacValidationFailureCriteria. Format:
+ *  organizations/{organization}/locations/{location}/iacValidationFailureCriteria
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A list of severity thresholds. An IaC validation fails if any
+ *  threshold is exceeded.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityPosture_SeverityCountThreshold *> *severityCountThresholds;
+
+/** Output only. The time at which the resource was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Details of an infrastructure-as-code (IaC) validation report.
  */
 @interface GTLRSecurityPosture_IaCValidationReport : GTLRObject
@@ -970,8 +1042,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_Violation_Severity_Sever
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -1886,6 +1959,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_Violation_Severity_Sever
  *  category for all the asset violation findings that the detector returns.
  */
 @property(nonatomic, copy, nullable) NSString *moduleName;
+
+@end
+
+
+/**
+ *  Represents a threshold for a specific severity.
+ */
+@interface GTLRSecurityPosture_SeverityCountThreshold : GTLRObject
+
+/**
+ *  Optional. The severity level, reusing the existing Violation.Severity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityPosture_SeverityCountThreshold_Severity_Critical
+ *        Critical severity. (Value: "CRITICAL")
+ *    @arg @c kGTLRSecurityPosture_SeverityCountThreshold_Severity_High High
+ *        severity. (Value: "HIGH")
+ *    @arg @c kGTLRSecurityPosture_SeverityCountThreshold_Severity_Low Low
+ *        severity. (Value: "LOW")
+ *    @arg @c kGTLRSecurityPosture_SeverityCountThreshold_Severity_Medium Medium
+ *        severity. (Value: "MEDIUM")
+ *    @arg @c kGTLRSecurityPosture_SeverityCountThreshold_Severity_SeverityUnspecified
+ *        Default value. This value is unused. (Value: "SEVERITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *severity;
+
+/**
+ *  Optional. If violation count meets or exceeds this threshold, validation
+ *  fails.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *thresholdCount;
 
 @end
 

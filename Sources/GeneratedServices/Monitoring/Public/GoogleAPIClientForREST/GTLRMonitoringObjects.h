@@ -5992,6 +5992,7 @@ GTLR_DEPRECATED
 
 /**
  *  The frequency at which to send reminder notifications for open incidents.
+ *  The value must be between 30 minutes and 24 hours.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *renotifyInterval;
 

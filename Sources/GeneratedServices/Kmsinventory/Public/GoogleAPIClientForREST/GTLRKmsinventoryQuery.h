@@ -19,6 +19,31 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// fallbackScope
+
+/**
+ *  If set to `FALLBACK_SCOPE_PROJECT`, the API will fall back to using key's
+ *  project as request scope if the kms organization service account is not
+ *  configured.
+ *
+ *  Value: "FALLBACK_SCOPE_PROJECT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventoryFallbackScopeFallbackScopeProject;
+/**
+ *  Unspecified scope type.
+ *
+ *  Value: "FALLBACK_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRKmsinventoryFallbackScopeFallbackScopeUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Kmsinventory query classes.
  */
@@ -31,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns metadata about the resources protected by the given Cloud KMS
- *  CryptoKey in the given Cloud organization.
+ *  CryptoKey in the given Cloud organization/project.
  *
  *  Method: kmsinventory.organizations.protectedResources.search
  *
@@ -73,7 +98,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
 
-/** Required. Resource name of the organization. Example: organizations/123 */
+/**
+ *  Required. A scope can be an organization or a project. Resources protected
+ *  by the crypto key in provided scope will be returned. The allowed values
+ *  are: * organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/12345678")
+ *  * projects/{PROJECT_ID} (e.g., "projects/foo-bar") *
+ *  projects/{PROJECT_NUMBER} (e.g., "projects/12345678")
+ */
 @property(nonatomic, copy, nullable) NSString *scope;
 
 /**
@@ -81,10 +112,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRKmsinventory_GoogleCloudKmsInventoryV1SearchProtectedResourcesResponse.
  *
  *  Returns metadata about the resources protected by the given Cloud KMS
- *  CryptoKey in the given Cloud organization.
+ *  CryptoKey in the given Cloud organization/project.
  *
- *  @param scope Required. Resource name of the organization. Example:
- *    organizations/123
+ *  @param scope Required. A scope can be an organization or a project.
+ *    Resources protected by the crypto key in provided scope will be returned.
+ *    The allowed values are: * organizations/{ORGANIZATION_NUMBER} (e.g.,
+ *    "organizations/12345678") * projects/{PROJECT_ID} (e.g.,
+ *    "projects/foo-bar") * projects/{PROJECT_NUMBER} (e.g.,
+ *    "projects/12345678")
  *
  *  @return GTLRKmsinventoryQuery_OrganizationsProtectedResourcesSearch
  *
@@ -150,9 +185,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Returns aggregate information about the resources protected by the given
- *  Cloud KMS CryptoKey. Only resources within the same Cloud organization as
- *  the key will be returned. The project that holds the key must be part of an
- *  organization in order for this call to succeed.
+ *  Cloud KMS CryptoKey. By default, summary of resources within the same Cloud
+ *  organization as the key will be returned, which requires the KMS
+ *  organization service account to be configured(refer
+ *  https://docs.cloud.google.com/kms/docs/view-key-usage#required-roles). If
+ *  the KMS organization service account is not configured or key's project is
+ *  not part of an organization, set fallback_scope to `FALLBACK_SCOPE_PROJECT`
+ *  to retrieve a summary of protected resources within the key's project.
  *
  *  Method: kmsinventory.projects.locations.keyRings.cryptoKeys.getProtectedResourcesSummary
  *
@@ -160,6 +199,20 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeKmsinventoryCloudPlatform
  */
 @interface GTLRKmsinventoryQuery_ProjectsLocationsKeyRingsCryptoKeysGetProtectedResourcesSummary : GTLRKmsinventoryQuery
+
+/**
+ *  Optional. The scope to use if the kms organization service account is not
+ *  configured.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRKmsinventoryFallbackScopeFallbackScopeUnspecified Unspecified
+ *        scope type. (Value: "FALLBACK_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRKmsinventoryFallbackScopeFallbackScopeProject If set to
+ *        `FALLBACK_SCOPE_PROJECT`, the API will fall back to using key's
+ *        project as request scope if the kms organization service account is
+ *        not configured. (Value: "FALLBACK_SCOPE_PROJECT")
+ */
+@property(nonatomic, copy, nullable) NSString *fallbackScope;
 
 /** Required. The resource name of the CryptoKey. */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -169,15 +222,96 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRKmsinventory_GoogleCloudKmsInventoryV1ProtectedResourcesSummary.
  *
  *  Returns aggregate information about the resources protected by the given
- *  Cloud KMS CryptoKey. Only resources within the same Cloud organization as
- *  the key will be returned. The project that holds the key must be part of an
- *  organization in order for this call to succeed.
+ *  Cloud KMS CryptoKey. By default, summary of resources within the same Cloud
+ *  organization as the key will be returned, which requires the KMS
+ *  organization service account to be configured(refer
+ *  https://docs.cloud.google.com/kms/docs/view-key-usage#required-roles). If
+ *  the KMS organization service account is not configured or key's project is
+ *  not part of an organization, set fallback_scope to `FALLBACK_SCOPE_PROJECT`
+ *  to retrieve a summary of protected resources within the key's project.
  *
  *  @param name Required. The resource name of the CryptoKey.
  *
  *  @return GTLRKmsinventoryQuery_ProjectsLocationsKeyRingsCryptoKeysGetProtectedResourcesSummary
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns metadata about the resources protected by the given Cloud KMS
+ *  CryptoKey in the given Cloud organization/project.
+ *
+ *  Method: kmsinventory.projects.protectedResources.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeKmsinventoryCloudPlatform
+ */
+@interface GTLRKmsinventoryQuery_ProjectsProtectedResourcesSearch : GTLRKmsinventoryQuery
+
+/** Required. The resource name of the CryptoKey. */
+@property(nonatomic, copy, nullable) NSString *cryptoKey;
+
+/**
+ *  The maximum number of resources to return. The service may return fewer than
+ *  this value. If unspecified, at most 500 resources will be returned. The
+ *  maximum value is 500; values above 500 will be coerced to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous
+ *  KeyTrackingService.SearchProtectedResources call. Provide this to retrieve
+ *  the subsequent page. When paginating, all other parameters provided to
+ *  KeyTrackingService.SearchProtectedResources must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. A list of resource types that this request searches for. If empty,
+ *  it will search all the [trackable resource
+ *  types](https://cloud.google.com/kms/docs/view-key-usage#tracked-resource-types).
+ *  Regular expressions are also supported. For example: *
+ *  `compute.googleapis.com.*` snapshots resources whose type starts with
+ *  `compute.googleapis.com`. * `.*Image` snapshots resources whose type ends
+ *  with `Image`. * `.*Image.*` snapshots resources whose type contains `Image`.
+ *  See [RE2](https://github.com/google/re2/wiki/Syntax) for all supported
+ *  regular expression syntax. If the regular expression does not match any
+ *  supported resource type, an INVALID_ARGUMENT error will be returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
+
+/**
+ *  Required. A scope can be an organization or a project. Resources protected
+ *  by the crypto key in provided scope will be returned. The allowed values
+ *  are: * organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/12345678")
+ *  * projects/{PROJECT_ID} (e.g., "projects/foo-bar") *
+ *  projects/{PROJECT_NUMBER} (e.g., "projects/12345678")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Fetches a @c
+ *  GTLRKmsinventory_GoogleCloudKmsInventoryV1SearchProtectedResourcesResponse.
+ *
+ *  Returns metadata about the resources protected by the given Cloud KMS
+ *  CryptoKey in the given Cloud organization/project.
+ *
+ *  @param scope Required. A scope can be an organization or a project.
+ *    Resources protected by the crypto key in provided scope will be returned.
+ *    The allowed values are: * organizations/{ORGANIZATION_NUMBER} (e.g.,
+ *    "organizations/12345678") * projects/{PROJECT_ID} (e.g.,
+ *    "projects/foo-bar") * projects/{PROJECT_NUMBER} (e.g.,
+ *    "projects/12345678")
+ *
+ *  @return GTLRKmsinventoryQuery_ProjectsProtectedResourcesSearch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithScope:(NSString *)scope;
 
 @end
 

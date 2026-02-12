@@ -447,6 +447,52 @@ NSString * const kGTLRConnectorsViewEntityTypeViewUnspecified  = @"ENTITY_TYPE_V
 
 @end
 
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsGenerateConnectionToolspecOverride
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRConnectors_GenerateCustomToolspecRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:generateConnectionToolspecOverride";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsGenerateConnectionToolspecOverride *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_GenerateCustomToolspecResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.generateConnectionToolspecOverride";
+  return query;
+}
+
+@end
+
+@implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsListCustomToolNames
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}:listCustomToolNames";
+  GTLRConnectorsQuery_ProjectsLocationsConnectionsListCustomToolNames *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRConnectors_ListCustomToolNamesResponse class];
+  query.loggingName = @"connectors.projects.locations.connections.listCustomToolNames";
+  return query;
+}
+
+@end
+
 @implementation GTLRConnectorsQuery_ProjectsLocationsConnectionsRefreshAccessToken
 
 @dynamic name;

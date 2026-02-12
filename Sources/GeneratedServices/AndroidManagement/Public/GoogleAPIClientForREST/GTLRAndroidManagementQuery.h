@@ -62,7 +62,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeDataFl
  *  For company-owned devices, this removes all eSIMs from the device when the
  *  device is wiped. In personally-owned devices, this will remove managed eSIMs
  *  (eSIMs which are added via the ADD_ESIM command) on the devices and no
- *  personally owned eSIMs will be removed.
+ *  personally owned eSIMs will be removed. For devices running on Android 16 or
+ *  higher, managed eSIMs are always wiped when work profile is removed for
+ *  personally-owned devices, whether this flag is provided or not.
  *
  *  Value: "WIPE_ESIMS"
  */
@@ -252,7 +254,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagementWipeDataFlagsWipeExtern
  *        devices, this removes all eSIMs from the device when the device is
  *        wiped. In personally-owned devices, this will remove managed eSIMs
  *        (eSIMs which are added via the ADD_ESIM command) on the devices and no
- *        personally owned eSIMs will be removed. (Value: "WIPE_ESIMS")
+ *        personally owned eSIMs will be removed. For devices running on Android
+ *        16 or higher, managed eSIMs are always wiped when work profile is
+ *        removed for personally-owned devices, whether this flag is provided or
+ *        not. (Value: "WIPE_ESIMS")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *wipeDataFlags;
 

@@ -55,6 +55,50 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityAutoSubnetworkConfigI
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityAutoSubnetworkConfigIpStackSubnetIpStackUnspecified;
 
 // ----------------------------------------------------------------------------
+// deleteMode
+
+/**
+ *  An invalid delete mode as the default case.
+ *
+ *  Value: "DELETE_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityDeleteModeDeleteModeUnspecified;
+/**
+ *  Deprogram the record in Cloud DNS.
+ *
+ *  Value: "DEPROGRAM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityDeleteModeDeprogram;
+/**
+ *  Skip deprogramming the record in Cloud DNS.
+ *
+ *  Value: "SKIP_DEPROGRAMMING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityDeleteModeSkipDeprogramming;
+
+// ----------------------------------------------------------------------------
+// insertMode
+
+/**
+ *  Fail the request if the record already exists in cloud DNS.
+ *
+ *  Value: "FAIL_IF_EXISTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityInsertModeFailIfExists;
+/**
+ *  An invalid insert mode as the default case.
+ *
+ *  Value: "INSERT_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityInsertModeInsertModeUnspecified;
+/**
+ *  Overwrite the existing record in cloud DNS.
+ *
+ *  Value: "OVERWRITE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityInsertModeOverwrite;
+
+// ----------------------------------------------------------------------------
 // subnetworkMode
 
 /**
@@ -114,6 +158,213 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a new AutomatedDnsRecord in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.automatedDnsRecords.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsCreate : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. Resource ID (i.e. 'foo' in
+ *  '[...]/projects/p/locations/l/automatedDnsRecords/foo') See
+ *  https://google.aip.dev/122#resource-id-segments Unique per location. If one
+ *  is not provided, one will be generated.
+ */
+@property(nonatomic, copy, nullable) NSString *automatedDnsRecordId;
+
+/**
+ *  Optional. The insert mode when creating AutomatedDnsRecord.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivityInsertModeInsertModeUnspecified An invalid
+ *        insert mode as the default case. (Value: "INSERT_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivityInsertModeFailIfExists Fail the request if
+ *        the record already exists in cloud DNS. (Value: "FAIL_IF_EXISTS")
+ *    @arg @c kGTLRNetworkconnectivityInsertModeOverwrite Overwrite the existing
+ *        record in cloud DNS. (Value: "OVERWRITE")
+ */
+@property(nonatomic, copy, nullable) NSString *insertMode;
+
+/**
+ *  Required. The parent resource's name of the AutomatedDnsRecord. ex.
+ *  projects/123/locations/us-east1
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Creates a new AutomatedDnsRecord in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_AutomatedDnsRecord to include
+ *    in the query.
+ *  @param parent Required. The parent resource's name of the
+ *    AutomatedDnsRecord. ex. projects/123/locations/us-east1
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_AutomatedDnsRecord *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single AutomatedDnsRecord.
+ *
+ *  Method: networkconnectivity.projects.locations.automatedDnsRecords.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsDelete : GTLRNetworkconnectivityQuery
+
+/**
+ *  Optional. Delete mode when deleting AutomatedDnsRecord. If set to DEPROGRAM,
+ *  the record will be deprogrammed in Cloud DNS. If set to SKIP_DEPROGRAMMING,
+ *  the record will not be deprogrammed in Cloud DNS.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivityDeleteModeDeleteModeUnspecified An invalid
+ *        delete mode as the default case. (Value: "DELETE_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivityDeleteModeDeprogram Deprogram the record
+ *        in Cloud DNS. (Value: "DEPROGRAM")
+ *    @arg @c kGTLRNetworkconnectivityDeleteModeSkipDeprogramming Skip
+ *        deprogramming the record in Cloud DNS. (Value: "SKIP_DEPROGRAMMING")
+ */
+@property(nonatomic, copy, nullable) NSString *deleteMode;
+
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The name of the AutomatedDnsRecord to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single AutomatedDnsRecord.
+ *
+ *  @param name Required. The name of the AutomatedDnsRecord to delete.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single AutomatedDnsRecord.
+ *
+ *  Method: networkconnectivity.projects.locations.automatedDnsRecords.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsGet : GTLRNetworkconnectivityQuery
+
+/**
+ *  Required. Name of the AutomatedDnsRecord to get. Format:
+ *  projects/{project}/locations/{location}/automatedDnsRecords/{automated_dns_record}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_AutomatedDnsRecord.
+ *
+ *  Gets details of a single AutomatedDnsRecord.
+ *
+ *  @param name Required. Name of the AutomatedDnsRecord to get. Format:
+ *    projects/{project}/locations/{location}/automatedDnsRecords/{automated_dns_record}
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists AutomatedDnsRecords in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.automatedDnsRecords.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsList : GTLRNetworkconnectivityQuery
+
+/** A filter expression that filters the results listed in the response. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Sort the results by a certain order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** The maximum number of results per page that should be returned. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource's name. ex. projects/123/locations/us-east1
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListAutomatedDnsRecordsResponse.
+ *
+ *  Lists AutomatedDnsRecords in a given project and location.
+ *
+ *  @param parent Required. The parent resource's name. ex.
+ *    projects/123/locations/us-east1
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsAutomatedDnsRecordsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1855,7 +2106,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: networkconnectivity.projects.locations.list
  *
@@ -1895,7 +2150,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 /**
  *  Fetches a @c GTLRNetworkconnectivity_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

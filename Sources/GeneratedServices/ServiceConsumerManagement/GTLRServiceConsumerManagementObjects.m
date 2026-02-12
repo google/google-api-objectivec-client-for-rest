@@ -214,7 +214,14 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_Aspect
-@dynamic kind, spec;
+@dynamic kind, rules, spec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRServiceConsumerManagement_AspectRule class]
+  };
+  return map;
+}
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -231,6 +238,30 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_Aspect_Spec
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_AspectRule
+//
+
+@implementation GTLRServiceConsumerManagement_AspectRule
+@dynamic config, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceConsumerManagement_AspectRule_Config
+//
+
+@implementation GTLRServiceConsumerManagement_AspectRule_Config
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -1754,7 +1785,7 @@ NSString * const kGTLRServiceConsumerManagement_V1GenerateDefaultIdentityRespons
 //
 
 @implementation GTLRServiceConsumerManagement_TenantResource
-@dynamic resource, status, tag;
+@dynamic migratedTenantProject, resource, status, tag;
 @end
 
 

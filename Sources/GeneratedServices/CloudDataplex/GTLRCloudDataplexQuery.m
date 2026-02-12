@@ -4831,6 +4831,117 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
 
 @end
 
+@implementation GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsCreate
+
+@dynamic metadataFeedId, parent, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/metadataFeeds";
+  GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDataplex_GoogleLongrunningOperation class];
+  query.loggingName = @"dataplex.projects.locations.metadataFeeds.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDataplex_GoogleLongrunningOperation class];
+  query.loggingName = @"dataplex.projects.locations.metadataFeeds.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed class];
+  query.loggingName = @"dataplex.projects.locations.metadataFeeds.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/metadataFeeds";
+  GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1ListMetadataFeedsResponse class];
+  query.loggingName = @"dataplex.projects.locations.metadataFeeds.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsPatch
+
+@dynamic name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDataplex_GoogleLongrunningOperation class];
+  query.loggingName = @"dataplex.projects.locations.metadataFeeds.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsCancel
 
 @dynamic name;

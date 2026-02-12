@@ -166,6 +166,7 @@ NSString * const kGTLRBigquery_HparamTuningTrial_Status_TrialStatusUnspecified =
 // GTLRBigquery_IncrementalResultStats.disabledReason
 NSString * const kGTLRBigquery_IncrementalResultStats_DisabledReason_DisabledReasonUnspecified = @"DISABLED_REASON_UNSPECIFIED";
 NSString * const kGTLRBigquery_IncrementalResultStats_DisabledReason_Other = @"OTHER";
+NSString * const kGTLRBigquery_IncrementalResultStats_DisabledReason_UnsupportedOperator = @"UNSUPPORTED_OPERATOR";
 
 // GTLRBigquery_IndexUnusedReason.code
 NSString * const kGTLRBigquery_IndexUnusedReason_Code_BaseTableTooLarge = @"BASE_TABLE_TOO_LARGE";

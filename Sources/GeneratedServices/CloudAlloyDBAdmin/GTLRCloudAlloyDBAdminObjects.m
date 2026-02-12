@@ -137,6 +137,11 @@ NSString * const kGTLRCloudAlloyDBAdmin_Instance_AvailabilityType_AvailabilityTy
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_AvailabilityType_Regional = @"REGIONAL";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_AvailabilityType_Zonal = @"ZONAL";
 
+// GTLRCloudAlloyDBAdmin_Instance.dataApiAccess
+NSString * const kGTLRCloudAlloyDBAdmin_Instance_DataApiAccess_DefaultDataApiEnabledForGoogleCloudServices = @"DEFAULT_DATA_API_ENABLED_FOR_GOOGLE_CLOUD_SERVICES";
+NSString * const kGTLRCloudAlloyDBAdmin_Instance_DataApiAccess_Disabled = @"DISABLED";
+NSString * const kGTLRCloudAlloyDBAdmin_Instance_DataApiAccess_Enabled = @"ENABLED";
+
 // GTLRCloudAlloyDBAdmin_Instance.instanceType
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_InstanceType_InstanceTypeUnspecified = @"INSTANCE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_InstanceType_Primary = @"PRIMARY";
@@ -151,8 +156,10 @@ NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Failed  = @"FAILED";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Maintenance = @"MAINTENANCE";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Promoting = @"PROMOTING";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Ready   = @"READY";
+NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Starting = @"STARTING";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Stopped = @"STOPPED";
+NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Stopping = @"STOPPING";
 NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Switchover = @"SWITCHOVER";
 
 // GTLRCloudAlloyDBAdmin_InstanceUpgradeDetails.instanceType
@@ -261,7 +268,6 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCon
 
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed.feedType
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BackupdrMetadata = @"BACKUPDR_METADATA";
-NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BigqueryResourceMetadata = @"BIGQUERY_RESOURCE_METADATA";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ConfigBasedSignalData = @"CONFIG_BASED_SIGNAL_DATA";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_DatabaseResourceSignalData = @"DATABASE_RESOURCE_SIGNAL_DATA";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_FeedtypeUnspecified = @"FEEDTYPE_UNSPECIFIED";
@@ -357,6 +363,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeOutdatedVersion = @"SIGNAL_TYPE_OUTDATED_VERSION";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeOutOfDisk = @"SIGNAL_TYPE_OUT_OF_DISK";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeOverprovisioned = @"SIGNAL_TYPE_OVERPROVISIONED";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypePerformanceKpiChange = @"SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypePublicIpEnabled = @"SIGNAL_TYPE_PUBLIC_IP_ENABLED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeQueryDurationsNotLogged = @"SIGNAL_TYPE_QUERY_DURATIONS_NOT_LOGGED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeQueryLockWaitsNotLogged = @"SIGNAL_TYPE_QUERY_LOCK_WAITS_NOT_LOGGED";
@@ -421,6 +428,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Healthy = @"HEALTHY";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_StateOther = @"STATE_OTHER";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Stopped = @"STOPPED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Suspended = @"SUSPENDED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Unhealthy = @"UNHEALTHY";
 
@@ -435,6 +443,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Healthy = @"HEALTHY";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_StateOther = @"STATE_OTHER";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Stopped = @"STOPPED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Suspended = @"SUSPENDED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Unhealthy = @"UNHEALTHY";
 
@@ -531,6 +540,7 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDat
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutdatedVersion = @"SIGNAL_TYPE_OUTDATED_VERSION";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeOutOfDisk = @"SIGNAL_TYPE_OUT_OF_DISK";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeOverprovisioned = @"SIGNAL_TYPE_OVERPROVISIONED";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypePerformanceKpiChange = @"SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypePublicIpEnabled = @"SIGNAL_TYPE_PUBLIC_IP_ENABLED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeQueryDurationsNotLogged = @"SIGNAL_TYPE_QUERY_DURATIONS_NOT_LOGGED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeQueryLockWaitsNotLogged = @"SIGNAL_TYPE_QUERY_LOCK_WAITS_NOT_LOGGED";
@@ -628,6 +638,15 @@ NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOpe
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError_ErrorType_OperationErrorTypeUnspecified = @"OPERATION_ERROR_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError_ErrorType_SqlserverError = @"SQLSERVER_ERROR";
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError_ErrorType_StockoutError = @"STOCKOUT_ERROR";
+
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo.maintenanceState
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Creating = @"CREATING";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Deleting = @"DELETING";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Error = @"ERROR";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_MaintenanceStateUnspecified = @"MAINTENANCE_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Ready = @"READY";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Repairing = @"REPAIRING";
+NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Updating = @"UPDATING";
 
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule.day
 NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -1372,12 +1391,12 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 @implementation GTLRCloudAlloyDBAdmin_Instance
 @dynamic activationPolicy, annotations, availabilityType,
          clientConnectionConfig, connectionPoolConfig, createTime,
-         databaseFlags, deleteTime, displayName, ETag, gceZone, instanceType,
-         ipAddress, labels, machineConfig, maintenanceVersionName, name,
-         networkConfig, nodes, observabilityConfig, outboundPublicIpAddresses,
-         pscInstanceConfig, publicIpAddress, queryInsightsConfig,
-         readPoolConfig, reconciling, satisfiesPzs, state, uid, updateTime,
-         writableNode;
+         dataApiAccess, databaseFlags, deleteTime, displayName, ETag, gceZone,
+         instanceType, ipAddress, labels, machineConfig, maintenanceVersionName,
+         name, networkConfig, nodes, observabilityConfig,
+         outboundPublicIpAddresses, pscInstanceConfig, publicIpAddress,
+         queryInsightsConfig, readPoolConfig, reconciling, satisfiesPzs, state,
+         uid, updateTime, writableNode;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -2097,17 +2116,6 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBigQueryResourceMetadata
-//
-
-@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBigQueryResourceMetadata
-@dynamic createTime, fullResourceName, location, product, resourceContainer,
-         resourceId, updateTime, userLabelSet;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCompliance
 //
 
@@ -2151,10 +2159,10 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed
-@dynamic backupdrMetadata, bigqueryResourceMetadata, configBasedSignalData,
-         databaseResourceSignalData, feedTimestamp, feedType,
-         observabilityMetricData, recommendationSignalData,
-         resourceHealthSignalData, resourceId, resourceMetadata, skipIngestion;
+@dynamic backupdrMetadata, configBasedSignalData, databaseResourceSignalData,
+         feedTimestamp, feedType, observabilityMetricData,
+         recommendationSignalData, resourceHealthSignalData, resourceId,
+         resourceMetadata, skipIngestion;
 @end
 
 
@@ -2217,8 +2225,9 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
          entitlements, expectedState, gcbdrConfiguration, identifier,
          instanceType, isDeletionProtectionEnabled, location,
          machineConfiguration, maintenanceInfo, primaryResourceId,
-         primaryResourceLocation, product, resourceContainer, resourceName,
-         suspensionReason, tagsSet, updationTime, userLabelSet, zoneProperty;
+         primaryResourceLocation, product, resourceContainer, resourceFlags,
+         resourceName, suspensionReason, tagsSet, updationTime, userLabelSet,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2230,7 +2239,8 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"entitlements" : [GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement class]
+    @"entitlements" : [GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainEntitlement class],
+    @"resourceFlags" : [GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceFlags class]
   };
   return map;
 }
@@ -2311,7 +2321,8 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration
-@dynamic cpuCount, memorySizeInBytes, shardCount, vcpuCount;
+@dynamic baselineSlots, cpuCount, maxReservationSlots, memorySizeInBytes,
+         shardCount, vcpuCount;
 @end
 
 
@@ -2337,6 +2348,16 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceFlags
+//
+
+@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceFlags
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceDenySchedule
 //
 
@@ -2351,7 +2372,9 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo
-@dynamic denyMaintenanceSchedules, maintenanceSchedule, maintenanceVersion;
+@dynamic denyMaintenanceSchedules, isInstanceStopped, maintenanceSchedule,
+         maintenanceState, maintenanceVersion, upcomingMaintenance,
+         versionUpdateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2405,6 +2428,16 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUpcomingMaintenance
+//
+
+@implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUpcomingMaintenance
+@dynamic endTime, startTime;
 @end
 
 

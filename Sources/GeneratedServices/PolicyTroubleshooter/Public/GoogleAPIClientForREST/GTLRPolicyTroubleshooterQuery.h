@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Policy Troubleshooter API (policytroubleshooter/v1)
+//   Policy Troubleshooter API (policytroubleshooter/v3)
 // Documentation:
 //   https://cloud.google.com/iam/
 
@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Checks whether a principal has a specific permission for a specific
- *  resource, and explains why the principal does or does not have that
+ *  resource, and explains why the principal does or doesn't have that
  *  permission.
  *
  *  Method: policytroubleshooter.iam.troubleshoot
@@ -45,19 +45,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Fetches a @c
- *  GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyResponse.
+ *  GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyResponse.
  *
  *  Checks whether a principal has a specific permission for a specific
- *  resource, and explains why the principal does or does not have that
+ *  resource, and explains why the principal does or doesn't have that
  *  permission.
  *
  *  @param object The @c
- *    GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyRequest
+ *    GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyRequest
  *    to include in the query.
  *
  *  @return GTLRPolicyTroubleshooterQuery_IamTroubleshoot
  */
-+ (instancetype)queryWithObject:(GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterV1TroubleshootIamPolicyRequest *)object;
++ (instancetype)queryWithObject:(GTLRPolicyTroubleshooter_GoogleCloudPolicytroubleshooterIamV3TroubleshootIamPolicyRequest *)object;
 
 @end
 

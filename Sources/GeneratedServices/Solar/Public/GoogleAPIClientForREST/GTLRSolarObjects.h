@@ -341,7 +341,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrient
  */
 @property(nonatomic, copy, nullable) NSString *monthlyFluxUrl;
 
-/** The URL for an image of RGB data (aerial photo) of the region. */
+/**
+ *  The URL for an image of RGB data (aerial or satellite photo) of the region.
+ */
 @property(nonatomic, copy, nullable) NSString *rgbUrl;
 
 @end

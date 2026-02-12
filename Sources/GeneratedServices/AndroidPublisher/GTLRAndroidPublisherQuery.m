@@ -3406,6 +3406,37 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @end
 
+@implementation GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Defer
+
+@dynamic packageName, token;
+
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_DeferSubscriptionPurchaseRequest *)object
+                    packageName:(NSString *)packageName
+                          token:(NSString *)token {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"packageName", @"token"
+  ];
+  NSString *pathURITemplate = @"androidpublisher/v3/applications/{packageName}/purchases/subscriptionsv2/tokens/{token}:defer";
+  GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Defer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.packageName = packageName;
+  query.token = token;
+  query.expectedObjectClass = [GTLRAndroidPublisher_DeferSubscriptionPurchaseResponse class];
+  query.loggingName = @"androidpublisher.purchases.subscriptionsv2.defer";
+  return query;
+}
+
+@end
+
 @implementation GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Get
 
 @dynamic packageName, token;

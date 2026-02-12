@@ -267,10 +267,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
  *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
- *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  projects and folders in the Google Cloud organization.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  Method: logging.billingAccounts.getCmekSettings
  *
@@ -301,10 +301,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
  *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
- *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  projects and folders in the Google Cloud organization.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  @param name Required. The resource for which to retrieve CMEK settings.
  *    "projects/[PROJECT_ID]/cmekSettings"
@@ -326,7 +326,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the settings for the given resource.Note: Settings can be retrieved for
  *  Google Cloud projects, folders, organizations, and billing accounts.See View
  *  default resource settings for Logging
- *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  (https://docs.cloud.google.com/logging/docs/default-settings#view-org-settings)
  *  for more information.
  *
  *  Method: logging.billingAccounts.getSettings
@@ -355,7 +355,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the settings for the given resource.Note: Settings can be retrieved for
  *  Google Cloud projects, folders, organizations, and billing accounts.See View
  *  default resource settings for Logging
- *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  (https://docs.cloud.google.com/logging/docs/default-settings#view-org-settings)
  *  for more information.
  *
  *  @param name Required. The resource for which to retrieve settings.
@@ -1268,7 +1268,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  Method: logging.billingAccounts.locations.list
  *
@@ -1311,7 +1315,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -1763,7 +1771,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Output only. Resource name of the saved query.In the format:
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
  *  a list of supported locations, see Supported Regions
- *  (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *  (https://docs.cloud.google.com/logging/docs/region-support#bucket-regions)After
  *  the saved query is created, the location cannot be changed.If the user
  *  doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
  */
@@ -1791,7 +1799,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Output only. Resource name of the saved query.In the format:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
  *    For a list of supported locations, see Supported Regions
- *    (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *    (https://docs.cloud.google.com/logging/docs/region-support#bucket-regions)After
  *    the saved query is created, the location cannot be changed.If the user
  *    doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
  *
@@ -1956,7 +1964,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  as the sink itself.If this field is set to true, or if the sink is owned by
  *  a non-project resource such as an organization, then the value of
  *  writer_identity will be a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  used by the sinks with the same parent. For more information, see
  *  writer_identity in LogSink.
  */
@@ -2171,7 +2179,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
  *  new value is true, then writer_identity is changed to a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  owned by Cloud Logging. It is an error if the old value is true and the new
  *  value is set to false or defaulted to false.
  */
@@ -2256,7 +2264,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
  *  new value is true, then writer_identity is changed to a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  owned by Cloud Logging. It is an error if the old value is true and the new
  *  value is set to false or defaulted to false.
  */
@@ -2886,10 +2894,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
  *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
- *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  projects and folders in the Google Cloud organization.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  Method: logging.folders.getCmekSettings
  *
@@ -2920,10 +2928,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
  *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
- *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  projects and folders in the Google Cloud organization.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  @param name Required. The resource for which to retrieve CMEK settings.
  *    "projects/[PROJECT_ID]/cmekSettings"
@@ -2945,7 +2953,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the settings for the given resource.Note: Settings can be retrieved for
  *  Google Cloud projects, folders, organizations, and billing accounts.See View
  *  default resource settings for Logging
- *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  (https://docs.cloud.google.com/logging/docs/default-settings#view-org-settings)
  *  for more information.
  *
  *  Method: logging.folders.getSettings
@@ -2974,7 +2982,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the settings for the given resource.Note: Settings can be retrieved for
  *  Google Cloud projects, folders, organizations, and billing accounts.See View
  *  default resource settings for Logging
- *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  (https://docs.cloud.google.com/logging/docs/default-settings#view-org-settings)
  *  for more information.
  *
  *  @param name Required. The resource for which to retrieve settings.
@@ -4016,7 +4024,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  Method: logging.folders.locations.list
  *
@@ -4059,7 +4071,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -4732,7 +4748,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Output only. Resource name of the saved query.In the format:
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
  *  a list of supported locations, see Supported Regions
- *  (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *  (https://docs.cloud.google.com/logging/docs/region-support#bucket-regions)After
  *  the saved query is created, the location cannot be changed.If the user
  *  doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
  */
@@ -4760,7 +4776,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Output only. Resource name of the saved query.In the format:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
  *    For a list of supported locations, see Supported Regions
- *    (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *    (https://docs.cloud.google.com/logging/docs/region-support#bucket-regions)After
  *    the saved query is created, the location cannot be changed.If the user
  *    doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
  *
@@ -4925,7 +4941,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  as the sink itself.If this field is set to true, or if the sink is owned by
  *  a non-project resource such as an organization, then the value of
  *  writer_identity will be a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  used by the sinks with the same parent. For more information, see
  *  writer_identity in LogSink.
  */
@@ -5140,7 +5156,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
  *  new value is true, then writer_identity is changed to a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  owned by Cloud Logging. It is an error if the old value is true and the new
  *  value is set to false or defaulted to false.
  */
@@ -5225,7 +5241,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
  *  new value is true, then writer_identity is changed to a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  owned by Cloud Logging. It is an error if the old value is true and the new
  *  value is set to false or defaulted to false.
  */
@@ -5280,7 +5296,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
  *  assigned for the key. Access to the key is disabled.See Configure default
  *  settings for organizations and folders
- *  (https://cloud.google.com/logging/docs/default-settings) for more
+ *  (https://docs.cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  Method: logging.folders.updateSettings
@@ -5320,7 +5336,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
  *  assigned for the key. Access to the key is disabled.See Configure default
  *  settings for organizations and folders
- *  (https://cloud.google.com/logging/docs/default-settings) for more
+ *  (https://docs.cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  @param object The @c GTLRLogging_Settings to include in the query.
@@ -6295,7 +6311,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  Method: logging.locations.list
  *
@@ -6338,7 +6358,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -6877,10 +6901,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
  *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
- *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  projects and folders in the Google Cloud organization.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  Method: logging.organizations.getCmekSettings
  *
@@ -6911,10 +6935,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
  *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
- *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  projects and folders in the Google Cloud organization.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  @param name Required. The resource for which to retrieve CMEK settings.
  *    "projects/[PROJECT_ID]/cmekSettings"
@@ -6936,7 +6960,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the settings for the given resource.Note: Settings can be retrieved for
  *  Google Cloud projects, folders, organizations, and billing accounts.See View
  *  default resource settings for Logging
- *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  (https://docs.cloud.google.com/logging/docs/default-settings#view-org-settings)
  *  for more information.
  *
  *  Method: logging.organizations.getSettings
@@ -6965,7 +6989,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the settings for the given resource.Note: Settings can be retrieved for
  *  Google Cloud projects, folders, organizations, and billing accounts.See View
  *  default resource settings for Logging
- *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  (https://docs.cloud.google.com/logging/docs/default-settings#view-org-settings)
  *  for more information.
  *
  *  @param name Required. The resource for which to retrieve settings.
@@ -8007,7 +8031,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  Method: logging.organizations.locations.list
  *
@@ -8050,7 +8078,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -8723,7 +8755,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Output only. Resource name of the saved query.In the format:
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
  *  a list of supported locations, see Supported Regions
- *  (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *  (https://docs.cloud.google.com/logging/docs/region-support#bucket-regions)After
  *  the saved query is created, the location cannot be changed.If the user
  *  doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
  */
@@ -8751,7 +8783,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Output only. Resource name of the saved query.In the format:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
  *    For a list of supported locations, see Supported Regions
- *    (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *    (https://docs.cloud.google.com/logging/docs/region-support#bucket-regions)After
  *    the saved query is created, the location cannot be changed.If the user
  *    doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
  *
@@ -8916,7 +8948,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  as the sink itself.If this field is set to true, or if the sink is owned by
  *  a non-project resource such as an organization, then the value of
  *  writer_identity will be a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  used by the sinks with the same parent. For more information, see
  *  writer_identity in LogSink.
  */
@@ -9131,7 +9163,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
  *  new value is true, then writer_identity is changed to a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  owned by Cloud Logging. It is an error if the old value is true and the new
  *  value is set to false or defaulted to false.
  */
@@ -9216,7 +9248,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
  *  new value is true, then writer_identity is changed to a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  owned by Cloud Logging. It is an error if the old value is true and the new
  *  value is set to false or defaulted to false.
  */
@@ -9269,9 +9301,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  following are true: The value of kms_key_name is invalid. The associated
  *  service account doesn't have the required
  *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access
- *  to the key is disabled.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  to the key is disabled.See Configure CMEK for Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  Method: logging.organizations.updateCmekSettings
  *
@@ -9314,9 +9346,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  following are true: The value of kms_key_name is invalid. The associated
  *  service account doesn't have the required
  *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access
- *  to the key is disabled.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  to the key is disabled.See Configure CMEK for Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  @param object The @c GTLRLogging_CmekSettings to include in the query.
  *  @param name Required. The resource name for the CMEK settings to update.
@@ -9346,7 +9378,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
  *  assigned for the key. Access to the key is disabled.See Configure default
  *  settings for organizations and folders
- *  (https://cloud.google.com/logging/docs/default-settings) for more
+ *  (https://docs.cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  Method: logging.organizations.updateSettings
@@ -9386,7 +9418,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
  *  assigned for the key. Access to the key is disabled.See Configure default
  *  settings for organizations and folders
- *  (https://cloud.google.com/logging/docs/default-settings) for more
+ *  (https://docs.cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  @param object The @c GTLRLogging_Settings to include in the query.
@@ -9635,10 +9667,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
  *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
- *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  projects and folders in the Google Cloud organization.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  Method: logging.projects.getCmekSettings
  *
@@ -9669,10 +9701,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
  *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
- *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  projects and folders in the Google Cloud organization.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  @param name Required. The resource for which to retrieve CMEK settings.
  *    "projects/[PROJECT_ID]/cmekSettings"
@@ -9694,7 +9726,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the settings for the given resource.Note: Settings can be retrieved for
  *  Google Cloud projects, folders, organizations, and billing accounts.See View
  *  default resource settings for Logging
- *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  (https://docs.cloud.google.com/logging/docs/default-settings#view-org-settings)
  *  for more information.
  *
  *  Method: logging.projects.getSettings
@@ -9723,7 +9755,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the settings for the given resource.Note: Settings can be retrieved for
  *  Google Cloud projects, folders, organizations, and billing accounts.See View
  *  default resource settings for Logging
- *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  (https://docs.cloud.google.com/logging/docs/default-settings#view-org-settings)
  *  for more information.
  *
  *  @param name Required. The resource for which to retrieve settings.
@@ -10765,7 +10797,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  Method: logging.projects.locations.list
  *
@@ -10808,7 +10844,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLogging_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -11481,7 +11521,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Output only. Resource name of the saved query.In the format:
  *  "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]" For
  *  a list of supported locations, see Supported Regions
- *  (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *  (https://docs.cloud.google.com/logging/docs/region-support#bucket-regions)After
  *  the saved query is created, the location cannot be changed.If the user
  *  doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
  */
@@ -11509,7 +11549,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param name Output only. Resource name of the saved query.In the format:
  *    "projects/[PROJECT_ID]/locations/[LOCATION_ID]/savedQueries/[QUERY_ID]"
  *    For a list of supported locations, see Supported Regions
- *    (https://cloud.google.com/logging/docs/region-support#bucket-regions)After
+ *    (https://docs.cloud.google.com/logging/docs/region-support#bucket-regions)After
  *    the saved query is created, the location cannot be changed.If the user
  *    doesn't provide a QUERY_ID, the system will generate an alphanumeric ID.
  *
@@ -11865,7 +11905,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  as the sink itself.If this field is set to true, or if the sink is owned by
  *  a non-project resource such as an organization, then the value of
  *  writer_identity will be a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  used by the sinks with the same parent. For more information, see
  *  writer_identity in LogSink.
  */
@@ -12080,7 +12120,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
  *  new value is true, then writer_identity is changed to a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  owned by Cloud Logging. It is an error if the old value is true and the new
  *  value is set to false or defaulted to false.
  */
@@ -12165,7 +12205,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
  *  new value is true, then writer_identity is changed to a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  owned by Cloud Logging. It is an error if the old value is true and the new
  *  value is set to false or defaulted to false.
  */
@@ -12250,7 +12290,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  as the sink itself.If this field is set to true, or if the sink is owned by
  *  a non-project resource such as an organization, then the value of
  *  writer_identity will be a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  used by the sinks with the same parent. For more information, see
  *  writer_identity in LogSink.
  */
@@ -12465,7 +12505,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  old and new values of this field are both false or both true, then there is
  *  no change to the sink's writer_identity. If the old value is false and the
  *  new value is true, then writer_identity is changed to a service agent
- *  (https://cloud.google.com/iam/docs/service-account-types#service-agents)
+ *  (https://docs.cloud.google.com/iam/docs/service-account-types#service-agents)
  *  owned by Cloud Logging. It is an error if the old value is true and the new
  *  value is set to false or defaulted to false.
  */
@@ -12514,10 +12554,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
  *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
- *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  projects and folders in the Google Cloud organization.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  Method: logging.getCmekSettings
  *
@@ -12548,10 +12588,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the Logging CMEK settings for the given resource.Note: CMEK for the Log
  *  Router can be configured for Google Cloud projects, folders, organizations,
  *  and billing accounts. Once configured for an organization, it applies to all
- *  projects and folders in the Google Cloud organization.See Enabling CMEK for
- *  Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  projects and folders in the Google Cloud organization.See Configure CMEK for
+ *  Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  @param name Required. The resource for which to retrieve CMEK settings.
  *    "projects/[PROJECT_ID]/cmekSettings"
@@ -12573,7 +12613,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the settings for the given resource.Note: Settings can be retrieved for
  *  Google Cloud projects, folders, organizations, and billing accounts.See View
  *  default resource settings for Logging
- *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  (https://docs.cloud.google.com/logging/docs/default-settings#view-org-settings)
  *  for more information.
  *
  *  Method: logging.getSettings
@@ -12602,7 +12642,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Gets the settings for the given resource.Note: Settings can be retrieved for
  *  Google Cloud projects, folders, organizations, and billing accounts.See View
  *  default resource settings for Logging
- *  (https://cloud.google.com/logging/docs/default-settings#view-org-settings)
+ *  (https://docs.cloud.google.com/logging/docs/default-settings#view-org-settings)
  *  for more information.
  *
  *  @param name Required. The resource for which to retrieve settings.
@@ -12627,9 +12667,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  following are true: The value of kms_key_name is invalid. The associated
  *  service account doesn't have the required
  *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access
- *  to the key is disabled.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  to the key is disabled.See Configure CMEK for Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  Method: logging.updateCmekSettings
  *
@@ -12672,9 +12712,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  following are true: The value of kms_key_name is invalid. The associated
  *  service account doesn't have the required
  *  roles/cloudkms.cryptoKeyEncrypterDecrypter role assigned for the key. Access
- *  to the key is disabled.See Enabling CMEK for Log Router
- *  (https://cloud.google.com/logging/docs/routing/managed-encryption) for more
- *  information.
+ *  to the key is disabled.See Configure CMEK for Cloud Logging
+ *  (https://docs.cloud.google.com/logging/docs/routing/managed-encryption) for
+ *  more information.
  *
  *  @param object The @c GTLRLogging_CmekSettings to include in the query.
  *  @param name Required. The resource name for the CMEK settings to update.
@@ -12704,7 +12744,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
  *  assigned for the key. Access to the key is disabled.See Configure default
  *  settings for organizations and folders
- *  (https://cloud.google.com/logging/docs/default-settings) for more
+ *  (https://docs.cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  Method: logging.updateSettings
@@ -12744,7 +12784,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  doesn't have the required roles/cloudkms.cryptoKeyEncrypterDecrypter role
  *  assigned for the key. Access to the key is disabled.See Configure default
  *  settings for organizations and folders
- *  (https://cloud.google.com/logging/docs/default-settings) for more
+ *  (https://docs.cloud.google.com/logging/docs/default-settings) for more
  *  information.
  *
  *  @param object The @c GTLRLogging_Settings to include in the query.

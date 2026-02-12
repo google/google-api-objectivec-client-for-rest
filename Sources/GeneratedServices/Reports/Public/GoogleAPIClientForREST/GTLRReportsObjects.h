@@ -24,6 +24,7 @@
 @class GTLRReports_Activity_Events_Item_Parameters_Item_MessageValue;
 @class GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item;
 @class GTLRReports_Activity_Id;
+@class GTLRReports_ActivityEventsStatus;
 @class GTLRReports_ActivityNetworkInfo;
 @class GTLRReports_AppliedLabel;
 @class GTLRReports_Channel_Params;
@@ -198,6 +199,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Resource ids associated with the event. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceIds;
 
+/** Status of the event. Note: Not all events have status. */
+@property(nonatomic, strong, nullable) GTLRReports_ActivityEventsStatus *status;
+
 /**
  *  Type of event. The Google Workspace service or feature that an administrator
  *  changes is identified in the `type` property which identifies an event using
@@ -332,6 +336,33 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Parameter values */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_NestedParameter *> *parameter;
+
+@end
+
+
+/**
+ *  Status of the event. Note: Not all events have status.
+ */
+@interface GTLRReports_ActivityEventsStatus : GTLRObject
+
+/** Error code of the event. Note: Field can be empty. */
+@property(nonatomic, copy, nullable) NSString *errorCode;
+
+/** Error message of the event. Note: Field can be empty. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  * Status of the event. Possible values if not empty: - UNKNOWN_EVENT_STATUS
+ *  - SUCCEEDED - SUCCEEDED_WITH_WARNINGS - FAILED - SKIPPED
+ */
+@property(nonatomic, copy, nullable) NSString *eventStatus;
+
+/**
+ *  Status code of the event. Note: Field can be empty.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpStatusCode;
 
 @end
 

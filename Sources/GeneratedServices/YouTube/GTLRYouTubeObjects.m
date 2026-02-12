@@ -961,6 +961,7 @@ NSString * const kGTLRYouTube_LiveChatBanSnippet_Type_Temporary = @"temporary";
 // GTLRYouTube_LiveChatMessageSnippet.type
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_ChatEndedEvent = @"chatEndedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_FanFundingEvent = @"fanFundingEvent";
+NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_GiftEvent = @"giftEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_GiftMembershipReceivedEvent = @"giftMembershipReceivedEvent";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_InvalidType = @"invalidType";
 NSString * const kGTLRYouTube_LiveChatMessageSnippet_Type_MemberMilestoneChatEvent = @"memberMilestoneChatEvent";
@@ -1454,28 +1455,6 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_BatchGetStatsResponse
-//
-
-@implementation GTLRYouTube_BatchGetStatsResponse
-@dynamic ETag, items, kind;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"items" : [GTLRYouTube_VideoStat class]
-  };
-  return map;
 }
 
 @end
@@ -2508,6 +2487,17 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRYouTube_LiveChatGiftDetails
+//
+
+@implementation GTLRYouTube_LiveChatGiftDetails
+@dynamic altText, comboCount, giftDuration, giftName, giftUrl, hasVisualEffect,
+         jewelsCount, language;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRYouTube_LiveChatGiftMembershipReceivedDetails
 //
 
@@ -2615,7 +2605,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 //
 
 @implementation GTLRYouTube_LiveChatMessageSnippet
-@dynamic authorChannelId, displayMessage, fanFundingEventDetails,
+@dynamic authorChannelId, displayMessage, fanFundingEventDetails, giftDetails,
          giftMembershipReceivedDetails, hasDisplayContent, liveChatId,
          memberMilestoneChatDetails, membershipGiftingDetails,
          messageDeletedDetails, messageRetractedDetails, newSponsorDetails,
@@ -4131,66 +4121,11 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRYouTube_VideoStat
-//
-
-@implementation GTLRYouTube_VideoStat
-@dynamic contentDetails, ETag, identifier, kind, snippet, statistics;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  NSDictionary<NSString *, NSString *> *map = @{
-    @"ETag" : @"etag",
-    @"identifier" : @"id"
-  };
-  return map;
-}
-
-+ (BOOL)isKindValidForClassRegistry {
-  // This class has a "kind" property that doesn't appear to be usable to
-  // determine what type of object was encoded in the JSON.
-  return NO;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRYouTube_VideoStatistics
 //
 
 @implementation GTLRYouTube_VideoStatistics
 @dynamic commentCount, dislikeCount, favoriteCount, likeCount, viewCount;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_VideoStatsContentDetails
-//
-
-@implementation GTLRYouTube_VideoStatsContentDetails
-@dynamic duration;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_VideoStatsSnippet
-//
-
-@implementation GTLRYouTube_VideoStatsSnippet
-@dynamic publishTime;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRYouTube_VideoStatsStatistics
-//
-
-@implementation GTLRYouTube_VideoStatsStatistics
-@dynamic commentCount, likeCount, viewCount;
 @end
 
 

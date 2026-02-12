@@ -628,10 +628,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSnapshotsCreate : GTLRPubsubQuery
 
 /**
- *  Required. Identifier. User-provided name for this snapshot. If the name is
- *  not provided in the request, the server will assign a random name for this
- *  snapshot on the same project as the subscription. Note that for REST API
- *  requests, you must specify a name. See the [resource name
+ *  Required. User-provided name for this snapshot. If the name is not provided
+ *  in the request, the server will assign a random name for this snapshot on
+ *  the same project as the subscription. Note that for REST API requests, you
+ *  must specify a name. See the [resource name
  *  rules](https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
  *  Format is `projects/{project}/snapshots/{snap}`.
  */
@@ -658,10 +658,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  @param object The @c GTLRPubsub_CreateSnapshotRequest to include in the
  *    query.
- *  @param name Required. Identifier. User-provided name for this snapshot. If
- *    the name is not provided in the request, the server will assign a random
- *    name for this snapshot on the same project as the subscription. Note that
- *    for REST API requests, you must specify a name. See the [resource name
+ *  @param name Required. User-provided name for this snapshot. If the name is
+ *    not provided in the request, the server will assign a random name for this
+ *    snapshot on the same project as the subscription. Note that for REST API
+ *    requests, you must specify a name. See the [resource name
  *    rules](https://cloud.google.com/pubsub/docs/pubsub-basics#resource_names).
  *    Format is `projects/{project}/snapshots/{snap}`.
  *
@@ -692,7 +692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSnapshotsDelete : GTLRPubsubQuery
 
 /**
- *  Required. Identifier. The name of the snapshot to delete. Format is
+ *  Required. The name of the snapshot to delete. Format is
  *  `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *snapshot;
@@ -710,8 +710,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  association with the old snapshot or its subscription, unless the same
  *  subscription is specified.
  *
- *  @param snapshot Required. Identifier. The name of the snapshot to delete.
- *    Format is `projects/{project}/snapshots/{snap}`.
+ *  @param snapshot Required. The name of the snapshot to delete. Format is
+ *    `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsDelete
  */
@@ -735,7 +735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSnapshotsGet : GTLRPubsubQuery
 
 /**
- *  Required. Identifier. The name of the snapshot to get. Format is
+ *  Required. The name of the snapshot to get. Format is
  *  `projects/{project}/snapshots/{snap}`.
  */
 @property(nonatomic, copy, nullable) NSString *snapshot;
@@ -749,8 +749,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  set the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot.
  *
- *  @param snapshot Required. Identifier. The name of the snapshot to get.
- *    Format is `projects/{project}/snapshots/{snap}`.
+ *  @param snapshot Required. The name of the snapshot to get. Format is
+ *    `projects/{project}/snapshots/{snap}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsGet
  */
@@ -834,8 +834,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Identifier. The name of the project in which to list snapshots.
- *  Format is `projects/{project-id}`.
+ *  Required. The name of the project in which to list snapshots. Format is
+ *  `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -848,8 +848,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  the acknowledgment state of messages in an existing subscription to the
  *  state captured by a snapshot.
  *
- *  @param project Required. Identifier. The name of the project in which to
- *    list snapshots. Format is `projects/{project-id}`.
+ *  @param project Required. The name of the project in which to list snapshots.
+ *    Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSnapshotsList
  *
@@ -1100,7 +1100,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSubscriptionsDelete : GTLRPubsubQuery
 
 /**
- *  Required. Identifier. The subscription to delete. Format is
+ *  Required. The subscription to delete. Format is
  *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -1114,8 +1114,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  the same name, but the new one has no association with the old subscription
  *  or its topic unless the same topic is specified.
  *
- *  @param subscription Required. Identifier. The subscription to delete. Format
- *    is `projects/{project}/subscriptions/{sub}`.
+ *  @param subscription Required. The subscription to delete. Format is
+ *    `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsDelete
  */
@@ -1172,7 +1172,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsSubscriptionsGet : GTLRPubsubQuery
 
 /**
- *  Required. Identifier. The name of the subscription to get. Format is
+ *  Required. The name of the subscription to get. Format is
  *  `projects/{project}/subscriptions/{sub}`.
  */
 @property(nonatomic, copy, nullable) NSString *subscription;
@@ -1182,8 +1182,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  Gets the configuration details of a subscription.
  *
- *  @param subscription Required. Identifier. The name of the subscription to
- *    get. Format is `projects/{project}/subscriptions/{sub}`.
+ *  @param subscription Required. The name of the subscription to get. Format is
+ *    `projects/{project}/subscriptions/{sub}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsGet
  */
@@ -1263,8 +1263,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Identifier. The name of the project in which to list
- *  subscriptions. Format is `projects/{project-id}`.
+ *  Required. The name of the project in which to list subscriptions. Format is
+ *  `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1273,8 +1273,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  Lists matching subscriptions.
  *
- *  @param project Required. Identifier. The name of the project in which to
- *    list subscriptions. Format is `projects/{project-id}`.
+ *  @param project Required. The name of the project in which to list
+ *    subscriptions. Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsSubscriptionsList
  *
@@ -1634,7 +1634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsTopicsDelete : GTLRPubsubQuery
 
 /**
- *  Required. Identifier. Name of the topic to delete. Format is
+ *  Required. Name of the topic to delete. Format is
  *  `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
@@ -1648,7 +1648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  or subscriptions. Existing subscriptions to this topic are not deleted, but
  *  their `topic` field is set to `_deleted-topic_`.
  *
- *  @param topic Required. Identifier. Name of the topic to delete. Format is
+ *  @param topic Required. Name of the topic to delete. Format is
  *    `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsDelete
@@ -1669,7 +1669,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsTopicsGet : GTLRPubsubQuery
 
 /**
- *  Required. Identifier. The name of the topic to get. Format is
+ *  Required. The name of the topic to get. Format is
  *  `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
@@ -1679,7 +1679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  Gets the configuration of a topic.
  *
- *  @param topic Required. Identifier. The name of the topic to get. Format is
+ *  @param topic Required. The name of the topic to get. Format is
  *    `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsGet
@@ -1760,8 +1760,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. Identifier. The name of the project in which to list topics.
- *  Format is `projects/{project-id}`.
+ *  Required. The name of the project in which to list topics. Format is
+ *  `projects/{project-id}`.
  */
 @property(nonatomic, copy, nullable) NSString *project;
 
@@ -1770,8 +1770,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *
  *  Lists matching topics.
  *
- *  @param project Required. Identifier. The name of the project in which to
- *    list topics. Format is `projects/{project-id}`.
+ *  @param project Required. The name of the project in which to list topics.
+ *    Format is `projects/{project-id}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsList
  *
@@ -1839,8 +1839,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
 @interface GTLRPubsubQuery_ProjectsTopicsPublish : GTLRPubsubQuery
 
 /**
- *  Required. Identifier. The messages in the request will be published on this
- *  topic. Format is `projects/{project}/topics/{topic}`.
+ *  Required. The messages in the request will be published on this topic.
+ *  Format is `projects/{project}/topics/{topic}`.
  */
 @property(nonatomic, copy, nullable) NSString *topic;
 
@@ -1851,8 +1851,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsubViewSchemaViewUnspecified;
  *  does not exist.
  *
  *  @param object The @c GTLRPubsub_PublishRequest to include in the query.
- *  @param topic Required. Identifier. The messages in the request will be
- *    published on this topic. Format is `projects/{project}/topics/{topic}`.
+ *  @param topic Required. The messages in the request will be published on this
+ *    topic. Format is `projects/{project}/topics/{topic}`.
  *
  *  @return GTLRPubsubQuery_ProjectsTopicsPublish
  */

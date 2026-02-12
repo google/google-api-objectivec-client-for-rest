@@ -2669,6 +2669,29 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleIamV1Policy class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesList
 
 @dynamic filter, pageSize, pageToken, parent;
@@ -3151,6 +3174,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Session class];
   query.loggingName = @"discoveryengine.projects.locations.collections.engines.sessions.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleIamV1Policy class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.setIamPolicy";
   return query;
 }
 

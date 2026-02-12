@@ -3418,6 +3418,13 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Output only. Immutable reference for the version, calculated based on the
+ *  version's content. Currently we only support dirsum_sha256 hash algorithm.
+ *  Additional hash algorithms may be added in the future.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRArtifactRegistry_Hash *> *fingerprints;
+
+/**
  *  Output only. Repository-specific Metadata stored against this version. The
  *  fields returned are defined by the underlying repository-specific resource.
  *  Currently, the resources could be: DockerImage MavenArtifact

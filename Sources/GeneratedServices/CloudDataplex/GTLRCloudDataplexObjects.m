@@ -98,6 +98,12 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQue
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_External = @"EXTERNAL";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_TableTypeUnspecified = @"TABLE_TYPE_UNSPECIFIED";
 
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec.generationScopes
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_All = @"ALL";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_GenerationScopeUnspecified = @"GENERATION_SCOPE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_SqlQueries = @"SQL_QUERIES";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec_GenerationScopes_TableAndColumnDescriptions = @"TABLE_AND_COLUMN_DESCRIPTIONS";
+
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult.state
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult_State_Failed = @"FAILED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult_State_Skipped = @"SKIPPED";
@@ -354,6 +360,12 @@ NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_Sta
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_Ready = @"READY";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus_State_Updating = @"UPDATING";
+
+// GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters.changeTypes
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters_ChangeTypes_ChangeTypeUnspecified = @"CHANGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters_ChangeTypes_Create = @"CREATE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters_ChangeTypes_Delete = @"DELETE";
+NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters_ChangeTypes_Update = @"UPDATE";
 
 // GTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob.type
 NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1MetadataJob_Type_Export = @"EXPORT";
@@ -1348,7 +1360,15 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec
-@dynamic catalogPublishingEnabled;
+@dynamic catalogPublishingEnabled, generationScopes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"generationScopes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3395,6 +3415,29 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDataplex_GoogleCloudDataplexV1ListMetadataFeedsResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1ListMetadataFeedsResponse
+@dynamic metadataFeeds, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metadataFeeds" : [GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"metadataFeeds";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDataplex_GoogleCloudDataplexV1ListMetadataJobsResponse
 //
 
@@ -3500,6 +3543,69 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 + (NSString *)collectionItemsKey {
   return @"zones";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed
+@dynamic createTime, filters, labels, name, pubsubTopic, scope, uid, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed_Labels
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters
+@dynamic aspectTypes, changeTypes, entryTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aspectTypes" : [NSString class],
+    @"changeTypes" : [NSString class],
+    @"entryTypes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedScope
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedScope
+@dynamic entryGroups, organizationLevel, projects;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entryGroups" : [NSString class],
+    @"projects" : [NSString class]
+  };
+  return map;
 }
 
 @end

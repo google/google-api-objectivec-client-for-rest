@@ -446,7 +446,7 @@ NSString * const kGTLRDataFusion_Version_Type_TypeUnspecified  = @"TYPE_UNSPECIF
 //
 
 @implementation GTLRDataFusion_LoggingConfig
-@dynamic instanceCloudLoggingDisabled;
+@dynamic enableInstanceV2Logs, instanceCloudLoggingDisabled;
 @end
 
 

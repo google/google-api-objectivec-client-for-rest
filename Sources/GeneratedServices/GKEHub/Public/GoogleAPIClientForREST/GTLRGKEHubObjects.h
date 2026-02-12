@@ -114,6 +114,9 @@
 @class GTLRGKEHub_ServiceMeshType;
 @class GTLRGKEHub_State;
 @class GTLRGKEHub_WorkloadCertificateSpec;
+@class GTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail;
+@class GTLRGKEHub_WorkloadIdentityState;
+@class GTLRGKEHub_WorkloadIdentityState_IdentityProviderStateDetails;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -2124,6 +2127,29 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_CertificateManagement_Enabled;
 
+// ----------------------------------------------------------------------------
+// GTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail.code
+
+/**
+ *  The Identity Provider was not created/updated successfully. The error
+ *  message is in the description field.
+ *
+ *  Value: "IDENTITY_PROVIDER_STATE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail_Code_IdentityProviderStateError;
+/**
+ *  The Identity Provider was created/updated successfully.
+ *
+ *  Value: "IDENTITY_PROVIDER_STATE_OK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail_Code_IdentityProviderStateOk;
+/**
+ *  Unknown state.
+ *
+ *  Value: "IDENTITY_PROVIDER_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail_Code_IdentityProviderStateUnspecified;
+
 /**
  *  State for App Dev Exp Feature.
  */
@@ -2369,15 +2395,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  */
 @interface GTLRGKEHub_ConfigManagementConfigSync : GTLRObject
 
-/** Optional. Configuration for deployment overrides. */
+/**
+ *  Optional. Configuration for deployment overrides. Applies only to Config
+ *  Sync deployments with containers that are not a root or namespace
+ *  reconciler: `reconciler-manager`, `otel-collector`,
+ *  `resource-group-controller-manager`, `admission-webhook`. To override a root
+ *  or namespace reconciler, use the rootsync or reposync fields at
+ *  https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/reference/rootsync-reposync-fields#override-resources
+ *  instead.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRGKEHub_ConfigManagementDeploymentOverride *> *deploymentOverrides;
 
 /**
- *  Optional. Enables the installation of ConfigSync. If set to true, ConfigSync
- *  resources will be created and the other ConfigSync fields will be applied if
- *  exist. If set to false, all other ConfigSync fields will be ignored,
- *  ConfigSync resources will be deleted. If omitted, ConfigSync resources will
- *  be managed depends on the presence of the git or oci field.
+ *  Optional. Enables the installation of Config Sync. If set to true, the
+ *  Feature will manage Config Sync resources, and apply the other ConfigSync
+ *  fields if they exist. If set to false, the Feature will ignore all other
+ *  ConfigSync fields and delete the Config Sync resources. If omitted,
+ *  ConfigSync is considered enabled if the git or oci field is present.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2404,16 +2438,20 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 
 /**
  *  Optional. Set to true to enable the Config Sync admission webhook to prevent
- *  drifts. If set to `false`, disables the Config Sync admission webhook and
- *  does not prevent drifts.
+ *  drifts. If set to false, disables the Config Sync admission webhook and does
+ *  not prevent drifts. Defaults to false. See
+ *  https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/how-to/prevent-config-drift
+ *  for details.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *preventDrift;
 
 /**
- *  Optional. Specifies whether the Config Sync Repo is in "hierarchical" or
- *  "unstructured" mode.
+ *  Optional. Specifies whether the Config Sync repo is in `hierarchical` or
+ *  `unstructured` mode. Defaults to `hierarchical`. See
+ *  https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/concepts/configs#organize-configs
+ *  for an explanation.
  */
 @property(nonatomic, copy, nullable) NSString *sourceFormat;
 
@@ -2767,16 +2805,32 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 /** Required. The name of the container. */
 @property(nonatomic, copy, nullable) NSString *containerName;
 
-/** Optional. The cpu limit of the container. */
+/**
+ *  Optional. The cpu limit of the container. Use the following CPU resource
+ *  units:
+ *  https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu.
+ */
 @property(nonatomic, copy, nullable) NSString *cpuLimit;
 
-/** Optional. The cpu request of the container. */
+/**
+ *  Optional. The cpu request of the container. Use the following CPU resource
+ *  units:
+ *  https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-cpu.
+ */
 @property(nonatomic, copy, nullable) NSString *cpuRequest;
 
-/** Optional. The memory limit of the container. */
+/**
+ *  Optional. The memory limit of the container. Use the following memory
+ *  resource units:
+ *  https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory.
+ */
 @property(nonatomic, copy, nullable) NSString *memoryLimit;
 
-/** Optional. The memory request of the container. */
+/**
+ *  Optional. The memory request of the container. Use the following memory
+ *  resource units:
+ *  https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#meaning-of-memory.
+ */
 @property(nonatomic, copy, nullable) NSString *memoryRequest;
 
 @end
@@ -2891,13 +2945,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 
 /**
  *  Optional. The Google Cloud Service Account Email used for auth when
- *  secret_type is gcpServiceAccount.
+ *  secret_type is `gcpserviceaccount`.
  */
 @property(nonatomic, copy, nullable) NSString *gcpServiceAccountEmail;
 
 /**
  *  Optional. URL for the HTTPS proxy to be used when communicating with the Git
- *  repo.
+ *  repo. Only specify when secret_type is `cookiefile`, `token`, or `none`.
  */
 @property(nonatomic, copy, nullable) NSString *httpsProxy;
 
@@ -2909,8 +2963,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 
 /**
  *  Required. Type of secret configured for access to the Git repo. Must be one
- *  of ssh, cookiefile, gcenode, token, gcpserviceaccount, githubapp or none.
- *  The validation of this is case-sensitive.
+ *  of `ssh`, `cookiefile`, `gcenode`, `token`, `gcpserviceaccount`, `githubapp`
+ *  or `none`. The validation of this is case-sensitive.
  */
 @property(nonatomic, copy, nullable) NSString *secretType;
 
@@ -3071,7 +3125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 
 /**
  *  Optional. The Google Cloud Service Account Email used for auth when
- *  secret_type is gcpServiceAccount.
+ *  secret_type is `gcpserviceaccount`.
  */
 @property(nonatomic, copy, nullable) NSString *gcpServiceAccountEmail;
 
@@ -3083,8 +3137,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 
 /**
  *  Required. Type of secret configured for access to the OCI repo. Must be one
- *  of gcenode, gcpserviceaccount, k8sserviceaccount or none. The validation of
- *  this is case-sensitive.
+ *  of `gcenode`, `gcpserviceaccount`, `k8sserviceaccount` or `none`. The
+ *  validation of this is case-sensitive.
  */
 @property(nonatomic, copy, nullable) NSString *secretType;
 
@@ -3284,18 +3338,19 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 @interface GTLRGKEHub_ConfigManagementSpec : GTLRObject
 
 /**
- *  Optional. Binauthz conifguration for the cluster. Deprecated: This field
- *  will be ignored and should not be set.
+ *  Optional. Deprecated: Binauthz configuration will be ignored and should not
+ *  be set.
  */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementBinauthzConfig *binauthz GTLR_DEPRECATED;
 
 /**
- *  Optional. The user-specified cluster name used by Config Sync
- *  cluster-name-selector annotation or ClusterSelector, for applying configs to
- *  only a subset of clusters. Omit this field if the cluster's fleet membership
- *  name is used by Config Sync cluster-name-selector annotation or
- *  ClusterSelector. Set this field if a name different from the cluster's fleet
- *  membership name is used by Config Sync cluster-name-selector annotation or
+ *  Optional. User-specified cluster name used by the Config Sync
+ *  cluster-name-selector annotation or ClusterSelector object, for applying
+ *  configs to only a subset of clusters. Read more about the
+ *  cluster-name-selector annotation and ClusterSelector object at
+ *  https://docs.cloud.google.com/kubernetes-engine/config-sync/docs/how-to/cluster-scoped-objects#limiting-configs.
+ *  Only set this field if a name different from the cluster's fleet membership
+ *  name is used by the Config Sync cluster-name-selector annotation or
  *  ClusterSelector.
  */
 @property(nonatomic, copy, nullable) NSString *cluster;
@@ -3312,7 +3367,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementHierarchyControllerConfig *hierarchyController GTLR_DEPRECATED;
 
 /**
- *  Optional. Enables automatic Feature management.
+ *  Optional. Deprecated: From version 1.21.0, automatic Feature management is
+ *  unavailable, and Config Sync only supports manual upgrades.
  *
  *  Likely values:
  *    @arg @c kGTLRGKEHub_ConfigManagementSpec_Management_ManagementAutomatic
@@ -3324,7 +3380,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  *    @arg @c kGTLRGKEHub_ConfigManagementSpec_Management_ManagementUnspecified
  *        Unspecified (Value: "MANAGEMENT_UNSPECIFIED")
  */
-@property(nonatomic, copy, nullable) NSString *management;
+@property(nonatomic, copy, nullable) NSString *management GTLR_DEPRECATED;
 
 /**
  *  Optional. Policy Controller configuration for the cluster. Deprecated:
@@ -3333,7 +3389,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  */
 @property(nonatomic, strong, nullable) GTLRGKEHub_ConfigManagementPolicyController *policyController GTLR_DEPRECATED;
 
-/** Optional. Version of ACM installed. */
+/**
+ *  Optional. Version of Config Sync to install. Defaults to the latest
+ *  supported Config Sync version if the config_sync field is enabled. See
+ *  supported versions at
+ *  https://cloud.google.com/kubernetes-engine/config-sync/docs/get-support-config-sync#version_support_policy.
+ */
 @property(nonatomic, copy, nullable) NSString *version;
 
 @end
@@ -3533,6 +3594,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
 
 /** The high-level state of this MembershipFeature. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_State *state;
+
+/** Workload Identity state */
+@property(nonatomic, strong, nullable) GTLRGKEHub_WorkloadIdentityState *workloadidentity;
 
 @end
 
@@ -5610,6 +5674,70 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadCertificateSpec_Certifica
  */
 @property(nonatomic, copy, nullable) NSString *certificateManagement;
 
+@end
+
+
+/**
+ *  IdentityProviderStateDetail represents the state of an Identity Provider.
+ */
+@interface GTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail : GTLRObject
+
+/**
+ *  The state of the Identity Provider.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail_Code_IdentityProviderStateError
+ *        The Identity Provider was not created/updated successfully. The error
+ *        message is in the description field. (Value:
+ *        "IDENTITY_PROVIDER_STATE_ERROR")
+ *    @arg @c kGTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail_Code_IdentityProviderStateOk
+ *        The Identity Provider was created/updated successfully. (Value:
+ *        "IDENTITY_PROVIDER_STATE_OK")
+ *    @arg @c kGTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail_Code_IdentityProviderStateUnspecified
+ *        Unknown state. (Value: "IDENTITY_PROVIDER_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  A human-readable description of the current state or returned error.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@end
+
+
+/**
+ *  **WorkloadIdentity**: The membership-specific state for WorkloadIdentity
+ *  feature.
+ */
+@interface GTLRGKEHub_WorkloadIdentityState : GTLRObject
+
+/**
+ *  Deprecated, this field will be erased after code is changed to use the new
+ *  field.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** The state of the Identity Providers corresponding to the membership. */
+@property(nonatomic, strong, nullable) GTLRGKEHub_WorkloadIdentityState_IdentityProviderStateDetails *identityProviderStateDetails;
+
+@end
+
+
+/**
+ *  The state of the Identity Providers corresponding to the membership.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRGKEHub_WorkloadIdentityIdentityProviderStateDetail. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRGKEHub_WorkloadIdentityState_IdentityProviderStateDetails : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

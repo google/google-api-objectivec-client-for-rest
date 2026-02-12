@@ -588,6 +588,25 @@
 
 @end
 
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansGetTags
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:getTags";
+  GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansGetTags *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_GetTagsResponse class];
+  query.loggingName = @"gkebackup.projects.locations.backupPlans.getTags";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -656,6 +675,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRBackupforGKE_Policy class];
   query.loggingName = @"gkebackup.projects.locations.backupPlans.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansSetTags
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBackupforGKE_SetTagsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:setTags";
+  GTLRBackupforGKEQuery_ProjectsLocationsBackupPlansSetTags *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_SetTagsResponse class];
+  query.loggingName = @"gkebackup.projects.locations.backupPlans.setTags";
   return query;
 }
 
@@ -1062,6 +1108,25 @@
 
 @end
 
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansGetTags
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:getTags";
+  GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansGetTags *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_GetTagsResponse class];
+  query.loggingName = @"gkebackup.projects.locations.restorePlans.getTags";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -1437,6 +1502,33 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRBackupforGKE_Policy class];
   query.loggingName = @"gkebackup.projects.locations.restorePlans.setIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansSetTags
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRBackupforGKE_SetTagsRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:setTags";
+  GTLRBackupforGKEQuery_ProjectsLocationsRestorePlansSetTags *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRBackupforGKE_SetTagsResponse class];
+  query.loggingName = @"gkebackup.projects.locations.restorePlans.setTags";
   return query;
 }
 

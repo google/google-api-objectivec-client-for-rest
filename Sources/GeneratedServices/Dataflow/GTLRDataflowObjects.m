@@ -1060,7 +1060,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_GetWorkerStacktracesRequest
-@dynamic workerId;
+@dynamic endTime, workerId;
 @end
 
 
@@ -3164,9 +3164,9 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 @implementation GTLRDataflow_StreamingConfigTask
 @dynamic commitStreamChunkSizeBytes, getDataStreamChunkSizeBytes,
          maxWorkItemCommitBytes, operationalLimits, streamingComputationConfigs,
-         userStepToStateFamilyNameMap, userWorkerRunnerV1Settings,
-         userWorkerRunnerV2Settings, windmillServiceEndpoint,
-         windmillServicePort;
+         streamingEngineStateTagEncodingVersion, userStepToStateFamilyNameMap,
+         userWorkerRunnerV1Settings, userWorkerRunnerV2Settings,
+         windmillServiceEndpoint, windmillServicePort;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

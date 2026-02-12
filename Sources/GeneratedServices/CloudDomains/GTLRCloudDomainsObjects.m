@@ -582,11 +582,12 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 //
 
 @implementation GTLRCloudDomains_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudDomains_Operation class]
+    @"operations" : [GTLRCloudDomains_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

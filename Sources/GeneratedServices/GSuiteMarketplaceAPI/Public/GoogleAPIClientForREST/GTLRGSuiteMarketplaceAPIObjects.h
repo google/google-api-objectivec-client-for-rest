@@ -45,13 +45,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The type of API resource. This is always appsmarket#customerLicense. */
+/** The type of API resource. This is always `appsmarket#customerLicense`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
  *  The customer's license status. One of: - `ACTIVE`: The customer has a valid
- *  license. - `UNLICENSED`: There is no license: either this customer has never
- *  installed your application, or else has deleted it.
+ *  license. - `UNLICENSED`: There is no license. Either this customer has never
+ *  installed your application or has deleted it.
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -105,13 +105,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  The ID of user license.
+ *  The ID of the user license.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
 
-/** The type of API resource. This is always appsmarket#userLicense. */
+/** The type of API resource. This is always `appsmarket#userLicense`. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**

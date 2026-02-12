@@ -616,7 +616,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  */
 @interface GTLRCloudMemorystoreforMemcached_GetTagsRequest : GTLRObject
 
-/** Required. The full One Platform resource name of the service resource. */
+/** Required. The full resource name of the service resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 @end
@@ -627,7 +627,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  */
 @interface GTLRCloudMemorystoreforMemcached_GetTagsResponse : GTLRObject
 
-/** Required. The full One Platform resource name of the service resource. */
+/**
+ *  A checksum based on the current bindings. This field is always set in server
+ *  responses.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The full resource name of the service resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -636,12 +642,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *  "production", "123/costCenter" : "marketing"
  */
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_GetTagsResponse_Tags *tags;
-
-/**
- *  A checksum based on the current bindings. This field is always set in server
- *  responses.
- */
-@property(nonatomic, copy, nullable) NSString *tagsEtag;
 
 @end
 
@@ -1570,8 +1570,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 
 /**
  *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections
- *  e.g. when attempting to list all resources across all supported locations.
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
@@ -2103,7 +2104,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  */
 @interface GTLRCloudMemorystoreforMemcached_SetTagsRequest : GTLRObject
 
-/** Required. The full One Platform resource name of the service resource. */
+/**
+ *  Optional. A checksum based on the current bindings which can be passed to
+ *  prevent race conditions. If not passed, etag check would be skipped.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The full resource name of the service resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2119,12 +2126,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *  "marketing"
  */
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_SetTagsRequest_Tags *tags;
-
-/**
- *  Optional. A checksum based on the current bindings which can be passed to
- *  prevent race conditions. If not passed, etag check would be skipped.
- */
-@property(nonatomic, copy, nullable) NSString *tagsEtag;
 
 @end
 
@@ -2149,7 +2150,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  */
 @interface GTLRCloudMemorystoreforMemcached_SetTagsResponse : GTLRObject
 
-/** Required. The full One Platform resource name of the service resource. */
+/**
+ *  A checksum based on the current bindings. This field is always set in server
+ *  responses.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The full resource name of the service resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2158,12 +2165,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *  "production", "123/costCenter" : "marketing"
  */
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_SetTagsResponse_Tags *tags;
-
-/**
- *  A checksum based on the current bindings. This field is always set in server
- *  responses.
- */
-@property(nonatomic, copy, nullable) NSString *tagsEtag;
 
 @end
 

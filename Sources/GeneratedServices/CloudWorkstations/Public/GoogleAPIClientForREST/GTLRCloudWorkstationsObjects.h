@@ -30,6 +30,7 @@
 @class GTLRCloudWorkstations_GceConfidentialInstanceConfig;
 @class GTLRCloudWorkstations_GceHyperdiskBalancedHighAvailability;
 @class GTLRCloudWorkstations_GceInstance;
+@class GTLRCloudWorkstations_GceInstance_InstanceMetadata;
 @class GTLRCloudWorkstations_GceInstance_VmTags;
 @class GTLRCloudWorkstations_GceInstanceHost;
 @class GTLRCloudWorkstations_GcePersistentDisk;
@@ -759,6 +760,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 @property(nonatomic, strong, nullable) NSNumber *enableNestedVirtualization;
 
+/** Optional. Custom metadata to apply to Compute Engine instances. */
+@property(nonatomic, strong, nullable) GTLRCloudWorkstations_GceInstance_InstanceMetadata *instanceMetadata;
+
 /**
  *  Optional. The type of machine to use for VM instances—for example,
  *  `"e2-standard-4"`. For more information about machine types that Cloud
@@ -820,8 +824,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  script file in Cloud
  *  Storage](https://cloud.google.com/storage/docs/access-control/iam-permissions).
  *  Otherwise, the script must be publicly accessible. Note that the service
- *  regularly updates the OS version used, and it is the responsibility of the
- *  user to ensure the script stays compatible with the OS version.
+ *  regularly updates the OS version of the host VM, and it is the
+ *  responsibility of the user to ensure the script stays compatible with the OS
+ *  version.
  */
 @property(nonatomic, copy, nullable) NSString *startupScriptUri;
 
@@ -844,6 +849,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  */
 @property(nonatomic, strong, nullable) GTLRCloudWorkstations_GceInstance_VmTags *vmTags;
 
+@end
+
+
+/**
+ *  Optional. Custom metadata to apply to Compute Engine instances.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudWorkstations_GceInstance_InstanceMetadata : GTLRObject
 @end
 
 

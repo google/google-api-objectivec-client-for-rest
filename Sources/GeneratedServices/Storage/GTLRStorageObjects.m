@@ -1162,7 +1162,8 @@ NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforceme
 //
 
 @implementation GTLRStorage_RelocateBucketRequest
-@dynamic destinationCustomPlacementConfig, destinationLocation, validateOnly;
+@dynamic destinationCustomPlacementConfig, destinationKmsKeyName,
+         destinationLocation, validateOnly;
 @end
 
 

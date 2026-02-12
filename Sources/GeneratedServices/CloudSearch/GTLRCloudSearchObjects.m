@@ -8,7 +8,7 @@
 //   data. The Cloud Search API allows indexing of non-Google Workspace data
 //   into Cloud Search.
 // Documentation:
-//   https://developers.google.com/cloud-search/docs/guides/
+//   https://developers.google.com/workspace/cloud-search/docs/guides/
 
 #import <GoogleAPIClientForREST/GTLRCloudSearchObjects.h>
 
@@ -829,16 +829,6 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 
 @implementation GTLRCloudSearch_DebugOptions
 @dynamic enableDebugging;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRCloudSearch_DebugResponse
-//
-
-@implementation GTLRCloudSearch_DebugResponse
-@dynamic gsrRequest, gsrResponse, searchResponse;
 @end
 
 
@@ -2262,11 +2252,12 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudSearch_Operation class]
+    @"operations" : [GTLRCloudSearch_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -2833,7 +2824,9 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_QueryInterpretation
-@dynamic interpretationType, interpretedQuery, reason;
+@dynamic interpretationType, interpretedQuery,
+         interpretedQueryActualResultCount,
+         interpretedQueryEstimatedResultCount, reason;
 @end
 
 

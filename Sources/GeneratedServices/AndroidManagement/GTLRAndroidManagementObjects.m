@@ -450,6 +450,11 @@ NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_Ultr
 NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandStateUnspecified = @"ULTRA_WIDEBAND_STATE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandUserChoice = @"ULTRA_WIDEBAND_USER_CHOICE";
 
+// GTLRAndroidManagement_DeviceRadioState.userInitiatedAddEsimSettings
+NSString * const kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimAllowed = @"USER_INITIATED_ADD_ESIM_ALLOWED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimDisallowed = @"USER_INITIATED_ADD_ESIM_DISALLOWED";
+NSString * const kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimSettingsUnspecified = @"USER_INITIATED_ADD_ESIM_SETTINGS_UNSPECIFIED";
+
 // GTLRAndroidManagement_DeviceRadioState.wifiState
 NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiDisabled = @"WIFI_DISABLED";
 NSString * const kGTLRAndroidManagement_DeviceRadioState_WifiState_WifiEnabled = @"WIFI_ENABLED";
@@ -1826,7 +1831,7 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_DeviceRadioState
 @dynamic airplaneModeState, cellularTwoGState, minimumWifiSecurityLevel,
-         ultraWidebandState, wifiState;
+         ultraWidebandState, userInitiatedAddEsimSettings, wifiState;
 @end
 
 
@@ -3329,7 +3334,8 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 //
 
 @implementation GTLRAndroidManagement_SystemUpdate
-@dynamic endMinutes, freezePeriods, startMinutes, type;
+@dynamic allowedDaysWithoutUpdate, endMinutes, freezePeriods, startMinutes,
+         type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

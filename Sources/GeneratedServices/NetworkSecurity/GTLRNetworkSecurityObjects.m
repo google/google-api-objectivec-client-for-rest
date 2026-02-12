@@ -187,6 +187,10 @@ NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_Deleting = @"
 NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_OutOfSync = @"OUT_OF_SYNC";
 NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRNetworkSecurity_MirroringEndpointGroup.type
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_Type_Direct = @"DIRECT";
+NSString * const kGTLRNetworkSecurity_MirroringEndpointGroup_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
 // GTLRNetworkSecurity_MirroringEndpointGroupAssociation.state
 NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Active = @"ACTIVE";
 NSString * const kGTLRNetworkSecurity_MirroringEndpointGroupAssociation_State_Closed = @"CLOSED";
@@ -2046,7 +2050,7 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 @implementation GTLRNetworkSecurity_MirroringEndpointGroup
 @dynamic associations, connectedDeploymentGroups, createTime,
          descriptionProperty, labels, mirroringDeploymentGroup, name,
-         reconciling, state, updateTime;
+         reconciling, state, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

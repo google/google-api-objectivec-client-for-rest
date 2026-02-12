@@ -21,6 +21,8 @@
 @class GTLRDeveloperConnect_AppHubWorkload;
 @class GTLRDeveloperConnect_ArtifactConfig;
 @class GTLRDeveloperConnect_ArtifactDeployment;
+@class GTLRDeveloperConnect_BasicAuthentication;
+@class GTLRDeveloperConnect_BearerTokenAuthentication;
 @class GTLRDeveloperConnect_BitbucketCloudConfig;
 @class GTLRDeveloperConnect_BitbucketDataCenterConfig;
 @class GTLRDeveloperConnect_Connection;
@@ -29,6 +31,7 @@
 @class GTLRDeveloperConnect_CryptoKeyConfig;
 @class GTLRDeveloperConnect_DeploymentEvent;
 @class GTLRDeveloperConnect_ExchangeError;
+@class GTLRDeveloperConnect_GenericHTTPEndpointConfig;
 @class GTLRDeveloperConnect_GitHubConfig;
 @class GTLRDeveloperConnect_GitHubEnterpriseConfig;
 @class GTLRDeveloperConnect_GitLabConfig;
@@ -59,6 +62,7 @@
 @class GTLRDeveloperConnect_Projects;
 @class GTLRDeveloperConnect_ProviderOAuthConfig;
 @class GTLRDeveloperConnect_RuntimeConfig;
+@class GTLRDeveloperConnect_SecureSourceManagerInstanceConfig;
 @class GTLRDeveloperConnect_ServiceDirectoryConfig;
 @class GTLRDeveloperConnect_Status;
 @class GTLRDeveloperConnect_Status_Details_Item;
@@ -192,18 +196,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_InstallationState_Stage
 // GTLRDeveloperConnect_ProviderOAuthConfig.systemProviderId
 
 /**
- *  Deprecated: This provider is no longer supported. Datastax provider. No
- *  scopes are allowed.
+ *  Datastax provider. No scopes are allowed.
  *
  *  Value: "DATASTAX"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax;
 /**
- *  Deprecated: This provider is no longer supported. Dynatrace provider.
+ *  Dynatrace provider.
  *
  *  Value: "DYNATRACE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Dynatrace GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Dynatrace;
 /**
  *  GitHub provider. Scopes can be found at
  *  https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
@@ -219,34 +222,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_Sys
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Gitlab;
 /**
- *  Deprecated: This provider is no longer supported. Google provider.
- *  Recommended scopes: "https://www.googleapis.com/auth/drive.readonly",
+ *  Google provider. Recommended scopes:
+ *  "https://www.googleapis.com/auth/drive.readonly",
  *  "https://www.googleapis.com/auth/documents.readonly"
  *
  *  Value: "GOOGLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Google GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Google;
 /**
- *  Deprecated: This provider is no longer supported. New Relic provider. No
- *  scopes are allowed.
+ *  New Relic provider. No scopes are allowed.
  *
  *  Value: "NEW_RELIC"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_NewRelic GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_NewRelic;
 /**
- *  Deprecated: This provider is no longer supported. Rovo provider. Must select
- *  the "rovo" scope.
+ *  Rovo provider. Must select the "rovo" scope.
  *
  *  Value: "ROVO"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Rovo GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Rovo;
 /**
- *  Deprecated: This provider is no longer supported. Sentry provider. Scopes
- *  can be found at https://docs.sentry.io/api/permissions/
+ *  Sentry provider. Scopes can be found at
+ *  https://docs.sentry.io/api/permissions/
  *
  *  Value: "SENTRY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Sentry GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Sentry;
 /**
  *  No system provider specified.
  *
@@ -280,18 +281,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_RuntimeConfig_State_Unl
 // GTLRDeveloperConnect_StartOAuthResponse.systemProviderId
 
 /**
- *  Deprecated: This provider is no longer supported. Datastax provider. No
- *  scopes are allowed.
+ *  Datastax provider. No scopes are allowed.
  *
  *  Value: "DATASTAX"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Datastax GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Datastax;
 /**
- *  Deprecated: This provider is no longer supported. Dynatrace provider.
+ *  Dynatrace provider.
  *
  *  Value: "DYNATRACE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Dynatrace GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Dynatrace;
 /**
  *  GitHub provider. Scopes can be found at
  *  https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
@@ -307,34 +307,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  */
 FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Gitlab;
 /**
- *  Deprecated: This provider is no longer supported. Google provider.
- *  Recommended scopes: "https://www.googleapis.com/auth/drive.readonly",
+ *  Google provider. Recommended scopes:
+ *  "https://www.googleapis.com/auth/drive.readonly",
  *  "https://www.googleapis.com/auth/documents.readonly"
  *
  *  Value: "GOOGLE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Google GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Google;
 /**
- *  Deprecated: This provider is no longer supported. New Relic provider. No
- *  scopes are allowed.
+ *  New Relic provider. No scopes are allowed.
  *
  *  Value: "NEW_RELIC"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_NewRelic GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_NewRelic;
 /**
- *  Deprecated: This provider is no longer supported. Rovo provider. Must select
- *  the "rovo" scope.
+ *  Rovo provider. Must select the "rovo" scope.
  *
  *  Value: "ROVO"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Rovo GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Rovo;
 /**
- *  Deprecated: This provider is no longer supported. Sentry provider. Scopes
- *  can be found at https://docs.sentry.io/api/permissions/
+ *  Sentry provider. Scopes can be found at
+ *  https://docs.sentry.io/api/permissions/
  *
  *  Value: "SENTRY"
  */
-FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Sentry GTLR_DEPRECATED;
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Sentry;
 /**
  *  No system provider specified.
  *
@@ -375,7 +373,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 /** Output only. Start OAuth flow by clicking on this URL. */
 @property(nonatomic, copy, nullable) NSString *oauthStartUri;
 
-/** Provider OAuth config. */
+/** Optional. Provider OAuth config. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_ProviderOAuthConfig *providerOauthConfig;
 
 /** Output only. The timestamp when the accountConnector was updated. */
@@ -512,6 +510,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *  are considered undeployed once this time is set.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *undeployTime;
+
+@end
+
+
+/**
+ *  Basic authentication with username and password.
+ */
+@interface GTLRDeveloperConnect_BasicAuthentication : GTLRObject
+
+/** The password SecretManager secret version to authenticate as. */
+@property(nonatomic, copy, nullable) NSString *passwordSecretVersion;
+
+/** Required. The username to authenticate as. */
+@property(nonatomic, copy, nullable) NSString *username;
+
+@end
+
+
+/**
+ *  Bearer token authentication with a token.
+ */
+@interface GTLRDeveloperConnect_BearerTokenAuthentication : GTLRObject
+
+/** Optional. The token SecretManager secret version to authenticate as. */
+@property(nonatomic, copy, nullable) NSString *tokenSecretVersion;
 
 @end
 
@@ -678,6 +701,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_GitProxyConfig *gitProxyConfig;
 
+/** Optional. Configuration for connections to an HTTP service provider. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_GenericHTTPEndpointConfig *httpConfig;
+
 /** Output only. Installation state of the Connection. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_InstallationState *installationState;
 
@@ -697,6 +723,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
+
+/** Configuration for connections to an instance of Secure Source Manager. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_SecureSourceManagerInstanceConfig *secureSourceManagerInstanceConfig;
 
 /** Output only. A system-assigned unique identifier for the Connection. */
 @property(nonatomic, copy, nullable) NSString *uid;
@@ -770,8 +799,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 @property(nonatomic, strong, nullable) GTLRDateTime *deployTime;
 
 /**
- *  Identifier. The name of the DeploymentEvent. This name is provided by DCI.
- *  Format:
+ *  Identifier. The name of the DeploymentEvent. This name is provided by
+ *  Developer Connect insights. Format:
  *  projects/{project}/locations/{location}/insightsConfigs/{insights_config}/deploymentEvents/{uuid}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -995,6 +1024,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
+ *  Defines the configuration for connections to an HTTP service provider.
+ */
+@interface GTLRDeveloperConnect_GenericHTTPEndpointConfig : GTLRObject
+
+/** Optional. Basic authentication with username and password. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_BasicAuthentication *basicAuthentication;
+
+/** Optional. Bearer token authentication with a token. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_BearerTokenAuthentication *bearerTokenAuthentication;
+
+/** Required. Immutable. The service provider's https endpoint. */
+@property(nonatomic, copy, nullable) NSString *hostUri;
+
+/**
+ *  Optional. Configuration for using Service Directory to privately connect to
+ *  a HTTP service provider. This should only be set if the Http service
+ *  provider is hosted on-premises and not reachable by public internet. If this
+ *  field is left empty, calls to the HTTP service provider will be made over
+ *  the public internet.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_ServiceDirectoryConfig *serviceDirectoryConfig;
+
+/**
+ *  Optional. The SSL certificate to use for requests to the HTTP service
+ *  provider.
+ */
+@property(nonatomic, copy, nullable) NSString *sslCaCertificate;
+
+@end
+
+
+/**
  *  Configuration for connections to github.com.
  */
 @interface GTLRDeveloperConnect_GitHubConfig : GTLRObject
@@ -1068,6 +1129,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *  associated with this GitHubEnterpriseConfig.
  */
 @property(nonatomic, copy, nullable) NSString *installationUri;
+
+/**
+ *  Optional. Immutable. GitHub Enterprise organization in which the GitHub App
+ *  is created.
+ */
+@property(nonatomic, copy, nullable) NSString *organization;
 
 /**
  *  Optional. SecretManager resource containing the private key of the GitHub
@@ -1417,7 +1484,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 /**
  *  The InsightsConfig resource is the core configuration object to capture
  *  events from your Software Development Lifecycle. It acts as the central hub
- *  for managing how Developer connect understands your application, its runtime
+ *  for managing how Developer Connect understands your application, its runtime
  *  environments, and the artifacts deployed within them.
  */
 @interface GTLRDeveloperConnect_InsightsConfig : GTLRObject
@@ -1460,7 +1527,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Optional. The GCP projects to track with the InsightsConfig. */
+/** Optional. The projects to track with the InsightsConfig. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_Projects *projects;
 
 /**
@@ -2084,7 +2151,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  */
 @interface GTLRDeveloperConnect_Projects : GTLRObject
 
-/** Optional. The GCP Project IDs. Format: projects/{project} */
+/** Optional. The project IDs. Format: {project} */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *projectIds;
 
 @end
@@ -2103,15 +2170,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 /**
- *  Immutable. Developer Connect provided OAuth.
+ *  Optional. Immutable. Developer Connect provided OAuth.
  *
  *  Likely values:
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Datastax
- *        Deprecated: This provider is no longer supported. Datastax provider.
- *        No scopes are allowed. (Value: "DATASTAX")
+ *        Datastax provider. No scopes are allowed. (Value: "DATASTAX")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Dynatrace
- *        Deprecated: This provider is no longer supported. Dynatrace provider.
- *        (Value: "DYNATRACE")
+ *        Dynatrace provider. (Value: "DYNATRACE")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Github
  *        GitHub provider. Scopes can be found at
  *        https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
@@ -2121,19 +2186,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *        https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes
  *        (Value: "GITLAB")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Google
- *        Deprecated: This provider is no longer supported. Google provider.
- *        Recommended scopes: "https://www.googleapis.com/auth/drive.readonly",
+ *        Google provider. Recommended scopes:
+ *        "https://www.googleapis.com/auth/drive.readonly",
  *        "https://www.googleapis.com/auth/documents.readonly" (Value: "GOOGLE")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_NewRelic
- *        Deprecated: This provider is no longer supported. New Relic provider.
- *        No scopes are allowed. (Value: "NEW_RELIC")
+ *        New Relic provider. No scopes are allowed. (Value: "NEW_RELIC")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Rovo
- *        Deprecated: This provider is no longer supported. Rovo provider. Must
- *        select the "rovo" scope. (Value: "ROVO")
+ *        Rovo provider. Must select the "rovo" scope. (Value: "ROVO")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_Sentry
- *        Deprecated: This provider is no longer supported. Sentry provider.
- *        Scopes can be found at https://docs.sentry.io/api/permissions/ (Value:
- *        "SENTRY")
+ *        Sentry provider. Scopes can be found at
+ *        https://docs.sentry.io/api/permissions/ (Value: "SENTRY")
  *    @arg @c kGTLRDeveloperConnect_ProviderOAuthConfig_SystemProviderId_SystemProviderUnspecified
  *        No system provider specified. (Value: "SYSTEM_PROVIDER_UNSPECIFIED")
  */
@@ -2183,6 +2245,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
+ *  Configuration for connections to SSM instance
+ */
+@interface GTLRDeveloperConnect_SecureSourceManagerInstanceConfig : GTLRObject
+
+/**
+ *  Required. Immutable. SSM instance resource, formatted as `projects/ *
+ *  /locations/ * /instances/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+@end
+
+
+/**
  *  ServiceDirectoryConfig represents Service Directory configuration for a
  *  connection.
  */
@@ -2209,12 +2285,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 @property(nonatomic, copy, nullable) NSString *clientId;
 
 /**
- *  https://datatracker.ietf.org/doc/html/rfc7636#section-4.1 Follow
- *  http://shortn/_WFYl6U0NyC to include it in the AutoCodeURL.
+ *  Please refer to https://datatracker.ietf.org/doc/html/rfc7636#section-4.1
  */
 @property(nonatomic, copy, nullable) NSString *codeChallenge;
 
-/** https://datatracker.ietf.org/doc/html/rfc7636#section-4.2 */
+/**
+ *  Please refer to https://datatracker.ietf.org/doc/html/rfc7636#section-4.2
+ */
 @property(nonatomic, copy, nullable) NSString *codeChallengeMethod;
 
 /** The list of scopes requested by the application. */
@@ -2225,11 +2302,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *
  *  Likely values:
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Datastax
- *        Deprecated: This provider is no longer supported. Datastax provider.
- *        No scopes are allowed. (Value: "DATASTAX")
+ *        Datastax provider. No scopes are allowed. (Value: "DATASTAX")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Dynatrace
- *        Deprecated: This provider is no longer supported. Dynatrace provider.
- *        (Value: "DYNATRACE")
+ *        Dynatrace provider. (Value: "DYNATRACE")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Github
  *        GitHub provider. Scopes can be found at
  *        https://docs.github.com/en/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#available-scopes
@@ -2239,19 +2314,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *        https://docs.gitlab.com/user/profile/personal_access_tokens/#personal-access-token-scopes
  *        (Value: "GITLAB")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Google
- *        Deprecated: This provider is no longer supported. Google provider.
- *        Recommended scopes: "https://www.googleapis.com/auth/drive.readonly",
+ *        Google provider. Recommended scopes:
+ *        "https://www.googleapis.com/auth/drive.readonly",
  *        "https://www.googleapis.com/auth/documents.readonly" (Value: "GOOGLE")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_NewRelic
- *        Deprecated: This provider is no longer supported. New Relic provider.
- *        No scopes are allowed. (Value: "NEW_RELIC")
+ *        New Relic provider. No scopes are allowed. (Value: "NEW_RELIC")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Rovo
- *        Deprecated: This provider is no longer supported. Rovo provider. Must
- *        select the "rovo" scope. (Value: "ROVO")
+ *        Rovo provider. Must select the "rovo" scope. (Value: "ROVO")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Sentry
- *        Deprecated: This provider is no longer supported. Sentry provider.
- *        Scopes can be found at https://docs.sentry.io/api/permissions/ (Value:
- *        "SENTRY")
+ *        Sentry provider. Scopes can be found at
+ *        https://docs.sentry.io/api/permissions/ (Value: "SENTRY")
  *    @arg @c kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_SystemProviderUnspecified
  *        No system provider specified. (Value: "SYSTEM_PROVIDER_UNSPECIFIED")
  */

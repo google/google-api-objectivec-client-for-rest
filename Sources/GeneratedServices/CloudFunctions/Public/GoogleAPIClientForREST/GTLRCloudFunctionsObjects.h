@@ -22,6 +22,7 @@
 @class GTLRCloudFunctions_BuildConfig_EnvironmentVariables;
 @class GTLRCloudFunctions_BuildConfigOverrides;
 @class GTLRCloudFunctions_Date;
+@class GTLRCloudFunctions_DirectVpcNetworkInterface;
 @class GTLRCloudFunctions_EventFilter;
 @class GTLRCloudFunctions_EventTrigger;
 @class GTLRCloudFunctions_Expr;
@@ -527,6 +528,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Stage_Ga;
  *  Value: "RUNTIME_STAGE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_Runtime_Stage_RuntimeStageUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudFunctions_ServiceConfig.directVpcEgress
+
+/**
+ *  Unspecified.
+ *
+ *  Value: "DIRECT_VPC_EGRESS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_DirectVpcEgress_DirectVpcEgressUnspecified;
+/**
+ *  Sends all outbound traffic through the VPC network.
+ *
+ *  Value: "VPC_EGRESS_ALL_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_DirectVpcEgress_VpcEgressAllTraffic;
+/**
+ *  Sends only traffic to internal addresses through the VPC network.
+ *
+ *  Value: "VPC_EGRESS_PRIVATE_RANGES_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_ServiceConfig_DirectVpcEgress_VpcEgressPrivateRangesOnly;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudFunctions_ServiceConfig.ingressSettings
@@ -1063,6 +1086,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *  Request for the `DetachFunction` method.
  */
 @interface GTLRCloudFunctions_DetachFunctionRequest : GTLRObject
+@end
+
+
+/**
+ *  The Direct VPC network interface. This is mutually exclusive with VPC
+ *  Connector.
+ */
+@interface GTLRCloudFunctions_DirectVpcNetworkInterface : GTLRObject
+
+/**
+ *  Optional. The name of the VPC network to which the function will be
+ *  connected. Specify either a VPC network or a subnet, or both. If you specify
+ *  only a network, the subnet uses the same name as the network.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Optional. The name of the VPC subnetwork that the Cloud Function resource
+ *  will get IPs from. Specify either a VPC network or a subnet, or both. If
+ *  both network and subnetwork are specified, the given VPC subnetwork must
+ *  belong to the given VPC network. If subnetwork is not specified, the
+ *  subnetwork with the same name with the network will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *subnetwork;
+
+/** Optional. Network tags applied to this Cloud Function resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
 @end
 
 
@@ -2296,6 +2347,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFunctions_UpgradeInfo_UpgradeState_
  *  Cloud Run service.
  */
 @property(nonatomic, copy, nullable) NSString *binaryAuthorizationPolicy;
+
+/**
+ *  Optional. Egress settings for direct VPC. If not provided, it defaults to
+ *  VPC_EGRESS_PRIVATE_RANGES_ONLY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_DirectVpcEgress_DirectVpcEgressUnspecified
+ *        Unspecified. (Value: "DIRECT_VPC_EGRESS_UNSPECIFIED")
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_DirectVpcEgress_VpcEgressAllTraffic
+ *        Sends all outbound traffic through the VPC network. (Value:
+ *        "VPC_EGRESS_ALL_TRAFFIC")
+ *    @arg @c kGTLRCloudFunctions_ServiceConfig_DirectVpcEgress_VpcEgressPrivateRangesOnly
+ *        Sends only traffic to internal addresses through the VPC network.
+ *        (Value: "VPC_EGRESS_PRIVATE_RANGES_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *directVpcEgress;
+
+/**
+ *  Optional. The Direct VPC network interface for the Cloud Function. Currently
+ *  only a single Direct VPC is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudFunctions_DirectVpcNetworkInterface *> *directVpcNetworkInterface;
 
 /**
  *  Environment variables that shall be available during function execution.

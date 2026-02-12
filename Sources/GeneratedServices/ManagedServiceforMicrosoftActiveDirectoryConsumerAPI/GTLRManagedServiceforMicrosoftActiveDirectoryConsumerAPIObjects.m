@@ -423,11 +423,11 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_GoogleCloudSaasacceleratorManagementProvidersV1Instance
-@dynamic consumerDefinedName, createTime, instanceType, labels,
-         maintenancePolicyNames, maintenanceSchedules, maintenanceSettings,
-         name, notificationParameters, producerMetadata, provisionedResources,
-         slmInstanceTemplate, sloMetadata, softwareVersions, state,
-         tenantProjectId, updateTime;
+@dynamic consumerDefinedName, consumerProjectNumber, createTime, instanceType,
+         labels, maintenancePolicyNames, maintenanceSchedules,
+         maintenanceSettings, name, notificationParameters, producerMetadata,
+         provisionedResources, slmInstanceTemplate, sloMetadata,
+         softwareVersions, state, tenantProjectId, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -733,11 +733,12 @@ NSString * const kGTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Updat
 //
 
 @implementation GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_ListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation class]
+    @"operations" : [GTLRManagedServiceforMicrosoftActiveDirectoryConsumerAPI_Operation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

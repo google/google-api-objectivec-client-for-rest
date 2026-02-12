@@ -36,6 +36,12 @@ NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRCloudKMS_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
+// GTLRCloudKMS_AutokeyConfig.keyProjectResolutionMode
+NSString * const kGTLRCloudKMS_AutokeyConfig_KeyProjectResolutionMode_DedicatedKeyProject = @"DEDICATED_KEY_PROJECT";
+NSString * const kGTLRCloudKMS_AutokeyConfig_KeyProjectResolutionMode_Disabled = @"DISABLED";
+NSString * const kGTLRCloudKMS_AutokeyConfig_KeyProjectResolutionMode_KeyProjectResolutionModeUnspecified = @"KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED";
+NSString * const kGTLRCloudKMS_AutokeyConfig_KeyProjectResolutionMode_ResourceProject = @"RESOURCE_PROJECT";
+
 // GTLRCloudKMS_AutokeyConfig.state
 NSString * const kGTLRCloudKMS_AutokeyConfig_State_Active      = @"ACTIVE";
 NSString * const kGTLRCloudKMS_AutokeyConfig_State_KeyProjectDeleted = @"KEY_PROJECT_DELETED";
@@ -535,7 +541,7 @@ NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Succeeded =
 //
 
 @implementation GTLRCloudKMS_AutokeyConfig
-@dynamic ETag, keyProject, name, state;
+@dynamic ETag, keyProject, keyProjectResolutionMode, name, state;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

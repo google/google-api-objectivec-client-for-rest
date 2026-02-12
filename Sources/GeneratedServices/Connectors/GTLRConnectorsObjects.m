@@ -287,6 +287,14 @@ NSString * const kGTLRConnectors_Schedule_Day_Thursday         = @"THURSDAY";
 NSString * const kGTLRConnectors_Schedule_Day_Tuesday          = @"TUESDAY";
 NSString * const kGTLRConnectors_Schedule_Day_Wednesday        = @"WEDNESDAY";
 
+// GTLRConnectors_ToolName.operation
+NSString * const kGTLRConnectors_ToolName_Operation_Create     = @"CREATE";
+NSString * const kGTLRConnectors_ToolName_Operation_Delete     = @"DELETE";
+NSString * const kGTLRConnectors_ToolName_Operation_Get        = @"GET";
+NSString * const kGTLRConnectors_ToolName_Operation_List       = @"LIST";
+NSString * const kGTLRConnectors_ToolName_Operation_OperationUnspecified = @"OPERATION_UNSPECIFIED";
+NSString * const kGTLRConnectors_ToolName_Operation_Update     = @"UPDATE";
+
 // GTLRConnectors_UpdatePolicy.channel
 NSString * const kGTLRConnectors_UpdatePolicy_Channel_Earlier  = @"EARLIER";
 NSString * const kGTLRConnectors_UpdatePolicy_Channel_Later    = @"LATER";
@@ -872,6 +880,34 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConnectors_GenerateCustomToolspecRequest
+//
+
+@implementation GTLRConnectors_GenerateCustomToolspecRequest
+@dynamic toolNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolNames" : [GTLRConnectors_ToolName class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_GenerateCustomToolspecResponse
+//
+
+@implementation GTLRConnectors_GenerateCustomToolspecResponse
+@dynamic toolSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConnectors_GetResourcePostRequest
 //
 
@@ -1158,6 +1194,24 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ListCustomToolNamesResponse
+//
+
+@implementation GTLRConnectors_ListCustomToolNamesResponse
+@dynamic toolNames;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolNames" : [GTLRConnectors_ToolName class]
+  };
+  return map;
 }
 
 @end
@@ -1716,6 +1770,21 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 @implementation GTLRConnectors_ToolAnnotations
 @dynamic destructiveHint, idempotentHint, openWorldHint, readOnlyHint, title;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ToolName
+//
+
+@implementation GTLRConnectors_ToolName
+@dynamic entityNameProperty, name, operation;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"entityNameProperty" : @"entityName" };
+}
+
 @end
 
 

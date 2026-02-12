@@ -1199,7 +1199,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRNetAppFilesQuery_ProjectsLocationsKmsConfigsPatch : GTLRNetAppFilesQuery
 
-/** Identifier. Name of the KmsConfig. */
+/**
+ *  Identifier. Name of the KmsConfig. Format:
+ *  `projects/{project}/locations/{location}/kmsConfigs/{kms_config}`
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1219,7 +1222,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  Updates the Kms config properties with the full spec
  *
  *  @param object The @c GTLRNetAppFiles_KmsConfig to include in the query.
- *  @param name Identifier. Name of the KmsConfig.
+ *  @param name Identifier. Name of the KmsConfig. Format:
+ *    `projects/{project}/locations/{location}/kmsConfigs/{kms_config}`
  *
  *  @return GTLRNetAppFilesQuery_ProjectsLocationsKmsConfigsPatch
  */
@@ -1258,7 +1262,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: netapp.projects.locations.list
  *
@@ -1298,7 +1306,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetAppFiles_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -1774,6 +1786,41 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRNetAppFilesQuery_ProjectsLocationsVolumesDelete
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Establish volume peering. This is used to establish cluster and svm peerings
+ *  between the GCNV and OnPrem clusters.
+ *
+ *  Method: netapp.projects.locations.volumes.establishPeering
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsVolumesEstablishPeering : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The volume resource name, in the format
+ *  `projects/{project_id}/locations/{location}/volumes/{volume_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_Operation.
+ *
+ *  Establish volume peering. This is used to establish cluster and svm peerings
+ *  between the GCNV and OnPrem clusters.
+ *
+ *  @param object The @c GTLRNetAppFiles_EstablishVolumePeeringRequest to
+ *    include in the query.
+ *  @param name Required. The volume resource name, in the format
+ *    `projects/{project_id}/locations/{location}/volumes/{volume_id}`
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsVolumesEstablishPeering
+ */
++ (instancetype)queryWithObject:(GTLRNetAppFiles_EstablishVolumePeeringRequest *)object
+                           name:(NSString *)name;
 
 @end
 

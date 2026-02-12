@@ -51,6 +51,7 @@
 @class GTLRHangoutsChat_Emoji;
 @class GTLRHangoutsChat_EmojiReactionSummary;
 @class GTLRHangoutsChat_FormAction;
+@class GTLRHangoutsChat_ForwardedMetadata;
 @class GTLRHangoutsChat_GoogleAppsCardV1Action;
 @class GTLRHangoutsChat_GoogleAppsCardV1ActionParameter;
 @class GTLRHangoutsChat_GoogleAppsCardV1BorderStyle;
@@ -130,6 +131,7 @@
 @class GTLRHangoutsChat_PermissionSetting;
 @class GTLRHangoutsChat_PermissionSettings;
 @class GTLRHangoutsChat_QuotedMessageMetadata;
+@class GTLRHangoutsChat_QuotedMessageSnapshot;
 @class GTLRHangoutsChat_Reaction;
 @class GTLRHangoutsChat_ReactionBatchCreatedEventData;
 @class GTLRHangoutsChat_ReactionBatchDeletedEventData;
@@ -1279,17 +1281,15 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1PlatformDat
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_CheckBox;
 /**
  *  A dropdown menu. Users can select one item from the menu. For Google Chat
- *  apps, as part of the [Developer Preview
- *  Program](https://developers.google.com/workspace/preview), you can populate
- *  items using a dynamic data source and autosuggest items as users type in the
- *  menu. For example, users can start typing the name of a Google Chat space
- *  and the widget autosuggests the space. To dynamically populate items for a
- *  dropdown menu, use one of the following types of data sources: * Google
- *  Workspace data: Items are populated using data from Google Workspace, such
- *  as Google Workspace users or Google Chat spaces. * External data: Items are
- *  populated from an external data source outside of Google Workspace. For
- *  examples of how to implement dropdown menus for Chat apps, see [Add a
- *  dropdown
+ *  apps, you can populate items using a dynamic data source and autosuggest
+ *  items as users type in the menu. For example, users can start typing the
+ *  name of a Google Chat space and the widget autosuggests the space. To
+ *  dynamically populate items for a dropdown menu, use one of the following
+ *  types of data sources: * Google Workspace data: Items are populated using
+ *  data from Google Workspace, such as Google Workspace users or Google Chat
+ *  spaces. * External data: Items are populated from an external data source
+ *  outside of Google Workspace. For examples of how to implement dropdown menus
+ *  for Chat apps, see [Add a dropdown
  *  menu](https://developers.google.com/workspace/chat/design-interactive-card-dialog#dropdown-menu)
  *  and [Dynamically populate drop-down
  *  menus](https://developers.google.com/workspace/chat/design-interactive-card-dialog#dynamic-dropdown-menu).
@@ -1772,6 +1772,25 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_Membership
  *  Value: "NOT_A_MEMBER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_QuotedMessageMetadata.quoteType
+
+/**
+ *  Reserved. This value is unused.
+ *
+ *  Value: "QUOTE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_QuoteTypeUnspecified;
+/**
+ *  If quote_type is `REPLY`, you can do the following: * If you're replying in
+ *  a thread, you can quote another message in that thread. * If you're creating
+ *  a root message, you can quote another root message in that space. You can't
+ *  quote a message reply from a different thread.
+ *
+ *  Value: "REPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_Reply;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_RichLinkMetadata.richLinkType
@@ -3554,6 +3573,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  Metadata about the source space from which a message was forwarded.
+ */
+@interface GTLRHangoutsChat_ForwardedMetadata : GTLRObject
+
+/**
+ *  Output only. The resource name of the source space. Format: spaces/{space}
+ */
+@property(nonatomic, copy, nullable) NSString *space;
+
+/**
+ *  Output only. The display name of the source space or DM at the time of
+ *  forwarding. For `SPACE`, this is the space name. For `DIRECT_MESSAGE`, this
+ *  is the other participant's name (e.g., "User A"). For `GROUP_CHAT`, this is
+ *  a generated name based on members' first names, limited to 5 including the
+ *  creator (e.g., "User A, User B").
+ */
+@property(nonatomic, copy, nullable) NSString *spaceDisplayName;
+
+@end
+
+
+/**
  *  An action that describes the behavior when the form is submitted. For
  *  example, you can invoke an Apps Script script to handle the form. If the
  *  action is triggered, the form values are sent to the server. [Google
@@ -4329,10 +4370,18 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /**
  *  A configuration object that helps configure the data sources for a widget.
- *  Available for Google Workspace add-ons that extend Google Workspace Studio.
- *  Unavailable for Google Chat apps.
+ *  Available for Google Chat apps and Google Workspace add-ons that extend
+ *  Google Workspace Studio.
  */
 @interface GTLRHangoutsChat_GoogleAppsCardV1DataSourceConfig : GTLRObject
+
+/**
+ *  The minimum number of characters the user must enter before this data
+ *  provider is triggered (i.e., before it starts returning results).
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minCharactersTrigger;
 
 /** The data is from a Google Workspace application. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleAppsCardV1PlatformDataSource *platformDataSource;
@@ -5188,9 +5237,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  `multi_select_max_selected_items` field, `multi_select_min_query_length`
  *  field, `external_data_source` field and `platform_data_source` field are
  *  ignored. Available for Google Workspace add-ons that extend Google Workspace
- *  Studio. Available for the `Dropdown widget` widget in Google Chat apps as
- *  part of the [Developer Preview
- *  Program](https://developers.google.com/workspace/preview). For the
+ *  Studio. Available for the `Dropdown widget` in Google Chat apps. For the
  *  `Dropdown` widget in Google Chat apps, only one `DataSourceConfig` is
  *  supported. If multiple `DataSourceConfig`s are set, only the first one is
  *  used.
@@ -5276,17 +5323,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *        "CHECK_BOX")
  *    @arg @c kGTLRHangoutsChat_GoogleAppsCardV1SelectionInput_Type_Dropdown A
  *        dropdown menu. Users can select one item from the menu. For Google
- *        Chat apps, as part of the [Developer Preview
- *        Program](https://developers.google.com/workspace/preview), you can
- *        populate items using a dynamic data source and autosuggest items as
- *        users type in the menu. For example, users can start typing the name
- *        of a Google Chat space and the widget autosuggests the space. To
- *        dynamically populate items for a dropdown menu, use one of the
- *        following types of data sources: * Google Workspace data: Items are
- *        populated using data from Google Workspace, such as Google Workspace
- *        users or Google Chat spaces. * External data: Items are populated from
- *        an external data source outside of Google Workspace. For examples of
- *        how to implement dropdown menus for Chat apps, see [Add a dropdown
+ *        Chat apps, you can populate items using a dynamic data source and
+ *        autosuggest items as users type in the menu. For example, users can
+ *        start typing the name of a Google Chat space and the widget
+ *        autosuggests the space. To dynamically populate items for a dropdown
+ *        menu, use one of the following types of data sources: * Google
+ *        Workspace data: Items are populated using data from Google Workspace,
+ *        such as Google Workspace users or Google Chat spaces. * External data:
+ *        Items are populated from an external data source outside of Google
+ *        Workspace. For examples of how to implement dropdown menus for Chat
+ *        apps, see [Add a dropdown
  *        menu](https://developers.google.com/workspace/chat/design-interactive-card-dialog#dropdown-menu)
  *        and [Dynamically populate drop-down
  *        menus](https://developers.google.com/workspace/chat/design-interactive-card-dialog#dynamic-dropdown-menu).
@@ -7029,6 +7075,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @interface GTLRHangoutsChat_QuotedMessageMetadata : GTLRObject
 
 /**
+ *  Output only. Metadata about the source space of the quoted message.
+ *  Populated only for FORWARD quote type.
+ */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_ForwardedMetadata *forwardedMetadata;
+
+/**
  *  Required. The timestamp when the quoted message was created or when the
  *  quoted message was last updated. If the message was edited, use this field,
  *  `last_update_time`. If the message was never edited, use `create_time`. If
@@ -7042,6 +7094,63 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  `spaces/{space}/messages/{message}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. A snapshot of the quoted message's content. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_QuotedMessageSnapshot *quotedMessageSnapshot;
+
+/**
+ *  Optional. Specifies the quote type. If not set, defaults to REPLY in the
+ *  message read/write path for backward compatibility.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_QuoteTypeUnspecified
+ *        Reserved. This value is unused. (Value: "QUOTE_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_Reply If
+ *        quote_type is `REPLY`, you can do the following: * If you're replying
+ *        in a thread, you can quote another message in that thread. * If you're
+ *        creating a root message, you can quote another root message in that
+ *        space. You can't quote a message reply from a different thread.
+ *        (Value: "REPLY")
+ */
+@property(nonatomic, copy, nullable) NSString *quoteType;
+
+@end
+
+
+/**
+ *  Provides a snapshot of the content of the quoted message at the time of
+ *  quoting or forwarding
+ */
+@interface GTLRHangoutsChat_QuotedMessageSnapshot : GTLRObject
+
+/**
+ *  Output only. Annotations parsed from the text body of the quoted message.
+ *  Populated only for FORWARD quote type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Annotation *> *annotations;
+
+/**
+ *  Output only. Attachments that were part of the quoted message. These are
+ *  copies of the quoted message's attachment metadata. Populated only for
+ *  FORWARD quote type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Attachment *> *attachments;
+
+/**
+ *  Output only. Contains the quoted message `text` with markups added to
+ *  support rich formatting like hyperlinks,custom emojis, markup, etc.
+ *  Populated only for FORWARD quote type.
+ */
+@property(nonatomic, copy, nullable) NSString *formattedText;
+
+/**
+ *  Output only. The quoted message's author name. Populated for both REPLY &
+ *  FORWARD quote types.
+ */
+@property(nonatomic, copy, nullable) NSString *sender;
+
+/** Output only. Snapshot of the quoted message's text content. */
+@property(nonatomic, copy, nullable) NSString *text;
 
 @end
 

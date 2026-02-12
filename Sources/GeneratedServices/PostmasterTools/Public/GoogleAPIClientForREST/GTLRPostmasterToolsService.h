@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Gmail Postmaster Tools API (gmailpostmastertools/v1)
+//   Gmail Postmaster Tools API (gmailpostmastertools/v2)
 // Description:
 //   The Postmaster Tools API is a RESTful API that provides programmatic access
 //   to email traffic metrics (like spam reports, delivery errors etc) otherwise
@@ -24,15 +24,29 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
- *  Authorization scope: See email traffic metrics for the domains you have
- *  registered in Gmail Postmaster Tools
+ *  Authorization scope: Get email traffic metrics, manage domains, and manage
+ *  domain users for the domains you have registered with Postmaster Tools
  *
- *  Value "https://www.googleapis.com/auth/postmaster.readonly"
+ *  Value "https://www.googleapis.com/auth/postmaster"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopePostmasterToolsPostmasterReadonly;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePostmasterToolsPostmaster;
+/**
+ *  Authorization scope: View and manage the domains you have registered with
+ *  Postmaster Tools
+ *
+ *  Value "https://www.googleapis.com/auth/postmaster.domain"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePostmasterToolsPostmasterDomain;
+/**
+ *  Authorization scope: Get email traffic metrics for the domains you have
+ *  registered with Postmaster Tools
+ *
+ *  Value "https://www.googleapis.com/auth/postmaster.traffic.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopePostmasterToolsPostmasterTrafficReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRPostmasterToolsService

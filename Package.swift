@@ -486,6 +486,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Css"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_CustomerEngagementSuite",
+            targets: ["GoogleAPIClientForREST_CustomerEngagementSuite"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_CustomSearchAPI",
             targets: ["GoogleAPIClientForREST_CustomSearchAPI"]
         ),
@@ -752,6 +756,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_HomeGraphService",
             targets: ["GoogleAPIClientForREST_HomeGraphService"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_HypercomputeCluster",
+            targets: ["GoogleAPIClientForREST_HypercomputeCluster"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Iam",
@@ -1152,6 +1160,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Texttospeech",
             targets: ["GoogleAPIClientForREST_Texttospeech"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_ThreatIntelligenceService",
+            targets: ["GoogleAPIClientForREST_ThreatIntelligenceService"]
         ),
         .library(
             name: "GoogleAPIClientForREST_ToolResults",
@@ -1982,6 +1994,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_CustomerEngagementSuite",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/CustomerEngagementSuite",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_CustomSearchAPI",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CustomSearchAPI",
@@ -2381,6 +2399,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_HomeGraphService",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/HomeGraphService",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_HypercomputeCluster",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/HypercomputeCluster",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2981,6 +3005,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Texttospeech",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Texttospeech",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_ThreatIntelligenceService",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/ThreatIntelligenceService",
             publicHeadersPath: "Public"
         ),
         .target(

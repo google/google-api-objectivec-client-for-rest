@@ -27,6 +27,7 @@
 @class GTLRBackupforGKE_BackupPlan_Labels;
 @class GTLRBackupforGKE_BackupPlanBinding;
 @class GTLRBackupforGKE_BackupPlanDetails;
+@class GTLRBackupforGKE_BackupRuleDetail;
 @class GTLRBackupforGKE_Binding;
 @class GTLRBackupforGKE_ClusterMetadata;
 @class GTLRBackupforGKE_ClusterMetadata_BackupCrdVersions;
@@ -37,6 +38,7 @@
 @class GTLRBackupforGKE_ExclusionWindow;
 @class GTLRBackupforGKE_Expr;
 @class GTLRBackupforGKE_Filter;
+@class GTLRBackupforGKE_GetTagsResponse_Tags;
 @class GTLRBackupforGKE_GoogleLongrunningOperation;
 @class GTLRBackupforGKE_GoogleLongrunningOperation_Metadata;
 @class GTLRBackupforGKE_GoogleLongrunningOperation_Response;
@@ -69,6 +71,8 @@
 @class GTLRBackupforGKE_RetentionPolicyDetails;
 @class GTLRBackupforGKE_RpoConfig;
 @class GTLRBackupforGKE_Schedule;
+@class GTLRBackupforGKE_SetTagsRequest_Tags;
+@class GTLRBackupforGKE_SetTagsResponse_Tags;
 @class GTLRBackupforGKE_SubstitutionRule;
 @class GTLRBackupforGKE_TimeOfDay;
 @class GTLRBackupforGKE_TransformationRule;
@@ -1609,6 +1613,214 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 
 /**
+ *  GTLRBackupforGKE_BackupRuleDetail
+ */
+@interface GTLRBackupforGKE_BackupRuleDetail : GTLRObject
+
+/** Backup Window For Eg. “00:00 to 06:00” */
+@property(nonatomic, copy, nullable) NSString *backupWindow;
+
+/** Backup Window Timezone in IANA format. For Eg. “America/Los_Angeles” */
+@property(nonatomic, copy, nullable) NSString *backupWindowTimezone;
+
+/** Recurrence Type. For Eg. “Weekly”,” Monthly” or “Daily”. */
+@property(nonatomic, copy, nullable) NSString *recurrence;
+
+/** Recurrence Repeat Schedule. For Eg. “1st and 25th day of the month.” */
+@property(nonatomic, copy, nullable) NSString *recurrenceSchedule;
+
+/**
+ *  Backup Retention in Days.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *retentionDays;
+
+/** Backup Rule Name. */
+@property(nonatomic, copy, nullable) NSString *ruleName;
+
+@end
+
+
+/**
+ *  Log entry for BDRBackupPlanJobLog for resources using BackupPlan based
+ *  protection.
+ */
+@interface GTLRBackupforGKE_BDRBackupPlanJobLog : GTLRObject
+
+/** Canonical resource name for Backup Plan Plan of the job. */
+@property(nonatomic, copy, nullable) NSString *backupPlanName;
+
+/** End time of the job. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The error code. Only populated in error scenarios.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorCode;
+
+/** The user readable error message. Only populated in error scenarios. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  The name of the error type eg. PERMISSION_DENIED. Only populated in error
+ *  scenarios.
+ */
+@property(nonatomic, copy, nullable) NSString *errorType;
+
+/**
+ *  The category field displays the category of the job. Can be one of
+ *  [UPDATE_BACKUP_PLAN].
+ */
+@property(nonatomic, copy, nullable) NSString *jobCategory;
+
+/** The job_id field displays the identifier of the job being reported. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/**
+ *  The status field displays the status of the job. Can be one of
+ *  [RUNNING,SUCCESSFUL, FAILED].
+ */
+@property(nonatomic, copy, nullable) NSString *jobStatus;
+
+/** User friendly revision id e.g. v0, v1 etc. */
+@property(nonatomic, copy, nullable) NSString *newBackupPlanRevisionId NS_RETURNS_NOT_RETAINED;
+
+/** Full resource name for new backup plan revision */
+@property(nonatomic, copy, nullable) NSString *newBackupPlanRevisionName NS_RETURNS_NOT_RETAINED;
+
+/** User friendly revision id e.g. v0, v1 etc. */
+@property(nonatomic, copy, nullable) NSString *previousBackupPlanRevisionId;
+
+/** Full resource name for previous backup plan revision */
+@property(nonatomic, copy, nullable) NSString *previousBackupPlanRevisionName;
+
+/** Previous Backup Plan rules. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_BackupRuleDetail *> *previousBackupRules;
+
+/** The resource_type field displays the type of the protected resource. */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/** Revised Backup Plan rules. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupforGKE_BackupRuleDetail *> *revisedBackupRules;
+
+/** Start time of the job. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  The total number of workloads affected by the job.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *workloadsAffectedCount;
+
+@end
+
+
+/**
+ *  Log entry for Backup and Restore Job for resources using BackupPlan based
+ *  protection. Next Id: 23
+ */
+@interface GTLRBackupforGKE_BDRBackupRestoreJobLog : GTLRObject
+
+/** Backup consistency time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *backupConsistencyTime;
+
+/**
+ *  Full resource name of the backup created in backup jobs and used in restore
+ *  jobs.
+ */
+@property(nonatomic, copy, nullable) NSString *backupName;
+
+/**
+ *  Full resource name for Backup Plan of the job. Only populated for Scheduled
+ *  Backup and Adhoc Backup.
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlanName;
+
+/**
+ *  Backup retention in days.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *backupRetentionDays;
+
+/**
+ *  Name of the backup rule. Only populated for Scheduled Backup and Adhoc
+ *  Backup.
+ */
+@property(nonatomic, copy, nullable) NSString *backupRule;
+
+/** Full resource name backup vault name */
+@property(nonatomic, copy, nullable) NSString *backupVaultName;
+
+/** End time of the job. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  The error code. Only populated in error scenarios.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorCode;
+
+/** The user readable error message. Only populated in error scenarios. */
+@property(nonatomic, copy, nullable) NSString *errorMessage;
+
+/**
+ *  The name of the error type eg. PERMISSION_DENIED. Only populated in error
+ *  scenarios.
+ */
+@property(nonatomic, copy, nullable) NSString *errorType;
+
+/**
+ *  The amount of incremental backup data copied.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *incrementalBackupSizeGib;
+
+/** The category field displays the category of the job. */
+@property(nonatomic, copy, nullable) NSString *jobCategory;
+
+/** The job_id field displays the identifier of the job being logged. */
+@property(nonatomic, copy, nullable) NSString *jobId;
+
+/** The status field displays the status of the job. */
+@property(nonatomic, copy, nullable) NSString *jobStatus;
+
+/** Recovery point time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *recoveryPointTime;
+
+/** The resource_type field displays the type of the protected resource. */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
+/** Restore resource location. */
+@property(nonatomic, copy, nullable) NSString *restoreResourceLocation;
+
+/**
+ *  Full resource name of the restore resource. Only populated in restore jobs.
+ */
+@property(nonatomic, copy, nullable) NSString *restoreResourceName;
+
+/** The source resource ID. */
+@property(nonatomic, copy, nullable) NSString *sourceResourceId;
+
+/** Source resource location. */
+@property(nonatomic, copy, nullable) NSString *sourceResourceLocation;
+
+/** Full resource name of the protected resource. */
+@property(nonatomic, copy, nullable) NSString *sourceResourceName;
+
+/** Start time of the job. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
  *  Associates `members`, or principals, with a `role`.
  */
 @interface GTLRBackupforGKE_Binding : GTLRObject
@@ -1988,6 +2200,55 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 /** Required. The signed URL for downloading the backup index. */
 @property(nonatomic, copy, nullable) NSString *signedUrl;
 
+@end
+
+
+/**
+ *  Request message for GetTags.
+ */
+@interface GTLRBackupforGKE_GetTagsRequest : GTLRObject
+
+/** Required. The full resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  Response message for GetTags.
+ */
+@interface GTLRBackupforGKE_GetTagsResponse : GTLRObject
+
+/**
+ *  A checksum based on the current bindings. This field is always set in server
+ *  responses.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The full resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Tag keys/values directly bound to this resource. Each item in the
+ *  map must be expressed as " : ". For example: "123/environment" :
+ *  "production", "123/costCenter" : "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_GetTagsResponse_Tags *tags;
+
+@end
+
+
+/**
+ *  Required. Tag keys/values directly bound to this resource. Each item in the
+ *  map must be expressed as " : ". For example: "123/environment" :
+ *  "production", "123/costCenter" : "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupforGKE_GetTagsResponse_Tags : GTLRObject
 @end
 
 
@@ -3667,6 +3928,90 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
+@end
+
+
+/**
+ *  Request message for SetTags.
+ */
+@interface GTLRBackupforGKE_SetTagsRequest : GTLRObject
+
+/**
+ *  Optional. A checksum based on the current bindings which can be passed to
+ *  prevent race conditions. If not passed, etag check would be skipped.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The full resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A unique identifier for this request. Must be a valid UUID. This
+ *  request is only idempotent if a `request_id` is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Required. These bindings will override any bindings previously set and will
+ *  be effective immediately. Each item in the map must be expressed as " : ".
+ *  For example: "123/environment" : "production", "123/costCenter" :
+ *  "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_SetTagsRequest_Tags *tags;
+
+@end
+
+
+/**
+ *  Required. These bindings will override any bindings previously set and will
+ *  be effective immediately. Each item in the map must be expressed as " : ".
+ *  For example: "123/environment" : "production", "123/costCenter" :
+ *  "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupforGKE_SetTagsRequest_Tags : GTLRObject
+@end
+
+
+/**
+ *  Response message for SetTags.
+ */
+@interface GTLRBackupforGKE_SetTagsResponse : GTLRObject
+
+/**
+ *  A checksum based on the current bindings. This field is always set in server
+ *  responses.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Required. The full resource name of the service resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Tag keys/values directly bound to this resource. Each item in the
+ *  map must be expressed as " : ". For example: "123/environment" :
+ *  "production", "123/costCenter" : "marketing"
+ */
+@property(nonatomic, strong, nullable) GTLRBackupforGKE_SetTagsResponse_Tags *tags;
+
+@end
+
+
+/**
+ *  Required. Tag keys/values directly bound to this resource. Each item in the
+ *  map must be expressed as " : ". For example: "123/environment" :
+ *  "production", "123/costCenter" : "marketing"
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupforGKE_SetTagsResponse_Tags : GTLRObject
 @end
 
 

@@ -46,7 +46,7 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManagerViewBasic;
  */
 FOUNDATION_EXTERN NSString * const kGTLRParameterManagerViewFull;
 /**
- *  The default / unset value. The API will default to the FULL view..
+ *  The default / unset value. The API will default to the FULL view.
  *
  *  Value: "VIEW_UNSPECIFIED"
  */
@@ -292,7 +292,10 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManagerViewViewUnspecified;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A token identifying a page of results the server should return.
+ *  Optional. A page token, received from a previous `ListParameters` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListParameters` must match the call that provided
+ *  the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -496,7 +499,7 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManagerViewViewUnspecified;
  *
  *  Likely values:
  *    @arg @c kGTLRParameterManagerViewViewUnspecified The default / unset
- *        value. The API will default to the FULL view.. (Value:
+ *        value. The API will default to the FULL view. (Value:
  *        "VIEW_UNSPECIFIED")
  *    @arg @c kGTLRParameterManagerViewBasic Include only the metadata for the
  *        resource. (Value: "BASIC")
@@ -542,7 +545,10 @@ FOUNDATION_EXTERN NSString * const kGTLRParameterManagerViewViewUnspecified;
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  Optional. A token identifying a page of results the server should return.
+ *  Optional. A page token, received from a previous `ListParameterVersions`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListParameterVersions` must match the call
+ *  that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 

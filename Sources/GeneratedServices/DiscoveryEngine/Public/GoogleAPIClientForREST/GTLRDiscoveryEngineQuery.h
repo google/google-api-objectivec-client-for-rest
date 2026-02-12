@@ -4917,7 +4917,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a Engine.
+ *  Creates an Engine.
  *
  *  Method: discoveryengine.projects.locations.collections.engines.create
  *
@@ -4944,7 +4944,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
  *
- *  Creates a Engine.
+ *  Creates an Engine.
  *
  *  @param object The @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine
  *    to include in the query.
@@ -4959,7 +4959,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Deletes a Engine.
+ *  Deletes an Engine.
  *
  *  Method: discoveryengine.projects.locations.collections.engines.delete
  *
@@ -4981,7 +4981,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleLongrunningOperation.
  *
- *  Deletes a Engine.
+ *  Deletes an Engine.
  *
  *  @param name Required. Full resource name of Engine, such as
  *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
@@ -4996,7 +4996,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Gets a Engine.
+ *  Gets an Engine.
  *
  *  Method: discoveryengine.projects.locations.collections.engines.get
  *
@@ -5015,7 +5015,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Engine.
  *
- *  Gets a Engine.
+ *  Gets an Engine.
  *
  *  @param name Required. Full resource name of Engine, such as
  *    `projects/{project}/locations/{location}/collections/{collection_id}/engines/{engine_id}`.
@@ -5023,6 +5023,58 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the IAM access control policy for an Engine. A `NOT_FOUND` error is
+ *  returned if the resource does not exist. An empty policy is returned if the
+ *  resource exists but does not have a policy set on it.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesGetIamPolicy : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleIamV1Policy.
+ *
+ *  Gets the IAM access control policy for an Engine. A `NOT_FOUND` error is
+ *  returned if the resource does not exist. An empty policy is returned if the
+ *  resource exists but does not have a policy set on it.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -5966,6 +6018,53 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1Session *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the IAM access control policy for an Engine. A `NOT_FOUND` error is
+ *  returned if the resource does not exist. **Important:** When setting a
+ *  policy directly on an Engine resource, the only recommended roles in the
+ *  bindings are: `roles/discoveryengine.user` and
+ *  `roles/discoveryengine.agentspaceUser`. Attempting to grant any other role
+ *  will result in a warning in logging.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ *    @c kGTLRAuthScopeDiscoveryEngineReadwrite
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSetIamPolicy : GTLRDiscoveryEngineQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleIamV1Policy.
+ *
+ *  Sets the IAM access control policy for an Engine. A `NOT_FOUND` error is
+ *  returned if the resource does not exist. **Important:** When setting a
+ *  policy directly on an Engine resource, the only recommended roles in the
+ *  bindings are: `roles/discoveryengine.user` and
+ *  `roles/discoveryengine.agentspaceUser`. Attempting to grant any other role
+ *  will result in a warning in logging.
+ *
+ *  @param object The @c GTLRDiscoveryEngine_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

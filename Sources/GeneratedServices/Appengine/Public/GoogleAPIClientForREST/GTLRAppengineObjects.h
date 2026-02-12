@@ -2151,30 +2151,6 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 
 /**
- *  Request message for Versions.ExportAppImage.
- */
-@interface GTLRAppengine_ExportAppImageRequest : GTLRObject
-
-/**
- *  Optional. The full resource name of the AR repository to export to. Format:
- *  projects/{project}/locations/{location}/repositories/{repository} If not
- *  specified, defaults to
- *  projects/{project}/locations/{location}/repositories/gae-standard in the
- *  same region as the app. The default repository will be created if it does
- *  not exist.
- */
-@property(nonatomic, copy, nullable) NSString *destinationRepository;
-
-/**
- *  Optional. Optional: A service account to use for authenticating to Artifact
- *  Registry.
- */
-@property(nonatomic, copy, nullable) NSString *serviceAccount;
-
-@end
-
-
-/**
  *  The feature specific settings to be used in the application. These define
  *  behaviors that are user configurable.
  */
@@ -3464,6 +3440,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
  *  their ancestry, if any. Not supported by CCFE.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAppengine_GceTag *> *gceTag;
+
+/**
+ *  DEPRECATED: Indicates whether the GCE project is in the DEPROVISIONING
+ *  state. This field is a temporary workaround (see b/475310865) to allow GCE
+ *  extensions to bypass certain checks during deprovisioning. It will be
+ *  replaced by a permanent solution in the future.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isGceProjectDeprovisioning GTLR_DEPRECATED;
 
 /**
  *  The service account authorized to operate on the consumer project. Note:

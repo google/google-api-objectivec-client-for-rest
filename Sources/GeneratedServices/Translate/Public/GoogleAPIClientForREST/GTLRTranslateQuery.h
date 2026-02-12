@@ -159,8 +159,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the project from which to list the Adaptive
- *  MT files. The following format lists all sentences under a file.
+ *  Required. The resource name of the Adaptive MT file from which to list the
+ *  sentences. The following format lists all sentences under a file.
  *  `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
  *  The following format lists all sentences within a dataset.
  *  `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}`
@@ -172,8 +172,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists all AdaptiveMtSentences under a given file/dataset.
  *
- *  @param parent Required. The resource name of the project from which to list
- *    the Adaptive MT files. The following format lists all sentences under a
+ *  @param parent Required. The resource name of the Adaptive MT file from which
+ *    to list the sentences. The following format lists all sentences under a
  *    file.
  *    `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
  *    The following format lists all sentences within a dataset.
@@ -274,7 +274,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the project from which to list the Adaptive
+ *  Required. The resource name of the dataset from which to list the Adaptive
  *  MT files.
  *  `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}`
  */
@@ -285,7 +285,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists all AdaptiveMtFiles associated to an AdaptiveMtDataset.
  *
- *  @param parent Required. The resource name of the project from which to list
+ *  @param parent Required. The resource name of the dataset from which to list
  *    the Adaptive MT files.
  *    `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}`
  *
@@ -321,8 +321,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The resource name of the project from which to list the Adaptive
- *  MT files. The following format lists all sentences under a file.
+ *  Required. The resource name of the Adaptive MT file from which to list the
+ *  sentences. The following format lists all sentences under a file.
  *  `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
  *  The following format lists all sentences within a dataset.
  *  `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}`
@@ -334,8 +334,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Lists all AdaptiveMtSentences under a given file/dataset.
  *
- *  @param parent Required. The resource name of the project from which to list
- *    the Adaptive MT files. The following format lists all sentences under a
+ *  @param parent Required. The resource name of the Adaptive MT file from which
+ *    to list the sentences. The following format lists all sentences under a
  *    file.
  *    `projects/{project}/locations/{location}/adaptiveMtDatasets/{dataset}/adaptiveMtFiles/{file}`
  *    The following format lists all sentences within a dataset.
@@ -1427,7 +1427,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: translate.projects.locations.list
  *
@@ -1468,7 +1472,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRTranslate_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

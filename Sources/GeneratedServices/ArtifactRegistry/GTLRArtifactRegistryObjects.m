@@ -1752,8 +1752,8 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 //
 
 @implementation GTLRArtifactRegistry_Version
-@dynamic annotations, createTime, descriptionProperty, metadata, name,
-         relatedTags, updateTime;
+@dynamic annotations, createTime, descriptionProperty, fingerprints, metadata,
+         name, relatedTags, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1761,6 +1761,7 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"fingerprints" : [GTLRArtifactRegistry_Hash class],
     @"relatedTags" : [GTLRArtifactRegistry_Tag class]
   };
   return map;

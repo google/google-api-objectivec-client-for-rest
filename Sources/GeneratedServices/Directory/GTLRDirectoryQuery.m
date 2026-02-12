@@ -374,6 +374,25 @@ NSString * const kGTLRDirectoryViewTypeDomainPublic = @"domain_public";
 
 @end
 
+@implementation GTLRDirectoryQuery_CustomerDevicesChromeosCountChromeOsDevices
+
+@dynamic customerId, filter, includeChildOrgunits, orgUnitPath;
+
++ (instancetype)queryWithCustomerId:(NSString *)customerId {
+  NSArray *pathParams = @[ @"customerId" ];
+  NSString *pathURITemplate = @"admin/directory/v1/customer/{customerId}/devices/chromeos:countChromeOsDevices";
+  GTLRDirectoryQuery_CustomerDevicesChromeosCountChromeOsDevices *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customerId = customerId;
+  query.expectedObjectClass = [GTLRDirectory_CountChromeOsDevicesResponse class];
+  query.loggingName = @"admin.customer.devices.chromeos.countChromeOsDevices";
+  return query;
+}
+
+@end
+
 @implementation GTLRDirectoryQuery_CustomerDevicesChromeosIssueCommand
 
 @dynamic customerId, deviceId;

@@ -5901,6 +5901,48 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Defers the renewal of a subscription.
+ *
+ *  Method: androidpublisher.purchases.subscriptionsv2.defer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Defer : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The package of the application for which this subscription was
+ *  purchased (for example, 'com.some.thing').
+ */
+@property(nonatomic, copy, nullable) NSString *packageName;
+
+/**
+ *  Required. The token provided to the user's device when the subscription was
+ *  purchased.
+ */
+@property(nonatomic, copy, nullable) NSString *token;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_DeferSubscriptionPurchaseResponse.
+ *
+ *  Defers the renewal of a subscription.
+ *
+ *  @param object The @c GTLRAndroidPublisher_DeferSubscriptionPurchaseRequest
+ *    to include in the query.
+ *  @param packageName Required. The package of the application for which this
+ *    subscription was purchased (for example, 'com.some.thing').
+ *  @param token Required. The token provided to the user's device when the
+ *    subscription was purchased.
+ *
+ *  @return GTLRAndroidPublisherQuery_PurchasesSubscriptionsv2Defer
+ */
++ (instancetype)queryWithObject:(GTLRAndroidPublisher_DeferSubscriptionPurchaseRequest *)object
+                    packageName:(NSString *)packageName
+                          token:(NSString *)token;
+
+@end
+
+/**
  *  Get metadata about a subscription
  *
  *  Method: androidpublisher.purchases.subscriptionsv2.get

@@ -103,6 +103,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_AIInference
+//
+
+@implementation GTLRAnalyticsHub_AIInference
+@dynamic endpoint, serviceAccountEmail, unstructuredInference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_ApproveQueryTemplateRequest
 //
 
@@ -660,7 +670,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_MessageTransform
-@dynamic disabled, enabled, javascriptUdf;
+@dynamic aiInference, disabled, enabled, javascriptUdf;
 @end
 
 
@@ -1127,4 +1137,28 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_TextConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_UnstructuredInference
+//
+
+@implementation GTLRAnalyticsHub_UnstructuredInference
+@dynamic parameters;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAnalyticsHub_UnstructuredInference_Parameters
+//
+
+@implementation GTLRAnalyticsHub_UnstructuredInference_Parameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end

@@ -102,7 +102,6 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRConfiguration;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupRun;
-@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBigQueryResourceMetadata;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCompliance;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainConfigBasedSignalData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainCustomMetadataData;
@@ -119,12 +118,14 @@
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainObservabilityMetricData;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceFlags;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceDenySchedule;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainRetentionSettings;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags_Tags;
+@class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUpcomingMaintenance;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels_Labels;
 @class GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct;
@@ -715,6 +716,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_AvailabilityT
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_AvailabilityType_Zonal;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_Instance.dataApiAccess
+
+/**
+ *  DEFAULT_DATA_API_ENABLED_FOR_GOOGLE_CLOUD_SERVICES is a default value that
+ *  allows Google internal services like AlloyDB Studio to access the instance.
+ *
+ *  Value: "DEFAULT_DATA_API_ENABLED_FOR_GOOGLE_CLOUD_SERVICES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_DataApiAccess_DefaultDataApiEnabledForGoogleCloudServices;
+/**
+ *  Data API access is disabled for this instance.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_DataApiAccess_Disabled;
+/**
+ *  Data API access is enabled for this instance. For private IP instances, this
+ *  allows authorized users to access the instance from the public internet
+ *  using the ExecuteSql API.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_DataApiAccess_Enabled;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_Instance.instanceType
 
 /**
@@ -795,6 +821,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Promoti
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Ready;
 /**
+ *  The instance is being started.
+ *
+ *  Value: "STARTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Starting;
+/**
  *  The state of the instance is unknown.
  *
  *  Value: "STATE_UNSPECIFIED"
@@ -806,6 +838,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_StateUn
  *  Value: "STOPPED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Stopped;
+/**
+ *  The instance is being stopped.
+ *
+ *  Value: "STOPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_Instance_State_Stopping;
 /**
  *  The instance has entered switchover state. All updates on instance are
  *  restricted while the instance is in this state.
@@ -1345,12 +1383,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "BACKUPDR_METADATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BackupdrMetadata;
-/**
- *  BigQuery resource metadata
- *
- *  Value: "BIGQUERY_RESOURCE_METADATA"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BigqueryResourceMetadata;
 /**
  *  Database config based signal data
  *
@@ -1925,6 +1957,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeOverprovisioned;
 /**
+ *  Change in performance KPIs.
+ *
+ *  Value: "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypePerformanceKpiChange;
+/**
  *  Represents if public IP is enabled.
  *
  *  Value: "SIGNAL_TYPE_PUBLIC_IP_ENABLED"
@@ -2294,6 +2332,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 /** Value: "STATE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_StateUnspecified;
 /**
+ *  Instance is in STOPPED state.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Stopped;
+/**
  *  When instance is suspended
  *
  *  Value: "SUSPENDED"
@@ -2357,6 +2401,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_StateOther;
 /** Value: "STATE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_StateUnspecified;
+/**
+ *  Instance is in STOPPED state.
+ *
+ *  Value: "STOPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Stopped;
 /**
  *  When instance is suspended
  *
@@ -2936,6 +2986,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeOverprovisioned;
 /**
+ *  Change in performance KPIs.
+ *
+ *  Value: "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypePerformanceKpiChange;
+/**
  *  Represents if public IP is enabled.
  *
  *  Value: "SIGNAL_TYPE_PUBLIC_IP_ENABLED"
@@ -3480,6 +3536,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "STOCKOUT_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainOperationError_ErrorType_StockoutError;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo.maintenanceState
+
+/**
+ *  Database resource is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Creating;
+/**
+ *  Database resource is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Deleting;
+/**
+ *  Database resource encountered an error and is in indeterministic state.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Error;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "MAINTENANCE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_MaintenanceStateUnspecified;
+/**
+ *  Database resource has been created and is ready to use.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Ready;
+/**
+ *  Database resource is unheathy and under repair.
+ *
+ *  Value: "REPAIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Repairing;
+/**
+ *  Database resource is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Updating;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule.day
@@ -5870,6 +5972,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. Controls whether the Data API is enabled for this instance. When
+ *  enabled, this allows authorized users to connect to the instance from the
+ *  public internet using the `executeSql` API, even for private IP instances.
+ *  If this is not specified, the data API is enabled by default for Google
+ *  internal services like AlloyDB Studio. Disable it explicitly to disallow
+ *  Google internal services as well.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_DataApiAccess_DefaultDataApiEnabledForGoogleCloudServices
+ *        DEFAULT_DATA_API_ENABLED_FOR_GOOGLE_CLOUD_SERVICES is a default value
+ *        that allows Google internal services like AlloyDB Studio to access the
+ *        instance. (Value:
+ *        "DEFAULT_DATA_API_ENABLED_FOR_GOOGLE_CLOUD_SERVICES")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_DataApiAccess_Disabled Data API
+ *        access is disabled for this instance. (Value: "DISABLED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_DataApiAccess_Enabled Data API
+ *        access is enabled for this instance. For private IP instances, this
+ *        allows authorized users to access the instance from the public
+ *        internet using the ExecuteSql API. (Value: "ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *dataApiAccess;
+
+/**
  *  Database flags. Set at the instance level. They are copied from the primary
  *  instance on secondary instance creation. Flags that have restrictions
  *  default to the value at primary instance on read instances during creation.
@@ -6036,11 +6161,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        being promoted. (Value: "PROMOTING")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_Ready The instance is active
  *        and running. (Value: "READY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_Starting The instance is
+ *        being started. (Value: "STARTING")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_StateUnspecified The state
  *        of the instance is unknown. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_Stopped The instance is
  *        stopped. Instance name and IP resources are preserved. (Value:
  *        "STOPPED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_Stopping The instance is
+ *        being stopped. (Value: "STOPPING")
  *    @arg @c kGTLRCloudAlloyDBAdmin_Instance_State_Switchover The instance has
  *        entered switchover state. All updates on instance are restricted while
  *        the instance is in this state. (Value: "SWITCHOVER")
@@ -7654,49 +7783,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  BigQueryResourceMetadata contains information about the BigQuery resource.
- *  Next ID: 9
- */
-@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBigQueryResourceMetadata : GTLRObject
-
-/**
- *  The creation time of the resource, i.e. the time when resource is created
- *  and recorded in partner service.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Required. Full resource name of this instance. */
-@property(nonatomic, copy, nullable) NSString *fullResourceName;
-
-/** Required. location of the resource */
-@property(nonatomic, copy, nullable) NSString *location;
-
-/** The product this resource represents. */
-@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterProtoCommonProduct *product;
-
-/**
- *  Closest parent Cloud Resource Manager container of this resource. It must be
- *  resource name of a Cloud Resource Manager project with the format of "/",
- *  such as "projects/123". For GCP provided resources, number should be project
- *  number.
- */
-@property(nonatomic, copy, nullable) NSString *resourceContainer;
-
-/** Required. Database resource id. */
-@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId;
-
-/**
- *  The time at which the resource was updated and recorded at partner service.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-/** User-provided labels associated with the resource */
-@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUserLabels *userLabelSet;
-
-@end
-
-
-/**
  *  Contains compliance information about a security standard indicating unmet
  *  recommendations.
  */
@@ -7794,9 +7880,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /** BackupDR metadata is used to ingest metadata from BackupDR. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBackupDRMetadata *backupdrMetadata;
 
-/** For BigQuery resource metadata. */
-@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainBigQueryResourceMetadata *bigqueryResourceMetadata;
-
 /**
  *  Config based signal data is used to ingest signals that are generated based
  *  on the configuration of the database resource.
@@ -7818,8 +7901,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  Likely values:
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BackupdrMetadata
  *        Database resource metadata from BackupDR (Value: "BACKUPDR_METADATA")
- *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_BigqueryResourceMetadata
- *        BigQuery resource metadata (Value: "BIGQUERY_RESOURCE_METADATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_ConfigBasedSignalData
  *        Database config based signal data (Value: "CONFIG_BASED_SIGNAL_DATA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceFeed_FeedType_DatabaseResourceSignalData
@@ -8226,6 +8307,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypeOverprovisioned
  *        Represents instances that are unnecessarily large for given workload.
  *        (Value: "SIGNAL_TYPE_OVERPROVISIONED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypePerformanceKpiChange
+ *        Change in performance KPIs. (Value:
+ *        "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceHealthSignalData_SignalType_SignalTypePublicIpEnabled
  *        Represents if public IP is enabled. (Value:
  *        "SIGNAL_TYPE_PUBLIC_IP_ENABLED")
@@ -8434,10 +8518,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /**
  *  Required. The type of resource this ID is identifying. Ex go/keep-sorted
  *  start alloydb.googleapis.com/Cluster, alloydb.googleapis.com/Instance,
- *  bigquery.googleapis.com/Dataset, bigtableadmin.googleapis.com/Cluster,
- *  bigtableadmin.googleapis.com/Instance compute.googleapis.com/Instance
- *  firestore.googleapis.com/Database, redis.googleapis.com/Instance,
- *  redis.googleapis.com/Cluster,
+ *  bigtableadmin.googleapis.com/Cluster, bigtableadmin.googleapis.com/Instance
+ *  compute.googleapis.com/Instance firestore.googleapis.com/Database,
+ *  redis.googleapis.com/Instance, redis.googleapis.com/Cluster,
  *  oracledatabase.googleapis.com/CloudExadataInfrastructure
  *  oracledatabase.googleapis.com/CloudVmCluster
  *  oracledatabase.googleapis.com/AutonomousDatabase
@@ -8457,7 +8540,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 30
+ *  Common model for database resource instance metadata. Next ID: 31
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata : GTLRObject
 
@@ -8491,6 +8574,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        For rest of the other category (Value: "STATE_OTHER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_StateUnspecified
  *        Value "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Stopped
+ *        Instance is in STOPPED state. (Value: "STOPPED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Suspended
  *        When instance is suspended (Value: "SUSPENDED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_CurrentState_Unhealthy
@@ -8538,6 +8623,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        For rest of the other category (Value: "STATE_OTHER")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_StateUnspecified
  *        Value "STATE_UNSPECIFIED"
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Stopped
+ *        Instance is in STOPPED state. (Value: "STOPPED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Suspended
  *        When instance is suspended (Value: "SUSPENDED")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_ExpectedState_Unhealthy
@@ -8630,6 +8717,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  number.
  */
 @property(nonatomic, copy, nullable) NSString *resourceContainer;
+
+/** Optional. List of resource flags for the database resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceFlags *> *resourceFlags;
 
 /**
  *  Required. Different from DatabaseResourceId.unique_id, a resource name can
@@ -8968,6 +9058,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypeOverprovisioned
  *        Represents instances that are unnecessarily large for given workload.
  *        (Value: "SIGNAL_TYPE_OVERPROVISIONED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypePerformanceKpiChange
+ *        Change in performance KPIs. (Value:
+ *        "SIGNAL_TYPE_PERFORMANCE_KPI_CHANGE")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceRecommendationSignalData_SignalType_SignalTypePublicIpEnabled
  *        Represents if public IP is enabled. (Value:
  *        "SIGNAL_TYPE_PUBLIC_IP_ENABLED")
@@ -9290,12 +9383,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainMachineConfiguration : GTLRObject
 
 /**
+ *  Optional. Baseline slots for BigQuery Reservations. Baseline slots are in
+ *  increments of 50.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *baselineSlots;
+
+/**
  *  The number of CPUs. Deprecated. Use vcpu_count instead. TODO(b/342344482)
  *  add proto validations again after bug fix.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *cpuCount GTLR_DEPRECATED;
+
+/**
+ *  Optional. Max slots for BigQuery Reservations. Max slots are in increments
+ *  of 50.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxReservationSlots;
 
 /**
  *  Memory size in bytes. TODO(b/342344482) add proto validations again after
@@ -9434,6 +9543,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
+ *  Message type for storing resource flags.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceFlags : GTLRObject
+
+/** Optional. Key of the resource flag. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** Optional. Value of the resource flag. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Deny maintenance period for the database resource. It specifies the time
  *  range during which the maintenance cannot start. This is configured by the
  *  customer.
@@ -9463,14 +9586,59 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /** Optional. List of Deny maintenance period for the database resource. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceDenySchedule *> *denyMaintenanceSchedules;
 
+/**
+ *  Optional. Whether the instance is in stopped state. This information is
+ *  temporarily being captured in maintenanceInfo, till STOPPED state is
+ *  supported by DB Center.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isInstanceStopped;
+
 /** Optional. Maintenance window for the database resource. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceSchedule *maintenanceSchedule;
+
+/**
+ *  Output only. Current state of maintenance on the database resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Creating
+ *        Database resource is being created. (Value: "CREATING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Deleting
+ *        Database resource is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Error
+ *        Database resource encountered an error and is in indeterministic
+ *        state. (Value: "ERROR")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_MaintenanceStateUnspecified
+ *        Unspecified state. (Value: "MAINTENANCE_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Ready
+ *        Database resource has been created and is ready to use. (Value:
+ *        "READY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Repairing
+ *        Database resource is unheathy and under repair. (Value: "REPAIRING")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo_MaintenanceState_Updating
+ *        Database resource is being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceState;
 
 /**
  *  Optional. Current Maintenance version of the database resource. Example:
  *  "MYSQL_8_0_41.R20250531.01_15"
  */
 @property(nonatomic, copy, nullable) NSString *maintenanceVersion;
+
+/**
+ *  Optional. Upcoming maintenance for the database resource. This field is
+ *  populated once SLM generates and publishes upcoming maintenance window.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUpcomingMaintenance *upcomingMaintenance;
+
+/**
+ *  Optional. This field will contain the date when the last version update was
+ *  applied to the database resource. This will be used to calculate the age of
+ *  the maintenance version.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *versionUpdateTime;
 
 @end
 
@@ -9603,6 +9771,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        fetch them all at once.
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainTags_Tags : GTLRObject
+@end
+
+
+/**
+ *  Upcoming maintenance for the database resource. This is generated by SLM
+ *  once the upcoming maintenance schedule is published.
+ */
+@interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUpcomingMaintenance : GTLRObject
+
+/** Optional. The end time of the upcoming maintenance. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Optional. The start time of the upcoming maintenance. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
 @end
 
 

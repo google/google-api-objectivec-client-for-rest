@@ -9044,7 +9044,11 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  Method: dataplex.projects.locations.list
  *
@@ -9084,7 +9088,11 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudLocationListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: List all public locations: Use the path
+ *  GET /v1/locations. List project-visible locations: Use the path GET
+ *  /v1/projects/{project_id}/locations. This may include public locations as
+ *  well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -9169,6 +9177,221 @@ GTLR_DEPRECATED
  *  @return GTLRCloudDataplexQuery_ProjectsLocationsLookupEntry
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a MetadataFeed.
+ *
+ *  Method: dataplex.projects.locations.metadataFeeds.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsCreate : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The metadata job ID. If not provided, a unique ID is generated
+ *  with the prefix metadata-job-.
+ */
+@property(nonatomic, copy, nullable) NSString *metadataFeedId;
+
+/**
+ *  Required. The resource name of the parent location, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The service validates the request without performing any
+ *  mutations. The default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Creates a MetadataFeed.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed to
+ *    include in the query.
+ *  @param parent Required. The resource name of the parent location, in the
+ *    format projects/{project_id_or_number}/locations/{location_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a MetadataFeed.
+ *
+ *  Method: dataplex.projects.locations.metadataFeeds.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsDelete : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the metadata feed, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}/MetadataFeeds/{metadata_feed_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Deletes a MetadataFeed.
+ *
+ *  @param name Required. The resource name of the metadata feed, in the format
+ *    projects/{project_id_or_number}/locations/{location_id}/MetadataFeeds/{metadata_feed_id}.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a MetadataFeed.
+ *
+ *  Method: dataplex.projects.locations.metadataFeeds.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsGet : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the metadata feed, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}/MetadataFeeds/{metadata_feed_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed.
+ *
+ *  Gets a MetadataFeed.
+ *
+ *  @param name Required. The resource name of the metadata feed, in the format
+ *    projects/{project_id_or_number}/locations/{location_id}/MetadataFeeds/{metadata_feed_id}.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieve a list of MetadataFeeds.
+ *
+ *  Method: dataplex.projects.locations.metadataFeeds.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsList : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. Filter request. Filters are case-sensitive. The service supports
+ *  the following formats: labels.key1 = "value1" labels:key1 name = "value"You
+ *  can combine filters with AND, OR, and NOT operators.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The field to sort the results by, either name or create_time. If
+ *  not specified, the ordering is undefined.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of metadata feeds to return. The service might
+ *  return fewer feeds than this value. If unspecified, at most 10 feeds are
+ *  returned. The maximum value is 1,000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The page token received from a previous ListMetadataFeeds call.
+ *  Provide this token to retrieve the subsequent page of results. When
+ *  paginating, all other parameters that are provided to the ListMetadataFeeds
+ *  request must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the parent location, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1ListMetadataFeedsResponse.
+ *
+ *  Retrieve a list of MetadataFeeds.
+ *
+ *  @param parent Required. The resource name of the parent location, in the
+ *    format projects/{project_id_or_number}/locations/{location_id}
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a MetadataFeed.
+ *
+ *  Method: dataplex.projects.locations.metadataFeeds.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsPatch : GTLRCloudDataplexQuery
+
+/**
+ *  Identifier. The resource name of the metadata feed, in the format
+ *  projects/{project_id_or_number}/locations/{location_id}/metadataFeeds/{metadata_feed_id}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Mask of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Only validate the request, but do not perform mutations. The
+ *  default is false.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleLongrunningOperation.
+ *
+ *  Updates a MetadataFeed.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed to
+ *    include in the query.
+ *  @param name Identifier. The resource name of the metadata feed, in the
+ *    format
+ *    projects/{project_id_or_number}/locations/{location_id}/metadataFeeds/{metadata_feed_id}.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed *)object
+                           name:(NSString *)name;
 
 @end
 

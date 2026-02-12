@@ -37,6 +37,924 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Gets information about a location.
  *
+ *  Method: observability.folders.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_FoldersLocationsGet : GTLRCloudObservabilityQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRCloudObservabilityQuery_FoldersLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
+ *
+ *  Method: observability.folders.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_FoldersLocationsList : GTLRCloudObservabilityQuery
+
+/**
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRCloudObservabilityQuery_FoldersLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: observability.folders.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_FoldersLocationsOperationsCancel : GTLRCloudObservabilityQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRCloudObservability_CancelOperationRequest to
+ *    include in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRCloudObservabilityQuery_FoldersLocationsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudObservability_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: observability.folders.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_FoldersLocationsOperationsDelete : GTLRCloudObservabilityQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRCloudObservabilityQuery_FoldersLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: observability.folders.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_FoldersLocationsOperationsGet : GTLRCloudObservabilityQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudObservabilityQuery_FoldersLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: observability.folders.locations.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_FoldersLocationsOperationsList : GTLRCloudObservabilityQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRCloudObservabilityQuery_FoldersLocationsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
+ *  Method: observability.organizations.locations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_OrganizationsLocationsGet : GTLRCloudObservabilityQuery
+
+/** Resource name for the location. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Location.
+ *
+ *  Gets information about a location.
+ *
+ *  @param name Resource name for the location.
+ *
+ *  @return GTLRCloudObservabilityQuery_OrganizationsLocationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
+ *
+ *  Method: observability.organizations.locations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_OrganizationsLocationsList : GTLRCloudObservabilityQuery
+
+/**
+ *  Optional. Do not use this field. It is unsupported and is ignored unless
+ *  explicitly documented otherwise. This is primarily for internal usage.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
+
+/**
+ *  A filter to narrow down results to a preferred subset. The filtering
+ *  language accepts strings like `"displayName=tokyo"`, and is documented in
+ *  more detail in [AIP-160](https://google.aip.dev/160).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The resource that owns the locations collection, if applicable. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The maximum number of results to return. If not set, the service selects a
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from the `next_page_token` field in the response. Send
+ *  that page token to receive the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_ListLocationsResponse.
+ *
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
+ *
+ *  @param name The resource that owns the locations collection, if applicable.
+ *
+ *  @return GTLRCloudObservabilityQuery_OrganizationsLocationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: observability.organizations.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsCancel : GTLRCloudObservabilityQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRCloudObservability_CancelOperationRequest to
+ *    include in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudObservability_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: observability.organizations.locations.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsDelete : GTLRCloudObservabilityQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: observability.organizations.locations.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsGet : GTLRCloudObservabilityQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: observability.organizations.locations.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsList : GTLRCloudObservabilityQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRCloudObservabilityQuery_OrganizationsLocationsOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a dataset.
+ *
+ *  Method: observability.projects.locations.buckets.datasets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsGet : GTLRCloudObservabilityQuery
+
+/**
+ *  Required. Name of the dataset to retrieve. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Dataset.
+ *
+ *  Get a dataset.
+ *
+ *  @param name Required. Name of the dataset to retrieve. The format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Create a new link.
+ *
+ *  Method: observability.projects.locations.buckets.datasets.links.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksCreate : GTLRCloudObservabilityQuery
+
+/** Required. Id of the link to create. */
+@property(nonatomic, copy, nullable) NSString *linkId;
+
+/**
+ *  Required. Name of the containing dataset for this link. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Operation.
+ *
+ *  Create a new link.
+ *
+ *  @param object The @c GTLRCloudObservability_Link to include in the query.
+ *  @param parent Required. Name of the containing dataset for this link. The
+ *    format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudObservability_Link *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a link.
+ *
+ *  Method: observability.projects.locations.buckets.datasets.links.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksDelete : GTLRCloudObservabilityQuery
+
+/**
+ *  Required. Name of the link to delete. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]/links/[LINK_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Operation.
+ *
+ *  Delete a link.
+ *
+ *  @param name Required. Name of the link to delete. The format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]/links/[LINK_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Get a link.
+ *
+ *  Method: observability.projects.locations.buckets.datasets.links.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksGet : GTLRCloudObservabilityQuery
+
+/**
+ *  Required. Name of the link to retrieve. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]/links/[LINK_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Link.
+ *
+ *  Get a link.
+ *
+ *  @param name Required. Name of the link to retrieve. The format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]/links/[LINK_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List links of a dataset.
+ *
+ *  Method: observability.projects.locations.buckets.datasets.links.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksList : GTLRCloudObservabilityQuery
+
+/**
+ *  Optional. The maximum number of links to return. If unspecified, then at
+ *  most 100 links are returned. The maximum value is 1000; values above 1000
+ *  are coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListLinks` call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent dataset that owns this collection of links. The format
+ *  is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_ListLinksResponse.
+ *
+ *  List links of a dataset.
+ *
+ *  @param parent Required. The parent dataset that owns this collection of
+ *    links. The format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Update a link.
+ *
+ *  Method: observability.projects.locations.buckets.datasets.links.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksPatch : GTLRCloudObservabilityQuery
+
+/**
+ *  Identifier. Name of the link. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]/links/[LINK_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Operation.
+ *
+ *  Update a link.
+ *
+ *  @param object The @c GTLRCloudObservability_Link to include in the query.
+ *  @param name Identifier. Name of the link. The format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]/links/[LINK_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsLinksPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudObservability_Link *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  List datasets of a bucket.
+ *
+ *  Method: observability.projects.locations.buckets.datasets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsList : GTLRCloudObservabilityQuery
+
+/**
+ *  Optional. The maximum number of datasets to return. If unspecified, then at
+ *  most 100 datasets are returned. The maximum value is 1000; values above 1000
+ *  are coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListDatasets` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent bucket that owns this collection of datasets. The
+ *  format is: projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. If true, then the response will include deleted datasets. */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_ListDatasetsResponse.
+ *
+ *  List datasets of a bucket.
+ *
+ *  @param parent Required. The parent bucket that owns this collection of
+ *    datasets. The format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get a view.
+ *
+ *  Method: observability.projects.locations.buckets.datasets.views.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsViewsGet : GTLRCloudObservabilityQuery
+
+/**
+ *  Required. Name of the view to retrieve. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]/views/[VIEW_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_View.
+ *
+ *  Get a view.
+ *
+ *  @param name Required. Name of the view to retrieve. The format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]/views/[VIEW_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsViewsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List views of a dataset.
+ *
+ *  Method: observability.projects.locations.buckets.datasets.views.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsViewsList : GTLRCloudObservabilityQuery
+
+/**
+ *  Optional. The maximum number of views to return. If unspecified, then at
+ *  most 100 views are returned. The maximum value is 1000; values above 1000
+ *  are coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListViews` call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Dataset whose views are to be listed. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_ListViewsResponse.
+ *
+ *  List views of a dataset.
+ *
+ *  @param parent Required. Dataset whose views are to be listed. The format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]/datasets/[DATASET_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsDatasetsViewsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Get bucket resource.
+ *
+ *  Method: observability.projects.locations.buckets.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsGet : GTLRCloudObservabilityQuery
+
+/**
+ *  Required. Name of the bucket to retrieve. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_Bucket.
+ *
+ *  Get bucket resource.
+ *
+ *  @param name Required. Name of the bucket to retrieve. The format is:
+ *    projects/[PROJECT_ID]/locations/[LOCATION]/buckets/[BUCKET_ID]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List buckets of a project in a particular location.
+ *
+ *  Method: observability.projects.locations.buckets.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudObservabilityCloudPlatform
+ */
+@interface GTLRCloudObservabilityQuery_ProjectsLocationsBucketsList : GTLRCloudObservabilityQuery
+
+/**
+ *  Optional. The maximum number of buckets to return. If unspecified, then at
+ *  most 100 buckets are returned. The maximum value is 1000; values above 1000
+ *  are coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListBuckets` call. Provide
+ *  this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of buckets. The format is:
+ *  projects/[PROJECT_ID]/locations/[LOCATION]
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. If true, then the response will include deleted buckets. */
+@property(nonatomic, assign) BOOL showDeleted;
+
+/**
+ *  Fetches a @c GTLRCloudObservability_ListBucketsResponse.
+ *
+ *  List buckets of a project in a particular location.
+ *
+ *  @param parent Required. The parent, which owns this collection of buckets.
+ *    The format is: projects/[PROJECT_ID]/locations/[LOCATION]
+ *
+ *  @return GTLRCloudObservabilityQuery_ProjectsLocationsBucketsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Gets information about a location.
+ *
  *  Method: observability.projects.locations.get
  *
  *  Authorization scope(s):
@@ -61,7 +979,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: observability.projects.locations.list
  *
@@ -101,7 +1023,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRCloudObservability_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

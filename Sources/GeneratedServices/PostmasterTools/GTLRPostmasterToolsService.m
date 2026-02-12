@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Gmail Postmaster Tools API (gmailpostmastertools/v1)
+//   Gmail Postmaster Tools API (gmailpostmastertools/v2)
 // Description:
 //   The Postmaster Tools API is a RESTful API that provides programmatic access
 //   to email traffic metrics (like spam reports, delivery errors etc) otherwise
@@ -13,9 +13,11 @@
 #import <GoogleAPIClientForREST/GTLRPostmasterTools.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopePostmasterToolsPostmasterReadonly = @"https://www.googleapis.com/auth/postmaster.readonly";
+NSString * const kGTLRAuthScopePostmasterToolsPostmaster       = @"https://www.googleapis.com/auth/postmaster";
+NSString * const kGTLRAuthScopePostmasterToolsPostmasterDomain = @"https://www.googleapis.com/auth/postmaster.domain";
+NSString * const kGTLRAuthScopePostmasterToolsPostmasterTrafficReadonly = @"https://www.googleapis.com/auth/postmaster.traffic.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRPostmasterToolsService

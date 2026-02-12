@@ -1301,8 +1301,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, assign) NSInteger maxResults;
 
 /**
- *  Restricts the list to return only records with this fully qualified domain
- *  name. Mutually exclusive with the {\@code filter} field.
+ *  Specify a fully qualified domain name to view only those records. The name
+ *  parameter is not supported and must be omitted when you use filter.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1316,9 +1316,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDnsSortByStartTime;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
- *  Restricts the list to return only records of this type. If present, the
- *  "name" parameter must also be present. Mutually exclusive with the {\@code
- *  filter} field.
+ *  Specify a record type to view only those records. You must also specify the
+ *  name parameter. The type parameter is not supported and must be omitted when
+ *  you use filter.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 

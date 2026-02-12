@@ -70,9 +70,10 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
 
 @implementation GTLRReportsQuery_ActivitiesList
 
-@dynamic actorIpAddress, applicationName, customerId, endTime, eventName,
-         filters, groupIdFilter, maxResults, orgUnitID, pageToken,
-         resourceDetailsFilter, startTime, userKey;
+@dynamic actorIpAddress, applicationInfoFilter, applicationName, customerId,
+         endTime, eventName, filters, groupIdFilter, maxResults,
+         networkInfoFilter, orgUnitID, pageToken, resourceDetailsFilter,
+         startTime, statusFilter, userKey;
 
 + (instancetype)queryWithUserKey:(NSString *)userKey
                  applicationName:(NSString *)applicationName {

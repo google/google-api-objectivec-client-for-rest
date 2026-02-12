@@ -645,6 +645,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Css/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Css/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'CustomerEngagementSuite' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/CustomerEngagementSuite/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/CustomerEngagementSuite/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'CustomSearchAPI' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CustomSearchAPI/**/*.{h,m}'
@@ -979,6 +984,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/HomeGraphService/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/HomeGraphService/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'HypercomputeCluster' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/HypercomputeCluster/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/HypercomputeCluster/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Iam' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -1479,6 +1489,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Texttospeech/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Texttospeech/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'ThreatIntelligenceService' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/ThreatIntelligenceService/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/ThreatIntelligenceService/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'ToolResults' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

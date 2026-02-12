@@ -690,8 +690,8 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 @dynamic advanceRolloutOperation, automationId, automationSnapshot, createTime,
          ETag, expireTime, name, policyViolation, promoteReleaseOperation,
          repairRolloutOperation, ruleId, serviceAccount, state,
-         stateDescription, targetId, timedPromoteReleaseOperation, updateTime,
-         waitUntilTime;
+         stateDescription, targetId, timedPromoteReleaseOperation, uid,
+         updateTime, waitUntilTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -877,7 +877,7 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_CloudRunMetadata
-@dynamic job, revision, service, serviceUrls;
+@dynamic job, revision, service, serviceUrls, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -895,7 +895,7 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_CloudRunRenderMetadata
-@dynamic service;
+@dynamic service, workerPool;
 @end
 
 

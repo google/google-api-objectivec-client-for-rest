@@ -94,6 +94,13 @@ NSString * const kGTLRSecurityPosture_SecurityHealthAnalyticsModule_ModuleEnable
 NSString * const kGTLRSecurityPosture_SecurityHealthAnalyticsModule_ModuleEnablementState_Enabled = @"ENABLED";
 NSString * const kGTLRSecurityPosture_SecurityHealthAnalyticsModule_ModuleEnablementState_EnablementStateUnspecified = @"ENABLEMENT_STATE_UNSPECIFIED";
 
+// GTLRSecurityPosture_SeverityCountThreshold.severity
+NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_Critical = @"CRITICAL";
+NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_High = @"HIGH";
+NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_Low = @"LOW";
+NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_Medium = @"MEDIUM";
+NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
 // GTLRSecurityPosture_Violation.severity
 NSString * const kGTLRSecurityPosture_Violation_Severity_Critical = @"CRITICAL";
 NSString * const kGTLRSecurityPosture_Violation_Severity_High  = @"HIGH";
@@ -294,6 +301,28 @@ NSString * const kGTLRSecurityPosture_Violation_Severity_SeverityUnspecified = @
 
 @implementation GTLRSecurityPosture_IaC
 @dynamic tfPlan;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityPosture_IacValidationFailureCriteria
+//
+
+@implementation GTLRSecurityPosture_IacValidationFailureCriteria
+@dynamic createTime, ETag, name, severityCountThresholds, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"severityCountThresholds" : [GTLRSecurityPosture_SeverityCountThreshold class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -859,6 +888,16 @@ NSString * const kGTLRSecurityPosture_Violation_Severity_SeverityUnspecified = @
 
 @implementation GTLRSecurityPosture_SecurityHealthAnalyticsModule
 @dynamic moduleEnablementState, moduleName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecurityPosture_SeverityCountThreshold
+//
+
+@implementation GTLRSecurityPosture_SeverityCountThreshold
+@dynamic severity, thresholdCount;
 @end
 
 

@@ -316,8 +316,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
 @end
 
 /**
- *  Looks up an Api Hub instance in a given GCP project. There will always be
- *  only one Api Hub instance for a GCP project across all locations.
+ *  Looks up an Api Hub instance in a given Google Cloud project. There will
+ *  always be only one Api Hub instance for a Google Cloud project across all
+ *  locations.
  *
  *  Method: apihub.projects.locations.apiHubInstances.lookup
  *
@@ -327,21 +328,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
 @interface GTLRAPIhubQuery_ProjectsLocationsApiHubInstancesLookup : GTLRAPIhubQuery
 
 /**
- *  Required. There will always be only one Api Hub instance for a GCP project
- *  across all locations. The parent resource for the Api Hub instance resource.
- *  Format: `projects/{project}/locations/{location}`
+ *  Required. There will always be only one Api Hub instance for a Google Cloud
+ *  project across all locations. The parent resource for the Api Hub instance
+ *  resource. Format: `projects/{project}/locations/{location}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
  *  Fetches a @c GTLRAPIhub_GoogleCloudApihubV1LookupApiHubInstanceResponse.
  *
- *  Looks up an Api Hub instance in a given GCP project. There will always be
- *  only one Api Hub instance for a GCP project across all locations.
+ *  Looks up an Api Hub instance in a given Google Cloud project. There will
+ *  always be only one Api Hub instance for a Google Cloud project across all
+ *  locations.
  *
  *  @param parent Required. There will always be only one Api Hub instance for a
- *    GCP project across all locations. The parent resource for the Api Hub
- *    instance resource. Format: `projects/{project}/locations/{location}`
+ *    Google Cloud project across all locations. The parent resource for the Api
+ *    Hub instance resource. Format: `projects/{project}/locations/{location}`
  *
  *  @return GTLRAPIhubQuery_ProjectsLocationsApiHubInstancesLookup
  */

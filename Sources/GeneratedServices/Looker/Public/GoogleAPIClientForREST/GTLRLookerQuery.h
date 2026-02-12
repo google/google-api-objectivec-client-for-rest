@@ -505,6 +505,39 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Undeletes Looker instance.
+ *
+ *  Method: looker.projects.locations.instances.undelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeLookerCloudPlatform
+ */
+@interface GTLRLookerQuery_ProjectsLocationsInstancesUndelete : GTLRLookerQuery
+
+/**
+ *  Required. Format:
+ *  projects/{project}/locations/{location}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRLooker_Operation.
+ *
+ *  Undeletes Looker instance.
+ *
+ *  @param object The @c GTLRLooker_UndeleteInstanceRequest to include in the
+ *    query.
+ *  @param name Required. Format:
+ *    projects/{project}/locations/{location}/instances/{instance}
+ *
+ *  @return GTLRLookerQuery_ProjectsLocationsInstancesUndelete
+ */
++ (instancetype)queryWithObject:(GTLRLooker_UndeleteInstanceRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Lists information about the supported locations for this service.
  *
  *  Method: looker.projects.locations.list

@@ -163,6 +163,26 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_BasicAuthentication
+//
+
+@implementation GTLRDeveloperConnect_BasicAuthentication
+@dynamic passwordSecretVersion, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_BearerTokenAuthentication
+//
+
+@implementation GTLRDeveloperConnect_BearerTokenAuthentication
+@dynamic tokenSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_BitbucketCloudConfig
 //
 
@@ -201,8 +221,8 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 @dynamic annotations, bitbucketCloudConfig, bitbucketDataCenterConfig,
          createTime, cryptoKeyConfig, deleteTime, disabled, ETag, githubConfig,
          githubEnterpriseConfig, gitlabConfig, gitlabEnterpriseConfig,
-         gitProxyConfig, installationState, labels, name, reconciling, uid,
-         updateTime;
+         gitProxyConfig, httpConfig, installationState, labels, name,
+         reconciling, secureSourceManagerInstanceConfig, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -427,6 +447,17 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_GenericHTTPEndpointConfig
+//
+
+@implementation GTLRDeveloperConnect_GenericHTTPEndpointConfig
+@dynamic basicAuthentication, bearerTokenAuthentication, hostUri,
+         serviceDirectoryConfig, sslCaCertificate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_GitHubConfig
 //
 
@@ -442,8 +473,8 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 @implementation GTLRDeveloperConnect_GitHubEnterpriseConfig
 @dynamic appId, appInstallationId, appSlug, hostUri, installationUri,
-         privateKeySecretVersion, serverVersion, serviceDirectoryConfig,
-         sslCaCertificate, webhookSecretSecretVersion;
+         organization, privateKeySecretVersion, serverVersion,
+         serviceDirectoryConfig, sslCaCertificate, webhookSecretSecretVersion;
 @end
 
 
@@ -1051,6 +1082,16 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 @implementation GTLRDeveloperConnect_RuntimeConfig
 @dynamic appHubService, appHubWorkload, gkeWorkload, googleCloudRun, state, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_SecureSourceManagerInstanceConfig
+//
+
+@implementation GTLRDeveloperConnect_SecureSourceManagerInstanceConfig
+@dynamic instance;
 @end
 
 

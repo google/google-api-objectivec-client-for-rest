@@ -855,6 +855,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *  Value: "SOVEREIGN_CONTROLS_BY_T_SYSTEMS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems;
+/**
+ *  Enum representing Telefonica (Spain) partner.
+ *
+ *  Value: "SPAIN_DATA_BOUNDARY_BY_TELEFONICA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SpainDataBoundaryByTelefonica;
 
 // ----------------------------------------------------------------------------
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadEkmProvisioningResponse.ekmProvisioningErrorDomain
@@ -2225,6 +2231,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SovereignControlsByTSystems
  *        Enum representing T_SYSTEM (TSI) partner. (Value:
  *        "SOVEREIGN_CONTROLS_BY_T_SYSTEMS")
+ *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_Partner_SpainDataBoundaryByTelefonica
+ *        Enum representing Telefonica (Spain) partner. (Value:
+ *        "SPAIN_DATA_BOUNDARY_BY_TELEFONICA")
  */
 @property(nonatomic, copy, nullable) NSString *partner;
 

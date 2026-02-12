@@ -33,7 +33,10 @@ NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NetworkConfigNotFound = 
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoExternalIp = @"NO_EXTERNAL_IP";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NonRoutableIpAddress = @"NON_ROUTABLE_IP_ADDRESS";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoServerlessIpRanges = @"NO_SERVERLESS_IP_RANGES";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceGcpNetworkLocation = @"NO_SOURCE_GCP_NETWORK_LOCATION";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceInternetLocation = @"NO_SOURCE_INTERNET_LOCATION";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceLocation = @"NO_SOURCE_LOCATION";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_NoSourceNonGcpNetworkLocation = @"NO_SOURCE_NON_GCP_NETWORK_LOCATION";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDenied = @"PERMISSION_DENIED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudNatConfigs = @"PERMISSION_DENIED_NO_CLOUD_NAT_CONFIGS";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudRouterConfigs = @"PERMISSION_DENIED_NO_CLOUD_ROUTER_CONFIGS";
@@ -41,6 +44,7 @@ NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoNegEnd
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_ResourceConfigNotFound = @"RESOURCE_CONFIG_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_RouteConfigNotFound = @"ROUTE_CONFIG_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound = @"SOURCE_ENDPOINT_NOT_FOUND";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceExternalCloudSqlUnsupported = @"SOURCE_EXTERNAL_CLOUD_SQL_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceForwardingRuleUnsupported = @"SOURCE_FORWARDING_RULE_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceIpAddressNotInSourceNetwork = @"SOURCE_IP_ADDRESS_NOT_IN_SOURCE_NETWORK";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourcePscCloudSqlUnsupported = @"SOURCE_PSC_CLOUD_SQL_UNSUPPORTED";
@@ -148,8 +152,10 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoMatchingNat64Gateway = 
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoNatSubnetsForPscServiceAttachment = @"NO_NAT_SUBNETS_FOR_PSC_SERVICE_ATTACHMENT";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRoute = @"NO_ROUTE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromExternalIpv6SourceToPrivateIpv6Address = @"NO_ROUTE_FROM_EXTERNAL_IPV6_SOURCE_TO_PRIVATE_IPV6_ADDRESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv4Address = @"NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV4_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv6Address = @"NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoTrafficSelectorToGcpDestination = @"NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoValidRouteFromGoogleManagedNetworkToDestination = @"NO_VALID_ROUTE_FROM_GOOGLE_MANAGED_NETWORK_TO_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed = @"PRIVATE_GOOGLE_ACCESS_DISALLOWED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessViaVpnTunnelUnsupported = @"PRIVATE_GOOGLE_ACCESS_VIA_VPN_TUNNEL_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateNatToPscEndpointUnsupported = @"PRIVATE_NAT_TO_PSC_ENDPOINT_UNSUPPORTED";
@@ -251,6 +257,7 @@ NSString * const kGTLRNetworkManagement_Endpoint_LoadBalancerType_TcpUdpInternal
 
 // GTLRNetworkManagement_Endpoint.networkType
 NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_GcpNetwork = @"GCP_NETWORK";
+NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_Internet = @"INTERNET";
 NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NetworkTypeUnspecified = @"NETWORK_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_Endpoint_NetworkType_NonGcpNetwork = @"NON_GCP_NETWORK";
 

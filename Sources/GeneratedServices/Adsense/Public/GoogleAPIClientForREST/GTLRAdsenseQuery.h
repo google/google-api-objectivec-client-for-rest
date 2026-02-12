@@ -164,6 +164,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsBidTypeCode;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsBidTypeName;
 /**
+ *  Browser type code (e.g. "CHROME", "FIREFOX", "SAFARI"). For more
+ *  information, see [Browser
+ *  breakdown](https://support.google.com/adsense/answer/16851903).
+ *
+ *  Value: "BROWSER_TYPE_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsBrowserTypeCode;
+/**
+ *  Localized browser type name (e.g. "Google Chrome", "Firefox", "Safari"). For
+ *  more information, see [Browser
+ *  breakdown](https://support.google.com/adsense/answer/16851903).
+ *
+ *  Value: "BROWSER_TYPE_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsBrowserTypeName;
+/**
  *  Unique (opaque) ID of an ad network that returned the winning ads for an ad
  *  request.
  *
@@ -294,6 +310,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsHostedCustomChannelId G
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsMonth;
 /**
+ *  Operating system type code (e.g. "WINDOWS", "MAC", "ANDROID"). For more
+ *  information, see [Operating system
+ *  breakdown](https://support.google.com/adsense/answer/16853822).
+ *
+ *  Value: "OS_TYPE_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsOsTypeCode;
+/**
+ *  Localized operating system type name (e.g. "Windows", "MacOS", "Android").
+ *  For more information, see [Operating system
+ *  breakdown](https://support.google.com/adsense/answer/16853822).
+ *
+ *  Value: "OS_TYPE_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsOsTypeName;
+/**
  *  Domain name of a verified site (e.g. "example.com"). The members of this
  *  dimension match the values from Site.domain.
  *
@@ -417,6 +449,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsUrlChannelName;
  *  Value: "WEBSEARCH_QUERY_STRING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsWebsearchQueryString;
+/**
+ *  Webview type code (e.g. "UNCATEGORIZED", "NONE"). For more information, see
+ *  [Hosting App breakdown](https://support.google.com/adsense/answer/16853515).
+ *
+ *  Value: "WEBVIEW_TYPE_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsWebviewTypeCode;
+/**
+ *  Localized webview type name (e.g. "Webview (Uncategorized)", "Non-webview").
+ *  For more information, see [Hosting App
+ *  breakdown](https://support.google.com/adsense/answer/16853515).
+ *
+ *  Value: "WEBVIEW_TYPE_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAdsenseDimensionsWebviewTypeName;
 /**
  *  Week dimension in YYYY-MM-DD format, representing the first day of each week
  *  (e.g. "2010-02-08"). The first day of the week is determined by the
@@ -1948,6 +1995,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        "DOMAIN_REGISTRANT")
  *    @arg @c kGTLRAdsenseDimensionsWebsearchQueryString Query strings for web
  *        searches. (Value: "WEBSEARCH_QUERY_STRING")
+ *    @arg @c kGTLRAdsenseDimensionsOsTypeName Localized operating system type
+ *        name (e.g. "Windows", "MacOS", "Android"). For more information, see
+ *        [Operating system
+ *        breakdown](https://support.google.com/adsense/answer/16853822).
+ *        (Value: "OS_TYPE_NAME")
+ *    @arg @c kGTLRAdsenseDimensionsOsTypeCode Operating system type code (e.g.
+ *        "WINDOWS", "MAC", "ANDROID"). For more information, see [Operating
+ *        system breakdown](https://support.google.com/adsense/answer/16853822).
+ *        (Value: "OS_TYPE_CODE")
+ *    @arg @c kGTLRAdsenseDimensionsBrowserTypeName Localized browser type name
+ *        (e.g. "Google Chrome", "Firefox", "Safari"). For more information, see
+ *        [Browser
+ *        breakdown](https://support.google.com/adsense/answer/16851903).
+ *        (Value: "BROWSER_TYPE_NAME")
+ *    @arg @c kGTLRAdsenseDimensionsBrowserTypeCode Browser type code (e.g.
+ *        "CHROME", "FIREFOX", "SAFARI"). For more information, see [Browser
+ *        breakdown](https://support.google.com/adsense/answer/16851903).
+ *        (Value: "BROWSER_TYPE_CODE")
+ *    @arg @c kGTLRAdsenseDimensionsWebviewTypeName Localized webview type name
+ *        (e.g. "Webview (Uncategorized)", "Non-webview"). For more information,
+ *        see [Hosting App
+ *        breakdown](https://support.google.com/adsense/answer/16853515).
+ *        (Value: "WEBVIEW_TYPE_NAME")
+ *    @arg @c kGTLRAdsenseDimensionsWebviewTypeCode Webview type code (e.g.
+ *        "UNCATEGORIZED", "NONE"). For more information, see [Hosting App
+ *        breakdown](https://support.google.com/adsense/answer/16853515).
+ *        (Value: "WEBVIEW_TYPE_CODE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 
@@ -2390,6 +2464,33 @@ FOUNDATION_EXTERN NSString * const kGTLRAdsenseReportingTimeZoneReportingTimeZon
  *        "DOMAIN_REGISTRANT")
  *    @arg @c kGTLRAdsenseDimensionsWebsearchQueryString Query strings for web
  *        searches. (Value: "WEBSEARCH_QUERY_STRING")
+ *    @arg @c kGTLRAdsenseDimensionsOsTypeName Localized operating system type
+ *        name (e.g. "Windows", "MacOS", "Android"). For more information, see
+ *        [Operating system
+ *        breakdown](https://support.google.com/adsense/answer/16853822).
+ *        (Value: "OS_TYPE_NAME")
+ *    @arg @c kGTLRAdsenseDimensionsOsTypeCode Operating system type code (e.g.
+ *        "WINDOWS", "MAC", "ANDROID"). For more information, see [Operating
+ *        system breakdown](https://support.google.com/adsense/answer/16853822).
+ *        (Value: "OS_TYPE_CODE")
+ *    @arg @c kGTLRAdsenseDimensionsBrowserTypeName Localized browser type name
+ *        (e.g. "Google Chrome", "Firefox", "Safari"). For more information, see
+ *        [Browser
+ *        breakdown](https://support.google.com/adsense/answer/16851903).
+ *        (Value: "BROWSER_TYPE_NAME")
+ *    @arg @c kGTLRAdsenseDimensionsBrowserTypeCode Browser type code (e.g.
+ *        "CHROME", "FIREFOX", "SAFARI"). For more information, see [Browser
+ *        breakdown](https://support.google.com/adsense/answer/16851903).
+ *        (Value: "BROWSER_TYPE_CODE")
+ *    @arg @c kGTLRAdsenseDimensionsWebviewTypeName Localized webview type name
+ *        (e.g. "Webview (Uncategorized)", "Non-webview"). For more information,
+ *        see [Hosting App
+ *        breakdown](https://support.google.com/adsense/answer/16853515).
+ *        (Value: "WEBVIEW_TYPE_NAME")
+ *    @arg @c kGTLRAdsenseDimensionsWebviewTypeCode Webview type code (e.g.
+ *        "UNCATEGORIZED", "NONE"). For more information, see [Hosting App
+ *        breakdown](https://support.google.com/adsense/answer/16853515).
+ *        (Value: "WEBVIEW_TYPE_CODE")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *dimensions;
 

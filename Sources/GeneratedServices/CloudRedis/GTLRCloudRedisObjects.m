@@ -273,6 +273,7 @@ NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Deleted =
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Healthy = @"HEALTHY";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_StateOther = @"STATE_OTHER";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Stopped = @"STOPPED";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Suspended = @"SUSPENDED";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_CurrentState_Unhealthy = @"UNHEALTHY";
 
@@ -287,6 +288,7 @@ NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_Deleted 
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_Healthy = @"HEALTHY";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_StateOther = @"STATE_OTHER";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_Stopped = @"STOPPED";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_Suspended = @"SUSPENDED";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_ExpectedState_Unhealthy = @"UNHEALTHY";
 
@@ -638,6 +640,15 @@ NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_Imm
 NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_NextAvailableWindow = @"NEXT_AVAILABLE_WINDOW";
 NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_RescheduleTypeUnspecified = @"RESCHEDULE_TYPE_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_RescheduleMaintenanceRequest_RescheduleType_SpecificTime = @"SPECIFIC_TIME";
+
+// GTLRCloudRedis_ResourceMaintenanceInfo.maintenanceState
+NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Creating = @"CREATING";
+NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Deleting = @"DELETING";
+NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Error = @"ERROR";
+NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_MaintenanceStateUnspecified = @"MAINTENANCE_STATE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Ready = @"READY";
+NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Repairing = @"REPAIRING";
+NSString * const kGTLRCloudRedis_ResourceMaintenanceInfo_MaintenanceState_Updating = @"UPDATING";
 
 // GTLRCloudRedis_ResourceMaintenanceSchedule.day
 NSString * const kGTLRCloudRedis_ResourceMaintenanceSchedule_Day_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
@@ -1105,8 +1116,9 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
          entitlements, expectedState, gcbdrConfiguration, identifier,
          instanceType, isDeletionProtectionEnabled, location,
          machineConfiguration, maintenanceInfo, primaryResourceId,
-         primaryResourceLocation, product, resourceContainer, resourceName,
-         suspensionReason, tagsSet, updationTime, userLabelSet, zoneProperty;
+         primaryResourceLocation, product, resourceContainer, resourceFlags,
+         resourceName, suspensionReason, tagsSet, updationTime, userLabelSet,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1118,7 +1130,8 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"entitlements" : [GTLRCloudRedis_Entitlement class]
+    @"entitlements" : [GTLRCloudRedis_Entitlement class],
+    @"resourceFlags" : [GTLRCloudRedis_ResourceFlags class]
   };
   return map;
 }
@@ -1940,6 +1953,16 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_ResourceFlags
+//
+
+@implementation GTLRCloudRedis_ResourceFlags
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_ResourceMaintenanceDenySchedule
 //
 
@@ -1954,7 +1977,9 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_ResourceMaintenanceInfo
-@dynamic denyMaintenanceSchedules, maintenanceSchedule, maintenanceVersion;
+@dynamic denyMaintenanceSchedules, isInstanceStopped, maintenanceSchedule,
+         maintenanceState, maintenanceVersion, upcomingMaintenance,
+         versionUpdateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2080,6 +2105,16 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 @implementation GTLRCloudRedis_TypedValue
 @dynamic boolValue, doubleValue, int64Value, stringValue;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_UpcomingMaintenance
+//
+
+@implementation GTLRCloudRedis_UpcomingMaintenance
+@dynamic endTime, startTime;
 @end
 
 

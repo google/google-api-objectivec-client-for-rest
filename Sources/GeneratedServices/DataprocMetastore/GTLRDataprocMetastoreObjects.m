@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Dataproc Metastore API (metastore/v2)
+//   Dataproc Metastore API (metastore/v1)
 // Description:
 //   The Dataproc Metastore API is used to manage the lifecycle and
 //   configuration of metastore services.
@@ -14,506 +14,199 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRDataprocMetastore_GoogleCloudMetastoreV2Backup.state
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Backup_State_Active = @"ACTIVE";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Backup_State_Creating = @"CREATING";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Backup_State_Deleting = @"DELETING";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Backup_State_Failed = @"FAILED";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Backup_State_Restoring = @"RESTORING";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+// GTLRDataprocMetastore_AuditLogConfig.logType
+NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_AdminRead = @"ADMIN_READ";
+NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_DataRead = @"DATA_READ";
+NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
+NSString * const kGTLRDataprocMetastore_AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
 
-// GTLRDataprocMetastore_GoogleCloudMetastoreV2DatabaseDump.type
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2DatabaseDump_Type_Avro = @"AVRO";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2DatabaseDump_Type_Mysql = @"MYSQL";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2DatabaseDump_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+// GTLRDataprocMetastore_BackendMetastore.metastoreType
+NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_Bigquery = @"BIGQUERY";
+NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_DataprocMetastore = @"DATAPROC_METASTORE";
+NSString * const kGTLRDataprocMetastore_BackendMetastore_MetastoreType_MetastoreTypeUnspecified = @"METASTORE_TYPE_UNSPECIFIED";
 
-// GTLRDataprocMetastore_GoogleCloudMetastoreV2ExportMetadataRequest.databaseDumpType
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2ExportMetadataRequest_DatabaseDumpType_Avro = @"AVRO";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2ExportMetadataRequest_DatabaseDumpType_Mysql = @"MYSQL";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2ExportMetadataRequest_DatabaseDumpType_TypeUnspecified = @"TYPE_UNSPECIFIED";
+// GTLRDataprocMetastore_Backup.state
+NSString * const kGTLRDataprocMetastore_Backup_State_Active    = @"ACTIVE";
+NSString * const kGTLRDataprocMetastore_Backup_State_Creating  = @"CREATING";
+NSString * const kGTLRDataprocMetastore_Backup_State_Deleting  = @"DELETING";
+NSString * const kGTLRDataprocMetastore_Backup_State_Failed    = @"FAILED";
+NSString * const kGTLRDataprocMetastore_Backup_State_Restoring = @"RESTORING";
+NSString * const kGTLRDataprocMetastore_Backup_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
-// GTLRDataprocMetastore_GoogleCloudMetastoreV2HiveMetastoreConfig.endpointProtocol
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified = @"ENDPOINT_PROTOCOL_UNSPECIFIED";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2HiveMetastoreConfig_EndpointProtocol_Grpc = @"GRPC";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2HiveMetastoreConfig_EndpointProtocol_Thrift = @"THRIFT";
+// GTLRDataprocMetastore_DatabaseDump.databaseType
+NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_DatabaseDump_DatabaseType_Mysql = @"MYSQL";
 
-// GTLRDataprocMetastore_GoogleCloudMetastoreV2LatestBackup.state
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2LatestBackup_State_Failed = @"FAILED";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2LatestBackup_State_InProgress = @"IN_PROGRESS";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2LatestBackup_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2LatestBackup_State_Succeeded = @"SUCCEEDED";
+// GTLRDataprocMetastore_DatabaseDump.type
+NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_Avro = @"AVRO";
+NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_Mysql = @"MYSQL";
+NSString * const kGTLRDataprocMetastore_DatabaseDump_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRDataprocMetastore_GoogleCloudMetastoreV2RestoreServiceRequest.restoreType
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2RestoreServiceRequest_RestoreType_Full = @"FULL";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2RestoreServiceRequest_RestoreType_MetadataOnly = @"METADATA_ONLY";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2RestoreServiceRequest_RestoreType_RestoreTypeUnspecified = @"RESTORE_TYPE_UNSPECIFIED";
+// GTLRDataprocMetastore_ExportMetadataRequest.databaseDumpType
+NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Avro = @"AVRO";
+NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_Mysql = @"MYSQL";
+NSString * const kGTLRDataprocMetastore_ExportMetadataRequest_DatabaseDumpType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-// GTLRDataprocMetastore_GoogleCloudMetastoreV2Service.state
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Active = @"ACTIVE";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Creating = @"CREATING";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Deleting = @"DELETING";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Error = @"ERROR";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_StateUnspecified = @"STATE_UNSPECIFIED";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Suspended = @"SUSPENDED";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Suspending = @"SUSPENDING";
-NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Updating = @"UPDATING";
+// GTLRDataprocMetastore_Federation.state
+NSString * const kGTLRDataprocMetastore_Federation_State_Active = @"ACTIVE";
+NSString * const kGTLRDataprocMetastore_Federation_State_Creating = @"CREATING";
+NSString * const kGTLRDataprocMetastore_Federation_State_Deleting = @"DELETING";
+NSString * const kGTLRDataprocMetastore_Federation_State_Error = @"ERROR";
+NSString * const kGTLRDataprocMetastore_Federation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_Federation_State_Updating = @"UPDATING";
 
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaAlterMetadataResourceLocationResponse
-//
+// GTLRDataprocMetastore_HiveMetastoreConfig.endpointProtocol
+NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_EndpointProtocolUnspecified = @"ENDPOINT_PROTOCOL_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Grpc = @"GRPC";
+NSString * const kGTLRDataprocMetastore_HiveMetastoreConfig_EndpointProtocol_Thrift = @"THRIFT";
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaAlterMetadataResourceLocationResponse
-@end
+// GTLRDataprocMetastore_LatestBackup.state
+NSString * const kGTLRDataprocMetastore_LatestBackup_State_Failed = @"FAILED";
+NSString * const kGTLRDataprocMetastore_LatestBackup_State_InProgress = @"IN_PROGRESS";
+NSString * const kGTLRDataprocMetastore_LatestBackup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_LatestBackup_State_Succeeded = @"SUCCEEDED";
 
+// GTLRDataprocMetastore_MaintenanceWindow.dayOfWeek
+NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_DayOfWeekUnspecified = @"DAY_OF_WEEK_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Friday = @"FRIDAY";
+NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Monday = @"MONDAY";
+NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Saturday = @"SATURDAY";
+NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Sunday = @"SUNDAY";
+NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Thursday = @"THURSDAY";
+NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Tuesday = @"TUESDAY";
+NSString * const kGTLRDataprocMetastore_MaintenanceWindow_DayOfWeek_Wednesday = @"WEDNESDAY";
 
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaCancelMigrationResponse
-//
+// GTLRDataprocMetastore_MetadataExport.databaseDumpType
+NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Avro = @"AVRO";
+NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_Mysql = @"MYSQL";
+NSString * const kGTLRDataprocMetastore_MetadataExport_DatabaseDumpType_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaCancelMigrationResponse
-@dynamic migrationExecution;
-@end
+// GTLRDataprocMetastore_MetadataExport.state
+NSString * const kGTLRDataprocMetastore_MetadataExport_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDataprocMetastore_MetadataExport_State_Failed = @"FAILED";
+NSString * const kGTLRDataprocMetastore_MetadataExport_State_Running = @"RUNNING";
+NSString * const kGTLRDataprocMetastore_MetadataExport_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_MetadataExport_State_Succeeded = @"SUCCEEDED";
 
+// GTLRDataprocMetastore_MetadataImport.state
+NSString * const kGTLRDataprocMetastore_MetadataImport_State_Failed = @"FAILED";
+NSString * const kGTLRDataprocMetastore_MetadataImport_State_Running = @"RUNNING";
+NSString * const kGTLRDataprocMetastore_MetadataImport_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_MetadataImport_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRDataprocMetastore_MetadataImport_State_Updating = @"UPDATING";
 
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaCompleteMigrationResponse
-//
+// GTLRDataprocMetastore_MigrationExecution.phase
+NSString * const kGTLRDataprocMetastore_MigrationExecution_Phase_Cutover = @"CUTOVER";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_Phase_PhaseUnspecified = @"PHASE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_Phase_Replication = @"REPLICATION";
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaCompleteMigrationResponse
-@dynamic migrationExecution;
-@end
+// GTLRDataprocMetastore_MigrationExecution.state
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_AwaitingUserAction = @"AWAITING_USER_ACTION";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Cancelling = @"CANCELLING";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Deleting = @"DELETING";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Failed = @"FAILED";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Running = @"RUNNING";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Starting = @"STARTING";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_MigrationExecution_State_Succeeded = @"SUCCEEDED";
 
+// GTLRDataprocMetastore_Restore.state
+NSString * const kGTLRDataprocMetastore_Restore_State_Cancelled = @"CANCELLED";
+NSString * const kGTLRDataprocMetastore_Restore_State_Failed   = @"FAILED";
+NSString * const kGTLRDataprocMetastore_Restore_State_Running  = @"RUNNING";
+NSString * const kGTLRDataprocMetastore_Restore_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_Restore_State_Succeeded = @"SUCCEEDED";
 
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaCustomRegionMetadata
-//
+// GTLRDataprocMetastore_Restore.type
+NSString * const kGTLRDataprocMetastore_Restore_Type_Full      = @"FULL";
+NSString * const kGTLRDataprocMetastore_Restore_Type_MetadataOnly = @"METADATA_ONLY";
+NSString * const kGTLRDataprocMetastore_Restore_Type_RestoreTypeUnspecified = @"RESTORE_TYPE_UNSPECIFIED";
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaCustomRegionMetadata
-@dynamic optionalReadOnlyRegions, requiredReadWriteRegions, witnessRegion;
+// GTLRDataprocMetastore_RestoreServiceRequest.restoreType
+NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_Full = @"FULL";
+NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_MetadataOnly = @"METADATA_ONLY";
+NSString * const kGTLRDataprocMetastore_RestoreServiceRequest_RestoreType_RestoreTypeUnspecified = @"RESTORE_TYPE_UNSPECIFIED";
 
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"optionalReadOnlyRegions" : [NSString class],
-    @"requiredReadWriteRegions" : [NSString class]
-  };
-  return map;
-}
+// GTLRDataprocMetastore_ScalingConfig.instanceSize
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_ExtraLarge = @"EXTRA_LARGE";
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_ExtraSmall = @"EXTRA_SMALL";
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_InstanceSizeUnspecified = @"INSTANCE_SIZE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Large = @"LARGE";
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Medium = @"MEDIUM";
+NSString * const kGTLRDataprocMetastore_ScalingConfig_InstanceSize_Small = @"SMALL";
 
-@end
+// GTLRDataprocMetastore_Service.databaseType
+NSString * const kGTLRDataprocMetastore_Service_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_Service_DatabaseType_Mysql = @"MYSQL";
+NSString * const kGTLRDataprocMetastore_Service_DatabaseType_Spanner = @"SPANNER";
 
+// GTLRDataprocMetastore_Service.releaseChannel
+NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_Canary = @"CANARY";
+NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_ReleaseChannelUnspecified = @"RELEASE_CHANNEL_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_Service_ReleaseChannel_Stable = @"STABLE";
 
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaErrorDetails
-//
+// GTLRDataprocMetastore_Service.state
+NSString * const kGTLRDataprocMetastore_Service_State_Active   = @"ACTIVE";
+NSString * const kGTLRDataprocMetastore_Service_State_Autoscaling = @"AUTOSCALING";
+NSString * const kGTLRDataprocMetastore_Service_State_Creating = @"CREATING";
+NSString * const kGTLRDataprocMetastore_Service_State_Deleting = @"DELETING";
+NSString * const kGTLRDataprocMetastore_Service_State_Error    = @"ERROR";
+NSString * const kGTLRDataprocMetastore_Service_State_Migrating = @"MIGRATING";
+NSString * const kGTLRDataprocMetastore_Service_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRDataprocMetastore_Service_State_Suspended = @"SUSPENDED";
+NSString * const kGTLRDataprocMetastore_Service_State_Suspending = @"SUSPENDING";
+NSString * const kGTLRDataprocMetastore_Service_State_Updating = @"UPDATING";
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaErrorDetails
-@dynamic details;
-@end
+// GTLRDataprocMetastore_Service.tier
+NSString * const kGTLRDataprocMetastore_Service_Tier_Developer = @"DEVELOPER";
+NSString * const kGTLRDataprocMetastore_Service_Tier_Enterprise = @"ENTERPRISE";
+NSString * const kGTLRDataprocMetastore_Service_Tier_TierUnspecified = @"TIER_UNSPECIFIED";
 
+// GTLRDataprocMetastore_TelemetryConfig.logFormat
+NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_Json = @"JSON";
+NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_Legacy = @"LEGACY";
+NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFormat_LogFormatUnspecified = @"LOG_FORMAT_UNSPECIFIED";
 
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaErrorDetails_Details
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaErrorDetails_Details
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaHiveMetastoreVersion
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaHiveMetastoreVersion
-@dynamic isDefault, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaLocationMetadata
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaLocationMetadata
-@dynamic customRegionMetadata, multiRegionMetadata,
-         supportedHiveMetastoreVersions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"customRegionMetadata" : [GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaCustomRegionMetadata class],
-    @"supportedHiveMetastoreVersions" : [GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaHiveMetastoreVersion class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaMoveTableToDatabaseResponse
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaMoveTableToDatabaseResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaMultiRegionMetadata
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaMultiRegionMetadata
-@dynamic constituentRegions, continent, witnessRegion;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"constituentRegions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaOperationMetadata
+//   GTLRDataprocMetastore_AlterMetadataResourceLocationRequest
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaOperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaQueryMetadataResponse
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1alphaQueryMetadataResponse
-@dynamic resultManifestUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1AlterMetadataResourceLocationResponse
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1AlterMetadataResourceLocationResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaAlterMetadataResourceLocationResponse
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaAlterMetadataResourceLocationResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaCancelMigrationResponse
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaCancelMigrationResponse
-@dynamic migrationExecution;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaCompleteMigrationResponse
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaCompleteMigrationResponse
-@dynamic migrationExecution;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaCustomRegionMetadata
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaCustomRegionMetadata
-@dynamic optionalReadOnlyRegions, requiredReadWriteRegions, witnessRegion;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"optionalReadOnlyRegions" : [NSString class],
-    @"requiredReadWriteRegions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaErrorDetails
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaErrorDetails
-@dynamic details;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaErrorDetails_Details
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaErrorDetails_Details
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaHiveMetastoreVersion
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaHiveMetastoreVersion
-@dynamic isDefault, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaLocationMetadata
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaLocationMetadata
-@dynamic customRegionMetadata, multiRegionMetadata,
-         supportedHiveMetastoreVersions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"customRegionMetadata" : [GTLRDataprocMetastore_GoogleCloudMetastoreV1betaCustomRegionMetadata class],
-    @"supportedHiveMetastoreVersions" : [GTLRDataprocMetastore_GoogleCloudMetastoreV1betaHiveMetastoreVersion class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaMoveTableToDatabaseResponse
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaMoveTableToDatabaseResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaMultiRegionMetadata
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaMultiRegionMetadata
-@dynamic constituentRegions, continent, witnessRegion;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"constituentRegions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaOperationMetadata
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaOperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1betaQueryMetadataResponse
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1betaQueryMetadataResponse
-@dynamic resultManifestUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1CustomRegionMetadata
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1CustomRegionMetadata
-@dynamic optionalReadOnlyRegions, requiredReadWriteRegions, witnessRegion;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"optionalReadOnlyRegions" : [NSString class],
-    @"requiredReadWriteRegions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1ErrorDetails
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1ErrorDetails
-@dynamic details;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1ErrorDetails_Details
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1ErrorDetails_Details
-
-+ (Class)classForAdditionalProperties {
-  return [NSString class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1HiveMetastoreVersion
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1HiveMetastoreVersion
-@dynamic isDefault, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1LocationMetadata
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1LocationMetadata
-@dynamic customRegionMetadata, multiRegionMetadata,
-         supportedHiveMetastoreVersions;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"customRegionMetadata" : [GTLRDataprocMetastore_GoogleCloudMetastoreV1CustomRegionMetadata class],
-    @"supportedHiveMetastoreVersions" : [GTLRDataprocMetastore_GoogleCloudMetastoreV1HiveMetastoreVersion class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1MoveTableToDatabaseResponse
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1MoveTableToDatabaseResponse
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1MultiRegionMetadata
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1MultiRegionMetadata
-@dynamic constituentRegions, continent, witnessRegion;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"constituentRegions" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1OperationMetadata
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1OperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV1QueryMetadataResponse
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV1QueryMetadataResponse
-@dynamic resultManifestUri;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2AlterMetadataResourceLocationRequest
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2AlterMetadataResourceLocationRequest
+@implementation GTLRDataprocMetastore_AlterMetadataResourceLocationRequest
 @dynamic locationUri, resourceName;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2AlterTablePropertiesRequest
+//   GTLRDataprocMetastore_AlterMetadataResourceLocationResponse
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2AlterTablePropertiesRequest
+@implementation GTLRDataprocMetastore_AlterMetadataResourceLocationResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_AlterTablePropertiesRequest
+//
+
+@implementation GTLRDataprocMetastore_AlterTablePropertiesRequest
 @dynamic properties, tableName, updateMask;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2AlterTablePropertiesRequest_Properties
+//   GTLRDataprocMetastore_AlterTablePropertiesRequest_Properties
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2AlterTablePropertiesRequest_Properties
+@implementation GTLRDataprocMetastore_AlterTablePropertiesRequest_Properties
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -524,15 +217,15 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2AuxiliaryVersionConfig
+//   GTLRDataprocMetastore_AuditConfig
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2AuxiliaryVersionConfig
-@dynamic configOverrides, endpoints, version;
+@implementation GTLRDataprocMetastore_AuditConfig
+@dynamic auditLogConfigs, service;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"endpoints" : [GTLRDataprocMetastore_GoogleCloudMetastoreV2Endpoint class]
+    @"auditLogConfigs" : [GTLRDataprocMetastore_AuditLogConfig class]
   };
   return map;
 }
@@ -542,10 +235,48 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2AuxiliaryVersionConfig_ConfigOverrides
+//   GTLRDataprocMetastore_AuditLogConfig
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2AuxiliaryVersionConfig_ConfigOverrides
+@implementation GTLRDataprocMetastore_AuditLogConfig
+@dynamic exemptedMembers, logType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"exemptedMembers" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_AutoscalingConfig
+//
+
+@implementation GTLRDataprocMetastore_AutoscalingConfig
+@dynamic autoscalingEnabled, autoscalingFactor, limitConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_AuxiliaryVersionConfig
+//
+
+@implementation GTLRDataprocMetastore_AuxiliaryVersionConfig
+@dynamic configOverrides, networkConfig, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides
+//
+
+@implementation GTLRDataprocMetastore_AuxiliaryVersionConfig_ConfigOverrides
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -556,10 +287,20 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2Backup
+//   GTLRDataprocMetastore_BackendMetastore
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2Backup
+@implementation GTLRDataprocMetastore_BackendMetastore
+@dynamic metastoreType, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Backup
+//
+
+@implementation GTLRDataprocMetastore_Backup
 @dynamic createTime, descriptionProperty, endTime, name, restoringServices,
          serviceRevision, state;
 
@@ -579,72 +320,17 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2DatabaseDump
+//   GTLRDataprocMetastore_Binding
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2DatabaseDump
-@dynamic gcsUri, type;
-@end
+@implementation GTLRDataprocMetastore_Binding
+@dynamic condition, members, role;
 
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2DataCatalogConfig
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2DataCatalogConfig
-@dynamic enabled;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2EncryptionConfig
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2EncryptionConfig
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2Endpoint
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2Endpoint
-@dynamic endpointUri, region;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2ExportMetadataRequest
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2ExportMetadataRequest
-@dynamic databaseDumpType, destinationGcsFolder, requestId;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2HiveMetastoreConfig
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2HiveMetastoreConfig
-@dynamic auxiliaryVersions, configOverrides, endpointProtocol, version;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2HiveMetastoreConfig_AuxiliaryVersions
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2HiveMetastoreConfig_AuxiliaryVersions
-
-+ (Class)classForAdditionalProperties {
-  return [GTLRDataprocMetastore_GoogleCloudMetastoreV2AuxiliaryVersionConfig class];
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"members" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -652,10 +338,147 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2HiveMetastoreConfig_ConfigOverrides
+//   GTLRDataprocMetastore_CancelMigrationRequest
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2HiveMetastoreConfig_ConfigOverrides
+@implementation GTLRDataprocMetastore_CancelMigrationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_CancelOperationRequest
+//
+
+@implementation GTLRDataprocMetastore_CancelOperationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_CdcConfig
+//
+
+@implementation GTLRDataprocMetastore_CdcConfig
+@dynamic bucket, password, reverseProxySubnet, rootPath, subnetIpRange,
+         username, vpcNetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_CloudSQLConnectionConfig
+//
+
+@implementation GTLRDataprocMetastore_CloudSQLConnectionConfig
+@dynamic hiveDatabaseName, instanceConnectionName, ipAddress, natSubnet,
+         password, port, proxySubnet, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_CloudSQLMigrationConfig
+//
+
+@implementation GTLRDataprocMetastore_CloudSQLMigrationConfig
+@dynamic cdcConfig, cloudSqlConnectionConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_CompleteMigrationRequest
+//
+
+@implementation GTLRDataprocMetastore_CompleteMigrationRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Consumer
+//
+
+@implementation GTLRDataprocMetastore_Consumer
+@dynamic endpointLocation, endpointUri, subnetwork;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_CustomRegionMetadata
+//
+
+@implementation GTLRDataprocMetastore_CustomRegionMetadata
+@dynamic optionalReadOnlyRegions, requiredReadWriteRegions, witnessRegion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"optionalReadOnlyRegions" : [NSString class],
+    @"requiredReadWriteRegions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_DatabaseDump
+//
+
+@implementation GTLRDataprocMetastore_DatabaseDump
+@dynamic databaseType, gcsUri, sourceDatabase, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_DataCatalogConfig
+//
+
+@implementation GTLRDataprocMetastore_DataCatalogConfig
+@dynamic enabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Empty
+//
+
+@implementation GTLRDataprocMetastore_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_EncryptionConfig
+//
+
+@implementation GTLRDataprocMetastore_EncryptionConfig
+@dynamic kmsKey;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ErrorDetails
+//
+
+@implementation GTLRDataprocMetastore_ErrorDetails
+@dynamic details;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ErrorDetails_Details
+//
+
+@implementation GTLRDataprocMetastore_ErrorDetails_Details
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -666,11 +489,21 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2ImportMetadataRequest
+//   GTLRDataprocMetastore_ExportMetadataRequest
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2ImportMetadataRequest
-@dynamic databaseDump, descriptionProperty, requestId;
+@implementation GTLRDataprocMetastore_ExportMetadataRequest
+@dynamic databaseDumpType, destinationGcsFolder, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Expr
+//
+
+@implementation GTLRDataprocMetastore_Expr
+@dynamic descriptionProperty, expression, location, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -681,25 +514,147 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2LatestBackup
+//   GTLRDataprocMetastore_Federation
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2LatestBackup
+@implementation GTLRDataprocMetastore_Federation
+@dynamic backendMetastores, createTime, endpointUri, labels, name, state,
+         stateMessage, tags, uid, updateTime, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Federation_BackendMetastores
+//
+
+@implementation GTLRDataprocMetastore_Federation_BackendMetastores
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataprocMetastore_BackendMetastore class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Federation_Labels
+//
+
+@implementation GTLRDataprocMetastore_Federation_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Federation_Tags
+//
+
+@implementation GTLRDataprocMetastore_Federation_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_HiveMetastoreConfig
+//
+
+@implementation GTLRDataprocMetastore_HiveMetastoreConfig
+@dynamic auxiliaryVersions, configOverrides, endpointProtocol, kerberosConfig,
+         version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions
+//
+
+@implementation GTLRDataprocMetastore_HiveMetastoreConfig_AuxiliaryVersions
+
++ (Class)classForAdditionalProperties {
+  return [GTLRDataprocMetastore_AuxiliaryVersionConfig class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides
+//
+
+@implementation GTLRDataprocMetastore_HiveMetastoreConfig_ConfigOverrides
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_HiveMetastoreVersion
+//
+
+@implementation GTLRDataprocMetastore_HiveMetastoreVersion
+@dynamic isDefault, version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_KerberosConfig
+//
+
+@implementation GTLRDataprocMetastore_KerberosConfig
+@dynamic keytab, krb5ConfigGcsUri, principal;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_LatestBackup
+//
+
+@implementation GTLRDataprocMetastore_LatestBackup
 @dynamic backupId, duration, startTime, state;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2ListBackupsResponse
+//   GTLRDataprocMetastore_LimitConfig
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2ListBackupsResponse
+@implementation GTLRDataprocMetastore_LimitConfig
+@dynamic maxScalingFactor, minScalingFactor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ListBackupsResponse
+//
+
+@implementation GTLRDataprocMetastore_ListBackupsResponse
 @dynamic backups, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"backups" : [GTLRDataprocMetastore_GoogleCloudMetastoreV2Backup class],
+    @"backups" : [GTLRDataprocMetastore_Backup class],
     @"unreachable" : [NSString class]
   };
   return map;
@@ -714,15 +669,129 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2ListServicesResponse
+//   GTLRDataprocMetastore_ListFederationsResponse
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2ListServicesResponse
+@implementation GTLRDataprocMetastore_ListFederationsResponse
+@dynamic federations, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"federations" : [GTLRDataprocMetastore_Federation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"federations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ListLocationsResponse
+//
+
+@implementation GTLRDataprocMetastore_ListLocationsResponse
+@dynamic locations, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [GTLRDataprocMetastore_Location class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"locations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ListMetadataImportsResponse
+//
+
+@implementation GTLRDataprocMetastore_ListMetadataImportsResponse
+@dynamic metadataImports, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metadataImports" : [GTLRDataprocMetastore_MetadataImport class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"metadataImports";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ListMigrationExecutionsResponse
+//
+
+@implementation GTLRDataprocMetastore_ListMigrationExecutionsResponse
+@dynamic migrationExecutions, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"migrationExecutions" : [GTLRDataprocMetastore_MigrationExecution class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"migrationExecutions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ListOperationsResponse
+//
+
+@implementation GTLRDataprocMetastore_ListOperationsResponse
+@dynamic nextPageToken, operations, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"operations" : [GTLRDataprocMetastore_Operation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ListServicesResponse
+//
+
+@implementation GTLRDataprocMetastore_ListServicesResponse
 @dynamic nextPageToken, services, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"services" : [GTLRDataprocMetastore_GoogleCloudMetastoreV2Service class],
+    @"services" : [GTLRDataprocMetastore_Service class],
     @"unreachable" : [NSString class]
   };
   return map;
@@ -737,91 +806,20 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2MetadataIntegration
+//   GTLRDataprocMetastore_Location
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2MetadataIntegration
-@dynamic dataCatalogConfig;
+@implementation GTLRDataprocMetastore_Location
+@dynamic displayName, labels, locationId, metadata, name;
 @end
 
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2MoveTableToDatabaseRequest
+//   GTLRDataprocMetastore_Location_Labels
 //
 
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2MoveTableToDatabaseRequest
-@dynamic dbName, destinationDbName, tableName;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2QueryMetadataRequest
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2QueryMetadataRequest
-@dynamic query;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2RestoreServiceRequest
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2RestoreServiceRequest
-@dynamic backup, backupLocation, requestId, restoreType;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2ScalingConfig
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2ScalingConfig
-@dynamic scalingFactor;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2ScheduledBackup
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2ScheduledBackup
-@dynamic backupLocation, cronSchedule, enabled, latestBackup, nextScheduledTime,
-         timeZone;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2Service
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2Service
-@dynamic createTime, encryptionConfig, endpoints, hiveMetastoreConfig, labels,
-         metadataIntegration, name, scalingConfig, scheduledBackup, state,
-         stateMessage, uid, updateTime, warehouseGcsUri;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"endpoints" : [GTLRDataprocMetastore_GoogleCloudMetastoreV2Endpoint class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleCloudMetastoreV2Service_Labels
-//
-
-@implementation GTLRDataprocMetastore_GoogleCloudMetastoreV2Service_Labels
+@implementation GTLRDataprocMetastore_Location_Labels
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
@@ -832,20 +830,10 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleLongrunningOperation
+//   GTLRDataprocMetastore_Location_Metadata
 //
 
-@implementation GTLRDataprocMetastore_GoogleLongrunningOperation
-@dynamic done, error, metadata, name, response;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleLongrunningOperation_Metadata
-//
-
-@implementation GTLRDataprocMetastore_GoogleLongrunningOperation_Metadata
+@implementation GTLRDataprocMetastore_Location_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -856,29 +844,17 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleLongrunningOperation_Response
+//   GTLRDataprocMetastore_LocationMetadata
 //
 
-@implementation GTLRDataprocMetastore_GoogleLongrunningOperation_Response
-
-+ (Class)classForAdditionalProperties {
-  return [NSObject class];
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRDataprocMetastore_GoogleRpcStatus
-//
-
-@implementation GTLRDataprocMetastore_GoogleRpcStatus
-@dynamic code, details, message;
+@implementation GTLRDataprocMetastore_LocationMetadata
+@dynamic customRegionMetadata, multiRegionMetadata,
+         supportedHiveMetastoreVersions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"details" : [GTLRDataprocMetastore_GoogleRpcStatus_Details_Item class]
+    @"customRegionMetadata" : [GTLRDataprocMetastore_CustomRegionMetadata class],
+    @"supportedHiveMetastoreVersions" : [GTLRDataprocMetastore_HiveMetastoreVersion class]
   };
   return map;
 }
@@ -888,13 +864,435 @@ NSString * const kGTLRDataprocMetastore_GoogleCloudMetastoreV2Service_State_Upda
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRDataprocMetastore_GoogleRpcStatus_Details_Item
+//   GTLRDataprocMetastore_MaintenanceWindow
 //
 
-@implementation GTLRDataprocMetastore_GoogleRpcStatus_Details_Item
+@implementation GTLRDataprocMetastore_MaintenanceWindow
+@dynamic dayOfWeek, hourOfDay;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MessageSet
+//
+
+@implementation GTLRDataprocMetastore_MessageSet
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MetadataExport
+//
+
+@implementation GTLRDataprocMetastore_MetadataExport
+@dynamic databaseDumpType, destinationGcsUri, endTime, startTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MetadataImport
+//
+
+@implementation GTLRDataprocMetastore_MetadataImport
+@dynamic createTime, databaseDump, descriptionProperty, endTime, name, state,
+         updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MetadataIntegration
+//
+
+@implementation GTLRDataprocMetastore_MetadataIntegration
+@dynamic dataCatalogConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MetadataManagementActivity
+//
+
+@implementation GTLRDataprocMetastore_MetadataManagementActivity
+@dynamic metadataExports, restores;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metadataExports" : [GTLRDataprocMetastore_MetadataExport class],
+    @"restores" : [GTLRDataprocMetastore_Restore class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MigrationExecution
+//
+
+@implementation GTLRDataprocMetastore_MigrationExecution
+@dynamic cloudSqlMigrationConfig, createTime, endTime, name, phase, state,
+         stateMessage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MoveTableToDatabaseRequest
+//
+
+@implementation GTLRDataprocMetastore_MoveTableToDatabaseRequest
+@dynamic dbName, destinationDbName, tableName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MoveTableToDatabaseResponse
+//
+
+@implementation GTLRDataprocMetastore_MoveTableToDatabaseResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_MultiRegionMetadata
+//
+
+@implementation GTLRDataprocMetastore_MultiRegionMetadata
+@dynamic constituentRegions, continent, witnessRegion;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"constituentRegions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_NetworkConfig
+//
+
+@implementation GTLRDataprocMetastore_NetworkConfig
+@dynamic consumers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"consumers" : [GTLRDataprocMetastore_Consumer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Operation
+//
+
+@implementation GTLRDataprocMetastore_Operation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Operation_Metadata
+//
+
+@implementation GTLRDataprocMetastore_Operation_Metadata
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
 }
 
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Operation_Response
+//
+
+@implementation GTLRDataprocMetastore_Operation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_OperationMetadata
+//
+
+@implementation GTLRDataprocMetastore_OperationMetadata
+@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
+         target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Policy
+//
+
+@implementation GTLRDataprocMetastore_Policy
+@dynamic auditConfigs, bindings, ETag, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"auditConfigs" : [GTLRDataprocMetastore_AuditConfig class],
+    @"bindings" : [GTLRDataprocMetastore_Binding class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_QueryMetadataRequest
+//
+
+@implementation GTLRDataprocMetastore_QueryMetadataRequest
+@dynamic query;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_QueryMetadataResponse
+//
+
+@implementation GTLRDataprocMetastore_QueryMetadataResponse
+@dynamic resultManifestUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Restore
+//
+
+@implementation GTLRDataprocMetastore_Restore
+@dynamic backup, backupLocation, details, endTime, startTime, state, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_RestoreServiceRequest
+//
+
+@implementation GTLRDataprocMetastore_RestoreServiceRequest
+@dynamic backup, backupLocation, requestId, restoreType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ScalingConfig
+//
+
+@implementation GTLRDataprocMetastore_ScalingConfig
+@dynamic autoscalingConfig, instanceSize, scalingFactor;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_ScheduledBackup
+//
+
+@implementation GTLRDataprocMetastore_ScheduledBackup
+@dynamic backupLocation, cronSchedule, enabled, latestBackup, nextScheduledTime,
+         timeZone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Secret
+//
+
+@implementation GTLRDataprocMetastore_Secret
+@dynamic cloudSecret;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Service
+//
+
+@implementation GTLRDataprocMetastore_Service
+@dynamic artifactGcsUri, createTime, databaseType, deletionProtection,
+         encryptionConfig, endpointUri, hiveMetastoreConfig, labels,
+         maintenanceWindow, metadataIntegration, metadataManagementActivity,
+         name, network, networkConfig, port, releaseChannel, scalingConfig,
+         scheduledBackup, state, stateMessage, tags, telemetryConfig, tier, uid,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Service_Labels
+//
+
+@implementation GTLRDataprocMetastore_Service_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Service_Tags
+//
+
+@implementation GTLRDataprocMetastore_Service_Tags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_SetIamPolicyRequest
+//
+
+@implementation GTLRDataprocMetastore_SetIamPolicyRequest
+@dynamic policy, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_StartMigrationRequest
+//
+
+@implementation GTLRDataprocMetastore_StartMigrationRequest
+@dynamic migrationExecution, requestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Status
+//
+
+@implementation GTLRDataprocMetastore_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRDataprocMetastore_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_Status_Details_Item
+//
+
+@implementation GTLRDataprocMetastore_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_StatusProto
+//
+
+@implementation GTLRDataprocMetastore_StatusProto
+@dynamic canonicalCode, code, message, messageSet, space;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_TelemetryConfig
+//
+
+@implementation GTLRDataprocMetastore_TelemetryConfig
+@dynamic logFormat;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_TestIamPermissionsRequest
+//
+
+@implementation GTLRDataprocMetastore_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataprocMetastore_TestIamPermissionsResponse
+//
+
+@implementation GTLRDataprocMetastore_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+#pragma clang diagnostic pop

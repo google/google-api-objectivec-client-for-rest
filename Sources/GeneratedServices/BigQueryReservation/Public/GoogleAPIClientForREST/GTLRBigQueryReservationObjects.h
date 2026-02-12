@@ -512,17 +512,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
 @property(nonatomic, copy, nullable) NSString *assignee;
 
 /**
- *  Optional. This field controls if "Gemini in BigQuery"
- *  (https://cloud.google.com/gemini/docs/bigquery/overview) features should be
- *  enabled for this reservation assignment, which is not on by default. "Gemini
- *  in BigQuery" has a distinct compliance posture from BigQuery. If this field
- *  is set to true, the assignment job type is QUERY, and the parent reservation
- *  edition is ENTERPRISE_PLUS, then the assignment will give the grantee
- *  project/organization access to "Gemini in BigQuery" features.
+ *  Optional. Deprecated: "Gemini in BigQuery" is now available by default for
+ *  all BigQuery editions and should not be explicitly set. Controls if "Gemini
+ *  in BigQuery" (https://cloud.google.com/gemini/docs/bigquery/overview)
+ *  features should be enabled for this reservation assignment.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enableGeminiInBigquery;
+@property(nonatomic, strong, nullable) NSNumber *enableGeminiInBigquery GTLR_DEPRECATED;
 
 /**
  *  Optional. Which type of jobs will use the reservation.

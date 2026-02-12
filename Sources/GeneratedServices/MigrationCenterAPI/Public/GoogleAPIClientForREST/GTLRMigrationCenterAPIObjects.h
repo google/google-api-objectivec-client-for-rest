@@ -35,6 +35,14 @@
 @class GTLRMigrationCenterAPI_AssetFrame_Labels;
 @class GTLRMigrationCenterAPI_AssetList;
 @class GTLRMigrationCenterAPI_AssetPerformanceData;
+@class GTLRMigrationCenterAPI_AssetsExportJob;
+@class GTLRMigrationCenterAPI_AssetsExportJob_Labels;
+@class GTLRMigrationCenterAPI_AssetsExportJobExecution;
+@class GTLRMigrationCenterAPI_AssetsExportJobExecutionResult;
+@class GTLRMigrationCenterAPI_AssetsExportJobExportCondition;
+@class GTLRMigrationCenterAPI_AssetsExportJobInventory;
+@class GTLRMigrationCenterAPI_AssetsExportJobNetworkDependencies;
+@class GTLRMigrationCenterAPI_AssetsExportJobPerformanceData;
 @class GTLRMigrationCenterAPI_AwsEc2PlatformDetails;
 @class GTLRMigrationCenterAPI_AwsRds;
 @class GTLRMigrationCenterAPI_AzureVmPlatformDetails;
@@ -46,6 +54,7 @@
 @class GTLRMigrationCenterAPI_ComputeEngineShapeDescriptor;
 @class GTLRMigrationCenterAPI_ComputeStorageDescriptor;
 @class GTLRMigrationCenterAPI_CpuUsageSample;
+@class GTLRMigrationCenterAPI_CsvOutputFile;
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregation;
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregationCPU;
 @class GTLRMigrationCenterAPI_DailyResourceUsageAggregationDisk;
@@ -130,6 +139,8 @@
 @class GTLRMigrationCenterAPI_Operation;
 @class GTLRMigrationCenterAPI_Operation_Metadata;
 @class GTLRMigrationCenterAPI_Operation_Response;
+@class GTLRMigrationCenterAPI_OutputFile;
+@class GTLRMigrationCenterAPI_OutputFileList;
 @class GTLRMigrationCenterAPI_PerformanceSample;
 @class GTLRMigrationCenterAPI_PhysicalPlatformDetails;
 @class GTLRMigrationCenterAPI_PlatformDetails;
@@ -166,6 +177,9 @@
 @class GTLRMigrationCenterAPI_RunningService;
 @class GTLRMigrationCenterAPI_RunningServiceList;
 @class GTLRMigrationCenterAPI_RuntimeNetworkInfo;
+@class GTLRMigrationCenterAPI_SignedUri;
+@class GTLRMigrationCenterAPI_SignedUriDestination;
+@class GTLRMigrationCenterAPI_SignedUris;
 @class GTLRMigrationCenterAPI_SoleTenancyPreferences;
 @class GTLRMigrationCenterAPI_SoleTenantNodeType;
 @class GTLRMigrationCenterAPI_Source;
@@ -184,6 +198,7 @@
 @class GTLRMigrationCenterAPI_VmwareDiskConfig;
 @class GTLRMigrationCenterAPI_VmwareEnginePreferences;
 @class GTLRMigrationCenterAPI_VmwarePlatformDetails;
+@class GTLRMigrationCenterAPI_XlsxOutputFile;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -1168,6 +1183,28 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_State_
 FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_RunningService_State_Stopped;
 
 // ----------------------------------------------------------------------------
+// GTLRMigrationCenterAPI_SignedUriDestination.fileFormat
+
+/**
+ *  CSV file format.
+ *
+ *  Value: "CSV"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SignedUriDestination_FileFormat_Csv;
+/**
+ *  Unspecified file format will be treated as CSV.
+ *
+ *  Value: "FILE_FORMAT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SignedUriDestination_FileFormat_FileFormatUnspecified;
+/**
+ *  XLSX file format which used in Excel.
+ *
+ *  Value: "XLSX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_SignedUriDestination_FileFormat_Xlsx;
+
+// ----------------------------------------------------------------------------
 // GTLRMigrationCenterAPI_SoleTenancyPreferences.commitmentPlan
 
 /**
@@ -2028,6 +2065,170 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 
 /**
+ *  Assets export job message.
+ */
+@interface GTLRMigrationCenterAPI_AssetsExportJob : GTLRObject
+
+/** Optional. Conditions for selecting assets to export. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetsExportJobExportCondition *condition;
+
+/** Output only. Resource creation time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Export asset inventory details. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetsExportJobInventory *inventory;
+
+/**
+ *  Optional. Labels as key value pairs. Labels must meet the following
+ *  constraints: * Keys and values can contain only lowercase letters, numeric
+ *  characters, underscores, and dashes. * All characters must use UTF-8
+ *  encoding, and international characters are allowed. * Keys must start with a
+ *  lowercase letter or international character. * Each resource is limited to a
+ *  maximum of 64 labels. Both keys and values are additionally constrained to
+ *  be <= 128 bytes.
+ */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetsExportJob_Labels *labels;
+
+/** Output only. Identifier. Resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Export data regarding asset network dependencies. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetsExportJobNetworkDependencies *networkDependencies;
+
+/** Export asset with performance data. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetsExportJobPerformanceData *performanceData;
+
+/** Output only. Recent non expired executions of the job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_AssetsExportJobExecution *> *recentExecutions;
+
+/**
+ *  Optional. When this value is set to 'true' the response will include all
+ *  assets, including those that are hidden.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *showHidden;
+
+/** Export to Cloud Storage files downloadable using signed URIs. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_SignedUriDestination *signedUriDestination;
+
+/** Output only. Resource update time. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs. Labels must meet the following
+ *  constraints: * Keys and values can contain only lowercase letters, numeric
+ *  characters, underscores, and dashes. * All characters must use UTF-8
+ *  encoding, and international characters are allowed. * Keys must start with a
+ *  lowercase letter or international character. * Each resource is limited to a
+ *  maximum of 64 labels. Both keys and values are additionally constrained to
+ *  be <= 128 bytes.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRMigrationCenterAPI_AssetsExportJob_Labels : GTLRObject
+@end
+
+
+/**
+ *  Execution status of assets export job.
+ */
+@interface GTLRMigrationCenterAPI_AssetsExportJobExecution : GTLRObject
+
+/** Output only. Completion time of the export. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/** Output only. Globally unique identifier of the execution. */
+@property(nonatomic, copy, nullable) NSString *executionId;
+
+/** Output only. Expiration time for the export and artifacts. */
+@property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
+
+/**
+ *  Output only. Number of assets requested for export after resolving the
+ *  requested filters.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedAssetCount;
+
+/** Output only. Result of the export execution. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetsExportJobExecutionResult *result;
+
+/** Output only. Execution timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Contains the result of the assets export.
+ */
+@interface GTLRMigrationCenterAPI_AssetsExportJobExecutionResult : GTLRObject
+
+/** Output only. Error encountered during export. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_Status *error;
+
+/** Output only. List of output files. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_OutputFileList *outputFiles;
+
+/** Output only. Signed URLs for downloading export artifacts. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_SignedUris *signedUris;
+
+@end
+
+
+/**
+ *  Conditions for selecting assets to export.
+ */
+@interface GTLRMigrationCenterAPI_AssetsExportJobExportCondition : GTLRObject
+
+/** Optional. Assets filter, supports the same syntax as asset listing. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+@end
+
+
+/**
+ *  Configuration for asset inventory details exports.
+ */
+@interface GTLRMigrationCenterAPI_AssetsExportJobInventory : GTLRObject
+@end
+
+
+/**
+ *  Configuration for network dependencies exports.
+ */
+@interface GTLRMigrationCenterAPI_AssetsExportJobNetworkDependencies : GTLRObject
+@end
+
+
+/**
+ *  Configuration for performance data exports.
+ */
+@interface GTLRMigrationCenterAPI_AssetsExportJobPerformanceData : GTLRObject
+
+/**
+ *  Optional. When this value is set to a positive integer, performance data
+ *  will be returned for the most recent days for which data is available. When
+ *  this value is unset (or set to zero), all available data is returned. The
+ *  maximum value is 420; values above 420 will be coerced to 420. If unset (0
+ *  value) a default value of 40 will be used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxDays;
+
+@end
+
+
+/**
  *  AWS EC2 specific details.
  */
 @interface GTLRMigrationCenterAPI_AwsEc2PlatformDetails : GTLRObject
@@ -2346,6 +2547,31 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
  *  Uses NSNumber of floatValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *utilizedPercentage;
+
+@end
+
+
+/**
+ *  Contains a single output file of type CSV.
+ */
+@interface GTLRMigrationCenterAPI_CsvOutputFile : GTLRObject
+
+/**
+ *  Output only. Number of columns in the file.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *columnsCount;
+
+/**
+ *  Output only. Number of rows in the file.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rowCount;
+
+/** Output only. Signed URI destination. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_SignedUri *signedUri;
 
 @end
 
@@ -3779,6 +4005,32 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 
 /**
+ *  Response message for listing assets export jobs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "assetsExportJobs" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRMigrationCenterAPI_ListAssetsExportJobsResponse : GTLRCollectionObject
+
+/**
+ *  Output only. The list of assets export jobs.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_AssetsExportJob *> *assetsExportJobs;
+
+/**
+ *  Output only. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  Response message for listing assets.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4977,6 +5229,38 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 
 /**
+ *  Contains a single output file.
+ */
+@interface GTLRMigrationCenterAPI_OutputFile : GTLRObject
+
+/** Output only. CSV output file. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_CsvOutputFile *csvOutputFile;
+
+/**
+ *  Output only. File size in bytes.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *fileSizeBytes;
+
+/** Output only. XLSX output file. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_XlsxOutputFile *xlsxOutputFile;
+
+@end
+
+
+/**
+ *  Contains a list of output files.
+ */
+@interface GTLRMigrationCenterAPI_OutputFileList : GTLRObject
+
+/** Output only. List of output files. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_OutputFile *> *entries;
+
+@end
+
+
+/**
  *  Performance data sample.
  */
 @interface GTLRMigrationCenterAPI_PerformanceSample : GTLRObject
@@ -5808,6 +6092,40 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 
 /**
+ *  A request to run an assets export job.
+ */
+@interface GTLRMigrationCenterAPI_RunAssetsExportJobRequest : GTLRObject
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+@end
+
+
+/**
+ *  Response message for running an assets export job.
+ */
+@interface GTLRMigrationCenterAPI_RunAssetsExportJobResponse : GTLRObject
+
+/** Output only. Execution status of the assets export operation. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_AssetsExportJobExecution *assetsExportJobExecution;
+
+@end
+
+
+/**
  *  A request to run an import job.
  */
 @interface GTLRMigrationCenterAPI_RunImportJobRequest : GTLRObject
@@ -5996,6 +6314,53 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /** The preference set used by default for a project. */
 @property(nonatomic, copy, nullable) NSString *preferenceSet;
+
+@end
+
+
+/**
+ *  Contains a signed URI.
+ */
+@interface GTLRMigrationCenterAPI_SignedUri : GTLRObject
+
+/** Output only. Name of the file the Signed URI references. */
+@property(nonatomic, copy, nullable) NSString *file;
+
+/** Output only. Download URI for the file. */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Signed URI destination configuration.
+ */
+@interface GTLRMigrationCenterAPI_SignedUriDestination : GTLRObject
+
+/**
+ *  Required. The file format to export.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMigrationCenterAPI_SignedUriDestination_FileFormat_Csv CSV
+ *        file format. (Value: "CSV")
+ *    @arg @c kGTLRMigrationCenterAPI_SignedUriDestination_FileFormat_FileFormatUnspecified
+ *        Unspecified file format will be treated as CSV. (Value:
+ *        "FILE_FORMAT_UNSPECIFIED")
+ *    @arg @c kGTLRMigrationCenterAPI_SignedUriDestination_FileFormat_Xlsx XLSX
+ *        file format which used in Excel. (Value: "XLSX")
+ */
+@property(nonatomic, copy, nullable) NSString *fileFormat;
+
+@end
+
+
+/**
+ *  Contains a list of Signed URIs.
+ */
+@interface GTLRMigrationCenterAPI_SignedUris : GTLRObject
+
+/** Output only. List of signed URIs. */
+@property(nonatomic, strong, nullable) NSArray<GTLRMigrationCenterAPI_SignedUri *> *signedUris;
 
 @end
 
@@ -6682,6 +7047,17 @@ FOUNDATION_EXTERN NSString * const kGTLRMigrationCenterAPI_VmwarePlatformDetails
 
 /** vCenter VM ID. */
 @property(nonatomic, copy, nullable) NSString *vcenterVmId;
+
+@end
+
+
+/**
+ *  Contains a single output file of type XLSX.
+ */
+@interface GTLRMigrationCenterAPI_XlsxOutputFile : GTLRObject
+
+/** Output only. Signed URI destination. */
+@property(nonatomic, strong, nullable) GTLRMigrationCenterAPI_SignedUri *signedUri;
 
 @end
 

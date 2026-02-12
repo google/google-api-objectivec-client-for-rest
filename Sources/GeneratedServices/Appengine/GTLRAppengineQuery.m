@@ -816,39 +816,6 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 
 @end
 
-@implementation GTLRAppengineQuery_AppsServicesVersionsExportAppImage
-
-@dynamic appsId, servicesId, versionsId;
-
-+ (instancetype)queryWithObject:(GTLRAppengine_ExportAppImageRequest *)object
-                         appsId:(NSString *)appsId
-                     servicesId:(NSString *)servicesId
-                     versionsId:(NSString *)versionsId {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[
-    @"appsId", @"servicesId", @"versionsId"
-  ];
-  NSString *pathURITemplate = @"v1/apps/{appsId}/services/{servicesId}/versions/{versionsId}:exportAppImage";
-  GTLRAppengineQuery_AppsServicesVersionsExportAppImage *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.appsId = appsId;
-  query.servicesId = servicesId;
-  query.versionsId = versionsId;
-  query.expectedObjectClass = [GTLRAppengine_Operation class];
-  query.loggingName = @"appengine.apps.services.versions.exportAppImage";
-  return query;
-}
-
-@end
-
 @implementation GTLRAppengineQuery_AppsServicesVersionsGet
 
 @dynamic appsId, servicesId, versionsId, view;
@@ -1494,16 +1461,18 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
 
 @end
 
-@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsExportAppImage
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsInstancesDebug
 
-@dynamic applicationsId, locationsId, projectsId, servicesId, versionsId;
+@dynamic applicationsId, instancesId, locationsId, projectsId, servicesId,
+         versionsId;
 
-+ (instancetype)queryWithObject:(GTLRAppengine_ExportAppImageRequest *)object
++ (instancetype)queryWithObject:(GTLRAppengine_DebugInstanceRequest *)object
                      projectsId:(NSString *)projectsId
                     locationsId:(NSString *)locationsId
                  applicationsId:(NSString *)applicationsId
                      servicesId:(NSString *)servicesId
-                     versionsId:(NSString *)versionsId {
+                     versionsId:(NSString *)versionsId
+                    instancesId:(NSString *)instancesId {
   if (object == nil) {
 #if defined(DEBUG) && DEBUG
     NSAssert(object != nil, @"Got a nil object");
@@ -1511,11 +1480,11 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
     return nil;
   }
   NSArray *pathParams = @[
-    @"applicationsId", @"locationsId", @"projectsId", @"servicesId",
-    @"versionsId"
+    @"applicationsId", @"instancesId", @"locationsId", @"projectsId",
+    @"servicesId", @"versionsId"
   ];
-  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/services/{servicesId}/versions/{versionsId}:exportAppImage";
-  GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsExportAppImage *query =
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/services/{servicesId}/versions/{versionsId}/instances/{instancesId}:debug";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsInstancesDebug *query =
     [[self alloc] initWithPathURITemplate:pathURITemplate
                                HTTPMethod:@"POST"
                        pathParameterNames:pathParams];
@@ -1525,8 +1494,42 @@ NSString * const kGTLRAppengineViewFullCertificate  = @"FULL_CERTIFICATE";
   query.applicationsId = applicationsId;
   query.servicesId = servicesId;
   query.versionsId = versionsId;
+  query.instancesId = instancesId;
   query.expectedObjectClass = [GTLRAppengine_Operation class];
-  query.loggingName = @"appengine.projects.locations.applications.services.versions.exportAppImage";
+  query.loggingName = @"appengine.projects.locations.applications.services.versions.instances.debug";
+  return query;
+}
+
+@end
+
+@implementation GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsInstancesDelete
+
+@dynamic applicationsId, instancesId, locationsId, projectsId, servicesId,
+         versionsId;
+
++ (instancetype)queryWithProjectsId:(NSString *)projectsId
+                        locationsId:(NSString *)locationsId
+                     applicationsId:(NSString *)applicationsId
+                         servicesId:(NSString *)servicesId
+                         versionsId:(NSString *)versionsId
+                        instancesId:(NSString *)instancesId {
+  NSArray *pathParams = @[
+    @"applicationsId", @"instancesId", @"locationsId", @"projectsId",
+    @"servicesId", @"versionsId"
+  ];
+  NSString *pathURITemplate = @"v1/projects/{projectsId}/locations/{locationsId}/applications/{applicationsId}/services/{servicesId}/versions/{versionsId}/instances/{instancesId}";
+  GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsInstancesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.projectsId = projectsId;
+  query.locationsId = locationsId;
+  query.applicationsId = applicationsId;
+  query.servicesId = servicesId;
+  query.versionsId = versionsId;
+  query.instancesId = instancesId;
+  query.expectedObjectClass = [GTLRAppengine_Operation class];
+  query.loggingName = @"appengine.projects.locations.applications.services.versions.instances.delete";
   return query;
 }
 

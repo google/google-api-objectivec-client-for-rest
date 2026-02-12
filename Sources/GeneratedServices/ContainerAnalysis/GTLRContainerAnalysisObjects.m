@@ -1072,7 +1072,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 
 @implementation GTLRContainerAnalysis_DiscoveryOccurrence
 @dynamic analysisCompleted, analysisError, analysisStatus, analysisStatusError,
-         archiveTime, continuousAnalysis, cpe, files, lastScanTime, sbomStatus;
+         archiveTime, continuousAnalysis, cpe, files, lastScanTime,
+         lastVulnerabilityUpdateTime, sbomStatus;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2413,11 +2414,11 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_Note
-@dynamic attestation, build, compliance, createTime, deployment, discovery,
-         dsseAttestation, expirationTime, image, kind, longDescription, name,
-         package, relatedNoteNames, relatedUrl, sbomReference, secret,
-         shortDescription, updateTime, upgrade, vulnerability,
-         vulnerabilityAssessment;
+@dynamic advisoryPublishTime, attestation, build, compliance, createTime,
+         deployment, discovery, dsseAttestation, expirationTime, image, kind,
+         longDescription, name, package, relatedNoteNames, relatedUrl,
+         sbomReference, secret, shortDescription, updateTime, upgrade,
+         vulnerability, vulnerabilityAssessment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

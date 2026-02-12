@@ -762,6 +762,33 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 
 @end
 
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsGenerativeInsights
+
+@dynamic location;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsRequest *)object
+                       location:(NSString *)location {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}:generativeInsights";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsGenerativeInsights *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.location = location;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
+  query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSets.authorizedViews.generativeInsights";
+  return query;
+}
+
+@end
+
 @implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAuthorizedViewSetsAuthorizedViewsGet
 
 @dynamic name;
@@ -1140,6 +1167,144 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AuthorizedViewSet class];
   query.loggingName = @"contactcenterinsights.projects.locations.authorizedViewSets.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesCreate
+
+@dynamic autoLabelingRuleId, parent;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/autoLabelingRules";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule class];
+  query.loggingName = @"contactcenterinsights.projects.locations.autoLabelingRules.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleProtobufEmpty class];
+  query.loggingName = @"contactcenterinsights.projects.locations.autoLabelingRules.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule class];
+  query.loggingName = @"contactcenterinsights.projects.locations.autoLabelingRules.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/autoLabelingRules";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListAutoLabelingRulesResponse class];
+  query.loggingName = @"contactcenterinsights.projects.locations.autoLabelingRules.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AutoLabelingRule class];
+  query.loggingName = @"contactcenterinsights.projects.locations.autoLabelingRules.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesTest
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestAutoLabelingRuleRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/autoLabelingRules:test";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsAutoLabelingRulesTest *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestAutoLabelingRuleResponse class];
+  query.loggingName = @"contactcenterinsights.projects.locations.autoLabelingRules.test";
   return query;
 }
 
@@ -1883,7 +2048,13 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
 
 @implementation GTLRContactcenterinsightsQuery_ProjectsLocationsConversationsPatch
 
-@dynamic allowMissing, name, updateMask;
+@dynamic allowMissing,
+         conversationAutoLabelingUpdateConfigAllowAutoLabelingUpdate, name,
+         updateMask;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"conversationAutoLabelingUpdateConfigAllowAutoLabelingUpdate" : @"conversationAutoLabelingUpdateConfig.allowAutoLabelingUpdate" };
+}
 
 + (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Conversation *)object
                            name:(NSString *)name {
@@ -1984,6 +2155,228 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
   query.parent = parent;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
   query.loggingName = @"contactcenterinsights.projects.locations.conversations.upload";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsCreate
+
+@dynamic chartId, parent;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/charts";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart class];
+  query.loggingName = @"contactcenterinsights.projects.locations.dashboards.charts.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleProtobufEmpty class];
+  query.loggingName = @"contactcenterinsights.projects.locations.dashboards.charts.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart class];
+  query.loggingName = @"contactcenterinsights.projects.locations.dashboards.charts.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/charts";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListChartsResponse class];
+  query.loggingName = @"contactcenterinsights.projects.locations.dashboards.charts.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsChartsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Chart class];
+  query.loggingName = @"contactcenterinsights.projects.locations.dashboards.charts.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsCreate
+
+@dynamic dashboardId, parent;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dashboards";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard class];
+  query.loggingName = @"contactcenterinsights.projects.locations.dashboards.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleProtobufEmpty class];
+  query.loggingName = @"contactcenterinsights.projects.locations.dashboards.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard class];
+  query.loggingName = @"contactcenterinsights.projects.locations.dashboards.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/dashboards";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListDashboardsResponse class];
+  query.loggingName = @"contactcenterinsights.projects.locations.dashboards.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsDashboardsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Dashboard class];
+  query.loggingName = @"contactcenterinsights.projects.locations.dashboards.patch";
   return query;
 }
 
@@ -2544,6 +2937,52 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
   query.name = name;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
   query.loggingName = @"contactcenterinsights.projects.locations.encryptionSpec.initialize";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsGenerativeInsights
+
+@dynamic location;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1GenerativeInsightsRequest *)object
+                       location:(NSString *)location {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}:generativeInsights";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsGenerativeInsights *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.location = location;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
+  query.loggingName = @"contactcenterinsights.projects.locations.generativeInsights";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsGetCorrelationConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsGetCorrelationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationConfig class];
+  query.loggingName = @"contactcenterinsights.projects.locations.getCorrelationConfig";
   return query;
 }
 
@@ -3711,6 +4150,60 @@ NSString * const kGTLRContactcenterinsightsViewFull            = @"FULL";
   query.parent = parent;
   query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
   query.loggingName = @"contactcenterinsights.projects.locations.queryPerformanceOverview";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsTestCorrelationConfig
+
+@dynamic location;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1TestCorrelationConfigRequest *)object
+                       location:(NSString *)location {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}:testCorrelationConfig";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsTestCorrelationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.location = location;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleLongrunningOperation class];
+  query.loggingName = @"contactcenterinsights.projects.locations.testCorrelationConfig";
+  return query;
+}
+
+@end
+
+@implementation GTLRContactcenterinsightsQuery_ProjectsLocationsUpdateCorrelationConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRContactcenterinsightsQuery_ProjectsLocationsUpdateCorrelationConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1CorrelationConfig class];
+  query.loggingName = @"contactcenterinsights.projects.locations.updateCorrelationConfig";
   return query;
 }
 

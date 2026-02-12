@@ -61,7 +61,170 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: networkmanagement.organizations.locations.global.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsGlobalOperationsCancel : GTLRNetworkManagementQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRNetworkManagement_CancelOperationRequest to include
+ *    in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsGlobalOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRNetworkManagement_CancelOperationRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  Method: networkmanagement.organizations.locations.global.operations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsGlobalOperationsDelete : GTLRNetworkManagementQuery
+
+/** The name of the operation resource to be deleted. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Empty.
+ *
+ *  Deletes a long-running operation. This method indicates that the client is
+ *  no longer interested in the operation result. It does not cancel the
+ *  operation. If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation resource to be deleted.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsGlobalOperationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  Method: networkmanagement.organizations.locations.global.operations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsGlobalOperationsGet : GTLRNetworkManagementQuery
+
+/** The name of the operation resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_Operation.
+ *
+ *  Gets the latest state of a long-running operation. Clients can use this
+ *  method to poll the operation result at intervals as recommended by the API
+ *  service.
+ *
+ *  @param name The name of the operation resource.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsGlobalOperationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  Method: networkmanagement.organizations.locations.global.operations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
+ */
+@interface GTLRNetworkManagementQuery_OrganizationsLocationsGlobalOperationsList : GTLRNetworkManagementQuery
+
+/** The standard list filter. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** The name of the operation's parent resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** The standard list page size. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** The standard list page token. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  When set to `true`, operations that are reachable are returned as normal,
+ *  and those that are unreachable are returned in the
+ *  ListOperationsResponse.unreachable field. This can only be `true` when
+ *  reading across collections. For example, when `parent` is set to
+ *  `"projects/example/locations/-"`. This field is not supported by default and
+ *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
+ *  otherwise in service or product specific documentation.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRNetworkManagement_ListOperationsResponse.
+ *
+ *  Lists operations that match the specified filter in the request. If the
+ *  server doesn't support this method, it returns `UNIMPLEMENTED`.
+ *
+ *  @param name The name of the operation's parent resource.
+ *
+ *  @return GTLRNetworkManagementQuery_OrganizationsLocationsGlobalOperationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: networkmanagement.organizations.locations.list
  *
@@ -101,170 +264,15 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkManagement_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
  *  @return GTLRNetworkManagementQuery_OrganizationsLocationsList
- *
- *  @note Automatic pagination will be done when @c shouldFetchNextPages is
- *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
- *        information.
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
- *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation, the
- *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Method: networkmanagement.organizations.locations.operations.cancel
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
- */
-@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsCancel : GTLRNetworkManagementQuery
-
-/** The name of the operation resource to be cancelled. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRNetworkManagement_Empty.
- *
- *  Starts asynchronous cancellation on a long-running operation. The server
- *  makes a best effort to cancel the operation, but success is not guaranteed.
- *  If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
- *  other methods to check whether the cancellation succeeded or whether the
- *  operation completed despite cancellation. On successful cancellation, the
- *  operation is not deleted; instead, it becomes an operation with an
- *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
- *  `Code.CANCELLED`.
- *
- *  @param object The @c GTLRNetworkManagement_CancelOperationRequest to include
- *    in the query.
- *  @param name The name of the operation resource to be cancelled.
- *
- *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsCancel
- */
-+ (instancetype)queryWithObject:(GTLRNetworkManagement_CancelOperationRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  Method: networkmanagement.organizations.locations.operations.delete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
- */
-@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsDelete : GTLRNetworkManagementQuery
-
-/** The name of the operation resource to be deleted. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRNetworkManagement_Empty.
- *
- *  Deletes a long-running operation. This method indicates that the client is
- *  no longer interested in the operation result. It does not cancel the
- *  operation. If the server doesn't support this method, it returns
- *  `google.rpc.Code.UNIMPLEMENTED`.
- *
- *  @param name The name of the operation resource to be deleted.
- *
- *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsDelete
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  Method: networkmanagement.organizations.locations.operations.get
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
- */
-@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsGet : GTLRNetworkManagementQuery
-
-/** The name of the operation resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRNetworkManagement_Operation.
- *
- *  Gets the latest state of a long-running operation. Clients can use this
- *  method to poll the operation result at intervals as recommended by the API
- *  service.
- *
- *  @param name The name of the operation resource.
- *
- *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsGet
- */
-+ (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *
- *  Method: networkmanagement.organizations.locations.operations.list
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkManagementCloudPlatform
- */
-@interface GTLRNetworkManagementQuery_OrganizationsLocationsOperationsList : GTLRNetworkManagementQuery
-
-/** The standard list filter. */
-@property(nonatomic, copy, nullable) NSString *filter;
-
-/** The name of the operation's parent resource. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The standard list page size. */
-@property(nonatomic, assign) NSInteger pageSize;
-
-/** The standard list page token. */
-@property(nonatomic, copy, nullable) NSString *pageToken;
-
-/**
- *  When set to `true`, operations that are reachable are returned as normal,
- *  and those that are unreachable are returned in the
- *  ListOperationsResponse.unreachable field. This can only be `true` when
- *  reading across collections. For example, when `parent` is set to
- *  `"projects/example/locations/-"`. This field is not supported by default and
- *  will result in an `UNIMPLEMENTED` error if set unless explicitly documented
- *  otherwise in service or product specific documentation.
- */
-@property(nonatomic, assign) BOOL returnPartialSuccess;
-
-/**
- *  Fetches a @c GTLRNetworkManagement_ListOperationsResponse.
- *
- *  Lists operations that match the specified filter in the request. If the
- *  server doesn't support this method, it returns `UNIMPLEMENTED`.
- *
- *  @param name The name of the operation's parent resource.
- *
- *  @return GTLRNetworkManagementQuery_OrganizationsLocationsOperationsList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -1121,7 +1129,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: networkmanagement.projects.locations.list
  *
@@ -1161,7 +1173,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRNetworkManagement_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

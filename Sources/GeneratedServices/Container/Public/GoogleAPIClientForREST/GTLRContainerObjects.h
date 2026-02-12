@@ -39,6 +39,7 @@
 @class GTLRContainer_BlueGreenInfo;
 @class GTLRContainer_BlueGreenSettings;
 @class GTLRContainer_BootDisk;
+@class GTLRContainer_BootDiskProfile;
 @class GTLRContainer_CertificateAuthorityDomainConfig;
 @class GTLRContainer_CertificateConfig;
 @class GTLRContainer_CertificateConfigPair;
@@ -60,6 +61,7 @@
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
 @class GTLRContainer_DConfig;
+@class GTLRContainer_DedicatedLocalSsdProfile;
 @class GTLRContainer_DefaultComputeClassConfig;
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DesiredAdditionalIPRangesConfig;
@@ -68,7 +70,9 @@
 @class GTLRContainer_DnsCacheConfig;
 @class GTLRContainer_DNSConfig;
 @class GTLRContainer_DNSEndpointConfig;
+@class GTLRContainer_EncryptionConfig;
 @class GTLRContainer_EnterpriseConfig;
+@class GTLRContainer_EphemeralLocalSsdProfile;
 @class GTLRContainer_EphemeralStorageLocalSsdConfig;
 @class GTLRContainer_EvictionGracePeriod;
 @class GTLRContainer_EvictionMinimumReclaim;
@@ -84,6 +88,7 @@
 @class GTLRContainer_GcsFuseCsiDriverConfig;
 @class GTLRContainer_GkeAutoUpgradeConfig;
 @class GTLRContainer_GkeBackupAgentConfig;
+@class GTLRContainer_GPUDirectConfig;
 @class GTLRContainer_GPUDriverInstallationConfig;
 @class GTLRContainer_GPUSharingConfig;
 @class GTLRContainer_HighScaleCheckpointingConfig;
@@ -192,12 +197,14 @@
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
 @class GTLRContainer_ShieldedInstanceConfig;
 @class GTLRContainer_ShieldedNodes;
+@class GTLRContainer_SliceControllerConfig;
 @class GTLRContainer_SoleTenantConfig;
 @class GTLRContainer_StandardRolloutPolicy;
 @class GTLRContainer_StatefulHAConfig;
 @class GTLRContainer_Status;
 @class GTLRContainer_Status_Details_Item;
 @class GTLRContainer_StatusCondition;
+@class GTLRContainer_SwapConfig;
 @class GTLRContainer_TimeWindow;
 @class GTLRContainer_TopologyManager;
 @class GTLRContainer_UpdateInfo;
@@ -224,6 +231,30 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_AdditionalIPRangesConfig.status
+
+/**
+ *  ACTIVE status indicates that the subnet is available for new node pool
+ *  creation.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdditionalIPRangesConfig_Status_Active;
+/**
+ *  DRAINING status indicates that the subnet is not used for new node pool
+ *  creation.
+ *
+ *  Value: "DRAINING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdditionalIPRangesConfig_Status_Draining;
+/**
+ *  Not set, same as ACTIVE.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_AdditionalIPRangesConfig_Status_StatusUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_AdvancedDatapathObservabilityConfig.relayMode
@@ -505,6 +536,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_StatusUnspecifi
  *  Value: "STOPPING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_ClusterAutoscaling.autopilotGeneralProfile
+
+/**
+ *  Use default configuration.
+ *
+ *  Value: "AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_AutopilotGeneralProfileUnspecified;
+/**
+ *  Avoid extra IP consumption.
+ *
+ *  Value: "NO_PERFORMANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_NoPerformance;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_ClusterAutoscaling.autoscalingProfile
@@ -1079,6 +1126,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_GkeAutoUpgradeConfig_PatchMode
  *  Value: "PATCH_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_GkeAutoUpgradeConfig_PatchMode_PatchModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRContainer_GPUDirectConfig.gpuDirectStrategy
+
+/**
+ *  Default value. No GPU Direct strategy is enabled on the node.
+ *
+ *  Value: "GPU_DIRECT_STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUDirectConfig_GpuDirectStrategy_GpuDirectStrategyUnspecified;
+/**
+ *  GPUDirect-RDMA on A3 Ultra, and A4 machine types
+ *
+ *  Value: "RDMA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_GPUDirectConfig_GpuDirectStrategy_Rdma;
 
 // ----------------------------------------------------------------------------
 // GTLRContainer_GPUDriverInstallationConfig.gpuDriverVersion
@@ -2896,6 +2959,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeSettings_Strategy_BlueG
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeSettings_Strategy_NodePoolUpdateStrategyUnspecified;
 /**
+ *  SHORT_LIVED is the dedicated upgrade strategy for QueuedProvisioning and
+ *  flex start nodepools scaled up only by enqueueing to the Dynamic Workload
+ *  Scheduler (DWS).
+ *
+ *  Value: "SHORT_LIVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeSettings_Strategy_ShortLived;
+/**
  *  SURGE is the traditional way of upgrade a node pool. max_surge and
  *  max_unavailable determines the level of upgrade parallelism.
  *
@@ -3035,6 +3106,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  pod IPs. Example1: gke-pod-range1 Example2: gke-pod-range1,gke-pod-range2
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *podIpv4RangeNames;
+
+/**
+ *  Draining status of the additional subnet.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_AdditionalIPRangesConfig_Status_Active ACTIVE
+ *        status indicates that the subnet is available for new node pool
+ *        creation. (Value: "ACTIVE")
+ *    @arg @c kGTLRContainer_AdditionalIPRangesConfig_Status_Draining DRAINING
+ *        status indicates that the subnet is not used for new node pool
+ *        creation. (Value: "DRAINING")
+ *    @arg @c kGTLRContainer_AdditionalIPRangesConfig_Status_StatusUnspecified
+ *        Not set, same as ACTIVE. (Value: "STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
 
 /**
  *  Name of the subnetwork. This can be the full path of the subnetwork or just
@@ -3178,6 +3264,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Optional. Configuration for Ray Operator addon. */
 @property(nonatomic, strong, nullable) GTLRContainer_RayOperatorConfig *rayOperatorConfig;
+
+/** Optional. Configuration for the slice controller add-on. */
+@property(nonatomic, strong, nullable) GTLRContainer_SliceControllerConfig *sliceControllerConfig;
 
 /** Optional. Configuration for the StatefulHA add-on. */
 @property(nonatomic, strong, nullable) GTLRContainer_StatefulHAConfig *statefulHaConfig;
@@ -3729,6 +3818,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Swap on the node's boot disk.
+ */
+@interface GTLRContainer_BootDiskProfile : GTLRObject
+
+/**
+ *  Specifies the size of the swap space in gibibytes (GiB).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *swapSizeGib;
+
+/**
+ *  Specifies the size of the swap space as a percentage of the boot disk size.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *swapSizePercent;
+
+@end
+
+
+/**
  *  CancelOperationRequest cancels a single operation.
  */
 @interface GTLRContainer_CancelOperationRequest : GTLRObject
@@ -3925,9 +4036,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  The IP address range of the container pods in this cluster, in
- *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
- *  (e.g. `10.96.0.0/14`). Leave blank to have one automatically chosen or
- *  specify a `/14` block in `10.0.0.0/8`.
+ *  [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`). Leave blank to have one automatically chosen
+ *  or specify a `/14` block in `10.0.0.0/8`.
  */
 @property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr;
 
@@ -4305,9 +4416,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /**
  *  Output only. The IP address range of the Kubernetes services in this
  *  cluster, in
- *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
- *  (e.g. `1.2.3.4/29`). Service addresses are typically put in the last `/16`
- *  from the container CIDR.
+ *  [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `1.2.3.4/29`). Service addresses are typically put in the
+ *  last `/16` from the container CIDR.
  */
 @property(nonatomic, copy, nullable) NSString *servicesIpv4Cidr;
 
@@ -4355,9 +4466,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  Output only. The IP address range of the Cloud TPUs in this cluster, in
- *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
- *  (e.g. `1.2.3.4/29`). This field is deprecated due to the deprecation of 2VM
- *  TPU. The end of life date for 2VM TPU is 2025-04-25.
+ *  [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `1.2.3.4/29`). This field is deprecated due to the
+ *  deprecation of 2VM TPU. The end of life date for 2VM TPU is 2025-04-25.
  */
 @property(nonatomic, copy, nullable) NSString *tpuIpv4CidrBlock GTLR_DEPRECATED;
 
@@ -4403,6 +4514,19 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  create/delete node pools based on the current needs.
  */
 @interface GTLRContainer_ClusterAutoscaling : GTLRObject
+
+/**
+ *  Autopilot general profile for the cluster, which defines the configuration
+ *  for the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_AutopilotGeneralProfileUnspecified
+ *        Use default configuration. (Value:
+ *        "AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_NoPerformance
+ *        Avoid extra IP consumption. (Value: "NO_PERFORMANCE")
+ */
+@property(nonatomic, copy, nullable) NSString *autopilotGeneralProfile;
 
 /**
  *  The list of Google Compute Engine
@@ -5299,6 +5423,21 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Provisions a new, separate local NVMe SSD exclusively for swap.
+ */
+@interface GTLRContainer_DedicatedLocalSsdProfile : GTLRObject
+
+/**
+ *  The number of physical local NVMe SSD disks to attach.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskCount;
+
+@end
+
+
+/**
  *  DefaultComputeClassConfig defines default compute class configuration.
  */
 @interface GTLRContainer_DefaultComputeClassConfig : GTLRObject
@@ -5522,6 +5661,22 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Defines encryption settings for the swap space.
+ */
+@interface GTLRContainer_EncryptionConfig : GTLRObject
+
+/**
+ *  Optional. If true, swap space will not be encrypted. Defaults to false
+ *  (encrypted).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
  *  EnterpriseConfig is the cluster enterprise configuration. Deprecated: GKE
  *  Enterprise features are now available without an Enterprise tier.
  */
@@ -5555,6 +5710,29 @@ GTLR_DEPRECATED
  *        indicates a standard GKE cluster. (Value: "STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *desiredTier;
+
+@end
+
+
+/**
+ *  Swap on the local SSD shared with pod ephemeral storage.
+ */
+@interface GTLRContainer_EphemeralLocalSsdProfile : GTLRObject
+
+/**
+ *  Specifies the size of the swap space in gibibytes (GiB).
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *swapSizeGib;
+
+/**
+ *  Specifies the size of the swap space as a percentage of the ephemeral local
+ *  SSD capacity.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *swapSizePercent;
 
 @end
 
@@ -6033,6 +6211,26 @@ GTLR_DEPRECATED
 
 
 /**
+ *  GPUDirectConfig specifies the GPU direct strategy on the node pool.
+ */
+@interface GTLRContainer_GPUDirectConfig : GTLRObject
+
+/**
+ *  The type of GPU direct strategy to enable on the node pool.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_GPUDirectConfig_GpuDirectStrategy_GpuDirectStrategyUnspecified
+ *        Default value. No GPU Direct strategy is enabled on the node. (Value:
+ *        "GPU_DIRECT_STRATEGY_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_GPUDirectConfig_GpuDirectStrategy_Rdma
+ *        GPUDirect-RDMA on A3 Ultra, and A4 machine types (Value: "RDMA")
+ */
+@property(nonatomic, copy, nullable) NSString *gpuDirectStrategy;
+
+@end
+
+
+/**
  *  GPUDriverInstallationConfig specifies the version of GPU driver to be auto
  *  installed.
  */
@@ -6312,9 +6510,10 @@ GTLR_DEPRECATED
  *  applicable when `use_ip_aliases` is true. Set to blank to have a range
  *  chosen with the default size. Set to /netmask (e.g. `/14`) to have a range
  *  chosen with a specific netmask. Set to a
- *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
- *  (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`,
- *  `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use.
+ *  [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
+ *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to
+ *  use.
  */
 @property(nonatomic, copy, nullable) NSString *clusterIpv4CidrBlock;
 
@@ -6372,9 +6571,10 @@ GTLR_DEPRECATED
  *  only if `create_subnetwork` is true. Set to blank to have a range chosen
  *  with the default size. Set to /netmask (e.g. `/14`) to have a range chosen
  *  with a specific netmask. Set to a
- *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
- *  (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`,
- *  `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use.
+ *  [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
+ *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to
+ *  use.
  */
 @property(nonatomic, copy, nullable) NSString *nodeIpv4CidrBlock;
 
@@ -6398,9 +6598,10 @@ GTLR_DEPRECATED
  *  applicable when `use_ip_aliases` is true. Set to blank to have a range
  *  chosen with the default size. Set to /netmask (e.g. `/14`) to have a range
  *  chosen with a specific netmask. Set to a
- *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
- *  (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`,
- *  `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use.
+ *  [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
+ *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to
+ *  use.
  */
 @property(nonatomic, copy, nullable) NSString *servicesIpv4CidrBlock;
 
@@ -6446,11 +6647,11 @@ GTLR_DEPRECATED
  *  applicable when `use_ip_aliases` is true. If unspecified, the range will use
  *  the default size. Set to /netmask (e.g. `/14`) to have a range chosen with a
  *  specific netmask. Set to a
- *  [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation
- *  (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`,
- *  `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use. This
- *  field is deprecated due to the deprecation of 2VM TPU. The end of life date
- *  for 2VM TPU is 2025-04-25.
+ *  [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
+ *  notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g.
+ *  `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to
+ *  use. This field is deprecated due to the deprecation of 2VM TPU. The end of
+ *  life date for 2VM TPU is 2025-04-25.
  */
 @property(nonatomic, copy, nullable) NSString *tpuIpv4CidrBlock GTLR_DEPRECATED;
 
@@ -6649,6 +6850,12 @@ GTLR_DEPRECATED
  *  enforces kernel module signature verification.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeKernelModuleLoading *nodeKernelModuleLoading;
+
+/**
+ *  Optional. Enables and configures swap space on nodes. If omitted, swap is
+ *  disabled.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_SwapConfig *swapConfig;
 
 /**
  *  The Linux kernel parameters to be applied to the nodes and all pods running
@@ -7633,6 +7840,13 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
 
+/**
+ *  Consolidation delay defines duration after which the Cluster Autoscaler can
+ *  scale down underutilized nodes. If not set, nodes are scaled down by default
+ *  behavior, i.e. according to the chosen autoscaling profile.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *consolidationDelay;
+
 /** Parameters for containerd customization. */
 @property(nonatomic, strong, nullable) GTLRContainer_DConfig *containerdConfig;
 
@@ -7695,6 +7909,9 @@ GTLR_DEPRECATED
 
 /** Google Container File System (image streaming) configs. */
 @property(nonatomic, strong, nullable) GTLRContainer_GcfsConfig *gcfsConfig;
+
+/** The configuration for GPU Direct */
+@property(nonatomic, strong, nullable) GTLRContainer_GPUDirectConfig *gpuDirectConfig;
 
 /** Enable or disable gvnic in the node pool. */
 @property(nonatomic, strong, nullable) GTLRContainer_VirtualNIC *gvnic;
@@ -8384,11 +8601,14 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *podRange;
 
 /**
- *  The subnetwork path for the node pool. Format:
+ *  Optional. The subnetwork name/path for the node pool. Format:
  *  projects/{project}/regions/{region}/subnetworks/{subnetwork} If the cluster
- *  is associated with multiple subnetworks, the subnetwork for the node pool is
- *  picked based on the IP utilization during node pool creation and is
- *  immutable.
+ *  is associated with multiple subnetworks, the subnetwork can be either: 1. A
+ *  user supplied subnetwork name/full path during node pool creation. Example1:
+ *  my-subnet Example2:
+ *  projects/gke-project/regions/us-central1/subnetworks/my-subnet 2. A
+ *  subnetwork path picked based on the IP utilization during node pool creation
+ *  and is immutable.
  */
 @property(nonatomic, copy, nullable) NSString *subnetwork;
 
@@ -10638,6 +10858,21 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for the Slice Controller.
+ */
+@interface GTLRContainer_SliceControllerConfig : GTLRObject
+
+/**
+ *  Optional. Indicates whether Slice Controller is enabled in the cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  SoleTenantConfig contains the NodeAffinities to specify what shared sole
  *  tenant node groups should back the node pool.
  */
@@ -10941,6 +11176,33 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for swap memory on a node pool.
+ */
+@interface GTLRContainer_SwapConfig : GTLRObject
+
+/** Swap on the node's boot disk. */
+@property(nonatomic, strong, nullable) GTLRContainer_BootDiskProfile *bootDiskProfile;
+
+/** Provisions a new, separate local NVMe SSD exclusively for swap. */
+@property(nonatomic, strong, nullable) GTLRContainer_DedicatedLocalSsdProfile *dedicatedLocalSsdProfile;
+
+/**
+ *  Optional. Enables or disables swap for the node pool.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** Optional. If omitted, swap space is encrypted by default. */
+@property(nonatomic, strong, nullable) GTLRContainer_EncryptionConfig *encryptionConfig;
+
+/** Swap on the local SSD shared with pod ephemeral storage. */
+@property(nonatomic, strong, nullable) GTLRContainer_EphemeralLocalSsdProfile *ephemeralLocalSsdProfile;
+
+@end
+
+
+/**
  *  Represents an arbitrary window of time.
  */
 @interface GTLRContainer_TimeWindow : GTLRObject
@@ -11128,6 +11390,13 @@ GTLR_DEPRECATED
  *  Confidential VM once enabled.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
+
+/**
+ *  Consolidation delay defines duration after which the Cluster Autoscaler can
+ *  scale down underutilized nodes. If not set, nodes are scaled down by default
+ *  behavior, i.e. according to the chosen autoscaling profile.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *consolidationDelay;
 
 /**
  *  The desired containerd config for nodes in the node pool. Initiates an
@@ -11622,6 +11891,10 @@ GTLR_DEPRECATED
  *        Default value if unset. GKE internally defaults the update strategy to
  *        SURGE for unspecified strategies. (Value:
  *        "NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_UpgradeSettings_Strategy_ShortLived SHORT_LIVED is
+ *        the dedicated upgrade strategy for QueuedProvisioning and flex start
+ *        nodepools scaled up only by enqueueing to the Dynamic Workload
+ *        Scheduler (DWS). (Value: "SHORT_LIVED")
  *    @arg @c kGTLRContainer_UpgradeSettings_Strategy_Surge SURGE is the
  *        traditional way of upgrade a node pool. max_surge and max_unavailable
  *        determines the level of upgrade parallelism. (Value: "SURGE")

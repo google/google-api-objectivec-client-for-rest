@@ -54,7 +54,7 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_AdvancedVoiceOptions
-@dynamic lowLatencyJourneySynthesis, relaxSafetyFilters;
+@dynamic enableTextnorm, lowLatencyJourneySynthesis, relaxSafetyFilters;
 @end
 
 

@@ -55,7 +55,7 @@ NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadRel
 
 @implementation GTLRFirebaseAppDistribution_GdataBlobstore2Info
 @dynamic blobGeneration, blobId, downloadExternalReadToken, downloadReadHandle,
-         readToken, uploadMetadataContainer;
+         readToken, uploadFragmentListCreationInfo, uploadMetadataContainer;
 @end
 
 

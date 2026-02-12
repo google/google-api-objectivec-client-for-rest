@@ -387,13 +387,6 @@ FOUNDATION_EXTERN NSString * const kGTLRRecommender_GoogleCloudRecommenderV1Reli
 /** Use with CategoryType.COST */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1CostProjection *costProjection;
 
-/**
- *  If populated, the impact contains multiple components. In this case, the
- *  top-level impact contains aggregated values and each component contains
- *  per-service details.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRRecommender_GoogleCloudRecommenderV1Impact *> *impactComponents;
-
 /** Use with CategoryType.RELIABILITY */
 @property(nonatomic, strong, nullable) GTLRRecommender_GoogleCloudRecommenderV1ReliabilityProjection *reliabilityProjection;
 

@@ -61,7 +61,7 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRPaymentsResellerSubscription_CancelSubscriptionRequest.cancellationReason
 
 /**
- *  Accidential purchase.
+ *  Accidental purchase.
  *
  *  Value: "CANCELLATION_REASON_ACCIDENTAL_PURCHASE"
  */
@@ -79,7 +79,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_CancelSubsc
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonBillingSystemSwitch;
 /**
- *  Fraudualant transaction.
+ *  Fraudulent transaction.
  *
  *  Value: "CANCELLATION_REASON_FRAUD"
  */
@@ -410,7 +410,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscriptio
 // GTLRPaymentsResellerSubscription_SubscriptionCancellationDetails.reason
 
 /**
- *  Accidential purchase.
+ *  Accidental purchase.
  *
  *  Value: "CANCELLATION_REASON_ACCIDENTAL_PURCHASE"
  */
@@ -428,7 +428,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscriptio
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonBillingSystemSwitch;
 /**
- *  Fraudualant transaction.
+ *  Fraudulent transaction.
  *
  *  Value: "CANCELLATION_REASON_FRAUD"
  */
@@ -600,8 +600,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscriptio
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecAlignWithPreviousSubscription;
 /**
- *  The billing cycle starts at the end of the previous subscription's billing
- *  cycle and aligns with the previous subscription's billing cycle.
+ *  The new subscription will have the same `renewalTime` as the previous
+ *  subscription, while the previous subscription is scheduled for cancellation
+ *  at that same time.
  *
  *  Value: "BILLING_CYCLE_SPEC_DEFERRED_TO_NEXT_RECURRENCE"
  */
@@ -678,7 +679,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
 /**
  *  Optional. If true, Google will cancel the subscription immediately, and may
  *  or may not (based on the contract) issue a prorated refund for the remainder
- *  of the billing cycle. Otherwise, Google defers the cancelation at
+ *  of the billing cycle. Otherwise, Google defers the cancellation at
  *  renewal_time, and will not issue a refund. - YouTube subscriptions must use
  *  this option currently. However, the user will still have access to the
  *  subscription until the end of the billing cycle.
@@ -692,7 +693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *
  *  Likely values:
  *    @arg @c kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonAccidentalPurchase
- *        Accidential purchase. (Value:
+ *        Accidental purchase. (Value:
  *        "CANCELLATION_REASON_ACCIDENTAL_PURCHASE")
  *    @arg @c kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonAccountClosed
  *        Used for notification only, do not use in Cancel API. User account
@@ -701,7 +702,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *        Cancellation due to a billing system switch. (Value:
  *        "CANCELLATION_REASON_BILLING_SYSTEM_SWITCH")
  *    @arg @c kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonFraud
- *        Fraudualant transaction. (Value: "CANCELLATION_REASON_FRAUD")
+ *        Fraudulent transaction. (Value: "CANCELLATION_REASON_FRAUD")
  *    @arg @c kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonOther
  *        Other reason. (Value: "CANCELLATION_REASON_OTHER")
  *    @arg @c kGTLRPaymentsResellerSubscription_CancelSubscriptionRequest_CancellationReason_CancellationReasonPastDue
@@ -974,18 +975,19 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
 
 /**
  *  Optional. The maximum number of promotions to return. The service may return
- *  fewer than this value. If unspecified, at most 50 products will be returned.
- *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ *  fewer than this value. If unspecified, at most 50 promotions will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pageSize;
 
 /**
- *  Optional. A page token, received from a previous `ListPromotions` call.
- *  Provide this to retrieve the subsequent page. When paginating, all other
- *  parameters provided to `ListPromotions` must match the call that provided
- *  the page token.
+ *  Optional. A page token, received from a previous `FindEligiblePromotions`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `FindEligiblePromotions` must match the call
+ *  that provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1020,13 +1022,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
 
 
 /**
- *  Details for a subscriptiin line item with finite billing cycles.
+ *  Details for a subscription line item with finite billing cycles.
  */
 @interface GTLRPaymentsResellerSubscription_FiniteBillingCycleDetails : GTLRObject
 
 /**
- *  Required. The number of a subscription line item billing cycles after which
- *  billing will stop automatically.
+ *  The number of a subscription line item billing cycles after which billing
+ *  will stop automatically.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -1307,7 +1309,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
 
 /**
  *  Output only. 2-letter ISO region code where the product is available in. Ex.
- *  "US" Please refers to: https://en.wikipedia.org/wiki/ISO_3166-1
+ *  "US" Please refer to: https://en.wikipedia.org/wiki/ISO_3166-1
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regionCodes;
 
@@ -1448,7 +1450,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
 
 /**
  *  Output only. 2-letter ISO region code where the promotion is available in.
- *  Ex. "US" Please refers to: https://en.wikipedia.org/wiki/ISO_3166-1
+ *  Ex. "US" Please refer to: https://en.wikipedia.org/wiki/ISO_3166-1
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *regionCodes;
 
@@ -1759,7 +1761,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *
  *  Likely values:
  *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonAccidentalPurchase
- *        Accidential purchase. (Value:
+ *        Accidental purchase. (Value:
  *        "CANCELLATION_REASON_ACCIDENTAL_PURCHASE")
  *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonAccountClosed
  *        Used for notification only, do not use in Cancel API. User account
@@ -1768,7 +1770,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *        Cancellation due to a billing system switch. (Value:
  *        "CANCELLATION_REASON_BILLING_SYSTEM_SWITCH")
  *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonFraud
- *        Fraudualant transaction. (Value: "CANCELLATION_REASON_FRAUD")
+ *        Fraudulent transaction. (Value: "CANCELLATION_REASON_FRAUD")
  *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonOther
  *        Other reason. (Value: "CANCELLATION_REASON_OTHER")
  *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionCancellationDetails_Reason_CancellationReasonPastDue
@@ -1864,8 +1866,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
 @property(nonatomic, strong, nullable) GTLRPaymentsResellerSubscription_SubscriptionLineItemOneTimeRecurrenceDetails *oneTimeRecurrenceDetails;
 
 /**
- *  Required. Product resource name that identifies one the line item The format
- *  is 'partners/{partner_id}/products/{product_id}'.
+ *  Required. Product resource name that identifies the product associated with
+ *  this line item. The format is 'partners/{partner_id}/products/{product_id}'.
  */
 @property(nonatomic, copy, nullable) NSString *product;
 
@@ -2032,9 +2034,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *        First cycle of the new subscription will be prorated. (Value:
  *        "BILLING_CYCLE_SPEC_ALIGN_WITH_PREVIOUS_SUBSCRIPTION")
  *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecDeferredToNextRecurrence
- *        The billing cycle starts at the end of the previous subscription's
- *        billing cycle and aligns with the previous subscription's billing
- *        cycle. (Value: "BILLING_CYCLE_SPEC_DEFERRED_TO_NEXT_RECURRENCE")
+ *        The new subscription will have the same `renewalTime` as the previous
+ *        subscription, while the previous subscription is scheduled for
+ *        cancellation at that same time. (Value:
+ *        "BILLING_CYCLE_SPEC_DEFERRED_TO_NEXT_RECURRENCE")
  *    @arg @c kGTLRPaymentsResellerSubscription_SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecStartImmediately
  *        The billing cycle of the new subscription starts immediately. (Value:
  *        "BILLING_CYCLE_SPEC_START_IMMEDIATELY")

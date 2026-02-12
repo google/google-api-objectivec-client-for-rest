@@ -15,6 +15,29 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings.minLikelihood
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_Likely = @"LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_Possible = @"POSSIBLE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_Unlikely = @"UNLIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings_MinLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
+
+// GTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes.matchingType
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeFullMatch = @"MATCHING_TYPE_FULL_MATCH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeInverseMatch = @"MATCHING_TYPE_INVERSE_MATCH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypePartialMatch = @"MATCHING_TYPE_PARTIAL_MATCH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeRuleSpecific = @"MATCHING_TYPE_RULE_SPECIFIC";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MatchingType_MatchingTypeUnspecified = @"MATCHING_TYPE_UNSPECIFIED";
+
+// GTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes.minLikelihood
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_LikelihoodUnspecified = @"LIKELIHOOD_UNSPECIFIED";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_Likely = @"LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_Possible = @"POSSIBLE";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_Unlikely = @"UNLIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_VeryLikely = @"VERY_LIKELY";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes_MinLikelihood_VeryUnlikely = @"VERY_UNLIKELY";
+
 // GTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions.bucketTypes
 NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_BucketTypes_TypeAllSupported = @"TYPE_ALL_SUPPORTED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2AmazonS3BucketConditions_BucketTypes_TypeGeneralPurpose = @"TYPE_GENERAL_PURPOSE";
@@ -343,6 +366,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Error_ExtraInfo_ImageScanUnavailable
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeFullMatch = @"MATCHING_TYPE_FULL_MATCH";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeInverseMatch = @"MATCHING_TYPE_INVERSE_MATCH";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypePartialMatch = @"MATCHING_TYPE_PARTIAL_MATCH";
+NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeRuleSpecific = @"MATCHING_TYPE_RULE_SPECIFIC";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2ExclusionRule_MatchingType_MatchingTypeUnspecified = @"MATCHING_TYPE_UNSPECIFIED";
 
 // GTLRDLP_GooglePrivacyDlpV2Expressions.logicalOperator
@@ -676,6 +700,52 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ActivateJobTriggerRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AdjustByImageFindings
+@dynamic imageContainmentType, infoTypes, minLikelihood;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AdjustByMatchingInfoTypes
+@dynamic infoTypes, matchingType, minLikelihood;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2AdjustmentRule
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2AdjustmentRule
+@dynamic adjustByImageFindings, adjustByMatchingInfoTypes, likelihoodAdjustment;
 @end
 
 
@@ -2178,6 +2248,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2Encloses
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2Encloses
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2EntityId
 //
 
@@ -2216,6 +2295,24 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2ExcludeByImageFindings
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ExcludeByImageFindings
+@dynamic imageContainmentType, infoTypes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"infoTypes" : [GTLRDLP_GooglePrivacyDlpV2InfoType class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2ExcludeInfoTypes
 //
 
@@ -2238,7 +2335,8 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ExclusionRule
-@dynamic dictionary, excludeByHotword, excludeInfoTypes, matchingType, regex;
+@dynamic dictionary, excludeByHotword, excludeByImageFindings, excludeInfoTypes,
+         matchingType, regex;
 @end
 
 
@@ -2513,6 +2611,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2FullyInside
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2FullyInside
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2GlobalProcessing
 //
 
@@ -2636,6 +2743,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ImageContainmentType
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ImageContainmentType
+@dynamic encloses, fullyInside, overlaps;
 @end
 
 
@@ -2887,7 +3004,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2InspectionRule
-@dynamic exclusionRule, hotwordRule;
+@dynamic adjustmentRule, exclusionRule, hotwordRule;
 @end
 
 
@@ -3750,6 +3867,15 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2OutputStorageConfig
 @dynamic outputSchema, storagePath, table;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2Overlap
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2Overlap
 @end
 
 

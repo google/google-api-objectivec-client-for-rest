@@ -543,10 +543,11 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 //
 
 @implementation GTLRSaaSServiceManagement_Rollout
-@dynamic annotations, control, createTime, effectiveUnitFilter, endTime, ETag,
-         labels, name, parentRollout, releaseProperty, rolloutKind,
-         rolloutOrchestrationStrategy, rootRollout, startTime, state,
-         stateMessage, stateTransitionTime, stats, uid, unitFilter, updateTime;
+@dynamic annotations, control, createTime, deleteTime, effectiveUnitFilter,
+         endTime, ETag, labels, name, parentRollout, releaseProperty,
+         rolloutKind, rolloutOrchestrationStrategy, rootRollout, startTime,
+         state, stateMessage, stateTransitionTime, stats, uid, unitFilter,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -930,9 +931,9 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 //
 
 @implementation GTLRSaaSServiceManagement_UnitOperation
-@dynamic annotations, cancel, conditions, createTime, deprovision, engineState,
-         errorCategory, ETag, labels, name, parentUnitOperation, provision,
-         rollout, schedule, state, uid, unit, updateTime, upgrade;
+@dynamic annotations, cancel, conditions, createTime, deleteTime, deprovision,
+         engineState, errorCategory, ETag, labels, name, parentUnitOperation,
+         provision, rollout, schedule, state, uid, unit, updateTime, upgrade;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

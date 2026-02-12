@@ -872,6 +872,29 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 
 @end
 
+@implementation GTLRStorageQuery_FoldersDeleteRecursive
+
+@dynamic bucket, folder, ifMetagenerationMatch, ifMetagenerationNotMatch;
+
++ (instancetype)queryWithBucket:(NSString *)bucket
+                         folder:(NSString *)folder {
+  NSArray *pathParams = @[
+    @"bucket", @"folder"
+  ];
+  NSString *pathURITemplate = @"b/{bucket}/folders/{folder}/deleteRecursive";
+  GTLRStorageQuery_FoldersDeleteRecursive *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bucket = bucket;
+  query.folder = folder;
+  query.expectedObjectClass = [GTLRStorage_GoogleLongrunningOperation class];
+  query.loggingName = @"storage.folders.deleteRecursive";
+  return query;
+}
+
+@end
+
 @implementation GTLRStorageQuery_FoldersGet
 
 @dynamic bucket, folder, ifMetagenerationMatch, ifMetagenerationNotMatch;
@@ -1435,7 +1458,15 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 @implementation GTLRStorageQuery_ObjectsCompose
 
 @dynamic destinationBucket, destinationObject, destinationPredefinedAcl,
-         ifGenerationMatch, ifMetagenerationMatch, kmsKeyName, userProject;
+         dropContextGroups, ifGenerationMatch, ifMetagenerationMatch,
+         kmsKeyName, userProject;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dropContextGroups" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRStorage_ComposeRequest *)object
               destinationBucket:(NSString *)destinationBucket
@@ -1731,12 +1762,19 @@ NSString * const kGTLRStorageProjectionNoAcl = @"noAcl";
 @implementation GTLRStorageQuery_ObjectsRewrite
 
 @dynamic destinationBucket, destinationKmsKeyName, destinationObject,
-         destinationPredefinedAcl, ifGenerationMatch, ifGenerationNotMatch,
-         ifMetagenerationMatch, ifMetagenerationNotMatch,
+         destinationPredefinedAcl, dropContextGroups, ifGenerationMatch,
+         ifGenerationNotMatch, ifMetagenerationMatch, ifMetagenerationNotMatch,
          ifSourceGenerationMatch, ifSourceGenerationNotMatch,
          ifSourceMetagenerationMatch, ifSourceMetagenerationNotMatch,
          maxBytesRewrittenPerCall, projection, rewriteToken, sourceBucket,
          sourceGeneration, sourceObject, userProject;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dropContextGroups" : [NSString class]
+  };
+  return map;
+}
 
 + (instancetype)queryWithObject:(GTLRStorage_Object *)object
                    sourceBucket:(NSString *)sourceBucket

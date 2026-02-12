@@ -61,6 +61,8 @@
 @class GTLRClassroom_StateHistory;
 @class GTLRClassroom_Student;
 @class GTLRClassroom_StudentContext;
+@class GTLRClassroom_StudentGroup;
+@class GTLRClassroom_StudentGroupMember;
 @class GTLRClassroom_StudentSubmission;
 @class GTLRClassroom_StudentSubmission_AssignedRubricGrades;
 @class GTLRClassroom_StudentSubmission_DraftRubricGrades;
@@ -2567,6 +2569,60 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 
 
 /**
+ *  Response when listing students in a group.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "studentGroupMembers" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRClassroom_ListStudentGroupMembersResponse : GTLRCollectionObject
+
+/**
+ *  Token identifying the next page of results to return. If empty, no further
+ *  results are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The student group members.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_StudentGroupMember *> *studentGroupMembers;
+
+@end
+
+
+/**
+ *  Response when listing student groups.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "studentGroups" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRClassroom_ListStudentGroupsResponse : GTLRCollectionObject
+
+/**
+ *  Token identifying the next page of results to return. If empty, no further
+ *  results are available.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The student groups.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRClassroom_StudentGroup *> *studentGroups;
+
+@end
+
+
+/**
  *  Response when listing students.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3097,6 +3153,44 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  *  exactly when `supportsStudentWork` is `true`.
  */
 @property(nonatomic, copy, nullable) NSString *submissionId;
+
+@end
+
+
+/**
+ *  A student group in a course.
+ */
+@interface GTLRClassroom_StudentGroup : GTLRObject
+
+/** The identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/**
+ *  The identifier of the student group.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** The title of the student group. */
+@property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  A student member in a student group.
+ */
+@interface GTLRClassroom_StudentGroupMember : GTLRObject
+
+/** The identifier of the course. */
+@property(nonatomic, copy, nullable) NSString *courseId;
+
+/** The identifier of the student group. */
+@property(nonatomic, copy, nullable) NSString *studentGroupId;
+
+/** Identifier of the student. */
+@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 

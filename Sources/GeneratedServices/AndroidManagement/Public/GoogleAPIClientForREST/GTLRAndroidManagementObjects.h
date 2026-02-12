@@ -2712,6 +2712,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_Ultra
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_UltraWidebandState_UltraWidebandUserChoice;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_DeviceRadioState.userInitiatedAddEsimSettings
+
+/**
+ *  The user is allowed to add eSIM profiles.
+ *
+ *  Value: "USER_INITIATED_ADD_ESIM_ALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimAllowed;
+/**
+ *  Supported only on company-owned devices. A NonComplianceDetail with
+ *  MANAGEMENT_MODE is reported for personally-owned devices.
+ *
+ *  Value: "USER_INITIATED_ADD_ESIM_DISALLOWED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimDisallowed;
+/**
+ *  Unspecified. Defaults to USER_INITIATED_ADD_ESIM_ALLOWED.
+ *
+ *  Value: "USER_INITIATED_ADD_ESIM_SETTINGS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimSettingsUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_DeviceRadioState.wifiState
 
 /**
@@ -5135,10 +5158,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_WipeDataFlags_W
 /**
  *  For company-owned devices, setting this in wipeDataFlags will remove all
  *  eSIMs on the device when wipe is triggered due to any reason. On
- *  personally-owned devices, this will remove only managed eSIMs on the device.
+ *  personally-owned devices, this will remove only managed eSIMs on the device
  *  (eSIMs which are added via the ADD_ESIM command). This is supported on
  *  devices running Android 15 and above. A NonComplianceDetail with API_LEVEL
- *  is reported if the Android version is less than 15.
+ *  is reported if the Android version is less than 15. For devices running on
+ *  Android 16 or higher, managed eSIMs are always wiped when work profile is
+ *  removed for personally-owned devices, whether this flag is provided or not.
  *
  *  Value: "WIPE_ESIMS"
  */
@@ -6337,7 +6362,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_WipeParams_WipeDataFla
  *  For company-owned devices, this removes all eSIMs from the device when the
  *  device is wiped. In personally-owned devices, this will remove managed eSIMs
  *  (eSIMs which are added via the ADD_ESIM command) on the devices and no
- *  personally owned eSIMs will be removed.
+ *  personally owned eSIMs will be removed. For devices running on Android 16 or
+ *  higher, managed eSIMs are always wiped when work profile is removed for
+ *  personally-owned devices, whether this flag is provided or not.
  *
  *  Value: "WIPE_ESIMS"
  */
@@ -7357,7 +7384,8 @@ GTLR_DEPRECATED
  *  ManagedProperty. The field value must be compatible with the type of the
  *  ManagedProperty: *type* *JSON value* BOOL true or false STRING string
  *  INTEGER number CHOICE string MULTISELECT array of strings HIDDEN string
- *  BUNDLE_ARRAY array of objects
+ *  BUNDLE_ARRAY array of objects Note: string values cannot be longer than
+ *  65535 characters.
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_ApplicationPolicy_ManagedConfiguration *managedConfiguration;
 
@@ -7526,7 +7554,8 @@ GTLR_DEPRECATED
  *  ManagedProperty. The field value must be compatible with the type of the
  *  ManagedProperty: *type* *JSON value* BOOL true or false STRING string
  *  INTEGER number CHOICE string MULTISELECT array of strings HIDDEN string
- *  BUNDLE_ARRAY array of objects
+ *  BUNDLE_ARRAY array of objects Note: string values cannot be longer than
+ *  65535 characters.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -7680,8 +7709,7 @@ GTLR_DEPRECATED
 
 /**
  *  Required. The SHA-256 hash value of the signing key certificate of the app.
- *  This must be a valid SHA-256 hash value, i.e. 32 bytes. Otherwise, the
- *  policy is rejected.
+ *  This must be a valid SHA-256 hash value, i.e. 32 bytes.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -9532,6 +9560,23 @@ GTLR_DEPRECATED
  *        "ULTRA_WIDEBAND_USER_CHOICE")
  */
 @property(nonatomic, copy, nullable) NSString *ultraWidebandState;
+
+/**
+ *  Optional. Controls whether the user is allowed to add eSIM profiles.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimAllowed
+ *        The user is allowed to add eSIM profiles. (Value:
+ *        "USER_INITIATED_ADD_ESIM_ALLOWED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimDisallowed
+ *        Supported only on company-owned devices. A NonComplianceDetail with
+ *        MANAGEMENT_MODE is reported for personally-owned devices. (Value:
+ *        "USER_INITIATED_ADD_ESIM_DISALLOWED")
+ *    @arg @c kGTLRAndroidManagement_DeviceRadioState_UserInitiatedAddEsimSettings_UserInitiatedAddEsimSettingsUnspecified
+ *        Unspecified. Defaults to USER_INITIATED_ADD_ESIM_ALLOWED. (Value:
+ *        "USER_INITIATED_ADD_ESIM_SETTINGS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *userInitiatedAddEsimSettings;
 
 /**
  *  Controls current state of Wi-Fi and if user can change its state.
@@ -14748,6 +14793,15 @@ GTLR_DEPRECATED
  *  details.
  */
 @interface GTLRAndroidManagement_SystemUpdate : GTLRObject
+
+/**
+ *  If this is greater than zero, then this is the number of days after a
+ *  pending update becoming available that a device can remain compliant,
+ *  without taking the update. Has no effect otherwise.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowedDaysWithoutUpdate;
 
 /**
  *  If the type is WINDOWED, the end of the maintenance window, measured as the

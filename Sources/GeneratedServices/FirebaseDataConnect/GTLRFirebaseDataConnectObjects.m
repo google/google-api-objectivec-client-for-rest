@@ -64,6 +64,16 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseDataConnect_ClientCache
+//
+
+@implementation GTLRFirebaseDataConnect_ClientCache
+@dynamic entityIdIncluded, strictValidationEnabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseDataConnect_CloudSqlInstance
 //
 
@@ -78,8 +88,8 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_Connector
-@dynamic annotations, createTime, displayName, ETag, labels, name, reconciling,
-         source, uid, updateTime;
+@dynamic annotations, clientCache, createTime, displayName, ETag, labels, name,
+         reconciling, source, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -118,11 +128,30 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseDataConnect_DataConnectProperties
+//
+
+@implementation GTLRFirebaseDataConnect_DataConnectProperties
+@dynamic entityId, entityIds, maxAge, path;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entityIds" : [NSString class],
+    @"path" : [NSObject class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseDataConnect_Datasource
 //
 
 @implementation GTLRFirebaseDataConnect_Datasource
-@dynamic postgresql;
+@dynamic httpGraphql, postgresql;
 @end
 
 
@@ -165,7 +194,7 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_ExecuteMutationResponse
-@dynamic data, errors;
+@dynamic data, errors, extensions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -221,7 +250,7 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_ExecuteQueryResponse
-@dynamic data, errors;
+@dynamic data, errors, extensions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -334,7 +363,7 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 //
 
 @implementation GTLRFirebaseDataConnect_GraphqlResponse
-@dynamic data, errors;
+@dynamic data, errors, extensions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -357,6 +386,34 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_GraphqlResponseExtensions
+//
+
+@implementation GTLRFirebaseDataConnect_GraphqlResponseExtensions
+@dynamic dataConnect;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dataConnect" : [GTLRFirebaseDataConnect_DataConnectProperties class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_HttpGraphql
+//
+
+@implementation GTLRFirebaseDataConnect_HttpGraphql
+@dynamic timeout, uri;
 @end
 
 

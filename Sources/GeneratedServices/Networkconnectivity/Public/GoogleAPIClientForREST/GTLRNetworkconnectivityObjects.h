@@ -20,7 +20,10 @@
 @class GTLRNetworkconnectivity_AutoAccept;
 @class GTLRNetworkconnectivity_AutoCreatedSubnetworkInfo;
 @class GTLRNetworkconnectivity_AutomatedDnsCreationSpec;
+@class GTLRNetworkconnectivity_AutomatedDnsRecord;
+@class GTLRNetworkconnectivity_AutomatedDnsRecord_Labels;
 @class GTLRNetworkconnectivity_Binding;
+@class GTLRNetworkconnectivity_Config;
 @class GTLRNetworkconnectivity_ConsumerPscConfig;
 @class GTLRNetworkconnectivity_ConsumerPscConfig_ProducerInstanceMetadata;
 @class GTLRNetworkconnectivity_ConsumerPscConfig_ServiceAttachmentIpAddressMap;
@@ -185,6 +188,98 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogTy
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AuditLogConfig_LogType_LogTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_AutomatedDnsRecord.creationMode
+
+/**
+ *  The record was created through the AutomatedDnsRecord CCFE consumer API.
+ *
+ *  Value: "CONSUMER_API"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_CreationMode_ConsumerApi;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "CREATION_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_CreationMode_CreationModeUnspecified;
+/**
+ *  The record was created by a ServiceConnectionMap. Its lifecycle is managed
+ *  by that ServiceConnectionMap.
+ *
+ *  Value: "SERVICE_CONNECTION_MAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_CreationMode_ServiceConnectionMap;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_AutomatedDnsRecord.recordType
+
+/**
+ *  Represents an A record.
+ *
+ *  Value: "A"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_A;
+/**
+ *  Represents an AAAA record.
+ *
+ *  Value: "AAAA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_Aaaa;
+/**
+ *  Represents a CNAME record.
+ *
+ *  Value: "CNAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_Cname;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "RECORD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_RecordTypeUnspecified;
+/**
+ *  Represents a TXT record.
+ *
+ *  Value: "TXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_Txt;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_AutomatedDnsRecord.state
+
+/**
+ *  The AutomatedDnsRecord is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_State_Creating;
+/**
+ *  The AutomatedDnsRecord is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_State_Deleting;
+/**
+ *  A non-recoverable error occurred while attempting to deprogram the DNS
+ *  record from Cloud DNS during deletion.
+ *
+ *  Value: "FAILED_DEPROGRAMMING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_State_FailedDeprogramming;
+/**
+ *  The AutomatedDnsRecord has been successfully programmed.
+ *
+ *  Value: "PROGRAMMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_State_Programmed;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_AutomatedDnsRecord_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_CheckConsumerConfigRequest.requestedIpVersion
@@ -1864,6 +1959,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_AutoCreatedSubnetworkInfo : GTLRObject
 
 /**
+ *  Output only. Indicates whether the subnetwork is delinked from the Service
+ *  Connection Policy. Only set if the subnetwork mode is AUTO_CREATED during
+ *  creation.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *delinked;
+
+/**
  *  Output only. URI of the automatically created Internal Range. Only set if
  *  the subnetwork mode is AUTO_CREATED during creation.
  */
@@ -1917,6 +2021,190 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
+@end
+
+
+/**
+ *  Represents a DNS record managed by the AutomatedDnsRecord API.
+ */
+@interface GTLRNetworkconnectivity_AutomatedDnsRecord : GTLRObject
+
+/**
+ *  Required. Immutable. The full resource path of the consumer network this
+ *  AutomatedDnsRecord is visible to. Example:
+ *  "projects/{projectNumOrId}/global/networks/{networkName}".
+ */
+@property(nonatomic, copy, nullable) NSString *consumerNetwork;
+
+/** Output only. The timestamp of when the record was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Required. Immutable. The creation mode of the AutomatedDnsRecord. This field
+ *  is immutable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_CreationMode_ConsumerApi
+ *        The record was created through the AutomatedDnsRecord CCFE consumer
+ *        API. (Value: "CONSUMER_API")
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_CreationMode_CreationModeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "CREATION_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_CreationMode_ServiceConnectionMap
+ *        The record was created by a ServiceConnectionMap. Its lifecycle is
+ *        managed by that ServiceConnectionMap. (Value:
+ *        "SERVICE_CONNECTION_MAP")
+ */
+@property(nonatomic, copy, nullable) NSString *creationMode;
+
+/**
+ *  Output only. The current settings for this record as identified by
+ *  (`hostname`, `dns_suffix`, `type`) in Cloud DNS. The `current_config` field
+ *  reflects the actual settings of the DNS record in Cloud DNS based on the
+ *  `hostname`, `dns_suffix`, and `type`. * **Absence:** If `current_config` is
+ *  unset, it means a DNS record with the specified `hostname`, `dns_suffix`,
+ *  and `type` does not currently exist in Cloud DNS. This could be because the
+ *  `AutomatedDnsRecord` has never been successfully programmed, has been
+ *  deleted, or there was an error during provisioning. * **Presence:** If
+ *  `current_config` is present: * It can be different from the
+ *  `original_config`. This can happen due to several reasons: * Out-of-band
+ *  changes: A consumer might have directly modified the DNS record in Cloud
+ *  DNS. * `OVERWRITE` operations from other `AutomatedDnsRecord` resources:
+ *  Another `AutomatedDnsRecord` with the same identifying attributes
+ *  (`hostname`, `dns_suffix`, `type`) but a different configuration might have
+ *  overwritten the record using `insert_mode: OVERWRITE`. Therefore, the
+ *  presence of `current_config` indicates that a corresponding DNS record
+ *  exists, but its values (TTL and RRData) might not always align with the
+ *  `original_config` of the AutomatedDnsRecord.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Config *currentConfig;
+
+/**
+ *  A human-readable description of the record.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Required. Immutable. The dns suffix for this record to use in longest-suffix
+ *  matching. Requires a trailing dot. Example: "example.com."
+ */
+@property(nonatomic, copy, nullable) NSString *dnsSuffix;
+
+/**
+ *  Output only. DnsZone is the DNS zone managed by automation. Format:
+ *  projects/{project}/managedZones/{managedZone}
+ */
+@property(nonatomic, copy, nullable) NSString *dnsZone;
+
+/**
+ *  Optional. The etag is computed by the server, and may be sent on update and
+ *  delete requests to ensure the client has an up-to-date value before
+ *  proceeding.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Output only. The FQDN created by combining the hostname and dns suffix.
+ *  Should include a trailing dot.
+ */
+@property(nonatomic, copy, nullable) NSString *fqdn;
+
+/**
+ *  Required. Immutable. The hostname for the DNS record. This value will be
+ *  prepended to the `dns_suffix` to create the full domain name (FQDN) for the
+ *  record. For example, if `hostname` is "corp.db" and `dns_suffix` is
+ *  "example.com.", the resulting record will be "corp.db.example.com.". Should
+ *  not include a trailing dot.
+ */
+@property(nonatomic, copy, nullable) NSString *hostname;
+
+/** Optional. User-defined labels. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_AutomatedDnsRecord_Labels *labels;
+
+/**
+ *  Immutable. Identifier. The name of an AutomatedDnsRecord. Format:
+ *  projects/{project}/locations/{location}/automatedDnsRecords/{automated_dns_record}
+ *  See: https://google.aip.dev/122#fields-representing-resource-names
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Immutable. The configuration settings used to create this DNS
+ *  record. These settings define the desired state of the record as specified
+ *  by the producer.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Config *originalConfig;
+
+/**
+ *  Required. Immutable. The identifier of a supported record type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_A
+ *        Represents an A record. (Value: "A")
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_Aaaa
+ *        Represents an AAAA record. (Value: "AAAA")
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_Cname
+ *        Represents a CNAME record. (Value: "CNAME")
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_RecordTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "RECORD_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_RecordType_Txt
+ *        Represents a TXT record. (Value: "TXT")
+ */
+@property(nonatomic, copy, nullable) NSString *recordType;
+
+/**
+ *  Required. Immutable. The service class identifier which authorizes this
+ *  AutomatedDnsRecord. Any API calls targeting this AutomatedDnsRecord must
+ *  have `networkconnectivity.serviceclasses.use` IAM permission for the
+ *  provided service class.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceClass;
+
+/**
+ *  Output only. The current operational state of this AutomatedDnsRecord as
+ *  managed by Service Connectivity Automation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_State_Creating The
+ *        AutomatedDnsRecord is being created. (Value: "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_State_Deleting The
+ *        AutomatedDnsRecord is being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_State_FailedDeprogramming
+ *        A non-recoverable error occurred while attempting to deprogram the DNS
+ *        record from Cloud DNS during deletion. (Value: "FAILED_DEPROGRAMMING")
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_State_Programmed The
+ *        AutomatedDnsRecord has been successfully programmed. (Value:
+ *        "PROGRAMMED")
+ *    @arg @c kGTLRNetworkconnectivity_AutomatedDnsRecord_State_StateUnspecified
+ *        Default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. A human-readable message providing more context about the
+ *  current state, such as an error description if the state is
+ *  `FAILED_DEPROGRAMMING`.
+ */
+@property(nonatomic, copy, nullable) NSString *stateDetails;
+
+/** Output only. The timestamp of when the record was updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. User-defined labels.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_AutomatedDnsRecord_Labels : GTLRObject
 @end
 
 
@@ -2050,6 +2338,31 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  valid.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
+
+@end
+
+
+/**
+ *  Defines the configuration of a DNS record.
+ */
+@interface GTLRNetworkconnectivity_Config : GTLRObject
+
+/**
+ *  Required. The list of resource record data strings. The content and format
+ *  of these strings depend on the AutomatedDnsRecord.type. For many common
+ *  record types, this list may contain multiple strings. As defined in RFC 1035
+ *  (section 5) and RFC 1034 (section 3.6.1) -- see examples. Examples: A
+ *  record: ["192.0.2.1"] or ["192.0.2.1", "192.0.2.2"] TXT record: ["This is a
+ *  text record"] CNAME record: ["target.example.com."] AAAA record: ["::1"] or
+ *  ["2001:0db8:85a3:0000:0000:8a2e:0370:7334",
+ *  "2001:0db8:85a3:0000:0000:8a2e:0370:7335"]
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *rrdatas;
+
+/**
+ *  Required. Number of seconds that this DNS record can be cached by resolvers.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
 @end
 
@@ -3112,7 +3425,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, strong, nullable) GTLRNetworkconnectivity_AllocationOptions *allocationOptions;
 
-/** Time when the internal range was created. */
+/** Output only. Time when the internal range was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
@@ -3228,7 +3541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *targetCidrRange;
 
-/** Time when the internal range was updated. */
+/** Output only. Time when the internal range was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 /**
@@ -3345,13 +3658,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 /**
  *  Output only. The proposed exclude export IP ranges waiting for hub
- *  administration's approval.
+ *  administrator's approval.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeExportRanges;
 
 /**
  *  Output only. The proposed include export IP ranges waiting for hub
- *  administration's approval.
+ *  administrator's approval.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeExportRanges;
 
@@ -3422,13 +3735,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 /**
  *  Output only. The proposed exclude export IP ranges waiting for hub
- *  administration's approval.
+ *  administrator's approval.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *proposedExcludeExportRanges;
 
 /**
  *  Output only. The proposed include export IP ranges waiting for hub
- *  administration's approval.
+ *  administrator's approval.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *proposedIncludeExportRanges;
 
@@ -3466,6 +3779,36 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 /** Output only. The VPC network where these VPN tunnels are located. */
 @property(nonatomic, copy, nullable) NSString *vpcNetwork;
+
+@end
+
+
+/**
+ *  Response for ListAutomatedDnsRecords.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "automatedDnsRecords" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListAutomatedDnsRecordsResponse : GTLRCollectionObject
+
+/**
+ *  AutomatedDnsRecords to be returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_AutomatedDnsRecord *> *automatedDnsRecords;
+
+/**
+ *  The next pagination token in the List response. It should be used as
+ *  page_token for the following request. An empty value means no more result.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -5674,7 +6017,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
-/** Optional. The list of fields waiting for hub administration's approval. */
+/** Optional. The list of fields waiting for hub administrator's approval. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fieldPathsPendingUpdate;
 
 /** Optional. The name of the group that this spoke is associated with. */
@@ -5992,7 +6335,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
- *  The reason a spoke is inactive.
+ *  The reason for the current state of the spoke.
  */
 @interface GTLRNetworkconnectivity_StateReason : GTLRObject
 

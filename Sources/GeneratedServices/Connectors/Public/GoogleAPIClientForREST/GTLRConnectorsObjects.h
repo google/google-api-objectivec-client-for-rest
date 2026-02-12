@@ -95,6 +95,7 @@
 @class GTLRConnectors_TimeOfDay;
 @class GTLRConnectors_Tool;
 @class GTLRConnectors_ToolAnnotations;
+@class GTLRConnectors_ToolName;
 @class GTLRConnectors_ToolSpec;
 @class GTLRConnectors_ToolSpec_ToolDefinitions_Item;
 @class GTLRConnectors_UpdateEntitiesWithConditionsResponse_Metadata;
@@ -1678,6 +1679,46 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_Schedule_Day_Tuesday;
 FOUNDATION_EXTERN NSString * const kGTLRConnectors_Schedule_Day_Wednesday;
 
 // ----------------------------------------------------------------------------
+// GTLRConnectors_ToolName.operation
+
+/**
+ *  CREATE entity.
+ *
+ *  Value: "CREATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ToolName_Operation_Create;
+/**
+ *  DELETE entity.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ToolName_Operation_Delete;
+/**
+ *  GET entity.
+ *
+ *  Value: "GET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ToolName_Operation_Get;
+/**
+ *  LIST entities.
+ *
+ *  Value: "LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ToolName_Operation_List;
+/**
+ *  Operation unspecified.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ToolName_Operation_OperationUnspecified;
+/**
+ *  UPDATE entity.
+ *
+ *  Value: "UPDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConnectors_ToolName_Operation_Update;
+
+// ----------------------------------------------------------------------------
 // GTLRConnectors_UpdatePolicy.channel
 
 /**
@@ -2572,6 +2613,31 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 
 /**
+ *  GTLRConnectors_GenerateCustomToolspecRequest
+ */
+@interface GTLRConnectors_GenerateCustomToolspecRequest : GTLRObject
+
+/** list of tools to be generated. */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_ToolName *> *toolNames;
+
+@end
+
+
+/**
+ *  GTLRConnectors_GenerateCustomToolspecResponse
+ */
+@interface GTLRConnectors_GenerateCustomToolspecResponse : GTLRObject
+
+/**
+ *  tool spec that has tool_defitions array containing the tools for all sted
+ *  tool_names.
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_ToolSpec *toolSpec;
+
+@end
+
+
+/**
  *  Request message for ConnectorAgentService.GetResourcePost
  */
 @interface GTLRConnectors_GetResourcePostRequest : GTLRObject
@@ -3282,6 +3348,17 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_ListActionsResponse_Metadata_Metadata : GTLRObject
+@end
+
+
+/**
+ *  GTLRConnectors_ListCustomToolNamesResponse
+ */
+@interface GTLRConnectors_ListCustomToolNamesResponse : GTLRObject
+
+/** List of custom tools. */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_ToolName *> *toolNames;
+
 @end
 
 
@@ -4408,6 +4485,42 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 /** A human-readable title for the tool. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  GTLRConnectors_ToolName
+ */
+@interface GTLRConnectors_ToolName : GTLRObject
+
+/**
+ *  Entity name for which the tool was generated.
+ *
+ *  Remapped to 'entityNameProperty' to avoid NSObject's 'entityName'.
+ */
+@property(nonatomic, copy, nullable) NSString *entityNameProperty;
+
+/** Tool name that was generated in the list tools call. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Operation for which the tool was generated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConnectors_ToolName_Operation_Create CREATE entity. (Value:
+ *        "CREATE")
+ *    @arg @c kGTLRConnectors_ToolName_Operation_Delete DELETE entity. (Value:
+ *        "DELETE")
+ *    @arg @c kGTLRConnectors_ToolName_Operation_Get GET entity. (Value: "GET")
+ *    @arg @c kGTLRConnectors_ToolName_Operation_List LIST entities. (Value:
+ *        "LIST")
+ *    @arg @c kGTLRConnectors_ToolName_Operation_OperationUnspecified Operation
+ *        unspecified. (Value: "OPERATION_UNSPECIFIED")
+ *    @arg @c kGTLRConnectors_ToolName_Operation_Update UPDATE entity. (Value:
+ *        "UPDATE")
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
 
 @end
 
