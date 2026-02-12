@@ -122,6 +122,12 @@ static ArgInfo optionalFlags[] = {
     " in a new API version. This option causes the generator to also"
     " remove the unknown files."
   },
+  { "--forceAuditServiceDirectories",
+    "When using `--addServiceNameDir`, will check the output dir to"
+    " see if there are other services directories that were not"
+    " generated. When `--generatePreferred` is used, the auto also"
+    " is done."
+  },
   { "--rootURLOverrides yes|no  Default: yes",
     "Causes any API root URL for a Google sandbox server to be replaced with"
     " the googleapis.com root instead."
@@ -227,6 +233,7 @@ typedef enum {
 @property(assign) BOOL generatePreferred;
 @property(assign) BOOL addServiceNameDir;
 @property(assign) BOOL removeUnknownFiles;
+@property(assign) BOOL forceAuditServiceDirectories;
 @property(assign) BOOL rootURLOverrides;
 @property(assign) BOOL auditJSON;
 @property(assign) BOOL guessFormattedNames;
@@ -304,6 +311,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
             generatePreferred = _generatePreferred,
             addServiceNameDir = _addServiceNameDir,
             removeUnknownFiles = _removeUnknownFiles,
+            forceAuditServiceDirectories = _forceAuditServiceDirectories,
             rootURLOverrides = _rootURLOverrides,
             auditJSON = _auditJSON,
             guessFormattedNames = _guessFormattedNames,
@@ -782,6 +790,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
   int parseTextHTMLReplies = 0;
   int showUsage = 0;
   int briefOutput = 0;
+  int forceAuditServiceDirectories = 0;
 
   struct option longopts[] = {
     { "outputDir",           required_argument, NULL,                 'o' },
@@ -800,6 +809,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     { "formattedName",       required_argument, NULL,                 't' },
     { "addServiceNameDir",   required_argument, NULL,                 'x' },
     { "removeUnknownFiles",  required_argument, NULL,                 'y' },
+    { "forceAuditServiceDirectories", no_argument, &forceAuditServiceDirectories, 1 },
     { "rootURLOverrides",    required_argument, NULL,                 'u' },
     { "messageFilter",       required_argument, NULL,                 'f' },
     { "auditJSON",           no_argument,       &auditJSON,           1 },
@@ -895,6 +905,7 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
   self.guessFormattedNames = guessFormattedNames;
   self.parseTextHTMLReplies = parseTextHTMLReplies;
   self.briefOutput = briefOutput;
+  self.forceAuditServiceDirectories = forceAuditServiceDirectories;
 
   if (showUsage) {
     [self printUsage:stdout brief:NO];
@@ -1541,9 +1552,9 @@ static BOOL HaveFileStringsChanged(NSString *oldFile, NSString *newFile) {
     }
   }
 
-  // In Directory based mode and using service directories, report any services
+  // In Directory based mode (or when forced) and using service directories, report any services
   // that seem to have gone away (deleteing seems a little risky here).
-  if (self.generatePreferred && self.addServiceNameDir) {
+  if ((self.generatePreferred || self.forceAuditServiceDirectories) && self.addServiceNameDir) {
     NSError *listingErr = nil;
     NSArray *fileNamesOnDisk = [fm contentsOfDirectoryAtPath:self.outputDir
                                                        error:&listingErr];
