@@ -225,11 +225,6 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/AppHub/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/AppHub/Public/GoogleAPIClientForREST/*.h'
   end
-  s.subspec 'Area120Tables' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/Area120Tables/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/Area120Tables/Public/GoogleAPIClientForREST/*.h'
-  end
   s.subspec 'AreaInsights' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/AreaInsights/**/*.{h,m}'
@@ -1250,11 +1245,6 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Pollen/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Pollen/Public/GoogleAPIClientForREST/*.h'
   end
-  s.subspec 'PolyService' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/PolyService/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/PolyService/Public/GoogleAPIClientForREST/*.h'
-  end
   s.subspec 'PostmasterTools' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/PostmasterTools/**/*.{h,m}'
@@ -1309,11 +1299,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Reseller/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Reseller/Public/GoogleAPIClientForREST/*.h'
-  end
-  s.subspec 'ResourceSettings' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/ResourceSettings/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/ResourceSettings/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'SA360' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
