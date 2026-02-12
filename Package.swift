@@ -150,10 +150,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_AppHub"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_Area120Tables",
-            targets: ["GoogleAPIClientForREST_Area120Tables"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_AreaInsights",
             targets: ["GoogleAPIClientForREST_AreaInsights"]
         ),
@@ -970,10 +966,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Pollen"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_PolyService",
-            targets: ["GoogleAPIClientForREST_PolyService"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_PostmasterTools",
             targets: ["GoogleAPIClientForREST_PostmasterTools"]
         ),
@@ -1016,10 +1008,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Reseller",
             targets: ["GoogleAPIClientForREST_Reseller"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_ResourceSettings",
-            targets: ["GoogleAPIClientForREST_ResourceSettings"]
         ),
         .library(
             name: "GoogleAPIClientForREST_SA360",
@@ -1487,12 +1475,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_AppHub",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/AppHub",
-            publicHeadersPath: "Public"
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_Area120Tables",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/Area120Tables",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2720,12 +2702,6 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
-            name: "GoogleAPIClientForREST_PolyService",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/PolyService",
-            publicHeadersPath: "Public"
-        ),
-        .target(
             name: "GoogleAPIClientForREST_PostmasterTools",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/PostmasterTools",
@@ -2789,12 +2765,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_Reseller",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Reseller",
-            publicHeadersPath: "Public"
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_ResourceSettings",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/ResourceSettings",
             publicHeadersPath: "Public"
         ),
         .target(
