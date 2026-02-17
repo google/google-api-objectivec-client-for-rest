@@ -9583,6 +9583,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo : GTLRObject
 
+/** Optional. The date when the current maintenance version was released. */
+@property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_GoogleTypeDate *currentVersionReleaseDate;
+
 /** Optional. List of Deny maintenance period for the database resource. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceDenySchedule *> *denyMaintenanceSchedules;
 
@@ -9632,13 +9635,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *  populated once SLM generates and publishes upcoming maintenance window.
  */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainUpcomingMaintenance *upcomingMaintenance;
-
-/**
- *  Optional. This field will contain the date when the last version update was
- *  applied to the database resource. This will be used to calculate the age of
- *  the maintenance version.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *versionUpdateTime;
 
 @end
 

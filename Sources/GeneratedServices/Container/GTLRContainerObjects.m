@@ -78,6 +78,7 @@ NSString * const kGTLRContainer_Cluster_Status_Stopping        = @"STOPPING";
 
 // GTLRContainer_ClusterAutoscaling.autopilotGeneralProfile
 NSString * const kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_AutopilotGeneralProfileUnspecified = @"AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED";
+NSString * const kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_None = @"NONE";
 NSString * const kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_NoPerformance = @"NO_PERFORMANCE";
 
 // GTLRContainer_ClusterAutoscaling.autoscalingProfile
@@ -1266,6 +1267,16 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRContainer_CrashLoopBackOffConfig
+//
+
+@implementation GTLRContainer_CrashLoopBackOffConfig
+@dynamic maxContainerRestartPeriod;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRContainer_CreateClusterRequest
 //
 
@@ -1396,6 +1407,17 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_DesiredEnterpriseConfig
 @dynamic desiredTier;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContainer_DisruptionBudget
+//
+
+@implementation GTLRContainer_DisruptionBudget
+@dynamic lastDisruptionTime, lastMinorVersionDisruptionTime,
+         minorVersionDisruptionInterval, patchVersionDisruptionInterval;
 @end
 
 
@@ -2095,7 +2117,7 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 //
 
 @implementation GTLRContainer_MaintenancePolicy
-@dynamic resourceVersion, window;
+@dynamic disruptionBudget, resourceVersion, window;
 @end
 
 
@@ -2451,12 +2473,13 @@ NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_ModeUnspecified = @"
 
 @implementation GTLRContainer_NodeKubeletConfig
 @dynamic allowedUnsafeSysctls, containerLogMaxFiles, containerLogMaxSize,
-         cpuCfsQuota, cpuCfsQuotaPeriod, cpuManagerPolicy,
+         cpuCfsQuota, cpuCfsQuotaPeriod, cpuManagerPolicy, crashLoopBackOff,
          evictionMaxPodGracePeriodSeconds, evictionMinimumReclaim, evictionSoft,
          evictionSoftGracePeriod, imageGcHighThresholdPercent,
          imageGcLowThresholdPercent, imageMaximumGcAge, imageMinimumGcAge,
          insecureKubeletReadonlyPortEnabled, maxParallelImagePulls,
-         memoryManager, podPidsLimit, singleProcessOomKill, topologyManager;
+         memoryManager, podPidsLimit, shutdownGracePeriodCriticalPodsSeconds,
+         shutdownGracePeriodSeconds, singleProcessOomKill, topologyManager;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

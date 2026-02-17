@@ -111,6 +111,8 @@
 @class GTLRNetworkSecurity_ThreatOverride;
 @class GTLRNetworkSecurity_ThreatPreventionProfile;
 @class GTLRNetworkSecurity_TlsInspectionPolicy;
+@class GTLRNetworkSecurity_UrlFilter;
+@class GTLRNetworkSecurity_UrlFilteringProfile;
 @class GTLRNetworkSecurity_UrlList;
 @class GTLRNetworkSecurity_ValidationCA;
 
@@ -1273,6 +1275,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_Pro
  *  Value: "THREAT_PREVENTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ThreatPrevention;
+/**
+ *  Profile type for URL filtering.
+ *
+ *  Value: "URL_FILTERING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_UrlFiltering;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_SeverityOverride.action
@@ -1516,6 +1524,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *  Value: "PROFILE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_UrlFilter.filteringAction
+
+/**
+ *  The connection matching this filter will be allowed to transmit.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_Allow;
+/**
+ *  The connection matching this filter will be dropped.
+ *
+ *  Value: "DENY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_Deny;
+/**
+ *  Filtering action not specified.
+ *
+ *  Value: "URL_FILTERING_ACTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActionUnspecified;
 
 /**
  *  Request used by the AddAddressGroupItems method.
@@ -5748,11 +5778,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
  *        Profile type not specified. (Value: "PROFILE_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_ThreatPrevention Profile
  *        type for threat prevention. (Value: "THREAT_PREVENTION")
+ *    @arg @c kGTLRNetworkSecurity_SecurityProfile_Type_UrlFiltering Profile
+ *        type for URL filtering. (Value: "URL_FILTERING")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /** Output only. Last resource update timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/** The URL filtering configuration for the SecurityProfile. */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_UrlFilteringProfile *urlFilteringProfile;
 
 @end
 
@@ -5831,6 +5866,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /** Output only. Last resource update timestamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Optional. Reference to a SecurityProfile with the UrlFiltering
+ *  configuration.
+ */
+@property(nonatomic, copy, nullable) NSString *urlFilteringProfile;
 
 @end
 
@@ -6266,6 +6307,58 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsF
 
 /** Output only. The timestamp when the resource was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  A URL filter defines an action to take for some URL match.
+ */
+@interface GTLRNetworkSecurity_UrlFilter : GTLRObject
+
+/**
+ *  Required. The action taken when this filter is applied.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_UrlFilter_FilteringAction_Allow The
+ *        connection matching this filter will be allowed to transmit. (Value:
+ *        "ALLOW")
+ *    @arg @c kGTLRNetworkSecurity_UrlFilter_FilteringAction_Deny The connection
+ *        matching this filter will be dropped. (Value: "DENY")
+ *    @arg @c kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActionUnspecified
+ *        Filtering action not specified. (Value:
+ *        "URL_FILTERING_ACTION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *filteringAction;
+
+/**
+ *  Required. The priority of this filter within the URL Filtering Profile.
+ *  Lower integers indicate higher priorities. The priority of a filter must be
+ *  unique within a URL Filtering Profile.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *priority;
+
+/**
+ *  Required. The list of strings that a URL must match with for this filter to
+ *  be applied.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *urls;
+
+@end
+
+
+/**
+ *  UrlFilteringProfile defines filters based on URL.
+ */
+@interface GTLRNetworkSecurity_UrlFilteringProfile : GTLRObject
+
+/**
+ *  Optional. The list of filtering configs in which each config defines an
+ *  action to take for some URL match.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_UrlFilter *> *urlFilters;
 
 @end
 

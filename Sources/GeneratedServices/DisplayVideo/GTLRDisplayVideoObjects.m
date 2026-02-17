@@ -8271,7 +8271,7 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_YoutubeVideoDetails
-@dynamic identifier, unavailableReason;
+@dynamic identifier, unavailableReason, videoAssetId;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };

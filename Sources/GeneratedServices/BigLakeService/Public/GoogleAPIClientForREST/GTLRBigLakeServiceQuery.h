@@ -198,6 +198,165 @@ FOUNDATION_EXTERN NSString * const kGTLRBigLakeServiceViewTableViewUnspecified;
 @end
 
 /**
+ *  Gets the IAM policy for the specified Catalog.
+ *
+ *  Method: biglake.projects.catalogs.namespaces.tables.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigLakeServiceBigquery
+ *    @c kGTLRAuthScopeBigLakeServiceCloudPlatform
+ */
+@interface GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesTablesGetIamPolicy : GTLRBigLakeServiceQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigLakeService_Policy.
+ *
+ *  Gets the IAM policy for the specified Catalog.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesTablesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the IAM policy for the specified catalog.
+ *
+ *  Method: biglake.projects.catalogs.namespaces.tables.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigLakeServiceBigquery
+ *    @c kGTLRAuthScopeBigLakeServiceCloudPlatform
+ */
+@interface GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesTablesSetIamPolicy : GTLRBigLakeServiceQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigLakeService_Policy.
+ *
+ *  Sets the IAM policy for the specified catalog.
+ *
+ *  @param object The @c GTLRBigLakeService_SetIamPolicyRequest to include in
+ *    the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesTablesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRBigLakeService_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Tests the IAM permissions for the specified table.
+ *
+ *  Method: biglake.projects.catalogs.namespaces.tables.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigLakeServiceBigquery
+ *    @c kGTLRAuthScopeBigLakeServiceCloudPlatform
+ */
+@interface GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesTablesTestIamPermissions : GTLRBigLakeServiceQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigLakeService_TestIamPermissionsResponse.
+ *
+ *  Tests the IAM permissions for the specified table.
+ *
+ *  @param object The @c GTLRBigLakeService_TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesTablesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigLakeService_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Tests the IAM permissions for the specified namespace.
+ *
+ *  Method: biglake.projects.catalogs.namespaces.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigLakeServiceBigquery
+ *    @c kGTLRAuthScopeBigLakeServiceCloudPlatform
+ */
+@interface GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesTestIamPermissions : GTLRBigLakeServiceQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigLakeService_TestIamPermissionsResponse.
+ *
+ *  Tests the IAM permissions for the specified namespace.
+ *
+ *  @param object The @c GTLRBigLakeService_TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigLakeServiceQuery_ProjectsCatalogsNamespacesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigLakeService_TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Sets the IAM policy for the specified catalog.
  *
  *  Method: biglake.projects.catalogs.setIamPolicy
@@ -230,6 +389,43 @@ FOUNDATION_EXTERN NSString * const kGTLRBigLakeServiceViewTableViewUnspecified;
  *  @return GTLRBigLakeServiceQuery_ProjectsCatalogsSetIamPolicy
  */
 + (instancetype)queryWithObject:(GTLRBigLakeService_SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Tests the IAM permissions for the specified catalog.
+ *
+ *  Method: biglake.projects.catalogs.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigLakeServiceBigquery
+ *    @c kGTLRAuthScopeBigLakeServiceCloudPlatform
+ */
+@interface GTLRBigLakeServiceQuery_ProjectsCatalogsTestIamPermissions : GTLRBigLakeServiceQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRBigLakeService_TestIamPermissionsResponse.
+ *
+ *  Tests the IAM permissions for the specified catalog.
+ *
+ *  @param object The @c GTLRBigLakeService_TestIamPermissionsRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRBigLakeServiceQuery_ProjectsCatalogsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRBigLakeService_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
 
 @end

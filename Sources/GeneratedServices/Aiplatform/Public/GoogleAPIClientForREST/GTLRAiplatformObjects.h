@@ -10266,6 +10266,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageM
 /** Required. The name of the candidate that produced the response. */
 @property(nonatomic, copy, nullable) NSString *candidate;
 
+/** Output only. Error while scraping model or agent. */
+@property(nonatomic, strong, nullable) GTLRAiplatform_GoogleRpcStatus *error;
+
 /** Text response. */
 @property(nonatomic, copy, nullable) NSString *text;
 

@@ -100,10 +100,10 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventoryFallbackScopeFallbackScopeUn
 
 /**
  *  Required. A scope can be an organization or a project. Resources protected
- *  by the crypto key in provided scope will be returned. The allowed values
- *  are: * organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/12345678")
- *  * projects/{PROJECT_ID} (e.g., "projects/foo-bar") *
- *  projects/{PROJECT_NUMBER} (e.g., "projects/12345678")
+ *  by the crypto key in provided scope will be returned. The following values
+ *  are allowed: * organizations/{ORGANIZATION_NUMBER} (e.g.,
+ *  "organizations/12345678") * projects/{PROJECT_ID} (e.g., "projects/foo-bar")
+ *  * projects/{PROJECT_NUMBER} (e.g., "projects/12345678")
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -116,8 +116,8 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventoryFallbackScopeFallbackScopeUn
  *
  *  @param scope Required. A scope can be an organization or a project.
  *    Resources protected by the crypto key in provided scope will be returned.
- *    The allowed values are: * organizations/{ORGANIZATION_NUMBER} (e.g.,
- *    "organizations/12345678") * projects/{PROJECT_ID} (e.g.,
+ *    The following values are allowed: * organizations/{ORGANIZATION_NUMBER}
+ *    (e.g., "organizations/12345678") * projects/{PROJECT_ID} (e.g.,
  *    "projects/foo-bar") * projects/{PROJECT_NUMBER} (e.g.,
  *    "projects/12345678")
  *
@@ -284,10 +284,10 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventoryFallbackScopeFallbackScopeUn
 
 /**
  *  Required. A scope can be an organization or a project. Resources protected
- *  by the crypto key in provided scope will be returned. The allowed values
- *  are: * organizations/{ORGANIZATION_NUMBER} (e.g., "organizations/12345678")
- *  * projects/{PROJECT_ID} (e.g., "projects/foo-bar") *
- *  projects/{PROJECT_NUMBER} (e.g., "projects/12345678")
+ *  by the crypto key in provided scope will be returned. The following values
+ *  are allowed: * organizations/{ORGANIZATION_NUMBER} (e.g.,
+ *  "organizations/12345678") * projects/{PROJECT_ID} (e.g., "projects/foo-bar")
+ *  * projects/{PROJECT_NUMBER} (e.g., "projects/12345678")
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 
@@ -300,8 +300,8 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventoryFallbackScopeFallbackScopeUn
  *
  *  @param scope Required. A scope can be an organization or a project.
  *    Resources protected by the crypto key in provided scope will be returned.
- *    The allowed values are: * organizations/{ORGANIZATION_NUMBER} (e.g.,
- *    "organizations/12345678") * projects/{PROJECT_ID} (e.g.,
+ *    The following values are allowed: * organizations/{ORGANIZATION_NUMBER}
+ *    (e.g., "organizations/12345678") * projects/{PROJECT_ID} (e.g.,
  *    "projects/foo-bar") * projects/{PROJECT_NUMBER} (e.g.,
  *    "projects/12345678")
  *

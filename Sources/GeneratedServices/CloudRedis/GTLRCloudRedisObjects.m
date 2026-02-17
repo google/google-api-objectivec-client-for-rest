@@ -67,6 +67,12 @@ NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisHighmemXlarge = @"REDIS_H
 NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisSharedCoreNano = @"REDIS_SHARED_CORE_NANO";
 NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisStandardSmall = @"REDIS_STANDARD_SMALL";
 
+// GTLRCloudRedis_Cluster.serverCaMode
+NSString * const kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeCustomerManagedCasCa = @"SERVER_CA_MODE_CUSTOMER_MANAGED_CAS_CA";
+NSString * const kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeGoogleManagedPerInstanceCa = @"SERVER_CA_MODE_GOOGLE_MANAGED_PER_INSTANCE_CA";
+NSString * const kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeGoogleManagedSharedCa = @"SERVER_CA_MODE_GOOGLE_MANAGED_SHARED_CA";
+NSString * const kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeUnspecified = @"SERVER_CA_MODE_UNSPECIFIED";
+
 // GTLRCloudRedis_Cluster.state
 NSString * const kGTLRCloudRedis_Cluster_State_Active          = @"ACTIVE";
 NSString * const kGTLRCloudRedis_Cluster_State_Creating        = @"CREATING";
@@ -864,9 +870,9 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
          maintenanceVersion, managedBackupSource, name, nodeType,
          ondemandMaintenance, persistenceConfig, preciseSizeGb, pscConfigs,
          pscConnections, pscServiceAttachments, redisConfigs, replicaCount,
-         satisfiesPzi, satisfiesPzs, shardCount, simulateMaintenanceEvent,
-         sizeGb, state, stateInfo, transitEncryptionMode, uid,
-         zoneDistributionConfig;
+         rotateServerCertificate, satisfiesPzi, satisfiesPzs, serverCaMode,
+         serverCaPool, shardCount, simulateMaintenanceEvent, sizeGb, state,
+         stateInfo, transitEncryptionMode, uid, zoneDistributionConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1923,6 +1929,42 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_RegionalCertChain
+//
+
+@implementation GTLRCloudRedis_RegionalCertChain
+@dynamic certificates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"certificates" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_RegionalManagedCertificateAuthority
+//
+
+@implementation GTLRCloudRedis_RegionalManagedCertificateAuthority
+@dynamic caCerts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"caCerts" : [GTLRCloudRedis_RegionalCertChain class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_RemoteCluster
 //
 
@@ -1977,9 +2019,9 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_ResourceMaintenanceInfo
-@dynamic denyMaintenanceSchedules, isInstanceStopped, maintenanceSchedule,
-         maintenanceState, maintenanceVersion, upcomingMaintenance,
-         versionUpdateTime;
+@dynamic currentVersionReleaseDate, denyMaintenanceSchedules, isInstanceStopped,
+         maintenanceSchedule, maintenanceState, maintenanceVersion,
+         upcomingMaintenance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2009,6 +2051,16 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 @implementation GTLRCloudRedis_RetentionSettings
 @dynamic durationBasedRetention, quantityBasedRetention, retentionUnit,
          timeBasedRetention, timestampBasedRetentionTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_SharedRegionalCertificateAuthority
+//
+
+@implementation GTLRCloudRedis_SharedRegionalCertificateAuthority
+@dynamic managedServerCa, name;
 @end
 
 

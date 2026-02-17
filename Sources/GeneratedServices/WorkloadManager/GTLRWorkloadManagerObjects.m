@@ -15,6 +15,35 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRWorkloadManager_ActiveDirectory.type
+NSString * const kGTLRWorkloadManager_ActiveDirectory_Type_ActiveDirectoryTypeUnspecified = @"ACTIVE_DIRECTORY_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_ActiveDirectory_Type_GcpManaged = @"GCP_MANAGED";
+NSString * const kGTLRWorkloadManager_ActiveDirectory_Type_SelfManaged = @"SELF_MANAGED";
+
+// GTLRWorkloadManager_Actuation.state
+NSString * const kGTLRWorkloadManager_Actuation_State_Failed   = @"FAILED";
+NSString * const kGTLRWorkloadManager_Actuation_State_InfraCreating = @"INFRA_CREATING";
+NSString * const kGTLRWorkloadManager_Actuation_State_InfraDestroying = @"INFRA_DESTROYING";
+NSString * const kGTLRWorkloadManager_Actuation_State_PostInfraConfiguring = @"POST_INFRA_CONFIGURING";
+NSString * const kGTLRWorkloadManager_Actuation_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_Actuation_State_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRWorkloadManager_Actuation_State_Timeout  = @"TIMEOUT";
+
+// GTLRWorkloadManager_ActuationOutput.errorCode
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_AnsibleFailed = @"ANSIBLE_FAILED";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_AnsibleStartFailed = @"ANSIBLE_START_FAILED";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_ConstraintViolationInTerraform = @"CONSTRAINT_VIOLATION_IN_TERRAFORM";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_ErrorCodeUnspecified = @"ERROR_CODE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_InvalidSecretInAnsible = @"INVALID_SECRET_IN_ANSIBLE";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_PermissionDeniedInAnsible = @"PERMISSION_DENIED_IN_ANSIBLE";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_PermissionDeniedInTerraform = @"PERMISSION_DENIED_IN_TERRAFORM";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_QuotaExceedInTerraform = @"QUOTA_EXCEED_IN_TERRAFORM";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_ResourceAlreadyExistsInTerraform = @"RESOURCE_ALREADY_EXISTS_IN_TERRAFORM";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_ResourceInUseInTerraformDeletion = @"RESOURCE_IN_USE_IN_TERRAFORM_DELETION";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_ResourceUnavailableInTerraform = @"RESOURCE_UNAVAILABLE_IN_TERRAFORM";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_TerraformDeletionFailed = @"TERRAFORM_DELETION_FAILED";
+NSString * const kGTLRWorkloadManager_ActuationOutput_ErrorCode_TerraformFailed = @"TERRAFORM_FAILED";
+
 // GTLRWorkloadManager_AgentStatus.cloudApiAccessFullScopesGranted
 NSString * const kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_ErrorState = @"ERROR_STATE";
 NSString * const kGTLRWorkloadManager_AgentStatus_CloudApiAccessFullScopesGranted_FailureState = @"FAILURE_STATE";
@@ -89,6 +118,11 @@ NSString * const kGTLRWorkloadManager_ComponentHealth_State_Healthy = @"HEALTHY"
 NSString * const kGTLRWorkloadManager_ComponentHealth_State_Unhealthy = @"UNHEALTHY";
 NSString * const kGTLRWorkloadManager_ComponentHealth_State_Unsupported = @"UNSUPPORTED";
 
+// GTLRWorkloadManager_Database.tenancyModel
+NSString * const kGTLRWorkloadManager_Database_TenancyModel_Shared = @"SHARED";
+NSString * const kGTLRWorkloadManager_Database_TenancyModel_SoleTenant = @"SOLE_TENANT";
+NSString * const kGTLRWorkloadManager_Database_TenancyModel_TenancyModelUnspecified = @"TENANCY_MODEL_UNSPECIFIED";
+
 // GTLRWorkloadManager_DatabaseProperties.databaseType
 NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Ase = @"ASE";
 NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_DatabaseTypeUnspecified = @"DATABASE_TYPE_UNSPECIFIED";
@@ -97,6 +131,20 @@ NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Hana = @"H
 NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_MaxDb = @"MAX_DB";
 NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Oracle = @"ORACLE";
 NSString * const kGTLRWorkloadManager_DatabaseProperties_DatabaseType_Sqlserver = @"SQLSERVER";
+
+// GTLRWorkloadManager_Deployment.state
+NSString * const kGTLRWorkloadManager_Deployment_State_Active  = @"ACTIVE";
+NSString * const kGTLRWorkloadManager_Deployment_State_Creating = @"CREATING";
+NSString * const kGTLRWorkloadManager_Deployment_State_Deleting = @"DELETING";
+NSString * const kGTLRWorkloadManager_Deployment_State_Failed  = @"FAILED";
+NSString * const kGTLRWorkloadManager_Deployment_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_Deployment_State_Updating = @"UPDATING";
+
+// GTLRWorkloadManager_Deployment.workloadType
+NSString * const kGTLRWorkloadManager_Deployment_WorkloadType_Oracle = @"ORACLE";
+NSString * const kGTLRWorkloadManager_Deployment_WorkloadType_SapS4 = @"SAP_S4";
+NSString * const kGTLRWorkloadManager_Deployment_WorkloadType_SqlServer = @"SQL_SERVER";
+NSString * const kGTLRWorkloadManager_Deployment_WorkloadType_WorkloadTypeUnspecified = @"WORKLOAD_TYPE_UNSPECIFIED";
 
 // GTLRWorkloadManager_Evaluation.evaluationType
 NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_EvaluationTypeUnspecified = @"EVALUATION_TYPE_UNSPECIFIED";
@@ -145,6 +193,11 @@ NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleErs =
 NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleHanaPrimary = @"INSTANCE_ROLE_HANA_PRIMARY";
 NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleHanaSecondary = @"INSTANCE_ROLE_HANA_SECONDARY";
 NSString * const kGTLRWorkloadManager_InstanceProperties_Roles_InstanceRoleUnspecified = @"INSTANCE_ROLE_UNSPECIFIED";
+
+// GTLRWorkloadManager_LocationDetails.internetAccess
+NSString * const kGTLRWorkloadManager_LocationDetails_InternetAccess_AllowExternalIp = @"ALLOW_EXTERNAL_IP";
+NSString * const kGTLRWorkloadManager_LocationDetails_InternetAccess_ConfigureNat = @"CONFIGURE_NAT";
+NSString * const kGTLRWorkloadManager_LocationDetails_InternetAccess_InternetaccessUnspecified = @"INTERNETACCESS_UNSPECIFIED";
 
 // GTLRWorkloadManager_ResourceStatus.state
 NSString * const kGTLRWorkloadManager_ResourceStatus_State_Active = @"ACTIVE";
@@ -226,6 +279,27 @@ NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_Ins
 NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleErsDatabase = @"INSTANCE_ROLE_ERS_DATABASE";
 NSString * const kGTLRWorkloadManager_SapDiscoveryResourceInstanceProperties_InstanceRole_InstanceRoleUnspecified = @"INSTANCE_ROLE_UNSPECIFIED";
 
+// GTLRWorkloadManager_SapSystemS4Config.deploymentModel
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_DeploymentModel_DeploymentModelUnspecified = @"DEPLOYMENT_MODEL_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_DeploymentModel_Distributed = @"DISTRIBUTED";
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_DeploymentModel_DistributedHa = @"DISTRIBUTED_HA";
+
+// GTLRWorkloadManager_SapSystemS4Config.environmentType
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_EnvironmentType_EnvironmentTypeUnspecified = @"ENVIRONMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_EnvironmentType_NonProduction = @"NON_PRODUCTION";
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_EnvironmentType_Production = @"PRODUCTION";
+
+// GTLRWorkloadManager_SapSystemS4Config.scalingMethod
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_ScalingMethod_ScaleMethodUnspecified = @"SCALE_METHOD_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_ScalingMethod_ScaleOut = @"SCALE_OUT";
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_ScalingMethod_ScaleUp = @"SCALE_UP";
+
+// GTLRWorkloadManager_SapSystemS4Config.version
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_Version_S4Hana2021 = @"S4_HANA_2021";
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_Version_S4Hana2022 = @"S4_HANA_2022";
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_Version_S4Hana2023 = @"S4_HANA_2023";
+NSString * const kGTLRWorkloadManager_SapSystemS4Config_Version_VersionUnspecified = @"VERSION_UNSPECIFIED";
+
 // GTLRWorkloadManager_SapValidationValidationDetail.sapValidationType
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Corosync = @"COROSYNC";
 NSString * const kGTLRWorkloadManager_SapValidationValidationDetail_SapValidationType_Custom = @"CUSTOM";
@@ -253,6 +327,11 @@ NSString * const kGTLRWorkloadManager_ServiceStates_State_FunctionalityFailure =
 NSString * const kGTLRWorkloadManager_ServiceStates_State_IamFailure = @"IAM_FAILURE";
 NSString * const kGTLRWorkloadManager_ServiceStates_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRWorkloadManager_SqlLocationDetails.internetAccess
+NSString * const kGTLRWorkloadManager_SqlLocationDetails_InternetAccess_AllowExternalIp = @"ALLOW_EXTERNAL_IP";
+NSString * const kGTLRWorkloadManager_SqlLocationDetails_InternetAccess_ConfigureNat = @"CONFIGURE_NAT";
+NSString * const kGTLRWorkloadManager_SqlLocationDetails_InternetAccess_InternetAccessUnspecified = @"INTERNET_ACCESS_UNSPECIFIED";
+
 // GTLRWorkloadManager_SqlserverValidationValidationDetail.type
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBackupPolicy = @"DB_BACKUP_POLICY";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_DbBufferPoolExtension = @"DB_BUFFER_POOL_EXTENSION";
@@ -267,6 +346,51 @@ NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_D
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_InstanceMetrics = @"INSTANCE_METRICS";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_Os = @"OS";
 NSString * const kGTLRWorkloadManager_SqlserverValidationValidationDetail_Type_SqlserverValidationTypeUnspecified = @"SQLSERVER_VALIDATION_TYPE_UNSPECIFIED";
+
+// GTLRWorkloadManager_SqlServerWorkload.deploymentModel
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_DeploymentModel_DeploymentModelUnspecified = @"DEPLOYMENT_MODEL_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_DeploymentModel_HighAvailability = @"HIGH_AVAILABILITY";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_DeploymentModel_SingleInstance = @"SINGLE_INSTANCE";
+
+// GTLRWorkloadManager_SqlServerWorkload.environmentType
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_EnvironmentType_EnvironmentTypeUnspecified = @"ENVIRONMENT_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_EnvironmentType_NonProduction = @"NON_PRODUCTION";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_EnvironmentType_Production = @"PRODUCTION";
+
+// GTLRWorkloadManager_SqlServerWorkload.fciType
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_FciType_FciTypeUnspecified = @"FCI_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_FciType_S2d = @"S2D";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_FciType_SharedDisk = @"SHARED_DISK";
+
+// GTLRWorkloadManager_SqlServerWorkload.haType
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_HaType_Aoag = @"AOAG";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_HaType_Fci = @"FCI";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_HaType_HaTypeUnspecified = @"HA_TYPE_UNSPECIFIED";
+
+// GTLRWorkloadManager_SqlServerWorkload.operatingSystemType
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_OperatingSystemTypeUnspecified = @"OPERATING_SYSTEM_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_RedHatEnterpriseLinux = @"RED_HAT_ENTERPRISE_LINUX";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_Suse = @"SUSE";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_Ubuntu = @"UBUNTU";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_OperatingSystemType_Windows = @"WINDOWS";
+
+// GTLRWorkloadManager_SqlServerWorkload.osImageType
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_OsImageType_CustomImage = @"CUSTOM_IMAGE";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_OsImageType_OsImageTypeUnspecified = @"OS_IMAGE_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_OsImageType_PublicImage = @"PUBLIC_IMAGE";
+
+// GTLRWorkloadManager_SqlServerWorkload.sqlServerEdition
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeDeveloper = @"SQL_SERVER_EDITION_TYPE_DEVELOPER";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeEnterprise = @"SQL_SERVER_EDITION_TYPE_ENTERPRISE";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeStandard = @"SQL_SERVER_EDITION_TYPE_STANDARD";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeUnspecified = @"SQL_SERVER_EDITION_TYPE_UNSPECIFIED";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerEdition_SqlServerEditionTypeWeb = @"SQL_SERVER_EDITION_TYPE_WEB";
+
+// GTLRWorkloadManager_SqlServerWorkload.sqlServerVersion
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerVersion_SqlServerVersionType2017 = @"SQL_SERVER_VERSION_TYPE_2017";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerVersion_SqlServerVersionType2019 = @"SQL_SERVER_VERSION_TYPE_2019";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerVersion_SqlServerVersionType2022 = @"SQL_SERVER_VERSION_TYPE_2022";
+NSString * const kGTLRWorkloadManager_SqlServerWorkload_SqlServerVersion_SqlServerVersionTypeUnspecified = @"SQL_SERVER_VERSION_TYPE_UNSPECIFIED";
 
 // GTLRWorkloadManager_TorsoValidation.workloadType
 NSString * const kGTLRWorkloadManager_TorsoValidation_WorkloadType_Mysql = @"MYSQL";
@@ -284,6 +408,54 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_HealthStateUns
 NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Healthy = @"HEALTHY";
 NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unhealthy = @"UNHEALTHY";
 NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = @"UNSUPPORTED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ActiveDirectory
+//
+
+@implementation GTLRWorkloadManager_ActiveDirectory
+@dynamic dnsAddress, domain, domainUsername, secretManagerSecret, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Actuation
+//
+
+@implementation GTLRWorkloadManager_Actuation
+@dynamic actuationOutput, deploymentOutput, endTime, name, startTime, state;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deploymentOutput" : [GTLRWorkloadManager_DeploymentOutput class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ActuationOutput
+//
+
+@implementation GTLRWorkloadManager_ActuationOutput
+@dynamic actuateLogs, ansibleError, ansibleFailedTask, blueprintId,
+         cloudbuildId, errorCode, errorLogs, hasUserFacingErrorMsg,
+         terraformError, terraformTemplate;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ansibleFailedTask" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -394,6 +566,27 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_AppDetails
+//
+
+@implementation GTLRWorkloadManager_AppDetails
+@dynamic appInstanceId, appServiceAccount, appVmNames, ascsImage,
+         ascsInstanceId, ascsMachineType, ascsServiceAccount, ascsVm,
+         ersInstanceId, ersVm, image, machineType, secretManagerSecret,
+         sharedStorage, sid, vmsMultiplier;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"appVmNames" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_BackupProperties
 //
 
@@ -470,11 +663,75 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_Database
+//
+
+@implementation GTLRWorkloadManager_Database
+@dynamic diskType, floatingIpAddress, machineType, secondarySoleTenantNode,
+         secondarySoleTenantNodeType, secretManagerSecret, smt, soleTenantNode,
+         soleTenantNodeType, tempdbOnSsd, tenancyModel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_DatabaseDetails
+//
+
+@implementation GTLRWorkloadManager_DatabaseDetails
+@dynamic databaseServiceAccount, diskType, image, instanceId, machineType,
+         primaryDbVm, secondaryDbVm, secretManagerSecret, sid;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_DatabaseProperties
 //
 
 @implementation GTLRWorkloadManager_DatabaseProperties
 @dynamic backupProperties, databaseType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Deployment
+//
+
+@implementation GTLRWorkloadManager_Deployment
+@dynamic createTime, descriptionProperty, name, sapSystemS4Config,
+         serviceAccount, sqlServerWorkload, state, terraformVariables,
+         updateTime, workerPool, workloadType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Deployment_TerraformVariables
+//
+
+@implementation GTLRWorkloadManager_Deployment_TerraformVariables
+
++ (Class)classForAdditionalProperties {
+  return [GTLRWorkloadManager_TerraformVariable class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_DeploymentOutput
+//
+
+@implementation GTLRWorkloadManager_DeploymentOutput
+@dynamic name, type;
 @end
 
 
@@ -683,6 +940,52 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
     @"invalidRules" : [GTLRWorkloadManager_InvalidRule class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ListActuationsResponse
+//
+
+@implementation GTLRWorkloadManager_ListActuationsResponse
+@dynamic actuations, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actuations" : [GTLRWorkloadManager_Actuation class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"actuations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_ListDeploymentsResponse
+//
+
+@implementation GTLRWorkloadManager_ListDeploymentsResponse
+@dynamic deployments, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deployments" : [GTLRWorkloadManager_Deployment class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"deployments";
 }
 
 @end
@@ -904,6 +1207,26 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_LocationDetails
+//
+
+@implementation GTLRWorkloadManager_LocationDetails
+@dynamic createCommsFirewall, customTags, deploymentDnsEnabled, dnsZone,
+         dnsZoneNameSuffix, internetAccess, networkProject, regionName,
+         subnetName, vpcName, zone1Name, zone2Name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customTags" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_Notice
 //
 
@@ -982,6 +1305,17 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 @implementation GTLRWorkloadManager_OperationMetadata
 @dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
          target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_Pacemaker
+//
+
+@implementation GTLRWorkloadManager_Pacemaker
+@dynamic bucketNameNodeCertificates, pacemakerCluster, pacemakerClusterSecret,
+         pacemakerClusterUsername, sqlPacemakerSecret, sqlPacemakerUsername;
 @end
 
 
@@ -1364,6 +1698,18 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_SapSystemS4Config
+//
+
+@implementation GTLRWorkloadManager_SapSystemS4Config
+@dynamic allowStoppingForUpdate, ansibleRunnerServiceAccount, app, database,
+         deploymentModel, environmentType, gcpProjectId, location,
+         mediaBucketName, sapBootDiskImage, scalingMethod, version, vmPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_SapValidation
 //
 
@@ -1480,6 +1826,17 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_SqlLocationDetails
+//
+
+@implementation GTLRWorkloadManager_SqlLocationDetails
+@dynamic dnsZone, gcpProjectId, internetAccess, network, primaryZone, region,
+         secondaryZone, subnetwork, tertiaryZone;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_SqlserverValidation
 //
 
@@ -1540,6 +1897,19 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRWorkloadManager_SqlServerWorkload
+//
+
+@implementation GTLRWorkloadManager_SqlServerWorkload
+@dynamic activeDirectory, computeEngineServiceAccount, database,
+         deploymentModel, environmentType, fciType, haType, isSqlPayg, location,
+         mediaBucket, operatingSystemType, osImage, osImageType, pacemaker,
+         sqlServerEdition, sqlServerVersion, vmPrefix;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRWorkloadManager_Status
 //
 
@@ -1577,6 +1947,16 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 @implementation GTLRWorkloadManager_Summary
 @dynamic failures, newFailures, newFixes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRWorkloadManager_TerraformVariable
+//
+
+@implementation GTLRWorkloadManager_TerraformVariable
+@dynamic inputValue;
 @end
 
 

@@ -58,6 +58,7 @@
 @class GTLRContainer_ConsumptionMeteringConfig;
 @class GTLRContainer_ControlPlaneEndpointsConfig;
 @class GTLRContainer_CostManagementConfig;
+@class GTLRContainer_CrashLoopBackOffConfig;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
 @class GTLRContainer_DConfig;
@@ -66,6 +67,7 @@
 @class GTLRContainer_DefaultSnatStatus;
 @class GTLRContainer_DesiredAdditionalIPRangesConfig;
 @class GTLRContainer_DesiredEnterpriseConfig;
+@class GTLRContainer_DisruptionBudget;
 @class GTLRContainer_DisruptionEvent;
 @class GTLRContainer_DnsCacheConfig;
 @class GTLRContainer_DNSConfig;
@@ -546,6 +548,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_Cluster_Status_Stopping;
  *  Value: "AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_AutopilotGeneralProfileUnspecified;
+/**
+ *  Use default configuration.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_None;
 /**
  *  Avoid extra IP consumption.
  *
@@ -2451,11 +2459,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Bas
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Disabled;
 /**
+ *  Deprecated: Security Posture Enterprise features are no longer supported.
+ *  For more details, see
+ *  https://cloud.google.com/kubernetes-engine/docs/deprecations/posture-management-deprecation.
  *  Applies the Security Posture off cluster Enterprise level features.
  *
  *  Value: "ENTERPRISE"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Enterprise;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Enterprise GTLR_DEPRECATED;
 /**
  *  Default value not specified.
  *
@@ -2467,11 +2478,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_Mode_Mod
 // GTLRContainer_SecurityPostureConfig.vulnerabilityMode
 
 /**
+ *  Deprecated: Basic vulnerability scanning is no longer supported. For more
+ *  details, see
+ *  https://cloud.google.com/kubernetes-engine/docs/deprecations/posture-management-deprecation.
  *  Applies basic vulnerability scanning on the cluster.
  *
  *  Value: "VULNERABILITY_BASIC"
  */
-FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityBasic;
+FOUNDATION_EXTERN NSString * const kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityBasic GTLR_DEPRECATED;
 /**
  *  Disables vulnerability scanning on the cluster.
  *
@@ -4042,8 +4056,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, copy, nullable) NSString *clusterIpv4Cidr;
 
-/** Enable/Disable Compliance Posture features for the cluster. */
-@property(nonatomic, strong, nullable) GTLRContainer_CompliancePostureConfig *compliancePostureConfig;
+/**
+ *  Optional. Deprecated: Compliance Posture is no longer supported. For more
+ *  details, see
+ *  https://cloud.google.com/kubernetes-engine/docs/deprecations/posture-management-deprecation.
+ *  Enable/Disable Compliance Posture features for the cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_CompliancePostureConfig *compliancePostureConfig GTLR_DEPRECATED;
 
 /** Which conditions caused the current cluster state. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_StatusCondition *> *conditions;
@@ -4407,7 +4426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Secret CSI driver configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_SecretManagerConfig *secretManagerConfig;
 
-/** Enable/Disable Security Posture API features for the cluster. */
+/** Optional. Enable/Disable Security Posture API features for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_SecurityPostureConfig *securityPostureConfig;
 
 /** Output only. Server-defined URL for the resource. */
@@ -4523,6 +4542,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *    @arg @c kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_AutopilotGeneralProfileUnspecified
  *        Use default configuration. (Value:
  *        "AUTOPILOT_GENERAL_PROFILE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_None Use
+ *        default configuration. (Value: "NONE")
  *    @arg @c kGTLRContainer_ClusterAutoscaling_AutopilotGeneralProfile_NoPerformance
  *        Avoid extra IP consumption. (Value: "NO_PERFORMANCE")
  */
@@ -4635,8 +4656,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Cluster-level autoscaling configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ClusterAutoscaling *desiredClusterAutoscaling;
 
-/** Enable/Disable Compliance Posture features for the cluster. */
-@property(nonatomic, strong, nullable) GTLRContainer_CompliancePostureConfig *desiredCompliancePostureConfig;
+/**
+ *  Deprecated: Compliance Posture is no longer supported. For more details, see
+ *  https://cloud.google.com/kubernetes-engine/docs/deprecations/posture-management-deprecation.
+ *  Enable/Disable Compliance Posture features for the cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_CompliancePostureConfig *desiredCompliancePostureConfig GTLR_DEPRECATED;
 
 /** The desired containerd config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_DConfig *desiredContainerdConfig;
@@ -5100,9 +5125,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  Deprecated: Compliance Posture is no longer supported. For more details, see
+ *  https://cloud.google.com/kubernetes-engine/docs/deprecations/posture-management-deprecation.
  *  CompliancePostureConfig defines the settings needed to enable/disable
  *  features for the Compliance Posture.
  */
+GTLR_DEPRECATED
 @interface GTLRContainer_CompliancePostureConfig : GTLRObject
 
 /** List of enabled compliance standards. */
@@ -5224,6 +5252,26 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  Contains config to modify node-level parameters for container restart
+ *  behavior.
+ */
+@interface GTLRContainer_CrashLoopBackOffConfig : GTLRObject
+
+/**
+ *  Optional. The maximum duration the backoff delay can accrue to for container
+ *  restarts, minimum 1 second, maximum 300 seconds. If not set, defaults to the
+ *  internal crashloopbackoff maximum. The string must be a sequence of decimal
+ *  numbers, each with optional fraction and a unit suffix, such as "300ms".
+ *  Valid time units are "ns", "us" (or "µs"), "ms", "s", "m", "h". See
+ *  https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#configurable-container-restart-delay
+ *  for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *maxContainerRestartPeriod;
 
 @end
 
@@ -5504,6 +5552,38 @@ GTLR_DEPRECATED
  *        STANDARD indicates a standard GKE cluster. (Value: "STANDARD")
  */
 @property(nonatomic, copy, nullable) NSString *desiredTier;
+
+@end
+
+
+/**
+ *  DisruptionBudget defines the upgrade disruption budget for the cluster
+ *  control plane.
+ */
+@interface GTLRContainer_DisruptionBudget : GTLRObject
+
+/**
+ *  Output only. The last time a disruption was performed on the control plane.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastDisruptionTime;
+
+/**
+ *  Output only. The last time a minor version upgrade was performed on the
+ *  control plane.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastMinorVersionDisruptionTime;
+
+/**
+ *  Optional. The minimum duration between two minor version upgrades of the
+ *  control plane.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minorVersionDisruptionInterval;
+
+/**
+ *  Optional. The minimum duration between two patch version upgrades of the
+ *  control plane.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *patchVersionDisruptionInterval;
 
 @end
 
@@ -7207,6 +7287,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRContainer_MaintenancePolicy : GTLRObject
 
+/** Optional. The upgrade disruption budget for the cluster control plane. */
+@property(nonatomic, strong, nullable) GTLRContainer_DisruptionBudget *disruptionBudget;
+
 /**
  *  A hash identifying the version of this policy, so that updates to fields of
  *  the policy won't accidentally undo intermediate changes (and so that users
@@ -8326,6 +8409,12 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *cpuManagerPolicy;
 
 /**
+ *  Optional. Contains configuration options to modify node-level parameters for
+ *  container restart behavior.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_CrashLoopBackOffConfig *crashLoopBackOff;
+
+/**
  *  Optional. eviction_max_pod_grace_period_seconds is the maximum allowed grace
  *  period (in seconds) to use when terminating pods in response to a soft
  *  eviction threshold being met. This value effectively caps the Pod's
@@ -8435,6 +8524,31 @@ GTLR_DEPRECATED
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *podPidsLimit;
+
+/**
+ *  Optional. shutdown_grace_period_critical_pods_seconds is the maximum allowed
+ *  grace period (in seconds) used to terminate critical pods during a node
+ *  shutdown. This value should be <= shutdown_grace_period_seconds, and is only
+ *  valid if shutdown_grace_period_seconds is set.
+ *  https://kubernetes.io/docs/concepts/cluster-administration/node-shutdown/
+ *  Range: [0, 120].
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shutdownGracePeriodCriticalPodsSeconds;
+
+/**
+ *  Optional. shutdown_grace_period_seconds is the maximum allowed grace period
+ *  (in seconds) the total duration that the node should delay the shutdown
+ *  during a graceful shutdown. This is the total grace period for pod
+ *  termination for both regular and critical pods.
+ *  https://kubernetes.io/docs/concepts/cluster-administration/node-shutdown/ If
+ *  set to 0, node will not enable the graceful node shutdown functionality.
+ *  This field is only valid for Spot VMs. Allowed values: 0, 30, 120.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *shutdownGracePeriodSeconds;
 
 /**
  *  Optional. Defines whether to enable single process OOM killer. If true, will
@@ -8603,10 +8717,12 @@ GTLR_DEPRECATED
 /**
  *  Optional. The subnetwork name/path for the node pool. Format:
  *  projects/{project}/regions/{region}/subnetworks/{subnetwork} If the cluster
- *  is associated with multiple subnetworks, the subnetwork can be either: 1. A
- *  user supplied subnetwork name/full path during node pool creation. Example1:
- *  my-subnet Example2:
- *  projects/gke-project/regions/us-central1/subnetworks/my-subnet 2. A
+ *  is associated with multiple subnetworks, the subnetwork can be either: - A
+ *  user supplied subnetwork name during node pool creation (e.g., `my-subnet`).
+ *  The name must be between 1 and 63 characters long, start with a letter,
+ *  contain only letters, numbers, and hyphens, and end with a letter or a
+ *  number. - A full subnetwork path during node pool creation, such as
+ *  `projects/gke-project/regions/us-central1/subnetworks/my-subnet` - A
  *  subnetwork path picked based on the IP utilization during node pool creation
  *  and is immutable.
  */
@@ -10164,9 +10280,12 @@ GTLR_DEPRECATED
  *        Posture features on the cluster. (Value: "BASIC")
  *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_Disabled Disables
  *        Security Posture features on the cluster. (Value: "DISABLED")
- *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_Enterprise Applies the
- *        Security Posture off cluster Enterprise level features. (Value:
- *        "ENTERPRISE")
+ *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_Enterprise Deprecated:
+ *        Security Posture Enterprise features are no longer supported. For more
+ *        details, see
+ *        https://cloud.google.com/kubernetes-engine/docs/deprecations/posture-management-deprecation.
+ *        Applies the Security Posture off cluster Enterprise level features.
+ *        (Value: "ENTERPRISE")
  *    @arg @c kGTLRContainer_SecurityPostureConfig_Mode_ModeUnspecified Default
  *        value not specified. (Value: "MODE_UNSPECIFIED")
  */
@@ -10177,6 +10296,9 @@ GTLR_DEPRECATED
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityBasic
+ *        Deprecated: Basic vulnerability scanning is no longer supported. For
+ *        more details, see
+ *        https://cloud.google.com/kubernetes-engine/docs/deprecations/posture-management-deprecation.
  *        Applies basic vulnerability scanning on the cluster. (Value:
  *        "VULNERABILITY_BASIC")
  *    @arg @c kGTLRContainer_SecurityPostureConfig_VulnerabilityMode_VulnerabilityDisabled

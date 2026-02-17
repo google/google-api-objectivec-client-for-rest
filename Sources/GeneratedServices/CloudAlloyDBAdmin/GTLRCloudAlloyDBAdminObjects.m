@@ -2372,9 +2372,9 @@ NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfWeek_Wednesday = @"
 //
 
 @implementation GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo
-@dynamic denyMaintenanceSchedules, isInstanceStopped, maintenanceSchedule,
-         maintenanceState, maintenanceVersion, upcomingMaintenance,
-         versionUpdateTime;
+@dynamic currentVersionReleaseDate, denyMaintenanceSchedules, isInstanceStopped,
+         maintenanceSchedule, maintenanceState, maintenanceVersion,
+         upcomingMaintenance;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

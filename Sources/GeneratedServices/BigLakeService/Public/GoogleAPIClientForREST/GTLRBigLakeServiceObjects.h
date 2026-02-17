@@ -736,6 +736,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigLakeService_Table_Type_TypeUnspecifie
 
 @end
 
+
+/**
+ *  Request message for `TestIamPermissions` method.
+ */
+@interface GTLRBigLakeService_TestIamPermissionsRequest : GTLRObject
+
+/**
+ *  The set of permissions to check for the `resource`. Permissions with
+ *  wildcards (such as `*` or `storage.*`) are not allowed. For more information
+ *  see [IAM Overview](https://cloud.google.com/iam/docs/overview#permissions).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
+
+/**
+ *  Response message for `TestIamPermissions` method.
+ */
+@interface GTLRBigLakeService_TestIamPermissionsResponse : GTLRObject
+
+/**
+ *  A subset of `TestPermissionsRequest.permissions` that the caller is allowed.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
+
+@end
+
 NS_ASSUME_NONNULL_END
 
 #pragma clang diagnostic pop

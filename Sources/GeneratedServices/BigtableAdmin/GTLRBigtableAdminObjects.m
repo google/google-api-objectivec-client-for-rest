@@ -861,6 +861,15 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeGeography
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeGeography
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64
 //
 
@@ -1892,8 +1901,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_Type
 @dynamic aggregateType, arrayType, boolType, bytesType, dateType, enumType,
-         float32Type, float64Type, int64Type, mapType, protoType, stringType,
-         structType, timestampType;
+         float32Type, float64Type, geographyType, int64Type, mapType, protoType,
+         stringType, structType, timestampType;
 @end
 
 

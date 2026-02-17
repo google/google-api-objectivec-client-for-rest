@@ -149,6 +149,17 @@ NSString * const kGTLRDfareporting_ConversionError_Code_InvalidArgument = @"INVA
 NSString * const kGTLRDfareporting_ConversionError_Code_NotFound = @"NOT_FOUND";
 NSString * const kGTLRDfareporting_ConversionError_Code_PermissionDenied = @"PERMISSION_DENIED";
 
+// GTLRDfareporting_Country.tvDataProviders
+NSString * const kGTLRDfareporting_Country_TvDataProviders_ComscoreCa = @"COMSCORE_CA";
+NSString * const kGTLRDfareporting_Country_TvDataProviders_ComscoreNationalUs = @"COMSCORE_NATIONAL_US";
+NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeAr = @"IBOPE_AR";
+NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeBr = @"IBOPE_BR";
+NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeCl = @"IBOPE_CL";
+NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeCo = @"IBOPE_CO";
+NSString * const kGTLRDfareporting_Country_TvDataProviders_InvalidTvDataProvider = @"INVALID_TV_DATA_PROVIDER";
+NSString * const kGTLRDfareporting_Country_TvDataProviders_SambaAu = @"SAMBA_AU";
+NSString * const kGTLRDfareporting_Country_TvDataProviders_TnsVn = @"TNS_VN";
+
 // GTLRDfareporting_Creative.artworkType
 NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeFlash = @"ARTWORK_TYPE_FLASH";
 NSString * const kGTLRDfareporting_Creative_ArtworkType_ArtworkTypeHtml5 = @"ARTWORK_TYPE_HTML5";
@@ -3014,7 +3025,14 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 //
 
 @implementation GTLRDfareporting_Country
-@dynamic countryCode, dartId, kind, name, sslEnabled;
+@dynamic countryCode, dartId, kind, name, sslEnabled, tvDataProviders;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tvDataProviders" : [NSString class]
+  };
+  return map;
+}
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
