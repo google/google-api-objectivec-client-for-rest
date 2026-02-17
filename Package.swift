@@ -34,10 +34,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_AccessContextManager"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_ACMEDNS",
-            targets: ["GoogleAPIClientForREST_ACMEDNS"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_AddressValidation",
             targets: ["GoogleAPIClientForREST_AddressValidation"]
         ),
@@ -56,10 +52,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Adsense",
             targets: ["GoogleAPIClientForREST_Adsense"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_AdSenseHost",
-            targets: ["GoogleAPIClientForREST_AdSenseHost"]
         ),
         .library(
             name: "GoogleAPIClientForREST_AdSensePlatform",
@@ -96,10 +88,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_AnalyticsHub",
             targets: ["GoogleAPIClientForREST_AnalyticsHub"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_AnalyticsReporting",
-            targets: ["GoogleAPIClientForREST_AnalyticsReporting"]
         ),
         .library(
             name: "GoogleAPIClientForREST_AndroidEnterprise",
@@ -354,10 +342,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_CloudKMS"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_CloudLifeSciences",
-            targets: ["GoogleAPIClientForREST_CloudLifeSciences"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_CloudLocationFinder",
             targets: ["GoogleAPIClientForREST_CloudLocationFinder"]
         ),
@@ -420,10 +404,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_CloudShell",
             targets: ["GoogleAPIClientForREST_CloudShell"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_CloudSourceRepositories",
-            targets: ["GoogleAPIClientForREST_CloudSourceRepositories"]
         ),
         .library(
             name: "GoogleAPIClientForREST_CloudSupport",
@@ -600,10 +580,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Document",
             targets: ["GoogleAPIClientForREST_Document"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_DomainsRDAP",
-            targets: ["GoogleAPIClientForREST_DomainsRDAP"]
         ),
         .library(
             name: "GoogleAPIClientForREST_DoubleClickBidManager",
@@ -1304,12 +1280,6 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
-            name: "GoogleAPIClientForREST_ACMEDNS",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/ACMEDNS",
-            publicHeadersPath: "Public"
-        ),
-        .target(
             name: "GoogleAPIClientForREST_AddressValidation",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/AddressValidation",
@@ -1337,12 +1307,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_Adsense",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Adsense",
-            publicHeadersPath: "Public"
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_AdSenseHost",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/AdSenseHost",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -1397,12 +1361,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_AnalyticsHub",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/AnalyticsHub",
-            publicHeadersPath: "Public"
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_AnalyticsReporting",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/AnalyticsReporting",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -1784,12 +1742,6 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
-            name: "GoogleAPIClientForREST_CloudLifeSciences",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/CloudLifeSciences",
-            publicHeadersPath: "Public"
-        ),
-        .target(
             name: "GoogleAPIClientForREST_CloudLocationFinder",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudLocationFinder",
@@ -1883,12 +1835,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_CloudShell",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/CloudShell",
-            publicHeadersPath: "Public"
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_CloudSourceRepositories",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/CloudSourceRepositories",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2153,12 +2099,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_Document",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Document",
-            publicHeadersPath: "Public"
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_DomainsRDAP",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/DomainsRDAP",
             publicHeadersPath: "Public"
         ),
         .target(
