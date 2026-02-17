@@ -6,24 +6,24 @@ on:
     paths:
     - 'Examples/**'
     - '!Examples/**/*.md'
+    - 'Package*.swift'
     - 'Sources/Core/**'
     - 'Sources/GeneratedServices/Calendar/**'
     - 'Sources/GeneratedServices/Drive/**'
     - 'Sources/GeneratedServices/Storage/**'
     - 'Sources/GeneratedServices/YouTube/**'
-    - '*.podspec'
     - '.github/workflows/examples.yml'
   pull_request:
     branches: [ main ]
     paths:
     - 'Examples/**'
     - '!Examples/**/*.md'
+    - 'Package*.swift'
     - 'Sources/Core/**'
     - 'Sources/GeneratedServices/Calendar/**'
     - 'Sources/GeneratedServices/Drive/**'
     - 'Sources/GeneratedServices/Storage/**'
     - 'Sources/GeneratedServices/YouTube/**'
-    - '*.podspec'
     - '.github/workflows/examples.yml'
   schedule:
     # Run the first and fifteenth of every month at 6:22 UTC
@@ -42,9 +42,7 @@ jobs:
       run:  |
         set -eu
         cd Examples/${{ matrix.SAMPLE }}Sample
-        pod install
         xcodebuild \
-          -workspace "${{ matrix.SAMPLE }}Sample.xcworkspace" \
           -scheme "${{ matrix.SAMPLE }}Sample" \
           -configuration Debug \
           build
@@ -53,7 +51,6 @@ jobs:
         set -eu
         cd Examples/${{ matrix.SAMPLE }}Sample
         xcodebuild \
-          -workspace "${{ matrix.SAMPLE }}Sample.xcworkspace" \
           -scheme "${{ matrix.SAMPLE }}Sample" \
           -configuration Release \
           build
