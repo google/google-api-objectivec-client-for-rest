@@ -1263,7 +1263,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 @implementation GTLRDataflow_Job
 @dynamic clientRequestId, createdFromSnapshotId, createTime, currentState,
          currentStateTime, environment, executionInfo, identifier, jobMetadata,
-         labels, location, name, pipelineDescription, projectId,
+         labels, location, name, pausable, pipelineDescription, projectId,
          replacedByJobId, replaceJobId, requestedState, runtimeUpdatableParams,
          satisfiesPzi, satisfiesPzs, serviceResources, stageStates, startTime,
          steps, stepsLocation, tempFiles, transformNameMapping, type;
@@ -2360,8 +2360,8 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_RuntimeUpdatableParams
-@dynamic acceptableBacklogDuration, maxNumWorkers, minNumWorkers,
-         workerUtilizationHint;
+@dynamic acceptableBacklogDuration, autoscalingTier, maxNumWorkers,
+         minNumWorkers, workerUtilizationHint;
 @end
 
 

@@ -56,6 +56,7 @@
 @class GTLRCloudKMS_RemoveQuorumMember;
 @class GTLRCloudKMS_RequiredActionQuorumParameters;
 @class GTLRCloudKMS_RequiredActionQuorumReply;
+@class GTLRCloudKMS_RetiredResource;
 @class GTLRCloudKMS_ServiceResolver;
 @class GTLRCloudKMS_SingleTenantHsmInstance;
 @class GTLRCloudKMS_SingleTenantHsmInstanceProposal;
@@ -210,7 +211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_KeyProjectResolut
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_AutokeyConfig_KeyProjectResolutionMode_KeyProjectResolutionModeUnspecified;
 /**
- *  Keys are created in the same project as the resource requesting the key.
+ *  Keys are created in the same project as the resource requesting the key. The
  *  `key_project` must not be set when this mode is used.
  *
  *  Value: "RESOURCE_PROJECT"
@@ -2905,14 +2906,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *        "KEY_PROJECT_RESOLUTION_MODE_UNSPECIFIED")
  *    @arg @c kGTLRCloudKMS_AutokeyConfig_KeyProjectResolutionMode_ResourceProject
  *        Keys are created in the same project as the resource requesting the
- *        key. `key_project` must not be set when this mode is used. (Value:
+ *        key. The `key_project` must not be set when this mode is used. (Value:
  *        "RESOURCE_PROJECT")
  */
 @property(nonatomic, copy, nullable) NSString *keyProjectResolutionMode;
 
 /**
  *  Identifier. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig`
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig` or
+ *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -5277,6 +5279,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 
 /**
+ *  Response message for KeyManagementService.ListRetiredResources.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "retiredResources" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRCloudKMS_ListRetiredResourcesResponse : GTLRCollectionObject
+
+/**
+ *  A token to retrieve the next page of results. Pass this value in
+ *  ListRetiredResourcesRequest.page_token to retrieve the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of RetiredResources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudKMS_RetiredResource *> *retiredResources;
+
+/**
+ *  The total number of RetiredResources that matched the query.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
  *  Response message for HsmManagement.ListSingleTenantHsmInstanceProposals.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -6718,6 +6754,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *  Request message for KeyManagementService.RestoreCryptoKeyVersion.
  */
 @interface GTLRCloudKMS_RestoreCryptoKeyVersionRequest : GTLRObject
+@end
+
+
+/**
+ *  A RetiredResource resource represents the record of a deleted CryptoKey. Its
+ *  purpose is to provide visibility into retained user data and to prevent
+ *  reuse of these names for new CryptoKeys.
+ */
+@interface GTLRCloudKMS_RetiredResource : GTLRObject
+
+/**
+ *  Output only. The time at which the original resource was deleted and this
+ *  RetiredResource record was created.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
+
+/**
+ *  Output only. Identifier. The resource name for this RetiredResource in the
+ *  format `projects/ * /locations/ * /retiredResources/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The full resource name of the original CryptoKey that was
+ *  deleted in the format `projects/ * /locations/ * /keyRings/ * /cryptoKeys/
+ *  *`.
+ */
+@property(nonatomic, copy, nullable) NSString *originalResource;
+
+/** Output only. The resource type of the original deleted resource. */
+@property(nonatomic, copy, nullable) NSString *resourceType;
+
 @end
 
 

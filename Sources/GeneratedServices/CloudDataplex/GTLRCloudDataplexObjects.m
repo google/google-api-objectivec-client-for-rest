@@ -1736,11 +1736,33 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule
-@dynamic column, descriptionProperty, dimension, ignoreNull, name,
+@dynamic column, debugQueries, descriptionProperty, dimension, ignoreNull, name,
          nonNullExpectation, rangeExpectation, regexExpectation,
          rowConditionExpectation, setExpectation, sqlAssertion,
          statisticRangeExpectation, suspended, tableConditionExpectation,
          threshold, uniquenessExpectation;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"debugQueries" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleDebugQuery class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleDebugQuery
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleDebugQuery
+@dynamic descriptionProperty, sqlStatement;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -1784,8 +1806,44 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 //
 
 @implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult
-@dynamic assertionRowCount, evaluatedCount, failingRowsQuery, nullCount, passed,
-         passedCount, passRatio, rule;
+@dynamic assertionRowCount, debugQueriesResultSets, evaluatedCount,
+         failingRowsQuery, nullCount, passed, passedCount, passRatio, rule;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"debugQueriesResultSets" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResultSet class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResult
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResult
+@dynamic name, type, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResultSet
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResultSet
+@dynamic results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResult class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3543,6 +3601,28 @@ NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_LogType_LogTypeUns
 
 + (NSString *)collectionItemsKey {
   return @"zones";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDataplex_GoogleCloudDataplexV1LookupEntryLinksResponse
+//
+
+@implementation GTLRCloudDataplex_GoogleCloudDataplexV1LookupEntryLinksResponse
+@dynamic entryLinks, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entryLinks" : [GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"entryLinks";
 }
 
 @end

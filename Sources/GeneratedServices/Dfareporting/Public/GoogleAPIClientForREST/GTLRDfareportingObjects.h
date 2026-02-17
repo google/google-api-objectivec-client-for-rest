@@ -591,6 +591,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ConversionError_Code_NotFou
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_ConversionError_Code_PermissionDenied;
 
 // ----------------------------------------------------------------------------
+// GTLRDfareporting_Country.tvDataProviders
+
+/** Value: "COMSCORE_CA" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_ComscoreCa;
+/** Value: "COMSCORE_NATIONAL_US" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_ComscoreNationalUs;
+/** Value: "IBOPE_AR" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeAr;
+/** Value: "IBOPE_BR" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeBr;
+/** Value: "IBOPE_CL" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeCl;
+/** Value: "IBOPE_CO" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeCo;
+/** Value: "INVALID_TV_DATA_PROVIDER" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_InvalidTvDataProvider;
+/** Value: "SAMBA_AU" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_SambaAu;
+/** Value: "TNS_VN" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_TnsVn;
+
+// ----------------------------------------------------------------------------
 // GTLRDfareporting_Creative.artworkType
 
 /**
@@ -7098,10 +7120,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 
 
 /**
- *  *Beta:* This feature is currently in beta. Contains additional information
- *  about cart data. This field may only be used when calling batchinsert; it is
- *  not supported by batchupdate. Cart data reporting is only supported in
- *  SA360. [Learn more](https://support.google.com/sa360/topic/13425788)
+ *  Contains additional information about cart data. This field may only be used
+ *  when calling batchinsert; it is not supported by batchupdate. Cart data
+ *  reporting is only supported in SA360. [Learn
+ *  more](https://support.google.com/sa360/topic/13425788)
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property.
@@ -8140,6 +8162,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *sslEnabled;
+
+/** Output only. The TV data providers supported in this country. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tvDataProviders;
 
 @end
 
@@ -10972,7 +10997,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 
 
 /**
- *  Contains dynamic feed information.
+ *  *Beta:* This API resource is available only to a very limited number of
+ *  customers. If you'd like to use this resource, please reach out to your
+ *  Google sales representative. Contains dynamic feed information.
  */
 @interface GTLRDfareporting_DynamicFeed : GTLRObject
 
@@ -11063,7 +11090,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 /**
  *  Dynamic profile ID is required for dynamic feed insert as the current GPA
  *  API only can create a dynamic feed under profile context,even though the
- *  dynnamic feed itself don't need the dynamic profile id. See
+ *  dynamic feed itself don't need the dynamic profile id.
  */
 @interface GTLRDfareporting_DynamicFeedsInsertRequest : GTLRObject
 
@@ -11081,7 +11108,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 
 
 /**
- *  Contains dynamic profile information.
+ *  *Beta:* This API resource is available only to a very limited number of
+ *  customers. If you'd like to use this resource, please reach out to your
+ *  Google sales representative. Contains dynamic profile information.
  */
 @interface GTLRDfareporting_DynamicProfile : GTLRObject
 
@@ -11206,7 +11235,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  */
 @interface GTLRDfareporting_DynamicProfileGenerateCodeResponse : GTLRObject
 
-/** Generated code for the dynamic profile. */
+/**
+ *  Generated code for the dynamic profile. The code will need to be unescaped.
+ */
 @property(nonatomic, copy, nullable) NSString *code;
 
 @end
@@ -17226,7 +17257,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 
 
 /**
- *  Contains studio creative information.
+ *  *Beta:* This API resource is available only to a very limited number of
+ *  customers. If you'd like to use this resource, please reach out to your
+ *  Google sales representative. Contains studio creative information.
  */
 @interface GTLRDfareporting_StudioCreative : GTLRObject
 
@@ -17239,7 +17272,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *assetIds;
 
 /**
- *  Backup image asset ID of this studio creative.
+ *  Backup image asset ID of this studio creative. It is a required field on
+ *  insertion.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -17351,7 +17385,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 
 
 /**
- *  Contains studio creative asset information.
+ *  *Beta:* This API resource is available only to a very limited number of
+ *  customers. If you'd like to use this resource, please reach out to your
+ *  Google sales representative. Contains studio creative asset information.
  */
 @interface GTLRDfareporting_StudioCreativeAsset : GTLRObject
 

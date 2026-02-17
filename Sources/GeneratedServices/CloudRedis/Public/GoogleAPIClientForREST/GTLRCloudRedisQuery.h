@@ -654,6 +654,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the details of regional certificate authority information for Redis
+ *  cluster.
+ *
+ *  Method: redis.projects.locations.getSharedRegionalCertificateAuthority
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsGetSharedRegionalCertificateAuthority : GTLRCloudRedisQuery
+
+/**
+ *  Required. Regional certificate authority resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/sharedRegionalCertificateAuthority`
+ *  where `location_id` refers to a Google Cloud region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_SharedRegionalCertificateAuthority.
+ *
+ *  Gets the details of regional certificate authority information for Redis
+ *  cluster.
+ *
+ *  @param name Required. Regional certificate authority resource name using the
+ *    form:
+ *    `projects/{project_id}/locations/{location_id}/sharedRegionalCertificateAuthority`
+ *    where `location_id` refers to a Google Cloud region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsGetSharedRegionalCertificateAuthority
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Creates a Redis instance based on the specified tier and memory size. By
  *  default, the instance is accessible from the project's [default
  *  network](https://cloud.google.com/vpc/docs/vpc). The creation is executed

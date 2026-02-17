@@ -4382,6 +4382,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. Indicates whether the job can be paused.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pausable;
+
+/**
  *  Preliminary field: The format of this data may change at any time. A
  *  description of the user pipeline and stages through which it is executed.
  *  Created by Cloud Dataflow service. Only retrieved with JOB_VIEW_DESCRIPTION
@@ -6551,10 +6558,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @interface GTLRDataflow_RuntimeUpdatableParams : GTLRObject
 
 /**
- *  Optional. The backlog threshold duration in seconds for autoscaling. Value
- *  must be non-negative.
+ *  Optional. Deprecated: Use `autoscaling_tier` instead. The backlog threshold
+ *  duration in seconds for autoscaling. Value must be non-negative.
  */
-@property(nonatomic, strong, nullable) GTLRDuration *acceptableBacklogDuration;
+@property(nonatomic, strong, nullable) GTLRDuration *acceptableBacklogDuration GTLR_DEPRECATED;
+
+/**
+ *  Optional. The backlog threshold tier for autoscaling. Value must be one of
+ *  "low-latency", "medium-latency", or "high-latency".
+ */
+@property(nonatomic, copy, nullable) NSString *autoscalingTier;
 
 /**
  *  The maximum number of workers to cap autoscaling at. This field is currently

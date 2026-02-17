@@ -63,6 +63,7 @@
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeEnum;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeGeography;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes;
@@ -2308,6 +2309,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  A geography type, representing a point or region on Earth. The value is
+ *  stored in `Value.bytes_value` as Well-Known Binary (WKB) bytes.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeGeography : GTLRObject
+@end
+
+
+/**
  *  Int64 Values of type `Int64` are stored in `Value.int_value`.
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64 : GTLRObject
@@ -4296,6 +4305,9 @@ GTLR_DEPRECATED
 
 /** Float64 */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64 *float64Type;
+
+/** Geography */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeGeography *geographyType;
 
 /** Int64 */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64 *int64Type;

@@ -1199,6 +1199,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_TransferRule_Dir
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AdvancedProductDetails;
 /**
+ *  Appointment details widget.
+ *
+ *  Value: "APPOINTMENT_DETAILS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AppointmentDetails;
+/**
  *  Custom widget type.
  *
  *  Value: "CUSTOM"
@@ -6938,6 +6944,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *  Likely values:
  *    @arg @c kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AdvancedProductDetails
  *        Advanced product details widget. (Value: "ADVANCED_PRODUCT_DETAILS")
+ *    @arg @c kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AppointmentDetails
+ *        Appointment details widget. (Value: "APPOINTMENT_DETAILS")
  *    @arg @c kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_Custom Custom
  *        widget type. (Value: "CUSTOM")
  *    @arg @c kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_OrderSummary

@@ -183,6 +183,17 @@ NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingIframe = @"PLACE
 NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingJavascript = @"PLACEMENT_TAG_TRACKING_JAVASCRIPT";
 NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingThirdPartyMeasurement = @"PLACEMENT_TAG_TRACKING_THIRD_PARTY_MEASUREMENT";
 
+// tvDataProvider
+NSString * const kGTLRDfareportingTvDataProviderComscoreCa     = @"COMSCORE_CA";
+NSString * const kGTLRDfareportingTvDataProviderComscoreNationalUs = @"COMSCORE_NATIONAL_US";
+NSString * const kGTLRDfareportingTvDataProviderIbopeAr        = @"IBOPE_AR";
+NSString * const kGTLRDfareportingTvDataProviderIbopeBr        = @"IBOPE_BR";
+NSString * const kGTLRDfareportingTvDataProviderIbopeCl        = @"IBOPE_CL";
+NSString * const kGTLRDfareportingTvDataProviderIbopeCo        = @"IBOPE_CO";
+NSString * const kGTLRDfareportingTvDataProviderInvalidTvDataProvider = @"INVALID_TV_DATA_PROVIDER";
+NSString * const kGTLRDfareportingTvDataProviderSambaAu        = @"SAMBA_AU";
+NSString * const kGTLRDfareportingTvDataProviderTnsVn          = @"TNS_VN";
+
 // type
 NSString * const kGTLRDfareportingTypeAdServingBrandSafeAd  = @"AD_SERVING_BRAND_SAFE_AD";
 NSString * const kGTLRDfareportingTypeAdServingClickTracker = @"AD_SERVING_CLICK_TRACKER";
@@ -5642,7 +5653,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @implementation GTLRDfareportingQuery_TvCampaignDetailsGet
 
-@dynamic accountId, identifier, profileId;
+@dynamic accountId, countryDartId, identifier, profileId, tvDataProvider;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   return @{ @"identifier" : @"id" };
@@ -5669,7 +5680,7 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @implementation GTLRDfareportingQuery_TvCampaignSummariesList
 
-@dynamic accountId, name, profileId;
+@dynamic accountId, countryDartId, name, profileId, tvDataProvider;
 
 + (instancetype)queryWithProfileId:(long long)profileId {
   NSArray *pathParams = @[ @"profileId" ];

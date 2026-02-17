@@ -77,6 +77,330 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 @end
 
 /**
+ *  Creates a new actuation for an existing Deployment.
+ *
+ *  Method: workloadmanager.projects.locations.deployments.actuations.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsCreate : GTLRWorkloadManagerQuery
+
+/**
+ *  Required. The resource name of the Actuation location using the form:
+ *  'projects/{project_id}/locations/{location}/deployments/{deployment}'
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Operation.
+ *
+ *  Creates a new actuation for an existing Deployment.
+ *
+ *  @param object The @c GTLRWorkloadManager_Actuation to include in the query.
+ *  @param parent Required. The resource name of the Actuation location using
+ *    the form:
+ *    'projects/{project_id}/locations/{location}/deployments/{deployment}'
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsCreate
+ */
++ (instancetype)queryWithObject:(GTLRWorkloadManager_Actuation *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Actuation
+ *
+ *  Method: workloadmanager.projects.locations.deployments.actuations.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsDelete : GTLRWorkloadManagerQuery
+
+/**
+ *  Required. The name of the book to delete.
+ *  project/{project_id}/locations/{location_id}/deployments/{deployment_id}/actuations/{actuation_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Operation.
+ *
+ *  Deletes a single Actuation
+ *
+ *  @param name Required. The name of the book to delete.
+ *    project/{project_id}/locations/{location_id}/deployments/{deployment_id}/actuations/{actuation_id}
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Actuation.
+ *
+ *  Method: workloadmanager.projects.locations.deployments.actuations.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsGet : GTLRWorkloadManagerQuery
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Actuation.
+ *
+ *  Gets details of a single Actuation.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Actuations in a given project, location and deployment.
+ *
+ *  Method: workloadmanager.projects.locations.deployments.actuations.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsList : GTLRWorkloadManagerQuery
+
+/** Optional. Filtering results */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Field to sort by. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource prefix of the Actuation using the form:
+ *  'projects/{project_id}/locations/{location}/deployments/{deployment}'
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_ListActuationsResponse.
+ *
+ *  Lists Actuations in a given project, location and deployment.
+ *
+ *  @param parent Required. The resource prefix of the Actuation using the form:
+ *    'projects/{project_id}/locations/{location}/deployments/{deployment}'
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a new Deployment in a given project and location.
+ *
+ *  Method: workloadmanager.projects.locations.deployments.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsCreate : GTLRWorkloadManagerQuery
+
+/** Required. Id of the deployment */
+@property(nonatomic, copy, nullable) NSString *deploymentId;
+
+/**
+ *  Required. The resource prefix of the Deployment using the form:
+ *  `projects/{project_id}/locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Operation.
+ *
+ *  Creates a new Deployment in a given project and location.
+ *
+ *  @param object The @c GTLRWorkloadManager_Deployment to include in the query.
+ *  @param parent Required. The resource prefix of the Deployment using the
+ *    form: `projects/{project_id}/locations/{location_id}`
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsCreate
+ */
++ (instancetype)queryWithObject:(GTLRWorkloadManager_Deployment *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Deployment.
+ *
+ *  Method: workloadmanager.projects.locations.deployments.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsDelete : GTLRWorkloadManagerQuery
+
+/**
+ *  Optional. If set to true, any actuation will also be deleted. Followed the
+ *  best practice from https://aip.dev/135#cascading-delete
+ */
+@property(nonatomic, assign) BOOL force;
+
+/** Required. Name of the resource */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Operation.
+ *
+ *  Deletes a single Deployment.
+ *
+ *  @param name Required. Name of the resource
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Deployment.
+ *
+ *  Method: workloadmanager.projects.locations.deployments.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsGet : GTLRWorkloadManagerQuery
+
+/**
+ *  Required. Name of the resource. The format will be
+ *  'projects/{project_id}/locations/{location_id}/deployments/{deployment_id}'
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_Deployment.
+ *
+ *  Gets details of a single Deployment.
+ *
+ *  @param name Required. Name of the resource. The format will be
+ *    'projects/{project_id}/locations/{location_id}/deployments/{deployment_id}'
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Deployments in a given project and location.
+ *
+ *  Method: workloadmanager.projects.locations.deployments.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeWorkloadManagerCloudPlatform
+ */
+@interface GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsList : GTLRWorkloadManagerQuery
+
+/** Optional. Filter resource follow https://google.aip.dev/160 */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Field to sort by. See https://google.aip.dev/132#ordering for more
+ *  details.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource prefix of the Deployment using the form:
+ *  `projects/{project_id}/locations/{location_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRWorkloadManager_ListDeploymentsResponse.
+ *
+ *  Lists Deployments in a given project and location.
+ *
+ *  @param parent Required. The resource prefix of the Deployment using the
+ *    form: `projects/{project_id}/locations/{location_id}`
+ *
+ *  @return GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets details of a discovered workload profile.
  *
  *  Method: workloadmanager.projects.locations.discoveredprofiles.get

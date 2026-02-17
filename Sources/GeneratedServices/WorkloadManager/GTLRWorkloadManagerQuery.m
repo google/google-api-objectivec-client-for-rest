@@ -32,6 +32,174 @@ NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer   = @"SQL_SERVER";
 
 @end
 
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsCreate
+
+@dynamic parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRWorkloadManager_Actuation *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/actuations";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkloadManager_Operation class];
+  query.loggingName = @"workloadmanager.projects.locations.deployments.actuations.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkloadManager_Operation class];
+  query.loggingName = @"workloadmanager.projects.locations.deployments.actuations.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkloadManager_Actuation class];
+  query.loggingName = @"workloadmanager.projects.locations.deployments.actuations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/actuations";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsActuationsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkloadManager_ListActuationsResponse class];
+  query.loggingName = @"workloadmanager.projects.locations.deployments.actuations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsCreate
+
+@dynamic deploymentId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRWorkloadManager_Deployment *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/deployments";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkloadManager_Operation class];
+  query.loggingName = @"workloadmanager.projects.locations.deployments.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsDelete
+
+@dynamic force, name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkloadManager_Operation class];
+  query.loggingName = @"workloadmanager.projects.locations.deployments.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRWorkloadManager_Deployment class];
+  query.loggingName = @"workloadmanager.projects.locations.deployments.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/deployments";
+  GTLRWorkloadManagerQuery_ProjectsLocationsDeploymentsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRWorkloadManager_ListDeploymentsResponse class];
+  query.loggingName = @"workloadmanager.projects.locations.deployments.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRWorkloadManagerQuery_ProjectsLocationsDiscoveredprofilesGet
 
 @dynamic name;

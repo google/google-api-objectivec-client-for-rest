@@ -85,6 +85,8 @@
 @class GTLRCloudRedis_PscConnection;
 @class GTLRCloudRedis_PscServiceAttachment;
 @class GTLRCloudRedis_RDBConfig;
+@class GTLRCloudRedis_RegionalCertChain;
+@class GTLRCloudRedis_RegionalManagedCertificateAuthority;
 @class GTLRCloudRedis_RemoteCluster;
 @class GTLRCloudRedis_ResourceFlags;
 @class GTLRCloudRedis_ResourceMaintenanceDenySchedule;
@@ -363,6 +365,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisSharedC
  *  Value: "REDIS_STANDARD_SMALL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisStandardSmall;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudRedis_Cluster.serverCaMode
+
+/**
+ *  The cluster uses customer managed CA from CAS.
+ *
+ *  Value: "SERVER_CA_MODE_CUSTOMER_MANAGED_CAS_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeCustomerManagedCasCa;
+/**
+ *  Each cluster has its own Google managed CA.
+ *
+ *  Value: "SERVER_CA_MODE_GOOGLE_MANAGED_PER_INSTANCE_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeGoogleManagedPerInstanceCa;
+/**
+ *  The cluster uses Google managed shared CA in the region.
+ *
+ *  Value: "SERVER_CA_MODE_GOOGLE_MANAGED_SHARED_CA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeGoogleManagedSharedCa;
+/**
+ *  Server CA mode not specified.
+ *
+ *  Value: "SERVER_CA_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_Cluster.state
@@ -4453,6 +4483,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, strong, nullable) NSNumber *replicaCount;
 
 /**
+ *  Optional. Input only. Rotate the server certificates.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *rotateServerCertificate;
+
+/**
  *  Optional. Output only. Reserved for future use.
  *
  *  Uses NSNumber of boolValue.
@@ -4465,6 +4502,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
+ *  Optional. Server CA mode for the cluster.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeCustomerManagedCasCa
+ *        The cluster uses customer managed CA from CAS. (Value:
+ *        "SERVER_CA_MODE_CUSTOMER_MANAGED_CAS_CA")
+ *    @arg @c kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeGoogleManagedPerInstanceCa
+ *        Each cluster has its own Google managed CA. (Value:
+ *        "SERVER_CA_MODE_GOOGLE_MANAGED_PER_INSTANCE_CA")
+ *    @arg @c kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeGoogleManagedSharedCa
+ *        The cluster uses Google managed shared CA in the region. (Value:
+ *        "SERVER_CA_MODE_GOOGLE_MANAGED_SHARED_CA")
+ *    @arg @c kGTLRCloudRedis_Cluster_ServerCaMode_ServerCaModeUnspecified
+ *        Server CA mode not specified. (Value: "SERVER_CA_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *serverCaMode;
+
+/**
+ *  Optional. Customer-managed CA pool for the cluster. Only applicable for
+ *  BYOCA i.e. if server_ca_mode is SERVER_CA_MODE_CUSTOMER_MANAGED_CAS_CA.
+ *  Format: "projects/{project}/locations/{region}/caPools/{ca_pool}".
+ */
+@property(nonatomic, copy, nullable) NSString *serverCaPool;
 
 /**
  *  Optional. Number of shards for the Redis cluster.
@@ -8244,6 +8306,31 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
+ *  The certificates that form the CA chain, from leaf to root order.
+ */
+@interface GTLRCloudRedis_RegionalCertChain : GTLRObject
+
+/** The certificates that form the CA chain, from leaf to root order. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *certificates;
+
+@end
+
+
+/**
+ *  CA certificate chains for redis managed server authentication.
+ */
+@interface GTLRCloudRedis_RegionalManagedCertificateAuthority : GTLRObject
+
+/**
+ *  The PEM encoded CA certificate chains for redis managed server
+ *  authentication
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_RegionalCertChain *> *caCerts;
+
+@end
+
+
+/**
  *  Details of the remote cluster associated with this cluster in a cross
  *  cluster replication setup.
  */
@@ -8367,6 +8454,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @interface GTLRCloudRedis_ResourceMaintenanceInfo : GTLRObject
 
+/** Optional. The date when the current maintenance version was released. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_Date *currentVersionReleaseDate;
+
 /** Optional. List of Deny maintenance period for the database resource. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_ResourceMaintenanceDenySchedule *> *denyMaintenanceSchedules;
 
@@ -8416,13 +8506,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  populated once SLM generates and publishes upcoming maintenance window.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_UpcomingMaintenance *upcomingMaintenance;
-
-/**
- *  Optional. This field will contain the date when the last version update was
- *  applied to the database resource. This will be used to calculate the age of
- *  the maintenance version.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *versionUpdateTime;
 
 @end
 
@@ -8529,6 +8612,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 /** Timestamp based retention period i.e. 2024-05-01T00:00:00Z */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestampBasedRetentionTime;
+
+@end
+
+
+/**
+ *  Shared regional certificate authority
+ */
+@interface GTLRCloudRedis_SharedRegionalCertificateAuthority : GTLRObject
+
+/** CA certificate chains for redis managed server authentication. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_RegionalManagedCertificateAuthority *managedServerCa;
+
+/**
+ *  Identifier. Unique name of the resource in this scope including project and
+ *  location using the form:
+ *  `projects/{project}/locations/{location}/sharedRegionalCertificateAuthority`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 

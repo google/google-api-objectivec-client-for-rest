@@ -229,6 +229,7 @@ NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_CustomIntercept = @"C
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_CustomMirroring = @"CUSTOM_MIRRORING";
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ProfileTypeUnspecified = @"PROFILE_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_ThreatPrevention = @"THREAT_PREVENTION";
+NSString * const kGTLRNetworkSecurity_SecurityProfile_Type_UrlFiltering = @"URL_FILTERING";
 
 // GTLRNetworkSecurity_SeverityOverride.action
 NSString * const kGTLRNetworkSecurity_SeverityOverride_Action_Alert = @"ALERT";
@@ -273,6 +274,11 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileModern = @"PROFILE_MODERN";
 NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileRestricted = @"PROFILE_RESTRICTED";
 NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_ProfileUnspecified = @"PROFILE_UNSPECIFIED";
+
+// GTLRNetworkSecurity_UrlFilter.filteringAction
+NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_Allow = @"ALLOW";
+NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_Deny = @"DENY";
+NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActionUnspecified = @"URL_FILTERING_ACTION_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -2275,7 +2281,7 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 @implementation GTLRNetworkSecurity_SecurityProfile
 @dynamic createTime, customInterceptProfile, customMirroringProfile,
          descriptionProperty, ETag, labels, name, threatPreventionProfile, type,
-         updateTime;
+         updateTime, urlFilteringProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2310,7 +2316,7 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 @implementation GTLRNetworkSecurity_SecurityProfileGroup
 @dynamic createTime, customInterceptProfile, customMirroringProfile, dataPathId,
          descriptionProperty, ETag, labels, name, threatPreventionProfile,
-         updateTime;
+         updateTime, urlFilteringProfile;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -2475,6 +2481,42 @@ NSString * const kGTLRNetworkSecurity_TlsInspectionPolicy_TlsFeatureProfile_Prof
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"customTlsFeatures" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_UrlFilter
+//
+
+@implementation GTLRNetworkSecurity_UrlFilter
+@dynamic filteringAction, priority, urls;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"urls" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_UrlFilteringProfile
+//
+
+@implementation GTLRNetworkSecurity_UrlFilteringProfile
+@dynamic urlFilters;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"urlFilters" : [GTLRNetworkSecurity_UrlFilter class]
   };
   return map;
 }

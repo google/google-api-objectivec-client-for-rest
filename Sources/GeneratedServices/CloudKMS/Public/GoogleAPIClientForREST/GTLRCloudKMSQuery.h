@@ -199,7 +199,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Identifier. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig`
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig` or
+ *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -222,7 +223,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_AutokeyConfig to include in the query.
  *  @param name Identifier. Name of the AutokeyConfig resource, e.g.
- *    `folders/{FOLDER_NUMBER}/autokeyConfig`
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig` or
+ *    `projects/{PROJECT_NUMBER}/autokeyConfig`.
  *
  *  @return GTLRCloudKMSQuery_FoldersUpdateAutokeyConfig
  */
@@ -1340,6 +1342,43 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
+ *  Permanently deletes the given CryptoKeyVersion. Only possible if the version
+ *  has not been previously imported and if its state is one of DESTROYED,
+ *  IMPORT_FAILED, or GENERATION_FAILED. Successfully imported CryptoKeyVersions
+ *  cannot be deleted at this time. The specified version will be immediately
+ *  and permanently deleted upon calling this method. This action cannot be
+ *  undone.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.cryptoKeyVersions.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDelete : GTLRCloudKMSQuery
+
+/** Required. The name of the CryptoKeyVersion to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_Operation.
+ *
+ *  Permanently deletes the given CryptoKeyVersion. Only possible if the version
+ *  has not been previously imported and if its state is one of DESTROYED,
+ *  IMPORT_FAILED, or GENERATION_FAILED. Successfully imported CryptoKeyVersions
+ *  cannot be deleted at this time. The specified version will be immediately
+ *  and permanently deleted upon calling this method. This action cannot be
+ *  undone.
+ *
+ *  @param name Required. The name of the CryptoKeyVersion to delete.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysCryptoKeyVersionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Schedule a CryptoKeyVersion for destruction. Upon calling this method,
  *  CryptoKeyVersion.state will be set to DESTROY_SCHEDULED, and destroy_time
  *  will be set to the time destroy_scheduled_duration in the future. At that
@@ -1839,6 +1878,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  */
 + (instancetype)queryWithObject:(GTLRCloudKMS_DecryptRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Permanently deletes the given CryptoKey. All child CryptoKeyVersions must
+ *  have been previously deleted using
+ *  KeyManagementService.DeleteCryptoKeyVersion. The specified crypto key will
+ *  be immediately and permanently deleted upon calling this method. This action
+ *  cannot be undone.
+ *
+ *  Method: cloudkms.projects.locations.keyRings.cryptoKeys.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysDelete : GTLRCloudKMSQuery
+
+/** Required. The name of the CryptoKey to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_Operation.
+ *
+ *  Permanently deletes the given CryptoKey. All child CryptoKeyVersions must
+ *  have been previously deleted using
+ *  KeyManagementService.DeleteCryptoKeyVersion. The specified crypto key will
+ *  be immediately and permanently deleted upon calling this method. This action
+ *  cannot be undone.
+ *
+ *  @param name Required. The name of the CryptoKey to delete.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsKeyRingsCryptoKeysDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -2685,7 +2759,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: cloudkms.projects.locations.list
  *
@@ -2726,7 +2804,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 /**
  *  Fetches a @c GTLRCloudKMS_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -2768,6 +2850,86 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  @return GTLRCloudKMSQuery_ProjectsLocationsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Retrieves a specific RetiredResource resource, which represents the record
+ *  of a deleted CryptoKey.
+ *
+ *  Method: cloudkms.projects.locations.retiredResources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsRetiredResourcesGet : GTLRCloudKMSQuery
+
+/** Required. The name of the RetiredResource to get. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_RetiredResource.
+ *
+ *  Retrieves a specific RetiredResource resource, which represents the record
+ *  of a deleted CryptoKey.
+ *
+ *  @param name Required. The name of the RetiredResource to get.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsRetiredResourcesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the RetiredResources which are the records of deleted CryptoKeys.
+ *  RetiredResources prevent the reuse of these resource names after deletion.
+ *
+ *  Method: cloudkms.projects.locations.retiredResources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudKMS
+ *    @c kGTLRAuthScopeCloudKMSCloudPlatform
+ */
+@interface GTLRCloudKMSQuery_ProjectsLocationsRetiredResourcesList : GTLRCloudKMSQuery
+
+/**
+ *  Optional. Optional limit on the number of RetiredResources to be included in
+ *  the response. Further RetiredResources can subsequently be obtained by
+ *  including the ListRetiredResourcesResponse.next_page_token in a subsequent
+ *  request. If unspecified, the server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Optional pagination token, returned earlier via
+ *  ListRetiredResourcesResponse.next_page_token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project-specific location holding the RetiredResources, in the
+ *  format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudKMS_ListRetiredResourcesResponse.
+ *
+ *  Lists the RetiredResources which are the records of deleted CryptoKeys.
+ *  RetiredResources prevent the reuse of these resource names after deletion.
+ *
+ *  @param parent Required. The project-specific location holding the
+ *    RetiredResources, in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRCloudKMSQuery_ProjectsLocationsRetiredResourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -3312,7 +3474,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Identifier. Name of the AutokeyConfig resource, e.g.
- *  `folders/{FOLDER_NUMBER}/autokeyConfig`
+ *  `folders/{FOLDER_NUMBER}/autokeyConfig` or
+ *  `projects/{PROJECT_NUMBER}/autokeyConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3335,7 +3498,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_AutokeyConfig to include in the query.
  *  @param name Identifier. Name of the AutokeyConfig resource, e.g.
- *    `folders/{FOLDER_NUMBER}/autokeyConfig`
+ *    `folders/{FOLDER_NUMBER}/autokeyConfig` or
+ *    `projects/{PROJECT_NUMBER}/autokeyConfig`.
  *
  *  @return GTLRCloudKMSQuery_ProjectsUpdateAutokeyConfig
  */

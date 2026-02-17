@@ -221,6 +221,7 @@ NSString * const kGTLRCustomerEngagementSuite_TransferRule_Direction_ParentToChi
 
 // GTLRCustomerEngagementSuite_WidgetTool.widgetType
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AdvancedProductDetails = @"ADVANCED_PRODUCT_DETAILS";
+NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AppointmentDetails = @"APPOINTMENT_DETAILS";
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_Custom = @"CUSTOM";
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_OrderSummary = @"ORDER_SUMMARY";
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_OverallSatisfaction = @"OVERALL_SATISFACTION";

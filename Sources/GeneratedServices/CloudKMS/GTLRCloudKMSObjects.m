@@ -1137,6 +1137,28 @@ NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Succeeded =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudKMS_ListRetiredResourcesResponse
+//
+
+@implementation GTLRCloudKMS_ListRetiredResourcesResponse
+@dynamic nextPageToken, retiredResources, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"retiredResources" : [GTLRCloudKMS_RetiredResource class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"retiredResources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudKMS_ListSingleTenantHsmInstanceProposalsResponse
 //
 
@@ -1527,6 +1549,16 @@ NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Succeeded =
 //
 
 @implementation GTLRCloudKMS_RestoreCryptoKeyVersionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudKMS_RetiredResource
+//
+
+@implementation GTLRCloudKMS_RetiredResource
+@dynamic deleteTime, name, originalResource, resourceType;
 @end
 
 

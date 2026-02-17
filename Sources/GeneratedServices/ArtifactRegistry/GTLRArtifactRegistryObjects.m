@@ -59,6 +59,7 @@ NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Oper
 NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactregistryV1Rule_Operation_OperationUnspecified = @"OPERATION_UNSPECIFIED";
 
 // GTLRArtifactRegistry_Hash.type
+NSString * const kGTLRArtifactRegistry_Hash_Type_DirsumSha256  = @"DIRSUM_SHA256";
 NSString * const kGTLRArtifactRegistry_Hash_Type_HashTypeUnspecified = @"HASH_TYPE_UNSPECIFIED";
 NSString * const kGTLRArtifactRegistry_Hash_Type_Md5           = @"MD5";
 NSString * const kGTLRArtifactRegistry_Hash_Type_Sha256        = @"SHA256";

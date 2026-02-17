@@ -99,10 +99,13 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleDebugQuery;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleNonNullExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRangeExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRegexExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResultSet;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSqlAssertion;
@@ -5420,6 +5423,12 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *column;
 
 /**
+ *  Optional. Specifies the debug queries for this rule. Currently, only one
+ *  query is supported, but this may be expanded in the future.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleDebugQuery *> *debugQueries;
+
+/**
  *  Optional. Description of the rule. The maximum length is 1,024 characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -5427,7 +5436,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Required. The dimension a rule belongs to. Results are also aggregated at
+ *  Optional. The dimension a rule belongs to. Results are also aggregated at
  *  the dimension level. Custom dimension name is supported with all uppercase
  *  letters and maximum length of 30 characters.
  */
@@ -5518,6 +5527,39 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Specifies a SQL statement that is evaluated to return up to 10 scalar values
+ *  that are used to debug rules. If the rule fails, the values can help
+ *  diagnose the cause of the failure.The SQL statement must use GoogleSQL
+ *  syntax
+ *  (https://cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax),
+ *  and must not contain any semicolons.You can use the data reference parameter
+ *  ${data()} to reference the source table with all of its precondition filters
+ *  applied. Examples of precondition filters include row filters, incremental
+ *  data filters, and sampling. For more information, see Data reference
+ *  parameter
+ *  (https://cloud.google.com/dataplex/docs/auto-data-quality-overview#data-reference-parameter).You
+ *  can also name results with an explicit alias using [AS] alias. For more
+ *  information, see BigQuery explicit aliases
+ *  (https://docs.cloud.google.com/bigquery/docs/reference/standard-sql/query-syntax#explicit_alias_syntax).Example:
+ *  SELECT MIN(col1) AS min_col1, MAX(col1) AS max_col1 FROM ${data()}
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleDebugQuery : GTLRObject
+
+/**
+ *  Optional. Specifies the description of the debug query. The maximum length
+ *  is 1,024 characters.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. Specifies the SQL statement to be executed. */
+@property(nonatomic, copy, nullable) NSString *sqlStatement;
+
+@end
+
+
+/**
  *  Evaluates whether each column value is null.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleNonNullExpectation : GTLRObject
@@ -5588,6 +5630,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *assertionRowCount;
 
 /**
+ *  Output only. Contains the results of all debug queries for this rule. The
+ *  number of result sets will correspond to the number of debug_queries.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResultSet *> *debugQueriesResultSets;
+
+/**
  *  Output only. The number of rows a rule was evaluated against.This field is
  *  only valid for row-level type rules.Evaluated count can be configured to
  *  either include all rows (default) - with null rows automatically failing
@@ -5637,6 +5685,41 @@ GTLR_DEPRECATED
 
 /** Output only. The rule specified in the DataQualitySpec, as is. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule *rule;
+
+@end
+
+
+/**
+ *  Contains a single result from the debug query.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResult : GTLRObject
+
+/**
+ *  Specifies the name of the result. Available if provided with an explicit
+ *  alias using [AS] alias.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Indicates the data type of the result. For more information, see BigQuery
+ *  data types
+ *  (https://cloud.google.com/bigquery/docs/reference/standard-sql/data-types).
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Represents the value of the result as a string. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Contains all results from a debug query.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResultSet : GTLRObject
+
+/** Output only. Contains all results. Up to 10 results can be returned. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResult *> *results;
 
 @end
 
@@ -9444,6 +9527,33 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1Zone *> *zones;
+
+@end
+
+
+/**
+ *  Response message for LookupEntryLinks.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entryLinks" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1LookupEntryLinksResponse : GTLRCollectionObject
+
+/**
+ *  List of entry links that reference the specified entry.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink *> *entryLinks;
+
+/**
+ *  Token to retrieve the next page of results, or empty if there are no more
+ *  results in the list.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
 

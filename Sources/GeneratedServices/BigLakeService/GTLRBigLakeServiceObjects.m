@@ -310,3 +310,39 @@ NSString * const kGTLRBigLakeService_Table_Type_TypeUnspecified = @"TYPE_UNSPECI
 }
 
 @end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigLakeService_TestIamPermissionsRequest
+//
+
+@implementation GTLRBigLakeService_TestIamPermissionsRequest
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigLakeService_TestIamPermissionsResponse
+//
+
+@implementation GTLRBigLakeService_TestIamPermissionsResponse
+@dynamic permissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"permissions" : [NSString class]
+  };
+  return map;
+}
+
+@end

@@ -16853,7 +16853,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_AdGroup : GTLRObject
 
 /**
- *  The format of the ads in the ad group.
+ *  Required. The format of the ads in the ad group.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatAudio
@@ -16883,34 +16883,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *adGroupFormat;
 
 /**
- *  The unique ID of the ad group. Assigned by the system.
+ *  Output only. The unique ID of the ad group. Assigned by the system.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *adGroupId;
 
 /**
- *  The unique ID of the advertiser the ad group belongs to.
+ *  Output only. The unique ID of the advertiser the ad group belongs to.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
 /**
- *  The bidding strategy used by the ad group. Only the youtubeAndPartnersBid
- *  field can be used in the bidding strategy.
+ *  Optional. The bidding strategy used by the ad group. Only the
+ *  youtubeAndPartnersBid and demandGenBid field can be used in the bidding
+ *  strategy.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_BiddingStrategy *bidStrategy;
 
 /**
- *  The display name of the ad group. Must be UTF-8 encoded with a maximum size
- *  of 255 bytes.
+ *  Required. The display name of the ad group. Must be UTF-8 encoded with a
+ *  maximum size of 255 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Controls whether or not the ad group can spend its budget and bid on
- *  inventory. If the ad group's parent line item is not active, the ad group
+ *  Required. Controls whether or not the ad group can spend its budget and bid
+ *  on inventory. If the ad group's parent line item is not active, the ad group
  *  can't spend its budget even if its own status is `ENTITY_STATUS_ACTIVE`.
  *
  *  Likely values:
@@ -16937,21 +16938,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *entityStatus;
 
 /**
- *  The unique ID of the line item that the ad group belongs to.
+ *  Required. The unique ID of the line item that the ad group belongs to.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lineItemId;
 
-/** The resource name of the ad group. */
+/** Output only. Identifier. The resource name of the ad group. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** The settings of the product feed in this ad group. */
+/** Optional. The settings of the product feed in this ad group. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ProductFeedData *productFeedData;
 
 /**
- *  The [optimized targeting](//support.google.com/displayvideo/answer/12060859)
- *  settings of the ad group.
+ *  Optional. The [optimized
+ *  targeting](//support.google.com/displayvideo/answer/12060859) settings of
+ *  the ad group.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_TargetingExpansionConfig *targetingExpansion;
 
@@ -16971,10 +16973,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *adGroupAdId;
 
 /**
- *  The unique ID of the ad group that the ad belongs to. *Caution*: Parent ad
- *  groups for Demand Gen ads are not currently retrieveable using
- *  `advertisers.adGroups.list` or `advertisers.adGroups.get`. Demand Gen ads
- *  can be identified by the absence of the `ad_details` union field.
+ *  Required. The unique ID of the ad group that the ad belongs to.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -16983,7 +16982,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Output only. The policy approval status of the ad. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AdPolicy *adPolicy;
 
-/** List of URLs used by the ad. */
+/** Output only. List of URLs used by the ad. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_AdUrl *> *adUrls;
 
 /**
@@ -16994,29 +16993,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *advertiserId;
 
 /**
- *  Details of an [audio ad](//support.google.com/displayvideo/answer/6274216)
- *  used for reach marketing objectives.
+ *  Output only. Details of an [audio
+ *  ad](//support.google.com/displayvideo/answer/6274216) used for reach
+ *  marketing objectives.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AudioAd *audioAd;
 
 /**
- *  Details of a [non-skippable short video
+ *  Output only. Details of a [non-skippable short video
  *  ad](//support.google.com/displayvideo/answer/6274216), equal to or less than
  *  6 seconds, used for reach.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_BumperAd *bumperAd;
 
 /**
- *  The display name of the ad. Must be UTF-8 encoded with a maximum size of 255
- *  bytes.
+ *  Required. The display name of the ad. Must be UTF-8 encoded with a maximum
+ *  size of 255 bytes.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** Details of an ad sourced from a Display & Video 360 creative. */
+/**
+ *  Output only. Details of an ad sourced from a Display & Video 360 creative.
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_SourceAd *displayVideoSourceAd;
 
 /**
- *  The entity status of the ad.
+ *  Required. The entity status of the ad.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_AdGroupAd_EntityStatus_EntityStatusActive The
@@ -17042,14 +17044,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *entityStatus;
 
 /**
- *  Details of an [in-stream ad skippable after 5
+ *  Output only. Details of an [in-stream ad skippable after 5
  *  seconds](//support.google.com/displayvideo/answer/6274216), used for brand
  *  awareness or reach marketing objectives.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_InStreamAd *inStreamAd;
 
 /**
- *  Details of an [ad served on the YouTube Home
+ *  Output only. Details of an [ad served on the YouTube Home
  *  feed](//support.google.com/google-ads/answer/9709826).
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_MastheadAd *mastheadAd;
@@ -17058,21 +17060,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Details of a [non-skippable short in-stream video
+ *  Output only. Details of a [non-skippable short in-stream video
  *  ad](//support.google.com/displayvideo/answer/6274216), between 6 and 15
  *  seconds, used for reach marketing objectives.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_NonSkippableAd *nonSkippableAd;
 
 /**
- *  Details of an [ad promoting a
+ *  Output only. Details of an [ad promoting a
  *  video](//support.google.com/displayvideo/answer/6274216) that shows in
  *  places of discovery.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoDiscoveryAd *videoDiscoverAd;
 
 /**
- *  Details of an [ad used in a video action
+ *  Output only. Details of an [ad used in a video action
  *  campaign](//support.google.com/google-ads/answer/10147229) to drive actions
  *  to the business, service or product.
  */
@@ -27802,16 +27804,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_ImageAsset : GTLRObject
 
 /**
- *  File size of the image asset in bytes.
+ *  Output only. File size of the image asset in bytes.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *fileSize;
 
-/** Metadata for this image at its original size. */
+/** Output only. Metadata for this image at its original size. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Dimensions *fullSize;
 
-/** MIME type of the image asset. */
+/** Output only. MIME type of the image asset. */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
 @end
@@ -35275,7 +35277,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_YoutubeVideoDetails : GTLRObject
 
 /**
- *  The YouTube video ID which can be searched on YouTube webpage.
+ *  Output only. The YouTube video ID which can be searched on YouTube webpage.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -35294,6 +35296,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        "VIDEO_UNAVAILABLE_REASON_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *unavailableReason;
+
+/**
+ *  Required. The YouTube video asset id. This is ad_asset.ad_asset_id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *videoAssetId;
 
 @end
 

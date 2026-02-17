@@ -3951,8 +3951,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TextModuleData *> *textModulesData;
 
 /**
- *  Optional value added module data. Maximum of ten on the class. For a pass
- *  only ten will be displayed, prioritizing those from the object.
+ *  Optional value added module data. Maximum of fifteen on the class. For a
+ *  pass only fifteen will be displayed, prioritizing those from the object.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
@@ -4280,7 +4280,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
 
-/** Optional value added module data. Maximum of ten on the object. */
+/**
+ *  Optional value added module data. Maximum of fifteen on the object. For a
+ *  pass only fifteen will be displayed.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
@@ -4843,8 +4846,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TextModuleData *> *textModulesData;
 
 /**
- *  Optional value added module data. Maximum of ten on the class. For a pass
- *  only ten will be displayed, prioritizing those from the object.
+ *  Optional value added module data. Maximum of fifteen on the class. For a
+ *  pass only fifteen will be displayed, prioritizing those from the object.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
@@ -5181,7 +5184,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
 
-/** Optional value added module data. Maximum of ten on the object. */
+/**
+ *  Optional value added module data. Maximum of fifteen on the object. For a
+ *  pass only fifteen will be displayed.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
@@ -5358,8 +5364,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TextModuleData *> *textModulesData;
 
 /**
- *  Optional value added module data. Maximum of ten on the class. For a pass
- *  only ten will be displayed, prioritizing those from the object.
+ *  Optional value added module data. Maximum of fifteen on the class. For a
+ *  pass only fifteen will be displayed, prioritizing those from the object.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
@@ -5641,7 +5647,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
 
-/** Optional value added module data. Maximum of ten on the object. */
+/**
+ *  Optional value added module data. Maximum of fifteen on the object. For a
+ *  pass only fifteen will be displayed.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
@@ -5954,8 +5963,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TextModuleData *> *textModulesData;
 
 /**
- *  Optional value added module data. Maximum of ten on the class. For a pass
- *  only ten will be displayed, prioritizing those from the object.
+ *  Optional value added module data. Maximum of fifteen on the class. For a
+ *  pass only fifteen will be displayed, prioritizing those from the object.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
@@ -6250,7 +6259,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
 
-/** Optional value added module data. Maximum of ten on the object. */
+/**
+ *  Optional value added module data. Maximum of fifteen on the object. For a
+ *  pass only fifteen will be displayed.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
@@ -6995,8 +7007,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_TextModuleData *> *textModulesData;
 
 /**
- *  Optional value added module data. Maximum of ten on the class. For a pass
- *  only ten will be displayed, prioritizing those from the object.
+ *  Optional value added module data. Maximum of fifteen on the class. For a
+ *  pass only fifteen will be displayed, prioritizing those from the object.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
@@ -7303,7 +7315,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
 
-/** Optional value added module data. Maximum of ten on the object. */
+/**
+ *  Optional value added module data. Maximum of fifteen on the object. For a
+ *  pass only fifteen will be displayed.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
@@ -8283,8 +8298,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, strong, nullable) GTLRWalletobjects_Image *titleImage;
 
 /**
- *  Optional value added module data. Maximum of ten on the class. For a pass
- *  only ten will be displayed, prioritizing those from the object.
+ *  Optional value added module data. Maximum of fifteen on the class. For a
+ *  pass only fifteen will be displayed, prioritizing those from the object.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
@@ -8560,7 +8575,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
 
-/** Optional value added module data. Maximum of ten on the object. */
+/**
+ *  Optional value added module data. Maximum of fifteen on the object. For a
+ *  pass only fifteen will be displayed.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**
@@ -9870,8 +9888,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 @property(nonatomic, copy, nullable) NSString *transitType;
 
 /**
- *  Optional value added module data. Maximum of ten on the class. For a pass
- *  only ten will be displayed, prioritizing those from the object.
+ *  Optional value added module data. Maximum of fifteen on the class. For a
+ *  pass only fifteen will be displayed, prioritizing those from the object.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
@@ -10281,7 +10299,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, strong, nullable) GTLRWalletobjects_TimeInterval *validTimeInterval;
 
-/** Optional value added module data. Maximum of ten on the object. */
+/**
+ *  Optional value added module data. Maximum of fifteen on the object. For a
+ *  pass only fifteen will be displayed.
+ */
 @property(nonatomic, strong, nullable) NSArray<GTLRWalletobjects_ValueAddedModuleData *> *valueAddedModuleData;
 
 /**

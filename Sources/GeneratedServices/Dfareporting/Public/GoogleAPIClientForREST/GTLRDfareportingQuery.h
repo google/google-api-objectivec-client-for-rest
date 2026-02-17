@@ -426,6 +426,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTracki
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingTagFormatsPlacementTagTrackingThirdPartyMeasurement;
 
 // ----------------------------------------------------------------------------
+// tvDataProvider
+
+/** Value: "COMSCORE_CA" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderComscoreCa;
+/** Value: "COMSCORE_NATIONAL_US" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderComscoreNationalUs;
+/** Value: "IBOPE_AR" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIbopeAr;
+/** Value: "IBOPE_BR" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIbopeBr;
+/** Value: "IBOPE_CL" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIbopeCl;
+/** Value: "IBOPE_CO" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIbopeCo;
+/** Value: "INVALID_TV_DATA_PROVIDER" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderInvalidTvDataProvider;
+/** Value: "SAMBA_AU" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderSambaAu;
+/** Value: "TNS_VN" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderTnsVn;
+
+// ----------------------------------------------------------------------------
 // type
 
 /** Value: "AD_SERVING_BRAND_SAFE_AD" */
@@ -4948,7 +4970,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Retransforms a dynamic feed.
+ *  Retransforms a dynamic feed. Only draft feeds can be retransformed (i.e. the
+ *  feed has not been published).
  *
  *  Method: dfareporting.dynamicFeeds.retransform
  *
@@ -4963,7 +4986,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_DynamicFeed.
  *
- *  Retransforms a dynamic feed.
+ *  Retransforms a dynamic feed. Only draft feeds can be retransformed (i.e. the
+ *  feed has not been published).
  *
  *  @param dynamicFeedId Required. Dynamic feed ID.
  *
@@ -4974,7 +4998,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Updates a new dynamic feed.
+ *  Updates a new dynamic feed. For draft feeds, only Element can be updated.
+ *  For published feeds, only FeedSchedule can be updated. Other fields will be
+ *  ignored.
  *
  *  Method: dfareporting.dynamicFeeds.update
  *
@@ -4986,7 +5012,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_DynamicFeed.
  *
- *  Updates a new dynamic feed.
+ *  Updates a new dynamic feed. For draft feeds, only Element can be updated.
+ *  For published feeds, only FeedSchedule can be updated. Other fields will be
+ *  ignored.
  *
  *  @param object The @c GTLRDfareporting_DynamicFeed to include in the query.
  *
@@ -4997,7 +5025,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @end
 
 /**
- *  Generates code for a dynamic profile.
+ *  Generates code for a dynamic profile, which will need unescaping.
  *
  *  Method: dfareporting.dynamicProfiles.generateCode
  *
@@ -5012,7 +5040,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /**
  *  Fetches a @c GTLRDfareporting_DynamicProfileGenerateCodeResponse.
  *
- *  Generates code for a dynamic profile.
+ *  Generates code for a dynamic profile, which will need unescaping.
  *
  *  @param dynamicProfileId Required. Dynamic profile ID.
  *
@@ -9701,6 +9729,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** Required. Account ID associated with this request. */
 @property(nonatomic, assign) long long accountId;
 
+/** Optional. Country Dart ID. If not specified, defaults to 256 (US). */
+@property(nonatomic, assign) long long countryDartId;
+
 /**
  *  Required. TV Campaign ID.
  *
@@ -9710,6 +9741,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 
 /** Required. User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
+
+/**
+ *  Optional. TV data provider. If not specified, defaults to
+ *  `COMSCORE_NATIONAL_US`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareportingTvDataProviderInvalidTvDataProvider Value
+ *        "INVALID_TV_DATA_PROVIDER"
+ *    @arg @c kGTLRDfareportingTvDataProviderIbopeAr Value "IBOPE_AR"
+ *    @arg @c kGTLRDfareportingTvDataProviderIbopeBr Value "IBOPE_BR"
+ *    @arg @c kGTLRDfareportingTvDataProviderIbopeCl Value "IBOPE_CL"
+ *    @arg @c kGTLRDfareportingTvDataProviderIbopeCo Value "IBOPE_CO"
+ *    @arg @c kGTLRDfareportingTvDataProviderTnsVn Value "TNS_VN"
+ *    @arg @c kGTLRDfareportingTvDataProviderComscoreNationalUs Value
+ *        "COMSCORE_NATIONAL_US"
+ *    @arg @c kGTLRDfareportingTvDataProviderComscoreCa Value "COMSCORE_CA"
+ *    @arg @c kGTLRDfareportingTvDataProviderSambaAu Value "SAMBA_AU"
+ */
+@property(nonatomic, copy, nullable) NSString *tvDataProvider;
 
 /**
  *  Fetches a @c GTLRDfareporting_TvCampaignDetail.
@@ -9739,6 +9789,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 /** Required. Account ID associated with this request. */
 @property(nonatomic, assign) long long accountId;
 
+/** Optional. Country Dart ID. If not specified, defaults to 256 (US). */
+@property(nonatomic, assign) long long countryDartId;
+
 /**
  *  Required. Search string to filter the list of TV campaign summaries. Matches
  *  any substring. Required field.
@@ -9747,6 +9800,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 
 /** Required. User profile ID associated with this request. */
 @property(nonatomic, assign) long long profileId;
+
+/**
+ *  Optional. TV data provider. If not specified, defaults to
+ *  `COMSCORE_NATIONAL_US`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDfareportingTvDataProviderInvalidTvDataProvider Value
+ *        "INVALID_TV_DATA_PROVIDER"
+ *    @arg @c kGTLRDfareportingTvDataProviderIbopeAr Value "IBOPE_AR"
+ *    @arg @c kGTLRDfareportingTvDataProviderIbopeBr Value "IBOPE_BR"
+ *    @arg @c kGTLRDfareportingTvDataProviderIbopeCl Value "IBOPE_CL"
+ *    @arg @c kGTLRDfareportingTvDataProviderIbopeCo Value "IBOPE_CO"
+ *    @arg @c kGTLRDfareportingTvDataProviderTnsVn Value "TNS_VN"
+ *    @arg @c kGTLRDfareportingTvDataProviderComscoreNationalUs Value
+ *        "COMSCORE_NATIONAL_US"
+ *    @arg @c kGTLRDfareportingTvDataProviderComscoreCa Value "COMSCORE_CA"
+ *    @arg @c kGTLRDfareportingTvDataProviderSambaAu Value "SAMBA_AU"
+ */
+@property(nonatomic, copy, nullable) NSString *tvDataProvider;
 
 /**
  *  Fetches a @c GTLRDfareporting_TvCampaignSummariesListResponse.

@@ -42,23 +42,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Indicates that the caller or service agent lacks necessary permissions to
- *  view some of the requested data. The response may be partial. Examples: -
- *  KMS organization service agent {service_agent_name} lacks the
+ *  view some of the requested data. The response may be partial. Example: - KMS
+ *  organization service agent {service_agent_name} lacks the
  *  `cloudasset.assets.searchAllResources` permission on the scope.
  *
  *  Value: "INSUFFICIENT_PERMISSIONS_PARTIAL_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_InsufficientPermissionsPartialData;
 /**
- *  Indicates that the project is org-less. Thus the analysis is only done for
- *  the project level data and results might be partial.
+ *  Indicates that the project exists outside of an organization resource. Thus
+ *  the analysis is only done for the project level data and results might be
+ *  partial.
  *
  *  Value: "ORG_LESS_PROJECT_PARTIAL_DATA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_OrgLessProjectPartialData;
 /**
  *  Indicates that a resource limit has been exceeded, resulting in partial
- *  data. Examples: - The project has more than 10,000 assets (resources, crypto
+ *  data. Example: - The project has more than 10,000 assets (resources, crypto
  *  keys, key handles, IAM policies, etc).
  *
  *  Value: "RESOURCE_LIMIT_EXCEEDED_PARTIAL_DATA"
@@ -1235,8 +1236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
 
 
 /**
- *  Warning message specifying various states of response data that might
- *  indicate incomplete or partial results.
+ *  A warning message that indicates potential problems with the response data.
  */
 @interface GTLRKmsinventory_GoogleCloudKmsInventoryV1Warning : GTLRObject
 
@@ -1250,16 +1250,16 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_InsufficientPermissionsPartialData
  *        Indicates that the caller or service agent lacks necessary permissions
  *        to view some of the requested data. The response may be partial.
- *        Examples: - KMS organization service agent {service_agent_name} lacks
+ *        Example: - KMS organization service agent {service_agent_name} lacks
  *        the `cloudasset.assets.searchAllResources` permission on the scope.
  *        (Value: "INSUFFICIENT_PERMISSIONS_PARTIAL_DATA")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_OrgLessProjectPartialData
- *        Indicates that the project is org-less. Thus the analysis is only done
- *        for the project level data and results might be partial. (Value:
- *        "ORG_LESS_PROJECT_PARTIAL_DATA")
+ *        Indicates that the project exists outside of an organization resource.
+ *        Thus the analysis is only done for the project level data and results
+ *        might be partial. (Value: "ORG_LESS_PROJECT_PARTIAL_DATA")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_ResourceLimitExceededPartialData
  *        Indicates that a resource limit has been exceeded, resulting in
- *        partial data. Examples: - The project has more than 10,000 assets
+ *        partial data. Example: - The project has more than 10,000 assets
  *        (resources, crypto keys, key handles, IAM policies, etc). (Value:
  *        "RESOURCE_LIMIT_EXCEEDED_PARTIAL_DATA")
  *    @arg @c kGTLRKmsinventory_GoogleCloudKmsInventoryV1Warning_WarningCode_WarningCodeUnspecified

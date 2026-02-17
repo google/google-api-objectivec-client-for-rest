@@ -297,6 +297,12 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_GoogleDevtoolsArtifactr
 // GTLRArtifactRegistry_Hash.type
 
 /**
+ *  Dirsum SHA256 hash.
+ *
+ *  Value: "DIRSUM_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_Hash_Type_DirsumSha256;
+/**
  *  Unspecified.
  *
  *  Value: "HASH_TYPE_UNSPECIFIED"
@@ -1584,6 +1590,8 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  The algorithm used to compute the hash value.
  *
  *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_Hash_Type_DirsumSha256 Dirsum SHA256 hash.
+ *        (Value: "DIRSUM_SHA256")
  *    @arg @c kGTLRArtifactRegistry_Hash_Type_HashTypeUnspecified Unspecified.
  *        (Value: "HASH_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRArtifactRegistry_Hash_Type_Md5 MD5 hash. (Value: "MD5")

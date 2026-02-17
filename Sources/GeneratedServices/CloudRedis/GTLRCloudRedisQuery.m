@@ -341,6 +341,25 @@
 
 @end
 
+@implementation GTLRCloudRedisQuery_ProjectsLocationsGetSharedRegionalCertificateAuthority
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsGetSharedRegionalCertificateAuthority *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_SharedRegionalCertificateAuthority class];
+  query.loggingName = @"redis.projects.locations.getSharedRegionalCertificateAuthority";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRedisQuery_ProjectsLocationsInstancesCreate
 
 @dynamic instanceId, parent;

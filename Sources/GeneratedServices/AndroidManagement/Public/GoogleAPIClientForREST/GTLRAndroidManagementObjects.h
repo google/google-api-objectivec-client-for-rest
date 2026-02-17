@@ -11685,7 +11685,7 @@ GTLR_DEPRECATED
 
 /**
  *  Provides telephony information associated with each SIM card on the device.
- *  Only supported on fully managed devices starting from Android API level 23.
+ *  Only supported on fully managed devices starting from Android 6.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidManagement_TelephonyInfo *> *telephonyInfos;
 
@@ -14900,16 +14900,18 @@ GTLR_DEPRECATED
 
 
 /**
- *  Telephony information associated with a given SIM card on the device. Only
- *  supported on fully managed devices starting from Android API level 23.
+ *  Telephony information associated with a given SIM card on the device. This
+ *  is supported for all SIM cards on fully managed devices on Android 6 and
+ *  above. In addition, this is supported for admin-added eSIMs on all devices
+ *  for Android 15 and above.
  */
 @interface GTLRAndroidManagement_TelephonyInfo : GTLRObject
 
 /**
  *  Output only. Activation state of the SIM card on the device. This is
- *  applicable for eSIMs only. This is supported on all devices for API level 35
+ *  applicable for eSIMs only. This is supported on all devices for Android 15
  *  and above. This is always ACTIVATION_STATE_UNSPECIFIED for physical SIMs and
- *  for devices below API level 35.
+ *  for devices below Android 15.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ActivationState_Activated The
@@ -14927,9 +14929,9 @@ GTLR_DEPRECATED
 
 /**
  *  Output only. The configuration mode of the SIM card on the device. This is
- *  applicable for eSIMs only. This is supported on all devices for API level 35
+ *  applicable for eSIMs only. This is supported on all devices for Android 15
  *  and above. This is always CONFIG_MODE_UNSPECIFIED for physical SIMs and for
- *  devices below API level 35.
+ *  devices below Android 15.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_TelephonyInfo_ConfigMode_AdminConfigured

@@ -2683,7 +2683,7 @@ NSString * const kGTLRAiplatform_GoogleCloudAiplatformV1UsageMetadata_TrafficTyp
 //
 
 @implementation GTLRAiplatform_GoogleCloudAiplatformV1CandidateResponse
-@dynamic candidate, text, value;
+@dynamic candidate, error, text, value;
 @end
 
 
