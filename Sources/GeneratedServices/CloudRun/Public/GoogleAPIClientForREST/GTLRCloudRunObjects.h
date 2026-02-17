@@ -1920,7 +1920,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource_SourceFetcher_GcsFetcher;
 /**
- *  Use the "gsutil" tool to download the source file.
+ *  Use the "gcloud storage" tool to download the source file.
  *
  *  Value: "GSUTIL"
  */
