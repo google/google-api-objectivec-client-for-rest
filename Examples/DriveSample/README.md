@@ -1,16 +1,7 @@
 # Example Project
 
-## CocoaPods Dependencies
-
-1. With Examples/DriveSample folder, run the following command to install
-the required dependencies via CocoaPods.
+1. Open the project:
 
 ```
-$ pod install
-```
-
-2. Open the workspace:
-
-```
-$ open DriveSample.xcworkspace
+$ open DriveSample.xcodeproj
 ```

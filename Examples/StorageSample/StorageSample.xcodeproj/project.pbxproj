@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,9 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		938EA733186C2B6E0093CF68 /* StorageSampleWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 938EA731186C2B6E0093CF68 /* StorageSampleWindow.xib */; };
-		C7B30263AEB62A3B06FD62E1 /* Pods_StorageSample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30CCFAED80E7D257928A51B1 /* Pods_StorageSample.framework */; };
+		F4803F2D2F451C5600AEA973 /* GoogleAPIClientForREST_Storage in Frameworks */ = {isa = PBXBuildFile; productRef = F4803F2C2F451C5600AEA973 /* GoogleAPIClientForREST_Storage */; };
+		F4803F302F451C6700AEA973 /* GTMAppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F4803F2F2F451C6700AEA973 /* GTMAppAuth */; };
+		F4803F332F451C7700AEA973 /* AppAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F4803F322F451C7700AEA973 /* AppAuth */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +27,6 @@
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		29B97325FDCFA39411CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		30CCFAED80E7D257928A51B1 /* Pods_StorageSample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StorageSample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F22A2141186315400FFBAB6 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = /System/Library/Frameworks/WebKit.framework; sourceTree = "<absolute>"; };
 		4F43229817726CFD002A5E2C /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		4F43229A17726D10002A5E2C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = /System/Library/Frameworks/SystemConfiguration.framework; sourceTree = "<group>"; };
@@ -35,8 +36,6 @@
 		4F9B545A15816762005E917A /* StorageSampleWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = StorageSampleWindowController.m; sourceTree = "<group>"; tabWidth = 2; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* StorageSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StorageSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A40B7504884B7D5D08B8705D /* Pods-StorageSample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageSample.release.xcconfig"; path = "Pods/Target Support Files/Pods-StorageSample/Pods-StorageSample.release.xcconfig"; sourceTree = "<group>"; };
-		E650CF9B2DE81F4CE89C5661 /* Pods-StorageSample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StorageSample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StorageSample/Pods-StorageSample.debug.xcconfig"; sourceTree = "<group>"; };
 		F4585A86281C51F40068CB51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/StorageSampleWindow.xib; sourceTree = "<group>"; };
 		F4585A87281C51F40068CB51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F4585A88281C51FB0068CB51 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -48,10 +47,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				F4803F2D2F451C5600AEA973 /* GoogleAPIClientForREST_Storage in Frameworks */,
 				4F22A2151186315400FFBAB6 /* WebKit.framework in Frameworks */,
 				4F43229917726CFD002A5E2C /* Security.framework in Frameworks */,
 				4F43229B17726D10002A5E2C /* SystemConfiguration.framework in Frameworks */,
-				C7B30263AEB62A3B06FD62E1 /* Pods_StorageSample.framework in Frameworks */,
+				F4803F332F451C7700AEA973 /* AppAuth in Frameworks */,
+				F4803F302F451C6700AEA973 /* GTMAppAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +106,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				36B7949C60EA75E7348385C5 /* Pods */,
 			);
 			name = CalendarSample;
 			sourceTree = "<group>";
@@ -134,18 +134,8 @@
 			children = (
 				1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */,
 				1058C7A2FEA54F0111CA2CBB /* Other Frameworks */,
-				30CCFAED80E7D257928A51B1 /* Pods_StorageSample.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		36B7949C60EA75E7348385C5 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				E650CF9B2DE81F4CE89C5661 /* Pods-StorageSample.debug.xcconfig */,
-				A40B7504884B7D5D08B8705D /* Pods-StorageSample.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,11 +145,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "StorageSample" */;
 			buildPhases = (
-				3567363C5221DA1BAB332DDD /* [CP] Check Pods Manifest.lock */,
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				665E1FBE302867ADC9FF6E36 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -188,6 +176,11 @@
 				en,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CalendarSample */;
+			packageReferences = (
+				F4803F2B2F451C5600AEA973 /* XCLocalSwiftPackageReference "../.." */,
+				F4803F2E2F451C6700AEA973 /* XCRemoteSwiftPackageReference "GTMAppAuth" */,
+				F4803F312F451C7700AEA973 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */,
+			);
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -209,51 +202,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		3567363C5221DA1BAB332DDD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-StorageSample-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		665E1FBE302867ADC9FF6E36 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-StorageSample/Pods-StorageSample-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AppAuth/AppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMAppAuth/GTMAppAuth.framework",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleAPIClientForREST/GoogleAPIClientForREST.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AppAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMAppAuth.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleAPIClientForREST.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StorageSample/Pods-StorageSample-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D11072C0486CEB800E47090 /* Sources */ = {
@@ -298,7 +246,6 @@
 /* Begin XCBuildConfiguration section */
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E650CF9B2DE81F4CE89C5661 /* Pods-StorageSample.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -318,7 +265,6 @@
 		};
 		C01FCF4C08A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A40B7504884B7D5D08B8705D /* Pods-StorageSample.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -460,6 +406,49 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		F4803F2B2F451C5600AEA973 /* XCLocalSwiftPackageReference "../.." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../..";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F4803F2E2F451C6700AEA973 /* XCRemoteSwiftPackageReference "GTMAppAuth" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GTMAppAuth";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		F4803F312F451C7700AEA973 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/openid/AppAuth-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F4803F2C2F451C5600AEA973 /* GoogleAPIClientForREST_Storage */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GoogleAPIClientForREST_Storage;
+		};
+		F4803F2F2F451C6700AEA973 /* GTMAppAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4803F2E2F451C6700AEA973 /* XCRemoteSwiftPackageReference "GTMAppAuth" */;
+			productName = GTMAppAuth;
+		};
+		F4803F322F451C7700AEA973 /* AppAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F4803F312F451C7700AEA973 /* XCRemoteSwiftPackageReference "AppAuth-iOS" */;
+			productName = AppAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
 }
