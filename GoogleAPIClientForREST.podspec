@@ -80,11 +80,6 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/AccessContextManager/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/AccessContextManager/Public/GoogleAPIClientForREST/*.h'
   end
-  s.subspec 'ACMEDNS' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/ACMEDNS/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/ACMEDNS/Public/GoogleAPIClientForREST/*.h'
-  end
   s.subspec 'AddressValidation' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/AddressValidation/**/*.{h,m}'
@@ -109,11 +104,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Adsense/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Adsense/Public/GoogleAPIClientForREST/*.h'
-  end
-  s.subspec 'AdSenseHost' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/AdSenseHost/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/AdSenseHost/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'AdSensePlatform' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -159,11 +149,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/AnalyticsHub/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/AnalyticsHub/Public/GoogleAPIClientForREST/*.h'
-  end
-  s.subspec 'AnalyticsReporting' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/AnalyticsReporting/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/AnalyticsReporting/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'AndroidEnterprise' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -480,11 +465,6 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/CloudKMS/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudKMS/Public/GoogleAPIClientForREST/*.h'
   end
-  s.subspec 'CloudLifeSciences' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/CloudLifeSciences/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/CloudLifeSciences/Public/GoogleAPIClientForREST/*.h'
-  end
   s.subspec 'CloudLocationFinder' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudLocationFinder/**/*.{h,m}'
@@ -564,11 +544,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/CloudShell/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/CloudShell/Public/GoogleAPIClientForREST/*.h'
-  end
-  s.subspec 'CloudSourceRepositories' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/CloudSourceRepositories/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/CloudSourceRepositories/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'CloudSupport' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -789,11 +764,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Document/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Document/Public/GoogleAPIClientForREST/*.h'
-  end
-  s.subspec 'DomainsRDAP' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/DomainsRDAP/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/DomainsRDAP/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'DoubleClickBidManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
