@@ -515,14 +515,17 @@ NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaintenanceWindow_Day_W
 //
 
 @implementation GTLRCloudMemorystoreforMemcached_Instance
-@dynamic authorizedNetwork, createTime, discoveryEndpoint, displayName,
+@dynamic authorizedNetwork, availableMaintenanceVersions, createTime,
+         discoveryEndpoint, displayName, effectiveMaintenanceVersion,
          instanceMessages, labels, maintenancePolicy, maintenanceSchedule,
-         memcacheFullVersion, memcacheNodes, memcacheVersion, name, nodeConfig,
-         nodeCount, parameters, reservedIpRangeId, satisfiesPzi, satisfiesPzs,
-         state, updateTime, zones;
+         maintenanceVersion, memcacheFullVersion, memcacheNodes,
+         memcacheVersion, name, nodeConfig, nodeCount, parameters,
+         reservedIpRangeId, satisfiesPzi, satisfiesPzs, state, updateTime,
+         zones;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"availableMaintenanceVersions" : [NSString class],
     @"instanceMessages" : [GTLRCloudMemorystoreforMemcached_InstanceMessage class],
     @"memcacheNodes" : [GTLRCloudMemorystoreforMemcached_Node class],
     @"reservedIpRangeId" : [NSString class],

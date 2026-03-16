@@ -159,6 +159,10 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Skipped = @"SKIPPED";
 NSString * const kGTLRFirebaseAppHosting_Rollout_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+#pragma clang diagnostic ignored "-Wdeprecated-implementations"
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRFirebaseAppHosting_ArchiveSource
@@ -316,7 +320,7 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 
 @implementation GTLRFirebaseAppHosting_CodebaseSource
 @dynamic author, branch, commit, commitMessage, commitTime, displayName,
-         hashProperty, uri;
+         hashProperty, repository, uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"hashProperty" : @"hash" };
@@ -1031,3 +1035,5 @@ NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeeded = @"SUCCEEDED";
 @implementation GTLRFirebaseAppHosting_UserMetadata
 @dynamic displayName, email, imageUri;
 @end
+
+#pragma clang diagnostic pop

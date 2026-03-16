@@ -135,6 +135,7 @@
 @class GTLRAndroidManagement_PowerManagementEvent;
 @class GTLRAndroidManagement_PreferentialNetworkServiceConfig;
 @class GTLRAndroidManagement_PreferentialNetworkServiceSettings;
+@class GTLRAndroidManagement_PrivateDnsSettings;
 @class GTLRAndroidManagement_ProxyInfo;
 @class GTLRAndroidManagement_RemoteLockEvent;
 @class GTLRAndroidManagement_RemoveEsimParams;
@@ -1309,8 +1310,11 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_ApplicationPolicy_Inst
  *  until the app is installed. After installation, users won't be able to
  *  remove the app. You can only set this installType for one app per policy.
  *  When this is present in the policy, status bar will be automatically
- *  disabled.If there is any app with KIOSK role, then this install type cannot
- *  be set for any app.
+ *  disabled.On Android 11 and above, when an app has this install type, the
+ *  user control is disallowed for all apps. The IT admin can set
+ *  userControlSettings to USER_CONTROL_ALLOWED to allow user control for
+ *  specific apps.If there is any app with KIOSK role, then this install type
+ *  cannot be set for any app.
  *
  *  Value: "KIOSK"
  */
@@ -5401,6 +5405,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkSer
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_PrivateDnsSettings.privateDnsMode
+
+/**
+ *  Automatic private DNS mode. The device tries to use the network-provided DNS
+ *  server over an encrypted connection before resorting to cleartext. The user
+ *  is not allowed to modify this setting. Supported on Android 10 and above on
+ *  fully managed devices and work profiles on company-owned devices. A
+ *  NonComplianceDetail with MANAGEMENT_MODE is reported on other management
+ *  modes. A NonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is less than 10. A NonComplianceDetail with INVALID_VALUE is
+ *  reported if setting this fails for any other reason.Note: For work profiles
+ *  on company-owned devices, setting this mode prevents the user from changing
+ *  the setting, but the active private DNS setting is not modified. A
+ *  NonComplianceDetail with MANAGEMENT_MODE is reported in this case.
+ *
+ *  Value: "PRIVATE_DNS_AUTOMATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsAutomatic;
+/**
+ *  Unspecified. Defaults to PRIVATE_DNS_USER_CHOICE.
+ *
+ *  Value: "PRIVATE_DNS_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsModeUnspecified;
+/**
+ *  The device only uses the DNS server specified in private_dns_host. The user
+ *  is not allowed to modify this setting. If this is set, then private_dns_host
+ *  must be set. Supported on Android 10 and above on fully managed devices. A
+ *  NonComplianceDetail with MANAGEMENT_MODE is reported on other management
+ *  modes. A NonComplianceDetail with API_LEVEL is reported if the Android
+ *  version is less than 10.
+ *
+ *  Value: "PRIVATE_DNS_SPECIFIED_HOST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsSpecifiedHost;
+/**
+ *  The user is allowed to configure private DNS.
+ *
+ *  Value: "PRIVATE_DNS_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsUserChoice;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_ProvisioningInfo.managementMode
 
 /**
@@ -5527,9 +5574,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Role_RoleType_Companio
  *  device.The app having this role type is set as the preferred home intent and
  *  allowlisted for lock task mode. When there is an app with this role type,
  *  status bar will be automatically disabled.This is preferable to setting
- *  installType to KIOSK.On Android 11 and above, the user control is disallowed
- *  but userControlSettings can be set to USER_CONTROL_ALLOWED to allow user
- *  control for the app with this role.
+ *  installType to KIOSK.On Android 11 and above, when an app has this role, the
+ *  user control is disallowed for all apps. The IT admin can set
+ *  userControlSettings to USER_CONTROL_ALLOWED to allow user control for
+ *  specific apps.
  *
  *  Value: "KIOSK"
  */
@@ -7356,8 +7404,11 @@ GTLR_DEPRECATED
  *        complete until the app is installed. After installation, users won't
  *        be able to remove the app. You can only set this installType for one
  *        app per policy. When this is present in the policy, status bar will be
- *        automatically disabled.If there is any app with KIOSK role, then this
- *        install type cannot be set for any app. (Value: "KIOSK")
+ *        automatically disabled.On Android 11 and above, when an app has this
+ *        install type, the user control is disallowed for all apps. The IT
+ *        admin can set userControlSettings to USER_CONTROL_ALLOWED to allow
+ *        user control for specific apps.If there is any app with KIOSK role,
+ *        then this install type cannot be set for any app. (Value: "KIOSK")
  *    @arg @c kGTLRAndroidManagement_ApplicationPolicy_InstallType_Preinstalled
  *        The app is automatically installed and can be removed by the user.
  *        (Value: "PREINSTALLED")
@@ -9384,6 +9435,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRAndroidManagement_PreferentialNetworkServiceSettings *preferentialNetworkServiceSettings;
 
+/** Optional. The global private DNS settings. */
+@property(nonatomic, strong, nullable) GTLRAndroidManagement_PrivateDnsSettings *privateDnsSettings;
+
 /**
  *  Controls tethering settings. Based on the value set, the user is partially
  *  or fully disallowed from using different forms of tethering.
@@ -10362,7 +10416,9 @@ GTLR_DEPRECATED
  *  via the Google Admin Console. Google authentication can be used with
  *  signin_url In the case where Google authentication is required and a
  *  signin_url is specified, Google authentication will be launched before
- *  signin_url.
+ *  signin_url. This value is overridden by
+ *  EnrollmentToken.googleAuthenticationOptions and
+ *  SigninDetail.googleAuthenticationOptions, if they are set.
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidManagement_GoogleAuthenticationSettings_GoogleAuthenticationRequired_GoogleAuthenticationRequiredUnspecified
@@ -12783,10 +12839,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *autoTimeRequired GTLR_DEPRECATED;
 
 /**
- *  Whether applications other than the ones configured in applications are
- *  blocked from being installed. When set, applications that were installed
- *  under a previous policy but no longer appear in the policy are automatically
- *  uninstalled.
+ *  This field has no effect.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -13245,7 +13298,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *networkEscapeHatchEnabled;
 
 /**
- *  Whether resetting network settings is disabled.
+ *  Whether resetting network settings is disabled. This applies only on fully
+ *  managed devices. A NonComplianceDetail with MANAGEMENT_MODE is reported for
+ *  other management modes.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -13887,6 +13942,66 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Controls the device's private DNS settings.
+ */
+@interface GTLRAndroidManagement_PrivateDnsSettings : GTLRObject
+
+/**
+ *  Optional. The hostname of the DNS server. This must be set if and only if
+ *  private_dns_mode is set to PRIVATE_DNS_SPECIFIED_HOST. Supported on Android
+ *  10 and above on fully managed devices. A NonComplianceDetail with
+ *  MANAGEMENT_MODE is reported on other management modes. A NonComplianceDetail
+ *  with API_LEVEL is reported if the Android version is less than 10. A
+ *  NonComplianceDetail with PENDING is reported if the device is not connected
+ *  to a network. A NonComplianceDetail with nonComplianceReason INVALID_VALUE
+ *  and specificNonComplianceReason PRIVATE_DNS_HOST_NOT_SERVING is reported if
+ *  the specified host is not a DNS server or not supported on Android. A
+ *  NonComplianceDetail with INVALID_VALUE is reported if applying this setting
+ *  fails for any other reason.
+ */
+@property(nonatomic, copy, nullable) NSString *privateDnsHost;
+
+/**
+ *  Optional. The configuration mode for device's global private DNS settings.
+ *  If this is set to PRIVATE_DNS_SPECIFIED_HOST, then private_dns_host must be
+ *  set.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsAutomatic
+ *        Automatic private DNS mode. The device tries to use the
+ *        network-provided DNS server over an encrypted connection before
+ *        resorting to cleartext. The user is not allowed to modify this
+ *        setting. Supported on Android 10 and above on fully managed devices
+ *        and work profiles on company-owned devices. A NonComplianceDetail with
+ *        MANAGEMENT_MODE is reported on other management modes. A
+ *        NonComplianceDetail with API_LEVEL is reported if the Android version
+ *        is less than 10. A NonComplianceDetail with INVALID_VALUE is reported
+ *        if setting this fails for any other reason.Note: For work profiles on
+ *        company-owned devices, setting this mode prevents the user from
+ *        changing the setting, but the active private DNS setting is not
+ *        modified. A NonComplianceDetail with MANAGEMENT_MODE is reported in
+ *        this case. (Value: "PRIVATE_DNS_AUTOMATIC")
+ *    @arg @c kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsModeUnspecified
+ *        Unspecified. Defaults to PRIVATE_DNS_USER_CHOICE. (Value:
+ *        "PRIVATE_DNS_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsSpecifiedHost
+ *        The device only uses the DNS server specified in private_dns_host. The
+ *        user is not allowed to modify this setting. If this is set, then
+ *        private_dns_host must be set. Supported on Android 10 and above on
+ *        fully managed devices. A NonComplianceDetail with MANAGEMENT_MODE is
+ *        reported on other management modes. A NonComplianceDetail with
+ *        API_LEVEL is reported if the Android version is less than 10. (Value:
+ *        "PRIVATE_DNS_SPECIFIED_HOST")
+ *    @arg @c kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsUserChoice
+ *        The user is allowed to configure private DNS. (Value:
+ *        "PRIVATE_DNS_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *privateDnsMode;
+
+@end
+
+
+/**
  *  Information about a device that is available during setup.
  */
 @interface GTLRAndroidManagement_ProvisioningInfo : GTLRObject
@@ -14143,9 +14258,9 @@ GTLR_DEPRECATED
  *        intent and allowlisted for lock task mode. When there is an app with
  *        this role type, status bar will be automatically disabled.This is
  *        preferable to setting installType to KIOSK.On Android 11 and above,
- *        the user control is disallowed but userControlSettings can be set to
- *        USER_CONTROL_ALLOWED to allow user control for the app with this role.
- *        (Value: "KIOSK")
+ *        when an app has this role, the user control is disallowed for all
+ *        apps. The IT admin can set userControlSettings to USER_CONTROL_ALLOWED
+ *        to allow user control for specific apps. (Value: "KIOSK")
  *    @arg @c kGTLRAndroidManagement_Role_RoleType_MobileThreatDefenseEndpointDetectionResponse
  *        The role type for Mobile Threat Defense (MTD) / Endpoint Detection &
  *        Response (EDR) apps.On Android 14 and above, the app with this role is
@@ -14793,15 +14908,6 @@ GTLR_DEPRECATED
  *  details.
  */
 @interface GTLRAndroidManagement_SystemUpdate : GTLRObject
-
-/**
- *  If this is greater than zero, then this is the number of days after a
- *  pending update becoming available that a device can remain compliant,
- *  without taking the update. Has no effect otherwise.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *allowedDaysWithoutUpdate;
 
 /**
  *  If the type is WINDOWED, the end of the maintenance window, measured as the

@@ -837,7 +837,7 @@
 
 @implementation GTLRCloudRunQuery_ProjectsLocationsServicesPatch
 
-@dynamic allowMissing, name, updateMask, validateOnly;
+@dynamic allowMissing, forceNewRevision, name, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2Service *)object
                            name:(NSString *)name {

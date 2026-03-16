@@ -17,6 +17,412 @@
 
 @end
 
+@implementation GTLRDataManagerQuery_AccountTypesAccountsInsightsRetrieve
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataManager_RetrieveInsightsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/insights:retrieve";
+  GTLRDataManagerQuery_AccountTypesAccountsInsightsRetrieve *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataManager_RetrieveInsightsResponse class];
+  query.loggingName = @"datamanager.accountTypes.accounts.insights.retrieve";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataManager_PartnerLink *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/partnerLinks";
+  GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataManager_PartnerLink class];
+  query.loggingName = @"datamanager.accountTypes.accounts.partnerLinks.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataManager_Empty class];
+  query.loggingName = @"datamanager.accountTypes.accounts.partnerLinks.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksSearch
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/partnerLinks:search";
+  GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataManager_SearchPartnerLinksResponse class];
+  query.loggingName = @"datamanager.accountTypes.accounts.partnerLinks.search";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataManager_UserListDirectLicense *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userListDirectLicenses";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataManager_UserListDirectLicense class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userListDirectLicenses.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataManager_UserListDirectLicense class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userListDirectLicenses.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userListDirectLicenses";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataManager_ListUserListDirectLicensesResponse class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userListDirectLicenses.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDataManager_UserListDirectLicense *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataManager_UserListDirectLicense class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userListDirectLicenses.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataManager_UserListGlobalLicense *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userListGlobalLicenses";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataManager_UserListGlobalLicense class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userListGlobalLicenses.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataManager_UserListGlobalLicense class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userListGlobalLicenses.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userListGlobalLicenses";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataManager_ListUserListGlobalLicensesResponse class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userListGlobalLicenses.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDataManager_UserListGlobalLicense *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataManager_UserListGlobalLicense class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userListGlobalLicenses.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesUserListGlobalLicenseCustomerInfosList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userListGlobalLicenseCustomerInfos";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesUserListGlobalLicenseCustomerInfosList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataManager_ListUserListGlobalLicenseCustomerInfosResponse class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userListGlobalLicenses.userListGlobalLicenseCustomerInfos.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListsCreate
+
+@dynamic parent, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRDataManager_UserList *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userLists";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataManager_UserList class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userLists.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListsDelete
+
+@dynamic name, validateOnly;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataManager_Empty class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userLists.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataManager_UserList class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userLists.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/userLists";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataManager_ListUserListsResponse class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userLists.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataManagerQuery_AccountTypesAccountsUserListsPatch
+
+@dynamic name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRDataManager_UserList *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataManagerQuery_AccountTypesAccountsUserListsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataManager_UserList class];
+  query.loggingName = @"datamanager.accountTypes.accounts.userLists.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataManagerQuery_AudienceMembersIngest
 
 + (instancetype)queryWithObject:(GTLRDataManager_IngestAudienceMembersRequest *)object {

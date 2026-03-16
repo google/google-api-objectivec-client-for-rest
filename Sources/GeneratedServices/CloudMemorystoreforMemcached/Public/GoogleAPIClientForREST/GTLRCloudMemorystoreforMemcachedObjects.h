@@ -1307,6 +1307,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  */
 @property(nonatomic, copy, nullable) NSString *authorizedNetwork;
 
+/**
+ *  Output only. The available maintenance versions that can be applied to the
+ *  instance.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *availableMaintenanceVersions;
+
 /** Output only. The time the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -1318,6 +1324,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
  *  purposes. Cannot be more than 80 characters.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Output only. The effective maintenance version of the instance. */
+@property(nonatomic, copy, nullable) NSString *effectiveMaintenanceVersion;
 
 /**
  *  List of messages that describe the current state of the Memcached instance.
@@ -1339,6 +1348,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudMemorystoreforMemcached_WeeklyMaint
 
 /** Output only. Published maintenance schedule. */
 @property(nonatomic, strong, nullable) GTLRCloudMemorystoreforMemcached_MaintenanceSchedule *maintenanceSchedule;
+
+/**
+ *  Optional. Last self service update maintenance version triggered by the
+ *  customer. If it is empty, it means that the maintenance version is not set
+ *  by the user.
+ */
+@property(nonatomic, copy, nullable) NSString *maintenanceVersion;
 
 /**
  *  Output only. The full version of memcached server running on this instance.

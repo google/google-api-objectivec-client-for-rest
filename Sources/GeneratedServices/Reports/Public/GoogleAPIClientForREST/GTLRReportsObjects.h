@@ -28,6 +28,7 @@
 @class GTLRReports_ActivityNetworkInfo;
 @class GTLRReports_AppliedLabel;
 @class GTLRReports_Channel_Params;
+@class GTLRReports_CustomerIdentity;
 @class GTLRReports_Date;
 @class GTLRReports_FieldValue;
 @class GTLRReports_FieldValueSelectionListValue;
@@ -35,7 +36,10 @@
 @class GTLRReports_FieldValueTextListValue;
 @class GTLRReports_FieldValueUserListValue;
 @class GTLRReports_FieldValueUserValue;
+@class GTLRReports_GroupIdentity;
 @class GTLRReports_NestedParameter;
+@class GTLRReports_OwnerDetails;
+@class GTLRReports_OwnerIdentity;
 @class GTLRReports_Reason;
 @class GTLRReports_ResourceDetails;
 @class GTLRReports_UsageReport;
@@ -44,6 +48,7 @@
 @class GTLRReports_UsageReport_Parameters_Item_MsgValue_Item;
 @class GTLRReports_UsageReports_Warnings_Item;
 @class GTLRReports_UsageReports_Warnings_Item_Data_Item;
+@class GTLRReports_UserIdentity;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -352,8 +357,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
 /**
- *  * Status of the event. Possible values if not empty: - UNKNOWN_EVENT_STATUS
- *  - SUCCEEDED - SUCCEEDED_WITH_WARNINGS - FAILED - SKIPPED
+ *  Status of the event. Possible values if not empty: - UNKNOWN_EVENT_STATUS -
+ *  SUCCEEDED - SUCCEEDED_WITH_WARNINGS - FAILED - SKIPPED
  */
 @property(nonatomic, copy, nullable) NSString *eventStatus;
 
@@ -494,6 +499,21 @@ NS_ASSUME_NONNULL_BEGIN
  *        fetch them all at once.
  */
 @interface GTLRReports_Channel_Params : GTLRObject
+@end
+
+
+/**
+ *  Identity of the Google Workspace customer who owns the resource.
+ */
+@interface GTLRReports_CustomerIdentity : GTLRObject
+
+/**
+ *  Customer id.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
 @end
 
 
@@ -671,6 +691,24 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Identity of the group who owns the resource.
+ */
+@interface GTLRReports_GroupIdentity : GTLRObject
+
+/** Group email. */
+@property(nonatomic, copy, nullable) NSString *groupEmail;
+
+/**
+ *  Group gaia id.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
  *  JSON template for a parameter used in various reports.
  */
 @interface GTLRReports_NestedParameter : GTLRObject
@@ -716,6 +754,37 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Details of the owner of the resource.
+ */
+@interface GTLRReports_OwnerDetails : GTLRObject
+
+/** Identity details of the owner(s) of the resource. */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_OwnerIdentity *> *ownerIdentity;
+
+/** Type of the owner of the resource. */
+@property(nonatomic, copy, nullable) NSString *ownerType;
+
+@end
+
+
+/**
+ *  Identity details of the owner of the resource.
+ */
+@interface GTLRReports_OwnerIdentity : GTLRObject
+
+/** Identity of the Google Workspace customer who owns the resource. */
+@property(nonatomic, strong, nullable) GTLRReports_CustomerIdentity *customerIdentity;
+
+/** Identity of the group who owns the resource. */
+@property(nonatomic, strong, nullable) GTLRReports_GroupIdentity *groupIdentity;
+
+/** Identity of the user who owns the resource. */
+@property(nonatomic, strong, nullable) GTLRReports_UserIdentity *userIdentity;
+
+@end
+
+
+/**
  *  The reason why the label/field was applied.
  */
 @interface GTLRReports_Reason : GTLRObject
@@ -735,11 +804,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_AppliedLabel *> *appliedLabels;
 
 /**
- *  Identifier of the resource.
+ *  Identifier of the resource, such as a doc_id for a Drive document, a
+ *  conference_id for a Meet conference, or a "gaia_id/rfc2822_message_id" for
+ *  an email.
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
 @property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Owner details of the resource. */
+@property(nonatomic, strong, nullable) GTLRReports_OwnerDetails *ownerDetails;
 
 /** Defines relationship of the resource to the events */
 @property(nonatomic, copy, nullable) NSString *relation;
@@ -937,6 +1011,24 @@ NS_ASSUME_NONNULL_BEGIN
  *  warning.
  */
 @property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Identity of the user who owns the resource.
+ */
+@interface GTLRReports_UserIdentity : GTLRObject
+
+/**
+ *  User gaia id.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** User email. */
+@property(nonatomic, copy, nullable) NSString *userEmail;
 
 @end
 

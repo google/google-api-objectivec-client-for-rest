@@ -72,6 +72,7 @@
 // causing warnings since clang's checks are some what arbitrary.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdocumentation"
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -886,9 +887,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
 @interface GTLRFirebaseAppHosting_ArchiveSource : GTLRObject
 
 /**
- *  Optional. The author contained in the metadata of a version control change.
+ *  Optional. Deprecated: Not used. The author contained in the metadata of a
+ *  version control change.
  */
-@property(nonatomic, strong, nullable) GTLRFirebaseAppHosting_SourceUserMetadata *author;
+@property(nonatomic, strong, nullable) GTLRFirebaseAppHosting_SourceUserMetadata *author GTLR_DEPRECATED;
 
 /**
  *  Optional. An optional message that describes the uploaded version of the
@@ -901,7 +903,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
 /** Signed URL to an archive in a storage bucket. */
 @property(nonatomic, copy, nullable) NSString *externalSignedUri;
 
-/** Optional. Relative path in the archive. */
+/**
+ *  Optional. The directory relative to the root of the archive to use as the
+ *  root for the deployed web app. Defaults to use the root of the repository if
+ *  not provided. If deploying a
+ *  [monorepo](https://firebase.google.com/docs/app-hosting/monorepos), this
+ *  should be the directory that contains the `package.json` or
+ *  `apphosting.yaml` file.
+ */
 @property(nonatomic, copy, nullable) NSString *rootDirectory;
 
 /**
@@ -1252,7 +1261,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
 
 /**
  *  Optional. If `repository` is provided, the directory relative to the root of
- *  the repository to use as the root for the deployed web app.
+ *  the repository to use as the root for the deployed web app. Defaults to use
+ *  the root of the repository if not provided. If deploying a
+ *  [monorepo](https://firebase.google.com/docs/app-hosting/monorepos), this
+ *  should be the directory that contains the `package.json` or
+ *  `apphosting.yaml` file.
  */
 @property(nonatomic, copy, nullable) NSString *rootDirectory;
 
@@ -1298,6 +1311,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
 @property(nonatomic, copy, nullable) NSString *hashProperty;
 
 /**
+ *  Output only. The resource name for the Developer Connect
+ *  [`gitRepositoryLink`](https://cloud.google.com/developer-connect/docs/api/reference/rest/v1/projects.locations.connections.gitRepositoryLinks)
+ *  used for this build, in the format:
+ *  `projects/{project}/locations/{location}/connections/{connection}/gitRepositoryLinks/{repositoryLink}`
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
  *  Output only. A URI linking to the codebase on an hosting provider's website.
  *  May not be valid if the commit has been rebased or force-pushed out of
  *  existence in the linked repository.
@@ -1324,7 +1345,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
  *  Optional. Supplied environment variables for a specific build. Provided at
  *  Build creation time and immutable afterwards. This field is only applicable
  *  for Builds using a build image - (e.g., ContainerSource or ArchiveSource
- *  with locally_build_source) Attempts to set this for other build types will
+ *  with locally_built_source) Attempts to set this for other build types will
  *  result in an error
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseAppHosting_EnvironmentVariable *> *env;
@@ -1976,10 +1997,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
 @property(nonatomic, copy, nullable) NSString *value;
 
 /**
- *  Required. The name of the environment variable. - Must be a valid
- *  environment variable name (e.g. A-Z or underscores). - May not start with
- *  "FIREBASE" or "GOOGLE". - May not be a reserved environment variable for
- *  KNative/Cloud Run
+ *  Required. The name of the environment variable. The environment variables
+ *  reserved by [Cloud
+ *  Run](https://docs.cloud.google.com/run/docs/configuring/services/environment-variables#reserved)
+ *  should not be set. Additionally, variable names cannot start with
+ *  "X_FIREBASE_".
  */
 @property(nonatomic, copy, nullable) NSString *variable;
 
@@ -2668,7 +2690,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
 
 
 /**
- *  Additional configuration to apply to the Cloud Run
+ *  Configuration applied to the Cloud Run
  *  [`service`](https://cloud.google.com/run/docs/reference/rest/v2/projects.locations.services#resource:-service).
  */
 @interface GTLRFirebaseAppHosting_RunConfig : GTLRObject
@@ -2762,24 +2784,28 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
 
 
 /**
- *  Metadata for the user who started the build.
+ *  Deprecated: Not used. Metadata for the user who started the build.
  */
+GTLR_DEPRECATED
 @interface GTLRFirebaseAppHosting_SourceUserMetadata : GTLRObject
 
-/** Output only. The user-chosen displayname. May be empty. */
-@property(nonatomic, copy, nullable) NSString *displayName;
+/**
+ *  Output only. Deprecated: Not used. The user-chosen displayname. May be
+ *  empty.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName GTLR_DEPRECATED;
 
 /**
- *  Output only. The account email linked to the EUC that created the build. May
- *  be a service account or other robot account.
+ *  Output only. Deprecated: Not used. The account email linked to the EUC that
+ *  created the build. May be a service account or other robot account.
  */
-@property(nonatomic, copy, nullable) NSString *email;
+@property(nonatomic, copy, nullable) NSString *email GTLR_DEPRECATED;
 
 /**
- *  Output only. The URI of a profile photo associated with the user who created
- *  the build.
+ *  Output only. Deprecated: Not used. The URI of a profile photo associated
+ *  with the user who created the build.
  */
-@property(nonatomic, copy, nullable) NSString *imageUri;
+@property(nonatomic, copy, nullable) NSString *imageUri GTLR_DEPRECATED;
 
 @end
 

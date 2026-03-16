@@ -40,6 +40,8 @@
 @class GTLRNetworkManagement_ForwardInfo;
 @class GTLRNetworkManagement_ForwardingRuleInfo;
 @class GTLRNetworkManagement_GKEMasterInfo;
+@class GTLRNetworkManagement_GkeNetworkPolicyInfo;
+@class GTLRNetworkManagement_GkeNetworkPolicySkippedInfo;
 @class GTLRNetworkManagement_GkePodInfo;
 @class GTLRNetworkManagement_GoogleServiceInfo;
 @class GTLRNetworkManagement_HybridSubnetInfo;
@@ -56,6 +58,7 @@
 @class GTLRNetworkManagement_Location_Metadata;
 @class GTLRNetworkManagement_NatInfo;
 @class GTLRNetworkManagement_NetworkInfo;
+@class GTLRNetworkManagement_NgfwPacketInspectionInfo;
 @class GTLRNetworkManagement_Operation;
 @class GTLRNetworkManagement_Operation_Metadata;
 @class GTLRNetworkManagement_Operation_Response;
@@ -800,6 +803,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeCont
  *  Value: "GKE_MASTER_UNAUTHORIZED_ACCESS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess;
+/**
+ *  Packet is dropped by GKE Network Policy.
+ *
+ *  Value: "GKE_NETWORK_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeNetworkPolicy;
 /**
  *  Packet sent from or to a GKE Pod that is not in running state.
  *
@@ -1810,6 +1819,50 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_Tar
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_ForwardInfo_Target_VpnGateway;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkManagement_GkeNetworkPolicySkippedInfo.reason
+
+/**
+ *  Egress traffic from a Pod that uses the Node's network namespace is not
+ *  subject to Network Policy.
+ *
+ *  Value: "EGRESS_FROM_NODE_NETWORK_NAMESPACE_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_EgressFromNodeNetworkNamespacePod;
+/**
+ *  Ingress traffic to a Pod from a source on the same Node is always allowed.
+ *
+ *  Value: "INGRESS_SOURCE_ON_SAME_NODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_IngressSourceOnSameNode;
+/**
+ *  Network Policy evaluation is currently not supported for clusters with FQDN
+ *  Network Policies enabled.
+ *
+ *  Value: "NETWORK_POLICY_ANALYSIS_UNSUPPORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_NetworkPolicyAnalysisUnsupported;
+/**
+ *  Network Policy is disabled on the cluster.
+ *
+ *  Value: "NETWORK_POLICY_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_NetworkPolicyDisabled;
+/**
+ *  Network Policy is not applied to response traffic. This is because GKE
+ *  Network Policy evaluation is stateful in both GKE Dataplane V2 (eBPF) and
+ *  legacy (iptables) implementations.
+ *
+ *  Value: "NETWORK_POLICY_NOT_APPLIED_TO_RESPONSE_TRAFFIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_NetworkPolicyNotAppliedToResponseTraffic;
+/**
+ *  Unused default value.
+ *
+ *  Value: "REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_ReasonUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkManagement_GoogleServiceInfo.googleServiceType
 
 /**
@@ -2541,6 +2594,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_AnalyzeLoad
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyEgressFirewallRule;
 /**
+ *  Config checking state: verify egress GKE network policy.
+ *
+ *  Value: "APPLY_EGRESS_GKE_NETWORK_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyEgressGkeNetworkPolicy;
+/**
  *  Config checking state: match forwarding rule.
  *
  *  Value: "APPLY_FORWARDING_RULE"
@@ -2553,6 +2612,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyForwar
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyIngressFirewallRule;
 /**
+ *  Config checking state: verify ingress GKE network policy.
+ *
+ *  Value: "APPLY_INGRESS_GKE_NETWORK_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyIngressGkeNetworkPolicy;
+/**
  *  Config checking state: verify route.
  *
  *  Value: "APPLY_ROUTE"
@@ -2564,6 +2629,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ApplyRoute;
  *  Value: "ARRIVE_AT_EXTERNAL_LOAD_BALANCER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtExternalLoadBalancer GTLR_DEPRECATED;
+/**
+ *  Forwarding state: arriving at a GKE Pod.
+ *
+ *  Value: "ARRIVE_AT_GKE_POD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ArriveAtGkePod;
 /**
  *  Forwarding state: arriving at a hybrid subnet. Appropriate routing
  *  configuration will be determined here.
@@ -2641,6 +2712,13 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Forward;
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_Nat;
 /**
+ *  Forwarding state: Layer 7 packet inspection by the firewall endpoint based
+ *  on the configured security profile group.
+ *
+ *  Value: "NGFW_PACKET_INSPECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_NgfwPacketInspection;
+/**
  *  Transition state: original connection is terminated and a new proxied
  *  connection is initiated.
  *
@@ -2654,6 +2732,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ProxyConnec
  *  Value: "SERVERLESS_EXTERNAL_CONNECTION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_ServerlessExternalConnection;
+/**
+ *  Transition state: GKE Egress Network Policy is skipped. The
+ *  `gke_network_policy_skipped` field is populated with the reason.
+ *
+ *  Value: "SKIP_GKE_EGRESS_NETWORK_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_SkipGkeEgressNetworkPolicy;
+/**
+ *  Transition state: GKE Ingress Network Policy is skipped. The
+ *  `gke_network_policy_skipped` field is populated with the reason.
+ *
+ *  Value: "SKIP_GKE_INGRESS_NETWORK_POLICY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_SkipGkeIngressNetworkPolicy;
 /**
  *  Transition state: GKE Pod IP masquerading is skipped. The
  *  `ip_masquerading_skipped` field is populated with the reason.
@@ -3802,6 +3894,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        authorized. See [Access to the cluster
  *        endpoints](https://cloud.google.com/kubernetes-engine/docs/how-to/private-clusters#access_to_the_cluster_endpoints)
  *        for more details. (Value: "GKE_MASTER_UNAUTHORIZED_ACCESS")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GkeNetworkPolicy Packet is
+ *        dropped by GKE Network Policy. (Value: "GKE_NETWORK_POLICY")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_GkePodNotRunning Packet sent
  *        from or to a GKE Pod that is not in running state. (Value:
  *        "GKE_POD_NOT_RUNNING")
@@ -4840,6 +4934,69 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  For display only. Metadata associated with a GKE Network Policy.
+ */
+@interface GTLRNetworkManagement_GkeNetworkPolicyInfo : GTLRObject
+
+/** Possible values: ALLOW, DENY */
+@property(nonatomic, copy, nullable) NSString *action;
+
+/** Possible values: INGRESS, EGRESS */
+@property(nonatomic, copy, nullable) NSString *direction;
+
+/** The name of the Network Policy. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  The URI of the Network Policy. Format for a Network Policy in a zonal
+ *  cluster:
+ *  `projects//zones//clusters//k8s/namespaces//networking.k8s.io/networkpolicies/`
+ *  Format for a Network Policy in a regional cluster:
+ *  `projects//locations//clusters//k8s/namespaces//networking.k8s.io/networkpolicies/`
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  For display only. Contains information about why GKE Network Policy
+ *  evaluation was skipped.
+ */
+@interface GTLRNetworkManagement_GkeNetworkPolicySkippedInfo : GTLRObject
+
+/**
+ *  Reason why Network Policy evaluation was skipped.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_EgressFromNodeNetworkNamespacePod
+ *        Egress traffic from a Pod that uses the Node's network namespace is
+ *        not subject to Network Policy. (Value:
+ *        "EGRESS_FROM_NODE_NETWORK_NAMESPACE_POD")
+ *    @arg @c kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_IngressSourceOnSameNode
+ *        Ingress traffic to a Pod from a source on the same Node is always
+ *        allowed. (Value: "INGRESS_SOURCE_ON_SAME_NODE")
+ *    @arg @c kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_NetworkPolicyAnalysisUnsupported
+ *        Network Policy evaluation is currently not supported for clusters with
+ *        FQDN Network Policies enabled. (Value:
+ *        "NETWORK_POLICY_ANALYSIS_UNSUPPORTED")
+ *    @arg @c kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_NetworkPolicyDisabled
+ *        Network Policy is disabled on the cluster. (Value:
+ *        "NETWORK_POLICY_DISABLED")
+ *    @arg @c kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_NetworkPolicyNotAppliedToResponseTraffic
+ *        Network Policy is not applied to response traffic. This is because GKE
+ *        Network Policy evaluation is stateful in both GKE Dataplane V2 (eBPF)
+ *        and legacy (iptables) implementations. (Value:
+ *        "NETWORK_POLICY_NOT_APPLIED_TO_RESPONSE_TRAFFIC")
+ *    @arg @c kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_ReasonUnspecified
+ *        Unused default value. (Value: "REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
  *  For display only. Metadata associated with a Google Kubernetes Engine (GKE)
  *  Pod.
  */
@@ -5605,6 +5762,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** URI of a Compute Engine network. */
 @property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  For display only. Metadata associated with a layer 7 packet inspection by
+ *  the firewall.
+ */
+@interface GTLRNetworkManagement_NgfwPacketInspectionInfo : GTLRObject
+
+/**
+ *  URI of the security profile group associated with this firewall packet
+ *  inspection.
+ */
+@property(nonatomic, copy, nullable) NSString *securityProfileGroupUri;
 
 @end
 
@@ -6576,6 +6748,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Display information of a Google Kubernetes Engine cluster master. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_GKEMasterInfo *gkeMaster;
 
+/** Display information of a GKE Network Policy. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_GkeNetworkPolicyInfo *gkeNetworkPolicy;
+
+/**
+ *  Display information of the reason why GKE Network Policy evaluation was
+ *  skipped.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_GkeNetworkPolicySkippedInfo *gkeNetworkPolicySkipped;
+
 /** Display information of a Google Kubernetes Engine Pod. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_GkePodInfo *gkePod;
 
@@ -6610,6 +6791,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** Display information of a Google Cloud network. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_NetworkInfo *network;
+
+/** Display information of a layer 7 packet inspection by the firewall. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_NgfwPacketInspectionInfo *ngfwPacketInspection;
 
 /** Project ID that contains the configuration this step is validating. */
 @property(nonatomic, copy, nullable) NSString *projectId;
@@ -6647,17 +6831,25 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_Step_State_ApplyEgressFirewallRule Config
  *        checking state: verify egress firewall rule. (Value:
  *        "APPLY_EGRESS_FIREWALL_RULE")
+ *    @arg @c kGTLRNetworkManagement_Step_State_ApplyEgressGkeNetworkPolicy
+ *        Config checking state: verify egress GKE network policy. (Value:
+ *        "APPLY_EGRESS_GKE_NETWORK_POLICY")
  *    @arg @c kGTLRNetworkManagement_Step_State_ApplyForwardingRule Config
  *        checking state: match forwarding rule. (Value:
  *        "APPLY_FORWARDING_RULE")
  *    @arg @c kGTLRNetworkManagement_Step_State_ApplyIngressFirewallRule Config
  *        checking state: verify ingress firewall rule. (Value:
  *        "APPLY_INGRESS_FIREWALL_RULE")
+ *    @arg @c kGTLRNetworkManagement_Step_State_ApplyIngressGkeNetworkPolicy
+ *        Config checking state: verify ingress GKE network policy. (Value:
+ *        "APPLY_INGRESS_GKE_NETWORK_POLICY")
  *    @arg @c kGTLRNetworkManagement_Step_State_ApplyRoute Config checking
  *        state: verify route. (Value: "APPLY_ROUTE")
  *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtExternalLoadBalancer
  *        Forwarding state: arriving at a Compute Engine external load balancer.
  *        (Value: "ARRIVE_AT_EXTERNAL_LOAD_BALANCER")
+ *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtGkePod Forwarding state:
+ *        arriving at a GKE Pod. (Value: "ARRIVE_AT_GKE_POD")
  *    @arg @c kGTLRNetworkManagement_Step_State_ArriveAtHybridSubnet Forwarding
  *        state: arriving at a hybrid subnet. Appropriate routing configuration
  *        will be determined here. (Value: "ARRIVE_AT_HYBRID_SUBNET")
@@ -6691,6 +6883,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_Step_State_Nat Transition state: packet
  *        header translated. The `nat` field is populated with the translation
  *        information. (Value: "NAT")
+ *    @arg @c kGTLRNetworkManagement_Step_State_NgfwPacketInspection Forwarding
+ *        state: Layer 7 packet inspection by the firewall endpoint based on the
+ *        configured security profile group. (Value: "NGFW_PACKET_INSPECTION")
  *    @arg @c kGTLRNetworkManagement_Step_State_ProxyConnection Transition
  *        state: original connection is terminated and a new proxied connection
  *        is initiated. (Value: "PROXY_CONNECTION")
@@ -6698,6 +6893,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Forwarding state: for packets originating from a serverless endpoint
  *        forwarded through public (external) connectivity. (Value:
  *        "SERVERLESS_EXTERNAL_CONNECTION")
+ *    @arg @c kGTLRNetworkManagement_Step_State_SkipGkeEgressNetworkPolicy
+ *        Transition state: GKE Egress Network Policy is skipped. The
+ *        `gke_network_policy_skipped` field is populated with the reason.
+ *        (Value: "SKIP_GKE_EGRESS_NETWORK_POLICY")
+ *    @arg @c kGTLRNetworkManagement_Step_State_SkipGkeIngressNetworkPolicy
+ *        Transition state: GKE Ingress Network Policy is skipped. The
+ *        `gke_network_policy_skipped` field is populated with the reason.
+ *        (Value: "SKIP_GKE_INGRESS_NETWORK_POLICY")
  *    @arg @c kGTLRNetworkManagement_Step_State_SkipGkePodIpMasquerading
  *        Transition state: GKE Pod IP masquerading is skipped. The
  *        `ip_masquerading_skipped` field is populated with the reason. (Value:

@@ -581,8 +581,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *projection;
 
 /**
- *  Search string in the format given at
- *  https://developers.google.com/workspace/admin/directory/v1/list-query-operators
+ *  Search string in the format given at [List query
+ *  operators](https://developers.google.com/workspace/admin/directory/v1/list-query-operators).
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -877,8 +877,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Optional. Search string in the format given at
- *  https://developers.google.com/workspace/admin/directory/v1/list-query-operators
+ *  Optional. Search string in the format given at [List query
+ *  operators](https://developers.google.com/workspace/admin/directory/v1/list-query-operators).
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4930,9 +4930,9 @@ GTLR_DEPRECATED
 
 /**
  *  Create a guest user with access to a [subset of Workspace
- *  capabilities](https://support.google.com/a/answer/16558545?hl=en). This
- *  feature is currently in Alpha. Please reach out to support if you are
- *  interested in trying this feature.
+ *  capabilities](https://support.google.com/a/answer/16558545). This feature is
+ *  currently in Alpha. Please reach out to support if you are interested in
+ *  trying this feature.
  *
  *  Method: directory.users.createGuest
  *
@@ -4945,9 +4945,9 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRDirectory_User.
  *
  *  Create a guest user with access to a [subset of Workspace
- *  capabilities](https://support.google.com/a/answer/16558545?hl=en). This
- *  feature is currently in Alpha. Please reach out to support if you are
- *  interested in trying this feature.
+ *  capabilities](https://support.google.com/a/answer/16558545). This feature is
+ *  currently in Alpha. Please reach out to support if you are interested in
+ *  trying this feature.
  *
  *  @param object The @c GTLRDirectory_UsersCreateGuestRequest to include in the
  *    query.

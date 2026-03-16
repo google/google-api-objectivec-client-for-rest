@@ -3577,12 +3577,12 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_WorkerPool
-@dynamic autoscalingSettings, dataDisks, defaultPackageSet, diskSizeGb,
-         diskSourceImage, diskType, ipConfiguration, kind, machineType,
-         metadata, network, numThreadsPerWorker, numWorkers, onHostMaintenance,
-         packages, poolArgs, sdkHarnessContainerImages, subnetwork,
-         taskrunnerSettings, teardownPolicy, workerHarnessContainerImage,
-         zoneProperty;
+@dynamic autoscalingSettings, dataDisks, defaultPackageSet, diskProvisionedIops,
+         diskProvisionedThroughputMibps, diskSizeGb, diskSourceImage, diskType,
+         ipConfiguration, kind, machineType, metadata, network,
+         numThreadsPerWorker, numWorkers, onHostMaintenance, packages, poolArgs,
+         sdkHarnessContainerImages, subnetwork, taskrunnerSettings,
+         teardownPolicy, workerHarnessContainerImage, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"zoneProperty" : @"zone" };

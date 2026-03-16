@@ -19,6 +19,7 @@ NSString * const kGTLRDeveloperConnect_DeploymentEvent_State_StateInactive = @"S
 NSString * const kGTLRDeveloperConnect_DeploymentEvent_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRDeveloperConnect_GitHubConfig.githubApp
+NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_Dataform = @"DATAFORM";
 NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_DeveloperConnect = @"DEVELOPER_CONNECT";
 NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_Firebase = @"FIREBASE";
 NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_GeminiCodeAssist = @"GEMINI_CODE_ASSIST";

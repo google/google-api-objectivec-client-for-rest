@@ -930,6 +930,12 @@ NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_Defau
 NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdTwo = @"PREFERENTIAL_NETWORK_ID_TWO";
 NSString * const kGTLRAndroidManagement_PreferentialNetworkServiceSettings_DefaultPreferentialNetworkId_PreferentialNetworkIdUnspecified = @"PREFERENTIAL_NETWORK_ID_UNSPECIFIED";
 
+// GTLRAndroidManagement_PrivateDnsSettings.privateDnsMode
+NSString * const kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsAutomatic = @"PRIVATE_DNS_AUTOMATIC";
+NSString * const kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsModeUnspecified = @"PRIVATE_DNS_MODE_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsSpecifiedHost = @"PRIVATE_DNS_SPECIFIED_HOST";
+NSString * const kGTLRAndroidManagement_PrivateDnsSettings_PrivateDnsMode_PrivateDnsUserChoice = @"PRIVATE_DNS_USER_CHOICE";
+
 // GTLRAndroidManagement_ProvisioningInfo.managementMode
 NSString * const kGTLRAndroidManagement_ProvisioningInfo_ManagementMode_DeviceOwner = @"DEVICE_OWNER";
 NSString * const kGTLRAndroidManagement_ProvisioningInfo_ManagementMode_ManagementModeUnspecified = @"MANAGEMENT_MODE_UNSPECIFIED";
@@ -1819,8 +1825,9 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 @implementation GTLRAndroidManagement_DeviceConnectivityManagement
 @dynamic apnPolicy, bluetoothSharing, configureWifi,
-         preferentialNetworkServiceSettings, tetheringSettings, usbDataAccess,
-         wifiDirectSettings, wifiRoamingPolicy, wifiSsidPolicy;
+         preferentialNetworkServiceSettings, privateDnsSettings,
+         tetheringSettings, usbDataAccess, wifiDirectSettings,
+         wifiRoamingPolicy, wifiSsidPolicy;
 @end
 
 
@@ -3030,6 +3037,16 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidManagement_PrivateDnsSettings
+//
+
+@implementation GTLRAndroidManagement_PrivateDnsSettings
+@dynamic privateDnsHost, privateDnsMode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidManagement_ProvisioningInfo
 //
 
@@ -3334,8 +3351,7 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 //
 
 @implementation GTLRAndroidManagement_SystemUpdate
-@dynamic allowedDaysWithoutUpdate, endMinutes, freezePeriods, startMinutes,
-         type;
+@dynamic endMinutes, freezePeriods, startMinutes, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

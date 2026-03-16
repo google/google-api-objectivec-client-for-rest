@@ -8885,6 +8885,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *defaultPackageSet;
 
 /**
+ *  Optional. IOPS provisioned for the root disk for VMs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskProvisionedIops;
+
+/**
+ *  Optional. Throughput provisioned for the root disk for VMs.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskProvisionedThroughputMibps;
+
+/**
  *  Size of root disk for VMs, in GB. If zero or unspecified, the service will
  *  attempt to choose a reasonable default.
  *

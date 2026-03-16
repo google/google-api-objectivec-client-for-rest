@@ -1903,6 +1903,40 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource.apiHubGatewayType
+
+/**
+ *  Gateway is Apigee Edge for API Hub.
+ *
+ *  Value: "APIGEE_EDGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeEdge;
+/**
+ *  Gateway is Apigee Hybrid for API Hub.
+ *
+ *  Value: "APIGEE_HYBRID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeHybrid;
+/**
+ *  Gateway is Apigee OPDK for API Hub.
+ *
+ *  Value: "APIGEE_OPDK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeOpdk;
+/**
+ *  Gateway is Apigee X for API Hub.
+ *
+ *  Value: "APIGEE_X"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeX;
+/**
+ *  Gateway type is not specified.
+ *
+ *  Value: "API_HUB_GATEWAY_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApiHubGatewayTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource.type
 
 /**
@@ -2175,6 +2209,28 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncide
  *  Value: "SEVERE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Severe;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition.riskAssessmentType
+
+/**
+ *  Risk assessment type is Apigee.
+ *
+ *  Value: "APIGEE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition_RiskAssessmentType_Apigee;
+/**
+ *  Risk assessment type is API Hub.
+ *
+ *  Value: "API_HUB"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition_RiskAssessmentType_ApiHub;
+/**
+ *  Risk assessment type is not specified.
+ *
+ *  Value: "RISK_ASSESSMENT_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition_RiskAssessmentType_RiskAssessmentTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2.riskAssessmentType
@@ -11774,6 +11830,24 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResourceApiHubDeploymentDetails *apiHubDeploymentDetails;
 
 /**
+ *  Optional.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeEdge
+ *        Gateway is Apigee Edge for API Hub. (Value: "APIGEE_EDGE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeHybrid
+ *        Gateway is Apigee Hybrid for API Hub. (Value: "APIGEE_HYBRID")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeOpdk
+ *        Gateway is Apigee OPDK for API Hub. (Value: "APIGEE_OPDK")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeX
+ *        Gateway is Apigee X for API Hub. (Value: "APIGEE_X")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApiHubGatewayTypeUnspecified
+ *        Gateway type is not specified. (Value:
+ *        "API_HUB_GATEWAY_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *apiHubGatewayType;
+
+/**
  *  Required. Name of this resource. For an Apigee API Proxy, this should be the
  *  id of the API proxy. For an API Hub Deployment, this should be the id of the
  *  deployment.
@@ -12184,6 +12258,14 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @interface GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition : GTLRObject
 
+/**
+ *  Optional. The API Hub gateway monitored by the security monitoring
+ *  condition. This should only be set if risk_assessment_type is API_HUB.
+ *  Format:
+ *  `projects/{project}/locations/{location}/plugins/{plugin}/instances/{instance}`
+ */
+@property(nonatomic, copy, nullable) NSString *apiHubGateway;
+
 /** Output only. The time of the security monitoring condition creation. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -12203,8 +12285,25 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *profile;
 
 /**
- *  Optional. Scope of the security monitoring condition. For Apigee, the
- *  environment is the scope of the resources.
+ *  Optional. The risk assessment type of the security monitoring condition.
+ *  Defaults to ADVANCED_API_SECURITY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition_RiskAssessmentType_Apigee
+ *        Risk assessment type is Apigee. (Value: "APIGEE")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition_RiskAssessmentType_ApiHub
+ *        Risk assessment type is API Hub. (Value: "API_HUB")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition_RiskAssessmentType_RiskAssessmentTypeUnspecified
+ *        Risk assessment type is not specified. (Value:
+ *        "RISK_ASSESSMENT_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *riskAssessmentType;
+
+/**
+ *  Optional. Scope of the security monitoring condition. When
+ *  RiskAssessmentType is APIGEE, the scope should be set to the environment of
+ *  the resources. When RiskAssessmentType is API_HUB, the scope should not be
+ *  set.
  */
 @property(nonatomic, copy, nullable) NSString *scope;
 

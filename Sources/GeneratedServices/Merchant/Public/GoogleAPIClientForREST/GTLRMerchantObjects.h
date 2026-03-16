@@ -81,6 +81,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductChange_ReportingContext_
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductChange_ReportingContext_FreeListings;
 /**
+ *  [Free product listings on UCP
+ *  checkout](https://developers.google.com/merchant/ucp).
+ *
+ *  Value: "FREE_LISTINGS_UCP_CHECKOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductChange_ReportingContext_FreeListingsUcpCheckout;
+/**
  *  [Free local product
  *  listings](https://support.google.com/merchants/answer/9825611).
  *
@@ -229,6 +236,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewDestinationStatus_
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_FreeListings;
 /**
+ *  [Free product listings on UCP
+ *  checkout](https://developers.google.com/merchant/ucp).
+ *
+ *  Value: "FREE_LISTINGS_UCP_CHECKOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_FreeListingsUcpCheckout;
+/**
  *  [Free local product
  *  listings](https://support.google.com/merchants/answer/9825611).
  *
@@ -352,6 +366,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_Rep
  *  Value: "FREE_LISTINGS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_FreeListings;
+/**
+ *  [Free product listings on UCP
+ *  checkout](https://developers.google.com/merchant/ucp).
+ *
+ *  Value: "FREE_LISTINGS_UCP_CHECKOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_FreeListingsUcpCheckout;
 /**
  *  [Free local product
  *  listings](https://support.google.com/merchants/answer/9825611).
@@ -563,6 +584,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewDestinationStatus_Reporti
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_FreeListings;
 /**
+ *  [Free product listings on UCP
+ *  checkout](https://developers.google.com/merchant/ucp).
+ *
+ *  Value: "FREE_LISTINGS_UCP_CHECKOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_FreeListingsUcpCheckout;
+/**
  *  [Free local product
  *  listings](https://support.google.com/merchants/answer/9825611).
  *
@@ -686,6 +714,13 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingC
  *  Value: "FREE_LISTINGS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_FreeListings;
+/**
+ *  [Free product listings on UCP
+ *  checkout](https://developers.google.com/merchant/ucp).
+ *
+ *  Value: "FREE_LISTINGS_UCP_CHECKOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_FreeListingsUcpCheckout;
 /**
  *  [Free local product
  *  listings](https://support.google.com/merchants/answer/9825611).
@@ -953,6 +988,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *        product
  *        listings](https://support.google.com/merchants/answer/9199328).
  *        (Value: "FREE_LISTINGS")
+ *    @arg @c kGTLRMerchant_ProductChange_ReportingContext_FreeListingsUcpCheckout
+ *        [Free product listings on UCP
+ *        checkout](https://developers.google.com/merchant/ucp). (Value:
+ *        "FREE_LISTINGS_UCP_CHECKOUT")
  *    @arg @c kGTLRMerchant_ProductChange_ReportingContext_FreeLocalListings
  *        [Free local product
  *        listings](https://support.google.com/merchants/answer/9825611).
@@ -1271,6 +1310,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *        [Free product
  *        listings](https://support.google.com/merchants/answer/9199328).
  *        (Value: "FREE_LISTINGS")
+ *    @arg @c kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_FreeListingsUcpCheckout
+ *        [Free product listings on UCP
+ *        checkout](https://developers.google.com/merchant/ucp). (Value:
+ *        "FREE_LISTINGS_UCP_CHECKOUT")
  *    @arg @c kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_FreeLocalListings
  *        [Free local product
  *        listings](https://support.google.com/merchants/answer/9825611).
@@ -1375,6 +1418,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *        [Free product
  *        listings](https://support.google.com/merchants/answer/9199328).
  *        (Value: "FREE_LISTINGS")
+ *    @arg @c kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_FreeListingsUcpCheckout
+ *        [Free product listings on UCP
+ *        checkout](https://developers.google.com/merchant/ucp). (Value:
+ *        "FREE_LISTINGS_UCP_CHECKOUT")
  *    @arg @c kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_FreeLocalListings
  *        [Free local product
  *        listings](https://support.google.com/merchants/answer/9825611).
@@ -1725,6 +1772,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *        [Free product
  *        listings](https://support.google.com/merchants/answer/9199328).
  *        (Value: "FREE_LISTINGS")
+ *    @arg @c kGTLRMerchant_ReviewDestinationStatus_ReportingContext_FreeListingsUcpCheckout
+ *        [Free product listings on UCP
+ *        checkout](https://developers.google.com/merchant/ucp). (Value:
+ *        "FREE_LISTINGS_UCP_CHECKOUT")
  *    @arg @c kGTLRMerchant_ReviewDestinationStatus_ReportingContext_FreeLocalListings
  *        [Free local product
  *        listings](https://support.google.com/merchants/answer/9825611).
@@ -1829,6 +1880,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMerchant_ReviewLink_Type_TypeUnspecified
  *        [Free product
  *        listings](https://support.google.com/merchants/answer/9199328).
  *        (Value: "FREE_LISTINGS")
+ *    @arg @c kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_FreeListingsUcpCheckout
+ *        [Free product listings on UCP
+ *        checkout](https://developers.google.com/merchant/ucp). (Value:
+ *        "FREE_LISTINGS_UCP_CHECKOUT")
  *    @arg @c kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_FreeLocalListings
  *        [Free local product
  *        listings](https://support.google.com/merchants/answer/9825611).

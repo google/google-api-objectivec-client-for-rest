@@ -1496,6 +1496,12 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CniPodU
  */
 FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CodeUnspecified;
 /**
+ *  Configuration failed to apply due to fleet being blocked.
+ *
+ *  Value: "CONFIG_APPLY_BLOCKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigApplyBlocked;
+/**
  *  Configuration (Istio/k8s resources) failed to apply due to internal error.
  *
  *  Value: "CONFIG_APPLY_INTERNAL_ERROR"
@@ -4323,7 +4329,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
 /** Output only. When the MembershipFeature resource was deleted. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
 
-/** GCP labels for this MembershipFeature. */
+/** Google Cloud labels for this MembershipFeature. */
 @property(nonatomic, strong, nullable) GTLRGKEHub_MembershipFeature_Labels *labels;
 
 /** Output only. Lifecycle information of the resource itself. */
@@ -4350,7 +4356,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
 
 
 /**
- *  GCP labels for this MembershipFeature.
+ *  Google Cloud labels for this MembershipFeature.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -5202,6 +5208,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGKEHub_WorkloadIdentityIdentityProviderS
  *        unschedulable error code (Value: "CNI_POD_UNSCHEDULABLE")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_CodeUnspecified Default
  *        Unspecified code (Value: "CODE_UNSPECIFIED")
+ *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ConfigApplyBlocked
+ *        Configuration failed to apply due to fleet being blocked. (Value:
+ *        "CONFIG_APPLY_BLOCKED")
  *    @arg @c kGTLRGKEHub_ServiceMeshCondition_Code_ConfigApplyInternalError
  *        Configuration (Istio/k8s resources) failed to apply due to internal
  *        error. (Value: "CONFIG_APPLY_INTERNAL_ERROR")

@@ -917,6 +917,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_LocationMetadata_Loc
  *  Value: "SITE_TO_SITE_SPOKES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_SiteToSiteSpokes;
+/**
+ *  Supports transports in this location.
+ *
+ *  Value: "TRANSPORTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_Transports;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_PolicyBasedRoute.nextHopOtherRoutes
@@ -3604,6 +3610,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_LinkedInterconnectAttachments : GTLRObject
 
 /**
+ *  Optional. Dynamic routes overlapped/encompassed by exclude export ranges are
+ *  excluded during export to hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeExportRanges;
+
+/**
+ *  Optional. Hub routes overlapped/encompassed by exclude import ranges are
+ *  excluded during import from hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeImportRanges;
+
+/**
+ *  Optional. Dynamic routes fully encompassed by include export ranges are
+ *  included during export to hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includeExportRanges;
+
+/**
  *  Optional. Hub routes fully encompassed by include import ranges are included
  *  during import from hub.
  */
@@ -3683,6 +3707,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @interface GTLRNetworkconnectivity_LinkedRouterApplianceInstances : GTLRObject
 
 /**
+ *  Optional. Dynamic routes overlapped/encompassed by exclude export ranges are
+ *  excluded during export to hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeExportRanges;
+
+/**
+ *  Optional. Hub routes overlapped/encompassed by exclude import ranges are
+ *  excluded during import from hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeImportRanges;
+
+/**
+ *  Optional. Dynamic routes fully encompassed by include export ranges are
+ *  included during export to hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includeExportRanges;
+
+/**
  *  Optional. Hub routes fully encompassed by include import ranges are included
  *  during import from hub.
  */
@@ -3758,6 +3800,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  *  be capable of advertising the same prefixes.
  */
 @interface GTLRNetworkconnectivity_LinkedVpnTunnels : GTLRObject
+
+/**
+ *  Optional. Dynamic routes overlapped/encompassed by exclude export ranges are
+ *  excluded during export to hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeExportRanges;
+
+/**
+ *  Optional. Hub routes overlapped/encompassed by exclude import ranges are
+ *  excluded during import from hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *excludeImportRanges;
+
+/**
+ *  Optional. Dynamic routes fully encompassed by include export ranges are
+ *  included during export to hub.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *includeExportRanges;
 
 /**
  *  Optional. Hub routes fully encompassed by include import ranges are included

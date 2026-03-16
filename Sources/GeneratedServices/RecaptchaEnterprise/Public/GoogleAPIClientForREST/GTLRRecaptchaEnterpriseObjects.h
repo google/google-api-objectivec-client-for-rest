@@ -16,6 +16,9 @@
 #endif
 
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTakeoverVerdict;
+@class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AndroidKeySettings;
 @class GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AppleDeveloperId;
@@ -95,7 +98,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_AccountDefenderLabelUnspecified;
 /**
- *  The request matches a known good profile for the user.
+ *  The request matches a trusted profile associated with this account.
  *
  *  Value: "PROFILE_MATCH"
  */
@@ -122,6 +125,63 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "SUSPICIOUS_LOGIN_ACTIVITY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_SuspiciousLoginActivity;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason.reason
+
+/**
+ *  The account is part of a large group of related accounts, indicating that it
+ *  may be part of a fraudulent network. Related accounts are identified based
+ *  on having similar traffic patterns and request characteristics.
+ *
+ *  Value: "ACCOUNT_IN_LARGE_RELATED_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_AccountInLargeRelatedGroup;
+/**
+ *  The client has been observed accessing many accounts on this site.
+ *
+ *  Value: "CLIENT_ACCESSED_MANY_ACCOUNTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_ClientAccessedManyAccounts;
+/**
+ *  The client has been observed sending bot-like traffic to this site in the
+ *  past. This reason incorporates historical reputation and indicates that the
+ *  client is known to use bots, even if the current request is being made by a
+ *  human.
+ *
+ *  Value: "CLIENT_HISTORICAL_BOT_ACTIVITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_ClientHistoricalBotActivity;
+/**
+ *  Default unspecified type.
+ *
+ *  Value: "RISK_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_RiskReasonUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason.reason
+
+/**
+ *  The account's historical activity is reputable. It is unlikely that the
+ *  account has been compromised in the past.
+ *
+ *  Value: "ACCOUNT_HISTORY_REPUTABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_AccountHistoryReputable;
+/**
+ *  The request matches a trusted profile associated with this account.
+ *  Equivalent to `AccountDefenderLabel.PROFILE_MATCH`.
+ *
+ *  Value: "PROFILE_MATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_ProfileMatch;
+/**
+ *  Default unspecified type.
+ *
+ *  Value: "TRUST_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_TrustReasonUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo.latestVerificationResult
@@ -965,8 +1025,96 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 @interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment : GTLRObject
 
+/** Output only. Account takeover risk assessment for this request. */
+@property(nonatomic, strong, nullable) GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTakeoverVerdict *accountTakeoverVerdict;
+
 /** Output only. Labels for this request. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *labels;
+
+@end
+
+
+/**
+ *  Risk explainability reasons for account defender.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason : GTLRObject
+
+/**
+ *  Output only. A risk reason associated with this request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_AccountInLargeRelatedGroup
+ *        The account is part of a large group of related accounts, indicating
+ *        that it may be part of a fraudulent network. Related accounts are
+ *        identified based on having similar traffic patterns and request
+ *        characteristics. (Value: "ACCOUNT_IN_LARGE_RELATED_GROUP")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_ClientAccessedManyAccounts
+ *        The client has been observed accessing many accounts on this site.
+ *        (Value: "CLIENT_ACCESSED_MANY_ACCOUNTS")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_ClientHistoricalBotActivity
+ *        The client has been observed sending bot-like traffic to this site in
+ *        the past. This reason incorporates historical reputation and indicates
+ *        that the client is known to use bots, even if the current request is
+ *        being made by a human. (Value: "CLIENT_HISTORICAL_BOT_ACTIVITY")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_RiskReasonUnspecified
+ *        Default unspecified type. (Value: "RISK_REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+@end
+
+
+/**
+ *  Account takeover risk assessment.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTakeoverVerdict : GTLRObject
+
+/**
+ *  Output only. Account takeover attempt probability. Values are from 0.0
+ *  (lowest risk) to 1.0 (highest risk).
+ *
+ *  Uses NSNumber of floatValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *risk;
+
+/**
+ *  Output only. Unordered list. Reasons why the request appears risky. Risk
+ *  reasons can be returned even if the risk is low, as trustworthy requests can
+ *  still have some risk signals.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason *> *riskReasons;
+
+/**
+ *  Output only. Unordered list. Reasons why the request appears trustworthy.
+ *  Trust reasons can be returned even if the risk is high, as risky requests
+ *  can still have some trust signals.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason *> *trustReasons;
+
+@end
+
+
+/**
+ *  Trust explainability reasons for account defender.
+ */
+@interface GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason : GTLRObject
+
+/**
+ *  Output only. A trust reason associated with this request.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_AccountHistoryReputable
+ *        The account's historical activity is reputable. It is unlikely that
+ *        the account has been compromised in the past. (Value:
+ *        "ACCOUNT_HISTORY_REPUTABLE")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_ProfileMatch
+ *        The request matches a trusted profile associated with this account.
+ *        Equivalent to `AccountDefenderLabel.PROFILE_MATCH`. (Value:
+ *        "PROFILE_MATCH")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_TrustReasonUnspecified
+ *        Default unspecified type. (Value: "TRUST_REASON_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *reason;
 
 @end
 
@@ -2387,8 +2535,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *challenge;
 
 /**
- *  Output only. Extended verdict reasons to be used for experimentation only.
- *  The set of possible reasons is subject to change.
+ *  Output only. Advanced reasons contributing to the risk analysis verdict.
+ *  These reasons are available to Enterprise tier projects only. Contact sales
+ *  for more information. The set of possible reasons is subject to change.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extendedVerdictReasons;
 

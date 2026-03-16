@@ -440,6 +440,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIbopeBr;
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIbopeCl;
 /** Value: "IBOPE_CO" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIbopeCo;
+/** Value: "INTAGE_JP" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderIntageJp;
 /** Value: "INVALID_TV_DATA_PROVIDER" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareportingTvDataProviderInvalidTvDataProvider;
 /** Value: "SAMBA_AU" */
@@ -7193,6 +7195,31 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tagFormats;
 
 /**
+ *  Optional. Indicates whether to include the dc_dbm macro in the generated
+ *  tags. [Learn
+ *  more](https://support.google.com/campaignmanager/answer/9280273) about this
+ *  macro.
+ */
+@property(nonatomic, assign) BOOL tagPropertiesDcDbmMacroIncluded;
+
+/**
+ *  Optional. Indicates whether to include the GPP macro in the generated tags.
+ *  [Learn more](https://support.google.com/campaignmanager/answer/10031693)
+ *  about this macro.
+ */
+@property(nonatomic, assign) BOOL tagPropertiesGppMacrosIncluded;
+
+/**
+ *  Optional. Indicates whether to include the TCF macro in the generated tags.
+ *  Default true. [Learn
+ *  more](https://support.google.com/campaignmanager/answer/10031693) about this
+ *  macro.
+ *
+ *  @note If not set, the documented server-side default will be true.
+ */
+@property(nonatomic, assign) BOOL tagPropertiesTcfGdprMacrosIncluded;
+
+/**
  *  Fetches a @c GTLRDfareporting_PlacementsGenerateTagsResponse.
  *
  *  Generates tags for a placement.
@@ -9749,6 +9776,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Likely values:
  *    @arg @c kGTLRDfareportingTvDataProviderInvalidTvDataProvider Value
  *        "INVALID_TV_DATA_PROVIDER"
+ *    @arg @c kGTLRDfareportingTvDataProviderIntageJp Value "INTAGE_JP"
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeAr Value "IBOPE_AR"
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeBr Value "IBOPE_BR"
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeCl Value "IBOPE_CL"
@@ -9808,6 +9836,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo;
  *  Likely values:
  *    @arg @c kGTLRDfareportingTvDataProviderInvalidTvDataProvider Value
  *        "INVALID_TV_DATA_PROVIDER"
+ *    @arg @c kGTLRDfareportingTvDataProviderIntageJp Value "INTAGE_JP"
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeAr Value "IBOPE_AR"
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeBr Value "IBOPE_BR"
  *    @arg @c kGTLRDfareportingTvDataProviderIbopeCl Value "IBOPE_CL"

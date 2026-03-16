@@ -599,7 +599,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  endpoints. The resource creator or updater that specifies this field must
  *  have `iam.serviceAccounts.actAs` permission on the service account. If not
  *  specified, the Pub/Sub [service
- *  agent]({$universe.dns_names.final_documentation_domain}/iam/docs/service-agents),
+ *  agent](https://cloud.google.com/iam/docs/service-agents),
  *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
  */
 @property(nonatomic, copy, nullable) NSString *serviceAccountEmail;

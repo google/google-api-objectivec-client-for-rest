@@ -613,6 +613,26 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
  */
 FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercase;
 
+// ----------------------------------------------------------------------------
+// GTLRTagManager_VariableFormatValue.convertToNumber
+
+/**
+ *  The option to convert a variable value to a number with a comma as the
+ *  decimal separator.
+ *
+ *  Value: "comma"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Comma;
+/** Value: "decimalSeparatorTypeUnspecified" */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_DecimalSeparatorTypeUnspecified;
+/**
+ *  The option to convert a variable value to a number with a period as the
+ *  decimal separator.
+ *
+ *  Value: "period"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Period;
+
 /**
  *  Represents a Google Tag Manager Account.
  */
@@ -3154,6 +3174,28 @@ FOUNDATION_EXTERN NSString * const kGTLRTagManager_VariableFormatValue_CaseConve
 
 /** The value to convert if a variable value is null. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *convertNullToValue;
+
+/**
+ *  The option to convert a variable value to a boolean.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *convertToBoolean;
+
+/**
+ *  The option to convert a variable value to a number.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTagManager_VariableFormatValue_ConvertToNumber_Comma The
+ *        option to convert a variable value to a number with a comma as the
+ *        decimal separator. (Value: "comma")
+ *    @arg @c kGTLRTagManager_VariableFormatValue_ConvertToNumber_DecimalSeparatorTypeUnspecified
+ *        Value "decimalSeparatorTypeUnspecified"
+ *    @arg @c kGTLRTagManager_VariableFormatValue_ConvertToNumber_Period The
+ *        option to convert a variable value to a number with a period as the
+ *        decimal separator. (Value: "period")
+ */
+@property(nonatomic, copy, nullable) NSString *convertToNumber;
 
 /** The value to convert if a variable value is true. */
 @property(nonatomic, strong, nullable) GTLRTagManager_Parameter *convertTrueToValue;

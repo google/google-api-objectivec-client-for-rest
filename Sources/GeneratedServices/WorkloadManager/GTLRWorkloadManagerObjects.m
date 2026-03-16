@@ -150,7 +150,6 @@ NSString * const kGTLRWorkloadManager_Deployment_WorkloadType_WorkloadTypeUnspec
 NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_EvaluationTypeUnspecified = @"EVALUATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_Other = @"OTHER";
 NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_Sap = @"SAP";
-NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_SccIac = @"SCC_IAC";
 NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_SqlServer = @"SQL_SERVER";
 
 // GTLRWorkloadManager_Execution.engine
@@ -752,8 +751,7 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 @implementation GTLRWorkloadManager_Evaluation
 @dynamic bigQueryDestination, createTime, customRulesBucket,
          descriptionProperty, evaluationType, kmsKey, labels, name,
-         resourceFilter, resourceStatus, ruleNames, ruleVersions, schedule,
-         updateTime;
+         resourceFilter, resourceStatus, ruleNames, schedule, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -761,8 +759,7 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"ruleNames" : [NSString class],
-    @"ruleVersions" : [NSString class]
+    @"ruleNames" : [NSString class]
   };
   return map;
 }
@@ -910,34 +907,6 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"roles" : [NSString class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_InvalidRule
-//
-
-@implementation GTLRWorkloadManager_InvalidRule
-@dynamic displayName, gcsUri, name, valiadtionError;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRWorkloadManager_InvalidRulesWrapper
-//
-
-@implementation GTLRWorkloadManager_InvalidRulesWrapper
-@dynamic invalidRules;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"invalidRules" : [GTLRWorkloadManager_InvalidRule class]
   };
   return map;
 }
@@ -1133,7 +1102,7 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 //
 
 @implementation GTLRWorkloadManager_ListRulesResponse
-@dynamic invalidRulesWrapper, rules;
+@dynamic rules;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1378,15 +1347,7 @@ NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_State_Unsupported = 
 //
 
 @implementation GTLRWorkloadManager_ResourceStatus
-@dynamic rulesNewerVersions, state;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"rulesNewerVersions" : [NSString class]
-  };
-  return map;
-}
-
+@dynamic state;
 @end
 
 

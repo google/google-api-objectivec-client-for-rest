@@ -36,6 +36,25 @@
 
 @end
 
+@implementation GTLRCloudObservabilityQuery_FoldersLocationsGetSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_FoldersLocationsGetSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Settings class];
+  query.loggingName = @"observability.folders.locations.getSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudObservabilityQuery_FoldersLocationsList
 
 @dynamic extraLocationTypes, filter, name, pageSize, pageToken;
@@ -146,6 +165,33 @@
 
 @end
 
+@implementation GTLRCloudObservabilityQuery_FoldersLocationsUpdateSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_Settings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_FoldersLocationsUpdateSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Operation class];
+  query.loggingName = @"observability.folders.locations.updateSettings";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudObservabilityQuery_OrganizationsLocationsGet
 
 @dynamic name;
@@ -160,6 +206,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudObservability_Location class];
   query.loggingName = @"observability.organizations.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_OrganizationsLocationsGetSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_OrganizationsLocationsGetSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Settings class];
+  query.loggingName = @"observability.organizations.locations.getSettings";
   return query;
 }
 
@@ -270,6 +335,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudObservability_ListOperationsResponse class];
   query.loggingName = @"observability.organizations.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_OrganizationsLocationsUpdateSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_Settings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_OrganizationsLocationsUpdateSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Operation class];
+  query.loggingName = @"observability.organizations.locations.updateSettings";
   return query;
 }
 
@@ -514,6 +606,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudObservability_Location class];
   query.loggingName = @"observability.projects.locations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsGetSettings
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsGetSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Settings class];
+  query.loggingName = @"observability.projects.locations.getSettings";
   return query;
 }
 
@@ -781,6 +892,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudObservability_TraceScope class];
   query.loggingName = @"observability.projects.locations.traceScopes.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudObservabilityQuery_ProjectsLocationsUpdateSettings
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudObservability_Settings *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudObservabilityQuery_ProjectsLocationsUpdateSettings *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudObservability_Operation class];
+  query.loggingName = @"observability.projects.locations.updateSettings";
   return query;
 }
 

@@ -50,8 +50,6 @@
 @class GTLRWorkloadManager_IAMPermission;
 @class GTLRWorkloadManager_Insight;
 @class GTLRWorkloadManager_InstanceProperties;
-@class GTLRWorkloadManager_InvalidRule;
-@class GTLRWorkloadManager_InvalidRulesWrapper;
 @class GTLRWorkloadManager_Location;
 @class GTLRWorkloadManager_Location_Labels;
 @class GTLRWorkloadManager_Location_Metadata;
@@ -772,31 +770,25 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Deployment_WorkloadType_
 // GTLRWorkloadManager_Evaluation.evaluationType
 
 /**
- *  Not specified
+ *  Not specified.
  *
  *  Value: "EVALUATION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_EvaluationTypeUnspecified;
 /**
- *  Customized best practices
+ *  Customized best practices.
  *
  *  Value: "OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_Other;
 /**
- *  SAP best practices
+ *  SAP best practices.
  *
  *  Value: "SAP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_Sap;
 /**
- *  SCC IaC (Infra as Code) best practices.
- *
- *  Value: "SCC_IAC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Evaluation_EvaluationType_SccIac GTLR_DEPRECATED;
-/**
- *  SQL best practices
+ *  SQL best practices.
  *
  *  Value: "SQL_SERVER"
  */
@@ -806,19 +798,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Evaluation_EvaluationTyp
 // GTLRWorkloadManager_Execution.engine
 
 /**
- *  SlimCG / Scanner
+ *  SlimCG / Scanner.
  *
  *  Value: "ENGINE_SCANNER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_Engine_EngineScanner;
 /**
- *  The original CG
+ *  The original CG.
  *
  *  Value: "ENGINE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_Engine_EngineUnspecified;
 /**
- *  Evaluation Engine V2
+ *  Evaluation Engine V2.
  *
  *  Value: "V2"
  */
@@ -828,19 +820,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_Engine_V2;
 // GTLRWorkloadManager_Execution.runType
 
 /**
- *  type of execution is one time
+ *  Type of execution is one time.
  *
  *  Value: "ONE_TIME"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_RunType_OneTime;
 /**
- *  type of execution is scheduled
+ *  Type of execution is scheduled.
  *
  *  Value: "SCHEDULED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_RunType_Scheduled;
 /**
- *  type of execution is unspecified
+ *  Type of execution is unspecified.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -850,25 +842,25 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_RunType_TypeUn
 // GTLRWorkloadManager_Execution.state
 
 /**
- *  the execution run failed
+ *  The execution run failed.
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_State_Failed;
 /**
- *  the execution is running in backend service
+ *  The execution is running in backend service.
  *
  *  Value: "RUNNING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_State_Running;
 /**
- *  state of execution is unspecified
+ *  State of execution is unspecified.
  *
  *  Value: "STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_State_StateUnspecified;
 /**
- *  the execution run success
+ *  The execution run succeeded.
  *
  *  Value: "SUCCEEDED"
  */
@@ -878,19 +870,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Execution_State_Succeede
 // GTLRWorkloadManager_ExecutionResult.type
 
 /**
- *  resource successfully passed the rule
+ *  Resource successfully passed the rule.
  *
  *  Value: "TYPE_PASSED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ExecutionResult_Type_TypePassed;
 /**
- *  Unknown state
+ *  Unknown state.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ExecutionResult_Type_TypeUnspecified;
 /**
- *  resource violated the rule
+ *  Resource violated the rule.
  *
  *  Value: "TYPE_VIOLATED"
  */
@@ -900,13 +892,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ExecutionResult_Type_Typ
 // GTLRWorkloadManager_ExternalDataSources.type
 
 /**
- *  BigQuery table
+ *  BigQuery table.
  *
  *  Value: "BIG_QUERY_TABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ExternalDataSources_Type_BigQueryTable;
 /**
- *  Unknown type
+ *  Unknown type.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -1035,13 +1027,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_ResourceStatus_State_Sta
 // GTLRWorkloadManager_Rule.ruleType
 
 /**
- *  Baseline rules
+ *  Baseline rules.
  *
  *  Value: "BASELINE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Rule_RuleType_Baseline;
 /**
- *  Custom rules
+ *  Custom rules.
  *
  *  Value: "CUSTOM"
  */
@@ -1057,19 +1049,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_Rule_RuleType_RuleTypeUn
 // GTLRWorkloadManager_RuleExecutionResult.state
 
 /**
- *  execution completed with failures
+ *  Execution completed with failures
  *
  *  Value: "STATE_FAILURE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateFailure;
 /**
- *  execution was not executed
+ *  Execution was not executed
  *
  *  Value: "STATE_SKIPPED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_RuleExecutionResult_State_StateSkipped;
 /**
- *  execution completed successfully
+ *  Execution completed successfully
  *
  *  Value: "STATE_SUCCESS"
  */
@@ -2171,19 +2163,17 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  * An AgentCommand specifies a one-time executable program for the agent to
+ *  An AgentCommand specifies a one-time executable program for the agent to
  *  run.
  */
 @interface GTLRWorkloadManager_AgentCommand : GTLRObject
 
-/**
- *  command is the name of the agent one-time executable that will be invoked.
- */
+/** The name of the agent one-time executable that will be invoked. */
 @property(nonatomic, copy, nullable) NSString *command;
 
 /**
- *  parameters is a map of key/value pairs that can be used to specify
- *  additional one-time executable settings.
+ *  A map of key/value pairs that can be used to specify additional one-time
+ *  executable settings.
  */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_AgentCommand_Parameters *parameters;
 
@@ -2191,8 +2181,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  parameters is a map of key/value pairs that can be used to specify
- *  additional one-time executable settings.
+ *  A map of key/value pairs that can be used to specify additional one-time
+ *  executable settings.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2571,18 +2561,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message describing big query destination
+ *  BigQuery destination for evaluation results.
  */
 @interface GTLRWorkloadManager_BigQueryDestination : GTLRObject
 
 /**
- *  Optional. determine if results will be saved in a new table
+ *  Optional. Determines if a new results table will be created when an
+ *  Execution is created.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *createNewResultsTable;
 
-/** Optional. destination dataset to save evaluation results */
+/** Optional. Destination dataset to save evaluation results. */
 @property(nonatomic, copy, nullable) NSString *destinationDataset;
 
 @end
@@ -2648,7 +2639,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  * Command specifies the type of command to execute.
+ *  Command specifies the type of command to execute.
  */
 @interface GTLRWorkloadManager_Command : GTLRObject
 
@@ -2984,85 +2975,94 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message describing Evaluation object
+ *  Represents a Workload Manager Evaluation configuration. An Evaluation
+ *  defines a set of rules to be validated against a scope of Cloud resources.
  */
 @interface GTLRWorkloadManager_Evaluation : GTLRObject
 
-/** Optional. BigQuery destination */
+/**
+ *  Optional. The BigQuery destination for detailed evaluation results. If this
+ *  field is specified, the results of each evaluation execution are exported to
+ *  BigQuery.
+ */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_BigQueryDestination *bigQueryDestination;
 
-/** Output only. [Output only] Create time stamp */
+/** Output only. [Output only] Create time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** The Cloud Storage bucket name for custom rules. */
 @property(nonatomic, copy, nullable) NSString *customRulesBucket;
 
 /**
- *  Description of the Evaluation
+ *  Description of the Evaluation.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
- *  Evaluation type
+ *  Evaluation type.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_Evaluation_EvaluationType_EvaluationTypeUnspecified
- *        Not specified (Value: "EVALUATION_TYPE_UNSPECIFIED")
+ *        Not specified. (Value: "EVALUATION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRWorkloadManager_Evaluation_EvaluationType_Other Customized
- *        best practices (Value: "OTHER")
+ *        best practices. (Value: "OTHER")
  *    @arg @c kGTLRWorkloadManager_Evaluation_EvaluationType_Sap SAP best
- *        practices (Value: "SAP")
- *    @arg @c kGTLRWorkloadManager_Evaluation_EvaluationType_SccIac SCC IaC
- *        (Infra as Code) best practices. (Value: "SCC_IAC")
+ *        practices. (Value: "SAP")
  *    @arg @c kGTLRWorkloadManager_Evaluation_EvaluationType_SqlServer SQL best
- *        practices (Value: "SQL_SERVER")
+ *        practices. (Value: "SQL_SERVER")
  */
 @property(nonatomic, copy, nullable) NSString *evaluationType;
 
 /**
  *  Optional. Immutable. Customer-managed encryption key name, in the format
- *  projects/ * /locations/ * /keyRings/ * /cryptoKeys/ *.
+ *  projects/ * /locations/ * /keyRings/ * /cryptoKeys/ *. The key will be used
+ *  for CMEK encryption of the evaluation resource.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKey;
 
-/** Labels as key value pairs */
+/** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_Evaluation_Labels *labels;
 
 /**
- *  name of resource names have the form
- *  'projects/{project_id}/locations/{location_id}/evaluations/{evaluation_id}'
+ *  Name of resource that has the form
+ *  `projects/{project_id}/locations/{location_id}/evaluations/{evaluation_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** annotations as key value pairs */
+/**
+ *  Resource filter for an evaluation defining the scope of resources to be
+ *  evaluated.
+ */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_ResourceFilter *resourceFilter;
 
-/** Output only. [Output only] The updated rule ids if exist. */
+/**
+ *  Output only. [Output only] The current lifecycle state of the evaluation
+ *  resource.
+ */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_ResourceStatus *resourceStatus;
 
-/** the name of the rule */
+/** The names of the rules used for this evaluation. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *ruleNames;
 
-/** Output only. [Output only] The updated rule ids if exist. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *ruleVersions;
-
 /**
- *  crontab format schedule for scheduled evaluation, currently only support the
- *  following schedule: "0 * /1 * * *", "0 * /6 * * *", "0 * /12 * * *", "0 0 *
- *  /1 * *", "0 0 * /7 * *",
+ *  Crontab format schedule for scheduled evaluation, currently only supports
+ *  the following fixed schedules: * `0 * /1 * * *` # Hourly * `0 * /6 * * *` #
+ *  Every 6 hours * `0 * /12 * * *` # Every 12 hours * `0 0 * /1 * *` # Daily *
+ *  `0 0 * /7 * *` # Weekly * `0 0 * /14 * *` # Every 14 days * `0 0 1 * /1 *` #
+ *  Monthly
  */
 @property(nonatomic, copy, nullable) NSString *schedule;
 
-/** Output only. [Output only] Update time stamp */
+/** Output only. [Output only] Update time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
 
 /**
- *  Labels as key value pairs
+ *  Labels as key value pairs.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3074,82 +3074,82 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message describing Execution object
+ *  Execution that represents a single run of an Evaluation.
  */
 @interface GTLRWorkloadManager_Execution : GTLRObject
 
-/** Output only. [Output only] End time stamp */
+/** Output only. [Output only] End time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
 
 /**
- *  Optional. Engine
+ *  Optional. Engine.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_Execution_Engine_EngineScanner SlimCG /
- *        Scanner (Value: "ENGINE_SCANNER")
+ *        Scanner. (Value: "ENGINE_SCANNER")
  *    @arg @c kGTLRWorkloadManager_Execution_Engine_EngineUnspecified The
- *        original CG (Value: "ENGINE_UNSPECIFIED")
- *    @arg @c kGTLRWorkloadManager_Execution_Engine_V2 Evaluation Engine V2
+ *        original CG. (Value: "ENGINE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_Execution_Engine_V2 Evaluation Engine V2.
  *        (Value: "V2")
  */
 @property(nonatomic, copy, nullable) NSString *engine;
 
-/** Output only. [Output only] Evaluation ID */
+/** Output only. [Output only] Evaluation ID. */
 @property(nonatomic, copy, nullable) NSString *evaluationId;
 
-/** Optional. External data sources */
+/** Optional. External data sources. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_ExternalDataSources *> *externalDataSources;
 
-/** Output only. [Output only] Inventory time stamp */
+/** Output only. [Output only] Inventory time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *inventoryTime;
 
-/** Labels as key value pairs */
+/** Labels as key value pairs. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_Execution_Labels *labels;
 
 /**
  *  The name of execution resource. The format is
- *  projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution}
+ *  projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution}.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** Output only. Additional information generated by the execution */
+/** Output only. Additional information generated by the execution. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Notice *> *notices;
 
-/** Output only. [Output only] Result summary for the execution */
+/** Output only. [Output only] Result summary for the execution. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_Summary *resultSummary;
 
-/** Output only. execution result summary per rule */
+/** Output only. Execution result summary per rule. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_RuleExecutionResult *> *ruleResults;
 
 /**
- *  type represent whether the execution executed directly by user or scheduled
- *  according evaluation.schedule field.
+ *  Type which represents whether the execution executed directly by user or
+ *  scheduled according to the `Evaluation.schedule` field.
  *
  *  Likely values:
- *    @arg @c kGTLRWorkloadManager_Execution_RunType_OneTime type of execution
- *        is one time (Value: "ONE_TIME")
- *    @arg @c kGTLRWorkloadManager_Execution_RunType_Scheduled type of execution
- *        is scheduled (Value: "SCHEDULED")
- *    @arg @c kGTLRWorkloadManager_Execution_RunType_TypeUnspecified type of
- *        execution is unspecified (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_Execution_RunType_OneTime Type of execution
+ *        is one time. (Value: "ONE_TIME")
+ *    @arg @c kGTLRWorkloadManager_Execution_RunType_Scheduled Type of execution
+ *        is scheduled. (Value: "SCHEDULED")
+ *    @arg @c kGTLRWorkloadManager_Execution_RunType_TypeUnspecified Type of
+ *        execution is unspecified. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *runType;
 
-/** Output only. [Output only] Start time stamp */
+/** Output only. [Output only] Start time stamp. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
 /**
- *  Output only. [Output only] State
+ *  Output only. [Output only] State.
  *
  *  Likely values:
- *    @arg @c kGTLRWorkloadManager_Execution_State_Failed the execution run
- *        failed (Value: "FAILED")
- *    @arg @c kGTLRWorkloadManager_Execution_State_Running the execution is
- *        running in backend service (Value: "RUNNING")
- *    @arg @c kGTLRWorkloadManager_Execution_State_StateUnspecified state of
- *        execution is unspecified (Value: "STATE_UNSPECIFIED")
- *    @arg @c kGTLRWorkloadManager_Execution_State_Succeeded the execution run
- *        success (Value: "SUCCEEDED")
+ *    @arg @c kGTLRWorkloadManager_Execution_State_Failed The execution run
+ *        failed. (Value: "FAILED")
+ *    @arg @c kGTLRWorkloadManager_Execution_State_Running The execution is
+ *        running in backend service. (Value: "RUNNING")
+ *    @arg @c kGTLRWorkloadManager_Execution_State_StateUnspecified State of
+ *        execution is unspecified. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_Execution_State_Succeeded The execution run
+ *        succeeded. (Value: "SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -3157,7 +3157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Labels as key value pairs
+ *  Labels as key value pairs.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -3169,7 +3169,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message describing the result of an execution
+ *  The result of an execution.
  */
 @interface GTLRWorkloadManager_ExecutionResult : GTLRObject
 
@@ -3189,15 +3189,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @property(nonatomic, copy, nullable) NSString *severity;
 
 /**
- *  Execution result type of the scanned resource
+ *  Execution result type of the scanned resource.
  *
  *  Likely values:
- *    @arg @c kGTLRWorkloadManager_ExecutionResult_Type_TypePassed resource
- *        successfully passed the rule (Value: "TYPE_PASSED")
+ *    @arg @c kGTLRWorkloadManager_ExecutionResult_Type_TypePassed Resource
+ *        successfully passed the rule. (Value: "TYPE_PASSED")
  *    @arg @c kGTLRWorkloadManager_ExecutionResult_Type_TypeUnspecified Unknown
- *        state (Value: "TYPE_UNSPECIFIED")
- *    @arg @c kGTLRWorkloadManager_ExecutionResult_Type_TypeViolated resource
- *        violated the rule (Value: "TYPE_VIOLATED")
+ *        state. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManager_ExecutionResult_Type_TypeViolated Resource
+ *        violated the rule. (Value: "TYPE_VIOLATED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -3211,7 +3211,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for external data sources
+ *  External data sources for an execution.
  */
 @interface GTLRWorkloadManager_ExternalDataSources : GTLRObject
 
@@ -3226,24 +3226,24 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 /**
  *  Optional. Name of external data source. The name will be used inside the
- *  rego/sql to refer the external data
+ *  rego/sql to refer the external data.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Required. Type of external data source
+ *  Required. Type of external data source.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_ExternalDataSources_Type_BigQueryTable
- *        BigQuery table (Value: "BIG_QUERY_TABLE")
+ *        BigQuery table. (Value: "BIG_QUERY_TABLE")
  *    @arg @c kGTLRWorkloadManager_ExternalDataSources_Type_TypeUnspecified
- *        Unknown type (Value: "TYPE_UNSPECIFIED")
+ *        Unknown type. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Required. URI of external data source. example of bq table
- *  {project_ID}.{dataset_ID}.{table_ID}
+ *  {project_ID}.{dataset_ID}.{table_ID}.
  */
 @property(nonatomic, copy, nullable) NSString *uri;
 
@@ -3251,11 +3251,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message describing compute engine instance filter
+ *  A filter for matching Compute Engine instances.
  */
 @interface GTLRWorkloadManager_GceInstanceFilter : GTLRObject
 
-/** Service account of compute engine */
+/**
+ *  If non-empty, only Compute Engine instances associated with at least one of
+ *  the provided service accounts will be included in the evaluation.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAccounts;
 
 @end
@@ -3381,37 +3384,6 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message represent an rule that failed to be validated.
- */
-@interface GTLRWorkloadManager_InvalidRule : GTLRObject
-
-/** display name of the invalid rule */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/** cloud storage destination of the invalid rule */
-@property(nonatomic, copy, nullable) NSString *gcsUri;
-
-/** name of the invalid rule */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** The error message of valdating rule formats. */
-@property(nonatomic, copy, nullable) NSString *valiadtionError;
-
-@end
-
-
-/**
- *  Message wrappes a list of invalid rules.
- */
-@interface GTLRWorkloadManager_InvalidRulesWrapper : GTLRObject
-
-/** The invalid rules that failed to be validated. */
-@property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_InvalidRule *> *invalidRules;
-
-@end
-
-
-/**
  *  The response object from `ListActuations`.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3498,7 +3470,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for response to listing Evaluations
+ *  Response message for the ListEvaluations RPC.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "evaluations" property. If returned as the result of a query, it
@@ -3508,7 +3480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @interface GTLRWorkloadManager_ListEvaluationsResponse : GTLRCollectionObject
 
 /**
- *  The list of Evaluation
+ *  The list of evaluations.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3525,7 +3497,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for response of list execution results
+ *  Response message for the ListExecutionResults RPC.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "executionResults" property. If returned as the result of a query,
@@ -3552,7 +3524,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for response to listing Executions
+ *  Response message for the ListExecutions RPC.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "executions" property. If returned as the result of a query, it
@@ -3562,7 +3534,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @interface GTLRWorkloadManager_ListExecutionsResponse : GTLRCollectionObject
 
 /**
- *  The list of Execution
+ *  The list of Execution.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3635,21 +3607,18 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Mesesage of response of list rules
+ *  Response message for the ListRules RPC.
  */
 @interface GTLRWorkloadManager_ListRulesResponse : GTLRObject
 
-/** A wrapper of the invalid rules that failed to be validated. */
-@property(nonatomic, strong, nullable) GTLRWorkloadManager_InvalidRulesWrapper *invalidRulesWrapper;
-
-/** all rules in response */
+/** All rules in response. */
 @property(nonatomic, strong, nullable) NSArray<GTLRWorkloadManager_Rule *> *rules;
 
 @end
 
 
 /**
- *  Message for response to list scanned resources
+ *  Response message for the ListScannedResources RPC.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "scannedResources" property. If returned as the result of a query,
@@ -3665,7 +3634,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  All scanned resources in response
+ *  All scanned resources in response.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -3801,11 +3770,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for additional information generated by the execution
+ *  Additional information generated by an execution.
  */
 @interface GTLRWorkloadManager_Notice : GTLRObject
 
-/** Output only. Message of the notice */
+/** Output only. Message of the notice. */
 @property(nonatomic, copy, nullable) NSString *message;
 
 @end
@@ -4002,7 +3971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message represent resource in execution result
+ *  Resource in execution result.
  */
 @interface GTLRWorkloadManager_Resource : GTLRObject
 
@@ -4019,27 +3988,43 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message describing resource filters
+ *  Resource filter for an evaluation defining the scope of resources to be
+ *  evaluated.
  */
 @interface GTLRWorkloadManager_ResourceFilter : GTLRObject
 
-/** Filter compute engine resource */
+/** Filter compute engine resources. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_GceInstanceFilter *gceInstanceFilter;
 
-/** The label used for filter resource */
+/**
+ *  Labels to filter resources by. Each key-value pair in the map must exist on
+ *  the resource for it to be included (e.g. VM instance labels). For example,
+ *  specifying `{ "env": "prod", "database": "nosql" }` will only include
+ *  resources that have labels `env=prod` and `database=nosql`.
+ */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_ResourceFilter_InclusionLabels *inclusionLabels;
 
-/** The id pattern for filter resource */
+/**
+ *  The pattern to filter resources by their id For example, a pattern of
+ *  ".*prod-cluster.*" will match all resources that contain "prod-cluster" in
+ *  their ID.
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceIdPatterns;
 
-/** The scopes of evaluation resource */
+/**
+ *  The scopes of evaluation resource. Format: * `projects/{project_id}` *
+ *  `folders/{folder_id}` * `organizations/{organization_id}`
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
 
 @end
 
 
 /**
- *  The label used for filter resource
+ *  Labels to filter resources by. Each key-value pair in the map must exist on
+ *  the resource for it to be included (e.g. VM instance labels). For example,
+ *  specifying `{ "env": "prod", "database": "nosql" }` will only include
+ *  resources that have labels `env=prod` and `database=nosql`.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -4051,15 +4036,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message describing resource status
+ *  The lifecycle status of an Evaluation resource.
  */
 @interface GTLRWorkloadManager_ResourceStatus : GTLRObject
 
-/** Historical: Used before 2023-05-22 the new version of rule id if exists */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *rulesNewerVersions GTLR_DEPRECATED;
-
 /**
- *  State of the resource
+ *  State of the Evaluation resource.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_ResourceStatus_State_Active Resource has no
@@ -4079,7 +4061,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message represent a rule
+ *  A rule to be evaluated.
  */
 @interface GTLRWorkloadManager_Rule : GTLRObject
 
@@ -4090,93 +4072,93 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 @property(nonatomic, copy, nullable) NSString *assetType;
 
 /**
- *  descrite rule in plain language
+ *  Describe rule in plain language.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
-/** the name display in UI */
+/** The name display in UI. */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** the message template for rule */
+/** The message template for rule. */
 @property(nonatomic, copy, nullable) NSString *errorMessage;
 
-/** rule name */
+/** Rule name. */
 @property(nonatomic, copy, nullable) NSString *name;
 
-/** the primary category */
+/** The primary category. */
 @property(nonatomic, copy, nullable) NSString *primaryCategory;
 
-/** the remediation for the rule */
+/** The remediation for the rule. */
 @property(nonatomic, copy, nullable) NSString *remediation;
 
-/** Output only. the version of the rule */
+/** Output only. The version of the rule. */
 @property(nonatomic, copy, nullable) NSString *revisionId;
 
 /**
  *  The type of the rule.
  *
  *  Likely values:
- *    @arg @c kGTLRWorkloadManager_Rule_RuleType_Baseline Baseline rules (Value:
- *        "BASELINE")
- *    @arg @c kGTLRWorkloadManager_Rule_RuleType_Custom Custom rules (Value:
+ *    @arg @c kGTLRWorkloadManager_Rule_RuleType_Baseline Baseline rules.
+ *        (Value: "BASELINE")
+ *    @arg @c kGTLRWorkloadManager_Rule_RuleType_Custom Custom rules. (Value:
  *        "CUSTOM")
  *    @arg @c kGTLRWorkloadManager_Rule_RuleType_RuleTypeUnspecified Not
  *        specified. (Value: "RULE_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *ruleType;
 
-/** the secondary category */
+/** The secondary category. */
 @property(nonatomic, copy, nullable) NSString *secondaryCategory;
 
-/** the severity of the rule */
+/** The severity of the rule. */
 @property(nonatomic, copy, nullable) NSString *severity;
 
-/** List of user-defined tags */
+/** List of user-defined tags. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
-/** the docuement url for the rule */
+/** The document url for the rule. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
 @end
 
 
 /**
- *  Message for execution result summary per rule
+ *  Execution result summary per rule.
  */
 @interface GTLRWorkloadManager_RuleExecutionResult : GTLRObject
 
-/** Execution message, if any */
+/** Execution message, if any. */
 @property(nonatomic, copy, nullable) NSString *message;
 
 /**
- *  Number of violations
+ *  Number of violations.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *resultCount;
 
-/** rule name */
+/** Rule name as plain text like `sap-hana-configured`. */
 @property(nonatomic, copy, nullable) NSString *rule;
 
 /**
- *  Number of total scanned resources
+ *  Number of total scanned resources.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *scannedResourceCount;
 
 /**
- *  Output only. The execution status
+ *  Output only. The execution status.
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManager_RuleExecutionResult_State_StateFailure
- *        execution completed with failures (Value: "STATE_FAILURE")
+ *        Execution completed with failures (Value: "STATE_FAILURE")
  *    @arg @c kGTLRWorkloadManager_RuleExecutionResult_State_StateSkipped
- *        execution was not executed (Value: "STATE_SKIPPED")
+ *        Execution was not executed (Value: "STATE_SKIPPED")
  *    @arg @c kGTLRWorkloadManager_RuleExecutionResult_State_StateSuccess
- *        execution completed successfully (Value: "STATE_SUCCESS")
+ *        Execution completed successfully (Value: "STATE_SUCCESS")
  *    @arg @c kGTLRWorkloadManager_RuleExecutionResult_State_StateUnspecified
  *        Unknown state (Value: "STATE_UNSPECIFIED")
  */
@@ -4212,17 +4194,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for creating a Execution
+ *  Request message for the RunEvaluation RPC.
  */
 @interface GTLRWorkloadManager_RunEvaluationRequest : GTLRObject
 
-/** Required. The resource being created */
+/** Required. The resource being created. */
 @property(nonatomic, strong, nullable) GTLRWorkloadManager_Execution *execution;
 
-/**
- *  Required. Id of the requesting object If auto-generating Id server-side,
- *  remove this field and execution_id from the method_signature of Create RPC
- */
+/** Required. ID of the execution which will be created. */
 @property(nonatomic, copy, nullable) NSString *executionId;
 
 /**
@@ -5086,14 +5065,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message of scanned resource
+ *  A scanned resource.
  */
 @interface GTLRWorkloadManager_ScannedResource : GTLRObject
 
-/** resource name */
+/** Resource name. */
 @property(nonatomic, copy, nullable) NSString *resource;
 
-/** resource type */
+/** Resource type. */
 @property(nonatomic, copy, nullable) NSString *type;
 
 @end
@@ -5131,14 +5110,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  * A ShellCommand is invoked via the agent's command line executor
+ *  A ShellCommand is invoked via the agent's command line executor.
  */
 @interface GTLRWorkloadManager_ShellCommand : GTLRObject
 
-/** args is a string of arguments to be passed to the command. */
+/** Arguments to be passed to the command. */
 @property(nonatomic, copy, nullable) NSString *args;
 
-/** command is the name of the command to be executed. */
+/** The name of the command to be executed. */
 @property(nonatomic, copy, nullable) NSString *command;
 
 /**
@@ -5520,26 +5499,26 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message for execution summary
+ *  Execution summary.
  */
 @interface GTLRWorkloadManager_Summary : GTLRObject
 
 /**
- *  Output only. Number of failures
+ *  Output only. Number of failures.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *failures;
 
 /**
- *  Output only. Number of new failures compared to the previous execution
+ *  Output only. Number of new failures compared to the previous execution.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *newFailures NS_RETURNS_NOT_RETAINED;
 
 /**
- *  Output only. Number of new fixes compared to the previous execution
+ *  Output only. Number of new fixes compared to the previous execution.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -5653,7 +5632,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManager_WorkloadProfileHealth_St
 
 
 /**
- *  Message describing the violation in an evaluation result.
+ *  The violation in an evaluation result.
  */
 @interface GTLRWorkloadManager_ViolationDetails : GTLRObject
 

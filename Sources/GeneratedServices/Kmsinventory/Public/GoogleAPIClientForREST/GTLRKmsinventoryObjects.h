@@ -1317,6 +1317,9 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
  *  justification codes.
  *  https://cloud.google.com/assured-workloads/key-access-justifications/docs/justification-codes
  *  By default, this field is absent, and all justification codes are allowed.
+ *  If the `key_access_justifications_policy.allowed_access_reasons` is empty
+ *  (zero allowed justification code), all encrypt, decrypt, and sign operations
+ *  will fail.
  */
 @property(nonatomic, strong, nullable) GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy *keyAccessJustificationsPolicy;
 
@@ -1948,14 +1951,17 @@ FOUNDATION_EXTERN NSString * const kGTLRKmsinventory_GoogleCloudKmsV1KeyOperatio
 
 /**
  *  A KeyAccessJustificationsPolicy specifies zero or more allowed AccessReason
- *  values for encrypt, decrypt, and sign operations on a CryptoKey.
+ *  values for encrypt, decrypt, and sign operations on a CryptoKey or
+ *  KeyAccessJustificationsPolicyConfig (the default Key Access Justifications
+ *  policy).
  */
 @interface GTLRKmsinventory_GoogleCloudKmsV1KeyAccessJustificationsPolicy : GTLRObject
 
 /**
- *  The list of allowed reasons for access to a CryptoKey. Zero allowed access
- *  reasons means all encrypt, decrypt, and sign operations for the CryptoKey
- *  associated with this policy will fail.
+ *  The list of allowed reasons for access to a CryptoKey. Note that empty
+ *  allowed_access_reasons has a different meaning depending on where this
+ *  message appears. If this is under KeyAccessJustificationsPolicyConfig, it
+ *  means allow-all. If this is under CryptoKey, it means deny-all.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedAccessReasons;
 

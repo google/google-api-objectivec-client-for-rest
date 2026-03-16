@@ -26,6 +26,7 @@
 @class GTLRDataproc_ApplicationEnvironmentInfo_SystemProperties;
 @class GTLRDataproc_ApplicationInfo;
 @class GTLRDataproc_AppSummary;
+@class GTLRDataproc_AttachedDiskConfig;
 @class GTLRDataproc_AuthenticationConfig;
 @class GTLRDataproc_AutoscalingConfig;
 @class GTLRDataproc_AutoscalingPolicy;
@@ -324,6 +325,40 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataSta
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusFailed;
 /** Value: "QUANTILE_DATA_STATUS_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_AttachedDiskConfig.diskType
+
+/**
+ *  Required unspecified disk type.
+ *
+ *  Value: "DISK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_DiskTypeUnspecified;
+/**
+ *  Hyperdisk Balanced disk type.
+ *
+ *  Value: "HYPERDISK_BALANCED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskBalanced;
+/**
+ *  Hyperdisk Extreme disk type.
+ *
+ *  Value: "HYPERDISK_EXTREME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskExtreme;
+/**
+ *  Hyperdisk ML disk type.
+ *
+ *  Value: "HYPERDISK_ML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskMl;
+/**
+ *  Hyperdisk Throughput disk type.
+ *
+ *  Value: "HYPERDISK_THROUGHPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskThroughput;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_AuthenticationConfig.userWorkloadAuthenticationType
@@ -2188,6 +2223,57 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Specifies the config of attached disk options for single VM instance.
+ */
+@interface GTLRDataproc_AttachedDiskConfig : GTLRObject
+
+/**
+ *  Optional. Disk size in GB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
+
+/**
+ *  Optional. Disk type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_DiskTypeUnspecified
+ *        Required unspecified disk type. (Value: "DISK_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskBalanced
+ *        Hyperdisk Balanced disk type. (Value: "HYPERDISK_BALANCED")
+ *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskExtreme
+ *        Hyperdisk Extreme disk type. (Value: "HYPERDISK_EXTREME")
+ *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskMl Hyperdisk ML
+ *        disk type. (Value: "HYPERDISK_ML")
+ *    @arg @c kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskThroughput
+ *        Hyperdisk Throughput disk type. (Value: "HYPERDISK_THROUGHPUT")
+ */
+@property(nonatomic, copy, nullable) NSString *diskType;
+
+/**
+ *  Optional. Indicates how many IOPS to provision for the attached disk. This
+ *  sets the number of I/O operations per second that the disk can handle. See
+ *  https://cloud.google.com/compute/docs/disks/hyperdisks#hyperdisk-features
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedIops;
+
+/**
+ *  Optional. Indicates how much throughput to provision for the attached disk.
+ *  This sets the number of throughput mb per second that the disk can handle.
+ *  See
+ *  https://cloud.google.com/compute/docs/disks/hyperdisks#hyperdisk-features
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *provisionedThroughput;
+
+@end
+
+
+/**
  *  Authentication configuration for a workload is used to set the default
  *  identity for the workload execution. The config specifies the type of
  *  identity (service account or user) that will be used by workloads to access
@@ -3448,6 +3534,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  VM instances.
  */
 @interface GTLRDataproc_DiskConfig : GTLRObject
+
+/** Optional. A list of attached disk configs for a group of VM instances. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataproc_AttachedDiskConfig *> *attachedDiskConfigs;
 
 /**
  *  Optional. Indicates how many IOPS to provision for the disk. This sets the

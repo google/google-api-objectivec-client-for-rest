@@ -1875,6 +1875,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDuration *endTime;
 
 /**
+ *  Output only. A distinct string value is assigned for every speaker within
+ *  the audio. This field specifies which one of those speakers was detected to
+ *  have spoken this word.
+ */
+@property(nonatomic, copy, nullable) NSString *speakerLabel;
+
+/**
  *  Output only. A distinct integer value is assigned for every speaker within
  *  the audio. This field specifies which one of those speakers was detected to
  *  have spoken this word. Value ranges from 1 up to diarization_speaker_count,
@@ -3341,6 +3348,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDuration *endTime;
 
 /**
+ *  Output only. A distinct string value is assigned for every speaker within
+ *  the audio. This field specifies which one of those speakers was detected to
+ *  have spoken this word.
+ */
+@property(nonatomic, copy, nullable) NSString *speakerLabel;
+
+/**
  *  Output only. A distinct integer value is assigned for every speaker within
  *  the audio. This field specifies which one of those speakers was detected to
  *  have spoken this word. Value ranges from 1 up to diarization_speaker_count,
@@ -4226,6 +4240,13 @@ GTLR_DEPRECATED
  *  experimental feature and the accuracy of the time offset can vary.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *endTime;
+
+/**
+ *  Output only. A distinct string value is assigned for every speaker within
+ *  the audio. This field specifies which one of those speakers was detected to
+ *  have spoken this word.
+ */
+@property(nonatomic, copy, nullable) NSString *speakerLabel;
 
 /**
  *  Output only. A distinct integer value is assigned for every speaker within
@@ -5248,6 +5269,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDuration *endTime;
 
 /**
+ *  Output only. A distinct string value is assigned for every speaker within
+ *  the audio. This field specifies which one of those speakers was detected to
+ *  have spoken this word.
+ */
+@property(nonatomic, copy, nullable) NSString *speakerLabel;
+
+/**
  *  Output only. A distinct integer value is assigned for every speaker within
  *  the audio. This field specifies which one of those speakers was detected to
  *  have spoken this word. Value ranges from 1 up to diarization_speaker_count,
@@ -5408,6 +5436,12 @@ GTLR_DEPRECATED
  *  Config for SPEECH_TRANSCRIPTION.
  */
 @interface GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscriptionConfig : GTLRObject
+
+/**
+ *  Optional. Legacy field. This field must be a Cloud Storage URI prefix.
+ *  (e.g., `gs://bucket/path/`).
+ */
+@property(nonatomic, copy, nullable) NSString *audioOutputUriPrefix;
 
 /**
  *  Optional. For file formats, such as MXF or MKV, supporting multiple audio
@@ -5868,6 +5902,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRDuration *endTime;
 
 /**
+ *  Output only. A distinct string value is assigned for every speaker within
+ *  the audio. This field specifies which one of those speakers was detected to
+ *  have spoken this word.
+ */
+@property(nonatomic, copy, nullable) NSString *speakerLabel;
+
+/**
  *  Output only. A distinct integer value is assigned for every speaker within
  *  the audio. This field specifies which one of those speakers was detected to
  *  have spoken this word. Value ranges from 1 up to diarization_speaker_count,
@@ -5918,6 +5959,14 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudVideoIntelligence_GoogleLongrunningOperation *> *operations;
+
+/**
+ *  Unordered list. Unreachable resources. Populated when the request sets
+ *  `ListOperationsRequest.return_partial_success` and reads across collections.
+ *  For example, when attempting to list all resources across all supported
+ *  locations.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

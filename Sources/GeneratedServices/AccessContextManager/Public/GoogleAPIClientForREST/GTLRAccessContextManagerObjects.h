@@ -1125,10 +1125,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 /**
  *  A list of identities that are allowed access through [EgressPolicy].
  *  Identities can be an individual user, service account, Google group, or
- *  third-party identity. For third-party identity, only single identities are
- *  supported and other identity types are not supported. The `v1` identities
- *  that have the prefix `user`, `group`, `serviceAccount`, and `principal` in
- *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
+ *  third-party identity. For the list of supported identity types, see
+ *  https://docs.cloud.google.com/vpc-service-controls/docs/supported-identities.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -1479,10 +1477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 /**
  *  A list of identities that are allowed access through [IngressPolicy].
  *  Identities can be an individual user, service account, Google group, or
- *  third-party identity. For third-party identity, only single identities are
- *  supported and other identity types are not supported. The `v1` identities
- *  that have the prefix `user`, `group`, `serviceAccount`, and `principal` in
- *  https://cloud.google.com/iam/docs/principal-identifiers#v1 are supported.
+ *  third-party identity. For the list of supported identity types, see
+ *  https://docs.cloud.google.com/vpc-service-controls/docs/supported-identities.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
 
@@ -1774,6 +1770,23 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAccessContextManager_ServicePerimeter *> *servicePerimeters;
+
+@end
+
+
+/**
+ *  A response to `ListSupportedPermissionsRequest`.
+ */
+@interface GTLRAccessContextManager_ListSupportedPermissionsResponse : GTLRObject
+
+/**
+ *  The pagination token to retrieve the next page of results. If the value is
+ *  empty, no further results remain.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** List of VPC-SC supported permissions. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedPermissions;
 
 @end
 

@@ -105,6 +105,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_DeploymentEvent_State_S
 // GTLRDeveloperConnect_GitHubConfig.githubApp
 
 /**
+ *  The Dataform GitHub Application.
+ *
+ *  Value: "DATAFORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_GitHubConfig_GithubApp_Dataform;
+/**
  *  The Developer Connect GitHub Application.
  *
  *  Value: "DEVELOPER_CONNECT"
@@ -697,7 +703,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 /**
  *  Optional. Configuration for the git proxy feature. Enabling the git proxy
  *  allows clients to perform git operations on the repositories linked in the
- *  connection.
+ *  connection. [Learn
+ *  more](https://docs.cloud.google.com/developer-connect/docs/configure-git-proxy).
  */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_GitProxyConfig *gitProxyConfig;
 
@@ -1079,6 +1086,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *  user or organization.
  *
  *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_GitHubConfig_GithubApp_Dataform The Dataform
+ *        GitHub Application. (Value: "DATAFORM")
  *    @arg @c kGTLRDeveloperConnect_GitHubConfig_GithubApp_DeveloperConnect The
  *        Developer Connect GitHub Application. (Value: "DEVELOPER_CONNECT")
  *    @arg @c kGTLRDeveloperConnect_GitHubConfig_GithubApp_Firebase The Firebase
@@ -2245,13 +2254,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
- *  Configuration for connections to SSM instance
+ *  Configuration for connections to Secure Source Manager instance
  */
 @interface GTLRDeveloperConnect_SecureSourceManagerInstanceConfig : GTLRObject
 
 /**
- *  Required. Immutable. SSM instance resource, formatted as `projects/ *
- *  /locations/ * /instances/ *`
+ *  Required. Immutable. Secure Source Manager instance resource, formatted as
+ *  `projects/ * /locations/ * /instances/ *`
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 

@@ -65,6 +65,7 @@
 @class GTLRBackupdr_DataSourceGcpResource;
 @class GTLRBackupdr_DataSourceGcpResourceInfo;
 @class GTLRBackupdr_DataSourceReference;
+@class GTLRBackupdr_DiskBackupPlanProperties;
 @class GTLRBackupdr_DiskBackupProperties;
 @class GTLRBackupdr_DiskBackupProperties_Labels;
 @class GTLRBackupdr_DiskDataSourceProperties;
@@ -80,6 +81,7 @@
 @class GTLRBackupdr_GcpBackupConfig;
 @class GTLRBackupdr_GCPBackupPlanInfo;
 @class GTLRBackupdr_GcpResource;
+@class GTLRBackupdr_GoogleCloudBackupdrV1OperationMetadata_AdditionalInfo;
 @class GTLRBackupdr_GuestOsFeature;
 @class GTLRBackupdr_InitializeParams;
 @class GTLRBackupdr_InstanceParams;
@@ -98,7 +100,6 @@
 @class GTLRBackupdr_Operation;
 @class GTLRBackupdr_Operation_Metadata;
 @class GTLRBackupdr_Operation_Response;
-@class GTLRBackupdr_OperationMetadata_AdditionalInfo;
 @class GTLRBackupdr_PitrSettings;
 @class GTLRBackupdr_PlanConfig;
 @class GTLRBackupdr_PlanRule;
@@ -1208,14 +1209,24 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_GuestOsFeature_Type_Windows;
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_LocationMetadata.unsupportedFeatures
 
+/** Value: "ALLOY_DB" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_AlloyDb;
+/** Value: "CLOUD_SQL" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_CloudSql;
 /** Value: "COMPUTE_INSTANCE" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ComputeInstance;
+/** Value: "DISK" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_Disk;
 /** Value: "FEATURE_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FeatureUnspecified;
+/** Value: "FILESTORE" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_Filestore;
 /** Value: "MANAGEMENT_SERVER" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ManagementServer;
 /** Value: "PROTECTION_SUMMARY" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ProtectionSummary;
+/** Value: "SAAS_PLATFORM" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_SaasPlatform;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_ManagementServer.state
@@ -2987,6 +2998,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 /**
+ *  Optional. Defines optional properties specific to backups of disk-based
+ *  resources, such as Compute Engine Persistent Disks. This includes settings
+ *  like whether to perform a guest flush.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_DiskBackupPlanProperties *diskBackupPlanProperties;
+
+/**
  *  Optional. `etag` is returned from the service in the response. As a user of
  *  the service, you may provide an etag value in this field to prevent stale
  *  resources.
@@ -4444,6 +4462,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  --- DiskBackupPlanProperties Message ---
+ */
+@interface GTLRBackupdr_DiskBackupPlanProperties : GTLRObject
+
+/**
+ *  Optional. Indicates whether to perform a guest flush operation before taking
+ *  a disk backup. When set to false, the system will create crash-consistent
+ *  backups. Default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *guestFlush;
+
+@end
+
+
+/**
  *  DiskBackupProperties represents the properties of a Disk backup.
  */
 @interface GTLRBackupdr_DiskBackupProperties : GTLRObject
@@ -4478,6 +4513,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
+
+/**
+ *  Optional. Defines if the guest flush is enabled for the source disk. Default
+ *  value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *guestFlush;
 
 /** A list of guest OS features that are applicable to this backup. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_GuestOsFeature *> *guestOsFeature;
@@ -5227,6 +5270,63 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRBackupdr_GoogleCloudBackupdrV1OperationMetadata : GTLRObject
+
+/**
+ *  Output only. AdditionalInfo contains additional Info related to backup plan
+ *  association resource.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_GoogleCloudBackupdrV1OperationMetadata_AdditionalInfo *additionalInfo;
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to 'Code.CANCELLED'.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Output only. AdditionalInfo contains additional Info related to backup plan
+ *  association resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupdr_GoogleCloudBackupdrV1OperationMetadata_AdditionalInfo : GTLRObject
+@end
+
+
+/**
  *  Feature type of the Guest OS.
  */
 @interface GTLRBackupdr_GuestOsFeature : GTLRObject
@@ -5297,6 +5397,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Request message for initializing the service.
  */
 @interface GTLRBackupdr_InitializeServiceRequest : GTLRObject
+
+/**
+ *  Optional. The location where the BackupPlan will be created. This field is
+ *  required for multi-region BackupVaults and is optional for regional
+ *  BackupVaults. It is useful when creating a Backup Vault in a multi-region,
+ *  allowing the BackupPlan to reside in a specific region within that
+ *  multi-region. If this field is not provided, the BackupPlan will be created
+ *  in the same location as specified in the `name` field.
+ */
+@property(nonatomic, copy, nullable) NSString *backupPlanLocation;
 
 /** Optional. The configuration for initializing a Cloud SQL instance. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_CloudSqlInstanceInitializationConfig *cloudSqlInstanceInitializationConfig;
@@ -5805,6 +5915,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  */
 @interface GTLRBackupdr_LocationMetadata : GTLRObject
 
+/** List of features that are not supported in the location. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unsupportedFeatures;
 
 @end
@@ -6267,63 +6378,6 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBackupdr_Operation_Response : GTLRObject
-@end
-
-
-/**
- *  Represents the metadata of the long-running operation.
- */
-@interface GTLRBackupdr_OperationMetadata : GTLRObject
-
-/**
- *  Output only. AdditionalInfo contains additional Info related to backup plan
- *  association resource.
- */
-@property(nonatomic, strong, nullable) GTLRBackupdr_OperationMetadata_AdditionalInfo *additionalInfo;
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
- *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
- *  corresponding to 'Code.CANCELLED'.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
- *  Output only. AdditionalInfo contains additional Info related to backup plan
- *  association resource.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRBackupdr_OperationMetadata_AdditionalInfo : GTLRObject
 @end
 
 

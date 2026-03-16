@@ -2521,7 +2521,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  Optional. The connection specifying the credentials to be used to read and
  *  write to external storage, such as Cloud Storage. The connection can have
  *  the form `{project}.{location}.{connection_id}` or
- *  `projects/{project}/locations/{location}/connections/{connection_id}", or be
+ *  `projects/{project}/locations/{location}/connections/{connection_id}`, or be
  *  set to DEFAULT.
  */
 @property(nonatomic, copy, nullable) NSString *connection;

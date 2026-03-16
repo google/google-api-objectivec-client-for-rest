@@ -25,8 +25,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud Run
+ *  data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/run"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRun;
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.
@@ -34,6 +41,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRunCloudPlatform;
+/**
+ *  Authorization scope: See your Google Cloud Run data and the email address of
+ *  your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/run.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRunReadonly;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudRunService

@@ -2483,7 +2483,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SourceObjectsCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_SslConfig_Type_None;
 /**
- *  Mandates SSL encryption for all connections. This doesn’t require
+ *  Mandates SSL encryption for all connections. This does not require
  *  certificate verification.
  *
  *  Value: "REQUIRED"
@@ -8612,7 +8612,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *    @arg @c kGTLRDatabaseMigrationService_SslConfig_Type_None Connection is
  *        not encrypted. (Value: "NONE")
  *    @arg @c kGTLRDatabaseMigrationService_SslConfig_Type_Required Mandates SSL
- *        encryption for all connections. This doesn’t require certificate
+ *        encryption for all connections. This does not require certificate
  *        verification. (Value: "REQUIRED")
  *    @arg @c kGTLRDatabaseMigrationService_SslConfig_Type_ServerClient Both
  *        server ('ca_certificate'), and client ('client_key',

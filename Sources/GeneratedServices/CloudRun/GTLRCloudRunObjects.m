@@ -302,6 +302,7 @@ NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedV
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_Verified = @"VERIFIED";
 
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.sourceProvenanceHash
+NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_DirsumSha256 = @"DIRSUM_SHA256";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_GoModuleH1 = @"GO_MODULE_H1";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Md5 = @"MD5";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_None = @"NONE";
@@ -334,6 +335,7 @@ NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_PushNo
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo_Type_UserBuildStep = @"USER_BUILD_STEP";
 
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash.type
+NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_DirsumSha256 = @"DIRSUM_SHA256";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_GoModuleH1 = @"GO_MODULE_H1";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_Md5 = @"MD5";
 NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_None = @"NONE";
@@ -803,6 +805,24 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 
 @implementation GTLRCloudRun_GoogleCloudRunV2ImageExportStatus
 @dynamic exportedImageDigest, exportJobState, status, tag;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2InlinedSource
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2InlinedSource
+@dynamic sources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sources" : [GTLRCloudRun_GoogleCloudRunV2SourceFile class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1492,7 +1512,17 @@ NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecif
 //
 
 @implementation GTLRCloudRun_GoogleCloudRunV2SourceCode
-@dynamic cloudStorageSource;
+@dynamic cloudStorageSource, inlinedSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRun_GoogleCloudRunV2SourceFile
+//
+
+@implementation GTLRCloudRun_GoogleCloudRunV2SourceFile
+@dynamic content, filename;
 @end
 
 

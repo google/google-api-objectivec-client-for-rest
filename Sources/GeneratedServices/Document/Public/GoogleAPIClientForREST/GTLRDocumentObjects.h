@@ -407,6 +407,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3D
  *  Value: "METHOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeProperty_Method_MethodUnspecified;
+/**
+ *  Attempts to extract the position and value as-is from the document text. If
+ *  the value cannot be grounded in the text, it falls back to derivation
+ *  through inference, for both position and value. Note: The inference fallback
+ *  is currently only supported for boolean entities.
+ *
+ *  Value: "RELAXED_EXTRACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeProperty_Method_RelaxedExtract;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeProperty.occurrenceType
@@ -727,6 +736,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3S
  *  Value: "METHOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Method_MethodUnspecified;
+/**
+ *  Attempts to extract the position and value as-is from the document text. If
+ *  the value cannot be grounded in the text, it falls back to derivation
+ *  through inference, for both position and value. Note: The inference fallback
+ *  is currently only supported for boolean entities.
+ *
+ *  Value: "RELAXED_EXTRACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Method_RelaxedExtract;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType.occurrenceType
@@ -1019,6 +1037,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Doc
  *  Value: "METHOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_Method_MethodUnspecified;
+/**
+ *  Attempts to extract the position and value as-is from the document text. If
+ *  the value cannot be grounded in the text, it falls back to derivation
+ *  through inference, for both position and value. Note: The inference fallback
+ *  is currently only supported for boolean entities.
+ *
+ *  Value: "RELAXED_EXTRACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_Method_RelaxedExtract;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty.occurrenceType
@@ -1687,6 +1714,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1Document
  *  Value: "METHOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_MethodUnspecified;
+/**
+ *  Attempts to extract the position and value as-is from the document text. If
+ *  the value cannot be grounded in the text, it falls back to derivation
+ *  through inference, for both position and value. Note: The inference fallback
+ *  is currently only supported for boolean entities.
+ *
+ *  Value: "RELAXED_EXTRACT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_RelaxedExtract;
 
 // ----------------------------------------------------------------------------
 // GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.occurrenceType
@@ -2801,6 +2837,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeProperty_Method_MethodUnspecified
  *        Unspecified method. It defaults to `EXTRACT`. (Value:
  *        "METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeProperty_Method_RelaxedExtract
+ *        Attempts to extract the position and value as-is from the document
+ *        text. If the value cannot be grounded in the text, it falls back to
+ *        derivation through inference, for both position and value. Note: The
+ *        inference fallback is currently only supported for boolean entities.
+ *        (Value: "RELAXED_EXTRACT")
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -3937,6 +3979,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Method_MethodUnspecified
  *        Unspecified method. It defaults to `EXTRACT`. (Value:
  *        "METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Method_RelaxedExtract
+ *        Attempts to extract the position and value as-is from the document
+ *        text. If the value cannot be grounded in the text, it falls back to
+ *        derivation through inference, for both position and value. Note: The
+ *        inference fallback is currently only supported for boolean entities.
+ *        (Value: "RELAXED_EXTRACT")
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -4891,6 +4939,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_Method_MethodUnspecified
  *        Unspecified method. It defaults to `EXTRACT`. (Value:
  *        "METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_Method_RelaxedExtract
+ *        Attempts to extract the position and value as-is from the document
+ *        text. If the value cannot be grounded in the text, it falls back to
+ *        derivation through inference, for both position and value. Note: The
+ *        inference fallback is currently only supported for boolean entities.
+ *        (Value: "RELAXED_EXTRACT")
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -7700,6 +7754,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_MethodUnspecified
  *        Unspecified method. It defaults to `EXTRACT`. (Value:
  *        "METHOD_UNSPECIFIED")
+ *    @arg @c kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_RelaxedExtract
+ *        Attempts to extract the position and value as-is from the document
+ *        text. If the value cannot be grounded in the text, it falls back to
+ *        derivation through inference, for both position and value. Note: The
+ *        inference fallback is currently only supported for boolean entities.
+ *        (Value: "RELAXED_EXTRACT")
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -7786,6 +7846,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
  *  shards. Each document shard contains this field to detail which shard it is.
  */
 @interface GTLRDocument_GoogleCloudDocumentaiV1DocumentShardInfo : GTLRObject
+
+/**
+ *  The index of the first page in Document.pages in the overall document global
+ *  pages. Available for document shards created by the document splitter.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pageOffset;
 
 /**
  *  Total number of shards.

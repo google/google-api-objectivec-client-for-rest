@@ -745,10 +745,11 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelector
-@dynamic issueModels, phraseMatchers, qaConfig, runEntityAnnotator,
-         runIntentAnnotator, runInterruptionAnnotator, runIssueModelAnnotator,
-         runPhraseMatcherAnnotator, runQaAnnotator, runSentimentAnnotator,
-         runSilenceAnnotator, runSummarizationAnnotator, summarizationConfig;
+@dynamic issueModels, phraseMatchers, qaConfig, runAutoLabelingAnnotator,
+         runEntityAnnotator, runIntentAnnotator, runInterruptionAnnotator,
+         runIssueModelAnnotator, runPhraseMatcherAnnotator, runQaAnnotator,
+         runSentimentAnnotator, runSilenceAnnotator, runSummarizationAnnotator,
+         summarizationConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -840,7 +841,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsMetadata
 @dynamic completedAnalysesCount, createTime, endTime, failedAnalysesCount,
-         partialErrors, request, totalRequestedAnalysesCount;
+         partialErrors, relabel, request, totalRequestedAnalysesCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -858,7 +859,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsRequest
-@dynamic analysisPercentage, annotatorSelector, filter, parent;
+@dynamic analysisPercentage, annotatorSelector, filter, parent, relabel;
 @end
 
 
@@ -1099,7 +1100,25 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource
-@dynamic dialogflowSource, gcsSource, metadataUri;
+@dynamic dialogflowSource, gcsSource, metadataUri, turnLevelAudios;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"turnLevelAudios" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSourceTurnLevelAudio class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSourceTurnLevelAudio
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSourceTurnLevelAudio
+@dynamic audioDuration, audioGcsUri;
 @end
 
 
@@ -1237,7 +1256,8 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegment
 @dynamic channelTag, confidence, dialogflowSegmentMetadata, languageCode,
-         messageTime, segmentParticipant, sentiment, text, words;
+         messageTime, segmentParticipant, sentiment, text, turnLevelAudio,
+         words;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3016,10 +3036,11 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelector
-@dynamic issueModels, phraseMatchers, qaConfig, runEntityAnnotator,
-         runIntentAnnotator, runInterruptionAnnotator, runIssueModelAnnotator,
-         runPhraseMatcherAnnotator, runQaAnnotator, runSentimentAnnotator,
-         runSilenceAnnotator, runSummarizationAnnotator, summarizationConfig;
+@dynamic issueModels, phraseMatchers, qaConfig, runAutoLabelingAnnotator,
+         runEntityAnnotator, runIntentAnnotator, runInterruptionAnnotator,
+         runIssueModelAnnotator, runPhraseMatcherAnnotator, runQaAnnotator,
+         runSentimentAnnotator, runSilenceAnnotator, runSummarizationAnnotator,
+         summarizationConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3194,7 +3215,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsMetadata
 @dynamic completedAnalysesCount, createTime, endTime, failedAnalysesCount,
-         partialErrors, request, totalRequestedAnalysesCount;
+         partialErrors, relabel, request, totalRequestedAnalysesCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3212,7 +3233,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest
-@dynamic analysisPercentage, annotatorSelector, filter, parent;
+@dynamic analysisPercentage, annotatorSelector, filter, parent, relabel;
 @end
 
 
@@ -3745,7 +3766,15 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSource
-@dynamic dialogflowSource, gcsSource, metadataUri;
+@dynamic dialogflowSource, gcsSource, metadataUri, turnLevelAudios;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"turnLevelAudios" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSourceTurnLevelAudio class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3893,7 +3922,8 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegment
 @dynamic channelTag, confidence, dialogflowSegmentMetadata, languageCode,
-         messageTime, segmentParticipant, sentiment, text, words;
+         messageTime, segmentParticipant, sentiment, text, turnLevelAudio,
+         words;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5755,10 +5785,11 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainAnnotatorSelector
-@dynamic issueModels, phraseMatchers, qaConfig, runEntityAnnotator,
-         runIntentAnnotator, runInterruptionAnnotator, runIssueModelAnnotator,
-         runPhraseMatcherAnnotator, runQaAnnotator, runSentimentAnnotator,
-         runSilenceAnnotator, runSummarizationAnnotator, summarizationConfig;
+@dynamic issueModels, phraseMatchers, qaConfig, runAutoLabelingAnnotator,
+         runEntityAnnotator, runIntentAnnotator, runInterruptionAnnotator,
+         runIssueModelAnnotator, runPhraseMatcherAnnotator, runQaAnnotator,
+         runSentimentAnnotator, runSilenceAnnotator, runSummarizationAnnotator,
+         summarizationConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5850,7 +5881,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainBulkAnalyzeConversationsMetadata
 @dynamic completedAnalysesCount, createTime, endTime, failedAnalysesCount,
-         partialErrors, request, totalRequestedAnalysesCount;
+         partialErrors, relabel, request, totalRequestedAnalysesCount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5868,7 +5899,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainBulkAnalyzeConversationsRequest
-@dynamic analysisPercentage, annotatorSelector, filter, parent;
+@dynamic analysisPercentage, annotatorSelector, filter, parent, relabel;
 @end
 
 
@@ -6195,7 +6226,25 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 //
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationDataSource
-@dynamic dialogflowSource, gcsSource, metadataUri;
+@dynamic dialogflowSource, gcsSource, metadataUri, turnLevelAudios;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"turnLevelAudios" : [GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationDataSourceTurnLevelAudio class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationDataSourceTurnLevelAudio
+//
+
+@implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationDataSourceTurnLevelAudio
+@dynamic audioDuration, audioGcsUri;
 @end
 
 
@@ -6333,7 +6382,8 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegment
 @dynamic channelTag, confidence, dialogflowSegmentMetadata, languageCode,
-         messageTime, segmentParticipant, sentiment, text, words;
+         messageTime, segmentParticipant, sentiment, text, turnLevelAudio,
+         words;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8741,7 +8791,7 @@ NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLogConfig_LogType_Lo
 @implementation GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Settings
 @dynamic analysisConfig, conversationTtl, createTime, languageCode, name,
          pubsubNotificationSettings, redactionConfig, screenRecordingBucketUri,
-         speechConfig, updateTime;
+         speechConfig, timeZone, updateTime;
 @end
 
 

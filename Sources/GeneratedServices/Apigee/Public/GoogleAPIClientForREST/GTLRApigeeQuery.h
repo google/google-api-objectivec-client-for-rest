@@ -13771,6 +13771,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The risk assessment type of the security monitoring condition.
+ *  Defaults to ADVANCED_API_SECURITY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeRiskAssessmentTypeUnspecified Risk
+ *        assessment type is not specified. (Value:
+ *        "RISK_ASSESSMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApigee Risk assessment type is
+ *        Apigee. (Value: "APIGEE")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApiHub Risk assessment type is API
+ *        Hub. (Value: "API_HUB")
+ */
+@property(nonatomic, copy, nullable) NSString *riskAssessmentType;
+
+/**
  *  Fetches a @c GTLRApigee_GoogleProtobufEmpty.
  *
  *  Delete a security monitoring condition.
@@ -13802,6 +13817,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. The risk assessment type of the security monitoring condition.
+ *  Defaults to ADVANCED_API_SECURITY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeRiskAssessmentTypeUnspecified Risk
+ *        assessment type is not specified. (Value:
+ *        "RISK_ASSESSMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApigee Risk assessment type is
+ *        Apigee. (Value: "APIGEE")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApiHub Risk assessment type is API
+ *        Hub. (Value: "API_HUB")
+ */
+@property(nonatomic, copy, nullable) NSString *riskAssessmentType;
+
+/**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition.
  *
  *  Get a security monitoring condition.
@@ -13827,8 +13857,12 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @interface GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsList : GTLRApigeeQuery
 
 /**
- *  Optional. Filter for the monitoring conditions. For example:
- *  `profile=profile1 AND scope=env1`
+ *  Optional. Filter for the monitoring conditions. When RiskAssessmentType is
+ *  APIGEE, monitoring conditions can be filtered by profile and scope. For
+ *  example: `profile=profile1 AND scope=env1` When RiskAssessmentType is
+ *  API_HUB, monitoring conditions can be filtered by profile and
+ *  api_hub_gateway. For example: `profile=profile1 AND
+ *  api_hub_gateway=gateway1`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -13847,6 +13881,21 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  conditions. Format: `organizations/{org}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The risk assessment type of the security monitoring condition.
+ *  Defaults to ADVANCED_API_SECURITY.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeRiskAssessmentTypeUnspecified Risk
+ *        assessment type is not specified. (Value:
+ *        "RISK_ASSESSMENT_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApigee Risk assessment type is
+ *        Apigee. (Value: "APIGEE")
+ *    @arg @c kGTLRApigeeRiskAssessmentTypeApiHub Risk assessment type is API
+ *        Hub. (Value: "API_HUB")
+ */
+@property(nonatomic, copy, nullable) NSString *riskAssessmentType;
 
 /**
  *  Fetches a @c

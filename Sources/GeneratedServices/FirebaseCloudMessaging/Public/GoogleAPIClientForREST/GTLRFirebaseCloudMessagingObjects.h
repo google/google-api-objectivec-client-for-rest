@@ -227,7 +227,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
 
 /**
  *  Message priority. Can take "normal" and "high" values. For more information,
- *  see [Setting the priority of a message](https://goo.gl/GjONJv).
+ *  see [Setting the priority of a
+ *  message](https://firebase.google.com/docs/cloud-messaging/customize-messages/setting-message-priority).
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseCloudMessaging_AndroidConfig_Priority_High Default
@@ -335,14 +336,6 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  Resources](https://goo.gl/NdFZGI) for more information.
  */
 @property(nonatomic, copy, nullable) NSString *bodyLocKey;
-
-/**
- *  If set, display notifications delivered to the device will be handled by the
- *  app instead of the proxy.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *bypassProxyNotification GTLR_DEPRECATED;
 
 /**
  *  The [notification's channel
@@ -454,10 +447,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseCloudMessaging_AndroidNotificati
  *  of how much of the user's attention should be consumed by this notification.
  *  Low-priority notifications may be hidden from the user in certain
  *  situations, while the user might be interrupted for a higher-priority
- *  notification. The effect of setting the same priorities may differ slightly
- *  on different platforms. Note this priority differs from
- *  `AndroidMessagePriority`. This priority is processed by the client after the
- *  message has been delivered, whereas
+ *  notification. This parameter affects notification priority only on devices
+ *  running Android 7.1 (API level 25) and lower. On Android 8.0 (API level 26)
+ *  and higher, priority is ignored in favor of channel
+ *  [importance](https://developer.android.com/develop/ui/views/notifications/channels#importance).
+ *  Note this priority differs from `AndroidMessagePriority`. This priority is
+ *  processed by the client after the message has been delivered, whereas
  *  [AndroidMessagePriority](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages#androidmessagepriority)
  *  is an FCM concept that controls when the message is delivered.
  *

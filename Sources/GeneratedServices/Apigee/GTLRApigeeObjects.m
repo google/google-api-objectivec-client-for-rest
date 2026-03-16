@@ -362,6 +362,13 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_Disabled = 
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_Enabled = @"ENABLED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAction_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
+// GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource.apiHubGatewayType
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeEdge = @"APIGEE_EDGE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeHybrid = @"APIGEE_HYBRID";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeOpdk = @"APIGEE_OPDK";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApigeeX = @"APIGEE_X";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_ApiHubGatewayType_ApiHubGatewayTypeUnspecified = @"API_HUB_GATEWAY_TYPE_UNSPECIFIED";
+
 // GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource.type
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ApiHubDeployment = @"API_HUB_DEPLOYMENT";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource_Type_ApiProxy = @"API_PROXY";
@@ -420,6 +427,11 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Low =
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Moderate = @"MODERATE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_RiskLevelUnspecified = @"RISK_LEVEL_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityIncident_RiskLevel_Severe = @"SEVERE";
+
+// GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition.riskAssessmentType
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition_RiskAssessmentType_Apigee = @"APIGEE";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition_RiskAssessmentType_ApiHub = @"API_HUB";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition_RiskAssessmentType_RiskAssessmentTypeUnspecified = @"RISK_ASSESSMENT_TYPE_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1SecurityProfileV2.riskAssessmentType
 NSString * const kGTLRApigee_GoogleCloudApigeeV1SecurityProfileV2_RiskAssessmentType_Apigee = @"APIGEE";
@@ -4942,7 +4954,8 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1SecurityAssessmentResultResource
-@dynamic apiHubDeploymentDetails, name, resourceRevisionId, type;
+@dynamic apiHubDeploymentDetails, apiHubGatewayType, name, resourceRevisionId,
+         type;
 @end
 
 
@@ -5101,8 +5114,9 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 //
 
 @implementation GTLRApigee_GoogleCloudApigeeV1SecurityMonitoringCondition
-@dynamic createTime, include, includeAllResources, name, profile, scope,
-         totalDeployedResources, totalMonitoredResources, updateTime;
+@dynamic apiHubGateway, createTime, include, includeAllResources, name, profile,
+         riskAssessmentType, scope, totalDeployedResources,
+         totalMonitoredResources, updateTime;
 @end
 
 

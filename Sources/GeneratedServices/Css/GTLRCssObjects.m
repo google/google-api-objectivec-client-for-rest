@@ -84,10 +84,10 @@ NSString * const kGTLRCss_HeadlineOfferSubscriptionCost_Period_Year = @"YEAR";
          headlineOfferLink, headlineOfferMobileLink, headlineOfferPrice,
          headlineOfferShippingPrice, headlineOfferSubscriptionCost, highPrice,
          imageLink, includedDestinations, isBundle, itemGroupId, lowPrice,
-         material, mpn, multipack, numberOfOffers, pattern, pause,
-         productDetails, productHeight, productHighlights, productLength,
-         productTypes, productWeight, productWidth, size, sizeSystem, sizeTypes,
-         title;
+         material, maxRating, minRating, mpn, multipack, numberOfOffers,
+         pattern, pause, productDetails, productHeight, productHighlights,
+         productLength, productTypes, productWeight, productWidth, rating,
+         reviewCount, size, sizeSystem, sizeTypes, title;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

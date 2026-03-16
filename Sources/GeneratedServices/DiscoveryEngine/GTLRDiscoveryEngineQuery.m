@@ -2171,6 +2171,79 @@
 
 @end
 
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsGetCard
+
+@dynamic tenant;
+
++ (instancetype)queryWithTenant:(NSString *)tenant {
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"{+tenant}/card";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsGetCard *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_A2aV1AgentCard class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.agents.getCard";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsMessageSend
+
+@dynamic tenant;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_A2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"{+tenant}/message:send";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsMessageSend *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_A2aV1SendMessageResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.agents.message.send";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsMessageStream
+
+@dynamic tenant;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_A2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"tenant" ];
+  NSString *pathURITemplate = @"{+tenant}/message:stream";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsMessageStream *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.tenant = tenant;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_A2aV1StreamResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.agents.message.stream";
+  return query;
+}
+
+@end
+
 @implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsOperationsGet
 
 @dynamic name;
@@ -2185,6 +2258,183 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleLongrunningOperation class];
   query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.agents.operations.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksCancel
+
+@dynamic name, tenant;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_A2aV1CancelTaskRequest *)object
+                         tenant:(NSString *)tenant
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"name", @"tenant"
+  ];
+  NSString *pathURITemplate = @"{+tenant}/{+name}:cancel";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.tenant = tenant;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_A2aV1Task class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksGet
+
+@dynamic historyLength, name, tenant;
+
++ (instancetype)queryWithTenant:(NSString *)tenant
+                           name:(NSString *)name {
+  NSArray *pathParams = @[
+    @"name", @"tenant"
+  ];
+  NSString *pathURITemplate = @"{+tenant}/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.tenant = tenant;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_A2aV1Task class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsCreate
+
+@dynamic configId, parent, tenant;
+
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_A2aV1TaskPushNotificationConfig *)object
+                         tenant:(NSString *)tenant
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"parent", @"tenant"
+  ];
+  NSString *pathURITemplate = @"{+tenant}/{+parent}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.tenant = tenant;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_A2aV1TaskPushNotificationConfig class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.pushNotificationConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsDelete
+
+@dynamic name, tenant;
+
++ (instancetype)queryWithTenant:(NSString *)tenant
+                           name:(NSString *)name {
+  NSArray *pathParams = @[
+    @"name", @"tenant"
+  ];
+  NSString *pathURITemplate = @"{+tenant}/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.tenant = tenant;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_GoogleProtobufEmpty class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.pushNotificationConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsGet
+
+@dynamic name, tenant;
+
++ (instancetype)queryWithTenant:(NSString *)tenant
+                           name:(NSString *)name {
+  NSArray *pathParams = @[
+    @"name", @"tenant"
+  ];
+  NSString *pathURITemplate = @"{+tenant}/{+name}";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.tenant = tenant;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_A2aV1TaskPushNotificationConfig class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.pushNotificationConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsList
+
+@dynamic pageSize, pageToken, parent, tenant;
+
++ (instancetype)queryWithTenant:(NSString *)tenant
+                         parent:(NSString *)parent {
+  NSArray *pathParams = @[
+    @"parent", @"tenant"
+  ];
+  NSString *pathURITemplate = @"{+tenant}/{+parent}/pushNotificationConfigs";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.tenant = tenant;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_A2aV1ListTaskPushNotificationConfigResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.pushNotificationConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksSubscribe
+
+@dynamic name, tenant;
+
++ (instancetype)queryWithTenant:(NSString *)tenant
+                           name:(NSString *)name {
+  NSArray *pathParams = @[
+    @"name", @"tenant"
+  ];
+  NSString *pathURITemplate = @"{+tenant}/{+name}:subscribe";
+  GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksSubscribe *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.tenant = tenant;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDiscoveryEngine_A2aV1StreamResponse class];
+  query.loggingName = @"discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.subscribe";
   return query;
 }
 

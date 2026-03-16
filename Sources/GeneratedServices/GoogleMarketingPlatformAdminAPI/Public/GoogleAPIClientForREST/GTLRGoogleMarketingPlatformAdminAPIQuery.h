@@ -246,7 +246,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lookup for a single organization.
+ *  Looks up a single organization.
  *
  *  Method: marketingplatformadmin.organizations.get
  *
@@ -265,7 +265,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRGoogleMarketingPlatformAdminAPI_Organization.
  *
- *  Lookup for a single organization.
+ *  Looks up a single organization.
  *
  *  @param name Required. The name of the Organization to retrieve. Format:
  *    organizations/{org_id}
@@ -319,7 +319,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get the usage and billing data for properties within the organization for
+ *  Gets the usage and billing data for properties within the organization for
  *  the specified month. Per direct client org, user needs to be
  *  OrgAdmin/BillingAdmin on the organization in order to view the billing and
  *  usage data. Per sales partner client org, user needs to be
@@ -345,7 +345,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c
  *  GTLRGoogleMarketingPlatformAdminAPI_ReportPropertyUsageResponse.
  *
- *  Get the usage and billing data for properties within the organization for
+ *  Gets the usage and billing data for properties within the organization for
  *  the specified month. Per direct client org, user needs to be
  *  OrgAdmin/BillingAdmin on the organization in order to view the billing and
  *  usage data. Per sales partner client org, user needs to be

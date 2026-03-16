@@ -19,7 +19,6 @@
 NSString * const kGTLRWorkloadManagerEvaluationTypeEvaluationTypeUnspecified = @"EVALUATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRWorkloadManagerEvaluationTypeOther       = @"OTHER";
 NSString * const kGTLRWorkloadManagerEvaluationTypeSap         = @"SAP";
-NSString * const kGTLRWorkloadManagerEvaluationTypeSccIac      = @"SCC_IAC";
 NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer   = @"SQL_SERVER";
 
 // ----------------------------------------------------------------------------

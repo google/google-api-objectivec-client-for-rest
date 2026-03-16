@@ -380,6 +380,16 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAPIhub_GoogleCloudApihubV1AgentRegistrySyncConfig
+//
+
+@implementation GTLRAPIhub_GoogleCloudApihubV1AgentRegistrySyncConfig
+@dynamic disabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAPIhub_GoogleCloudApihubV1AllDataAddonConfig
 //
 
@@ -705,7 +715,8 @@ NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_Severity_SeverityWa
 //
 
 @implementation GTLRAPIhub_GoogleCloudApihubV1Config
-@dynamic cmekKeyName, disableSearch, encryptionType, vertexLocation;
+@dynamic agentRegistrySyncConfig, cmekKeyName, disableSearch, encryptionType,
+         vertexLocation;
 @end
 
 

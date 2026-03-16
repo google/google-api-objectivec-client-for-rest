@@ -190,6 +190,7 @@ NSString * const kGTLRDfareportingTvDataProviderIbopeAr        = @"IBOPE_AR";
 NSString * const kGTLRDfareportingTvDataProviderIbopeBr        = @"IBOPE_BR";
 NSString * const kGTLRDfareportingTvDataProviderIbopeCl        = @"IBOPE_CL";
 NSString * const kGTLRDfareportingTvDataProviderIbopeCo        = @"IBOPE_CO";
+NSString * const kGTLRDfareportingTvDataProviderIntageJp       = @"INTAGE_JP";
 NSString * const kGTLRDfareportingTvDataProviderInvalidTvDataProvider = @"INVALID_TV_DATA_PROVIDER";
 NSString * const kGTLRDfareportingTvDataProviderSambaAu        = @"SAMBA_AU";
 NSString * const kGTLRDfareportingTvDataProviderTnsVn          = @"TNS_VN";
@@ -4107,7 +4108,18 @@ NSString * const kGTLRDfareportingTypesVpaidNonLinearVideo     = @"VPAID_NON_LIN
 
 @implementation GTLRDfareportingQuery_PlacementsGeneratetags
 
-@dynamic campaignId, placementIds, profileId, tagFormats;
+@dynamic campaignId, placementIds, profileId, tagFormats,
+         tagPropertiesDcDbmMacroIncluded, tagPropertiesGppMacrosIncluded,
+         tagPropertiesTcfGdprMacrosIncluded;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"tagPropertiesDcDbmMacroIncluded" : @"tagProperties.dcDbmMacroIncluded",
+    @"tagPropertiesGppMacrosIncluded" : @"tagProperties.gppMacrosIncluded",
+    @"tagPropertiesTcfGdprMacrosIncluded" : @"tagProperties.tcfGdprMacrosIncluded"
+  };
+  return map;
+}
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

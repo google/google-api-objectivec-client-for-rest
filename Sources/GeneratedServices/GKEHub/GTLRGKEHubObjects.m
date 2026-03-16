@@ -278,6 +278,7 @@ NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CniConfigUnsupported = @"
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CniInstallationFailed = @"CNI_INSTALLATION_FAILED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CniPodUnschedulable = @"CNI_POD_UNSCHEDULABLE";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_CodeUnspecified = @"CODE_UNSPECIFIED";
+NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigApplyBlocked = @"CONFIG_APPLY_BLOCKED";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigApplyInternalError = @"CONFIG_APPLY_INTERNAL_ERROR";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigValidationError = @"CONFIG_VALIDATION_ERROR";
 NSString * const kGTLRGKEHub_ServiceMeshCondition_Code_ConfigValidationWarning = @"CONFIG_VALIDATION_WARNING";

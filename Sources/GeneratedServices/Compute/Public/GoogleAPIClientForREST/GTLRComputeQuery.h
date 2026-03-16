@@ -113,11 +113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeRouteTypeUnspecifiedRouteType;
 // ----------------------------------------------------------------------------
 // view
 
-/**
- *  This view includes basic information about the reservation block
- *
- *  Value: "BASIC"
- */
+/** Value: "BASIC" */
 FOUNDATION_EXTERN NSString * const kGTLRComputeViewBasic;
 /**
  *  The default / unset value. The API will default to the BASIC view.
@@ -125,12 +121,14 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewBasic;
  *  Value: "BLOCK_VIEW_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRComputeViewBlockViewUnspecified;
-/**
- *  Includes detailed topology view.
- *
- *  Value: "FULL"
- */
+/** Value: "FULL" */
 FOUNDATION_EXTERN NSString * const kGTLRComputeViewFull;
+/**
+ *  The default / unset value. The API will default to the BASIC view.
+ *
+ *  Value: "INSTANCE_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRComputeViewInstanceViewUnspecified;
 /**
  *  This view includes basic information about the reservation sub block
  *
@@ -4916,7 +4914,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 /**
  *  Updates the specified disk with the data included in the request.
  *  The update is performed only on selected fields included as part
- *  of update-mask. Only the following fields can be modified: user_license.
+ *  of update-mask.
  *
  *  Method: compute.disks.update
  *
@@ -4968,7 +4966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *
  *  Updates the specified disk with the data included in the request.
  *  The update is performed only on selected fields included as part
- *  of update-mask. Only the following fields can be modified: user_license.
+ *  of update-mask.
  *
  *  @param object The @c GTLRCompute_Disk to include in the query.
  *  @param project Project ID for this request.
@@ -16559,6 +16557,19 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  View of the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewBasic Include everything except Partner Metadata.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRComputeViewFull Include everything. (Value: "FULL")
+ *    @arg @c kGTLRComputeViewInstanceViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "INSTANCE_VIEW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -16722,6 +16733,51 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
                         resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Gets partner metadata of the specified instance and namespaces.
+ *
+ *  Method: compute.instances.getPartnerMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_InstancesGetPartnerMetadata : GTLRComputeQuery
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Comma separated partner metadata namespaces. */
+@property(nonatomic, copy, nullable) NSString *namespaces;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_PartnerMetadata.
+ *
+ *  Gets partner metadata of the specified instance and namespaces.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesGetPartnerMetadata
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+                        instance:(NSString *)instance;
 
 @end
 
@@ -17065,6 +17121,19 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, assign) BOOL returnPartialSuccess;
 
 /**
+ *  View of the instance.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewBasic Include everything except Partner Metadata.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRComputeViewFull Include everything. (Value: "FULL")
+ *    @arg @c kGTLRComputeViewInstanceViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "INSTANCE_VIEW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  The name of the zone for this request.
  *
  *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
@@ -17240,6 +17309,64 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 + (instancetype)queryWithProject:(NSString *)project
                     zoneProperty:(NSString *)zoneProperty
                         instance:(NSString *)instance;
+
+@end
+
+/**
+ *  Patches partner metadata of the specified instance.
+ *
+ *  Method: compute.instances.patchPartnerMetadata
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_InstancesPatchPartnerMetadata : GTLRComputeQuery
+
+/** Name of the instance scoping this request. */
+@property(nonatomic, copy, nullable) NSString *instance;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Patches partner metadata of the specified instance.
+ *
+ *  @param object The @c GTLRCompute_PartnerMetadata to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty The name of the zone for this request.
+ *  @param instance Name of the instance scoping this request.
+ *
+ *  @return GTLRComputeQuery_InstancesPatchPartnerMetadata
+ */
++ (instancetype)queryWithObject:(GTLRCompute_PartnerMetadata *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                       instance:(NSString *)instance;
 
 @end
 
@@ -18845,6 +18972,12 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  */
 @interface GTLRComputeQuery_InstancesUpdate : GTLRComputeQuery
 
+/**
+ *  Whether to discard local SSDs from the instance during restart
+ *  default value is false.
+ */
+@property(nonatomic, assign) BOOL discardLocalSsd;
+
 /** Name of the instance resource to update. */
 @property(nonatomic, copy, nullable) NSString *instance;
 
@@ -19416,6 +19549,19 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
+ *  View of the instance template.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewBasic Include everything except Partner Metadata.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRComputeViewFull Include everything. (Value: "FULL")
+ *    @arg @c kGTLRComputeViewInstanceViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "INSTANCE_VIEW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Fetches a @c GTLRCompute_InstanceTemplate.
  *
  *  Returns the specified instance template.
@@ -19628,6 +19774,19 @@ FOUNDATION_EXTERN NSString * const kGTLRComputeViewsWithUtilization;
  *  with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  View of the instance template.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewBasic Include everything except Partner Metadata.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRComputeViewFull Include everything. (Value: "FULL")
+ *    @arg @c kGTLRComputeViewInstanceViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "INSTANCE_VIEW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRCompute_InstanceTemplateList.
@@ -34800,6 +34959,531 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Retrieves the list of all CompositeHealthCheck resources (all
+ *  regional) available to the specified project.
+ *  To prevent failure, it is recommended that you set the
+ *  `returnPartialSuccess` parameter to `true`.
+ *
+ *  Method: compute.regionCompositeHealthChecks.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionCompositeHealthChecksAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project scoping this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ *  For example, when partial success behavior is enabled, aggregatedList for a
+ *  single zone scope either returns all resources in the zone or no resources,
+ *  with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
+@property(nonatomic, assign) long long serviceProjectNumber;
+
+/**
+ *  Fetches a @c GTLRCompute_CompositeHealthCheckAggregatedList.
+ *
+ *  Retrieves the list of all CompositeHealthCheck resources (all
+ *  regional) available to the specified project.
+ *  To prevent failure, it is recommended that you set the
+ *  `returnPartialSuccess` parameter to `true`.
+ *
+ *  @param project Name of the project scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionCompositeHealthChecksAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified CompositeHealthCheck in the given region
+ *
+ *  Method: compute.regionCompositeHealthChecks.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionCompositeHealthChecksDelete : GTLRComputeQuery
+
+/** Name of the CompositeHealthCheck resource to delete. */
+@property(nonatomic, copy, nullable) NSString *compositeHealthCheck;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified CompositeHealthCheck in the given region
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param compositeHealthCheck Name of the CompositeHealthCheck resource to
+ *    delete.
+ *
+ *  @return GTLRComputeQuery_RegionCompositeHealthChecksDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            compositeHealthCheck:(NSString *)compositeHealthCheck;
+
+@end
+
+/**
+ *  Returns the specified CompositeHealthCheck resource in the given region.
+ *
+ *  Method: compute.regionCompositeHealthChecks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionCompositeHealthChecksGet : GTLRComputeQuery
+
+/** Name of the CompositeHealthCheck resource to return. */
+@property(nonatomic, copy, nullable) NSString *compositeHealthCheck;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_CompositeHealthCheck.
+ *
+ *  Returns the specified CompositeHealthCheck resource in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param compositeHealthCheck Name of the CompositeHealthCheck resource to
+ *    return.
+ *
+ *  @return GTLRComputeQuery_RegionCompositeHealthChecksGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            compositeHealthCheck:(NSString *)compositeHealthCheck;
+
+@end
+
+/**
+ *  Create a CompositeHealthCheck in the specified project in the given region
+ *  using the parameters that are included in the request.
+ *
+ *  Method: compute.regionCompositeHealthChecks.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionCompositeHealthChecksInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Create a CompositeHealthCheck in the specified project in the given region
+ *  using the parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_CompositeHealthCheck to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionCompositeHealthChecksInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_CompositeHealthCheck *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists the CompositeHealthChecks for a project in the given region.
+ *
+ *  Method: compute.regionCompositeHealthChecks.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionCompositeHealthChecksList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ *  For example, when partial success behavior is enabled, aggregatedList for a
+ *  single zone scope either returns all resources in the zone or no resources,
+ *  with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_CompositeHealthCheckList.
+ *
+ *  Lists the CompositeHealthChecks for a project in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionCompositeHealthChecksList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Updates the specified regional CompositeHealthCheck resource
+ *  with the data included in the request. This method supportsPATCH
+ *  semantics and uses theJSON merge
+ *  patch format and processing rules.
+ *
+ *  Method: compute.regionCompositeHealthChecks.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionCompositeHealthChecksPatch : GTLRComputeQuery
+
+/**
+ *  Name of the CompositeHealthCheck to update. The name
+ *  must be 1-63 characters long, and comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *compositeHealthCheck;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified regional CompositeHealthCheck resource
+ *  with the data included in the request. This method supportsPATCH
+ *  semantics and uses theJSON merge
+ *  patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_CompositeHealthCheck to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param compositeHealthCheck Name of the CompositeHealthCheck to update. The
+ *    name
+ *    must be 1-63 characters long, and comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionCompositeHealthChecksPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_CompositeHealthCheck *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           compositeHealthCheck:(NSString *)compositeHealthCheck;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.regionCompositeHealthChecks.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionCompositeHealthChecksTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionCompositeHealthChecksTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Adds existing resource policies to a regional disk. You can only add one
  *  policy which will be applied to this disk for scheduling snapshot
  *  creation.
@@ -35713,8 +36397,7 @@ GTLR_DEPRECATED
 
 /**
  *  Update the specified disk with the data included in the request. Update is
- *  performed only on selected fields included as part of update-mask. Only the
- *  following fields can be modified: user_license.
+ *  performed only on selected fields included as part of update-mask.
  *
  *  Method: compute.regionDisks.update
  *
@@ -35761,8 +36444,7 @@ GTLR_DEPRECATED
  *  Fetches a @c GTLRCompute_Operation.
  *
  *  Update the specified disk with the data included in the request. Update is
- *  performed only on selected fields included as part of update-mask. Only the
- *  following fields can be modified: user_license.
+ *  performed only on selected fields included as part of update-mask.
  *
  *  @param object The @c GTLRCompute_Disk to include in the query.
  *  @param project Project ID for this request.
@@ -35947,6 +36629,531 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Retrieves the list of all HealthAggregationPolicy resources,
+ *  regional and global, available to the specified project.
+ *  To prevent failure, it is recommended that you set the
+ *  `returnPartialSuccess` parameter to `true`.
+ *
+ *  Method: compute.regionHealthAggregationPolicies.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthAggregationPoliciesAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project scoping this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ *  For example, when partial success behavior is enabled, aggregatedList for a
+ *  single zone scope either returns all resources in the zone or no resources,
+ *  with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
+@property(nonatomic, assign) long long serviceProjectNumber;
+
+/**
+ *  Fetches a @c GTLRCompute_HealthAggregationPolicyAggregatedList.
+ *
+ *  Retrieves the list of all HealthAggregationPolicy resources,
+ *  regional and global, available to the specified project.
+ *  To prevent failure, it is recommended that you set the
+ *  `returnPartialSuccess` parameter to `true`.
+ *
+ *  @param project Name of the project scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthAggregationPoliciesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified HealthAggregationPolicy in the given region.
+ *
+ *  Method: compute.regionHealthAggregationPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionHealthAggregationPoliciesDelete : GTLRComputeQuery
+
+/** Name of the HealthAggregationPolicy resource to delete. */
+@property(nonatomic, copy, nullable) NSString *healthAggregationPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified HealthAggregationPolicy in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param healthAggregationPolicy Name of the HealthAggregationPolicy resource
+ *    to delete.
+ *
+ *  @return GTLRComputeQuery_RegionHealthAggregationPoliciesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+         healthAggregationPolicy:(NSString *)healthAggregationPolicy;
+
+@end
+
+/**
+ *  Returns the specified HealthAggregationPolicy resource in the given region.
+ *
+ *  Method: compute.regionHealthAggregationPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthAggregationPoliciesGet : GTLRComputeQuery
+
+/** Name of the HealthAggregationPolicy resource to return. */
+@property(nonatomic, copy, nullable) NSString *healthAggregationPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_HealthAggregationPolicy.
+ *
+ *  Returns the specified HealthAggregationPolicy resource in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param healthAggregationPolicy Name of the HealthAggregationPolicy resource
+ *    to return.
+ *
+ *  @return GTLRComputeQuery_RegionHealthAggregationPoliciesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+         healthAggregationPolicy:(NSString *)healthAggregationPolicy;
+
+@end
+
+/**
+ *  Create a HealthAggregationPolicy in the specified project in the given
+ *  region using the parameters that are included in the request.
+ *
+ *  Method: compute.regionHealthAggregationPolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionHealthAggregationPoliciesInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Create a HealthAggregationPolicy in the specified project in the given
+ *  region using the parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_HealthAggregationPolicy to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthAggregationPoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_HealthAggregationPolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists the HealthAggregationPolicies for a project in the given region.
+ *
+ *  Method: compute.regionHealthAggregationPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthAggregationPoliciesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ *  For example, when partial success behavior is enabled, aggregatedList for a
+ *  single zone scope either returns all resources in the zone or no resources,
+ *  with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_HealthAggregationPolicyList.
+ *
+ *  Lists the HealthAggregationPolicies for a project in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthAggregationPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Updates the specified regional HealthAggregationPolicy
+ *  resource with the data included in the request. This method supportsPATCH
+ *  semantics and uses theJSON merge
+ *  patch format and processing rules.
+ *
+ *  Method: compute.regionHealthAggregationPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionHealthAggregationPoliciesPatch : GTLRComputeQuery
+
+/**
+ *  Name of the HealthAggregationPolicy to update. The name
+ *  must be 1-63 characters long, and comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *healthAggregationPolicy;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified regional HealthAggregationPolicy
+ *  resource with the data included in the request. This method supportsPATCH
+ *  semantics and uses theJSON merge
+ *  patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_HealthAggregationPolicy to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param healthAggregationPolicy Name of the HealthAggregationPolicy to
+ *    update. The name
+ *    must be 1-63 characters long, and comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionHealthAggregationPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_HealthAggregationPolicy *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+        healthAggregationPolicy:(NSString *)healthAggregationPolicy;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.regionHealthAggregationPolicies.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthAggregationPoliciesTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthAggregationPoliciesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Deletes the specified HealthCheck resource.
  *
  *  Method: compute.regionHealthChecks.delete
@@ -35995,6 +37202,150 @@ GTLR_DEPRECATED
 + (instancetype)queryWithProject:(NSString *)project
                           region:(NSString *)region
                      healthCheck:(NSString *)healthCheck;
+
+@end
+
+/**
+ *  Retrieves the list of all HealthCheckService resources,
+ *  regional and global, available to the specified project.
+ *  To prevent failure, it is recommended that you set the
+ *  `returnPartialSuccess` parameter to `true`.
+ *
+ *  Method: compute.regionHealthCheckServices.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthCheckServicesAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project scoping this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ *  For example, when partial success behavior is enabled, aggregatedList for a
+ *  single zone scope either returns all resources in the zone or no resources,
+ *  with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
+@property(nonatomic, assign) long long serviceProjectNumber;
+
+/**
+ *  Fetches a @c GTLRCompute_HealthCheckServiceAggregatedList.
+ *
+ *  Retrieves the list of all HealthCheckService resources,
+ *  regional and global, available to the specified project.
+ *  To prevent failure, it is recommended that you set the
+ *  `returnPartialSuccess` parameter to `true`.
+ *
+ *  @param project Name of the project scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthCheckServicesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
 
 @end
 
@@ -36759,6 +38110,940 @@ GTLR_DEPRECATED
                         project:(NSString *)project
                          region:(NSString *)region
                     healthCheck:(NSString *)healthCheck;
+
+@end
+
+/**
+ *  Retrieves the list of all HealthSource resources (all
+ *  regional) available to the specified project.
+ *  To prevent failure, Google recommends that you set the
+ *  `returnPartialSuccess` parameter to `true`.
+ *
+ *  Method: compute.regionHealthSources.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthSourcesAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project scoping this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ *  For example, when partial success behavior is enabled, aggregatedList for a
+ *  single zone scope either returns all resources in the zone or no resources,
+ *  with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
+@property(nonatomic, assign) long long serviceProjectNumber;
+
+/**
+ *  Fetches a @c GTLRCompute_HealthSourceAggregatedList.
+ *
+ *  Retrieves the list of all HealthSource resources (all
+ *  regional) available to the specified project.
+ *  To prevent failure, Google recommends that you set the
+ *  `returnPartialSuccess` parameter to `true`.
+ *
+ *  @param project Name of the project scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthSourcesAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes the specified HealthSource in the given region
+ *
+ *  Method: compute.regionHealthSources.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionHealthSourcesDelete : GTLRComputeQuery
+
+/** Name of the HealthSource resource to delete. */
+@property(nonatomic, copy, nullable) NSString *healthSource;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified HealthSource in the given region
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param healthSource Name of the HealthSource resource to delete.
+ *
+ *  @return GTLRComputeQuery_RegionHealthSourcesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                    healthSource:(NSString *)healthSource;
+
+@end
+
+/**
+ *  Returns the specified HealthSource resource in the given region.
+ *
+ *  Method: compute.regionHealthSources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthSourcesGet : GTLRComputeQuery
+
+/** Name of the HealthSource resource to return. */
+@property(nonatomic, copy, nullable) NSString *healthSource;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Fetches a @c GTLRCompute_HealthSource.
+ *
+ *  Returns the specified HealthSource resource in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param healthSource Name of the HealthSource resource to return.
+ *
+ *  @return GTLRComputeQuery_RegionHealthSourcesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+                    healthSource:(NSString *)healthSource;
+
+@end
+
+/**
+ *  Create a HealthSource in the specified project in the given region
+ *  using the parameters that are included in the request.
+ *
+ *  Method: compute.regionHealthSources.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionHealthSourcesInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Create a HealthSource in the specified project in the given region
+ *  using the parameters that are included in the request.
+ *
+ *  @param object The @c GTLRCompute_HealthSource to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthSourcesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_HealthSource *)object
+                        project:(NSString *)project
+                         region:(NSString *)region;
+
+@end
+
+/**
+ *  Lists the HealthSources for a project in the given region.
+ *
+ *  Method: compute.regionHealthSources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthSourcesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ *  For example, when partial success behavior is enabled, aggregatedList for a
+ *  single zone scope either returns all resources in the zone or no resources,
+ *  with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c GTLRCompute_HealthSourceList.
+ *
+ *  Lists the HealthSources for a project in the given region.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthSourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region;
+
+@end
+
+/**
+ *  Updates the specified regional HealthSource resource
+ *  with the data included in the request. This method supportsPATCH
+ *  semantics and uses theJSON merge
+ *  patch format and processing rules.
+ *
+ *  Method: compute.regionHealthSources.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionHealthSourcesPatch : GTLRComputeQuery
+
+/**
+ *  Name of the HealthSource to update. The name
+ *  must be 1-63 characters long, and comply with RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *healthSource;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the region scoping this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Updates the specified regional HealthSource resource
+ *  with the data included in the request. This method supportsPATCH
+ *  semantics and uses theJSON merge
+ *  patch format and processing rules.
+ *
+ *  @param object The @c GTLRCompute_HealthSource to include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region scoping this request.
+ *  @param healthSource Name of the HealthSource to update. The name
+ *    must be 1-63 characters long, and comply with RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionHealthSourcesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCompute_HealthSource *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                   healthSource:(NSString *)healthSource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  Method: compute.regionHealthSources.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionHealthSourcesTestIamPermissions : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** The name of the region for this request. */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/** Name or id of the resource for this request. */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCompute_TestPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource.
+ *
+ *  @param object The @c GTLRCompute_TestPermissionsRequest to include in the
+ *    query.
+ *  @param project Project ID for this request.
+ *  @param region The name of the region for this request.
+ *  @param resource Name or id of the resource for this request.
+ *
+ *  @return GTLRComputeQuery_RegionHealthSourcesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCompute_TestPermissionsRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Cancels the specified resize request.
+ *  Cancelled resize request no longer waits for the resources to be
+ *  provisioned. Cancel is only possible for requests that are in accepted
+ *  state.
+ *
+ *  Method: compute.regionInstanceGroupManagerResizeRequests.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagerResizeRequestsCancel : GTLRComputeQuery
+
+/**
+ *  The name of the managed instance group.
+ *  Name should conform to RFC1035 or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the region
+ *  scoping this request. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the resize request to cancel.
+ *  Name should conform to RFC1035 or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *resizeRequest;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Cancels the specified resize request.
+ *  Cancelled resize request no longer waits for the resources to be
+ *  provisioned. Cancel is only possible for requests that are in accepted
+ *  state.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region
+ *    scoping this request. Name should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *    Name should conform to RFC1035 or be a resource ID.
+ *  @param resizeRequest The name of the resize request to cancel.
+ *    Name should conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagerResizeRequestsCancel
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            instanceGroupManager:(NSString *)instanceGroupManager
+                   resizeRequest:(NSString *)resizeRequest;
+
+@end
+
+/**
+ *  Deletes the specified, inactive resize request. Requests that are still
+ *  active cannot be deleted. Deleting request does not delete instances that
+ *  were provisioned previously.
+ *
+ *  Method: compute.regionInstanceGroupManagerResizeRequests.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagerResizeRequestsDelete : GTLRComputeQuery
+
+/**
+ *  The name of the managed instance group.
+ *  Name should conform to RFC1035 or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the region
+ *  scoping this request. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the resize request to delete.
+ *  Name should conform to RFC1035 or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *resizeRequest;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes the specified, inactive resize request. Requests that are still
+ *  active cannot be deleted. Deleting request does not delete instances that
+ *  were provisioned previously.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region
+ *    scoping this request. Name should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *    Name should conform to RFC1035 or be a resource ID.
+ *  @param resizeRequest The name of the resize request to delete.
+ *    Name should conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagerResizeRequestsDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            instanceGroupManager:(NSString *)instanceGroupManager
+                   resizeRequest:(NSString *)resizeRequest;
+
+@end
+
+/**
+ *  Returns all of the details about the specified resize request.
+ *
+ *  Method: compute.regionInstanceGroupManagerResizeRequests.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagerResizeRequestsGet : GTLRComputeQuery
+
+/**
+ *  The name of the managed instance group.
+ *  Name should conform to RFC1035 or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  The name of the region
+ *  scoping this request. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  The name of the resize request.
+ *  Name should conform to RFC1035 or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *resizeRequest;
+
+/**
+ *  Fetches a @c GTLRCompute_InstanceGroupManagerResizeRequest.
+ *
+ *  Returns all of the details about the specified resize request.
+ *
+ *  @param project Project ID for this request.
+ *  @param region The name of the region
+ *    scoping this request. Name should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group.
+ *    Name should conform to RFC1035 or be a resource ID.
+ *  @param resizeRequest The name of the resize request.
+ *    Name should conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagerResizeRequestsGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            instanceGroupManager:(NSString *)instanceGroupManager
+                   resizeRequest:(NSString *)resizeRequest;
+
+@end
+
+/**
+ *  Creates a new Resize Request that starts provisioning VMs immediately
+ *  or queues VM creation.
+ *
+ *  Method: compute.regionInstanceGroupManagerResizeRequests.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagerResizeRequestsInsert : GTLRComputeQuery
+
+/**
+ *  Name of the managed instance group to which the resize request is scoped.
+ *  Name should conform to RFC1035 or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Name of the region
+ *  scoping this request. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new Resize Request that starts provisioning VMs immediately
+ *  or queues VM creation.
+ *
+ *  @param object The @c GTLRCompute_InstanceGroupManagerResizeRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param region Name of the region
+ *    scoping this request. Name should conform to RFC1035.
+ *  @param instanceGroupManager Name of the managed instance group to which the
+ *    resize request is scoped.
+ *    Name should conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagerResizeRequestsInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_InstanceGroupManagerResizeRequest *)object
+                        project:(NSString *)project
+                         region:(NSString *)region
+           instanceGroupManager:(NSString *)instanceGroupManager;
+
+@end
+
+/**
+ *  Retrieves a list of Resize Requests that are contained in the
+ *  managed instance group.
+ *
+ *  Method: compute.regionInstanceGroupManagerResizeRequests.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionInstanceGroupManagerResizeRequestsList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The name of the managed instance group. The name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroupManager;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Name of the region
+ *  scoping this request. Name should conform to RFC1035.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ *  For example, when partial success behavior is enabled, aggregatedList for a
+ *  single zone scope either returns all resources in the zone or no resources,
+ *  with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Fetches a @c
+ *  GTLRCompute_RegionInstanceGroupManagerResizeRequestsListResponse.
+ *
+ *  Retrieves a list of Resize Requests that are contained in the
+ *  managed instance group.
+ *
+ *  @param project Project ID for this request.
+ *  @param region Name of the region
+ *    scoping this request. Name should conform to RFC1035.
+ *  @param instanceGroupManager The name of the managed instance group. The name
+ *    should conform to RFC1035.
+ *
+ *  @return GTLRComputeQuery_RegionInstanceGroupManagerResizeRequestsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                          region:(NSString *)region
+            instanceGroupManager:(NSString *)instanceGroupManager;
 
 @end
 
@@ -39233,6 +41518,19 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *region;
 
 /**
+ *  View of the instance template.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewBasic Include everything except Partner Metadata.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRComputeViewFull Include everything. (Value: "FULL")
+ *    @arg @c kGTLRComputeViewInstanceViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "INSTANCE_VIEW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
+/**
  *  Fetches a @c GTLRCompute_InstanceTemplate.
  *
  *  Returns the specified instance template.
@@ -39411,6 +41709,19 @@ GTLR_DEPRECATED
  *  with an error code.
  */
 @property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  View of the instance template.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRComputeViewBasic Include everything except Partner Metadata.
+ *        (Value: "BASIC")
+ *    @arg @c kGTLRComputeViewFull Include everything. (Value: "FULL")
+ *    @arg @c kGTLRComputeViewInstanceViewUnspecified The default / unset value.
+ *        The API will default to the BASIC view. (Value:
+ *        "INSTANCE_VIEW_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
 
 /**
  *  Fetches a @c GTLRCompute_InstanceTemplateList.
@@ -41428,6 +43739,146 @@ GTLR_DEPRECATED
                         project:(NSString *)project
                          region:(NSString *)region
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Retrieves the list of all NotificationEndpoint resources,
+ *  regional and global, available to the specified project.
+ *
+ *  Method: compute.regionNotificationEndpoints.aggregatedList
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_RegionNotificationEndpointsAggregatedList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Indicates whether every visible scope for each scope type (zone, region,
+ *  global) should be included in the response. For new resource types added
+ *  after this field, the flag has no effect as new resource types will always
+ *  include every visible scope for each scope type in response. For resource
+ *  types which predate this field, if this flag is omitted or false, only
+ *  scopes of the scope types where the resource type is expected to be found
+ *  will be included.
+ */
+@property(nonatomic, assign) BOOL includeAllScopes;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Name of the project scoping this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ *  For example, when partial success behavior is enabled, aggregatedList for a
+ *  single zone scope either returns all resources in the zone or no resources,
+ *  with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  The Shared VPC service project id or service project number for which
+ *  aggregated list request is invoked for subnetworks list-usable api.
+ */
+@property(nonatomic, assign) long long serviceProjectNumber;
+
+/**
+ *  Fetches a @c GTLRCompute_NotificationEndpointAggregatedList.
+ *
+ *  Retrieves the list of all NotificationEndpoint resources,
+ *  regional and global, available to the specified project.
+ *
+ *  @param project Name of the project scoping this request.
+ *
+ *  @return GTLRComputeQuery_RegionNotificationEndpointsAggregatedList
+ */
++ (instancetype)queryWithProject:(NSString *)project;
 
 @end
 
@@ -46140,6 +48591,80 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Allows customers to get SBOM versions of a reservation slot.
+ *
+ *  Method: compute.reservationSlots.getVersion
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ReservationSlotsGetVersion : GTLRComputeQuery
+
+/**
+ *  The name of the parent reservation and parent block. In the format of
+ *  reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the reservation slot.
+ *  Name should conform to RFC1035 or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationSlot;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Allows customers to get SBOM versions of a reservation slot.
+ *
+ *  @param object The @c GTLRCompute_ReservationSlotsGetVersionRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param parentName The name of the parent reservation and parent block. In
+ *    the format of
+ *    reservations/{reservation_name}/reservationBlocks/{reservation_block_name}/reservationSubBlocks/{reservation_sub_block_name}
+ *  @param reservationSlot The name of the reservation slot.
+ *    Name should conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationSlotsGetVersion
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ReservationSlotsGetVersionRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                     parentName:(NSString *)parentName
+                reservationSlot:(NSString *)reservationSlot;
+
+@end
+
+/**
  *  Retrieves a list of reservation slots under a single reservation.
  *
  *  Method: compute.reservationSlots.list
@@ -46680,6 +49205,80 @@ GTLR_DEPRECATED
                     zoneProperty:(NSString *)zoneProperty
                   parentResource:(NSString *)parentResource
                         resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Allows customers to get SBOM versions of a reservation subBlock.
+ *
+ *  Method: compute.reservationSubBlocks.getVersion
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ReservationSubBlocksGetVersion : GTLRComputeQuery
+
+/**
+ *  The name of the parent reservation and parent block. In the format of
+ *  reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+ */
+@property(nonatomic, copy, nullable) NSString *parentName;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  The name of the reservation subBlock.
+ *  Name should conform to RFC1035 or be a resource ID.
+ */
+@property(nonatomic, copy, nullable) NSString *reservationSubBlock;
+
+/**
+ *  Name of the zone for this request. Zone name should conform to RFC1035.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Allows customers to get SBOM versions of a reservation subBlock.
+ *
+ *  @param object The @c GTLRCompute_ReservationSubBlocksGetVersionRequest to
+ *    include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request. Zone name should
+ *    conform to RFC1035.
+ *  @param parentName The name of the parent reservation and parent block. In
+ *    the format of
+ *    reservations/{reservation_name}/reservationBlocks/{reservation_block_name}
+ *  @param reservationSubBlock The name of the reservation subBlock.
+ *    Name should conform to RFC1035 or be a resource ID.
+ *
+ *  @return GTLRComputeQuery_ReservationSubBlocksGetVersion
+ */
++ (instancetype)queryWithObject:(GTLRCompute_ReservationSubBlocksGetVersionRequest *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+                     parentName:(NSString *)parentName
+            reservationSubBlock:(NSString *)reservationSubBlock;
 
 @end
 
@@ -61218,6 +63817,349 @@ GTLR_DEPRECATED
  *        information.
  */
 + (instancetype)queryWithProject:(NSString *)project;
+
+@end
+
+/**
+ *  Deletes a specified zone VM extension policy.
+ *
+ *  Method: compute.zoneVmExtensionPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ZoneVmExtensionPoliciesDelete : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the zone VM extension policy to delete. */
+@property(nonatomic, copy, nullable) NSString *vmExtensionPolicy;
+
+/**
+ *  Name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Deletes a specified zone VM extension policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request.
+ *  @param vmExtensionPolicy Name of the zone VM extension policy to delete.
+ *
+ *  @return GTLRComputeQuery_ZoneVmExtensionPoliciesDelete
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+               vmExtensionPolicy:(NSString *)vmExtensionPolicy;
+
+@end
+
+/**
+ *  Retrieves details of a specific zone VM extension policy.
+ *
+ *  Method: compute.zoneVmExtensionPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ZoneVmExtensionPoliciesGet : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/** Name of the VM extension policy resource to return. */
+@property(nonatomic, copy, nullable) NSString *vmExtensionPolicy;
+
+/**
+ *  Name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_VmExtensionPolicy.
+ *
+ *  Retrieves details of a specific zone VM extension policy.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request.
+ *  @param vmExtensionPolicy Name of the VM extension policy resource to return.
+ *
+ *  @return GTLRComputeQuery_ZoneVmExtensionPoliciesGet
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty
+               vmExtensionPolicy:(NSString *)vmExtensionPolicy;
+
+@end
+
+/**
+ *  Creates a new zone-level VM extension policy within a project.
+ *
+ *  Method: compute.zoneVmExtensionPolicies.insert
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ZoneVmExtensionPoliciesInsert : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Creates a new zone-level VM extension policy within a project.
+ *
+ *  @param object The @c GTLRCompute_VmExtensionPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request.
+ *
+ *  @return GTLRComputeQuery_ZoneVmExtensionPoliciesInsert
+ */
++ (instancetype)queryWithObject:(GTLRCompute_VmExtensionPolicy *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Lists all VM extension policies within a specific zone for a project.
+ *
+ *  Method: compute.zoneVmExtensionPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ *    @c kGTLRAuthScopeComputeReadonly
+ */
+@interface GTLRComputeQuery_ZoneVmExtensionPoliciesList : GTLRComputeQuery
+
+/**
+ *  A filter expression that filters resources listed in the response. Most
+ *  Compute resources support two types of filter expressions:
+ *  expressions that support regular expressions and expressions that follow
+ *  API improvement proposal AIP-160.
+ *  These two types of filter expressions cannot be mixed in one request.
+ *  If you want to use AIP-160, your expression must specify the field name, an
+ *  operator, and the value that you want to use for filtering. The value
+ *  must be a string, a number, or a boolean. The operator
+ *  must be either `=`, `!=`, `>`, `<`, `<=`, `>=` or `:`.
+ *  For example, if you are filtering Compute Engine instances, you can
+ *  exclude instances named `example-instance` by specifying
+ *  `name != example-instance`.
+ *  The `:*` comparison can be used to test whether a key has been defined.
+ *  For example, to find all objects with `owner` label use:
+ *  ```
+ *  labels.owner:*
+ *  ```
+ *  You can also filter nested fields. For example, you could specify
+ *  `scheduling.automaticRestart = false` to include instances only
+ *  if they are not scheduled for automatic restarts. You can use filtering
+ *  on nested fields to filter based onresource labels.
+ *  To filter on multiple expressions, provide each separate expression within
+ *  parentheses. For example:
+ *  ```
+ *  (scheduling.automaticRestart = true)
+ *  (cpuPlatform = "Intel Skylake")
+ *  ```
+ *  By default, each expression is an `AND` expression. However, you
+ *  can include `AND` and `OR` expressions explicitly.
+ *  For example:
+ *  ```
+ *  (cpuPlatform = "Intel Skylake") OR
+ *  (cpuPlatform = "Intel Broadwell") AND
+ *  (scheduling.automaticRestart = true)
+ *  ```
+ *  If you want to use a regular expression, use the `eq` (equal) or `ne`
+ *  (not equal) operator against a single un-parenthesized expression with or
+ *  without quotes or against multiple parenthesized expressions. Examples:
+ *  `fieldname eq unquoted literal`
+ *  `fieldname eq 'single quoted literal'`
+ *  `fieldname eq "double quoted literal"`
+ *  `(fieldname1 eq literal) (fieldname2 ne "literal")`
+ *  The literal value is interpreted as a regular expression using GoogleRE2
+ *  library syntax.
+ *  The literal value must match the entire field.
+ *  For example, to filter for instances that do not end with name "instance",
+ *  you would use `name ne .*instance`.
+ *  You cannot combine constraints on multiple fields using regular
+ *  expressions.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of results per page that should be returned.
+ *  If the number of available results is larger than `maxResults`,
+ *  Compute Engine returns a `nextPageToken` that can be used to get
+ *  the next page of results in subsequent list requests. Acceptable values are
+ *  `0` to `500`, inclusive. (Default: `500`)
+ *
+ *  @note If not set, the documented server-side default will be 500.
+ */
+@property(nonatomic, assign) NSUInteger maxResults;
+
+/**
+ *  Sorts list results by a certain order. By default, results
+ *  are returned in alphanumerical order based on the resource name.
+ *  You can also sort results in descending order based on the creation
+ *  timestamp using `orderBy="creationTimestamp desc"`. This sorts
+ *  results based on the `creationTimestamp` field in
+ *  reverse chronological order (newest result first). Use this to sort
+ *  resources like operations so that the newest operation is returned first.
+ *  Currently, only sorting by `name` or
+ *  `creationTimestamp desc` is supported.
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Specifies a page token to use. Set `pageToken` to the
+ *  `nextPageToken` returned by a previous list request to get
+ *  the next page of results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  Opt-in for partial success behavior which provides partial results in case
+ *  of failure. The default value is false.
+ *  For example, when partial success behavior is enabled, aggregatedList for a
+ *  single zone scope either returns all resources in the zone or no resources,
+ *  with an error code.
+ */
+@property(nonatomic, assign) BOOL returnPartialSuccess;
+
+/**
+ *  Name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_VmExtensionPolicyList.
+ *
+ *  Lists all VM extension policies within a specific zone for a project.
+ *
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request.
+ *
+ *  @return GTLRComputeQuery_ZoneVmExtensionPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithProject:(NSString *)project
+                    zoneProperty:(NSString *)zoneProperty;
+
+@end
+
+/**
+ *  Modifies an existing zone VM extension policy.
+ *
+ *  Method: compute.zoneVmExtensionPolicies.update
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCompute
+ *    @c kGTLRAuthScopeComputeCloudPlatform
+ */
+@interface GTLRComputeQuery_ZoneVmExtensionPoliciesUpdate : GTLRComputeQuery
+
+/** Project ID for this request. */
+@property(nonatomic, copy, nullable) NSString *project;
+
+/**
+ *  An optional request ID to identify requests. Specify a unique request ID so
+ *  that if you must retry your request, the server will know to ignore the
+ *  request if it has already been completed.
+ *  For example, consider a situation where you make an initial request and
+ *  the request times out. If you make the request again with the same
+ *  request ID, the server can check if original operation with the same
+ *  request ID was received, and if so, will ignore the second request. This
+ *  prevents clients from accidentally creating duplicate commitments.
+ *  The request ID must be
+ *  a valid UUID with the exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Name of the zone VM extension policy to update. */
+@property(nonatomic, copy, nullable) NSString *vmExtensionPolicy;
+
+/**
+ *  Name of the zone for this request.
+ *
+ *  Remapped to 'zoneProperty' to avoid NSObject's 'zone'.
+ */
+@property(nonatomic, copy, nullable) NSString *zoneProperty;
+
+/**
+ *  Fetches a @c GTLRCompute_Operation.
+ *
+ *  Modifies an existing zone VM extension policy.
+ *
+ *  @param object The @c GTLRCompute_VmExtensionPolicy to include in the query.
+ *  @param project Project ID for this request.
+ *  @param zoneProperty Name of the zone for this request.
+ *  @param vmExtensionPolicy Name of the zone VM extension policy to update.
+ *
+ *  @return GTLRComputeQuery_ZoneVmExtensionPoliciesUpdate
+ */
++ (instancetype)queryWithObject:(GTLRCompute_VmExtensionPolicy *)object
+                        project:(NSString *)project
+                   zoneProperty:(NSString *)zoneProperty
+              vmExtensionPolicy:(NSString *)vmExtensionPolicy;
 
 @end
 

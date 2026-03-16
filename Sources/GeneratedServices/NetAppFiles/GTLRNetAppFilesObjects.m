@@ -570,6 +570,16 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetAppFiles_CloneDetails
+//
+
+@implementation GTLRNetAppFiles_CloneDetails
+@dynamic sharedSpaceGib, sourceSnapshot, sourceVolume;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetAppFiles_DailySchedule
 //
 
@@ -1569,15 +1579,15 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 @implementation GTLRNetAppFiles_Volume
 @dynamic activeDirectory, backupConfig, blockDevices, cacheParameters,
-         capacityGib, coldTierSizeGib, createTime, descriptionProperty,
-         encryptionType, exportPolicy, hasReplication, hotTierSizeUsedGib,
-         hybridReplicationParameters, kerberosEnabled, kmsConfig, labels,
-         largeCapacity, ldapEnabled, mountOptions, multipleEndpoints, name,
-         network, protocols, psaRange, replicaZone, restoreParameters,
-         restrictedActions, securityStyle, serviceLevel, shareName, smbSettings,
-         snapReserve, snapshotDirectory, snapshotPolicy, state, stateDetails,
-         storagePool, throughputMibps, tieringPolicy, unixPermissions, usedGib,
-         zoneProperty;
+         capacityGib, cloneDetails, coldTierSizeGib, createTime,
+         descriptionProperty, encryptionType, exportPolicy, hasReplication,
+         hotTierSizeUsedGib, hybridReplicationParameters, kerberosEnabled,
+         kmsConfig, labels, largeCapacity, ldapEnabled, mountOptions,
+         multipleEndpoints, name, network, protocols, psaRange, replicaZone,
+         restoreParameters, restrictedActions, securityStyle, serviceLevel,
+         shareName, smbSettings, snapReserve, snapshotDirectory, snapshotPolicy,
+         state, stateDetails, storagePool, throughputMibps, tieringPolicy,
+         unixPermissions, usedGib, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

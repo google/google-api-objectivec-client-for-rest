@@ -4630,12 +4630,12 @@ GTLR_DEPRECATED
 /**
  *  Optional. The categories associated with a category page. Must be set for
  *  category navigation queries to achieve good search quality. The format
- *  should be the same as UserEvent.page_categories; To represent full path of
- *  category, use '>' sign to separate different hierarchies. If '>' is part of
- *  the category name, replace it with other character(s). Category pages
- *  include special pages such as sales or promotions. For instance, a special
- *  sale page may have the category hierarchy: "pageCategories" : ["Sales > 2017
- *  Black Friday Deals"].
+ *  should be the same as UserEvent.page_categories; To represent the full path
+ *  of category, use the '>' sign, with one space on each side, to separate
+ *  different hierarchies. If '>' is part of the category name, replace it with
+ *  other character(s). Category pages include special pages such as sales or
+ *  promotions. For instance, a special sale page may have the category
+ *  hierarchy: "pageCategories" : ["Sales > 2017 Black Friday Deals"].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pageCategories;
 
@@ -6736,22 +6736,23 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *brands;
 
 /**
- *  Product categories. This field is repeated for supporting one product
- *  belonging to several parallel categories. Strongly recommended using the
- *  full path for better search / recommendation quality. To represent full path
- *  of category, use '>' sign to separate different hierarchies. If '>' is part
- *  of the category name, replace it with other character(s). For example, if a
- *  shoes product belongs to both ["Shoes & Accessories" -> "Shoes"] and
- *  ["Sports & Fitness" -> "Athletic Clothing" -> "Shoes"], it could be
- *  represented as: "categories": [ "Shoes & Accessories > Shoes", "Sports &
- *  Fitness > Athletic Clothing > Shoes" ] Must be set for Type.PRIMARY Product
- *  otherwise an INVALID_ARGUMENT error is returned. At most 250 values are
- *  allowed per Product unless overridden through the Google Cloud console.
- *  Empty values are not allowed. Each value must be a UTF-8 encoded string with
- *  a length limit of 5,000 characters. Otherwise, an INVALID_ARGUMENT error is
- *  returned. Corresponding properties: Google Merchant Center property
- *  google_product_category. Schema.org property [Product.category]
- *  (https://schema.org/category). [mc_google_product_category]:
+ *  Optional. Product categories. This field is repeated for supporting one
+ *  product belonging to several parallel categories. Strongly recommended using
+ *  the full path for better search / recommendation quality. To represent the
+ *  full path of category, use the '>' sign, with one space on each side, to
+ *  separate different hierarchies. If '>' is part of the category name, replace
+ *  it with other character(s). For example, if a shoes product belongs to both
+ *  ["Shoes & Accessories" -> "Shoes"] and ["Sports & Fitness" -> "Athletic
+ *  Clothing" -> "Shoes"], it could be represented as: "categories": [ "Shoes &
+ *  Accessories > Shoes", "Sports & Fitness > Athletic Clothing > Shoes" ] Must
+ *  be set for Type.PRIMARY Product otherwise an INVALID_ARGUMENT error is
+ *  returned. At most 250 values are allowed per Product unless overridden
+ *  through the Google Cloud console. Empty values are not allowed. Each value
+ *  must be a UTF-8 encoded string with a length limit of 5,000 characters.
+ *  Otherwise, an INVALID_ARGUMENT error is returned. Corresponding properties:
+ *  Google Merchant Center property google_product_category. Schema.org property
+ *  [Product.category] (https://schema.org/category).
+ *  [mc_google_product_category]:
  *  https://support.google.com/merchants/answer/6324436
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *categories;
@@ -8215,14 +8216,14 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The categories associated with a category page. Must be set for category
- *  navigation queries to achieve good search quality. The format should be the
- *  same as UserEvent.page_categories; To represent full path of category, use
- *  '>' sign to separate different hierarchies. If '>' is part of the category
- *  name, replace it with other character(s). Category pages include special
- *  pages such as sales or promotions. For instance, a special sale page may
- *  have the category hierarchy: "pageCategories" : ["Sales > 2017 Black Friday
- *  Deals"].
+ *  Optional. The categories associated with a category page. Must be set for
+ *  category navigation queries to achieve good search quality. The format
+ *  should be the same as UserEvent.page_categories; To represent the full path
+ *  of category, use '>' sign, with one space on each side, to separate
+ *  different hierarchies. If '>' is part of the category name, replace it with
+ *  other character(s). Category pages include special pages such as sales or
+ *  promotions. For instance, a special sale page may have the category
+ *  hierarchy: "pageCategories" : ["Sales > 2017 Black Friday Deals"].
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pageCategories;
 
@@ -9761,15 +9762,15 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The categories associated with a category page. To represent full path of
- *  category, use '>' sign to separate different hierarchies. If '>' is part of
- *  the category name, replace it with other character(s). Category pages
- *  include special pages such as sales or promotions. For instance, a special
- *  sale page may have the category hierarchy: "pageCategories" : ["Sales > 2017
- *  Black Friday Deals"]. Required for `category-page-view` events. At least one
- *  of search_query or page_categories is required for `search` events. Other
- *  event types should not set this field. Otherwise, an INVALID_ARGUMENT error
- *  is returned.
+ *  Optional. The categories associated with a category page. To represent the
+ *  full path of category, use the '>' sign, with one space on each side, to
+ *  separate different hierarchies. If '>' is part of the category name, replace
+ *  it with other character(s). Category pages include special pages such as
+ *  sales or promotions. For instance, a special sale page may have the category
+ *  hierarchy: "pageCategories" : ["Sales > 2017 Black Friday Deals"]. Required
+ *  for `category-page-view` events. At least one of search_query or
+ *  page_categories is required for `search` events. Other event types should
+ *  not set this field. Otherwise, an INVALID_ARGUMENT error is returned.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *pageCategories;
 

@@ -106,7 +106,7 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 @implementation GTLRStorageBatchOperations_BucketOperation
 @dynamic bucketName, completeTime, counters, createTime, deleteObject,
          errorSummaries, manifest, name, prefixList, putMetadata, putObjectHold,
-         rewriteObject, startTime, state;
+         rewriteObject, startTime, state, updateObjectCustomContext;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -154,6 +154,38 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 @implementation GTLRStorageBatchOperations_Counters
 @dynamic failedObjectCount, succeededObjectCount, totalBytesFound,
          totalObjectCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageBatchOperations_CustomContextUpdates
+//
+
+@implementation GTLRStorageBatchOperations_CustomContextUpdates
+@dynamic keysToClear, updates;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"keysToClear" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageBatchOperations_CustomContextUpdates_Updates
+//
+
+@implementation GTLRStorageBatchOperations_CustomContextUpdates_Updates
+
++ (Class)classForAdditionalProperties {
+  return [GTLRStorageBatchOperations_ObjectCustomContextPayload class];
+}
+
 @end
 
 
@@ -221,7 +253,7 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 @dynamic bucketList, completeTime, counters, createTime, deleteObject,
          descriptionProperty, dryRun, errorSummaries, isMultiBucketJob,
          loggingConfig, name, putMetadata, putObjectHold, rewriteObject,
-         scheduleTime, state;
+         scheduleTime, state, updateObjectCustomContext;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -397,6 +429,16 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRStorageBatchOperations_ObjectCustomContextPayload
+//
+
+@implementation GTLRStorageBatchOperations_ObjectCustomContextPayload
+@dynamic value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRStorageBatchOperations_ObjectRetention
 //
 
@@ -545,4 +587,14 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRStorageBatchOperations_UpdateObjectCustomContext
+//
+
+@implementation GTLRStorageBatchOperations_UpdateObjectCustomContext
+@dynamic clearAll, customContextUpdates;
 @end

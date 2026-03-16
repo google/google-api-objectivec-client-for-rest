@@ -17,6 +17,7 @@
 @class GTLRAPIhub_GoogleCloudApihubV1AdditionalSpecContent_Labels;
 @class GTLRAPIhub_GoogleCloudApihubV1Addon;
 @class GTLRAPIhub_GoogleCloudApihubV1AddonConfig;
+@class GTLRAPIhub_GoogleCloudApihubV1AgentRegistrySyncConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1AllDataAddonConfig;
 @class GTLRAPIhub_GoogleCloudApihubV1AllowedValue;
 @class GTLRAPIhub_GoogleCloudApihubV1Api;
@@ -1749,6 +1750,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 
 
 /**
+ *  The configuration for Agent Registry sync.
+ */
+@interface GTLRAPIhub_GoogleCloudApihubV1AgentRegistrySyncConfig : GTLRObject
+
+/**
+ *  Optional. If true, the MCP data sync to the Agent Registry will be disabled.
+ *  The default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disabled;
+
+@end
+
+
+/**
  *  Configuration for addons which act on all data in the API hub. This is used
  *  to specify if the addon is enabled for all data in the API hub.
  */
@@ -2333,10 +2350,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1ApiView : GTLRObject
 
-/** Output only. MCP server view. */
+/** MCP server view. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1FlattenedApiVersionDeploymentView *mcpServerView;
 
-/** Output only. MCP tools view. */
+/** MCP tools view. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1FlattenedApiVersionOperationDeploymentView *mcpToolView;
 
 @end
@@ -2631,6 +2648,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  *  Available configurations to provision an ApiHub Instance.
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1Config : GTLRObject
+
+/**
+ *  Optional. The configuration for syncing MCP data in the API Hub instance to
+ *  the Agent Registry.
+ */
+@property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1AgentRegistrySyncConfig *agentRegistrySyncConfig;
 
 /**
  *  Optional. The Customer Managed Encryption Key (CMEK) used for data
@@ -3750,13 +3773,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1FlattenedApiVersionDeploymentView : GTLRObject
 
-/** The API. */
+/** Optional. The API. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Api *api;
 
-/** The deployment. */
+/** Optional. The deployment. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Deployment *deployment;
 
-/** The version. */
+/** Optional. The version. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Version *version;
 
 @end
@@ -3769,16 +3792,16 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
  */
 @interface GTLRAPIhub_GoogleCloudApihubV1FlattenedApiVersionOperationDeploymentView : GTLRObject
 
-/** The API. */
+/** Optional. The API. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Api *api;
 
-/** The API operation. */
+/** Optional. The API operation. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1ApiOperation *apiOperation;
 
-/** The deployment. */
+/** Optional. The deployment. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Deployment *deployment;
 
-/** The version. */
+/** Optional. The version. */
 @property(nonatomic, strong, nullable) GTLRAPIhub_GoogleCloudApihubV1Version *version;
 
 @end
@@ -5614,7 +5637,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhub_GoogleCloudApihubV1SummaryEntry_S
 @interface GTLRAPIhub_GoogleCloudApihubV1RetrieveApiViewsResponse : GTLRCollectionObject
 
 /**
- *  The list of API views.
+ *  Output only. The list of API views.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.

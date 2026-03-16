@@ -40,6 +40,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationCorrelationResultRuleCorrelationResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSourceTurnLevelAudio;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSentiment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationLevelSilence;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationParticipant;
@@ -330,6 +331,7 @@
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationCorrelationResultRuleCorrelationResult;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationDataSource;
+@class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationDataSourceTurnLevelAudio;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationLevelSentiment;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationLevelSilence;
 @class GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationParticipant;
@@ -3931,6 +3933,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1AnnotatorSelectorQaConfig *qaConfig;
 
 /**
+ *  Optional. Whether to run the auto-labeling annotator. If true, the
+ *  auto-labeling annotator will be run. This is a non-billable operation
+ *  designed for fixing or backfilling custom labels.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runAutoLabelingAnnotator;
+
+/**
  *  Whether to run the entity annotator.
  *
  *  Uses NSNumber of boolValue.
@@ -4185,6 +4196,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
 
+/**
+ *  Output only. If true, the labeling rules will be re-evaluated for the
+ *  conversations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *relabel;
+
 /** The original request for bulk analyze. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1BulkAnalyzeConversationsRequest *request;
 
@@ -4222,6 +4241,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** Required. The parent resource to create analyses in. */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, the labeling rules will be re-evaluated for the
+ *  conversations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *relabel;
 
 @end
 
@@ -4687,6 +4714,27 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  */
 @property(nonatomic, copy, nullable) NSString *metadataUri;
 
+/**
+ *  Cloud Storage URIs that points to files that contain the conversation audio
+ *  for each turn. Assume the order of the URIs is the same as the order of the
+ *  transcript turns.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSourceTurnLevelAudio *> *turnLevelAudios;
+
+@end
+
+
+/**
+ *  A wrapper for holding the audio for any given turn.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSourceTurnLevelAudio : GTLRObject
+
+/** The duration of the audio. */
+@property(nonatomic, strong, nullable) GTLRDuration *audioDuration;
+
+/** The Cloud Storage URI of the audio for any given turn. */
+@property(nonatomic, copy, nullable) NSString *audioGcsUri;
+
 @end
 
 
@@ -4992,6 +5040,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** The text of this segment. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+/** Turn level audio for this transcript segment. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationDataSourceTurnLevelAudio *turnLevelAudio;
 
 /** A list of the word-specific information for each word in the segment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1alpha1ConversationTranscriptTranscriptSegmentWordInfo *> *words;
@@ -8882,6 +8933,15 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1AnnotatorSelectorQaConfig *qaConfig;
 
 /**
+ *  Optional. Whether to run the auto-labeling annotator. If true, the
+ *  auto-labeling annotator will be run. This is a non-billable operation
+ *  designed for fixing or backfilling custom labels.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runAutoLabelingAnnotator;
+
+/**
  *  Whether to run the entity annotator.
  *
  *  Uses NSNumber of boolValue.
@@ -9366,6 +9426,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
 
+/**
+ *  Output only. If true, the labeling rules will be re-evaluated for the
+ *  conversations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *relabel;
+
 /** The original request for bulk analyze. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1BulkAnalyzeConversationsRequest *request;
 
@@ -9403,6 +9471,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsights_GoogleIamV1AuditLo
 
 /** Required. The parent resource to create analyses in. */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, the labeling rules will be re-evaluated for the
+ *  conversations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *relabel;
 
 @end
 
@@ -10499,6 +10575,13 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *metadataUri;
 
+/**
+ *  Cloud Storage URIs that points to files that contain the conversation audio
+ *  for each turn. Assume the order of the URIs is the same as the order of the
+ *  transcript turns.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSourceTurnLevelAudio *> *turnLevelAudios;
+
 @end
 
 
@@ -10818,6 +10901,9 @@ GTLR_DEPRECATED
 
 /** The text of this segment. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+/** Turn level audio for this transcript segment. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationDataSourceTurnLevelAudio *turnLevelAudio;
 
 /** A list of the word-specific information for each word in the segment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ConversationTranscriptTranscriptSegmentWordInfo *> *words;
@@ -14062,6 +14148,15 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainAnnotatorSelectorQaConfig *qaConfig;
 
 /**
+ *  Optional. Whether to run the auto-labeling annotator. If true, the
+ *  auto-labeling annotator will be run. This is a non-billable operation
+ *  designed for fixing or backfilling custom labels.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *runAutoLabelingAnnotator;
+
+/**
  *  Whether to run the entity annotator.
  *
  *  Uses NSNumber of boolValue.
@@ -14316,6 +14411,14 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleRpcStatus *> *partialErrors;
 
+/**
+ *  Output only. If true, the labeling rules will be re-evaluated for the
+ *  conversations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *relabel;
+
 /** The original request for bulk analyze. */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainBulkAnalyzeConversationsRequest *request;
 
@@ -14353,6 +14456,14 @@ GTLR_DEPRECATED
 
 /** Required. The parent resource to create analyses in. */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. If true, the labeling rules will be re-evaluated for the
+ *  conversations.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *relabel;
 
 @end
 
@@ -15027,6 +15138,27 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *metadataUri;
 
+/**
+ *  Cloud Storage URIs that points to files that contain the conversation audio
+ *  for each turn. Assume the order of the URIs is the same as the order of the
+ *  transcript turns.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationDataSourceTurnLevelAudio *> *turnLevelAudios;
+
+@end
+
+
+/**
+ *  A wrapper for holding the audio for any given turn.
+ */
+@interface GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationDataSourceTurnLevelAudio : GTLRObject
+
+/** The duration of the audio. */
+@property(nonatomic, strong, nullable) GTLRDuration *audioDuration;
+
+/** The Cloud Storage URI of the audio for any given turn. */
+@property(nonatomic, copy, nullable) NSString *audioGcsUri;
+
 @end
 
 
@@ -15332,6 +15464,9 @@ GTLR_DEPRECATED
 
 /** The text of this segment. */
 @property(nonatomic, copy, nullable) NSString *text;
+
+/** Turn level audio for this transcript segment. */
+@property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationDataSourceTurnLevelAudio *turnLevelAudio;
 
 /** A list of the word-specific information for each word in the segment. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1mainConversationTranscriptTranscriptSegmentWordInfo *> *words;
@@ -21076,6 +21211,14 @@ GTLR_DEPRECATED
  *  Platform.
  */
 @property(nonatomic, strong, nullable) GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1SpeechConfig *speechConfig;
+
+/**
+ *  Optional. The time zone applied to the project. This is a string
+ *  representation of the time zone, for example, "America/New_York". This field
+ *  follows the IANA TZ database format. See https://www.iana.org/time-zones for
+ *  a list of valid values. If no value is set the user time zone will be used.
+ */
+@property(nonatomic, copy, nullable) NSString *timeZone;
 
 /** Output only. The time at which the settings were last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;

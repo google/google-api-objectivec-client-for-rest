@@ -11,9 +11,12 @@
 #import <GoogleAPIClientForREST/GTLRCloudDataplex.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeCloudDataplexCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudDataplexCloudPlatform      = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly = @"https://www.googleapis.com/auth/cloud-platform.read-only";
+NSString * const kGTLRAuthScopeCloudDataplexReadonly           = @"https://www.googleapis.com/auth/dataplex.readonly";
+NSString * const kGTLRAuthScopeCloudDataplexReadWrite          = @"https://www.googleapis.com/auth/dataplex.read-write";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudDataplexService

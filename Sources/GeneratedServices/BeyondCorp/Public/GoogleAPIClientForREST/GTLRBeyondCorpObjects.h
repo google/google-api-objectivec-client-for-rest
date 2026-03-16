@@ -55,6 +55,7 @@
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1EndpointMatcher;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1Hub;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1InternetGateway;
+@class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1LoggingConfig;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig_MetadataHeaders;
 @class GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway;
@@ -2231,6 +2232,13 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for Cloud Logging.
+ */
+@interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1LoggingConfig : GTLRObject
+@end
+
+
+/**
  *  The configuration for the proxy.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig : GTLRObject
@@ -2319,6 +2327,12 @@ GTLR_DEPRECATED
  *  region as a key.
  */
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway_Hubs *hubs;
+
+/**
+ *  Optional. Configuration for Cloud Logging. If this field is present, the
+ *  logging will be enabled.
+ */
+@property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1LoggingConfig *logging;
 
 /** Identifier. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;

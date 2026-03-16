@@ -694,7 +694,7 @@ NSString * const kGTLRDnsSortByStartTime      = @"startTime";
 
 @implementation GTLRDnsQuery_ResourceRecordSetsList
 
-@dynamic managedZone, maxResults, name, pageToken, project, type;
+@dynamic filter, managedZone, maxResults, name, pageToken, project, type;
 
 + (instancetype)queryWithProject:(NSString *)project
                      managedZone:(NSString *)managedZone {

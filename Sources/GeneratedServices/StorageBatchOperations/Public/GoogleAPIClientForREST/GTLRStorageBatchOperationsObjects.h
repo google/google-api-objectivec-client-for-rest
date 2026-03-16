@@ -16,6 +16,8 @@
 @class GTLRStorageBatchOperations_BucketList;
 @class GTLRStorageBatchOperations_BucketOperation;
 @class GTLRStorageBatchOperations_Counters;
+@class GTLRStorageBatchOperations_CustomContextUpdates;
+@class GTLRStorageBatchOperations_CustomContextUpdates_Updates;
 @class GTLRStorageBatchOperations_DeleteObject;
 @class GTLRStorageBatchOperations_ErrorLogEntry;
 @class GTLRStorageBatchOperations_ErrorSummary;
@@ -25,6 +27,7 @@
 @class GTLRStorageBatchOperations_Location_Metadata;
 @class GTLRStorageBatchOperations_LoggingConfig;
 @class GTLRStorageBatchOperations_Manifest;
+@class GTLRStorageBatchOperations_ObjectCustomContextPayload;
 @class GTLRStorageBatchOperations_ObjectRetention;
 @class GTLRStorageBatchOperations_Operation;
 @class GTLRStorageBatchOperations_Operation_Metadata;
@@ -36,6 +39,7 @@
 @class GTLRStorageBatchOperations_RewriteObject;
 @class GTLRStorageBatchOperations_Status;
 @class GTLRStorageBatchOperations_Status_Details_Item;
+@class GTLRStorageBatchOperations_UpdateObjectCustomContext;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -505,6 +509,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/** Update object custom context. */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_UpdateObjectCustomContext *updateObjectCustomContext;
+
 @end
 
 
@@ -573,6 +580,37 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  */
 @property(nonatomic, strong, nullable) NSNumber *totalObjectCount;
 
+@end
+
+
+/**
+ *  Describes a collection of updates to apply to custom contexts identified by
+ *  key.
+ */
+@interface GTLRStorageBatchOperations_CustomContextUpdates : GTLRObject
+
+/**
+ *  Optional. Custom contexts to clear by key. A key cannot be present in both
+ *  `updates` and `keys_to_clear`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *keysToClear;
+
+/** Optional. Insert or update the existing custom contexts. */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_CustomContextUpdates_Updates *updates;
+
+@end
+
+
+/**
+ *  Optional. Insert or update the existing custom contexts.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRStorageBatchOperations_ObjectCustomContextPayload. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRStorageBatchOperations_CustomContextUpdates_Updates : GTLRObject
 @end
 
 
@@ -849,6 +887,9 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
+/** Update object custom context. */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_UpdateObjectCustomContext *updateObjectCustomContext;
+
 @end
 
 
@@ -1057,6 +1098,22 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  *  acted upon.
  */
 @property(nonatomic, copy, nullable) NSString *manifestLocation;
+
+@end
+
+
+/**
+ *  Describes the payload of a user defined object custom context.
+ */
+@interface GTLRStorageBatchOperations_ObjectCustomContextPayload : GTLRObject
+
+/**
+ *  The value of the object custom context. If set, `value` must NOT be an empty
+ *  string since it is a required field in custom context. If unset, `value`
+ *  will be ignored and no changes will be made to the `value` field of the
+ *  custom context payload.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
 
 @end
 
@@ -1411,6 +1468,28 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRStorageBatchOperations_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Describes options to update object custom contexts.
+ */
+@interface GTLRStorageBatchOperations_UpdateObjectCustomContext : GTLRObject
+
+/**
+ *  If set, must be set to true and all existing object custom contexts will be
+ *  deleted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *clearAll;
+
+/**
+ *  A collection of updates to apply to specific custom contexts. Use this to
+ *  add, update or delete individual contexts by key.
+ */
+@property(nonatomic, strong, nullable) GTLRStorageBatchOperations_CustomContextUpdates *customContextUpdates;
+
 @end
 
 NS_ASSUME_NONNULL_END

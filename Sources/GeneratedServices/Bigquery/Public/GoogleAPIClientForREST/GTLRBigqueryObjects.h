@@ -156,6 +156,7 @@
 @class GTLRBigquery_PrivacyPolicy;
 @class GTLRBigquery_ProjectList_Projects_Item;
 @class GTLRBigquery_ProjectReference;
+@class GTLRBigquery_PropertyGraphReference;
 @class GTLRBigquery_PruningStats;
 @class GTLRBigquery_PythonOptions;
 @class GTLRBigquery_QueryInfo;
@@ -781,6 +782,57 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_
  *  Value: "VIEWS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Views;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_DmlStatistics.dmlMode
+
+/**
+ *  Coarse-grained DML was used.
+ *
+ *  Value: "COARSE_GRAINED_DML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DmlStatistics_DmlMode_CoarseGrainedDml;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DML_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DmlStatistics_DmlMode_DmlModeUnspecified;
+/**
+ *  Fine-grained DML was used.
+ *
+ *  Value: "FINE_GRAINED_DML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DmlStatistics_DmlMode_FineGrainedDml;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_DmlStatistics.fineGrainedDmlUnusedReason
+
+/**
+ *  The DML statement is part of a multi-statement transaction.
+ *
+ *  Value: "DML_IN_MULTI_STATEMENT_TRANSACTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_DmlInMultiStatementTransaction;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "FINE_GRAINED_DML_UNUSED_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_FineGrainedDmlUnusedReasonUnspecified;
+/**
+ *  Max partition size threshold exceeded. [Fine-grained DML Limitations]
+ *  (https://docs.cloud.google.com/bigquery/docs/data-manipulation-language#fine-grained-dml-limitations)
+ *
+ *  Value: "MAX_PARTITION_SIZE_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_MaxPartitionSizeExceeded;
+/**
+ *  The table is not enrolled for fine-grained DML.
+ *
+ *  Value: "TABLE_NOT_ENROLLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_TableNotEnrolled;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_ExplainQueryStage.computeMode
@@ -5473,7 +5525,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Data policy option. For more information, see [Mask data by applying data
  *  policies to a
- *  column](https://cloud.google.com/bigquery/docs/column-data-masking#data-policies-on-column/).
+ *  column](https://docs.cloud.google.com/bigquery/docs/column-data-masking#data-policies-on-column).
  */
 @interface GTLRBigquery_DataPolicyOption : GTLRObject
 
@@ -6246,6 +6298,39 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *deletedRowCount;
+
+/**
+ *  Output only. DML mode used.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_DmlStatistics_DmlMode_CoarseGrainedDml
+ *        Coarse-grained DML was used. (Value: "COARSE_GRAINED_DML")
+ *    @arg @c kGTLRBigquery_DmlStatistics_DmlMode_DmlModeUnspecified Default
+ *        value. This value is unused. (Value: "DML_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_DmlStatistics_DmlMode_FineGrainedDml Fine-grained
+ *        DML was used. (Value: "FINE_GRAINED_DML")
+ */
+@property(nonatomic, copy, nullable) NSString *dmlMode;
+
+/**
+ *  Output only. Reason for disabling fine-grained DML if applicable.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_DmlInMultiStatementTransaction
+ *        The DML statement is part of a multi-statement transaction. (Value:
+ *        "DML_IN_MULTI_STATEMENT_TRANSACTION")
+ *    @arg @c kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_FineGrainedDmlUnusedReasonUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "FINE_GRAINED_DML_UNUSED_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_MaxPartitionSizeExceeded
+ *        Max partition size threshold exceeded. [Fine-grained DML Limitations]
+ *        (https://docs.cloud.google.com/bigquery/docs/data-manipulation-language#fine-grained-dml-limitations)
+ *        (Value: "MAX_PARTITION_SIZE_EXCEEDED")
+ *    @arg @c kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_TableNotEnrolled
+ *        The table is not enrolled for fine-grained DML. (Value:
+ *        "TABLE_NOT_ENROLLED")
+ */
+@property(nonatomic, copy, nullable) NSString *fineGrainedDmlUnusedReason;
 
 /**
  *  Output only. Number of inserted Rows. Populated by DML INSERT and MERGE
@@ -7756,6 +7841,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *        "UNSUPPORTED_OPERATOR")
  */
 @property(nonatomic, copy, nullable) NSString *disabledReason;
+
+/**
+ *  Output only. Additional human-readable clarification, if available, for
+ *  DisabledReason.
+ */
+@property(nonatomic, copy, nullable) NSString *disabledReasonDetails;
+
+/**
+ *  Output only. The time at which the first incremental result was written. If
+ *  the query needed to restart internally, this only describes the final
+ *  attempt.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *firstIncrementalRowTime;
+
+/**
+ *  Output only. Number of rows that were in the latest result set before query
+ *  completion.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *incrementalRowCount;
+
+/**
+ *  Output only. The time at which the last incremental result was written. Does
+ *  not include the final result written after query completion.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastIncrementalRowTime;
 
 /**
  *  Output only. The time at which the result table's contents were modified.
@@ -9564,6 +9676,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /** Output only. Describes execution plan for the query. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ExplainQueryStage *> *queryPlan;
 
+/**
+ *  Output only. Referenced property graphs for the job. Queries that reference
+ *  more than 50 property graphs will not have a complete list.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_PropertyGraphReference *> *referencedPropertyGraphs;
+
 /** Output only. Referenced routines for the job. */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_RoutineReference *> *referencedRoutines;
 
@@ -11108,6 +11226,27 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  of the project.
  */
 @property(nonatomic, copy, nullable) NSString *projectId;
+
+@end
+
+
+/**
+ *  Id path of a property graph.
+ */
+@interface GTLRBigquery_PropertyGraphReference : GTLRObject
+
+/** Required. The ID of the dataset containing this property graph. */
+@property(nonatomic, copy, nullable) NSString *datasetId;
+
+/** Required. The ID of the project containing this property graph. */
+@property(nonatomic, copy, nullable) NSString *projectId;
+
+/**
+ *  Required. The ID of the property graph. The ID must contain only letters
+ *  (a-z, A-Z), numbers (0-9), or underscores (_). The maximum length is 256
+ *  characters.
+ */
+@property(nonatomic, copy, nullable) NSString *propertyGraphId;
 
 @end
 

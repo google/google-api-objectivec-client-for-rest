@@ -4,7 +4,7 @@
 // API:
 //   Gemini Enterprise for Customer Experience API (ces/v1)
 // Documentation:
-//   https://cloud.google.com/customer-engagement-ai/conversational-agents/ps/reference
+//   https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps
 
 #import <GoogleAPIClientForREST/GTLRCustomerEngagementSuiteObjects.h>
 
@@ -38,6 +38,7 @@ NSString * const kGTLRCustomerEngagementSuite_App_ToolExecutionMode_ToolExecutio
 // GTLRCustomerEngagementSuite_ChannelProfile.channelType
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Api = @"API";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterAsAService = @"CONTACT_CENTER_AS_A_SERVICE";
+NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterIntegration = @"CONTACT_CENTER_INTEGRATION";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Five9 = @"FIVE9";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_GoogleTelephonyPlatform = @"GOOGLE_TELEPHONY_PLATFORM";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Twilio = @"TWILIO";
@@ -52,6 +53,7 @@ NSString * const kGTLRCustomerEngagementSuite_ChannelProfilePersonaProperty_Pers
 // GTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig.modality
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig_Modality_ChatAndVoice = @"CHAT_AND_VOICE";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig_Modality_ChatOnly = @"CHAT_ONLY";
+NSString * const kGTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig_Modality_ChatVoiceAndVideo = @"CHAT_VOICE_AND_VIDEO";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig_Modality_ModalityUnspecified = @"MODALITY_UNSPECIFIED";
 NSString * const kGTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig_Modality_VoiceOnly = @"VOICE_ONLY";
 
@@ -117,6 +119,16 @@ NSString * const kGTLRCustomerEngagementSuite_DataStoreToolModalityConfig_Modali
 NSString * const kGTLRCustomerEngagementSuite_DataStoreToolModalityConfig_ModalityType_ModalityTypeUnspecified = @"MODALITY_TYPE_UNSPECIFIED";
 NSString * const kGTLRCustomerEngagementSuite_DataStoreToolModalityConfig_ModalityType_Text = @"TEXT";
 
+// GTLRCustomerEngagementSuite_EndpointControlPolicy.enforcementScope
+NSString * const kGTLRCustomerEngagementSuite_EndpointControlPolicy_EnforcementScope_Always = @"ALWAYS";
+NSString * const kGTLRCustomerEngagementSuite_EndpointControlPolicy_EnforcementScope_EnforcementScopeUnspecified = @"ENFORCEMENT_SCOPE_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_EndpointControlPolicy_EnforcementScope_VpcscOnly = @"VPCSC_ONLY";
+
+// GTLRCustomerEngagementSuite_ErrorHandlingSettings.errorHandlingStrategy
+NSString * const kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_ErrorHandlingStrategyUnspecified = @"ERROR_HANDLING_STRATEGY_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_FallbackResponse = @"FALLBACK_RESPONSE";
+NSString * const kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_None = @"NONE";
+
 // GTLRCustomerEngagementSuite_EvaluationMetricsThresholds.goldenHallucinationMetricBehavior
 NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholds_GoldenHallucinationMetricBehavior_Disabled = @"DISABLED";
 NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholds_GoldenHallucinationMetricBehavior_Enabled = @"ENABLED";
@@ -136,6 +148,11 @@ NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholds_Scenar
 NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholdsTurnLevelMetricsThresholds_SemanticSimilarityChannel_Audio = @"AUDIO";
 NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholdsTurnLevelMetricsThresholds_SemanticSimilarityChannel_SemanticSimilarityChannelUnspecified = @"SEMANTIC_SIMILARITY_CHANNEL_UNSPECIFIED";
 NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholdsTurnLevelMetricsThresholds_SemanticSimilarityChannel_Text = @"TEXT";
+
+// GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings.extraToolCallBehavior
+NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings_ExtraToolCallBehavior_Allow = @"ALLOW";
+NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings_ExtraToolCallBehavior_ExtraToolCallBehaviorUnspecified = @"EXTRA_TOOL_CALL_BEHAVIOR_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings_ExtraToolCallBehavior_Fail = @"FAIL";
 
 // GTLRCustomerEngagementSuite_ExportAppRequest.exportFormat
 NSString * const kGTLRCustomerEngagementSuite_ExportAppRequest_ExportFormat_ExportFormatUnspecified = @"EXPORT_FORMAT_UNSPECIFIED";
@@ -222,6 +239,8 @@ NSString * const kGTLRCustomerEngagementSuite_TransferRule_Direction_ParentToChi
 // GTLRCustomerEngagementSuite_WidgetTool.widgetType
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AdvancedProductDetails = @"ADVANCED_PRODUCT_DETAILS";
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AppointmentDetails = @"APPOINTMENT_DETAILS";
+NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AppointmentScheduler = @"APPOINTMENT_SCHEDULER";
+NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_ContactForm = @"CONTACT_FORM";
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_Custom = @"CUSTOM";
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_OrderSummary = @"ORDER_SUMMARY";
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_OverallSatisfaction = @"OVERALL_SATISFACTION";
@@ -231,6 +250,11 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_ProductDetai
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_QuickActions = @"QUICK_ACTIONS";
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_ShortForm = @"SHORT_FORM";
 NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUnspecified = @"WIDGET_TYPE_UNSPECIFIED";
+
+// GTLRCustomerEngagementSuite_WidgetToolDataMapping.mode
+NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMapping_Mode_FieldMapping = @"FIELD_MAPPING";
+NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMapping_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMapping_Mode_PythonScript = @"PYTHON_SCRIPT";
 
 // ----------------------------------------------------------------------------
 //
@@ -370,6 +394,21 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_AgentTool
+//
+
+@implementation GTLRCustomerEngagementSuite_AgentTool
+@dynamic descriptionProperty, name, rootAgent;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_AgentTransfer
 //
 
@@ -417,11 +456,11 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 @implementation GTLRCustomerEngagementSuite_App
 @dynamic audioProcessingConfig, clientCertificateSettings, createTime,
          dataStoreSettings, defaultChannelProfile, deploymentCount,
-         descriptionProperty, displayName, ETag, evaluationMetricsThresholds,
-         globalInstruction, guardrails, languageSettings, locked,
-         loggingSettings, metadata, modelSettings, name, pinned,
-         predefinedVariableDeclarations, rootAgent, timeZoneSettings,
-         toolExecutionMode, updateTime, variableDeclarations;
+         descriptionProperty, displayName, errorHandlingSettings, ETag,
+         evaluationMetricsThresholds, globalInstruction, guardrails,
+         languageSettings, locked, loggingSettings, metadata, modelSettings,
+         name, pinned, predefinedVariableDeclarations, rootAgent,
+         timeZoneSettings, toolExecutionMode, updateTime, variableDeclarations;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -752,7 +791,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 //
 
 @implementation GTLRCustomerEngagementSuite_Chunk
-@dynamic agentTransfer, defaultVariables, image, payload, text, toolCall,
+@dynamic agentTransfer, blob, defaultVariables, image, payload, text, toolCall,
          toolResponse, transcript, updatedVariables;
 @end
 
@@ -1197,6 +1236,24 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_EndpointControlPolicy
+//
+
+@implementation GTLRCustomerEngagementSuite_EndpointControlPolicy
+@dynamic allowedOrigins, enforcementScope;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowedOrigins" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_EndSession
 //
 
@@ -1251,6 +1308,16 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_ErrorHandlingSettings
+//
+
+@implementation GTLRCustomerEngagementSuite_ErrorHandlingSettings
+@dynamic errorHandlingStrategy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_EvaluationMetricsThresholds
 //
 
@@ -1266,7 +1333,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 //
 
 @implementation GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholds
-@dynamic expectationLevelMetricsThresholds, turnLevelMetricsThresholds;
+@dynamic expectationLevelMetricsThresholds, toolMatchingSettings,
+         turnLevelMetricsThresholds;
 @end
 
 
@@ -1288,6 +1356,16 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 @implementation GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholdsTurnLevelMetricsThresholds
 @dynamic overallToolInvocationCorrectnessThreshold, semanticSimilarityChannel,
          semanticSimilaritySuccessThreshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings
+//
+
+@implementation GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings
+@dynamic extraToolCallBehavior;
 @end
 
 
@@ -1334,7 +1412,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 //
 
 @implementation GTLRCustomerEngagementSuite_ExecuteToolRequest
-@dynamic args, tool, toolsetTool;
+@dynamic args, context, tool, toolsetTool, variables;
 @end
 
 
@@ -1354,11 +1432,39 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_ExecuteToolRequest_Context
+//
+
+@implementation GTLRCustomerEngagementSuite_ExecuteToolRequest_Context
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_ExecuteToolRequest_Variables
+//
+
+@implementation GTLRCustomerEngagementSuite_ExecuteToolRequest_Variables
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_ExecuteToolResponse
 //
 
 @implementation GTLRCustomerEngagementSuite_ExecuteToolResponse
-@dynamic response, tool, toolsetTool;
+@dynamic response, tool, toolsetTool, variables;
 @end
 
 
@@ -1378,11 +1484,25 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_ExecuteToolResponse_Variables
+//
+
+@implementation GTLRCustomerEngagementSuite_ExecuteToolResponse_Variables
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_ExportAppRequest
 //
 
 @implementation GTLRCustomerEngagementSuite_ExportAppRequest
-@dynamic exportFormat, gcsUri;
+@dynamic appVersion, exportFormat, gcsUri;
 @end
 
 
@@ -1427,7 +1547,7 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 //
 
 @implementation GTLRCustomerEngagementSuite_GenerateChatTokenRequest
-@dynamic deployment, recaptchaToken;
+@dynamic deployment, liveHandoffEnabled, recaptchaToken;
 @end
 
 
@@ -2006,11 +2126,25 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 //
 
 @implementation GTLRCustomerEngagementSuite_McpTool
-@dynamic apiAuthentication, descriptionProperty, inputSchema, name,
-         outputSchema, serverAddress, serviceDirectoryConfig, tlsConfig;
+@dynamic apiAuthentication, customHeaders, descriptionProperty, inputSchema,
+         name, outputSchema, serverAddress, serviceDirectoryConfig, tlsConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_McpTool_CustomHeaders
+//
+
+@implementation GTLRCustomerEngagementSuite_McpTool_CustomHeaders
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2022,7 +2156,22 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 //
 
 @implementation GTLRCustomerEngagementSuite_McpToolset
-@dynamic apiAuthentication, serverAddress, serviceDirectoryConfig, tlsConfig;
+@dynamic apiAuthentication, customHeaders, serverAddress,
+         serviceDirectoryConfig, tlsConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_McpToolset_CustomHeaders
+//
+
+@implementation GTLRCustomerEngagementSuite_McpToolset_CustomHeaders
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -2500,6 +2649,21 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCustomerEngagementSuite_SecuritySettings
+//
+
+@implementation GTLRCustomerEngagementSuite_SecuritySettings
+@dynamic createTime, endpointControlPolicy, ETag, name, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCustomerEngagementSuite_ServiceAccountAuthConfig
 //
 
@@ -2542,7 +2706,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 
 @implementation GTLRCustomerEngagementSuite_SessionConfig
 @dynamic deployment, entryAgent, historicalContexts, inputAudioConfig,
-         outputAudioConfig, remoteDialogflowQueryParameters, timeZone;
+         outputAudioConfig, remoteDialogflowQueryParameters, timeZone,
+         useToolFakes;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2807,8 +2972,8 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 //
 
 @implementation GTLRCustomerEngagementSuite_Tool
-@dynamic clientFunction, connectorTool, createTime, dataStoreTool, displayName,
-         ETag, executionType, fileSearchTool, generatedSummary,
+@dynamic agentTool, clientFunction, connectorTool, createTime, dataStoreTool,
+         displayName, ETag, executionType, fileSearchTool, generatedSummary,
          googleSearchTool, mcpTool, name, openApiTool, pythonFunction,
          systemTool, toolFakeConfig, updateTime, widgetTool;
 
@@ -3058,10 +3223,49 @@ NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUn
 //
 
 @implementation GTLRCustomerEngagementSuite_WidgetTool
-@dynamic descriptionProperty, name, parameters, widgetType;
+@dynamic dataMapping, descriptionProperty, name, parameters, uiConfig,
+         widgetType;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_WidgetTool_UiConfig
+//
+
+@implementation GTLRCustomerEngagementSuite_WidgetTool_UiConfig
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_WidgetToolDataMapping
+//
+
+@implementation GTLRCustomerEngagementSuite_WidgetToolDataMapping
+@dynamic fieldMappings, mode, pythonScript, sourceToolName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCustomerEngagementSuite_WidgetToolDataMapping_FieldMappings
+//
+
+@implementation GTLRCustomerEngagementSuite_WidgetToolDataMapping_FieldMappings
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

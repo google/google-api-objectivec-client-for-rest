@@ -7603,6 +7603,78 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Agentic Retrieval Ask API for RAG.
+ *
+ *  Method: aiplatform.projects.locations.askContexts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsAskContexts : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location from which to retrieve
+ *  RagContexts. The users must have permission to make a call in the project.
+ *  Format: `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleCloudAiplatformV1AskContextsResponse.
+ *
+ *  Agentic Retrieval Ask API for RAG.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1AskContextsRequest to include in the
+ *    query.
+ *  @param parent Required. The resource name of the Location from which to
+ *    retrieve RagContexts. The users must have permission to make a call in the
+ *    project. Format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsAskContexts
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1AskContextsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Asynchronous API to retrieves relevant contexts for a query.
+ *
+ *  Method: aiplatform.projects.locations.asyncRetrieveContexts
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsAsyncRetrieveContexts : GTLRAiplatformQuery
+
+/**
+ *  Required. The resource name of the Location from which to retrieve
+ *  RagContexts. The users must have permission to make a call in the project.
+ *  Format: `projects/{project}/locations/{location}`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.
+ *
+ *  Asynchronous API to retrieves relevant contexts for a query.
+ *
+ *  @param object The @c
+ *    GTLRAiplatform_GoogleCloudAiplatformV1AsyncRetrieveContextsRequest to
+ *    include in the query.
+ *  @param parent Required. The resource name of the Location from which to
+ *    retrieve RagContexts. The users must have permission to make a call in the
+ *    project. Format: `projects/{project}/locations/{location}`.
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsAsyncRetrieveContexts
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1AsyncRetrieveContextsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
  *  Given an input prompt, it returns augmented prompt from vertex rag store to
  *  guide LLM towards generating grounded responses.
  *
@@ -12157,6 +12229,48 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsOpenapiEmbeddings
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleApiHttpBody *)object
+                       endpoint:(NSString *)endpoint;
+
+@end
+
+/**
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
+ *  Method: aiplatform.projects.locations.endpoints.openapi.responses
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsEndpointsOpenapiResponses : GTLRAiplatformQuery
+
+/** ID of the DeployedModel that serves the invoke request. */
+@property(nonatomic, copy, nullable) NSString *deployedModelId;
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleApiHttpBody to include in the
+ *    query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsEndpointsOpenapiResponses
  */
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleApiHttpBody *)object
                        endpoint:(NSString *)endpoint;
@@ -17762,7 +17876,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
- *  Generates synthetic data based on the provided configuration.
+ *  Generates synthetic (artificial) data based on a description
  *
  *  Method: aiplatform.projects.locations.generateSyntheticData
  *
@@ -17772,8 +17886,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @interface GTLRAiplatformQuery_ProjectsLocationsGenerateSyntheticData : GTLRAiplatformQuery
 
 /**
- *  Required. The resource name of the Location to run the job. Format:
- *  `projects/{project}/locations/{location}`
+ *  Required. The geographic location where the synthetic data generation
+ *  request is processed. This should be in the format
+ *  `projects/{project}/locations/{location}`. For example,
+ *  `projects/my-project/locations/us-central1`.
  */
 @property(nonatomic, copy, nullable) NSString *location;
 
@@ -17781,13 +17897,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  Fetches a @c
  *  GTLRAiplatform_GoogleCloudAiplatformV1GenerateSyntheticDataResponse.
  *
- *  Generates synthetic data based on the provided configuration.
+ *  Generates synthetic (artificial) data based on a description
  *
  *  @param object The @c
  *    GTLRAiplatform_GoogleCloudAiplatformV1GenerateSyntheticDataRequest to
  *    include in the query.
- *  @param location Required. The resource name of the Location to run the job.
- *    Format: `projects/{project}/locations/{location}`
+ *  @param location Required. The geographic location where the synthetic data
+ *    generation request is processed. This should be in the format
+ *    `projects/{project}/locations/{location}`. For example,
+ *    `projects/my-project/locations/us-central1`.
  *
  *  @return GTLRAiplatformQuery_ProjectsLocationsGenerateSyntheticData
  */
@@ -26826,6 +26944,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
 @end
 
 /**
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
+ *  Method: aiplatform.projects.locations.publishers.models.invoke.invoke
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAiplatformCloudPlatform
+ *    @c kGTLRAuthScopeAiplatformCloudPlatformReadOnly
+ */
+@interface GTLRAiplatformQuery_ProjectsLocationsPublishersModelsInvokeInvoke : GTLRAiplatformQuery
+
+/**
+ *  Required. The name of the Endpoint requested to serve the prediction.
+ *  Format: `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ */
+@property(nonatomic, copy, nullable) NSString *endpoint;
+
+@property(nonatomic, copy, nullable) NSString *invokeId;
+
+/**
+ *  Fetches a @c GTLRAiplatform_GoogleApiHttpBody.
+ *
+ *  Forwards arbitrary HTTP requests for both streaming and non-streaming cases.
+ *  To use this method, invoke_route_prefix must be set to allow the paths that
+ *  will be specified in the request.
+ *
+ *  @param object The @c GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest to
+ *    include in the query.
+ *  @param endpoint Required. The name of the Endpoint requested to serve the
+ *    prediction. Format:
+ *    `projects/{project}/locations/{location}/endpoints/{endpoint}`
+ *  @param invokeId NSString
+ *
+ *  @return GTLRAiplatformQuery_ProjectsLocationsPublishersModelsInvokeInvoke
+ */
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest *)object
+                       endpoint:(NSString *)endpoint
+                       invokeId:(NSString *)invokeId;
+
+@end
+
+/**
  *  Perform an online prediction.
  *
  *  Method: aiplatform.projects.locations.publishers.models.predict
@@ -27164,7 +27325,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaList : GTLRAiplatformQuery
 
-/** Optional. The standard list page size. */
+/**
+ *  Optional. The standard list page size. The maximum value is 100. If not
+ *  specified, a default value of 100 will be used.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -27544,7 +27708,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsRagCorporaRagFilesList : GTLRAiplatformQuery
 
-/** Optional. The standard list page size. */
+/**
+ *  Optional. The standard list page size. The maximum value is 100. If not
+ *  specified, a default value of 100 will be used.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
@@ -28231,6 +28398,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *    @c kGTLRAuthScopeAiplatformCloudPlatform
  */
 @interface GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesMemoriesCreate : GTLRAiplatformQuery
+
+/**
+ *  Optional. The user defined ID to use for memory, which will become the final
+ *  component of the memory resource name. If not provided, Vertex AI will
+ *  generate a value for this ID. This value may be up to 63 characters, and
+ *  valid characters are `[a-z0-9-]`. The first character must be a letter, and
+ *  the last character must be a letter or number.
+ */
+@property(nonatomic, copy, nullable) NSString *memoryId;
 
 /**
  *  Required. The resource name of the ReasoningEngine to create the Memory
@@ -29519,6 +29695,15 @@ FOUNDATION_EXTERN NSString * const kGTLRAiplatformViewPublisherModelViewUnspecif
  *  `projects/{project}/locations/{location}/reasoningEngines/{reasoning_engine}`
  */
 @property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. The user defined ID to use for session, which will become the
+ *  final component of the session resource name. If not provided, Vertex AI
+ *  will generate a value for this ID. This value may be up to 63 characters,
+ *  and valid characters are `[a-z0-9-]`. The first character must be a letter,
+ *  and the last character must be a letter or number.
+ */
+@property(nonatomic, copy, nullable) NSString *sessionId;
 
 /**
  *  Fetches a @c GTLRAiplatform_GoogleLongrunningOperation.

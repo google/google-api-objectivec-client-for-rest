@@ -14,9 +14,11 @@
 #import <GoogleAPIClientForREST/GTLRCloudRun.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeCloudRun              = @"https://www.googleapis.com/auth/run";
 NSString * const kGTLRAuthScopeCloudRunCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudRunReadonly      = @"https://www.googleapis.com/auth/run.readonly";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudRunService

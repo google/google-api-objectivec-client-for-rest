@@ -250,6 +250,21 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRReports_CustomerIdentity
+//
+
+@implementation GTLRReports_CustomerIdentity
+@dynamic identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRReports_Date
 //
 
@@ -356,6 +371,21 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRReports_GroupIdentity
+//
+
+@implementation GTLRReports_GroupIdentity
+@dynamic groupEmail, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRReports_NestedParameter
 //
 
@@ -377,6 +407,34 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRReports_OwnerDetails
+//
+
+@implementation GTLRReports_OwnerDetails
+@dynamic ownerIdentity, ownerType;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ownerIdentity" : [GTLRReports_OwnerIdentity class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_OwnerIdentity
+//
+
+@implementation GTLRReports_OwnerIdentity
+@dynamic customerIdentity, groupIdentity, userIdentity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRReports_Reason
 //
 
@@ -391,7 +449,7 @@
 //
 
 @implementation GTLRReports_ResourceDetails
-@dynamic appliedLabels, identifier, relation, title, type;
+@dynamic appliedLabels, identifier, ownerDetails, relation, title, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -519,4 +577,19 @@
 
 @implementation GTLRReports_UsageReports_Warnings_Item_Data_Item
 @dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_UserIdentity
+//
+
+@implementation GTLRReports_UserIdentity
+@dynamic identifier, userEmail;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
 @end

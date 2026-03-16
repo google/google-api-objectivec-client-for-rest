@@ -4788,6 +4788,19 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @property(nonatomic, copy, nullable) NSString *opsInsightsStatus;
 
+/**
+ *  Optional. The ID of the pluggable database associated with the Database. The
+ *  ID must be unique within the project and location.
+ */
+@property(nonatomic, copy, nullable) NSString *pluggableDatabaseId;
+
+/**
+ *  Optional. The pluggable database associated with the Database. The name must
+ *  begin with an alphabetic character and can contain a maximum of thirty
+ *  alphanumeric characters.
+ */
+@property(nonatomic, copy, nullable) NSString *pluggableDatabaseName;
+
 /** Optional. The properties of the Database. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_DatabaseProperties *properties;
 

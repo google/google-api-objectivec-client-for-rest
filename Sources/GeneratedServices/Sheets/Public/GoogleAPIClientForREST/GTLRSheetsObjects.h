@@ -3806,8 +3806,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 @interface GTLRSheets_AddFilterViewRequest : GTLRObject
 
 /**
- *  The filter to add. The filterViewId field is optional; if one is not set, an
- *  id will be randomly generated. (It is an error to specify the ID of a filter
+ *  The filter to add. The filterViewId field is optional. If one is not set, an
+ *  ID will be randomly generated. (It is an error to specify the ID of a filter
  *  that already exists.)
  */
 @property(nonatomic, strong, nullable) GTLRSheets_FilterView *filter;
@@ -4582,7 +4582,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSheets_WaterfallChartSpec_StackedType_Wa
 
 
 /**
- *  The default filter associated with a sheet.
+ *  The default filter associated with a sheet. For more information, see
+ *  [Manage data visibility with
+ *  filters](https://developers.google.com/workspace/sheets/api/guides/filters).
  */
 @interface GTLRSheets_BasicFilter : GTLRObject
 
@@ -4688,9 +4690,9 @@ GTLR_DEPRECATED
 /**
  *  The ranges that were cleared, in [A1
  *  notation](https://developers.google.com/workspace/sheets/api/guides/concepts#cell).
- *  If the requests are for an unbounded range or a ranger larger than the
- *  bounds of the sheet, this is the actual ranges that were cleared, bounded to
- *  the sheet's limits.
+ *  If the requests are for an unbounded range or a range larger than the bounds
+ *  of the sheet, this is the actual ranges that were cleared, bounded to the
+ *  sheet's limits.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clearedRanges;
 
@@ -4721,7 +4723,7 @@ GTLR_DEPRECATED
 
 /**
  *  The ranges that were cleared, in A1 notation. If the requests are for an
- *  unbounded range or a ranger larger than the bounds of the sheet, this is the
+ *  unbounded range or a range larger than the bounds of the sheet, this is the
  *  actual ranges that were cleared, bounded to the sheet's limits.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *clearedRanges;
@@ -6396,8 +6398,8 @@ GTLR_DEPRECATED
 
 /**
  *  The range (in A1 notation) that was cleared. (If the request was for an
- *  unbounded range or a ranger larger than the bounds of the sheet, this will
- *  be the actual range that was cleared, bounded to the sheet's limits.)
+ *  unbounded range or a range larger than the bounds of the sheet, this will be
+ *  the actual range that was cleared, bounded to the sheet's limits.)
  */
 @property(nonatomic, copy, nullable) NSString *clearedRange;
 
@@ -6827,7 +6829,8 @@ GTLR_DEPRECATED
 
 /**
  *  Filter that describes what data should be selected or returned from a
- *  request.
+ *  request. For more information, see [Read, write, and search
+ *  metadata](https://developers.google.com/workspace/sheets/api/guides/metadata).
  */
 @interface GTLRSheets_DataFilter : GTLRObject
 
@@ -7676,13 +7679,15 @@ GTLR_DEPRECATED
 
 /**
  *  Developer metadata associated with a location or object in a spreadsheet.
+ *  For more information, see [Read, write, and search
+ *  metadata](https://developers.google.com/workspace/sheets/api/guides/metadata).
  *  Developer metadata may be used to associate arbitrary data with various
- *  parts of a spreadsheet and will remain associated at those locations as they
- *  move around and the spreadsheet is edited. For example, if developer
+ *  parts of a spreadsheet and it will remain associated at those locations as
+ *  they move around and the spreadsheet is edited. For example, if developer
  *  metadata is associated with row 5 and another row is then subsequently
- *  inserted above row 5, that original metadata will still be associated with
- *  the row it was first associated with (what is now row 6). If the associated
- *  object is deleted its metadata is deleted too.
+ *  inserted above row 5, that original metadata is still associated with the
+ *  row it was first associated with (what is now row 6). If the associated
+ *  object is deleted then its metadata is deleted too.
  */
 @interface GTLRSheets_DeveloperMetadata : GTLRObject
 
@@ -7708,7 +7713,7 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *metadataValue;
 
 /**
- *  The metadata visibility. Developer metadata must always have a visibility
+ *  The metadata visibility. Developer metadata must always have visibility
  *  specified.
  *
  *  Likely values:
@@ -7733,7 +7738,7 @@ GTLR_DEPRECATED
 
 /**
  *  Represents the row or column when metadata is associated with a dimension.
- *  The specified DimensionRange must represent a single row or column; it
+ *  The specified DimensionRange must represent a single row or column. It
  *  cannot be unbounded or span multiple rows or columns.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_DimensionRange *dimensionRange;
@@ -7782,8 +7787,8 @@ GTLR_DEPRECATED
  *  visibility, and location type are all specified, this considers all
  *  developer metadata with that key and visibility that are associated with a
  *  location of that type. In general, this selects all DeveloperMetadata that
- *  matches the intersection of all the specified fields; any field or
- *  combination of fields may be specified.
+ *  match the intersection of all the specified fields; any field or combination
+ *  of fields may be specified.
  */
 @interface GTLRSheets_DeveloperMetadataLookup : GTLRObject
 
@@ -7824,7 +7829,7 @@ GTLR_DEPRECATED
  *  rows. If the field is left unspecified, all location types are considered.
  *  This field cannot be specified as SPREADSHEET when the
  *  locationMatchingStrategy is specified as INTERSECTING or when the
- *  metadataLocation is specified as a non-spreadsheet location: spreadsheet
+ *  metadataLocation is specified as a non-spreadsheet location. Spreadsheet
  *  metadata cannot intersect any other developer metadata location. This field
  *  also must be left unspecified when the locationMatchingStrategy is specified
  *  as EXACT.
@@ -8245,12 +8250,12 @@ GTLR_DEPRECATED
 
 
 /**
- *  Criteria for showing/hiding rows in a filter or filter view.
+ *  Criteria for showing or hiding rows in a filter or filter view.
  */
 @interface GTLRSheets_FilterCriteria : GTLRObject
 
 /**
- *  A condition that must be true for values to be shown. (This does not
+ *  A condition that must be `true` for values to be shown. (This does not
  *  override hidden_values -- if a value is listed there, it will still be
  *  hidden.)
  */
@@ -8314,7 +8319,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  A filter view.
+ *  A filter view. For more information, see [Manage data visibility with
+ *  filters](https://developers.google.com/workspace/sheets/api/guides/filters).
  */
 @interface GTLRSheets_FilterView : GTLRObject
 
@@ -8326,9 +8332,9 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRSheets_FilterView_Criteria *criteria GTLR_DEPRECATED;
 
 /**
- *  The filter criteria for showing/hiding values per column. Both criteria and
- *  filter_specs are populated in responses. If both fields are specified in an
- *  update request, this field takes precedence.
+ *  The filter criteria for showing or hiding values per column. Both criteria
+ *  and filter_specs are populated in responses. If both fields are specified in
+ *  an update request, this field takes precedence.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRSheets_FilterSpec *> *filterSpecs;
 
@@ -8341,13 +8347,13 @@ GTLR_DEPRECATED
 
 /**
  *  The named range this filter view is backed by, if any. When writing, only
- *  one of range or named_range_id or table_id may be set.
+ *  one of range, named_range_id, or table_id may be set.
  */
 @property(nonatomic, copy, nullable) NSString *namedRangeId;
 
 /**
- *  The range this filter view covers. When writing, only one of range or
- *  named_range_id or table_id may be set.
+ *  The range this filter view covers. When writing, only one of range,
+ *  named_range_id, or table_id may be set.
  */
 @property(nonatomic, strong, nullable) GTLRSheets_GridRange *range;
 
@@ -8359,7 +8365,7 @@ GTLR_DEPRECATED
 
 /**
  *  The table this filter view is backed by, if any. When writing, only one of
- *  range or named_range_id or table_id may be set.
+ *  range, named_range_id, or table_id may be set.
  */
 @property(nonatomic, copy, nullable) NSString *tableId;
 

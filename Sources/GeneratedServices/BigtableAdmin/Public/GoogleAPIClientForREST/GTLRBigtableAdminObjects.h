@@ -541,8 +541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Table_Granularity_Millis;
 /**
- *  The user did not specify a granularity. Should not be returned. When
- *  specified during table creation, MILLIS will be used.
+ *  The user did not specify a granularity. Should not be returned.
  *
  *  Value: "TIMESTAMP_GRANULARITY_UNSPECIFIED"
  */
@@ -602,7 +601,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 /**
  *  Strongly validated etag for optimistic concurrency control. Preserve the
  *  value returned from `GetAppProfile` when calling `UpdateAppProfile` to fail
- *  the request if there has been a modification in the mean time. The
+ *  the request if there has been a modification in the meantime. The
  *  `update_mask` of the request need not include `etag` for this protection to
  *  apply. See [Wikipedia](https://en.wikipedia.org/wiki/HTTP_ETag) and [RFC
  *  7232](https://tools.ietf.org/html/rfc7232#section-2.3) for more details.
@@ -3995,18 +3994,17 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *deletionProtection;
 
 /**
- *  Immutable. The granularity (i.e. `MILLIS`) at which timestamps are stored in
- *  this table. Timestamps not matching the granularity will be rejected. If
- *  unspecified at creation time, the value will be set to `MILLIS`. Views:
- *  `SCHEMA_VIEW`, `FULL`.
+ *  Immutable. The granularity at which timestamps are stored in this table.
+ *  Timestamps not matching the granularity will be rejected. If unspecified at
+ *  creation time, the value will be set to `MILLIS`. Views: `SCHEMA_VIEW`,
+ *  `FULL`.
  *
  *  Likely values:
  *    @arg @c kGTLRBigtableAdmin_Table_Granularity_Millis The table keeps data
  *        versioned at a granularity of 1ms. (Value: "MILLIS")
  *    @arg @c kGTLRBigtableAdmin_Table_Granularity_TimestampGranularityUnspecified
- *        The user did not specify a granularity. Should not be returned. When
- *        specified during table creation, MILLIS will be used. (Value:
- *        "TIMESTAMP_GRANULARITY_UNSPECIFIED")
+ *        The user did not specify a granularity. Should not be returned.
+ *        (Value: "TIMESTAMP_GRANULARITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *granularity;
 

@@ -254,60 +254,6 @@
 
 @end
 
-@implementation GTLRThreatIntelligenceServiceQuery_ProjectsAlertsRefreshUriStatus
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRThreatIntelligenceService_RefreshAlertUriStatusRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}:refreshUriStatus";
-  GTLRThreatIntelligenceServiceQuery_ProjectsAlertsRefreshUriStatus *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRThreatIntelligenceService_RefreshAlertUriStatusResponse class];
-  query.loggingName = @"threatintelligence.projects.alerts.refreshUriStatus";
-  return query;
-}
-
-@end
-
-@implementation GTLRThreatIntelligenceServiceQuery_ProjectsAlertsReportAlertUri
-
-@dynamic name;
-
-+ (instancetype)queryWithObject:(GTLRThreatIntelligenceService_ReportAlertUriRequest *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1beta/{+name}:reportAlertUri";
-  GTLRThreatIntelligenceServiceQuery_ProjectsAlertsReportAlertUri *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRThreatIntelligenceService_ReportAlertUriResponse class];
-  query.loggingName = @"threatintelligence.projects.alerts.reportAlertUri";
-  return query;
-}
-
-@end
-
 @implementation GTLRThreatIntelligenceServiceQuery_ProjectsAlertsResolve
 
 @dynamic name;

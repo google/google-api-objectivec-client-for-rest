@@ -21,6 +21,17 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1Accoun
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_SuspiciousAccountCreation = @"SUSPICIOUS_ACCOUNT_CREATION";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment_Labels_SuspiciousLoginActivity = @"SUSPICIOUS_LOGIN_ACTIVITY";
 
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason.reason
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_AccountInLargeRelatedGroup = @"ACCOUNT_IN_LARGE_RELATED_GROUP";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_ClientAccessedManyAccounts = @"CLIENT_ACCESSED_MANY_ACCOUNTS";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_ClientHistoricalBotActivity = @"CLIENT_HISTORICAL_BOT_ACTIVITY";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason_Reason_RiskReasonUnspecified = @"RISK_REASON_UNSPECIFIED";
+
+// GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason.reason
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_AccountHistoryReputable = @"ACCOUNT_HISTORY_REPUTABLE";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_ProfileMatch = @"PROFILE_MATCH";
+NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason_Reason_TrustReasonUnspecified = @"TRUST_REASON_UNSPECIFIED";
+
 // GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo.latestVerificationResult
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorCriticalInternal = @"ERROR_CRITICAL_INTERNAL";
 NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountVerificationInfo_LatestVerificationResult_ErrorCustomerQuotaExhausted = @"ERROR_CUSTOMER_QUOTA_EXHAUSTED";
@@ -175,7 +186,7 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
 //
 
 @implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessment
-@dynamic labels;
+@dynamic accountTakeoverVerdict, labels;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -184,6 +195,45 @@ NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1WebKey
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason
+@dynamic reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTakeoverVerdict
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTakeoverVerdict
+@dynamic risk, riskReasons, trustReasons;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"riskReasons" : [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountRiskReason class],
+    @"trustReasons" : [GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason
+//
+
+@implementation GTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1AccountDefenderAssessmentAccountTrustReason
+@dynamic reason;
 @end
 
 

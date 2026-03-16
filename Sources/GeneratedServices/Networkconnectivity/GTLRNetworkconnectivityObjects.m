@@ -167,6 +167,7 @@ NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_Gate
 NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_LocationFeatureUnspecified = @"LOCATION_FEATURE_UNSPECIFIED";
 NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_SiteToCloudSpokes = @"SITE_TO_CLOUD_SPOKES";
 NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_SiteToSiteSpokes = @"SITE_TO_SITE_SPOKES";
+NSString * const kGTLRNetworkconnectivity_LocationMetadata_LocationFeatures_Transports = @"TRANSPORTS";
 
 // GTLRNetworkconnectivity_PolicyBasedRoute.nextHopOtherRoutes
 NSString * const kGTLRNetworkconnectivity_PolicyBasedRoute_NextHopOtherRoutes_DefaultRouting = @"DEFAULT_ROUTING";
@@ -965,10 +966,14 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_LinkedInterconnectAttachments
-@dynamic includeImportRanges, siteToSiteDataTransfer, uris, vpcNetwork;
+@dynamic excludeExportRanges, excludeImportRanges, includeExportRanges,
+         includeImportRanges, siteToSiteDataTransfer, uris, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"excludeExportRanges" : [NSString class],
+    @"excludeImportRanges" : [NSString class],
+    @"includeExportRanges" : [NSString class],
     @"includeImportRanges" : [NSString class],
     @"uris" : [NSString class]
   };
@@ -1007,10 +1012,14 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_LinkedRouterApplianceInstances
-@dynamic includeImportRanges, instances, siteToSiteDataTransfer, vpcNetwork;
+@dynamic excludeExportRanges, excludeImportRanges, includeExportRanges,
+         includeImportRanges, instances, siteToSiteDataTransfer, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"excludeExportRanges" : [NSString class],
+    @"excludeImportRanges" : [NSString class],
+    @"includeExportRanges" : [NSString class],
     @"includeImportRanges" : [NSString class],
     @"instances" : [GTLRNetworkconnectivity_RouterApplianceInstance class]
   };
@@ -1049,10 +1058,14 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 //
 
 @implementation GTLRNetworkconnectivity_LinkedVpnTunnels
-@dynamic includeImportRanges, siteToSiteDataTransfer, uris, vpcNetwork;
+@dynamic excludeExportRanges, excludeImportRanges, includeExportRanges,
+         includeImportRanges, siteToSiteDataTransfer, uris, vpcNetwork;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"excludeExportRanges" : [NSString class],
+    @"excludeImportRanges" : [NSString class],
+    @"includeExportRanges" : [NSString class],
     @"includeImportRanges" : [NSString class],
     @"uris" : [NSString class]
   };

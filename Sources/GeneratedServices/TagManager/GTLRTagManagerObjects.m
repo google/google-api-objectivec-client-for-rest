@@ -247,6 +247,11 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Lowercas
 NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_None = @"none";
 NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercase = @"uppercase";
 
+// GTLRTagManager_VariableFormatValue.convertToNumber
+NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Comma = @"comma";
+NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_DecimalSeparatorTypeUnspecified = @"decimalSeparatorTypeUnspecified";
+NSString * const kGTLRTagManager_VariableFormatValue_ConvertToNumber_Period = @"period";
+
 // ----------------------------------------------------------------------------
 //
 //   GTLRTagManager_Account
@@ -1349,7 +1354,8 @@ NSString * const kGTLRTagManager_VariableFormatValue_CaseConversionType_Uppercas
 
 @implementation GTLRTagManager_VariableFormatValue
 @dynamic caseConversionType, convertFalseToValue, convertNullToValue,
-         convertTrueToValue, convertUndefinedToValue;
+         convertToBoolean, convertToNumber, convertTrueToValue,
+         convertUndefinedToValue;
 @end
 
 

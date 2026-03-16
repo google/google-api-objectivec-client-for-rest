@@ -233,29 +233,6 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRSecretManager_ListOperationsResponse
-//
-
-@implementation GTLRSecretManager_ListOperationsResponse
-@dynamic nextPageToken, operations, unreachable;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRSecretManager_Operation class],
-    @"unreachable" : [NSString class]
-  };
-  return map;
-}
-
-+ (NSString *)collectionItemsKey {
-  return @"operations";
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRSecretManager_ListSecretsResponse
 //
 

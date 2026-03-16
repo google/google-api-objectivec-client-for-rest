@@ -2342,7 +2342,16 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 @implementation GTLRSQLAdmin_PointInTimeRestoreContext
 @dynamic allocatedIpRange, datasource, pointInTime, preferredSecondaryZone,
-         preferredZone, privateNetwork, targetInstance;
+         preferredZone, privateNetwork, region, targetInstance,
+         targetInstanceClearSettingsFieldNames, targetInstanceSettings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"targetInstanceClearSettingsFieldNames" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2617,9 +2626,9 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 //
 
 @implementation GTLRSQLAdmin_Settings
-@dynamic activationPolicy, activeDirectoryConfig, advancedMachineFeatures,
-         authorizedGaeApplications, autoUpgradeEnabled, availabilityType,
-         backupConfiguration, collation, connectionPoolConfig,
+@dynamic acceleratedReplicaMode, activationPolicy, activeDirectoryConfig,
+         advancedMachineFeatures, authorizedGaeApplications, autoUpgradeEnabled,
+         availabilityType, backupConfiguration, collation, connectionPoolConfig,
          connectorEnforcement, crashSafeReplicationEnabled, dataApiAccess,
          databaseFlags, databaseReplicationEnabled, dataCacheConfig,
          dataDiskProvisionedIops, dataDiskProvisionedThroughput, dataDiskSizeGb,

@@ -6536,12 +6536,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
 
 
 /**
- *  GTLRWalletobjects_JwtResource
+ *  A JWT representation of a pass.
  */
 @interface GTLRWalletobjects_JwtResource : GTLRObject
 
 /**
- *  A string representing a JWT of the format described at
+ *  Required. A string representing a JWT of the format described at
  *  https://developers.google.com/wallet/reference/rest/v1/Jwt
  */
 @property(nonatomic, copy, nullable) NSString *jwt;

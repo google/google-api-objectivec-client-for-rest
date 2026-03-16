@@ -237,7 +237,14 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Aspect
-@dynamic kind, spec;
+@dynamic kind, rules, spec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRServiceManagement_AspectRule class]
+  };
+  return map;
+}
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -254,6 +261,30 @@ NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProto3 = @"SYNTAX_PROT
 //
 
 @implementation GTLRServiceManagement_Aspect_Spec
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_AspectRule
+//
+
+@implementation GTLRServiceManagement_AspectRule
+@dynamic config, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceManagement_AspectRule_Config
+//
+
+@implementation GTLRServiceManagement_AspectRule_Config
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];

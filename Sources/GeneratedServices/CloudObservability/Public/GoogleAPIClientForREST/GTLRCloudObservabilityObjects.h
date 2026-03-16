@@ -595,6 +595,40 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Describes the settings associated with a project, organization, or folder.
+ */
+@interface GTLRCloudObservability_Settings : GTLRObject
+
+/**
+ *  Optional. The location which should be used when any regional resources are
+ *  provisioned by Google Cloud.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultStorageLocation;
+
+/**
+ *  Optional. The resource name for the configured Cloud KMS key. KMS key name
+ *  format:
+ *  "projects/[PROJECT_ID]/locations/[LOCATION]/keyRings/[KEYRING]/cryptoKeys/[KEY]"
+ *  For example:
+ *  `"projects/my-project/locations/us-central1/keyRings/my-ring/cryptoKeys/my-key"`
+ */
+@property(nonatomic, copy, nullable) NSString *kmsKeyName;
+
+/** Identifier. The resource name of the settings. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The service account for the given resource container, such as
+ *  project or folder. This will be used by Cloud Observability to perform
+ *  actions in the container's project like access KMS keys or create Links.
+ *  Always the same service account per resource container regardless of region.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountId;
+
+@end
+
+
+/**
  *  The `Status` type defines a logical error model that is suitable for
  *  different programming environments, including REST APIs and RPC APIs. It is
  *  used by [gRPC](https://github.com/grpc). Each `Status` message contains

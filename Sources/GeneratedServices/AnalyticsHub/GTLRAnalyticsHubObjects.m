@@ -200,6 +200,16 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAnalyticsHub_BigtableConfig
+//
+
+@implementation GTLRAnalyticsHub_BigtableConfig
+@dynamic appProfileId, serviceAccountEmail, table, writeMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAnalyticsHub_Binding
 //
 
@@ -442,7 +452,7 @@ NSString * const kGTLRAnalyticsHub_Subscription_State_StateUnspecified = @"STATE
 //
 
 @implementation GTLRAnalyticsHub_GooglePubsubV1Subscription
-@dynamic ackDeadlineSeconds, bigqueryConfig, cloudStorageConfig,
+@dynamic ackDeadlineSeconds, bigqueryConfig, bigtableConfig, cloudStorageConfig,
          deadLetterPolicy, detached, enableExactlyOnceDelivery,
          enableMessageOrdering, expirationPolicy, filter, labels,
          messageRetentionDuration, messageTransforms, name, pushConfig,

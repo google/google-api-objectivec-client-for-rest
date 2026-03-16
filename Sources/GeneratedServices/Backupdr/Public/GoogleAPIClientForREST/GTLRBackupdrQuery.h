@@ -2798,7 +2798,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 
 /**
  *  Required. The resource name of the serviceConfig used to initialize the
- *  service. Format: `projects/{project_id}/locations/{location}/serviceConfig`.
+ *  service. The location must be the location of the BackupVault. Format:
+ *  `projects/{project_id}/locations/{location}/serviceConfig`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2810,7 +2811,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  @param object The @c GTLRBackupdr_InitializeServiceRequest to include in the
  *    query.
  *  @param name Required. The resource name of the serviceConfig used to
- *    initialize the service. Format:
+ *    initialize the service. The location must be the location of the
+ *    BackupVault. Format:
  *    `projects/{project_id}/locations/{location}/serviceConfig`.
  *
  *  @return GTLRBackupdrQuery_ProjectsLocationsServiceConfigInitialize

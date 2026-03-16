@@ -65,6 +65,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3CommonOperationMeta
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeProperty_Method_Derive = @"DERIVE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeProperty_Method_Extract = @"EXTRACT";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeProperty_Method_MethodUnspecified = @"METHOD_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeProperty_Method_RelaxedExtract = @"RELAXED_EXTRACT";
 
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeProperty.occurrenceType
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3DocumentSchemaEntityTypeProperty_OccurrenceType_OccurrenceTypeUnspecified = @"OCCURRENCE_TYPE_UNSPECIFIED";
@@ -130,6 +131,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3RevisionRef_Revisio
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Method_Derive = @"DERIVE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Method_Extract = @"EXTRACT";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Method_MethodUnspecified = @"METHOD_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_Method_RelaxedExtract = @"RELAXED_EXTRACT";
 
 // GTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType.occurrenceType
 NSString * const kGTLRDocument_GoogleCloudDocumentaiUiv1beta3SchemaEntityType_OccurrenceType_OccurrenceTypeUnspecified = @"OCCURRENCE_TYPE_UNSPECIFIED";
@@ -190,6 +192,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3Dataset_State_Uniniti
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_Method_Derive = @"DERIVE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_Method_Extract = @"EXTRACT";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_Method_MethodUnspecified = @"METHOD_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_Method_RelaxedExtract = @"RELAXED_EXTRACT";
 
 // GTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty.occurrenceType
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1beta3DocumentSchemaEntityTypeProperty_OccurrenceType_OccurrenceTypeUnspecified = @"OCCURRENCE_TYPE_UNSPECIFIED";
@@ -323,6 +326,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentProvenance_Type_Up
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_Derive = @"DERIVE";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_Extract = @"EXTRACT";
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_MethodUnspecified = @"METHOD_UNSPECIFIED";
+NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_Method_RelaxedExtract = @"RELAXED_EXTRACT";
 
 // GTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty.occurrenceType
 NSString * const kGTLRDocument_GoogleCloudDocumentaiV1DocumentSchemaEntityTypeProperty_OccurrenceType_OccurrenceTypeUnspecified = @"OCCURRENCE_TYPE_UNSPECIFIED";
@@ -3346,7 +3350,7 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1DocumentShardInfo
-@dynamic shardCount, shardIndex, textOffset;
+@dynamic pageOffset, shardCount, shardIndex, textOffset;
 @end
 
 

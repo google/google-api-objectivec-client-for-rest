@@ -3949,7 +3949,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 /**
  *  Optional. List of fields to be updated. All possible fields can be updated
  *  by passing `*`, or a subset of the following updateable fields can be
- *  provided: * `display_name` * `root_container`
+ *  provided: * `display_name` * `root_container` * `description`
  *
  *  String format is a comma-separated list of fields.
  */

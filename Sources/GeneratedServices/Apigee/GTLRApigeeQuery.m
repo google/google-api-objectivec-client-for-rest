@@ -7125,7 +7125,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsDelete
 
-@dynamic name;
+@dynamic name, riskAssessmentType;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -7144,7 +7144,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsGet
 
-@dynamic name;
+@dynamic name, riskAssessmentType;
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];
@@ -7163,7 +7163,7 @@ NSString * const kGTLRApigeeViewIngressConfigViewUnspecified = @"INGRESS_CONFIG_
 
 @implementation GTLRApigeeQuery_OrganizationsSecurityMonitoringConditionsList
 
-@dynamic filter, pageSize, pageToken, parent;
+@dynamic filter, pageSize, pageToken, parent, riskAssessmentType;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

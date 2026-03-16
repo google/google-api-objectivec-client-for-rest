@@ -458,6 +458,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Su
 FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudComposer_PrivateEnvironmentConfig.networkingType
+
+/**
+ *  Default networking type.
+ *
+ *  Value: "NETWORKING_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_NetworkingTypeUnspecified;
+/**
+ *  Private IP Cloud Composer environment with no access to the internet.
+ *
+ *  Value: "PRIVATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_Private;
+/**
+ *  Cloud Composer environment with access to the internet.
+ *
+ *  Value: "PUBLIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_Public;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudComposer_SoftwareConfig.webServerPluginsMode
 
 /**
@@ -2151,6 +2173,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_St
  *  environment.
  */
 @property(nonatomic, strong, nullable) GTLRCloudComposer_NetworkingConfig *networkingConfig;
+
+/**
+ *  Optional. Networking type for the environment, either private or public.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_NetworkingTypeUnspecified
+ *        Default networking type. (Value: "NETWORKING_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_Private
+ *        Private IP Cloud Composer environment with no access to the internet.
+ *        (Value: "PRIVATE")
+ *    @arg @c kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_Public
+ *        Cloud Composer environment with access to the internet. (Value:
+ *        "PUBLIC")
+ */
+@property(nonatomic, copy, nullable) NSString *networkingType;
 
 /**
  *  Optional. Configuration for the private GKE cluster for a Private IP Cloud

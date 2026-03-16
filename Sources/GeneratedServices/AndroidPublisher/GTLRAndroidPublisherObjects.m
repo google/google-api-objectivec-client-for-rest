@@ -399,6 +399,15 @@ NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews1 
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierNews2 = @"TAX_TIER_NEWS_2";
 NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_TaxTier_TaxTierUnspecified = @"TAX_TIER_UNSPECIFIED";
 
+// GTLRAndroidPublisher_ReleaseSummary.releaseLifecycleState
+NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateApprovedNotPublished = @"RELEASE_LIFECYCLE_STATE_APPROVED_NOT_PUBLISHED";
+NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateDraft = @"RELEASE_LIFECYCLE_STATE_DRAFT";
+NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateInReview = @"RELEASE_LIFECYCLE_STATE_IN_REVIEW";
+NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateNotApproved = @"RELEASE_LIFECYCLE_STATE_NOT_APPROVED";
+NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateNotSentForReview = @"RELEASE_LIFECYCLE_STATE_NOT_SENT_FOR_REVIEW";
+NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStatePublished = @"RELEASE_LIFECYCLE_STATE_PUBLISHED";
+NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateUnspecified = @"RELEASE_LIFECYCLE_STATE_UNSPECIFIED";
+
 // GTLRAndroidPublisher_ScreenDensity.densityAlias
 NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_DensityUnspecified = @"DENSITY_UNSPECIFIED";
 NSString * const kGTLRAndroidPublisher_ScreenDensity_DensityAlias_Hdpi = @"HDPI";
@@ -843,6 +852,16 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 //
 
 @implementation GTLRAndroidPublisher_ArchiveSubscriptionRequest
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ArtifactSummary
+//
+
+@implementation GTLRAndroidPublisher_ArtifactSummary
+@dynamic versionCode;
 @end
 
 
@@ -2767,6 +2786,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAndroidPublisher_ListReleaseSummariesResponse
+//
+
+@implementation GTLRAndroidPublisher_ListReleaseSummariesResponse
+@dynamic releases;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"releases" : [GTLRAndroidPublisher_ReleaseSummary class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAndroidPublisher_ListSubscriptionOffersResponse
 //
 
@@ -3769,6 +3806,24 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 
 @implementation GTLRAndroidPublisher_RegionsVersion
 @dynamic version;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAndroidPublisher_ReleaseSummary
+//
+
+@implementation GTLRAndroidPublisher_ReleaseSummary
+@dynamic activeArtifacts, releaseLifecycleState, releaseName, track;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"activeArtifacts" : [GTLRAndroidPublisher_ArtifactSummary class]
+  };
+  return map;
+}
+
 @end
 
 

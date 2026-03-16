@@ -143,7 +143,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
 @property(nonatomic, assign) NSUInteger maxPosts;
 
 /**
- *  view
+ *  Unspecified is interpreted as READER.
  *
  *  Likely values:
  *    @arg @c kGTLRBloggerViewViewTypeUnspecified Value "VIEW_TYPE_UNSPECIFIED"
@@ -180,7 +180,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *url;
 
 /**
- *  view
+ *  Unspecified is interpreted as READER.
  *
  *  Likely values:
  *    @arg @c kGTLRBloggerViewViewTypeUnspecified Value "VIEW_TYPE_UNSPECIFIED"
@@ -242,7 +242,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBloggerViewViewTypeUnspecified;
 @property(nonatomic, copy, nullable) NSString *userId;
 
 /**
- *  view
+ *  Unspecified is interpreted as the user's role on the blog.
  *
  *  Likely values:
  *    @arg @c kGTLRBloggerViewViewTypeUnspecified Value "VIEW_TYPE_UNSPECIFIED"

@@ -89,6 +89,7 @@
 @class GTLRSecurityCommandCenter_ExfilResource;
 @class GTLRSecurityCommandCenter_Exfiltration;
 @class GTLRSecurityCommandCenter_Expr;
+@class GTLRSecurityCommandCenter_ExternalExposure;
 @class GTLRSecurityCommandCenter_File;
 @class GTLRSecurityCommandCenter_FileOperation;
 @class GTLRSecurityCommandCenter_Finding;
@@ -179,6 +180,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2EnvironmentVariable;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExfilResource;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Exfiltration;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExternalExposure;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExternalSystem;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOperation;
@@ -993,11 +995,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Oper
 // GTLRSecurityCommandCenter_DataRetentionDeletionEvent.eventType
 
 /**
- *  The maximum retention time has been exceeded.
+ *  Deprecated: This field is pending removal. Use
+ *  EVENT_TYPE_MAX_TTL_FROM_CREATION or
+ *  EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION instead.
  *
  *  Value: "EVENT_TYPE_MAX_TTL_EXCEEDED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded GTLR_DEPRECATED;
 /**
  *  Max TTL from the asset's creation time.
  *
@@ -1010,6 +1014,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDelet
  *  Value: "EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification;
+/**
+ *  Min TTL from the asset's creation time.
+ *
+ *  Value: "EVENT_TYPE_MIN_TTL_FROM_CREATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMinTtlFromCreation;
 /**
  *  Unspecified event type.
  *
@@ -1195,6 +1205,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_FileOperation_Type
  *  Value: "CHOKEPOINT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Chokepoint;
+/**
+ *  Describes a potential security risk due to the resource being exposed to the
+ *  internet.
+ *
+ *  Value: "EXTERNAL_EXPOSURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_ExternalExposure;
 /**
  *  Unspecified finding class.
  *
@@ -2500,11 +2517,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent.eventType
 
 /**
- *  The maximum retention time has been exceeded.
+ *  Deprecated: This field is pending removal. Use
+ *  EVENT_TYPE_MAX_TTL_FROM_CREATION or
+ *  EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION instead.
  *
  *  Value: "EVENT_TYPE_MAX_TTL_EXCEEDED"
  */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded;
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded GTLR_DEPRECATED;
 /**
  *  Max TTL from the asset's creation time.
  *
@@ -2517,6 +2536,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification;
+/**
+ *  Min TTL from the asset's creation time.
+ *
+ *  Value: "EVENT_TYPE_MIN_TTL_FROM_CREATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMinTtlFromCreation;
 /**
  *  Unspecified event type.
  *
@@ -2596,6 +2621,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "CHOKEPOINT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Chokepoint;
+/**
+ *  Describes a potential security risk due to the resource being exposed to the
+ *  internet.
+ *
+ *  Value: "EXTERNAL_EXPOSURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_ExternalExposure;
 /**
  *  Unspecified finding class.
  *
@@ -9993,7 +10025,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *
  *  Likely values:
  *    @arg @c kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded
- *        The maximum retention time has been exceeded. (Value:
+ *        Deprecated: This field is pending removal. Use
+ *        EVENT_TYPE_MAX_TTL_FROM_CREATION or
+ *        EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION instead. (Value:
  *        "EVENT_TYPE_MAX_TTL_EXCEEDED")
  *    @arg @c kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromCreation
  *        Max TTL from the asset's creation time. (Value:
@@ -10001,6 +10035,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *    @arg @c kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification
  *        Max TTL from the asset's last modification time. (Value:
  *        "EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION")
+ *    @arg @c kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMinTtlFromCreation
+ *        Min TTL from the asset's creation time. (Value:
+ *        "EVENT_TYPE_MIN_TTL_FROM_CREATION")
  *    @arg @c kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeUnspecified
  *        Unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
  */
@@ -10015,6 +10052,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  and the max_retention_allowed is 90 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRetentionAllowed;
+
+/**
+ *  Min duration of retention allowed from the DSPM retention control. This
+ *  field is only populated when event type is set to
+ *  EVENT_TYPE_MIN_TTL_FROM_CREATION.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minRetentionAllowed;
 
 @end
 
@@ -10458,6 +10502,74 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Details about the externally exposed resource associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_ExternalExposure : GTLRObject
+
+/**
+ *  The full resource name of load balancer backend service, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/backendServices/{name}".
+ */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/**
+ *  The resource which is running the exposed service, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/zones/{zone}/instances/{instance}.”
+ */
+@property(nonatomic, copy, nullable) NSString *exposedEndpoint;
+
+/**
+ *  The name and version of the service, for example, "Jupyter Notebook 6.14.0".
+ */
+@property(nonatomic, copy, nullable) NSString *exposedService;
+
+/**
+ *  The full resource name of the forwarding rule, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/forwardingRules/{forwarding-rule-name}".
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+/**
+ *  The full resource name of the instance group, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/instanceGroups/{name}".
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroup;
+
+/**
+ *  The full resource name of the load balancer firewall policy, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/firewallPolicies/{policy-name}".
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancerFirewallPolicy;
+
+/**
+ *  The full resource name of the network endpoint group, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/networkEndpointGroups/{name}".
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Private IP address of the exposed endpoint. */
+@property(nonatomic, copy, nullable) NSString *privateIpAddress;
+
+/** Port number associated with private IP address. */
+@property(nonatomic, copy, nullable) NSString *privatePort;
+
+/** Public IP address of the exposed endpoint. */
+@property(nonatomic, copy, nullable) NSString *publicIpAddress;
+
+/** Public port number of the exposed endpoint. */
+@property(nonatomic, copy, nullable) NSString *publicPort;
+
+/**
+ *  The full resource name of the firewall policy of the exposed service, for
+ *  example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/firewallPolicies/{policy-name}".
+ */
+@property(nonatomic, copy, nullable) NSString *serviceFirewallPolicy;
+
+@end
+
+
+/**
  *  File information about the related binary/library used by an executable, or
  *  the script used by a script interpreter
  */
@@ -10687,6 +10799,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** Represents exfiltrations associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Exfiltration *exfiltration;
 
+/** External exposure associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_ExternalExposure *externalExposure;
+
 /**
  *  Output only. Third party SIEM/SOAR fields within SCC, contains external
  *  system information and external system finding fields.
@@ -10711,6 +10826,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        Describes a resource or resource group where high risk attack paths
  *        converge, based on attack path simulations (APS). (Value:
  *        "CHOKEPOINT")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_ExternalExposure
+ *        Describes a potential security risk due to the resource being exposed
+ *        to the internet. (Value: "EXTERNAL_EXPOSURE")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified
  *        Unspecified finding class. (Value: "FINDING_CLASS_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration
@@ -14026,7 +14144,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *
  *  Likely values:
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded
- *        The maximum retention time has been exceeded. (Value:
+ *        Deprecated: This field is pending removal. Use
+ *        EVENT_TYPE_MAX_TTL_FROM_CREATION or
+ *        EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION instead. (Value:
  *        "EVENT_TYPE_MAX_TTL_EXCEEDED")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromCreation
  *        Max TTL from the asset's creation time. (Value:
@@ -14034,6 +14154,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification
  *        Max TTL from the asset's last modification time. (Value:
  *        "EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMinTtlFromCreation
+ *        Min TTL from the asset's creation time. (Value:
+ *        "EVENT_TYPE_MIN_TTL_FROM_CREATION")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified
  *        Unspecified event type. (Value: "EVENT_TYPE_UNSPECIFIED")
  */
@@ -14048,6 +14171,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  and the max_retention_allowed is 90 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *maxRetentionAllowed;
+
+/**
+ *  Min duration of retention allowed from the DSPM retention control. This
+ *  field is only populated when event type is set to
+ *  EVENT_TYPE_MIN_TTL_FROM_CREATION.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *minRetentionAllowed;
 
 @end
 
@@ -14224,6 +14354,74 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalExfiltratedBytes;
+
+@end
+
+
+/**
+ *  Details about the externally exposed resource associated with the finding.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExternalExposure : GTLRObject
+
+/**
+ *  The full resource name of load balancer backend service, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/backendServices/{name}".
+ */
+@property(nonatomic, copy, nullable) NSString *backendService;
+
+/**
+ *  The resource which is running the exposed service, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/zones/{zone}/instances/{instance}.”
+ */
+@property(nonatomic, copy, nullable) NSString *exposedEndpoint;
+
+/**
+ *  The name and version of the service, for example, "Jupyter Notebook 6.14.0".
+ */
+@property(nonatomic, copy, nullable) NSString *exposedService;
+
+/**
+ *  The full resource name of the forwarding rule, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/forwardingRules/{forwarding-rule-name}".
+ */
+@property(nonatomic, copy, nullable) NSString *forwardingRule;
+
+/**
+ *  The full resource name of the instance group, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/instanceGroups/{name}".
+ */
+@property(nonatomic, copy, nullable) NSString *instanceGroup;
+
+/**
+ *  The full resource name of the load balancer firewall policy, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/firewallPolicies/{policy-name}".
+ */
+@property(nonatomic, copy, nullable) NSString *loadBalancerFirewallPolicy;
+
+/**
+ *  The full resource name of the network endpoint group, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/networkEndpointGroups/{name}".
+ */
+@property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
+
+/** Private IP address of the exposed endpoint. */
+@property(nonatomic, copy, nullable) NSString *privateIpAddress;
+
+/** Port number associated with private IP address. */
+@property(nonatomic, copy, nullable) NSString *privatePort;
+
+/** Public IP address of the exposed endpoint. */
+@property(nonatomic, copy, nullable) NSString *publicIpAddress;
+
+/** Public port number of the exposed endpoint. */
+@property(nonatomic, copy, nullable) NSString *publicPort;
+
+/**
+ *  The full resource name of the firewall policy of the exposed service, for
+ *  example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/firewallPolicies/{policy-name}".
+ */
+@property(nonatomic, copy, nullable) NSString *serviceFirewallPolicy;
 
 @end
 
@@ -14533,6 +14731,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** Represents exfiltrations associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Exfiltration *exfiltration;
 
+/** External exposure associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExternalExposure *externalExposure;
+
 /**
  *  Output only. Third party SIEM/SOAR fields within SCC, contains external
  *  system information and external system finding fields.
@@ -14557,6 +14758,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        Describes a resource or resource group where high risk attack paths
  *        converge, based on attack path simulations (APS). (Value:
  *        "CHOKEPOINT")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_ExternalExposure
+ *        Describes a potential security risk due to the resource being exposed
+ *        to the internet. (Value: "EXTERNAL_EXPOSURE")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_FindingClassUnspecified
  *        Unspecified finding class. (Value: "FINDING_CLASS_UNSPECIFIED")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Misconfiguration

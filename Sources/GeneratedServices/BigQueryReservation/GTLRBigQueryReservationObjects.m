@@ -94,8 +94,8 @@ NSString * const kGTLRBigQueryReservation_Reservation_ScalingMode_ScalingModeUns
 //
 
 @implementation GTLRBigQueryReservation_Assignment
-@dynamic assignee, enableGeminiInBigquery, jobType, name, schedulingPolicy,
-         state;
+@dynamic assignee, enableGeminiInBigquery, jobType, name, principal,
+         schedulingPolicy, state;
 @end
 
 

@@ -35,6 +35,923 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Retrieves marketing data insights for a given user list. This feature is
+ *  only available to data partners. Authorization Headers: This method supports
+ *  the following optional headers to define how the API authorizes access for
+ *  the request: * `login-account`: (Optional) The resource name of the account
+ *  where the Google Account of the credentials is a user. If not set, defaults
+ *  to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  Method: datamanager.accountTypes.accounts.insights.retrieve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsInsightsRetrieve : GTLRDataManagerQuery
+
+/**
+ *  Required. The parent account that owns the user list. Format:
+ *  `accountTypes/{account_type}/accounts/{account}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataManager_RetrieveInsightsResponse.
+ *
+ *  Retrieves marketing data insights for a given user list. This feature is
+ *  only available to data partners. Authorization Headers: This method supports
+ *  the following optional headers to define how the API authorizes access for
+ *  the request: * `login-account`: (Optional) The resource name of the account
+ *  where the Google Account of the credentials is a user. If not set, defaults
+ *  to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  @param object The @c GTLRDataManager_RetrieveInsightsRequest to include in
+ *    the query.
+ *  @param parent Required. The parent account that owns the user list. Format:
+ *    `accountTypes/{account_type}/accounts/{account}`
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsInsightsRetrieve
+ */
++ (instancetype)queryWithObject:(GTLRDataManager_RetrieveInsightsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a partner link for the given account. Authorization Headers: This
+ *  method supports the following optional headers to define how the API
+ *  authorizes access for the request: * `login-account`: (Optional) The
+ *  resource name of the account where the Google Account of the credentials is
+ *  a user. If not set, defaults to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  Method: datamanager.accountTypes.accounts.partnerLinks.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksCreate : GTLRDataManagerQuery
+
+/**
+ *  Required. The parent, which owns this collection of partner links. Format:
+ *  accountTypes/{account_type}/accounts/{account}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataManager_PartnerLink.
+ *
+ *  Creates a partner link for the given account. Authorization Headers: This
+ *  method supports the following optional headers to define how the API
+ *  authorizes access for the request: * `login-account`: (Optional) The
+ *  resource name of the account where the Google Account of the credentials is
+ *  a user. If not set, defaults to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  @param object The @c GTLRDataManager_PartnerLink to include in the query.
+ *  @param parent Required. The parent, which owns this collection of partner
+ *    links. Format: accountTypes/{account_type}/accounts/{account}
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataManager_PartnerLink *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a partner link for the given account. Authorization Headers: This
+ *  method supports the following optional headers to define how the API
+ *  authorizes access for the request: * `login-account`: (Optional) The
+ *  resource name of the account where the Google Account of the credentials is
+ *  a user. If not set, defaults to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  Method: datamanager.accountTypes.accounts.partnerLinks.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksDelete : GTLRDataManagerQuery
+
+/**
+ *  Required. The resource name of the partner link to delete. Format:
+ *  accountTypes/{account_type}/accounts/{account}/partnerLinks/{partner_link}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataManager_Empty.
+ *
+ *  Deletes a partner link for the given account. Authorization Headers: This
+ *  method supports the following optional headers to define how the API
+ *  authorizes access for the request: * `login-account`: (Optional) The
+ *  resource name of the account where the Google Account of the credentials is
+ *  a user. If not set, defaults to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  @param name Required. The resource name of the partner link to delete.
+ *    Format:
+ *    accountTypes/{account_type}/accounts/{account}/partnerLinks/{partner_link}
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Searches for all partner links to and from a given account. Authorization
+ *  Headers: This method supports the following optional headers to define how
+ *  the API authorizes access for the request: * `login-account`: (Optional) The
+ *  resource name of the account where the Google Account of the credentials is
+ *  a user. If not set, defaults to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  Method: datamanager.accountTypes.accounts.partnerLinks.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksSearch : GTLRDataManagerQuery
+
+/**
+ *  Optional. A [filter string](https://google.aip.dev/160). All fields need to
+ *  be on the left hand side of each condition (for example: `partner_link_id =
+ *  123456789`). Fields must be specified using either all [camel
+ *  case](https://en.wikipedia.org/wiki/Camel_case) or all [snake
+ *  case](https://en.wikipedia.org/wiki/Snake_case). Don't use a combination of
+ *  camel case and snake case. Supported operations: - `AND` - `=` - `!=`
+ *  Supported fields: - `partner_link_id` - `owning_account.account_type` -
+ *  `owning_account.account_id` - `partner_account.account_type` -
+ *  `partner_account.account_id` Example: `owning_account.account_type =
+ *  "GOOGLE_ADS" AND partner_account.account_id = 987654321`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  The maximum number of partner links to return. The service may return fewer
+ *  than this value. If unspecified, at most 10 partner links will be returned.
+ *  The maximum value is 100; values above 100 will be coerced to 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token, received from a previous `SearchPartnerLinks` call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided to `SearchPartnerLinks` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Account to search for partner links. If no `filter` is specified,
+ *  all partner links where this account is either the `owning_account` or
+ *  `partner_account` are returned. Format:
+ *  `accountTypes/{account_type}/accounts/{account}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataManager_SearchPartnerLinksResponse.
+ *
+ *  Searches for all partner links to and from a given account. Authorization
+ *  Headers: This method supports the following optional headers to define how
+ *  the API authorizes access for the request: * `login-account`: (Optional) The
+ *  resource name of the account where the Google Account of the credentials is
+ *  a user. If not set, defaults to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  @param parent Required. Account to search for partner links. If no `filter`
+ *    is specified, all partner links where this account is either the
+ *    `owning_account` or `partner_account` are returned. Format:
+ *    `accountTypes/{account_type}/accounts/{account}`
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksSearch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a user list direct license. This feature is only available to data
+ *  partners.
+ *
+ *  Method: datamanager.accountTypes.accounts.userListDirectLicenses.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesCreate : GTLRDataManagerQuery
+
+/**
+ *  Required. The account that owns the user list being licensed. Should be in
+ *  the format accountTypes/{ACCOUNT_TYPE}/accounts/{ACCOUNT_ID}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataManager_UserListDirectLicense.
+ *
+ *  Creates a user list direct license. This feature is only available to data
+ *  partners.
+ *
+ *  @param object The @c GTLRDataManager_UserListDirectLicense to include in the
+ *    query.
+ *  @param parent Required. The account that owns the user list being licensed.
+ *    Should be in the format accountTypes/{ACCOUNT_TYPE}/accounts/{ACCOUNT_ID}
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataManager_UserListDirectLicense *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Retrieves a user list direct license. This feature is only available to data
+ *  partners.
+ *
+ *  Method: datamanager.accountTypes.accounts.userListDirectLicenses.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesGet : GTLRDataManagerQuery
+
+/** Required. The resource name of the user list direct license. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataManager_UserListDirectLicense.
+ *
+ *  Retrieves a user list direct license. This feature is only available to data
+ *  partners.
+ *
+ *  @param name Required. The resource name of the user list direct license.
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all user list direct licenses owned by the parent account. This
+ *  feature is only available to data partners.
+ *
+ *  Method: datamanager.accountTypes.accounts.userListDirectLicenses.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesList : GTLRDataManagerQuery
+
+/**
+ *  Optional. A [filter string](https://google.aip.dev/160) to apply to the list
+ *  request. All fields need to be on the left hand side of each condition (for
+ *  example: `user_list_id = 123`). Fields must be specified using either all
+ *  [camel case](https://en.wikipedia.org/wiki/Camel_case) or all [snake
+ *  case](https://en.wikipedia.org/wiki/Snake_case). Don't use a combination of
+ *  camel case and snake case. **Supported Operations:** - `AND` - `=` - `!=` -
+ *  `>` - `>=` - `<` - `<=` **Unsupported Fields:** - `name` (use get method
+ *  instead) - `historical_pricings` and all its subfields -
+ *  `pricing.start_time` - `pricing.end_time`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of licenses to return per page. The service may
+ *  return fewer than this value. If unspecified, at most 50 licenses will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListUserListDirectLicense`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListUserListDirectLicense` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The account whose licenses are being queried. Should be in the
+ *  format accountTypes/{ACCOUNT_TYPE}/accounts/{ACCOUNT_ID}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataManager_ListUserListDirectLicensesResponse.
+ *
+ *  Lists all user list direct licenses owned by the parent account. This
+ *  feature is only available to data partners.
+ *
+ *  @param parent Required. The account whose licenses are being queried. Should
+ *    be in the format accountTypes/{ACCOUNT_TYPE}/accounts/{ACCOUNT_ID}
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a user list direct license. This feature is only available to data
+ *  partners.
+ *
+ *  Method: datamanager.accountTypes.accounts.userListDirectLicenses.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesPatch : GTLRDataManagerQuery
+
+/** Identifier. The resource name of the user list direct license. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. The special character `*` is not
+ *  supported and an `INVALID_UPDATE_MASK` error will be thrown if used.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDataManager_UserListDirectLicense.
+ *
+ *  Updates a user list direct license. This feature is only available to data
+ *  partners.
+ *
+ *  @param object The @c GTLRDataManager_UserListDirectLicense to include in the
+ *    query.
+ *  @param name Identifier. The resource name of the user list direct license.
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListDirectLicensesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDataManager_UserListDirectLicense *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Creates a user list global license. This feature is only available to data
+ *  partners.
+ *
+ *  Method: datamanager.accountTypes.accounts.userListGlobalLicenses.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesCreate : GTLRDataManagerQuery
+
+/**
+ *  Required. The account that owns the user list being licensed. Should be in
+ *  the format accountTypes/{ACCOUNT_TYPE}/accounts/{ACCOUNT_ID}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataManager_UserListGlobalLicense.
+ *
+ *  Creates a user list global license. This feature is only available to data
+ *  partners.
+ *
+ *  @param object The @c GTLRDataManager_UserListGlobalLicense to include in the
+ *    query.
+ *  @param parent Required. The account that owns the user list being licensed.
+ *    Should be in the format accountTypes/{ACCOUNT_TYPE}/accounts/{ACCOUNT_ID}
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataManager_UserListGlobalLicense *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Retrieves a user list global license. This feature is only available to data
+ *  partners.
+ *
+ *  Method: datamanager.accountTypes.accounts.userListGlobalLicenses.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesGet : GTLRDataManagerQuery
+
+/** Required. The resource name of the user list global license. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataManager_UserListGlobalLicense.
+ *
+ *  Retrieves a user list global license. This feature is only available to data
+ *  partners.
+ *
+ *  @param name Required. The resource name of the user list global license.
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all user list global licenses owned by the parent account. This
+ *  feature is only available to data partners.
+ *
+ *  Method: datamanager.accountTypes.accounts.userListGlobalLicenses.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesList : GTLRDataManagerQuery
+
+/**
+ *  Optional. A [filter string](https://google.aip.dev/160) to apply to the list
+ *  request. All fields need to be on the left hand side of each condition (for
+ *  example: `user_list_id = 123`). Fields must be specified using either all
+ *  [camel case](https://en.wikipedia.org/wiki/Camel_case) or all [snake
+ *  case](https://en.wikipedia.org/wiki/Snake_case). Don't use a combination of
+ *  camel case and snake case. **Supported Operations:** - `AND` - `=` - `!=` -
+ *  `>` - `>=` - `<` - `<=` **Unsupported Fields:** - `name` (use get method
+ *  instead) - `historical_pricings` and all its subfields -
+ *  `pricing.start_time` - `pricing.end_time`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of licenses to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 licenses will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListUserListGlobalLicense`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListUserListDirectLicense` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The account whose licenses are being queried. Should be in the
+ *  format accountTypes/{ACCOUNT_TYPE}/accounts/{ACCOUNT_ID}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataManager_ListUserListGlobalLicensesResponse.
+ *
+ *  Lists all user list global licenses owned by the parent account. This
+ *  feature is only available to data partners.
+ *
+ *  @param parent Required. The account whose licenses are being queried. Should
+ *    be in the format accountTypes/{ACCOUNT_TYPE}/accounts/{ACCOUNT_ID}
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a user list global license. This feature is only available to data
+ *  partners.
+ *
+ *  Method: datamanager.accountTypes.accounts.userListGlobalLicenses.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesPatch : GTLRDataManagerQuery
+
+/** Identifier. The resource name of the user list global license. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update. The special character `*` is not
+ *  supported and an `INVALID_UPDATE_MASK` error will be thrown if used.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDataManager_UserListGlobalLicense.
+ *
+ *  Updates a user list global license. This feature is only available to data
+ *  partners.
+ *
+ *  @param object The @c GTLRDataManager_UserListGlobalLicense to include in the
+ *    query.
+ *  @param name Identifier. The resource name of the user list global license.
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesPatch
+ */
++ (instancetype)queryWithObject:(GTLRDataManager_UserListGlobalLicense *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all customer info for a user list global license. This feature is only
+ *  available to data partners.
+ *
+ *  Method: datamanager.accountTypes.accounts.userListGlobalLicenses.userListGlobalLicenseCustomerInfos.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesUserListGlobalLicenseCustomerInfosList : GTLRDataManagerQuery
+
+/**
+ *  Optional. A [filter string](https://google.aip.dev/160) to apply to the list
+ *  request. All fields need to be on the left hand side of each condition (for
+ *  example: `user_list_id = 123`). Fields must be specified using either all
+ *  [camel case](https://en.wikipedia.org/wiki/Camel_case) or all [snake
+ *  case](https://en.wikipedia.org/wiki/Snake_case). Don't use a combination of
+ *  camel case and snake case. **Supported Operations:** - `AND` - `=` - `!=` -
+ *  `>` - `>=` - `<` - `<=` **Unsupported Fields:** - `name` (use get method
+ *  instead) - `historical_pricings` and all its subfields -
+ *  `pricing.start_time` - `pricing.end_time`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of licenses to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 licenses will be returned.
+ *  The maximum value is 1000; values above 1000 will be coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListUserListDirectLicense`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListUserListDirectLicense` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The global license whose customer info are being queried. Should
+ *  be in the format
+ *  `accountTypes/{ACCOUNT_TYPE}/accounts/{ACCOUNT_ID}/userListGlobalLicenses/{USER_LIST_GLOBAL_LICENSE_ID}`.
+ *  To list all global license customer info under an account, replace the user
+ *  list global license id with a '-' (for example,
+ *  `accountTypes/DATA_PARTNER/accounts/123/userListGlobalLicenses/-`)
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataManager_ListUserListGlobalLicenseCustomerInfosResponse.
+ *
+ *  Lists all customer info for a user list global license. This feature is only
+ *  available to data partners.
+ *
+ *  @param parent Required. The global license whose customer info are being
+ *    queried. Should be in the format
+ *    `accountTypes/{ACCOUNT_TYPE}/accounts/{ACCOUNT_ID}/userListGlobalLicenses/{USER_LIST_GLOBAL_LICENSE_ID}`.
+ *    To list all global license customer info under an account, replace the
+ *    user list global license id with a '-' (for example,
+ *    `accountTypes/DATA_PARTNER/accounts/123/userListGlobalLicenses/-`)
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListGlobalLicensesUserListGlobalLicenseCustomerInfosList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a UserList. Authorization Headers: This method supports the
+ *  following optional headers to define how the API authorizes access for the
+ *  request: * `login-account`: (Optional) The resource name of the account
+ *  where the Google Account of the credentials is a user. If not set, defaults
+ *  to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  Method: datamanager.accountTypes.accounts.userLists.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListsCreate : GTLRDataManagerQuery
+
+/**
+ *  Required. The parent account where this user list will be created. Format:
+ *  accountTypes/{account_type}/accounts/{account}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. If true, the request is validated but not executed. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRDataManager_UserList.
+ *
+ *  Creates a UserList. Authorization Headers: This method supports the
+ *  following optional headers to define how the API authorizes access for the
+ *  request: * `login-account`: (Optional) The resource name of the account
+ *  where the Google Account of the credentials is a user. If not set, defaults
+ *  to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  @param object The @c GTLRDataManager_UserList to include in the query.
+ *  @param parent Required. The parent account where this user list will be
+ *    created. Format: accountTypes/{account_type}/accounts/{account}
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataManager_UserList *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a UserList. Authorization Headers: This method supports the
+ *  following optional headers to define how the API authorizes access for the
+ *  request: * `login-account`: (Optional) The resource name of the account
+ *  where the Google Account of the credentials is a user. If not set, defaults
+ *  to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  Method: datamanager.accountTypes.accounts.userLists.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListsDelete : GTLRDataManagerQuery
+
+/**
+ *  Required. The name of the user list to delete. Format:
+ *  accountTypes/{account_type}/accounts/{account}/userLists/{user_list}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. If true, the request is validated but not executed. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRDataManager_Empty.
+ *
+ *  Deletes a UserList. Authorization Headers: This method supports the
+ *  following optional headers to define how the API authorizes access for the
+ *  request: * `login-account`: (Optional) The resource name of the account
+ *  where the Google Account of the credentials is a user. If not set, defaults
+ *  to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  @param name Required. The name of the user list to delete. Format:
+ *    accountTypes/{account_type}/accounts/{account}/userLists/{user_list}
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a UserList. Authorization Headers: This method supports the following
+ *  optional headers to define how the API authorizes access for the request: *
+ *  `login-account`: (Optional) The resource name of the account where the
+ *  Google Account of the credentials is a user. If not set, defaults to the
+ *  account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  Method: datamanager.accountTypes.accounts.userLists.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListsGet : GTLRDataManagerQuery
+
+/**
+ *  Required. The resource name of the UserList to retrieve. Format:
+ *  accountTypes/{account_type}/accounts/{account}/userLists/{user_list}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataManager_UserList.
+ *
+ *  Gets a UserList. Authorization Headers: This method supports the following
+ *  optional headers to define how the API authorizes access for the request: *
+ *  `login-account`: (Optional) The resource name of the account where the
+ *  Google Account of the credentials is a user. If not set, defaults to the
+ *  account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  @param name Required. The resource name of the UserList to retrieve. Format:
+ *    accountTypes/{account_type}/accounts/{account}/userLists/{user_list}
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists UserLists. Authorization Headers: This method supports the following
+ *  optional headers to define how the API authorizes access for the request: *
+ *  `login-account`: (Optional) The resource name of the account where the
+ *  Google Account of the credentials is a user. If not set, defaults to the
+ *  account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  Method: datamanager.accountTypes.accounts.userLists.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListsList : GTLRDataManagerQuery
+
+/**
+ *  Optional. A [filter string](https://google.aip.dev/160). All fields need to
+ *  be on the left hand side of each condition (for example: `display_name =
+ *  "list 1"`). Fields must be specified using either all [camel
+ *  case](https://en.wikipedia.org/wiki/Camel_case) or all [snake
+ *  case](https://en.wikipedia.org/wiki/Snake_case). Don't use a combination of
+ *  camel case and snake case. Supported operations: - `AND` - `=` - `!=` - `>`
+ *  - `>=` - `<` - `<=` - `:` (has) Supported fields: - `id` - `display_name` -
+ *  `description` - `membership_status` - `integration_code` - `access_reason` -
+ *  `ingested_user_list_info.upload_key_types`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of user lists to return. The service may return
+ *  fewer than this value. If unspecified, at most 50 user lists will be
+ *  returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListUserLists` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListUserLists` must match the call that provided the
+ *  page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent account which owns this collection of user lists.
+ *  Format: accountTypes/{account_type}/accounts/{account}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataManager_ListUserListsResponse.
+ *
+ *  Lists UserLists. Authorization Headers: This method supports the following
+ *  optional headers to define how the API authorizes access for the request: *
+ *  `login-account`: (Optional) The resource name of the account where the
+ *  Google Account of the credentials is a user. If not set, defaults to the
+ *  account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  @param parent Required. The parent account which owns this collection of
+ *    user lists. Format: accountTypes/{account_type}/accounts/{account}
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a UserList. Authorization Headers: This method supports the
+ *  following optional headers to define how the API authorizes access for the
+ *  request: * `login-account`: (Optional) The resource name of the account
+ *  where the Google Account of the credentials is a user. If not set, defaults
+ *  to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  Method: datamanager.accountTypes.accounts.userLists.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataManager
+ */
+@interface GTLRDataManagerQuery_AccountTypesAccountsUserListsPatch : GTLRDataManagerQuery
+
+/**
+ *  Identifier. The resource name of the user list. Format:
+ *  accountTypes/{account_type}/accounts/{account}/userLists/{user_list}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/** Optional. If true, the request is validated but not executed. */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRDataManager_UserList.
+ *
+ *  Updates a UserList. Authorization Headers: This method supports the
+ *  following optional headers to define how the API authorizes access for the
+ *  request: * `login-account`: (Optional) The resource name of the account
+ *  where the Google Account of the credentials is a user. If not set, defaults
+ *  to the account of the request. Format:
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
+ *  `linked-account`: (Optional) The resource name of the account with an
+ *  established product link to the `login-account`. Format:
+ *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *
+ *  @param object The @c GTLRDataManager_UserList to include in the query.
+ *  @param name Identifier. The resource name of the user list. Format:
+ *    accountTypes/{account_type}/accounts/{account}/userLists/{user_list}
+ *
+ *  @return GTLRDataManagerQuery_AccountTypesAccountsUserListsPatch
+ */
++ (instancetype)queryWithObject:(GTLRDataManager_UserList *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Uploads a list of AudienceMember resources to the provided Destination.
  *
  *  Method: datamanager.audienceMembers.ingest

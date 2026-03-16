@@ -3650,6 +3650,60 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsAskContexts
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1AskContextsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:askContexts";
+  GTLRAiplatformQuery_ProjectsLocationsAskContexts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleCloudAiplatformV1AskContextsResponse class];
+  query.loggingName = @"aiplatform.projects.locations.askContexts";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsAsyncRetrieveContexts
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1AsyncRetrieveContextsRequest *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}:asyncRetrieveContexts";
+  GTLRAiplatformQuery_ProjectsLocationsAsyncRetrieveContexts *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleLongrunningOperation class];
+  query.loggingName = @"aiplatform.projects.locations.asyncRetrieveContexts";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsAugmentPrompt
 
 @dynamic parent;
@@ -6062,6 +6116,33 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
   query.endpoint = endpoint;
   query.expectedObjectClass = [GTLRAiplatform_GoogleApiHttpBody class];
   query.loggingName = @"aiplatform.projects.locations.endpoints.openapi.embeddings";
+  return query;
+}
+
+@end
+
+@implementation GTLRAiplatformQuery_ProjectsLocationsEndpointsOpenapiResponses
+
+@dynamic deployedModelId, endpoint;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleApiHttpBody *)object
+                       endpoint:(NSString *)endpoint {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"endpoint" ];
+  NSString *pathURITemplate = @"v1/{+endpoint}/responses";
+  GTLRAiplatformQuery_ProjectsLocationsEndpointsOpenapiResponses *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleApiHttpBody class];
+  query.loggingName = @"aiplatform.projects.locations.endpoints.openapi.responses";
   return query;
 }
 
@@ -13694,6 +13775,37 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @end
 
+@implementation GTLRAiplatformQuery_ProjectsLocationsPublishersModelsInvokeInvoke
+
+@dynamic endpoint, invokeId;
+
++ (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1InvokeRequest *)object
+                       endpoint:(NSString *)endpoint
+                       invokeId:(NSString *)invokeId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"endpoint", @"invokeId"
+  ];
+  NSString *pathURITemplate = @"v1/{+endpoint}/invoke/{+invokeId}";
+  GTLRAiplatformQuery_ProjectsLocationsPublishersModelsInvokeInvoke *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.endpoint = endpoint;
+  query.invokeId = invokeId;
+  query.expectedObjectClass = [GTLRAiplatform_GoogleApiHttpBody class];
+  query.loggingName = @"aiplatform.projects.locations.publishers.models.invoke.invoke";
+  return query;
+}
+
+@end
+
 @implementation GTLRAiplatformQuery_ProjectsLocationsPublishersModelsPredict
 
 @dynamic endpoint;
@@ -14472,7 +14584,7 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @implementation GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesMemoriesCreate
 
-@dynamic parent;
+@dynamic memoryId, parent;
 
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1Memory *)object
                          parent:(NSString *)parent {
@@ -15187,7 +15299,7 @@ NSString * const kGTLRAiplatformViewPublisherModelViewUnspecified = @"PUBLISHER_
 
 @implementation GTLRAiplatformQuery_ProjectsLocationsReasoningEnginesSessionsCreate
 
-@dynamic parent;
+@dynamic parent, sessionId;
 
 + (instancetype)queryWithObject:(GTLRAiplatform_GoogleCloudAiplatformV1Session *)object
                          parent:(NSString *)parent {

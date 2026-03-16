@@ -372,65 +372,6 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Return the status of a URI submitted to Google WebRisk.
- *
- *  Method: threatintelligence.projects.alerts.refreshUriStatus
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeThreatIntelligenceServiceCloudPlatform
- */
-@interface GTLRThreatIntelligenceServiceQuery_ProjectsAlertsRefreshUriStatus : GTLRThreatIntelligenceServiceQuery
-
-/** Required. Name of alert to refresh status from WebRisk */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRThreatIntelligenceService_RefreshAlertUriStatusResponse.
- *
- *  Return the status of a URI submitted to Google WebRisk.
- *
- *  @param object The @c
- *    GTLRThreatIntelligenceService_RefreshAlertUriStatusRequest to include in
- *    the query.
- *  @param name Required. Name of alert to refresh status from WebRisk
- *
- *  @return GTLRThreatIntelligenceServiceQuery_ProjectsAlertsRefreshUriStatus
- */
-+ (instancetype)queryWithObject:(GTLRThreatIntelligenceService_RefreshAlertUriStatusRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Report the URI associated with an alert to Google WebRisk.
- *
- *  Method: threatintelligence.projects.alerts.reportAlertUri
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeThreatIntelligenceServiceCloudPlatform
- */
-@interface GTLRThreatIntelligenceServiceQuery_ProjectsAlertsReportAlertUri : GTLRThreatIntelligenceServiceQuery
-
-/** Required. Name of alert to submit to WebRisk. */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRThreatIntelligenceService_ReportAlertUriResponse.
- *
- *  Report the URI associated with an alert to Google WebRisk.
- *
- *  @param object The @c GTLRThreatIntelligenceService_ReportAlertUriRequest to
- *    include in the query.
- *  @param name Required. Name of alert to submit to WebRisk.
- *
- *  @return GTLRThreatIntelligenceServiceQuery_ProjectsAlertsReportAlertUri
- */
-+ (instancetype)queryWithObject:(GTLRThreatIntelligenceService_ReportAlertUriRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
  *  Marks an alert to closed state - RESOLVED.
  *
  *  Method: threatintelligence.projects.alerts.resolve
@@ -688,7 +629,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get a finding by name.
+ *  Get a finding by name. The `name` field should have the format:
+ *  `projects/{project}/findings/{finding}`
  *
  *  Method: threatintelligence.projects.findings.get
  *
@@ -703,7 +645,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRThreatIntelligenceService_Finding.
  *
- *  Get a finding by name.
+ *  Get a finding by name. The `name` field should have the format:
+ *  `projects/{project}/findings/{finding}`
  *
  *  @param name Required. Name of the finding to get.
  *
@@ -714,7 +657,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Get a list of findings that meet the filter criteria.
+ *  Get a list of findings that meet the filter criteria. The `parent` field in
+ *  ListFindingsRequest should have the format: projects/{project}
  *
  *  Method: threatintelligence.projects.findings.list
  *
@@ -744,7 +688,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRThreatIntelligenceService_ListFindingsResponse.
  *
- *  Get a list of findings that meet the filter criteria.
+ *  Get a list of findings that meet the filter criteria. The `parent` field in
+ *  ListFindingsRequest should have the format: projects/{project}
  *
  *  @param parent Required. Parent of the findings.
  *
@@ -760,10 +705,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  SearchFindings is a more powerful version of ListFindings that supports
- *  complex queries like "findings for issues" using functions such as
- *  `has_issue` and `has_asset` in the query string. Example to search for
- *  findings for a specific issue:
- *  `has_issue("name=\\"vaults/vault-12345/issues/issue-12345\\"")`)
+ *  complex queries like "findings for alerts" using functions such as
+ *  `has_alert` in the query string. The `parent` field in SearchFindingsRequest
+ *  should have the format: projects/{project} Example to search for findings
+ *  for a specific issue:
+ *  `has_alert("name=\\"projects/gti-12345/alerts/alert-12345\\"")`
  *
  *  Method: threatintelligence.projects.findings.search
  *
@@ -790,9 +736,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. Query on what findings will be returned. This supports the same
  *  filter criteria as FindingService.ListFindings as well as the following
- *  relationship queries `has_issue` and `has_asset`. Examples: -
- *  has_issue("name=\\"vaults/vault-12345/issues/issue-12345\\"") -
- *  has_asset("name=\\"vaults/vault-12345/assets/asset-12345\\"")
+ *  relationship query `has_alert`. Example: -
+ *  `has_alert("name=\\"projects/gti-12345/alerts/alert-12345\\"")`
  */
 @property(nonatomic, copy, nullable) NSString *query;
 
@@ -800,10 +745,11 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRThreatIntelligenceService_SearchFindingsResponse.
  *
  *  SearchFindings is a more powerful version of ListFindings that supports
- *  complex queries like "findings for issues" using functions such as
- *  `has_issue` and `has_asset` in the query string. Example to search for
- *  findings for a specific issue:
- *  `has_issue("name=\\"vaults/vault-12345/issues/issue-12345\\"")`)
+ *  complex queries like "findings for alerts" using functions such as
+ *  `has_alert` in the query string. The `parent` field in SearchFindingsRequest
+ *  should have the format: projects/{project} Example to search for findings
+ *  for a specific issue:
+ *  `has_alert("name=\\"projects/gti-12345/alerts/alert-12345\\"")`
  *
  *  @param parent Required. Parent of the findings. Format: vaults/{vault}
  *

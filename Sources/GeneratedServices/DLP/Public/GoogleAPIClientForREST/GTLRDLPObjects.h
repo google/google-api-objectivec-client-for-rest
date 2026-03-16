@@ -194,6 +194,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2KAnonymityHistogramBucket;
 @class GTLRDLP_GooglePrivacyDlpV2KAnonymityResult;
 @class GTLRDLP_GooglePrivacyDlpV2Key;
+@class GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataLabel;
 @class GTLRDLP_GooglePrivacyDlpV2KindExpression;
 @class GTLRDLP_GooglePrivacyDlpV2KMapEstimationConfig;
 @class GTLRDLP_GooglePrivacyDlpV2KMapEstimationHistogramBucket;
@@ -211,6 +212,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Location;
 @class GTLRDLP_GooglePrivacyDlpV2LocationSupport;
 @class GTLRDLP_GooglePrivacyDlpV2Manual;
+@class GTLRDLP_GooglePrivacyDlpV2MetadataKeyValueExpression;
 @class GTLRDLP_GooglePrivacyDlpV2MetadataLocation;
 @class GTLRDLP_GooglePrivacyDlpV2MultiRegionProcessing;
 @class GTLRDLP_GooglePrivacyDlpV2NumericalStatsConfig;
@@ -2075,6 +2077,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Category_Co
 // GTLRDLP_GooglePrivacyDlpV2Domain.signals
 
 /**
+ *  A table appears to contain embeddings of any type (for example, text, image,
+ *  multimodal). The `TEXT_EMBEDDING` signal might also be present if the table
+ *  contains text embeddings.
+ *
+ *  Value: "EMBEDDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_Embedding;
+/**
  *  One or more machine learning models are present.
  *
  *  Value: "MODEL"
@@ -2100,7 +2110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_Sig
  */
 FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_SourceCode;
 /**
- *  A table appears to be a text embedding.
+ *  A table appears to contain text embeddings.
  *
  *  Value: "TEXT_EMBEDDING"
  */
@@ -3027,6 +3037,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_Re
 // GTLRDLP_GooglePrivacyDlpV2MetadataLocation.type
 
 /**
+ *  Metadata extracted from the files.
+ *
+ *  Value: "CONTENT_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_ContentMetadata;
+/**
  *  Unused
  *
  *  Value: "METADATATYPE_UNSPECIFIED"
@@ -3849,7 +3865,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InfoType *> *infoTypes;
 
 /**
- *  How the adjustment rule is applied. Only MATCHING_TYPE_PARTIAL_MATCH is
+ *  How the adjustment rule is applied. Only `MATCHING_TYPE_PARTIAL_MATCH` is
  *  supported: - Partial match: adjusts the findings of infoTypes specified in
  *  the inspection rule when they have a nonempty intersection with a finding of
  *  an infoType specified in this adjustment rule.
@@ -5736,9 +5752,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  Set of detection rules to apply to all findings of this CustomInfoType.
- *  Rules are applied in order that they are specified. Not supported for the
- *  `surrogate_type`, `metadata_key_value_expression`, and `prompt`
- *  CustomInfoType.
+ *  Rules are applied in the order that they are specified. Only supported for
+ *  the `dictionary`, `regex`, and `stored_type` CustomInfoTypes.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2DetectionRule *> *detectionRules;
 
@@ -5747,8 +5762,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /**
  *  If set to EXCLUSION_TYPE_EXCLUDE this infoType will not cause a finding to
- *  be returned. It still can be used for rules matching. Not supported for the
- *  `metadata_key_value_expression` and `prompt` CustomInfoType.
+ *  be returned. It still can be used for rules matching. Only supported for the
+ *  `dictionary`, `regex`, and `stored_type` CustomInfoTypes.
  *
  *  Likely values:
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2CustomInfoType_ExclusionType_ExclusionTypeExclude
@@ -5792,6 +5807,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *        Highest chance of a false positive. (Value: "VERY_UNLIKELY")
  */
 @property(nonatomic, copy, nullable) NSString *likelihood;
+
+/** Key-value pair to detect in the metadata. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2MetadataKeyValueExpression *metadataKeyValueExpression;
 
 /** Regular expression based CustomInfoType. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2Regex *regex;
@@ -9437,7 +9455,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /**
  *  Set of rules to apply to the findings for this InspectConfig. Exclusion
  *  rules, contained in the set are executed in the end, other rules are
- *  executed in the order they are specified for each info type.
+ *  executed in the order they are specified for each info type. Not supported
+ *  for the `metadata_key_value_expression` CustomInfoType.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2InspectionRuleSet *> *ruleSet;
 
@@ -9826,6 +9845,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  path can have at most 100 elements.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2PathElement *> *path;
+
+@end
+
+
+/**
+ *  The metadata key that contains a finding.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataLabel : GTLRObject
+
+/**
+ *  The metadata key. The format depends on the source of the metadata. Example:
+ *  - `MSIP_Label_122709e3-8f6b-4860-985f-7f722a94f61e_Enabled` (a Microsoft
+ *  Purview Information Protection key example)
+ */
+@property(nonatomic, copy, nullable) NSString *key;
 
 @end
 
@@ -10549,9 +10583,27 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  Configuration for a custom infoType that detects key-value pairs in the
+ *  metadata matching the specified regular expressions.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2MetadataKeyValueExpression : GTLRObject
+
+/** The regular expression for the key. Key should be non-empty. */
+@property(nonatomic, copy, nullable) NSString *keyRegex;
+
+/** The regular expression for the value. Value should be non-empty. */
+@property(nonatomic, copy, nullable) NSString *valueRegex;
+
+@end
+
+
+/**
  *  Metadata Location
  */
 @interface GTLRDLP_GooglePrivacyDlpV2MetadataLocation : GTLRObject
+
+/** Metadata key that contains the finding. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataLabel *keyValueMetadataLabel;
 
 /** Storage metadata. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2StorageMetadataLabel *storageLabel;
@@ -10560,6 +10612,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Type of metadata containing the finding.
  *
  *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_ContentMetadata
+ *        Metadata extracted from the files. (Value: "CONTENT_METADATA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified
  *        Unused (Value: "METADATATYPE_UNSPECIFIED")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_StorageMetadata

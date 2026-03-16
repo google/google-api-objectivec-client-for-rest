@@ -605,6 +605,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_Ibo
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeCl;
 /** Value: "IBOPE_CO" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeCo;
+/** Value: "INTAGE_JP" */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_IntageJp;
 /** Value: "INVALID_TV_DATA_PROVIDER" */
 FOUNDATION_EXTERN NSString * const kGTLRDfareporting_Country_TvDataProviders_InvalidTvDataProvider;
 /** Value: "SAMBA_AU" */
@@ -4729,6 +4731,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Prod
 // ----------------------------------------------------------------------------
 // GTLRDfareporting_TvCampaignTimepoint.dateWindow
 
+/**
+ *  One Day.
+ *
+ *  Value: "DAYS_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_DaysOne;
 /**
  *  Eight weeks.
  *
@@ -18366,6 +18374,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
  *  The date window of the timepoint.
  *
  *  Likely values:
+ *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_DaysOne One Day.
+ *        (Value: "DAYS_ONE")
  *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksEight Eight
  *        weeks. (Value: "WEEKS_EIGHT")
  *    @arg @c kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksFour Four

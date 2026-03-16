@@ -178,7 +178,7 @@ NSString * const kGTLRClassroom_StudentSubmission_State_TurnedIn = @"TURNED_IN";
 //
 
 @implementation GTLRClassroom_AddOnAttachmentStudentSubmission
-@dynamic pointsEarned, postSubmissionState;
+@dynamic pointsEarned, postSubmissionState, userId;
 @end
 
 

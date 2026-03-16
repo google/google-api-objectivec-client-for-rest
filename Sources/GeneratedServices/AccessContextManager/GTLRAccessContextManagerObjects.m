@@ -729,6 +729,24 @@ NSString * const kGTLRAccessContextManager_SupportedService_SupportStage_Unimple
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAccessContextManager_ListSupportedPermissionsResponse
+//
+
+@implementation GTLRAccessContextManager_ListSupportedPermissionsResponse
+@dynamic nextPageToken, supportedPermissions;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportedPermissions" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAccessContextManager_ListSupportedServicesResponse
 //
 

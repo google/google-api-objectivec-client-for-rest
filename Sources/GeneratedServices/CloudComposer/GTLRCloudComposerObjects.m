@@ -91,6 +91,11 @@ NSString * const kGTLRCloudComposer_OperationMetadata_State_StateUnspecified = @
 NSString * const kGTLRCloudComposer_OperationMetadata_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRCloudComposer_OperationMetadata_State_Successful = @"SUCCESSFUL";
 
+// GTLRCloudComposer_PrivateEnvironmentConfig.networkingType
+NSString * const kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_NetworkingTypeUnspecified = @"NETWORKING_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_Private = @"PRIVATE";
+NSString * const kGTLRCloudComposer_PrivateEnvironmentConfig_NetworkingType_Public = @"PUBLIC";
+
 // GTLRCloudComposer_SoftwareConfig.webServerPluginsMode
 NSString * const kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_PluginsDisabled = @"PLUGINS_DISABLED";
 NSString * const kGTLRCloudComposer_SoftwareConfig_WebServerPluginsMode_PluginsEnabled = @"PLUGINS_ENABLED";
@@ -736,8 +741,9 @@ NSString * const kGTLRCloudComposer_TaskLogsRetentionConfig_StorageMode_TaskLogs
 @dynamic cloudComposerConnectionSubnetwork, cloudComposerNetworkIpv4CidrBlock,
          cloudComposerNetworkIpv4ReservedRange, cloudSqlIpv4CidrBlock,
          enablePrivateBuildsOnly, enablePrivateEnvironment,
-         enablePrivatelyUsedPublicIps, networkingConfig, privateClusterConfig,
-         webServerIpv4CidrBlock, webServerIpv4ReservedRange;
+         enablePrivatelyUsedPublicIps, networkingConfig, networkingType,
+         privateClusterConfig, webServerIpv4CidrBlock,
+         webServerIpv4ReservedRange;
 @end
 
 

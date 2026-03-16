@@ -885,6 +885,23 @@ NSString * const kGTLRAccessContextManagerAccessLevelFormatLevelFormatUnspecifie
 
 @end
 
+@implementation GTLRAccessContextManagerQuery_PermissionsList
+
+@dynamic pageSize, pageToken;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/permissions";
+  GTLRAccessContextManagerQuery_PermissionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRAccessContextManager_ListSupportedPermissionsResponse class];
+  query.loggingName = @"accesscontextmanager.permissions.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRAccessContextManagerQuery_ServicesGet
 
 @dynamic name;

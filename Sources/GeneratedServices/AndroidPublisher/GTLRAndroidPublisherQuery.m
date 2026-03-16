@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// changesInReviewBehavior
+NSString * const kGTLRAndroidPublisherChangesInReviewBehaviorCancelInReviewAndSubmit = @"CANCEL_IN_REVIEW_AND_SUBMIT";
+NSString * const kGTLRAndroidPublisherChangesInReviewBehaviorChangesInReviewBehaviorTypeUnspecified = @"CHANGES_IN_REVIEW_BEHAVIOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRAndroidPublisherChangesInReviewBehaviorErrorIfInReview = @"ERROR_IF_IN_REVIEW";
+
 // deobfuscationFileType
 NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeDeobfuscationFileTypeUnspecified = @"deobfuscationFileTypeUnspecified";
 NSString * const kGTLRAndroidPublisherDeobfuscationFileTypeNativeCode = @"nativeCode";
@@ -145,6 +150,25 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
   query.packageName = packageName;
   query.expectedObjectClass = [GTLRAndroidPublisher_ListDeviceTierConfigsResponse class];
   query.loggingName = @"androidpublisher.applications.deviceTierConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRAndroidPublisherQuery_ApplicationsTracksReleasesList
+
+@dynamic parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"androidpublisher/v3/{+parent}/releases";
+  GTLRAndroidPublisherQuery_ApplicationsTracksReleasesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRAndroidPublisher_ListReleaseSummariesResponse class];
+  query.loggingName = @"androidpublisher.applications.tracks.releases.list";
   return query;
 }
 
@@ -418,7 +442,7 @@ NSString * const kGTLRAndroidPublisherLatencyToleranceProductUpdateLatencyTolera
 
 @implementation GTLRAndroidPublisherQuery_EditsCommit
 
-@dynamic changesNotSentForReview, editId, packageName;
+@dynamic changesInReviewBehavior, changesNotSentForReview, editId, packageName;
 
 + (instancetype)queryWithPackageName:(NSString *)packageName
                               editId:(NSString *)editId {

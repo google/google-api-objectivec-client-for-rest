@@ -257,9 +257,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 @property(nonatomic, strong, nullable) NSNumber *lowLatencyJourneySynthesis;
 
 /**
- *  Optional. Input only. If true, relaxes safety filters for Gemini TTS. Only
- *  supported for accounts linked to Invoiced (Offline) Cloud billing accounts.
- *  Otherwise, will return result google.rpc.Code.INVALID_ARGUMENT.
+ *  Optional. Input only. If true, relaxes safety filters for Gemini TTS.
  *
  *  Uses NSNumber of boolValue.
  */

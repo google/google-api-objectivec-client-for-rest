@@ -20,6 +20,7 @@
 @class GTLRAnalyticsHub_AvroConfig;
 @class GTLRAnalyticsHub_BigQueryConfig;
 @class GTLRAnalyticsHub_BigQueryDatasetSource;
+@class GTLRAnalyticsHub_BigtableConfig;
 @class GTLRAnalyticsHub_Binding;
 @class GTLRAnalyticsHub_CloudStorageConfig;
 @class GTLRAnalyticsHub_DataExchange;
@@ -651,6 +652,53 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  required for data clean room exchanges.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAnalyticsHub_SelectedResource *> *selectedResources;
+
+@end
+
+
+/**
+ *  Configuration for a Bigtable subscription. The Pub/Sub message will be
+ *  written to a Bigtable row as follows: - row key: subscription name and
+ *  message ID delimited by #. - columns: message bytes written to a single
+ *  column family "data" with an empty-string column qualifier. - cell
+ *  timestamp: the message publish timestamp.
+ */
+@interface GTLRAnalyticsHub_BigtableConfig : GTLRObject
+
+/**
+ *  Optional. The app profile to use for the Bigtable writes. If not specified,
+ *  the "default" application profile will be used. The app profile must use
+ *  single-cluster routing.
+ */
+@property(nonatomic, copy, nullable) NSString *appProfileId;
+
+/**
+ *  Optional. The service account to use to write to Bigtable. The subscription
+ *  creator or updater that specifies this field must have
+ *  `iam.serviceAccounts.actAs` permission on the service account. If not
+ *  specified, the Pub/Sub [service
+ *  agent]({$universe.dns_names.final_documentation_domain}/iam/docs/service-agents),
+ *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  Optional. The unique name of the table to write messages to. Values are of
+ *  the form `projects//instances//tables/`.
+ */
+@property(nonatomic, copy, nullable) NSString *table;
+
+/**
+ *  Optional. When true, write the subscription name, message_id, publish_time,
+ *  attributes, and ordering_key to additional columns in the table under the
+ *  pubsub_metadata column family. The subscription name, message_id, and
+ *  publish_time fields are put in their own columns while all other message
+ *  properties (other than data) are written to a JSON object in the attributes
+ *  column.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeMetadata;
 
 @end
 
@@ -1314,6 +1362,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
  *  is used to configure it.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_BigQueryConfig *bigqueryConfig;
+
+/**
+ *  Optional. If delivery to Bigtable is used with this subscription, this field
+ *  is used to configure it.
+ */
+@property(nonatomic, strong, nullable) GTLRAnalyticsHub_BigtableConfig *bigtableConfig;
 
 /**
  *  Optional. If delivery to Google Cloud Storage is used with this

@@ -1965,6 +1965,33 @@ NSString * const kGTLRCloudHealthcareViewSchematizedOnly       = @"SCHEMATIZED_O
 
 @end
 
+@implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresBulkDelete
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_BulkDeleteResourcesRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:bulkDelete";
+  GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresBulkDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudHealthcare_Operation class];
+  query.loggingName = @"healthcare.projects.locations.datasets.fhirStores.bulkDelete";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresBulkExportGroup
 
 @dynamic xSince, xType, name, organizeOutputBy, outputFormat;

@@ -752,7 +752,7 @@ NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Succeeded =
 //
 
 @implementation GTLRCloudKMS_Digest
-@dynamic sha256, sha384, sha512;
+@dynamic externalMu, sha256, sha384, sha512;
 @end
 
 

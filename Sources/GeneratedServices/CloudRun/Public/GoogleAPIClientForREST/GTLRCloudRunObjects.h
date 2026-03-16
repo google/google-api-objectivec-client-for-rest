@@ -46,6 +46,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2HTTPGetAction;
 @class GTLRCloudRun_GoogleCloudRunV2HTTPHeader;
 @class GTLRCloudRun_GoogleCloudRunV2ImageExportStatus;
+@class GTLRCloudRun_GoogleCloudRunV2InlinedSource;
 @class GTLRCloudRun_GoogleCloudRunV2Instance;
 @class GTLRCloudRun_GoogleCloudRunV2Instance_Annotations;
 @class GTLRCloudRun_GoogleCloudRunV2Instance_Labels;
@@ -78,6 +79,7 @@
 @class GTLRCloudRun_GoogleCloudRunV2ServiceMesh;
 @class GTLRCloudRun_GoogleCloudRunV2ServiceScaling;
 @class GTLRCloudRun_GoogleCloudRunV2SourceCode;
+@class GTLRCloudRun_GoogleCloudRunV2SourceFile;
 @class GTLRCloudRun_GoogleCloudRunV2StorageSource;
 @class GTLRCloudRun_GoogleCloudRunV2Task;
 @class GTLRCloudRun_GoogleCloudRunV2Task_Annotations;
@@ -1718,6 +1720,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions.sourceProvenanceHash
 
 /**
+ *  Use a dirsum_sha256 hash.
+ *
+ *  Value: "DIRSUM_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_DirsumSha256;
+/**
  *  Dirhash of a Go module's source code which is then hex-encoded.
  *
  *  Value: "GO_MODULE_H1"
@@ -1879,6 +1887,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Failu
 // ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash.type
 
+/**
+ *  Use a dirsum_sha256 hash.
+ *
+ *  Value: "DIRSUM_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_DirsumSha256;
 /**
  *  Dirhash of a Go module's source code which is then hex-encoded.
  *
@@ -2199,11 +2213,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleCloudRunV2CloudSqlInstance : GTLRObject
 
 /**
- *  The Cloud SQL instance connection names, as can be found in
- *  https://console.cloud.google.com/sql/instances. Visit
+ *  A list of Cloud SQL instance connection names. Cloud Run uses these to
+ *  establish connections to the specified Cloud SQL instances. While the SQL
+ *  instance name itself is unique within a project, the full connection name
+ *  requires the location for proper routing. Format:
+ *  `{project}:{location}:{instance}` Example:
+ *  `my-project:us-central1:my-instance` You can find this value on the
+ *  instance's **Overview** page in the Google Cloud console or by using the
+ *  following `gcloud` command: ```sh gcloud sql instances describe
+ *  INSTANCE_NAME \\ --format='value(connectionName)' ``` Visit
  *  https://cloud.google.com/sql/docs/mysql/connect-run for more information on
- *  how to connect Cloud SQL and Cloud Run. Format:
- *  {project}:{location}:{instance}
+ *  how to connect Cloud SQL and Cloud Run.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *instances;
 
@@ -3256,6 +3276,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** The image tag as it will appear in Artifact Registry. */
 @property(nonatomic, copy, nullable) NSString *tag;
+
+@end
+
+
+/**
+ *  Inlined source.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2InlinedSource : GTLRObject
+
+/** Required. Input only. The source code. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2SourceFile *> *sources;
 
 @end
 
@@ -4378,10 +4409,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Condition *> *conditions;
 
-/**
- *  Containers holds the list which define the units of execution for this
- *  Revision.
- */
+/** Holds the list which define the units of execution for this Revision. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Container *> *containers;
 
 /** Output only. The creation time. */
@@ -4659,7 +4687,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Optional. Determines a threshold for concurrency utilization before scaling
- *  begins.
+ *  begins. Accepted values are between `0.1` and `0.95` (inclusive) or `0.0` to
+ *  disable concurrency utilization as threshold for scaling.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4667,6 +4696,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Optional. Determines a threshold for CPU utilization before scaling begins.
+ *  Accepted values are between `0.1` and `0.95` (inclusive) or `0.0` to disable
+ *  CPU utilization as threshold for scaling.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4731,10 +4762,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Optional. Arbitrary version identifier for the API client. */
 @property(nonatomic, copy, nullable) NSString *clientVersion;
 
-/**
- *  Holds the single container that defines the unit of execution for this
- *  Revision.
- */
+/** Holds the list which define the units of execution for this Revision. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleCloudRunV2Container *> *containers;
 
 /**
@@ -5447,6 +5475,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** The source is a Cloud Storage bucket. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2CloudStorageSource *cloudStorageSource;
+
+/**
+ *  Optional. Input only. Source code inlined in the request. Cloud Run will
+ *  store the inlined_source to Cloud Storage and replace the field with
+ *  cloud_storage_source.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleCloudRunV2InlinedSource *inlinedSource;
+
+@end
+
+
+/**
+ *  Source file.
+ */
+@interface GTLRCloudRun_GoogleCloudRunV2SourceFile : GTLRObject
+
+/** Required. Input only. The source code as raw text. */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  Required. Input only. The file name for the source code. e.g., `"index.js"`
+ *  or `"node_modules/dependency.js"`. The filename must be less than 255
+ *  characters and cannot contain `..`, `./`, `//`, or end with a `/`. Cloud Run
+ *  will place the files in the container subdirectories, please use relative
+ *  path to access the file.
+ */
+@property(nonatomic, copy, nullable) NSString *filename;
 
 @end
 
@@ -6189,7 +6244,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Optional. Path within the volume from which the container's volume should be
- *  mounted. Defaults to "" (volume's root).
+ *  mounted. Defaults to "" (volume's root). This field is currently ignored for
+ *  Secret volumes.
  */
 @property(nonatomic, copy, nullable) NSString *subPath;
 
@@ -7794,6 +7850,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  The type of hash that was performed.
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_DirsumSha256 Use
+ *        a dirsum_sha256 hash. (Value: "DIRSUM_SHA256")
  *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash_Type_GoModuleH1
  *        Dirhash of a Go module's source code which is then hex-encoded.
  *        (Value: "GO_MODULE_H1")

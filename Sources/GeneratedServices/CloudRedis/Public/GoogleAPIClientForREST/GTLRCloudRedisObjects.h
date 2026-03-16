@@ -93,6 +93,7 @@
 @class GTLRCloudRedis_ResourceMaintenanceInfo;
 @class GTLRCloudRedis_ResourceMaintenanceSchedule;
 @class GTLRCloudRedis_RetentionSettings;
+@class GTLRCloudRedis_SignalMetadata;
 @class GTLRCloudRedis_StateInfo;
 @class GTLRCloudRedis_Status;
 @class GTLRCloudRedis_Status_Details_Item;
@@ -552,6 +553,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalT
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeExtendedSupport;
 /**
+ *  Represents if the last backup of a resource is older than 24 hours.
+ *
+ *  Value: "SIGNAL_TYPE_LAST_BACKUP_OLD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeLastBackupOld;
+/**
  *  Represents if a resource has no automated backup policy.
  *
  *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
@@ -564,6 +571,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalT
  *  Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeNoRootPassword;
+/**
+ *  Represents if a resource is not protected by automatic failover.
+ *
+ *  Value: "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover;
 /**
  *  Outdated Minor Version
  *
@@ -583,6 +596,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalT
  *  Value: "SIGNAL_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeUnspecified;
+/**
+ *  Represents if a resource version is nearing end of life.
+ *
+ *  Value: "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeVersionNearingEndOfLife;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_CrossClusterReplicationConfig.clusterRole
@@ -1357,6 +1376,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalD
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeVerboseErrorLogging;
 /**
+ *  Database version nearing end of life.
+ *
+ *  Value: "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeVersionNearingEndOfLife;
+/**
  *  Represents violate org policy restrict public ip.
  *
  *  Value: "SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP"
@@ -1694,6 +1719,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Inst
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_Secondary GTLR_DEPRECATED;
 /**
+ *  Represents a dataset resource.
+ *
+ *  Value: "SUB_RESOURCE_TYPE_DATASET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeDataset;
+/**
  *  An instance acting as an external primary.
  *
  *  Value: "SUB_RESOURCE_TYPE_EXTERNAL_PRIMARY"
@@ -1712,11 +1743,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Inst
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypePrimary;
 /**
+ *  An instance acting as Read Pool.
+ *
+ *  Value: "SUB_RESOURCE_TYPE_READ_POOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeReadPool;
+/**
  *  An instance acting as a read-replica.
  *
  *  Value: "SUB_RESOURCE_TYPE_READ_REPLICA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeReadReplica;
+/**
+ *  Represents a reservation resource.
+ *
+ *  Value: "SUB_RESOURCE_TYPE_RESERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeReservation;
 /**
  *  A cluster or an instance acting as a secondary.
  *
@@ -2386,6 +2429,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeVerboseErrorLogging;
 /**
+ *  Database version nearing end of life.
+ *
+ *  Value: "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeVersionNearingEndOfLife;
+/**
  *  Represents violate org policy restrict public ip.
  *
  *  Value: "SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP"
@@ -2551,6 +2600,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_Si
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport;
 /**
+ *  Represents if the last backup of a resource is older than 24 hours.
+ *
+ *  Value: "SIGNAL_TYPE_LAST_BACKUP_OLD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeLastBackupOld;
+/**
  *  Represents if a resource has no automated backup policy.
  *
  *  Value: "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY"
@@ -2563,6 +2618,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_Si
  *  Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword;
+/**
+ *  Represents if a resource is not protected by automatic failover.
+ *
+ *  Value: "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover;
 /**
  *  Outdated Minor Version
  *
@@ -2582,6 +2643,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_Si
  *  Value: "SIGNAL_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeUnspecified;
+/**
+ *  Represents if a resource version is nearing end of life.
+ *
+ *  Value: "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeVersionNearingEndOfLife;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudRedis_EncryptionInfo.encryptionType
@@ -4297,6 +4364,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  */
 @interface GTLRCloudRedis_Cluster : GTLRObject
 
+/** Optional. The ACL policy to be applied to the cluster. */
+@property(nonatomic, copy, nullable) NSString *aclPolicy;
+
 /**
  *  Optional. Immutable. Deprecated, do not use.
  *
@@ -4810,12 +4880,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeExtendedSupport
  *        Represents if a resource version is in extended support. (Value:
  *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
+ *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeLastBackupOld
+ *        Represents if the last backup of a resource is older than 24 hours.
+ *        (Value: "SIGNAL_TYPE_LAST_BACKUP_OLD")
  *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has no automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
  *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeNoRootPassword
  *        Represents if a database has a password configured for the root
  *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
+ *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover
+ *        Represents if a resource is not protected by automatic failover.
+ *        (Value: "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER")
  *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeOutdatedMinorVersion
  *        Outdated Minor Version (Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
  *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeUnencryptedConnections
@@ -4823,6 +4899,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        or not. (Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
  *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeUnspecified
  *        Unspecified signal type. (Value: "SIGNAL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_ConfigBasedSignalData_SignalType_SignalTypeVersionNearingEndOfLife
+ *        Represents if a resource version is nearing end of life. (Value:
+ *        "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE")
  */
 @property(nonatomic, copy, nullable) NSString *signalType;
 
@@ -5440,6 +5519,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if the log_error_verbosity database flag for a Cloud SQL
  *        for PostgreSQL instance is not set to default or stricter (default or
  *        terse). (Value: "SIGNAL_TYPE_VERBOSE_ERROR_LOGGING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeVersionNearingEndOfLife
+ *        Database version nearing end of life. (Value:
+ *        "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceHealthSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp
  *        Represents violate org policy restrict public ip. (Value:
  *        "SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP")
@@ -5709,6 +5791,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        An instance acting as a read-replica. (Value: "READ_REPLICA")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_Secondary A
  *        cluster or an instance acting as a secondary. (Value: "SECONDARY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeDataset
+ *        Represents a dataset resource. (Value: "SUB_RESOURCE_TYPE_DATASET")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeExternalPrimary
  *        An instance acting as an external primary. (Value:
  *        "SUB_RESOURCE_TYPE_EXTERNAL_PRIMARY")
@@ -5717,9 +5801,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypePrimary
  *        A regular primary database instance. (Value:
  *        "SUB_RESOURCE_TYPE_PRIMARY")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeReadPool
+ *        An instance acting as Read Pool. (Value:
+ *        "SUB_RESOURCE_TYPE_READ_POOL")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeReadReplica
  *        An instance acting as a read-replica. (Value:
  *        "SUB_RESOURCE_TYPE_READ_REPLICA")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeReservation
+ *        Represents a reservation resource. (Value:
+ *        "SUB_RESOURCE_TYPE_RESERVATION")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeSecondary
  *        A cluster or an instance acting as a secondary. (Value:
  *        "SUB_RESOURCE_TYPE_SECONDARY")
@@ -6190,6 +6280,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        Represents if the log_error_verbosity database flag for a Cloud SQL
  *        for PostgreSQL instance is not set to default or stricter (default or
  *        terse). (Value: "SIGNAL_TYPE_VERBOSE_ERROR_LOGGING")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeVersionNearingEndOfLife
+ *        Database version nearing end of life. (Value:
+ *        "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceRecommendationSignalData_SignalType_SignalTypeViolatePolicyRestrictPublicIp
  *        Represents violate org policy restrict public ip. (Value:
  *        "SIGNAL_TYPE_VIOLATE_POLICY_RESTRICT_PUBLIC_IP")
@@ -6268,9 +6361,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 /**
  *  Database resource signal data. This is used to send signals to Condor which
  *  are based on the DB/Instance/Fleet level configurations. These will be used
- *  to send signals for all inventory types. Next ID: 7
+ *  to send signals for all inventory types. Next ID: 10
  */
 @interface GTLRCloudRedis_DatabaseResourceSignalData : GTLRObject
+
+/** Deprecated: Use signal_metadata_list instead. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_BackupRun *backupRun GTLR_DEPRECATED;
 
 /** Required. Full Resource name of the source resource. */
 @property(nonatomic, copy, nullable) NSString *fullResourceName;
@@ -6278,15 +6374,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 /** Required. Last time signal was refreshed */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
 
+/** Resource location. */
+@property(nonatomic, copy, nullable) NSString *location;
+
 /** Database resource id. */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_DatabaseResourceId *resourceId;
 
 /**
- *  Signal data for boolean signals.
+ *  Deprecated: Use signal_metadata_list instead.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *signalBoolValue;
+@property(nonatomic, strong, nullable) NSNumber *signalBoolValue GTLR_DEPRECATED;
+
+/**
+ *  This will support array of OneOf signal metadata information for a given
+ *  signal type.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRedis_SignalMetadata *> *signalMetadataList;
 
 /**
  *  Required. Output only. Signal state of the signal
@@ -6317,12 +6422,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeExtendedSupport
  *        Represents if a resource version is in extended support. (Value:
  *        "SIGNAL_TYPE_EXTENDED_SUPPORT")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeLastBackupOld
+ *        Represents if the last backup of a resource is older than 24 hours.
+ *        (Value: "SIGNAL_TYPE_LAST_BACKUP_OLD")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNoAutomatedBackupPolicy
  *        Represents if a resource has no automated backup policy. (Value:
  *        "SIGNAL_TYPE_NO_AUTOMATED_BACKUP_POLICY")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNoRootPassword
  *        Represents if a database has a password configured for the root
  *        account or not. (Value: "SIGNAL_TYPE_NO_ROOT_PASSWORD")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeNotProtectedByAutomaticFailover
+ *        Represents if a resource is not protected by automatic failover.
+ *        (Value: "SIGNAL_TYPE_NOT_PROTECTED_BY_AUTOMATIC_FAILOVER")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeOutdatedMinorVersion
  *        Outdated Minor Version (Value: "SIGNAL_TYPE_OUTDATED_MINOR_VERSION")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeUnencryptedConnections
@@ -6330,6 +6441,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *        or not. (Value: "SIGNAL_TYPE_UNENCRYPTED_CONNECTIONS")
  *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeUnspecified
  *        Unspecified signal type. (Value: "SIGNAL_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudRedis_DatabaseResourceSignalData_SignalType_SignalTypeVersionNearingEndOfLife
+ *        Represents if a resource version is nearing end of life. (Value:
+ *        "SIGNAL_TYPE_VERSION_NEARING_END_OF_LIFE")
  */
 @property(nonatomic, copy, nullable) NSString *signalType;
 
@@ -6921,12 +7035,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 @property(nonatomic, copy, nullable) NSString *readReplicasMode;
 
 /**
- *  Optional. Redis configuration parameters, according to
- *  http://redis.io/topics/config. Currently, the only supported parameters are:
- *  Redis version 3.2 and newer: * maxmemory-policy * notify-keyspace-events
- *  Redis version 4.0 and newer: * activedefrag * lfu-decay-time *
- *  lfu-log-factor * maxmemory-gb Redis version 5.0 and newer: *
- *  stream-node-max-bytes * stream-node-max-entries
+ *  Optional. Redis configuration parameters, according to [Redis
+ *  configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/).
+ *  Currently, the only supported parameters are: Redis version 3.2 and newer: *
+ *  maxmemory-policy * notify-keyspace-events Redis version 4.0 and newer: *
+ *  activedefrag * lfu-decay-time * lfu-log-factor * maxmemory-gb Redis version
+ *  5.0 and newer: * stream-node-max-bytes * stream-node-max-entries
  */
 @property(nonatomic, strong, nullable) GTLRCloudRedis_Instance_RedisConfigs *redisConfigs;
 
@@ -7074,12 +7188,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
 
 
 /**
- *  Optional. Redis configuration parameters, according to
- *  http://redis.io/topics/config. Currently, the only supported parameters are:
- *  Redis version 3.2 and newer: * maxmemory-policy * notify-keyspace-events
- *  Redis version 4.0 and newer: * activedefrag * lfu-decay-time *
- *  lfu-log-factor * maxmemory-gb Redis version 5.0 and newer: *
- *  stream-node-max-bytes * stream-node-max-entries
+ *  Optional. Redis configuration parameters, according to [Redis
+ *  configuration](https://redis.io/docs/latest/operate/oss_and_stack/management/config/).
+ *  Currently, the only supported parameters are: Redis version 3.2 and newer: *
+ *  maxmemory-policy * notify-keyspace-events Redis version 4.0 and newer: *
+ *  activedefrag * lfu-decay-time * lfu-log-factor * maxmemory-gb Redis version
+ *  5.0 and newer: * stream-node-max-bytes * stream-node-max-entries
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -8630,6 +8744,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_Z
  *  `projects/{project}/locations/{location}/sharedRegionalCertificateAuthority`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  SignalMetadata contains one of the signal metadata proto messages associated
+ *  with a SignalType. This proto will be mapped to SignalMetadata message in
+ *  storage.proto. Next ID: 3
+ */
+@interface GTLRCloudRedis_SignalMetadata : GTLRObject
+
+/** Signal data for backup runs. */
+@property(nonatomic, strong, nullable) GTLRCloudRedis_BackupRun *backupRun;
+
+/**
+ *  Signal data for boolean signals.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *signalBoolValue;
 
 @end
 

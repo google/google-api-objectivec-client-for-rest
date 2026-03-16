@@ -3945,6 +3945,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
+ *  Bulk deletes the FHIR resources from the given FHIR store. This method
+ *  returns an Operation that can be used to track the progress of the deletion
+ *  by calling GetOperation. The success and secondary_success counters
+ *  correspond to the deleted current version and historical versions,
+ *  respectively.
+ *
+ *  Method: healthcare.projects.locations.datasets.fhirStores.bulkDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudHealthcareCloudHealthcare
+ *    @c kGTLRAuthScopeCloudHealthcareCloudPlatform
+ */
+@interface GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresBulkDelete : GTLRCloudHealthcareQuery
+
+/**
+ *  Required. The name of the FHIR store to bulk delete resources from, in the
+ *  format of
+ *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudHealthcare_Operation.
+ *
+ *  Bulk deletes the FHIR resources from the given FHIR store. This method
+ *  returns an Operation that can be used to track the progress of the deletion
+ *  by calling GetOperation. The success and secondary_success counters
+ *  correspond to the deleted current version and historical versions,
+ *  respectively.
+ *
+ *  @param object The @c GTLRCloudHealthcare_BulkDeleteResourcesRequest to
+ *    include in the query.
+ *  @param name Required. The name of the FHIR store to bulk delete resources
+ *    from, in the format of
+ *    `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
+ *
+ *  @return GTLRCloudHealthcareQuery_ProjectsLocationsDatasetsFhirStoresBulkDelete
+ */
++ (instancetype)queryWithObject:(GTLRCloudHealthcare_BulkDeleteResourcesRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Bulk exports a Group resource and resources in the member field, including
  *  related resources for each Patient member. The export for each Patient is
  *  identical to a GetPatientEverything request. Implements the FHIR
@@ -8109,7 +8153,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: healthcare.projects.locations.list
  *
@@ -8150,7 +8198,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcareViewSchematizedOnly;
 /**
  *  Fetches a @c GTLRCloudHealthcare_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

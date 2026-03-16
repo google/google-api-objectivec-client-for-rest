@@ -28,6 +28,13 @@ NSString * const kGTLRDataManager_Consent_AdUserData_ConsentDenied = @"CONSENT_D
 NSString * const kGTLRDataManager_Consent_AdUserData_ConsentGranted = @"CONSENT_GRANTED";
 NSString * const kGTLRDataManager_Consent_AdUserData_ConsentStatusUnspecified = @"CONSENT_STATUS_UNSPECIFIED";
 
+// GTLRDataManager_ContactIdInfo.dataSourceType
+NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeFirstParty = @"DATA_SOURCE_TYPE_FIRST_PARTY";
+NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeThirdPartyCreditBureau = @"DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU";
+NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeThirdPartyPartnerData = @"DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA";
+NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeThirdPartyVoterFile = @"DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE";
+NSString * const kGTLRDataManager_ContactIdInfo_DataSourceType_DataSourceTypeUnspecified = @"DATA_SOURCE_TYPE_UNSPECIFIED";
+
 // GTLRDataManager_ErrorCount.reason
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorOperatingAccountMismatchForAdIdentifier = @"PROCESSING_ERROR_OPERATING_ACCOUNT_MISMATCH_FOR_AD_IDENTIFIER";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonAwsAuthFailed = @"PROCESSING_ERROR_REASON_AWS_AUTH_FAILED";
@@ -75,6 +82,14 @@ NSString * const kGTLRDataManager_IngestAudienceMembersRequest_Encoding_Base64 =
 NSString * const kGTLRDataManager_IngestAudienceMembersRequest_Encoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
 NSString * const kGTLRDataManager_IngestAudienceMembersRequest_Encoding_Hex = @"HEX";
 
+// GTLRDataManager_IngestedUserListInfo.uploadKeyTypes
+NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_ContactId = @"CONTACT_ID";
+NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_MobileId = @"MOBILE_ID";
+NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_PairId = @"PAIR_ID";
+NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_PseudonymousId = @"PSEUDONYMOUS_ID";
+NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_UploadKeyTypeUnspecified = @"UPLOAD_KEY_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataManager_IngestedUserListInfo_UploadKeyTypes_UserId = @"USER_ID";
+
 // GTLRDataManager_IngestEventsRequest.encoding
 NSString * const kGTLRDataManager_IngestEventsRequest_Encoding_Base64 = @"BASE64";
 NSString * const kGTLRDataManager_IngestEventsRequest_Encoding_EncodingUnspecified = @"ENCODING_UNSPECIFIED";
@@ -93,11 +108,54 @@ NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_Matc
 NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRangeNotEligible = @"MATCH_RATE_RANGE_NOT_ELIGIBLE";
 NSString * const kGTLRDataManager_IngestUserDataStatus_UploadMatchRateRange_MatchRateRangeUnknown = @"MATCH_RATE_RANGE_UNKNOWN";
 
+// GTLRDataManager_MarketingDataInsight.dimension
+NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_AffinityUserInterest = @"AFFINITY_USER_INTEREST";
+NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_AgeRange = @"AGE_RANGE";
+NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_AudienceInsightsDimensionUnknown = @"AUDIENCE_INSIGHTS_DIMENSION_UNKNOWN";
+NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_AudienceInsightsDimensionUnspecified = @"AUDIENCE_INSIGHTS_DIMENSION_UNSPECIFIED";
+NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_Gender = @"GENDER";
+NSString * const kGTLRDataManager_MarketingDataInsight_Dimension_InMarketUserInterest = @"IN_MARKET_USER_INTEREST";
+
+// GTLRDataManager_MarketingDataInsightsAttribute.ageRange
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange1824 = @"AGE_RANGE_18_24";
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange2534 = @"AGE_RANGE_25_34";
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange3544 = @"AGE_RANGE_35_44";
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange4554 = @"AGE_RANGE_45_54";
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange5564 = @"AGE_RANGE_55_64";
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRange65Up = @"AGE_RANGE_65_UP";
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRangeUnknown = @"AGE_RANGE_UNKNOWN";
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_AgeRange_AgeRangeUnspecified = @"AGE_RANGE_UNSPECIFIED";
+
+// GTLRDataManager_MarketingDataInsightsAttribute.gender
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderFemale = @"GENDER_FEMALE";
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderMale = @"GENDER_MALE";
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderUnknown = @"GENDER_UNKNOWN";
+NSString * const kGTLRDataManager_MarketingDataInsightsAttribute_Gender_GenderUnspecified = @"GENDER_UNSPECIFIED";
+
+// GTLRDataManager_MobileIdInfo.dataSourceType
+NSString * const kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeFirstParty = @"DATA_SOURCE_TYPE_FIRST_PARTY";
+NSString * const kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeThirdPartyCreditBureau = @"DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU";
+NSString * const kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeThirdPartyPartnerData = @"DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA";
+NSString * const kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeThirdPartyVoterFile = @"DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE";
+NSString * const kGTLRDataManager_MobileIdInfo_DataSourceType_DataSourceTypeUnspecified = @"DATA_SOURCE_TYPE_UNSPECIFIED";
+
+// GTLRDataManager_MobileIdInfo.keySpace
+NSString * const kGTLRDataManager_MobileIdInfo_KeySpace_Android = @"ANDROID";
+NSString * const kGTLRDataManager_MobileIdInfo_KeySpace_Ios    = @"IOS";
+NSString * const kGTLRDataManager_MobileIdInfo_KeySpace_KeySpaceUnspecified = @"KEY_SPACE_UNSPECIFIED";
+
+// GTLRDataManager_PartnerAudienceInfo.partnerAudienceSource
+NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_AgencyProviderAudience = @"AGENCY_PROVIDER_AUDIENCE";
+NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_CommerceAudience = @"COMMERCE_AUDIENCE";
+NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_LinearTvAudience = @"LINEAR_TV_AUDIENCE";
+NSString * const kGTLRDataManager_PartnerAudienceInfo_PartnerAudienceSource_PartnerAudienceSourceUnspecified = @"PARTNER_AUDIENCE_SOURCE_UNSPECIFIED";
+
 // GTLRDataManager_ProductAccount.accountType
 NSString * const kGTLRDataManager_ProductAccount_AccountType_AccountTypeUnspecified = @"ACCOUNT_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_DataPartner = @"DATA_PARTNER";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_DisplayVideoAdvertiser = @"DISPLAY_VIDEO_ADVERTISER";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_DisplayVideoPartner = @"DISPLAY_VIDEO_PARTNER";
+NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAdManagerAudienceLink = @"GOOGLE_AD_MANAGER_AUDIENCE_LINK";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAds = @"GOOGLE_ADS";
 NSString * const kGTLRDataManager_ProductAccount_AccountType_GoogleAnalyticsProperty = @"GOOGLE_ANALYTICS_PROPERTY";
 
@@ -107,6 +165,12 @@ NSString * const kGTLRDataManager_ProductAccount_Product_DisplayVideoAdvertiser 
 NSString * const kGTLRDataManager_ProductAccount_Product_DisplayVideoPartner = @"DISPLAY_VIDEO_PARTNER";
 NSString * const kGTLRDataManager_ProductAccount_Product_GoogleAds = @"GOOGLE_ADS";
 NSString * const kGTLRDataManager_ProductAccount_Product_ProductUnspecified = @"PRODUCT_UNSPECIFIED";
+
+// GTLRDataManager_PseudonymousIdInfo.syncStatus
+NSString * const kGTLRDataManager_PseudonymousIdInfo_SyncStatus_Created = @"CREATED";
+NSString * const kGTLRDataManager_PseudonymousIdInfo_SyncStatus_Failed = @"FAILED";
+NSString * const kGTLRDataManager_PseudonymousIdInfo_SyncStatus_ReadyForUse = @"READY_FOR_USE";
+NSString * const kGTLRDataManager_PseudonymousIdInfo_SyncStatus_SyncStatusUnspecified = @"SYNC_STATUS_UNSPECIFIED";
 
 // GTLRDataManager_RemoveAudienceMembersRequest.encoding
 NSString * const kGTLRDataManager_RemoveAudienceMembersRequest_Encoding_Base64 = @"BASE64";
@@ -124,6 +188,88 @@ NSString * const kGTLRDataManager_RequestStatusPerDestination_RequestStatus_Succ
 NSString * const kGTLRDataManager_TermsOfService_CustomerMatchTermsOfServiceStatus_Accepted = @"ACCEPTED";
 NSString * const kGTLRDataManager_TermsOfService_CustomerMatchTermsOfServiceStatus_Rejected = @"REJECTED";
 NSString * const kGTLRDataManager_TermsOfService_CustomerMatchTermsOfServiceStatus_TermsOfServiceStatusUnspecified = @"TERMS_OF_SERVICE_STATUS_UNSPECIFIED";
+
+// GTLRDataManager_UserIdInfo.dataSourceType
+NSString * const kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeFirstParty = @"DATA_SOURCE_TYPE_FIRST_PARTY";
+NSString * const kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeThirdPartyCreditBureau = @"DATA_SOURCE_TYPE_THIRD_PARTY_CREDIT_BUREAU";
+NSString * const kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeThirdPartyPartnerData = @"DATA_SOURCE_TYPE_THIRD_PARTY_PARTNER_DATA";
+NSString * const kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeThirdPartyVoterFile = @"DATA_SOURCE_TYPE_THIRD_PARTY_VOTER_FILE";
+NSString * const kGTLRDataManager_UserIdInfo_DataSourceType_DataSourceTypeUnspecified = @"DATA_SOURCE_TYPE_UNSPECIFIED";
+
+// GTLRDataManager_UserList.accessReason
+NSString * const kGTLRDataManager_UserList_AccessReason_AccessReasonUnspecified = @"ACCESS_REASON_UNSPECIFIED";
+NSString * const kGTLRDataManager_UserList_AccessReason_Affiliated = @"AFFILIATED";
+NSString * const kGTLRDataManager_UserList_AccessReason_Licensed = @"LICENSED";
+NSString * const kGTLRDataManager_UserList_AccessReason_Owned  = @"OWNED";
+NSString * const kGTLRDataManager_UserList_AccessReason_Shared = @"SHARED";
+NSString * const kGTLRDataManager_UserList_AccessReason_Subscribed = @"SUBSCRIBED";
+
+// GTLRDataManager_UserList.accountAccessStatus
+NSString * const kGTLRDataManager_UserList_AccountAccessStatus_AccessStatusUnspecified = @"ACCESS_STATUS_UNSPECIFIED";
+NSString * const kGTLRDataManager_UserList_AccountAccessStatus_Disabled = @"DISABLED";
+NSString * const kGTLRDataManager_UserList_AccountAccessStatus_Enabled = @"ENABLED";
+
+// GTLRDataManager_UserList.closingReason
+NSString * const kGTLRDataManager_UserList_ClosingReason_ClosingReasonUnspecified = @"CLOSING_REASON_UNSPECIFIED";
+NSString * const kGTLRDataManager_UserList_ClosingReason_Unused = @"UNUSED";
+
+// GTLRDataManager_UserList.membershipStatus
+NSString * const kGTLRDataManager_UserList_MembershipStatus_Closed = @"CLOSED";
+NSString * const kGTLRDataManager_UserList_MembershipStatus_MembershipStatusUnspecified = @"MEMBERSHIP_STATUS_UNSPECIFIED";
+NSString * const kGTLRDataManager_UserList_MembershipStatus_Open = @"OPEN";
+
+// GTLRDataManager_UserListDirectLicense.clientAccountType
+NSString * const kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoAdvertiser = @"USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER";
+NSString * const kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoPartner = @"USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER";
+NSString * const kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeGoogleAdManagerAudienceLink = @"USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_AD_MANAGER_AUDIENCE_LINK";
+NSString * const kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeGoogleAds = @"USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS";
+NSString * const kGTLRDataManager_UserListDirectLicense_ClientAccountType_UserListLicenseClientAccountTypeUnknown = @"USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN";
+
+// GTLRDataManager_UserListDirectLicense.status
+NSString * const kGTLRDataManager_UserListDirectLicense_Status_UserListLicenseStatusDisabled = @"USER_LIST_LICENSE_STATUS_DISABLED";
+NSString * const kGTLRDataManager_UserListDirectLicense_Status_UserListLicenseStatusEnabled = @"USER_LIST_LICENSE_STATUS_ENABLED";
+NSString * const kGTLRDataManager_UserListDirectLicense_Status_UserListLicenseStatusUnspecified = @"USER_LIST_LICENSE_STATUS_UNSPECIFIED";
+
+// GTLRDataManager_UserListGlobalLicense.licenseType
+NSString * const kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeDataMartBuySide = @"USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE";
+NSString * const kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeDataMartSellSide = @"USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE";
+NSString * const kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeReseller = @"USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER";
+NSString * const kGTLRDataManager_UserListGlobalLicense_LicenseType_UserListGlobalLicenseTypeUnspecified = @"USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED";
+
+// GTLRDataManager_UserListGlobalLicense.status
+NSString * const kGTLRDataManager_UserListGlobalLicense_Status_UserListLicenseStatusDisabled = @"USER_LIST_LICENSE_STATUS_DISABLED";
+NSString * const kGTLRDataManager_UserListGlobalLicense_Status_UserListLicenseStatusEnabled = @"USER_LIST_LICENSE_STATUS_ENABLED";
+NSString * const kGTLRDataManager_UserListGlobalLicense_Status_UserListLicenseStatusUnspecified = @"USER_LIST_LICENSE_STATUS_UNSPECIFIED";
+
+// GTLRDataManager_UserListGlobalLicenseCustomerInfo.clientAccountType
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoAdvertiser = @"USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_ADVERTISER";
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeDisplayVideoPartner = @"USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_DISPLAY_VIDEO_PARTNER";
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeGoogleAdManagerAudienceLink = @"USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_AD_MANAGER_AUDIENCE_LINK";
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeGoogleAds = @"USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_GOOGLE_ADS";
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_ClientAccountType_UserListLicenseClientAccountTypeUnknown = @"USER_LIST_LICENSE_CLIENT_ACCOUNT_TYPE_UNKNOWN";
+
+// GTLRDataManager_UserListGlobalLicenseCustomerInfo.licenseType
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeDataMartBuySide = @"USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_BUY_SIDE";
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeDataMartSellSide = @"USER_LIST_GLOBAL_LICENSE_TYPE_DATA_MART_SELL_SIDE";
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeReseller = @"USER_LIST_GLOBAL_LICENSE_TYPE_RESELLER";
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_LicenseType_UserListGlobalLicenseTypeUnspecified = @"USER_LIST_GLOBAL_LICENSE_TYPE_UNSPECIFIED";
+
+// GTLRDataManager_UserListGlobalLicenseCustomerInfo.status
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_Status_UserListLicenseStatusDisabled = @"USER_LIST_LICENSE_STATUS_DISABLED";
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_Status_UserListLicenseStatusEnabled = @"USER_LIST_LICENSE_STATUS_ENABLED";
+NSString * const kGTLRDataManager_UserListGlobalLicenseCustomerInfo_Status_UserListLicenseStatusUnspecified = @"USER_LIST_LICENSE_STATUS_UNSPECIFIED";
+
+// GTLRDataManager_UserListLicensePricing.buyerApprovalState
+NSString * const kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_Approved = @"APPROVED";
+NSString * const kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_Pending = @"PENDING";
+NSString * const kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_Rejected = @"REJECTED";
+NSString * const kGTLRDataManager_UserListLicensePricing_BuyerApprovalState_UserListPricingBuyerApprovalStateUnspecified = @"USER_LIST_PRICING_BUYER_APPROVAL_STATE_UNSPECIFIED";
+
+// GTLRDataManager_UserListLicensePricing.costType
+NSString * const kGTLRDataManager_UserListLicensePricing_CostType_Cpc = @"CPC";
+NSString * const kGTLRDataManager_UserListLicensePricing_CostType_Cpm = @"CPM";
+NSString * const kGTLRDataManager_UserListLicensePricing_CostType_MediaShare = @"MEDIA_SHARE";
+NSString * const kGTLRDataManager_UserListLicensePricing_CostType_UserListPricingCostTypeUnspecified = @"USER_LIST_PRICING_COST_TYPE_UNSPECIFIED";
 
 // GTLRDataManager_UserProperties.customerType
 NSString * const kGTLRDataManager_UserProperties_CustomerType_CustomerTypeUnspecified = @"CUSTOMER_TYPE_UNSPECIFIED";
@@ -175,7 +321,8 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_AudienceMember
-@dynamic consent, destinationReferences, mobileData, pairData, userData;
+@dynamic consent, destinationReferences, mobileData, pairData, ppidData,
+         userData, userIdData;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -194,6 +341,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_AwsWrappedKeyInfo
 @dynamic encryptedDek, kekUri, keyType, roleArn;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_Baseline
+//
+
+@implementation GTLRDataManager_Baseline
+@dynamic baselineLocation, locationAutoDetectionEnabled;
 @end
 
 
@@ -223,6 +380,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_Consent
 @dynamic adPersonalization, adUserData;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_ContactIdInfo
+//
+
+@implementation GTLRDataManager_ContactIdInfo
+@dynamic dataSourceType, matchRatePercentage;
 @end
 
 
@@ -262,6 +429,15 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_DeviceInfo
 @dynamic ipAddress, userAgent;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_Empty
+//
+
+@implementation GTLRDataManager_Empty
 @end
 
 
@@ -399,7 +575,27 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 @implementation GTLRDataManager_IngestAudienceMembersStatus
 @dynamic mobileDataIngestionStatus, pairDataIngestionStatus,
-         userDataIngestionStatus;
+         ppidDataIngestionStatus, userDataIngestionStatus,
+         userIdDataIngestionStatus;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_IngestedUserListInfo
+//
+
+@implementation GTLRDataManager_IngestedUserListInfo
+@dynamic contactIdInfo, mobileIdInfo, pairIdInfo, partnerAudienceInfo,
+         pseudonymousIdInfo, uploadKeyTypes, userIdInfo;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"uploadKeyTypes" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -464,11 +660,31 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_IngestPpidDataStatus
+//
+
+@implementation GTLRDataManager_IngestPpidDataStatus
+@dynamic ppidCount, recordCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_IngestUserDataStatus
 //
 
 @implementation GTLRDataManager_IngestUserDataStatus
 @dynamic recordCount, uploadMatchRateRange, userIdentifierCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_IngestUserIdDataStatus
+//
+
+@implementation GTLRDataManager_IngestUserIdDataStatus
+@dynamic recordCount, userIdCount;
 @end
 
 
@@ -503,6 +719,140 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_ListUserListDirectLicensesResponse
+//
+
+@implementation GTLRDataManager_ListUserListDirectLicensesResponse
+@dynamic nextPageToken, userListDirectLicenses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userListDirectLicenses" : [GTLRDataManager_UserListDirectLicense class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userListDirectLicenses";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_ListUserListGlobalLicenseCustomerInfosResponse
+//
+
+@implementation GTLRDataManager_ListUserListGlobalLicenseCustomerInfosResponse
+@dynamic nextPageToken, userListGlobalLicenseCustomerInfos;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userListGlobalLicenseCustomerInfos" : [GTLRDataManager_UserListGlobalLicenseCustomerInfo class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userListGlobalLicenseCustomerInfos";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_ListUserListGlobalLicensesResponse
+//
+
+@implementation GTLRDataManager_ListUserListGlobalLicensesResponse
+@dynamic nextPageToken, userListGlobalLicenses;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userListGlobalLicenses" : [GTLRDataManager_UserListGlobalLicense class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userListGlobalLicenses";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_ListUserListsResponse
+//
+
+@implementation GTLRDataManager_ListUserListsResponse
+@dynamic nextPageToken, userLists;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userLists" : [GTLRDataManager_UserList class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userLists";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_Location
+//
+
+@implementation GTLRDataManager_Location
+@dynamic regionCodes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"regionCodes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_MarketingDataInsight
+//
+
+@implementation GTLRDataManager_MarketingDataInsight
+@dynamic attributes, dimension;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attributes" : [GTLRDataManager_MarketingDataInsightsAttribute class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_MarketingDataInsightsAttribute
+//
+
+@implementation GTLRDataManager_MarketingDataInsightsAttribute
+@dynamic ageRange, gender, lift, userInterestId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_MobileData
 //
 
@@ -516,6 +866,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_MobileIdInfo
+//
+
+@implementation GTLRDataManager_MobileIdInfo
+@dynamic appId, dataSourceType, keySpace;
 @end
 
 
@@ -539,11 +899,70 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_PairIdInfo
+//
+
+@implementation GTLRDataManager_PairIdInfo
+@dynamic advertiserIdentifierCount, cleanRoomIdentifier, matchRatePercentage,
+         publisherId, publisherName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_PartnerAudienceInfo
+//
+
+@implementation GTLRDataManager_PartnerAudienceInfo
+@dynamic commercePartner, partnerAudienceSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_PartnerLink
+//
+
+@implementation GTLRDataManager_PartnerLink
+@dynamic name, owningAccount, partnerAccount, partnerLinkId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_PpidData
+//
+
+@implementation GTLRDataManager_PpidData
+@dynamic ppids;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"ppids" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_ProductAccount
 //
 
 @implementation GTLRDataManager_ProductAccount
 @dynamic accountId, accountType, product;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_PseudonymousIdInfo
+//
+
+@implementation GTLRDataManager_PseudonymousIdInfo
+@dynamic billableRecordCount, syncStatus;
 @end
 
 
@@ -582,7 +1001,8 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_RemoveAudienceMembersStatus
-@dynamic mobileDataRemovalStatus, pairDataRemovalStatus, userDataRemovalStatus;
+@dynamic mobileDataRemovalStatus, pairDataRemovalStatus, ppidDataRemovalStatus,
+         userDataRemovalStatus, userIdDataRemovalStatus;
 @end
 
 
@@ -608,11 +1028,31 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_RemovePpidDataStatus
+//
+
+@implementation GTLRDataManager_RemovePpidDataStatus
+@dynamic ppidCount, recordCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_RemoveUserDataStatus
 //
 
 @implementation GTLRDataManager_RemoveUserDataStatus
 @dynamic recordCount, userIdentifierCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_RemoveUserIdDataStatus
+//
+
+@implementation GTLRDataManager_RemoveUserIdDataStatus
+@dynamic recordCount, userIdCount;
 @end
 
 
@@ -625,6 +1065,34 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 @dynamic audienceMembersIngestionStatus, audienceMembersRemovalStatus,
          destination, errorInfo, eventsIngestionStatus, requestStatus,
          warningInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_RetrieveInsightsRequest
+//
+
+@implementation GTLRDataManager_RetrieveInsightsRequest
+@dynamic baseline, userListId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_RetrieveInsightsResponse
+//
+
+@implementation GTLRDataManager_RetrieveInsightsResponse
+@dynamic marketingDataInsights;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"marketingDataInsights" : [GTLRDataManager_MarketingDataInsight class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -643,6 +1111,38 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_SearchPartnerLinksResponse
+//
+
+@implementation GTLRDataManager_SearchPartnerLinksResponse
+@dynamic nextPageToken, partnerLinks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"partnerLinks" : [GTLRDataManager_PartnerLink class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"partnerLinks";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_SizeInfo
+//
+
+@implementation GTLRDataManager_SizeInfo
+@dynamic displayNetworkMembersCount, searchNetworkMembersCount;
 @end
 
 
@@ -680,6 +1180,16 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_TargetNetworkInfo
+//
+
+@implementation GTLRDataManager_TargetNetworkInfo
+@dynamic eligibleForDisplay, eligibleForSearch;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_TermsOfService
 //
 
@@ -708,11 +1218,133 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataManager_UserIdData
+//
+
+@implementation GTLRDataManager_UserIdData
+@dynamic userId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataManager_UserIdentifier
 //
 
 @implementation GTLRDataManager_UserIdentifier
 @dynamic address, emailAddress, phoneNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_UserIdInfo
+//
+
+@implementation GTLRDataManager_UserIdInfo
+@dynamic dataSourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_UserList
+//
+
+@implementation GTLRDataManager_UserList
+@dynamic accessReason, accountAccessStatus, closingReason, descriptionProperty,
+         displayName, identifier, ingestedUserListInfo, integrationCode,
+         membershipDuration, membershipStatus, name, readOnly, sizeInfo,
+         targetNetworkInfo;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"identifier" : @"id"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_UserListDirectLicense
+//
+
+@implementation GTLRDataManager_UserListDirectLicense
+@dynamic clientAccountDisplayName, clientAccountId, clientAccountType,
+         historicalPricings, metrics, name, pricing, status,
+         userListDisplayName, userListId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"historicalPricings" : [GTLRDataManager_UserListLicensePricing class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_UserListGlobalLicense
+//
+
+@implementation GTLRDataManager_UserListGlobalLicense
+@dynamic historicalPricings, licenseType, metrics, name, pricing, status,
+         userListDisplayName, userListId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"historicalPricings" : [GTLRDataManager_UserListLicensePricing class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_UserListGlobalLicenseCustomerInfo
+//
+
+@implementation GTLRDataManager_UserListGlobalLicenseCustomerInfo
+@dynamic clientAccountDisplayName, clientAccountId, clientAccountType,
+         historicalPricings, licenseType, metrics, name, pricing, status,
+         userListDisplayName, userListId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"historicalPricings" : [GTLRDataManager_UserListLicensePricing class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_UserListLicenseMetrics
+//
+
+@implementation GTLRDataManager_UserListLicenseMetrics
+@dynamic clickCount, endDate, impressionCount, revenueUsdMicros, startDate;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_UserListLicensePricing
+//
+
+@implementation GTLRDataManager_UserListLicensePricing
+@dynamic buyerApprovalState, costMicros, costType, currencyCode, endTime,
+         maxCostMicros, pricingActive, pricingId, startTime;
 @end
 
 

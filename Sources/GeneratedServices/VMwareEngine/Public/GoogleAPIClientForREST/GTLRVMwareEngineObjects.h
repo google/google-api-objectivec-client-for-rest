@@ -266,16 +266,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVer
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsVersionUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRVMwareEngine_DatastoreMountConfig.securityType
-
-/**
- *  The default value. This value should never be used.
- *
- *  Value: "SECURITY_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_DatastoreMountConfig_SecurityType_SecurityTypeUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRVMwareEngine_ExternalAccessRule.action
 
 /**
@@ -1396,6 +1386,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_Comp
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_Vcenter;
 /**
+ *  VMware Tools.
+ *
+ *  Value: "VM_TOOLS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_VmTools;
+/**
  *  The default value. This value should never be used.
  *
  *  Value: "VMWARE_COMPONENT_TYPE_UNSPECIFIED"
@@ -2179,7 +2175,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 @interface GTLRVMwareEngine_DatastoreMountConfig : GTLRObject
 
 /**
- *  Optional. NFS is accessed by hosts in read mode Optional. Default value used
+ *  Optional. The access mode of the NFS volume. Optional. Default value used
  *  will be READ_WRITE
  *
  *  Likely values:
@@ -2194,9 +2190,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 @property(nonatomic, copy, nullable) NSString *accessMode;
 
 /**
- *  Required. The resource name of the datastore to unmount. The datastore
- *  requested to be mounted should be in same region/zone as the cluster.
- *  Resource names are schemeless URIs that follow the conventions in
+ *  Required. The resource name of the datastore to mount. Resource names are
+ *  schemeless URIs that follow the conventions in
  *  https://cloud.google.com/apis/design/resource_names. For example:
  *  `projects/my-project/locations/us-central1/datastores/my-datastore`
  */
@@ -2222,16 +2217,6 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 @property(nonatomic, copy, nullable) NSString *nfsVersion;
 
 /**
- *  Optional. ONLY required when NFS 4.1 version is used
- *
- *  Likely values:
- *    @arg @c kGTLRVMwareEngine_DatastoreMountConfig_SecurityType_SecurityTypeUnspecified
- *        The default value. This value should never be used. (Value:
- *        "SECURITY_TYPE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *securityType;
-
-/**
  *  Output only. Server IP addresses of the NFS volume. For NFS 3, you can only
  *  provide a single server IP address or DNS names.
  */
@@ -2246,18 +2231,24 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
 @interface GTLRVMwareEngine_DatastoreNetwork : GTLRObject
 
 /**
- *  Optional. The number of connections of the NFS volume. Spported from vsphere
- *  8.0u1
+ *  Optional. connection_count is used to set multiple connections from NFS
+ *  client on ESXi host to NFS server. A higher number of connections results in
+ *  better performance on datastores. In MountDatastore API by default max 4
+ *  connections are configured. User can set value of connection_count between 1
+ *  to 4. Connection_count is supported from vsphere 8.0u1 for earlier version 1
+ *  connection count is set on the ESXi hosts.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *connectionCount;
 
 /**
- *  Optional. The Maximal Transmission Unit (MTU) of the datastore. System sets
- *  default MTU size. It prefers the VPC peering MTU, falling back to the VEN
- *  MTU if no peering MTU is found. when detected, and falling back to the VEN
- *  MTU otherwise.
+ *  Optional. MTU value is set on the VMKernel adapter for the NFS traffic. By
+ *  default standard 1500 MTU size is set in MountDatastore API which is good
+ *  for typical setups. However google VPC networks supports jumbo MTU 8896. We
+ *  recommend to tune this value based on the NFS traffic performance.
+ *  Performance can be determined using benchmarking I/O tools like fio
+ *  (Flexible I/O Tester) utility.
  *
  *  Uses NSNumber of intValue.
  */
@@ -4138,7 +4129,7 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  */
 @interface GTLRVMwareEngine_NfsDatastore : GTLRObject
 
-/** Google service file service configuration */
+/** Google file service configuration */
 @property(nonatomic, strong, nullable) GTLRVMwareEngine_GoogleFileService *googleFileService;
 
 /** GCVE file service configuration */
@@ -5579,6 +5570,8 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  *        upgrade coordinator (Value: "NSXT_UC")
  *    @arg @c kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_Vcenter
  *        vcenter (Value: "VCENTER")
+ *    @arg @c kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_VmTools
+ *        VMware Tools. (Value: "VM_TOOLS")
  *    @arg @c kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_VmwareComponentTypeUnspecified
  *        The default value. This value should never be used. (Value:
  *        "VMWARE_COMPONENT_TYPE_UNSPECIFIED")

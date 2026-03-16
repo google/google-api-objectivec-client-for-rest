@@ -26,6 +26,13 @@ NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataSt
 NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusFailed = @"QUANTILE_DATA_STATUS_FAILED";
 NSString * const kGTLRDataproc_ApplicationInfo_QuantileDataStatus_QuantileDataStatusUnspecified = @"QUANTILE_DATA_STATUS_UNSPECIFIED";
 
+// GTLRDataproc_AttachedDiskConfig.diskType
+NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_DiskTypeUnspecified = @"DISK_TYPE_UNSPECIFIED";
+NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskBalanced = @"HYPERDISK_BALANCED";
+NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskExtreme = @"HYPERDISK_EXTREME";
+NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskMl = @"HYPERDISK_ML";
+NSString * const kGTLRDataproc_AttachedDiskConfig_DiskType_HyperdiskThroughput = @"HYPERDISK_THROUGHPUT";
+
 // GTLRDataproc_AuthenticationConfig.userWorkloadAuthenticationType
 NSString * const kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_AuthenticationTypeUnspecified = @"AUTHENTICATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRDataproc_AuthenticationConfig_UserWorkloadAuthenticationType_EndUserCredentials = @"END_USER_CREDENTIALS";
@@ -654,6 +661,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_AttachedDiskConfig
+//
+
+@implementation GTLRDataproc_AttachedDiskConfig
+@dynamic diskSizeGb, diskType, provisionedIops, provisionedThroughput;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_AuthenticationConfig
 //
 
@@ -1131,8 +1148,17 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_DiskConfig
-@dynamic bootDiskProvisionedIops, bootDiskProvisionedThroughput, bootDiskSizeGb,
-         bootDiskType, localSsdInterface, numLocalSsds;
+@dynamic attachedDiskConfigs, bootDiskProvisionedIops,
+         bootDiskProvisionedThroughput, bootDiskSizeGb, bootDiskType,
+         localSsdInterface, numLocalSsds;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"attachedDiskConfigs" : [GTLRDataproc_AttachedDiskConfig class]
+  };
+  return map;
+}
+
 @end
 
 

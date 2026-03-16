@@ -601,6 +601,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_BootDiskDefaults_Disk
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalanced;
 /**
+ *  Hyperdisk balanced high availability disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED_HIGH_AVAILABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalancedHighAvailability;
+/**
  *  SSD hard disk type.
  *
  *  Value: "COMPUTE_ENGINE_DISK_TYPE_SSD"
@@ -688,6 +694,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineDisk_Dis
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeHyperdiskBalanced;
 /**
+ *  Hyperdisk balanced high availability disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED_HIGH_AVAILABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeHyperdiskBalancedHighAvailability;
+/**
  *  SSD hard disk type.
  *
  *  Value: "COMPUTE_ENGINE_DISK_TYPE_SSD"
@@ -765,6 +777,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineTargetDe
  *  Value: "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalanced;
+/**
+ *  Hyperdisk balanced high availability disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED_HIGH_AVAILABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineTargetDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalancedHighAvailability;
 /**
  *  SSD hard disk type.
  *
@@ -865,6 +883,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineTargetDe
  *  Value: "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_DiskType_ComputeEngineDiskTypeHyperdiskBalanced;
+/**
+ *  Hyperdisk balanced high availability disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED_HIGH_AVAILABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_ComputeEngineTargetDetails_DiskType_ComputeEngineDiskTypeHyperdiskBalancedHighAvailability;
 /**
  *  SSD hard disk type.
  *
@@ -1430,6 +1454,12 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_PersistentDiskDefault
  *  Value: "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalanced;
+/**
+ *  Hyperdisk balanced high availability disk type.
+ *
+ *  Value: "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED_HIGH_AVAILABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalancedHighAvailability;
 /**
  *  SSD hard disk type.
  *
@@ -2581,6 +2611,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *    @arg @c kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalanced
  *        Hyperdisk balanced disk type. (Value:
  *        "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED")
+ *    @arg @c kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalancedHighAvailability
+ *        Hyperdisk balanced high availability disk type. (Value:
+ *        "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED_HIGH_AVAILABILITY")
  *    @arg @c kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeSsd
  *        SSD hard disk type. (Value: "COMPUTE_ENGINE_DISK_TYPE_SSD")
  *    @arg @c kGTLRVMMigrationService_BootDiskDefaults_DiskType_ComputeEngineDiskTypeStandard
@@ -2769,6 +2802,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *    @arg @c kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeHyperdiskBalanced
  *        Hyperdisk balanced disk type. (Value:
  *        "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED")
+ *    @arg @c kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeHyperdiskBalancedHighAvailability
+ *        Hyperdisk balanced high availability disk type. (Value:
+ *        "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED_HIGH_AVAILABILITY")
  *    @arg @c kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeSsd
  *        SSD hard disk type. (Value: "COMPUTE_ENGINE_DISK_TYPE_SSD")
  *    @arg @c kGTLRVMMigrationService_ComputeEngineDisk_DiskType_ComputeEngineDiskTypeStandard
@@ -2917,6 +2953,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *    @arg @c kGTLRVMMigrationService_ComputeEngineTargetDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalanced
  *        Hyperdisk balanced disk type. (Value:
  *        "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED")
+ *    @arg @c kGTLRVMMigrationService_ComputeEngineTargetDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalancedHighAvailability
+ *        Hyperdisk balanced high availability disk type. (Value:
+ *        "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED_HIGH_AVAILABILITY")
  *    @arg @c kGTLRVMMigrationService_ComputeEngineTargetDefaults_DiskType_ComputeEngineDiskTypeSsd
  *        SSD hard disk type. (Value: "COMPUTE_ENGINE_DISK_TYPE_SSD")
  *    @arg @c kGTLRVMMigrationService_ComputeEngineTargetDefaults_DiskType_ComputeEngineDiskTypeStandard
@@ -3118,6 +3157,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *    @arg @c kGTLRVMMigrationService_ComputeEngineTargetDetails_DiskType_ComputeEngineDiskTypeHyperdiskBalanced
  *        Hyperdisk balanced disk type. (Value:
  *        "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED")
+ *    @arg @c kGTLRVMMigrationService_ComputeEngineTargetDetails_DiskType_ComputeEngineDiskTypeHyperdiskBalancedHighAvailability
+ *        Hyperdisk balanced high availability disk type. (Value:
+ *        "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED_HIGH_AVAILABILITY")
  *    @arg @c kGTLRVMMigrationService_ComputeEngineTargetDetails_DiskType_ComputeEngineDiskTypeSsd
  *        SSD hard disk type. (Value: "COMPUTE_ENGINE_DISK_TYPE_SSD")
  *    @arg @c kGTLRVMMigrationService_ComputeEngineTargetDetails_DiskType_ComputeEngineDiskTypeStandard
@@ -5494,6 +5536,9 @@ FOUNDATION_EXTERN NSString * const kGTLRVMMigrationService_VmwareVmDetails_Power
  *    @arg @c kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalanced
  *        Hyperdisk balanced disk type. (Value:
  *        "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED")
+ *    @arg @c kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeHyperdiskBalancedHighAvailability
+ *        Hyperdisk balanced high availability disk type. (Value:
+ *        "COMPUTE_ENGINE_DISK_TYPE_HYPERDISK_BALANCED_HIGH_AVAILABILITY")
  *    @arg @c kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeSsd
  *        SSD hard disk type. (Value: "COMPUTE_ENGINE_DISK_TYPE_SSD")
  *    @arg @c kGTLRVMMigrationService_PersistentDiskDefaults_DiskType_ComputeEngineDiskTypeStandard

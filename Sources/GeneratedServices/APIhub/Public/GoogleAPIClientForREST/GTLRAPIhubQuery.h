@@ -352,6 +352,50 @@ FOUNDATION_EXTERN NSString * const kGTLRAPIhubViewMcpTool;
 @end
 
 /**
+ *  Update an Api Hub instance. The following fields in the ApiHubInstance can
+ *  be updated: * disable_search * vertex_location * agent_registry_sync_config
+ *  The update_mask should be used to specify the fields being updated.
+ *
+ *  Method: apihub.projects.locations.apiHubInstances.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAPIhubCloudPlatform
+ */
+@interface GTLRAPIhubQuery_ProjectsLocationsApiHubInstancesPatch : GTLRAPIhubQuery
+
+/**
+ *  Identifier. Format:
+ *  `projects/{project}/locations/{location}/apiHubInstances/{apiHubInstance}`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRAPIhub_GoogleLongrunningOperation.
+ *
+ *  Update an Api Hub instance. The following fields in the ApiHubInstance can
+ *  be updated: * disable_search * vertex_location * agent_registry_sync_config
+ *  The update_mask should be used to specify the fields being updated.
+ *
+ *  @param object The @c GTLRAPIhub_GoogleCloudApihubV1ApiHubInstance to include
+ *    in the query.
+ *  @param name Identifier. Format:
+ *    `projects/{project}/locations/{location}/apiHubInstances/{apiHubInstance}`.
+ *
+ *  @return GTLRAPIhubQuery_ProjectsLocationsApiHubInstancesPatch
+ */
++ (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1ApiHubInstance *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Create an API resource in the API hub. Once an API resource is created,
  *  versions can be added to it.
  *

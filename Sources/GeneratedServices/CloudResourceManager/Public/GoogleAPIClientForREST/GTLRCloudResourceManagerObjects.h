@@ -1944,16 +1944,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudResourceManager_TagKey_Purpose_Purp
 
 
 /**
- *  A TagBinding represents a connection between a TagValue and a cloud resource
- *  Once a TagBinding is created, the TagValue is applied to all the descendants
- *  of the Google Cloud resource.
+ *  A TagBinding represents a connection between a TagValue and a cloud
+ *  resource. When a TagBinding is created, the TagValue is applied to all the
+ *  descendants of the Google Cloud resource.
  */
 @interface GTLRCloudResourceManager_TagBinding : GTLRObject
 
 /**
  *  Output only. The name of the TagBinding. This is a String of the form:
  *  `tagBindings/{full-resource-name}/{tag-value-name}` (e.g.
- *  `tagBindings/%2F%2Fcloudresourcemanager.googleapis.com%2Fprojects%2F123/tagValues/456`).
+ *  `tagBindings/%2F%2Fcloudresourcemanager.googleapis.com%2Fprojects%2F123/tagValues/456`)
+ *  or `tagBindings/{full-resource-name}/{tag-key-name}` (e.g.
+ *  `tagBindings/%2F%2Fcloudresourcemanager.googleapis.com%2Fprojects%2F123/tagKeys/123`).
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

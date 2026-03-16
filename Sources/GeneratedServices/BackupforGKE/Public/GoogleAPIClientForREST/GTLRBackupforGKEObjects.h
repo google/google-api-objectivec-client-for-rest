@@ -970,6 +970,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Output only. The total number of user managed namespaces contained in the
+ *  Backup.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *namespaceCount;
+
+/**
  *  Output only. If false, Backup will fail when Backup for GKE detects
  *  Kubernetes configuration that is non-standard or requires additional setup
  *  to restore. Inherited from the parent BackupPlan's permissive_mode value.
@@ -1391,6 +1399,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
  *  `projects/ * /locations/ * /backupPlans/ *`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The number of user managed namespaces backed up in the last
+ *  successful Backup created via this BackupPlan.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *protectedNamespaceCount;
 
 /**
  *  Output only. The number of Kubernetes Pods backed up in the last successful

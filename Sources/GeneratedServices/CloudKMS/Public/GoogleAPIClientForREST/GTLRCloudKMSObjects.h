@@ -4087,6 +4087,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 @interface GTLRCloudKMS_Digest : GTLRObject
 
 /**
+ *  A message digest produced with SHAKE-256, to be used with ML-DSA external-μ
+ *  algorithms only. See "message representative" note in section 6.2, algorithm
+ *  7 of the FIPS-204 standard: https://doi.org/10.6028/nist.fips.204
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *externalMu;
+
+/**
  *  A message digest produced with the SHA-256 algorithm.
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably

@@ -51,9 +51,6 @@ NSString * const kGTLRVMwareEngine_DatastoreMountConfig_AccessMode_ReadWrite = @
 NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsV3 = @"NFS_V3";
 NSString * const kGTLRVMwareEngine_DatastoreMountConfig_NfsVersion_NfsVersionUnspecified = @"NFS_VERSION_UNSPECIFIED";
 
-// GTLRVMwareEngine_DatastoreMountConfig.securityType
-NSString * const kGTLRVMwareEngine_DatastoreMountConfig_SecurityType_SecurityTypeUnspecified = @"SECURITY_TYPE_UNSPECIFIED";
-
 // GTLRVMwareEngine_ExternalAccessRule.action
 NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_ActionUnspecified = @"ACTION_UNSPECIFIED";
 NSString * const kGTLRVMwareEngine_ExternalAccessRule_Action_Allow = @"ALLOW";
@@ -280,6 +277,7 @@ NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_NsxtEdge
 NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_NsxtMgr = @"NSXT_MGR";
 NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_NsxtUc = @"NSXT_UC";
 NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_Vcenter = @"VCENTER";
+NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_VmTools = @"VM_TOOLS";
 NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_VmwareComponentTypeUnspecified = @"VMWARE_COMPONENT_TYPE_UNSPECIFIED";
 NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_Vsan = @"VSAN";
 NSString * const kGTLRVMwareEngine_VmwareUpgradeComponent_ComponentType_WitnessVm = @"WITNESS_VM";
@@ -549,7 +547,7 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 
 @implementation GTLRVMwareEngine_DatastoreMountConfig
 @dynamic accessMode, datastore, datastoreNetwork, fileShare, nfsVersion,
-         securityType, servers;
+         servers;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -22,7 +22,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
@@ -31,6 +31,27 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudDataplexCloudPlatform;
+/**
+ *  Authorization scope: View your data across Google Cloud services and see the
+ *  email address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly;
+/**
+ *  Authorization scope: See your Google Cloud Dataplex data and the email
+ *  address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/dataplex.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudDataplexReadonly;
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Dataplex data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/dataplex.read-write"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudDataplexReadWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudDataplexService

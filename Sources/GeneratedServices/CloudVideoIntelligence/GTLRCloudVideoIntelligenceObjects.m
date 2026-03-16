@@ -716,7 +716,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1beta2WordInfo
-@dynamic confidence, endTime, speakerTag, startTime, word;
+@dynamic confidence, endTime, speakerLabel, speakerTag, startTime, word;
 @end
 
 
@@ -1523,7 +1523,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p1beta1WordInfo
-@dynamic confidence, endTime, speakerTag, startTime, word;
+@dynamic confidence, endTime, speakerLabel, speakerTag, startTime, word;
 @end
 
 
@@ -2026,7 +2026,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p2beta1WordInfo
-@dynamic confidence, endTime, speakerTag, startTime, word;
+@dynamic confidence, endTime, speakerLabel, speakerTag, startTime, word;
 @end
 
 
@@ -2621,7 +2621,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1p3beta1WordInfo
-@dynamic confidence, endTime, speakerTag, startTime, word;
+@dynamic confidence, endTime, speakerLabel, speakerTag, startTime, word;
 @end
 
 
@@ -2723,9 +2723,10 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1SpeechTranscriptionConfig
-@dynamic audioTracks, diarizationSpeakerCount, enableAutomaticPunctuation,
-         enableSpeakerDiarization, enableWordConfidence, filterProfanity,
-         languageCode, maxAlternatives, speechContexts;
+@dynamic audioOutputUriPrefix, audioTracks, diarizationSpeakerCount,
+         enableAutomaticPunctuation, enableSpeakerDiarization,
+         enableWordConfidence, filterProfanity, languageCode, maxAlternatives,
+         speechContexts;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2923,7 +2924,7 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1WordInfo
-@dynamic confidence, endTime, speakerTag, startTime, word;
+@dynamic confidence, endTime, speakerLabel, speakerTag, startTime, word;
 @end
 
 
@@ -2942,11 +2943,12 @@ NSString * const kGTLRCloudVideoIntelligence_GoogleCloudVideointelligenceV1Video
 //
 
 @implementation GTLRCloudVideoIntelligence_GoogleLongrunningListOperationsResponse
-@dynamic nextPageToken, operations;
+@dynamic nextPageToken, operations, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"operations" : [GTLRCloudVideoIntelligence_GoogleLongrunningOperation class]
+    @"operations" : [GTLRCloudVideoIntelligence_GoogleLongrunningOperation class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

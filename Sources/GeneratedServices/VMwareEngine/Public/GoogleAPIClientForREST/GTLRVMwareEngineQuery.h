@@ -148,7 +148,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Creates a new `Datastore` resource in a given project and location.
- *  Datastores are regional resources
  *
  *  Method: vmwareengine.projects.locations.datastores.create
  *
@@ -186,7 +185,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
  *  Creates a new `Datastore` resource in a given project and location.
- *  Datastores are regional resources
  *
  *  @param object The @c GTLRVMwareEngine_Datastore to include in the query.
  *  @param parent Required. The resource name of the location to create the new
@@ -375,8 +373,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Modifies a Datastore resource. Only the following fields can be updated:
- *  `description`. Only fields specified in `updateMask` are applied.
+ *  Modifies a Datastore resource. Only fields specified in `updateMask` are
+ *  applied.
  *
  *  Method: vmwareengine.projects.locations.datastores.patch
  *
@@ -404,8 +402,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Datastore resource by the update. The fields specified in the `update_mask`
  *  are relative to the resource, not the full request. A field will be
  *  overwritten if it is in the mask. If the user does not provide a mask then
- *  all fields will be overwritten. Only the following fields can be updated:
- *  `description`.
+ *  all fields will be overwritten.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -414,8 +411,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
- *  Modifies a Datastore resource. Only the following fields can be updated:
- *  `description`. Only fields specified in `updateMask` are applied.
+ *  Modifies a Datastore resource. Only fields specified in `updateMask` are
+ *  applied.
  *
  *  @param object The @c GTLRVMwareEngine_Datastore to include in the query.
  *  @param name Output only. Identifier. The resource name of this datastore.
@@ -591,7 +588,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: vmwareengine.projects.locations.list
  *
@@ -631,7 +632,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRVMwareEngine_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -2162,7 +2167,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Mounts a `Datastore` on a cluster resource Datastores are zonal resources
+ *  Mounts a `Datastore` on a cluster resource
  *
  *  Method: vmwareengine.projects.locations.privateClouds.clusters.mountDatastore
  *
@@ -2182,7 +2187,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
- *  Mounts a `Datastore` on a cluster resource Datastores are zonal resources
+ *  Mounts a `Datastore` on a cluster resource
  *
  *  @param object The @c GTLRVMwareEngine_MountDatastoreRequest to include in
  *    the query.
@@ -2433,7 +2438,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Mounts a `Datastore` on a cluster resource Datastores are zonal resources
+ *  Unmounts a `Datastore` on a cluster resource
  *
  *  Method: vmwareengine.projects.locations.privateClouds.clusters.unmountDatastore
  *
@@ -2453,7 +2458,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
- *  Mounts a `Datastore` on a cluster resource Datastores are zonal resources
+ *  Unmounts a `Datastore` on a cluster resource
  *
  *  @param object The @c GTLRVMwareEngine_UnmountDatastoreRequest to include in
  *    the query.

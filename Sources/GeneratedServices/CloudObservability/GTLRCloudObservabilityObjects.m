@@ -340,6 +340,16 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudObservability_Settings
+//
+
+@implementation GTLRCloudObservability_Settings
+@dynamic defaultStorageLocation, kmsKeyName, name, serviceAccountId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudObservability_Status
 //
 

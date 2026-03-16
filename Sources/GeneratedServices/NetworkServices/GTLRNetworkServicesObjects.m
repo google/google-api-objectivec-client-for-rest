@@ -192,9 +192,9 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_AuthzExtension
-@dynamic authority, createTime, descriptionProperty, failOpen, forwardHeaders,
-         labels, loadBalancingScheme, metadata, name, service, timeout,
-         updateTime, wireFormat;
+@dynamic authority, createTime, descriptionProperty, failOpen,
+         forwardAttributes, forwardHeaders, labels, loadBalancingScheme,
+         metadata, name, service, timeout, updateTime, wireFormat;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -202,6 +202,7 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"forwardAttributes" : [NSString class],
     @"forwardHeaders" : [NSString class]
   };
   return map;
@@ -382,12 +383,13 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_ExtensionChainExtension
-@dynamic authority, failOpen, forwardHeaders, metadata, name, observabilityMode,
-         requestBodySendMode, responseBodySendMode, service, supportedEvents,
-         timeout;
+@dynamic authority, failOpen, forwardAttributes, forwardHeaders, metadata, name,
+         observabilityMode, requestBodySendMode, responseBodySendMode, service,
+         supportedEvents, timeout;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"forwardAttributes" : [NSString class],
     @"forwardHeaders" : [NSString class],
     @"supportedEvents" : [NSString class]
   };

@@ -268,6 +268,7 @@ NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_R
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_RequestedVerifyOption_Verified = @"VERIFIED";
 
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.sourceProvenanceHash
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_DirsumSha256 = @"DIRSUM_SHA256";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_GoModuleH1 = @"GO_MODULE_H1";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_Md5 = @"MD5";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_None = @"NONE";
@@ -297,6 +298,7 @@ NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning_P
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildWarning_Priority_Warning = @"WARNING";
 
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash.type
+NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_DirsumSha256 = @"DIRSUM_SHA256";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_GoModuleH1 = @"GO_MODULE_H1";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_Md5 = @"MD5";
 NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_None = @"NONE";
@@ -570,7 +572,7 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_BaseImage
-@dynamic layerCount, name, repository;
+@dynamic layerCount, name, registry, repository;
 @end
 
 
@@ -2414,11 +2416,11 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_Note
-@dynamic advisoryPublishTime, attestation, build, compliance, createTime,
-         deployment, discovery, dsseAttestation, expirationTime, image, kind,
-         longDescription, name, package, relatedNoteNames, relatedUrl,
-         sbomReference, secret, shortDescription, updateTime, upgrade,
-         vulnerability, vulnerabilityAssessment;
+@dynamic attestation, build, compliance, createTime, deployment, discovery,
+         dsseAttestation, expirationTime, image, kind, longDescription, name,
+         package, relatedNoteNames, relatedUrl, sbomReference, secret,
+         shortDescription, updateTime, upgrade, vulnerability,
+         vulnerabilityAssessment;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3326,8 +3328,8 @@ NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrence_Severity_Severit
 //
 
 @implementation GTLRContainerAnalysis_VulnerabilityNote
-@dynamic cvssScore, cvssV2, cvssV3, cvssVersion, details, severity,
-         sourceUpdateTime, windowsDetails;
+@dynamic advisoryPublishTime, cvssScore, cvssV2, cvssV3, cvssVersion, details,
+         severity, sourceUpdateTime, windowsDetails;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -4,7 +4,7 @@
 // API:
 //   Gemini Enterprise for Customer Experience API (ces/v1)
 // Documentation:
-//   https://cloud.google.com/customer-engagement-ai/conversational-agents/ps/reference
+//   https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps
 
 #import <GoogleAPIClientForREST/GTLRObject.h>
 
@@ -20,6 +20,7 @@
 @class GTLRCustomerEngagementSuite_AgentRemoteDialogflowAgent;
 @class GTLRCustomerEngagementSuite_AgentRemoteDialogflowAgent_InputVariableMapping;
 @class GTLRCustomerEngagementSuite_AgentRemoteDialogflowAgent_OutputVariableMapping;
+@class GTLRCustomerEngagementSuite_AgentTool;
 @class GTLRCustomerEngagementSuite_AgentTransfer;
 @class GTLRCustomerEngagementSuite_AmbientSoundConfig;
 @class GTLRCustomerEngagementSuite_ApiAuthentication;
@@ -77,19 +78,25 @@
 @class GTLRCustomerEngagementSuite_DataStoreToolRewriterConfig;
 @class GTLRCustomerEngagementSuite_DataStoreToolSummarizationConfig;
 @class GTLRCustomerEngagementSuite_Deployment;
+@class GTLRCustomerEngagementSuite_EndpointControlPolicy;
 @class GTLRCustomerEngagementSuite_EndSession;
 @class GTLRCustomerEngagementSuite_EndSession_Metadata;
 @class GTLRCustomerEngagementSuite_EndUserAuthConfig;
 @class GTLRCustomerEngagementSuite_EndUserAuthConfigOauth2AuthCodeConfig;
 @class GTLRCustomerEngagementSuite_EndUserAuthConfigOauth2JwtBearerConfig;
+@class GTLRCustomerEngagementSuite_ErrorHandlingSettings;
 @class GTLRCustomerEngagementSuite_EvaluationMetricsThresholds;
 @class GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholds;
 @class GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholdsExpectationLevelMetricsThresholds;
 @class GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholdsTurnLevelMetricsThresholds;
+@class GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings;
 @class GTLRCustomerEngagementSuite_Event;
 @class GTLRCustomerEngagementSuite_Example;
 @class GTLRCustomerEngagementSuite_ExecuteToolRequest_Args;
+@class GTLRCustomerEngagementSuite_ExecuteToolRequest_Context;
+@class GTLRCustomerEngagementSuite_ExecuteToolRequest_Variables;
 @class GTLRCustomerEngagementSuite_ExecuteToolResponse_Response;
+@class GTLRCustomerEngagementSuite_ExecuteToolResponse_Variables;
 @class GTLRCustomerEngagementSuite_ExpressionCondition;
 @class GTLRCustomerEngagementSuite_FileSearchTool;
 @class GTLRCustomerEngagementSuite_GoogleSearchSuggestions;
@@ -112,7 +119,9 @@
 @class GTLRCustomerEngagementSuite_Location_Metadata;
 @class GTLRCustomerEngagementSuite_LoggingSettings;
 @class GTLRCustomerEngagementSuite_McpTool;
+@class GTLRCustomerEngagementSuite_McpTool_CustomHeaders;
 @class GTLRCustomerEngagementSuite_McpToolset;
+@class GTLRCustomerEngagementSuite_McpToolset_CustomHeaders;
 @class GTLRCustomerEngagementSuite_Message;
 @class GTLRCustomerEngagementSuite_MetricAnalysisSettings;
 @class GTLRCustomerEngagementSuite_ModelSettings;
@@ -180,6 +189,9 @@
 @class GTLRCustomerEngagementSuite_TriggerActionTransferAgent;
 @class GTLRCustomerEngagementSuite_WebSearchQuery;
 @class GTLRCustomerEngagementSuite_WidgetTool;
+@class GTLRCustomerEngagementSuite_WidgetTool_UiConfig;
+@class GTLRCustomerEngagementSuite_WidgetToolDataMapping;
+@class GTLRCustomerEngagementSuite_WidgetToolDataMapping_FieldMappings;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -275,7 +287,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ApiKeyConfig_Req
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ApiKeyConfig_RequestLocation_QueryString;
 /**
- *  Unspecified. This value should not be unused.
+ *  Unspecified. This value should not be used.
  *
  *  Value: "REQUEST_LOCATION_UNSPECIFIED"
  */
@@ -324,6 +336,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_C
  *  Value: "CONTACT_CENTER_AS_A_SERVICE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterAsAService;
+/**
+ *  Third party contact center integration channel.
+ *
+ *  Value: "CONTACT_CENTER_INTEGRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterIntegration;
 /**
  *  Five9 channel.
  *
@@ -392,6 +410,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfileWe
  *  Value: "CHAT_ONLY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig_Modality_ChatOnly;
+/**
+ *  Widget supports chat, voice, and video input.
+ *
+ *  Value: "CHAT_VOICE_AND_VIDEO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig_Modality_ChatVoiceAndVideo;
 /**
  *  Unknown modality.
  *
@@ -704,6 +728,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_DataStoreToolMod
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_DataStoreToolModalityConfig_ModalityType_Text;
 
 // ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_EndpointControlPolicy.enforcementScope
+
+/**
+ *  This policy ALWAYS applies, regardless of VPC-SC status.
+ *
+ *  Value: "ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EndpointControlPolicy_EnforcementScope_Always;
+/**
+ *  Unspecified. This policy will be treated as VPCSC_ONLY.
+ *
+ *  Value: "ENFORCEMENT_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EndpointControlPolicy_EnforcementScope_EnforcementScopeUnspecified;
+/**
+ *  This policy applies only when VPC-SC is active.
+ *
+ *  Value: "VPCSC_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EndpointControlPolicy_EnforcementScope_VpcscOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_ErrorHandlingSettings.errorHandlingStrategy
+
+/**
+ *  Unspecified error handling strategy.
+ *
+ *  Value: "ERROR_HANDLING_STRATEGY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_ErrorHandlingStrategyUnspecified;
+/**
+ *  A fallback message will be returned to the user in case of system errors
+ *  (e.g. LLM errors).
+ *
+ *  Value: "FALLBACK_RESPONSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_FallbackResponse;
+/**
+ *  No specific handling is enabled.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_None;
+
+// ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_EvaluationMetricsThresholds.goldenHallucinationMetricBehavior
 
 /**
@@ -790,6 +859,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EvaluationMetric
  *  Value: "TEXT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholdsTurnLevelMetricsThresholds_SemanticSimilarityChannel_Text;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings.extraToolCallBehavior
+
+/**
+ *  Allow the extra tool call.
+ *
+ *  Value: "ALLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings_ExtraToolCallBehavior_Allow;
+/**
+ *  Unspecified behavior. Defaults to FAIL.
+ *
+ *  Value: "EXTRA_TOOL_CALL_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings_ExtraToolCallBehavior_ExtraToolCallBehaviorUnspecified;
+/**
+ *  Fail the evaluation if an extra tool call is encountered.
+ *
+ *  Value: "FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings_ExtraToolCallBehavior_Fail;
 
 // ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_ExportAppRequest.exportFormat
@@ -1205,6 +1296,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AppointmentDetails;
 /**
+ *  Appointment scheduler widget.
+ *
+ *  Value: "APPOINTMENT_SCHEDULER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AppointmentScheduler;
+/**
+ *  Contact form widget.
+ *
+ *  Value: "CONTACT_FORM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_ContactForm;
+/**
  *  Custom widget type.
  *
  *  Value: "CUSTOM"
@@ -1258,6 +1361,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *  Value: "WIDGET_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_WidgetTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_WidgetToolDataMapping.mode
+
+/**
+ *  Use the `field_mappings` map for data transformation.
+ *
+ *  Value: "FIELD_MAPPING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMapping_Mode_FieldMapping;
+/**
+ *  Unspecified mode.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMapping_Mode_ModeUnspecified;
+/**
+ *  Use the `python_script` for data transformation.
+ *
+ *  Value: "PYTHON_SCRIPT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMapping_Mode_PythonScript;
 
 /**
  *  Configuration of an Action for the tool to use. Note: This can be either an
@@ -1569,6 +1694,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 
 
 /**
+ *  Represents a tool that allows the agent to call another agent.
+ */
+@interface GTLRCustomerEngagementSuite_AgentTool : GTLRObject
+
+/**
+ *  Optional. Description of the tool's purpose.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. The name of the agent tool. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The resource name of the root agent that is the entry point of the
+ *  tool. Format: `projects/{project}/locations/{location}/agents/{agent}`
+ */
+@property(nonatomic, copy, nullable) NSString *rootAgent;
+
+@end
+
+
+/**
  *  Represents an event indicating the transfer of a conversation to a different
  *  agent.
  */
@@ -1694,7 +1843,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *    @arg @c kGTLRCustomerEngagementSuite_ApiKeyConfig_RequestLocation_QueryString
  *        Represents the key in query string. (Value: "QUERY_STRING")
  *    @arg @c kGTLRCustomerEngagementSuite_ApiKeyConfig_RequestLocation_RequestLocationUnspecified
- *        Unspecified. This value should not be unused. (Value:
+ *        Unspecified. This value should not be used. (Value:
  *        "REQUEST_LOCATION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *requestLocation;
@@ -1741,6 +1890,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 
 /** Required. Display name of the app. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/** Optional. Error handling settings of the app. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ErrorHandlingSettings *errorHandlingSettings;
 
 /**
  *  Output only. Etag used to ensure the object hasn't changed during a
@@ -2291,6 +2443,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterAsAService
  *        Contact Center as a Service (CCaaS) channel. (Value:
  *        "CONTACT_CENTER_AS_A_SERVICE")
+ *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_ContactCenterIntegration
+ *        Third party contact center integration channel. (Value:
+ *        "CONTACT_CENTER_INTEGRATION")
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_Five9
  *        Five9 channel. (Value: "FIVE9")
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfile_ChannelType_GoogleTelephonyPlatform
@@ -2376,6 +2531,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *        Widget supports both chat and voice input. (Value: "CHAT_AND_VOICE")
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig_Modality_ChatOnly
  *        Widget supports only chat input. (Value: "CHAT_ONLY")
+ *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig_Modality_ChatVoiceAndVideo
+ *        Widget supports chat, voice, and video input. (Value:
+ *        "CHAT_VOICE_AND_VIDEO")
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig_Modality_ModalityUnspecified
  *        Unknown modality. (Value: "MODALITY_UNSPECIFIED")
  *    @arg @c kGTLRCustomerEngagementSuite_ChannelProfileWebWidgetConfig_Modality_VoiceOnly
@@ -2455,6 +2613,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 
 /** Optional. Agent transfer event. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AgentTransfer *agentTransfer;
+
+/** Optional. Blob data. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Blob *blob;
 
 /**
  *  A struct represents default variables at the start of the conversation,
@@ -2543,7 +2704,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  */
 @interface GTLRCustomerEngagementSuite_CitationsCitedChunk : GTLRObject
 
-/** Text used for citaiton. */
+/** Text used for citation. */
 @property(nonatomic, copy, nullable) NSString *text;
 
 /** Title of the cited document. */
@@ -3326,8 +3487,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 @interface GTLRCustomerEngagementSuite_Deployment : GTLRObject
 
 /**
- *  Required. The resource name of the app version to deploy. Format:
- *  projects/{project}/locations/{location}/apps/{app}/versions/{version}
+ *  Optional. The resource name of the app version to deploy. Format:
+ *  `projects/{project}/locations/{location}/apps/{app}/versions/{version}` Use
+ *  `projects/{project}/locations/{location}/apps/{app}/versions/-` to use the
+ *  draft app.
  */
 @property(nonatomic, copy, nullable) NSString *appVersion;
 
@@ -3349,7 +3512,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 
 /**
  *  Identifier. The resource name of the deployment. Format:
- *  projects/{project}/locations/{location}/apps/{app}/deployments/{deployment}
+ *  `projects/{project}/locations/{location}/apps/{app}/deployments/{deployment}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -3366,6 +3529,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *  Bar(google.protobuf.Empty) returns (google.protobuf.Empty); }
  */
 @interface GTLRCustomerEngagementSuite_Empty : GTLRObject
+@end
+
+
+/**
+ *  Defines project/location level endpoint control policy.
+ */
+@interface GTLRCustomerEngagementSuite_EndpointControlPolicy : GTLRObject
+
+/**
+ *  Optional. The allowed HTTP(s) origins that tools in the App are able to
+ *  directly call. The enforcement depends on the value of enforcement_scope and
+ *  the VPC-SC status of the project. If a port number is not provided, all
+ *  ports will be allowed. Otherwise, the port number must match exactly. For
+ *  example, "https://example.com" will match "https://example.com:443" and any
+ *  other port. "https://example.com:443" will only match
+ *  "https://example.com:443".
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedOrigins;
+
+/**
+ *  Optional. The scope in which this policy's allowed_origins list is enforced.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_EndpointControlPolicy_EnforcementScope_Always
+ *        This policy ALWAYS applies, regardless of VPC-SC status. (Value:
+ *        "ALWAYS")
+ *    @arg @c kGTLRCustomerEngagementSuite_EndpointControlPolicy_EnforcementScope_EnforcementScopeUnspecified
+ *        Unspecified. This policy will be treated as VPCSC_ONLY. (Value:
+ *        "ENFORCEMENT_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_EndpointControlPolicy_EnforcementScope_VpcscOnly
+ *        This policy applies only when VPC-SC is active. (Value: "VPCSC_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *enforcementScope;
+
 @end
 
 
@@ -3457,6 +3654,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 
 
 /**
+ *  Settings to describe how errors should be handled in the app.
+ */
+@interface GTLRCustomerEngagementSuite_ErrorHandlingSettings : GTLRObject
+
+/**
+ *  Optional. The strategy to use for error handling.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_ErrorHandlingStrategyUnspecified
+ *        Unspecified error handling strategy. (Value:
+ *        "ERROR_HANDLING_STRATEGY_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_FallbackResponse
+ *        A fallback message will be returned to the user in case of system
+ *        errors (e.g. LLM errors). (Value: "FALLBACK_RESPONSE")
+ *    @arg @c kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_None
+ *        No specific handling is enabled. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *errorHandlingStrategy;
+
+@end
+
+
+/**
  *  Threshold settings for metrics in an Evaluation.
  */
 @interface GTLRCustomerEngagementSuite_EvaluationMetricsThresholds : GTLRObject
@@ -3518,6 +3738,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 /** Optional. The expectation level metrics thresholds. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholdsExpectationLevelMetricsThresholds *expectationLevelMetricsThresholds;
 
+/**
+ *  Optional. The tool matching settings. An extra tool call is a tool call that
+ *  is present in the execution but does not match any tool call in the golden
+ *  expectation.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings *toolMatchingSettings;
+
 /** Optional. The turn level metrics thresholds. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholdsTurnLevelMetricsThresholds *turnLevelMetricsThresholds;
 
@@ -3574,6 +3801,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *semanticSimilaritySuccessThreshold;
+
+@end
+
+
+/**
+ *  Settings for matching tool calls.
+ */
+@interface GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings : GTLRObject
+
+/**
+ *  Optional. Behavior for extra tool calls. Defaults to FAIL.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings_ExtraToolCallBehavior_Allow
+ *        Allow the extra tool call. (Value: "ALLOW")
+ *    @arg @c kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings_ExtraToolCallBehavior_ExtraToolCallBehaviorUnspecified
+ *        Unspecified behavior. Defaults to FAIL. (Value:
+ *        "EXTRA_TOOL_CALL_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings_ExtraToolCallBehavior_Fail
+ *        Fail the evaluation if an extra tool call is encountered. (Value:
+ *        "FAIL")
+ */
+@property(nonatomic, copy, nullable) NSString *extraToolCallBehavior;
 
 @end
 
@@ -3658,6 +3908,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ExecuteToolRequest_Args *args;
 
 /**
+ *  Optional. The
+ *  [ToolCallContext](https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/tool/python#environment
+ *  for details) to be passed to the Python tool.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ExecuteToolRequest_Context *context;
+
+/**
  *  Optional. The name of the tool to execute. Format:
  *  projects/{project}/locations/{location}/apps/{app}/tools/{tool}
  */
@@ -3668,6 +3925,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *  predicate from the toolset. Otherwise, an error will be returned.
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ToolsetTool *toolsetTool;
+
+/** Optional. The variables that are available for the tool execution. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ExecuteToolRequest_Variables *variables;
 
 @end
 
@@ -3686,15 +3946,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 
 
 /**
+ *  Optional. The
+ *  [ToolCallContext](https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/tool/python#environment
+ *  for details) to be passed to the Python tool.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_ExecuteToolRequest_Context : GTLRObject
+@end
+
+
+/**
+ *  Optional. The variables that are available for the tool execution.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_ExecuteToolRequest_Variables : GTLRObject
+@end
+
+
+/**
  *  Response message for ToolService.ExecuteTool.
  */
 @interface GTLRCustomerEngagementSuite_ExecuteToolResponse : GTLRObject
 
 /**
- *  Required. The tool execution result in JSON object format. Use "output" key
- *  to specify tool response and "error" key to specify error details (if any).
- *  If "output" and "error" keys are not specified, then whole "response" is
- *  treated as tool execution result.
+ *  The tool execution result in JSON object format. Use "output" key to specify
+ *  tool response and "error" key to specify error details (if any). If "output"
+ *  and "error" keys are not specified, then whole "response" is treated as tool
+ *  execution result.
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ExecuteToolResponse_Response *response;
 
@@ -3707,14 +3993,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 /** The toolset tool that got executed. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ToolsetTool *toolsetTool;
 
+/** The variable values at the end of the tool execution. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ExecuteToolResponse_Variables *variables;
+
 @end
 
 
 /**
- *  Required. The tool execution result in JSON object format. Use "output" key
- *  to specify tool response and "error" key to specify error details (if any).
- *  If "output" and "error" keys are not specified, then whole "response" is
- *  treated as tool execution result.
+ *  The tool execution result in JSON object format. Use "output" key to specify
+ *  tool response and "error" key to specify error details (if any). If "output"
+ *  and "error" keys are not specified, then whole "response" is treated as tool
+ *  execution result.
  *
  *  @note This class is documented as having more properties of any valid JSON
  *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
@@ -3726,9 +4015,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 
 
 /**
+ *  The variable values at the end of the tool execution.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_ExecuteToolResponse_Variables : GTLRObject
+@end
+
+
+/**
  *  Request message for AgentService.ExportApp.
  */
 @interface GTLRCustomerEngagementSuite_ExportAppRequest : GTLRObject
+
+/**
+ *  Optional. The resource name of the app version to export. Format:
+ *  `projects/{project}/locations/{location}/apps/{app}/versions/{version}`.
+ */
+@property(nonatomic, copy, nullable) NSString *appVersion;
 
 /**
  *  Required. The format to export the app in.
@@ -3835,6 +4142,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *  projects/{project}/locations/{location}/apps/{app}/deployments/{deployment}
  */
 @property(nonatomic, copy, nullable) NSString *deployment;
+
+/**
+ *  Optional. Indicates if live handoff is enabled for the session.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *liveHandoffEnabled;
 
 /** Optional. The reCAPTCHA token generated by the client-side chat widget. */
 @property(nonatomic, copy, nullable) NSString *recaptchaToken;
@@ -4939,6 +5253,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ApiAuthentication *apiAuthentication;
 
 /**
+ *  Optional. The custom headers to send in the request to the MCP server. The
+ *  values must be in the format `$context.variables.` and can be set in the
+ *  session variables. See
+ *  https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/tool/open-api#openapi-injection
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_McpTool_CustomHeaders *customHeaders;
+
+/**
  *  Optional. The description of the MCP tool.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -4981,6 +5304,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 
 
 /**
+ *  Optional. The custom headers to send in the request to the MCP server. The
+ *  values must be in the format `$context.variables.` and can be set in the
+ *  session variables. See
+ *  https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/tool/open-api#openapi-injection
+ *  for more details.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_McpTool_CustomHeaders : GTLRObject
+@end
+
+
+/**
  *  A toolset that contains a list of tools that are offered by the MCP server.
  */
 @interface GTLRCustomerEngagementSuite_McpToolset : GTLRObject
@@ -4992,6 +5331,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *  tools can be listed without authentication.
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ApiAuthentication *apiAuthentication;
+
+/**
+ *  Optional. The custom headers to send in the request to the MCP server. The
+ *  values must be in the format `$context.variables.` and can be set in the
+ *  session variables. See
+ *  https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/tool/open-api#openapi-injection
+ *  for more details.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_McpToolset_CustomHeaders *customHeaders;
 
 /**
  *  Required. The address of the MCP server, for example,
@@ -5015,6 +5363,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_TlsConfig *tlsConfig;
 
+@end
+
+
+/**
+ *  Optional. The custom headers to send in the request to the MCP server. The
+ *  values must be in the format `$context.variables.` and can be set in the
+ *  session variables. See
+ *  https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/tool/open-api#openapi-injection
+ *  for more details.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_McpToolset_CustomHeaders : GTLRObject
 @end
 
 
@@ -5662,10 +6026,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  */
 @interface GTLRCustomerEngagementSuite_RetrieveToolSchemaResponse : GTLRObject
 
-/** Required. The schema of the tool input parameters. */
+/** The schema of the tool input parameters. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Schema *inputSchema;
 
-/** Required. The schema of the tool output parameters. */
+/** The schema of the tool output parameters. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Schema *outputSchema;
 
 /**
@@ -5699,7 +6063,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  */
 @interface GTLRCustomerEngagementSuite_RetrieveToolsResponse : GTLRObject
 
-/** Required. The list of tools that are included in the specified toolset. */
+/** The list of tools that are included in the specified toolset. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_Tool *> *tools;
 
 @end
@@ -5829,9 +6193,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 /**
  *  Optional. Allows indirect references between schema nodes. The value should
  *  be a valid reference to a child of the root `defs`. For example, the
- *  following schema defines a reference to a schema node named "Pet": type:
+ *  following schema defines a reference to a schema node named "Pet": ``` type:
  *  object properties: pet: ref: #/defs/Pet defs: Pet: type: object properties:
- *  name: type: string The value of the "pet" property is a reference to the
+ *  name: type: string ``` The value of the "pet" property is a reference to the
  *  schema node named "Pet". See details in
  *  https://json-schema.org/understanding-json-schema/structuring.
  */
@@ -5901,6 +6265,32 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 
 
 /**
+ *  Project/Location level security settings for CES.
+ */
+@interface GTLRCustomerEngagementSuite_SecuritySettings : GTLRObject
+
+/** Output only. Create time of the security settings. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Optional. Endpoint control related settings. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_EndpointControlPolicy *endpointControlPolicy;
+
+/** Output only. Etag of the security settings. */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Identifier. The unique identifier of the security settings. Format:
+ *  `projects/{project}/locations/{location}/securitySettings`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Last update time of the security settings. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
  *  Configurations for authentication using a custom service account.
  */
 @interface GTLRCustomerEngagementSuite_ServiceAccountAuthConfig : GTLRObject
@@ -5963,7 +6353,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 /**
  *  Optional. The entry agent to handle the session. If not specified, the
  *  session will be handled by the root agent of the app. Format:
- *  `projects/{project}/locations/{location}/agents/{agent}`
+ *  `projects/{project}/locations/{location}/apps/{app}/agents/{agent}`
  */
 @property(nonatomic, copy, nullable) NSString *entryAgent;
 
@@ -5998,6 +6388,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *  IANA Time Zone Database time zone, e.g. "America/Los_Angeles".
  */
 @property(nonatomic, copy, nullable) NSString *timeZone;
+
+/**
+ *  Optional. Whether to use tool fakes for the session. If this field is set,
+ *  the agent will attempt use tool fakes instead of calling the real tools.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *useToolFakes;
 
 @end
 
@@ -6111,10 +6509,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 
 /**
  *  Optional. A flag to indicate if the current message is a fragment of a
- *  larger input in the bidi streaming session. When `true`, the agent will
- *  defer processing until a subsequent message with `will_continue` set to
- *  `false` is received. Note: This flag has no effect on audio and DTMF inputs,
- *  which are always processed in real-time.
+ *  larger input in the bidi streaming session. When set to `true`, the agent
+ *  defers processing until it receives a subsequent message where
+ *  `will_continue` is `false`, or until the system detects an endpoint in the
+ *  audio input. NOTE: This field does not apply to audio and DTMF inputs, as
+ *  they are always processed automatically based on the endpointing signal.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -6399,9 +6798,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *  or unspecified, CES will use Google's default trust store to verify
  *  certificates. N.B. Make sure the HTTPS server certificates are signed with
  *  "subject alt name". For instance a certificate can be self-signed using the
- *  following command, openssl x509 -req -days 200 -in example.com.csr \\
+ *  following command: ``` openssl x509 -req -days 200 -in example.com.csr \\
  *  -signkey example.com.key \\ -out example.com.crt \\ -extfile <(printf
- *  "\\nsubjectAltName='DNS:www.example.com'")
+ *  "\\nsubjectAltName='DNS:www.example.com'") ```
  *
  *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
  *  web-safe format).
@@ -6422,6 +6821,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *  goals.
  */
 @interface GTLRCustomerEngagementSuite_Tool : GTLRObject
+
+/** Optional. The agent tool. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AgentTool *agentTool;
 
 /** Optional. The client function. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ClientFunction *clientFunction;
@@ -6484,11 +6886,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_McpTool *mcpTool;
 
 /**
- *  Identifier. The unique identifier of the tool. Format: -
- *  `projects/{project}/locations/{location}/apps/{app}/tools/{tool}` for ##
- *  standalone tools.
+ *  Identifier. The resource name of the tool. Format: *
+ *  `projects/{project}/locations/{location}/apps/{app}/tools/{tool}` for
+ *  standalone tools. *
  *  `projects/{project}/locations/{location}/apps/{app}/toolsets/{toolset}/tools/{tool}`
- *  for tools retrieved from a toolset. These tools are dynamic and output-only,
+ *  for tools retrieved from a toolset. These tools are dynamic and output-only;
  *  they cannot be referenced directly where a tool is expected.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -6925,6 +7327,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 @interface GTLRCustomerEngagementSuite_WidgetTool : GTLRObject
 
 /**
+ *  Optional. The mapping that defines how data from a source tool is mapped to
+ *  the widget's input parameters.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_WidgetToolDataMapping *dataMapping;
+
+/**
  *  Optional. The description of the widget tool.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
@@ -6937,6 +7345,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
 /** Optional. The input parameters of the widget tool. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Schema *parameters;
 
+/** Optional. Configuration for rendering the widget. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_WidgetTool_UiConfig *uiConfig;
+
 /**
  *  Optional. The type of the widget tool. If not specified, the default type
  *  will be CUSTOMIZED.
@@ -6946,6 +7357,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  *        Advanced product details widget. (Value: "ADVANCED_PRODUCT_DETAILS")
  *    @arg @c kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AppointmentDetails
  *        Appointment details widget. (Value: "APPOINTMENT_DETAILS")
+ *    @arg @c kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_AppointmentScheduler
+ *        Appointment scheduler widget. (Value: "APPOINTMENT_SCHEDULER")
+ *    @arg @c kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_ContactForm
+ *        Contact form widget. (Value: "CONTACT_FORM")
  *    @arg @c kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_Custom Custom
  *        widget type. (Value: "CUSTOM")
  *    @arg @c kGTLRCustomerEngagementSuite_WidgetTool_WidgetType_OrderSummary
@@ -6967,6 +7382,75 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetTool_Widge
  */
 @property(nonatomic, copy, nullable) NSString *widgetType;
 
+@end
+
+
+/**
+ *  Optional. Configuration for rendering the widget.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_WidgetTool_UiConfig : GTLRObject
+@end
+
+
+/**
+ *  Configuration for mapping data from a source tool to the widget's input
+ *  parameters.
+ */
+@interface GTLRCustomerEngagementSuite_WidgetToolDataMapping : GTLRObject
+
+/**
+ *  Optional. A map of widget input parameter fields to the corresponding output
+ *  fields of the source tool.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_WidgetToolDataMapping_FieldMappings *fieldMappings;
+
+/**
+ *  Optional. The mode of the data mapping.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_WidgetToolDataMapping_Mode_FieldMapping
+ *        Use the `field_mappings` map for data transformation. (Value:
+ *        "FIELD_MAPPING")
+ *    @arg @c kGTLRCustomerEngagementSuite_WidgetToolDataMapping_Mode_ModeUnspecified
+ *        Unspecified mode. (Value: "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCustomerEngagementSuite_WidgetToolDataMapping_Mode_PythonScript
+ *        Use the `python_script` for data transformation. (Value:
+ *        "PYTHON_SCRIPT")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+/**
+ *  Optional. A Python script used to transform the source tool's output into
+ *  the widget's input format. This is used when the mapping is too complex for
+ *  simple field mappings.
+ */
+@property(nonatomic, copy, nullable) NSString *pythonScript;
+
+/**
+ *  Optional. The resource name of the tool that provides the data for the
+ *  widget (e.g., a search tool or a custom function). Format:
+ *  `projects/{project}/locations/{location}/agents/{agent}/tools/{tool}`
+ */
+@property(nonatomic, copy, nullable) NSString *sourceToolName;
+
+@end
+
+
+/**
+ *  Optional. A map of widget input parameter fields to the corresponding output
+ *  fields of the source tool.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_WidgetToolDataMapping_FieldMappings : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

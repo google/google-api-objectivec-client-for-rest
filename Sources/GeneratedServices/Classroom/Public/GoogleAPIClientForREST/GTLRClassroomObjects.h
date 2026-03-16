@@ -882,6 +882,13 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
  */
 @property(nonatomic, copy, nullable) NSString *postSubmissionState;
 
+/**
+ *  Identifier for the student that owns this submission. Requires the user to
+ *  be a teacher in the course and have permission to read student submissions.
+ *  Read-only.
+ */
+@property(nonatomic, copy, nullable) NSString *userId;
+
 @end
 
 

@@ -18,6 +18,8 @@
 @class GTLRServiceNetworking_Api;
 @class GTLRServiceNetworking_Aspect;
 @class GTLRServiceNetworking_Aspect_Spec;
+@class GTLRServiceNetworking_AspectRule;
+@class GTLRServiceNetworking_AspectRule_Config;
 @class GTLRServiceNetworking_Authentication;
 @class GTLRServiceNetworking_AuthenticationRule;
 @class GTLRServiceNetworking_AuthProvider;
@@ -1410,6 +1412,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 /** The type of this aspect configuration. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** Optional. Rules of the Configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_AspectRule *> *rules;
+
 /**
  *  Content of the configuration. The underlying schema should be defined by
  *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
@@ -1429,6 +1434,41 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceNetworking_Aspect_Spec : GTLRObject
+@end
+
+
+/**
+ *  Rule-based configuration for an aspect.
+ */
+@interface GTLRServiceNetworking_AspectRule : GTLRObject
+
+/**
+ *  Required. Rules of the configuration. The underlying schema should be
+ *  defined by Aspect owners as protobuf message under
+ *  `google/api/configaspects/proto`.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceNetworking_AspectRule_Config *config;
+
+/**
+ *  Required. Selects the RPC methods to which this rule applies. Refer to
+ *  selector for syntax details.
+ */
+@property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
+ *  Required. Rules of the configuration. The underlying schema should be
+ *  defined by Aspect owners as protobuf message under
+ *  `google/api/configaspects/proto`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceNetworking_AspectRule_Config : GTLRObject
 @end
 
 
@@ -2143,6 +2183,13 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *consumerImportSubnetRoutesWithPublicIp;
+
+/**
+ *  Output only. If this is true, consumer peering is active.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *consumerPeeringActive;
 
 /**
  *  Export custom routes flag value for peering from producer to consumer.

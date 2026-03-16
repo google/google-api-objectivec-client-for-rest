@@ -349,6 +349,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Category_CategoryUnspecified 
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Category_Code = @"CODE";
 
 // GTLRDLP_GooglePrivacyDlpV2Domain.signals
+NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_Embedding = @"EMBEDDING";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_Model = @"MODEL";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_Service = @"SERVICE";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2Domain_Signals_SignalUnspecified = @"SIGNAL_UNSPECIFIED";
@@ -529,6 +530,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope
 NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope_RegionalizationScopeUnspecified = @"REGIONALIZATION_SCOPE_UNSPECIFIED";
 
 // GTLRDLP_GooglePrivacyDlpV2MetadataLocation.type
+NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_ContentMetadata = @"CONTENT_METADATA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified = @"METADATATYPE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_StorageMetadata = @"STORAGE_METADATA";
 
@@ -1492,8 +1494,9 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2CustomInfoType
-@dynamic detectionRules, dictionary, exclusionType, infoType, likelihood, regex,
-         sensitivityScore, storedType, surrogateType;
+@dynamic detectionRules, dictionary, exclusionType, infoType, likelihood,
+         metadataKeyValueExpression, regex, sensitivityScore, storedType,
+         surrogateType;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -3205,6 +3208,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataLabel
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataLabel
+@dynamic key;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2KindExpression
 //
 
@@ -3717,11 +3730,21 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDLP_GooglePrivacyDlpV2MetadataKeyValueExpression
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2MetadataKeyValueExpression
+@dynamic keyRegex, valueRegex;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDLP_GooglePrivacyDlpV2MetadataLocation
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2MetadataLocation
-@dynamic storageLabel, type;
+@dynamic keyValueMetadataLabel, storageLabel, type;
 @end
 
 

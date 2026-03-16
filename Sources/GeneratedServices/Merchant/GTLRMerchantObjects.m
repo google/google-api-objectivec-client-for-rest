@@ -20,6 +20,7 @@ NSString * const kGTLRMerchant_ProductChange_ReportingContext_DemandGenAdsDiscov
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_DiscoveryAds = @"DISCOVERY_ADS";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_DisplayAds = @"DISPLAY_ADS";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_FreeListings = @"FREE_LISTINGS";
+NSString * const kGTLRMerchant_ProductChange_ReportingContext_FreeListingsUcpCheckout = @"FREE_LISTINGS_UCP_CHECKOUT";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_FreeLocalListings = @"FREE_LOCAL_LISTINGS";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_FreeLocalVehicleListings = @"FREE_LOCAL_VEHICLE_LISTINGS";
 NSString * const kGTLRMerchant_ProductChange_ReportingContext_LocalCloudRetail = @"LOCAL_CLOUD_RETAIL";
@@ -46,6 +47,7 @@ NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_D
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_DiscoveryAds = @"DISCOVERY_ADS";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_DisplayAds = @"DISPLAY_ADS";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_FreeListings = @"FREE_LISTINGS";
+NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_FreeListingsUcpCheckout = @"FREE_LISTINGS_UCP_CHECKOUT";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_FreeLocalListings = @"FREE_LOCAL_LISTINGS";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_FreeLocalVehicleListings = @"FREE_LOCAL_VEHICLE_LISTINGS";
 NSString * const kGTLRMerchant_ProductReviewDestinationStatus_ReportingContext_LocalCloudRetail = @"LOCAL_CLOUD_RETAIL";
@@ -67,6 +69,7 @@ NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_Dema
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_DiscoveryAds = @"DISCOVERY_ADS";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_DisplayAds = @"DISPLAY_ADS";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_FreeListings = @"FREE_LISTINGS";
+NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_FreeListingsUcpCheckout = @"FREE_LISTINGS_UCP_CHECKOUT";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_FreeLocalListings = @"FREE_LOCAL_LISTINGS";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_FreeLocalVehicleListings = @"FREE_LOCAL_VEHICLE_LISTINGS";
 NSString * const kGTLRMerchant_ProductReviewItemLevelIssue_ReportingContext_LocalCloudRetail = @"LOCAL_CLOUD_RETAIL";
@@ -107,6 +110,7 @@ NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_DemandGe
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_DiscoveryAds = @"DISCOVERY_ADS";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_DisplayAds = @"DISPLAY_ADS";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_FreeListings = @"FREE_LISTINGS";
+NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_FreeListingsUcpCheckout = @"FREE_LISTINGS_UCP_CHECKOUT";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_FreeLocalListings = @"FREE_LOCAL_LISTINGS";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_FreeLocalVehicleListings = @"FREE_LOCAL_VEHICLE_LISTINGS";
 NSString * const kGTLRMerchant_ReviewDestinationStatus_ReportingContext_LocalCloudRetail = @"LOCAL_CLOUD_RETAIL";
@@ -128,6 +132,7 @@ NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_DemandGenAd
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_DiscoveryAds = @"DISCOVERY_ADS";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_DisplayAds = @"DISPLAY_ADS";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_FreeListings = @"FREE_LISTINGS";
+NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_FreeListingsUcpCheckout = @"FREE_LISTINGS_UCP_CHECKOUT";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_FreeLocalListings = @"FREE_LOCAL_LISTINGS";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_FreeLocalVehicleListings = @"FREE_LOCAL_VEHICLE_LISTINGS";
 NSString * const kGTLRMerchant_ReviewItemLevelIssue_ReportingContext_LocalCloudRetail = @"LOCAL_CLOUD_RETAIL";

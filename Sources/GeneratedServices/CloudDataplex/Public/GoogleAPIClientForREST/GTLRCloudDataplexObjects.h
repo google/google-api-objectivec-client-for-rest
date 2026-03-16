@@ -44,10 +44,6 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1AssetResourceStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1AssetSecurityStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1AssetStatus;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1Content;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1Content_Labels;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAccessSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataAsset_AccessGroupConfigs;
@@ -154,6 +150,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryGroup_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink_Aspects;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntrySource_Labels;
@@ -162,15 +159,6 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryType_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryTypeAspectInfo;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryTypeAuthorization;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1Environment;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1Environment_Labels;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentEndpoints;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpec;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecComputeResources;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecOsImageRuntime;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecOsImageRuntime_Properties;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionSpec;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionStatus;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Glossary;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Glossary_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory;
@@ -184,6 +172,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Lake_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastore;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1LakeMetastoreStatus;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest_Options;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeed_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1MetadataFeedFilters;
@@ -208,7 +197,6 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1SchemaSchemaField;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1SearchEntriesResultSnippets;
-@class GTLRCloudDataplex_GoogleCloudDataplexV1Session;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1SessionEventQueryDetail;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1StorageAccess;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1StorageFormat;
@@ -604,38 +592,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Busin
  *  Value: "GLOSSARY_UPDATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1BusinessGlossaryEvent_EventType_GlossaryUpdate;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook.kernelType
-
-/**
- *  Kernel Type unspecified.
- *
- *  Value: "KERNEL_TYPE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook_KernelType_KernelTypeUnspecified;
-/**
- *  Python 3 Kernel.
- *
- *  Value: "PYTHON3"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook_KernelType_Python3;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript.engine
-
-/**
- *  Value was unspecified.
- *
- *  Value: "QUERY_ENGINE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_QueryEngineUnspecified;
-/**
- *  Spark SQL Query.
- *
- *  Value: "SPARK"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_Spark;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig.tableType
@@ -1524,40 +1480,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Entry
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEvent_EventType_EventTypeUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRCloudDataplex_GoogleCloudDataplexV1Environment.state
-
-/**
- *  Resource is active but has unresolved actions.
- *
- *  Value: "ACTION_REQUIRED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_ActionRequired;
-/**
- *  Resource is active, i.e., ready to use.
- *
- *  Value: "ACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_Active;
-/**
- *  Resource is under creation.
- *
- *  Value: "CREATING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_Creating;
-/**
- *  Resource is under deletion.
- *
- *  Value: "DELETING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_Deleting;
-/**
- *  State is not specified.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_StateUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1GovernanceEvent.eventType
 
 /**
@@ -2385,40 +2307,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Schem
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1SchemaSchemaField_Type_TypeUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRCloudDataplex_GoogleCloudDataplexV1Session.state
-
-/**
- *  Resource is active but has unresolved actions.
- *
- *  Value: "ACTION_REQUIRED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_ActionRequired;
-/**
- *  Resource is active, i.e., ready to use.
- *
- *  Value: "ACTIVE"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_Active;
-/**
- *  Resource is under creation.
- *
- *  Value: "CREATING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_Creating;
-/**
- *  Resource is under deletion.
- *
- *  Value: "DELETING"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_Deleting;
-/**
- *  State is not specified.
- *
- *  Value: "STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1SessionEvent.type
@@ -3814,109 +3702,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
  *  Cancel metadata job request.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1CancelMetadataJobRequest : GTLRObject
-@end
-
-
-/**
- *  Content represents a user-visible notebook or a sql script
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1Content : GTLRObject
-
-/** Output only. Content creation time. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Required. Content data in string format. */
-@property(nonatomic, copy, nullable) NSString *dataText;
-
-/**
- *  Optional. Description of the content.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Optional. User defined labels for the content. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Content_Labels *labels;
-
-/**
- *  Output only. The relative resource name of the content, of the form:
- *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}/content/{content_id}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Notebook related configurations. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook *notebook;
-
-/**
- *  Required. The path for the Content file, represented as directory structure.
- *  Unique within a lake. Limited to alphanumerics, hyphens, underscores, dots
- *  and slashes.
- */
-@property(nonatomic, copy, nullable) NSString *path;
-
-/** Sql Script related configurations. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript *sqlScript;
-
-/**
- *  Output only. System generated globally unique ID for the content. This ID
- *  will be different if the content is deleted and re-created with the same
- *  name.
- */
-@property(nonatomic, copy, nullable) NSString *uid;
-
-/** Output only. The time when the content was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  Optional. User defined labels for the content.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1Content_Labels : GTLRObject
-@end
-
-
-/**
- *  Configuration for Notebook content.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook : GTLRObject
-
-/**
- *  Required. Kernel Type of the notebook.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook_KernelType_KernelTypeUnspecified
- *        Kernel Type unspecified. (Value: "KERNEL_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ContentNotebook_KernelType_Python3
- *        Python 3 Kernel. (Value: "PYTHON3")
- */
-@property(nonatomic, copy, nullable) NSString *kernelType;
-
-@end
-
-
-/**
- *  Configuration for the Sql Script content.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript : GTLRObject
-
-/**
- *  Required. Query Engine to be used for the Sql Query.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_QueryEngineUnspecified
- *        Value was unspecified. (Value: "QUERY_ENGINE_UNSPECIFIED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1ContentSqlScript_Engine_Spark
- *        Spark SQL Query. (Value: "SPARK")
- */
-@property(nonatomic, copy, nullable) NSString *engine;
-
 @end
 
 
@@ -7470,6 +7255,14 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink : GTLRObject
 
+/**
+ *  Optional. The aspects that are attached to the entry link. The format of the
+ *  aspect key has to be the following:
+ *  {project_id_or_number}.{location_id}.{aspect_type_id} Currently, only a
+ *  single aspect of a Dataplex-owned Aspect Type is allowed.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink_Aspects *aspects;
+
 /** Output only. The time when the Entry Link was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -7485,8 +7278,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *entryLinkType;
 
 /**
- *  Required. Specifies the Entries referenced in the Entry Link. There should
- *  be exactly two entry references.
+ *  Required. Immutable. Specifies the Entries referenced in the Entry Link.
+ *  There should be exactly two entry references.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1EntryLinkEntryReference *> *entryReferences;
 
@@ -7500,6 +7293,22 @@ GTLR_DEPRECATED
 /** Output only. The time when the Entry Link was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  Optional. The aspects that are attached to the entry link. The format of the
+ *  aspect key has to be the following:
+ *  {project_id_or_number}.{location_id}.{aspect_type_id} Currently, only a
+ *  single aspect of a Dataplex-owned Aspect Type is allowed.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudDataplex_GoogleCloudDataplexV1Aspect. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink_Aspects : GTLRObject
 @end
 
 
@@ -7761,241 +7570,6 @@ GTLR_DEPRECATED
  *  settable for Dataplex Universal Catalog owned Types.
  */
 @property(nonatomic, copy, nullable) NSString *alternateUsePermission;
-
-@end
-
-
-/**
- *  Environment represents a user-visible compute infrastructure for analytics
- *  within a lake.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1Environment : GTLRObject
-
-/** Output only. Environment creation time. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Optional. Description of the environment.
- *
- *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
- */
-@property(nonatomic, copy, nullable) NSString *descriptionProperty;
-
-/** Optional. User friendly display name. */
-@property(nonatomic, copy, nullable) NSString *displayName;
-
-/**
- *  Output only. URI Endpoints to access sessions associated with the
- *  Environment.
- */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentEndpoints *endpoints;
-
-/** Required. Infrastructure specification for the Environment. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpec *infrastructureSpec;
-
-/** Optional. User defined labels for the environment. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Environment_Labels *labels;
-
-/**
- *  Output only. The relative resource name of the environment, of the form:
- *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Optional. Configuration for sessions created for this environment. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionSpec *sessionSpec;
-
-/** Output only. Status of sessions created for this environment. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionStatus *sessionStatus;
-
-/**
- *  Output only. Current state of the environment.
- *
- *  Likely values:
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_ActionRequired
- *        Resource is active but has unresolved actions. (Value:
- *        "ACTION_REQUIRED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_Active
- *        Resource is active, i.e., ready to use. (Value: "ACTIVE")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_Creating
- *        Resource is under creation. (Value: "CREATING")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_Deleting
- *        Resource is under deletion. (Value: "DELETING")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Environment_State_StateUnspecified
- *        State is not specified. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/**
- *  Output only. System generated globally unique ID for the environment. This
- *  ID will be different if the environment is deleted and re-created with the
- *  same name.
- */
-@property(nonatomic, copy, nullable) NSString *uid;
-
-/** Output only. The time when the environment was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  Optional. User defined labels for the environment.
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1Environment_Labels : GTLRObject
-@end
-
-
-/**
- *  URI Endpoints to access sessions associated with the Environment.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentEndpoints : GTLRObject
-
-/** Output only. URI to serve notebook APIs */
-@property(nonatomic, copy, nullable) NSString *notebooks;
-
-/** Output only. URI to serve SQL APIs */
-@property(nonatomic, copy, nullable) NSString *sql;
-
-@end
-
-
-/**
- *  Configuration for the underlying infrastructure used to run workloads.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpec : GTLRObject
-
-/** Optional. Compute resources needed for analyze interactive workloads. */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecComputeResources *compute;
-
-/**
- *  Required. Software Runtime Configuration for analyze interactive workloads.
- */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecOsImageRuntime *osImage;
-
-@end
-
-
-/**
- *  Compute resources associated with the analyze interactive workloads.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecComputeResources : GTLRObject
-
-/**
- *  Optional. Size in GB of the disk. Default is 100 GB.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *diskSizeGb;
-
-/**
- *  Optional. Max configurable nodes. If max_node_count > node_count, then
- *  auto-scaling is enabled.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *maxNodeCount;
-
-/**
- *  Optional. Total number of nodes in the sessions created for this
- *  environment.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *nodeCount;
-
-@end
-
-
-/**
- *  Software Runtime Configuration to run Analyze.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecOsImageRuntime : GTLRObject
-
-/** Required. Dataplex Universal Catalog Image version. */
-@property(nonatomic, copy, nullable) NSString *imageVersion;
-
-/**
- *  Optional. List of Java jars to be included in the runtime environment. Valid
- *  input includes Cloud Storage URIs to Jar binaries. For example,
- *  gs://bucket-name/my/path/to/file.jar
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *javaLibraries;
-
-/**
- *  Optional. Spark properties to provide configuration for use in sessions
- *  created for this environment. The properties to set on daemon config files.
- *  Property keys are specified in prefix:property format. The prefix must be
- *  "spark".
- */
-@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecOsImageRuntime_Properties *properties;
-
-/**
- *  Optional. A list of python packages to be installed. Valid formats include
- *  Cloud Storage URI to a PIP installable library. For example,
- *  gs://bucket-name/my/path/to/lib.tar.gz
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *pythonPackages;
-
-@end
-
-
-/**
- *  Optional. Spark properties to provide configuration for use in sessions
- *  created for this environment. The properties to set on daemon config files.
- *  Property keys are specified in prefix:property format. The prefix must be
- *  "spark".
- *
- *  @note This class is documented as having more properties of NSString. Use @c
- *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
- *        of properties and then fetch them; or @c -additionalProperties to
- *        fetch them all at once.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentInfrastructureSpecOsImageRuntime_Properties : GTLRObject
-@end
-
-
-/**
- *  Configuration for sessions created for this environment.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionSpec : GTLRObject
-
-/**
- *  Optional. If True, this causes sessions to be pre-created and available for
- *  faster startup to enable interactive exploration use-cases. This defaults to
- *  False to avoid additional billed charges. These can only be set to True for
- *  the environment with name set to "default", and with default configuration.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *enableFastStartup;
-
-/**
- *  Optional. The idle time configuration of the session. The session will be
- *  auto-terminated at the end of this period.
- */
-@property(nonatomic, strong, nullable) GTLRDuration *maxIdleDuration;
-
-@end
-
-
-/**
- *  Status of sessions created for this environment.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1EnvironmentSessionStatus : GTLRObject
-
-/**
- *  Output only. Queries over sessions to mark whether the environment is
- *  currently active or not
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *active;
 
 @end
 
@@ -8812,33 +8386,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  List content response.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "content" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListContentResponse : GTLRCollectionObject
-
-/**
- *  Content under the given parent lake.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1Content *> *content;
-
-/**
- *  Token to retrieve the next page of results, or empty if there are no more
- *  results in the list.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  Response message for listing data assets.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -9187,33 +8734,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  List environments response.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "environments" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListEnvironmentsResponse : GTLRCollectionObject
-
-/**
- *  Environments under the given parent lake.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1Environment *> *environments;
-
-/**
- *  Token to retrieve the next page of results, or empty if there are no more
- *  results in the list.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
  *  List Glossaries Response
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -9448,33 +8968,6 @@ GTLR_DEPRECATED
 
 
 /**
- *  List sessions response.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "sessions" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1ListSessionsResponse : GTLRCollectionObject
-
-/**
- *  Token to retrieve the next page of results, or empty if there are no more
- *  results in the list.
- */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  Sessions under a given environment.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1Session *> *sessions;
-
-@end
-
-
-/**
  *  List tasks response.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -9527,6 +9020,47 @@ GTLR_DEPRECATED
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1Zone *> *zones;
+
+@end
+
+
+/**
+ *  Lookup Context using permissions in the source system.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest : GTLRObject
+
+/** Optional. Allows to configure the context. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest_Options *options;
+
+/**
+ *  Required. The entry names to lookup context for. The request should have max
+ *  10 of
+ *  those.Examples:projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
+
+@end
+
+
+/**
+ *  Optional. Allows to configure the context.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest_Options : GTLRObject
+@end
+
+
+/**
+ *  Lookup Context response.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextResponse : GTLRObject
+
+/** LLM generated context for the resources. */
+@property(nonatomic, copy, nullable) NSString *context;
 
 @end
 
@@ -10647,44 +10181,6 @@ GTLR_DEPRECATED
 
 /** Entry */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry *dataplexEntry GTLR_DEPRECATED;
-
-@end
-
-
-/**
- *  Represents an active analyze session running for a user.
- */
-@interface GTLRCloudDataplex_GoogleCloudDataplexV1Session : GTLRObject
-
-/** Output only. Session start time. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  Output only. The relative resource name of the content, of the form:
- *  projects/{project_id}/locations/{location_id}/lakes/{lake_id}/environment/{environment_id}/sessions/{session_id}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Output only. State of Session
- *
- *  Likely values:
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_ActionRequired
- *        Resource is active but has unresolved actions. (Value:
- *        "ACTION_REQUIRED")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_Active
- *        Resource is active, i.e., ready to use. (Value: "ACTIVE")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_Creating
- *        Resource is under creation. (Value: "CREATING")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_Deleting
- *        Resource is under deletion. (Value: "DELETING")
- *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1Session_State_StateUnspecified
- *        State is not specified. (Value: "STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *state;
-
-/** Output only. Email of user running the session. */
-@property(nonatomic, copy, nullable) NSString *userId;
 
 @end
 

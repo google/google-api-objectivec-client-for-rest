@@ -148,6 +148,7 @@ NSString * const kGTLRSecurityCommandCenter_DataFlowEvent_Operation_Read = @"REA
 NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded = @"EVENT_TYPE_MAX_TTL_EXCEEDED";
 NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromCreation = @"EVENT_TYPE_MAX_TTL_FROM_CREATION";
 NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification = @"EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION";
+NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeMinTtlFromCreation = @"EVENT_TYPE_MIN_TTL_FROM_CREATION";
 NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 
 // GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.cloudProvider
@@ -188,6 +189,7 @@ NSString * const kGTLRSecurityCommandCenter_FileOperation_Type_Write = @"WRITE";
 
 // GTLRSecurityCommandCenter_Finding.findingClass
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Chokepoint = @"CHOKEPOINT";
+NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_ExternalExposure = @"EXTERNAL_EXPOSURE";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Misconfiguration = @"MISCONFIGURATION";
 NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Observation = @"OBSERVATION";
@@ -452,6 +454,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataFlowE
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlExceeded = @"EVENT_TYPE_MAX_TTL_EXCEEDED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromCreation = @"EVENT_TYPE_MAX_TTL_FROM_CREATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMaxTtlFromLastModification = @"EVENT_TYPE_MAX_TTL_FROM_LAST_MODIFICATION";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeMinTtlFromCreation = @"EVENT_TYPE_MIN_TTL_FROM_CREATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified = @"EVENT_TYPE_UNSPECIFIED";
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File.fileLoadState
@@ -469,6 +472,7 @@ NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2FileOpera
 
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding.findingClass
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Chokepoint = @"CHOKEPOINT";
+NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_ExternalExposure = @"EXTERNAL_EXPOSURE";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_FindingClassUnspecified = @"FINDING_CLASS_UNSPECIFIED";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Misconfiguration = @"MISCONFIGURATION";
 NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Observation = @"OBSERVATION";
@@ -2323,7 +2327,8 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_DataRetentionDeletionEvent
-@dynamic dataObjectCount, eventDetectionTime, eventType, maxRetentionAllowed;
+@dynamic dataObjectCount, eventDetectionTime, eventType, maxRetentionAllowed,
+         minRetentionAllowed;
 @end
 
 
@@ -2547,6 +2552,19 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_ExternalExposure
+//
+
+@implementation GTLRSecurityCommandCenter_ExternalExposure
+@dynamic backendService, exposedEndpoint, exposedService, forwardingRule,
+         instanceGroup, loadBalancerFirewallPolicy, networkEndpointGroup,
+         privateIpAddress, privatePort, publicIpAddress, publicPort,
+         serviceFirewallPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_File
 //
 
@@ -2586,13 +2604,14 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
          complianceDetails, compliances, connections, contacts, containers,
          createTime, dataAccessEvents, database, dataFlowEvents,
          dataRetentionDeletionEvents, descriptionProperty, disk, eventTime,
-         exfiltration, externalSystems, externalUri, files, findingClass,
-         groupMemberships, iamBindings, indicator, ipRules, job, kernelRootkit,
-         kubernetes, loadBalancers, logEntries, mitreAttack, moduleName, mute,
-         muteInfo, muteInitiator, muteUpdateTime, name, networks, nextSteps,
-         notebook, orgPolicies, parent, parentDisplayName, processes,
-         resourceName, secret, securityMarks, securityPosture, severity,
-         sourceProperties, state, toxicCombination, vertexAi, vulnerability;
+         exfiltration, externalExposure, externalSystems, externalUri, files,
+         findingClass, groupMemberships, iamBindings, indicator, ipRules, job,
+         kernelRootkit, kubernetes, loadBalancers, logEntries, mitreAttack,
+         moduleName, mute, muteInfo, muteInitiator, muteUpdateTime, name,
+         networks, nextSteps, notebook, orgPolicies, parent, parentDisplayName,
+         processes, resourceName, secret, securityMarks, securityPosture,
+         severity, sourceProperties, state, toxicCombination, vertexAi,
+         vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3816,7 +3835,8 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 //
 
 @implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent
-@dynamic dataObjectCount, eventDetectionTime, eventType, maxRetentionAllowed;
+@dynamic dataObjectCount, eventDetectionTime, eventType, maxRetentionAllowed,
+         minRetentionAllowed;
 @end
 
 
@@ -3937,6 +3957,19 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExternalExposure
+//
+
+@implementation GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExternalExposure
+@dynamic backendService, exposedEndpoint, exposedService, forwardingRule,
+         instanceGroup, loadBalancerFirewallPolicy, networkEndpointGroup,
+         privateIpAddress, privatePort, publicIpAddress, publicPort,
+         serviceFirewallPolicy;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExternalSystem
 //
 
@@ -3996,13 +4029,14 @@ NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnapshot_CloudProvider_
          complianceDetails, compliances, connections, contacts, containers,
          createTime, cryptoKeyName, dataAccessEvents, database, dataFlowEvents,
          dataRetentionDeletionEvents, descriptionProperty, disk, eventTime,
-         exfiltration, externalSystems, externalUri, files, findingClass,
-         groupMemberships, iamBindings, indicator, ipRules, job, kernelRootkit,
-         kubernetes, loadBalancers, logEntries, mitreAttack, moduleName, mute,
-         muteInfo, muteInitiator, muteUpdateTime, name, networks, nextSteps,
-         notebook, orgPolicies, parent, parentDisplayName, processes,
-         resourceName, secret, securityMarks, securityPosture, severity,
-         sourceProperties, state, toxicCombination, vertexAi, vulnerability;
+         exfiltration, externalExposure, externalSystems, externalUri, files,
+         findingClass, groupMemberships, iamBindings, indicator, ipRules, job,
+         kernelRootkit, kubernetes, loadBalancers, logEntries, mitreAttack,
+         moduleName, mute, muteInfo, muteInitiator, muteUpdateTime, name,
+         networks, nextSteps, notebook, orgPolicies, parent, parentDisplayName,
+         processes, resourceName, secret, securityMarks, securityPosture,
+         severity, sourceProperties, state, toxicCombination, vertexAi,
+         vulnerability;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

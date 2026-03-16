@@ -156,6 +156,7 @@ NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeAr = @"IBOPE_AR"
 NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeBr = @"IBOPE_BR";
 NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeCl = @"IBOPE_CL";
 NSString * const kGTLRDfareporting_Country_TvDataProviders_IbopeCo = @"IBOPE_CO";
+NSString * const kGTLRDfareporting_Country_TvDataProviders_IntageJp = @"INTAGE_JP";
 NSString * const kGTLRDfareporting_Country_TvDataProviders_InvalidTvDataProvider = @"INVALID_TV_DATA_PROVIDER";
 NSString * const kGTLRDfareporting_Country_TvDataProviders_SambaAu = @"SAMBA_AU";
 NSString * const kGTLRDfareporting_Country_TvDataProviders_TnsVn = @"TNS_VN";
@@ -1451,6 +1452,7 @@ NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Company = @"COMPANY";
 NSString * const kGTLRDfareporting_TvCampaignSummary_Type_Product = @"PRODUCT";
 
 // GTLRDfareporting_TvCampaignTimepoint.dateWindow
+NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_DaysOne = @"DAYS_ONE";
 NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksEight = @"WEEKS_EIGHT";
 NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksFour = @"WEEKS_FOUR";
 NSString * const kGTLRDfareporting_TvCampaignTimepoint_DateWindow_WeeksOne = @"WEEKS_ONE";

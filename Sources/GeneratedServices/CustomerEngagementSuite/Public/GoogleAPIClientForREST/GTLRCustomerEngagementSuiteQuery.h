@@ -4,7 +4,7 @@
 // API:
 //   Gemini Enterprise for Customer Experience API (ces/v1)
 // Documentation:
-//   https://cloud.google.com/customer-engagement-ai/conversational-agents/ps/reference
+//   https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps
 
 #import <GoogleAPIClientForREST/GTLRQuery.h>
 
@@ -845,7 +845,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 
 /**
  *  Identifier. The resource name of the deployment. Format:
- *  projects/{project}/locations/{location}/apps/{app}/deployments/{deployment}
+ *  `projects/{project}/locations/{location}/apps/{app}/deployments/{deployment}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -864,7 +864,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *  @param object The @c GTLRCustomerEngagementSuite_Deployment to include in
  *    the query.
  *  @param name Identifier. The resource name of the deployment. Format:
- *    projects/{project}/locations/{location}/apps/{app}/deployments/{deployment}
+ *    `projects/{project}/locations/{location}/apps/{app}/deployments/{deployment}`
  *
  *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsDeploymentsPatch
  */
@@ -1572,7 +1572,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @end
 
 /**
- *  Initiates a single turn interaction with the CES agent within a session.
+ *  Initiates a single-turn interaction with the CES agent within a session.
  *
  *  Method: ces.projects.locations.apps.sessions.runSession
  *
@@ -1591,7 +1591,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 /**
  *  Fetches a @c GTLRCustomerEngagementSuite_RunSessionResponse.
  *
- *  Initiates a single turn interaction with the CES agent within a session.
+ *  Initiates a single-turn interaction with the CES agent within a session.
  *
  *  @param object The @c GTLRCustomerEngagementSuite_RunSessionRequest to
  *    include in the query.
@@ -2020,11 +2020,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsToolsPatch : GTLRCustomerEngagementSuiteQuery
 
 /**
- *  Identifier. The unique identifier of the tool. Format: -
- *  `projects/{project}/locations/{location}/apps/{app}/tools/{tool}` for ##
- *  standalone tools.
+ *  Identifier. The resource name of the tool. Format: *
+ *  `projects/{project}/locations/{location}/apps/{app}/tools/{tool}` for
+ *  standalone tools. *
  *  `projects/{project}/locations/{location}/apps/{app}/toolsets/{toolset}/tools/{tool}`
- *  for tools retrieved from a toolset. These tools are dynamic and output-only,
+ *  for tools retrieved from a toolset. These tools are dynamic and output-only;
  *  they cannot be referenced directly where a tool is expected.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2044,12 +2044,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *
  *  @param object The @c GTLRCustomerEngagementSuite_Tool to include in the
  *    query.
- *  @param name Identifier. The unique identifier of the tool. Format: -
- *    `projects/{project}/locations/{location}/apps/{app}/tools/{tool}` for ##
- *    standalone tools.
+ *  @param name Identifier. The resource name of the tool. Format: *
+ *    `projects/{project}/locations/{location}/apps/{app}/tools/{tool}` for
+ *    standalone tools. *
  *    `projects/{project}/locations/{location}/apps/{app}/toolsets/{toolset}/tools/{tool}`
  *    for tools retrieved from a toolset. These tools are dynamic and
- *    output-only, they cannot be referenced directly where a tool is expected.
+ *    output-only; they cannot be referenced directly where a tool is expected.
  *
  *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsToolsPatch
  */

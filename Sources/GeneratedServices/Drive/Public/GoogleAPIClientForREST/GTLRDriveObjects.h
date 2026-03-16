@@ -625,7 +625,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 /** The Approval ID. */
 @property(nonatomic, copy, nullable) NSString *approvalId;
 
-/** Output only. The time time the approval was completed. */
+/** Output only. The time the approval was completed. */
 @property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
 
 /** Output only. The time the approval was created. */

@@ -21,7 +21,6 @@ NSString * const kGTLRCloudDataplexEntryModeTarget             = @"TARGET";
 // view
 NSString * const kGTLRCloudDataplexViewAll                     = @"ALL";
 NSString * const kGTLRCloudDataplexViewBasic                   = @"BASIC";
-NSString * const kGTLRCloudDataplexViewContentViewUnspecified  = @"CONTENT_VIEW_UNSPECIFIED";
 NSString * const kGTLRCloudDataplexViewCustom                  = @"CUSTOM";
 NSString * const kGTLRCloudDataplexViewDataScanJobViewUnspecified = @"DATA_SCAN_JOB_VIEW_UNSPECIFIED";
 NSString * const kGTLRCloudDataplexViewDataScanViewUnspecified = @"DATA_SCAN_VIEW_UNSPECIFIED";
@@ -2021,6 +2020,40 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
 
 @end
 
+@implementation GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksPatch
+
+@dynamic allowMissing, aspectKeys, name;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aspectKeys" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1EntryLink class];
+  query.loggingName = @"dataplex.projects.locations.entryGroups.entryLinks.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsGet
 
 @dynamic name;
@@ -3115,382 +3148,6 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
 
 @end
 
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentCreate
-
-@dynamic parent, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1Content *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/content";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1Content class];
-  query.loggingName = @"dataplex.projects.locations.lakes.content.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudDataplex_Empty class];
-  query.loggingName = @"dataplex.projects.locations.lakes.content.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentGet
-
-@dynamic name, view;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1Content class];
-  query.loggingName = @"dataplex.projects.locations.lakes.content.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleIamV1Policy class];
-  query.loggingName = @"dataplex.projects.locations.lakes.content.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsCreate
-
-@dynamic parent, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1Content *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/contentitems";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1Content class];
-  query.loggingName = @"dataplex.projects.locations.lakes.contentitems.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudDataplex_Empty class];
-  query.loggingName = @"dataplex.projects.locations.lakes.contentitems.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsGet
-
-@dynamic name, view;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1Content class];
-  query.loggingName = @"dataplex.projects.locations.lakes.contentitems.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleIamV1Policy class];
-  query.loggingName = @"dataplex.projects.locations.lakes.contentitems.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/contentitems";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1ListContentResponse class];
-  query.loggingName = @"dataplex.projects.locations.lakes.contentitems.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsPatch
-
-@dynamic name, updateMask, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1Content *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1Content class];
-  query.loggingName = @"dataplex.projects.locations.lakes.contentitems.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleIamV1Policy class];
-  query.loggingName = @"dataplex.projects.locations.lakes.contentitems.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentitemsTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse class];
-  query.loggingName = @"dataplex.projects.locations.lakes.contentitems.testIamPermissions";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/content";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1ListContentResponse class];
-  query.loggingName = @"dataplex.projects.locations.lakes.content.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentPatch
-
-@dynamic name, updateMask, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1Content *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1Content class];
-  query.loggingName = @"dataplex.projects.locations.lakes.content.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleIamV1Policy class];
-  query.loggingName = @"dataplex.projects.locations.lakes.content.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesContentTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesContentTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse class];
-  query.loggingName = @"dataplex.projects.locations.lakes.content.testIamPermissions";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesCreate
 
 @dynamic lakeId, parent, validateOnly;
@@ -3537,71 +3194,6 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
 
 @end
 
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsCreate
-
-@dynamic environmentId, parent, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1Environment *)object
-                         parent:(NSString *)parent {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/environments";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsCreate *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleLongrunningOperation class];
-  query.loggingName = @"dataplex.projects.locations.lakes.environments.create";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsDelete
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsDelete *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"DELETE"
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleLongrunningOperation class];
-  query.loggingName = @"dataplex.projects.locations.lakes.environments.delete";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsGet
-
-@dynamic name;
-
-+ (instancetype)queryWithName:(NSString *)name {
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsGet *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1Environment class];
-  query.loggingName = @"dataplex.projects.locations.lakes.environments.get";
-  return query;
-}
-
-@end
-
 @implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -3620,71 +3212,6 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
   query.resource = resource;
   query.expectedObjectClass = [GTLRCloudDataplex_GoogleIamV1Policy class];
   query.loggingName = @"dataplex.projects.locations.lakes.environments.getIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsList
-
-@dynamic filter, orderBy, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/environments";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1ListEnvironmentsResponse class];
-  query.loggingName = @"dataplex.projects.locations.lakes.environments.list";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsPatch
-
-@dynamic name, updateMask, validateOnly;
-
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1Environment *)object
-                           name:(NSString *)name {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"name" ];
-  NSString *pathURITemplate = @"v1/{+name}";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsPatch *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"PATCH"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.name = name;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleLongrunningOperation class];
-  query.loggingName = @"dataplex.projects.locations.lakes.environments.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsSessionsList
-
-@dynamic filter, pageSize, pageToken, parent;
-
-+ (instancetype)queryWithParent:(NSString *)parent {
-  NSArray *pathParams = @[ @"parent" ];
-  NSString *pathURITemplate = @"v1/{+parent}/sessions";
-  GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsSessionsList *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.parent = parent;
-  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1ListSessionsResponse class];
-  query.loggingName = @"dataplex.projects.locations.lakes.environments.sessions.list";
   return query;
 }
 
@@ -4804,6 +4331,33 @@ NSString * const kGTLRCloudDataplexViewTables                  = @"TABLES";
   query.name = name;
   query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudLocationListLocationsResponse class];
   query.loggingName = @"dataplex.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudDataplexQuery_ProjectsLocationsLookupContext
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:lookupContext";
+  GTLRCloudDataplexQuery_ProjectsLocationsLookupContext *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextResponse class];
+  query.loggingName = @"dataplex.projects.locations.lookupContext";
   return query;
 }
 

@@ -42,6 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.builds.submit
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsBuildsSubmit : GTLRCloudRunQuery
@@ -77,6 +78,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.exportImage
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsExportImage : GTLRCloudRunQuery
@@ -118,6 +120,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.exportImageMetadata
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsExportImageMetadata : GTLRCloudRunQuery
@@ -156,6 +159,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.exportMetadata
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsExportMetadata : GTLRCloudRunQuery
@@ -199,6 +203,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.exportProjectMetadata
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsExportProjectMetadata : GTLRCloudRunQuery
@@ -231,6 +236,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.instances.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsInstancesCreate : GTLRCloudRunQuery
@@ -273,6 +279,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.instances.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsInstancesDelete : GTLRCloudRunQuery
@@ -310,7 +317,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.instances.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsInstancesGet : GTLRCloudRunQuery
 
@@ -335,7 +344,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.instances.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsInstancesList : GTLRCloudRunQuery
 
@@ -386,6 +397,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.instances.start
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsInstancesStart : GTLRCloudRunQuery
@@ -421,6 +433,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.instances.stop
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsInstancesStop : GTLRCloudRunQuery
@@ -456,6 +469,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsCreate : GTLRCloudRunQuery
@@ -504,6 +518,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsDelete : GTLRCloudRunQuery
@@ -548,6 +563,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.executions.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsCancel : GTLRCloudRunQuery
@@ -583,6 +599,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.executions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsDelete : GTLRCloudRunQuery
@@ -627,6 +644,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.executions.exportStatus
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsExportStatus : GTLRCloudRunQuery
@@ -670,7 +688,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.executions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsGet : GTLRCloudRunQuery
 
@@ -703,7 +723,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.executions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsList : GTLRCloudRunQuery
 
@@ -756,7 +778,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.executions.tasks.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsTasksGet : GTLRCloudRunQuery
 
@@ -786,7 +810,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.executions.tasks.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsExecutionsTasksList : GTLRCloudRunQuery
 
@@ -838,7 +864,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsGet : GTLRCloudRunQuery
 
@@ -871,7 +899,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsGetIamPolicy : GTLRCloudRunQuery
 
@@ -919,7 +949,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsList : GTLRCloudRunQuery
 
@@ -969,6 +1001,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsPatch : GTLRCloudRunQuery
@@ -1015,6 +1048,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.run
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsRun : GTLRCloudRunQuery
@@ -1051,6 +1085,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsSetIamPolicy : GTLRCloudRunQuery
@@ -1089,7 +1124,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.jobs.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsJobsTestIamPermissions : GTLRCloudRunQuery
 
@@ -1129,6 +1166,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.operations.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsOperationsDelete : GTLRCloudRunQuery
@@ -1160,7 +1198,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsOperationsGet : GTLRCloudRunQuery
 
@@ -1189,7 +1229,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsOperationsList : GTLRCloudRunQuery
 
@@ -1260,7 +1302,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.operations.wait
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsOperationsWait : GTLRCloudRunQuery
 
@@ -1297,6 +1341,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesCreate : GTLRCloudRunQuery
@@ -1348,6 +1393,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesDelete : GTLRCloudRunQuery
@@ -1393,7 +1439,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesGet : GTLRCloudRunQuery
 
@@ -1426,7 +1474,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesGetIamPolicy : GTLRCloudRunQuery
 
@@ -1474,7 +1524,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesList : GTLRCloudRunQuery
 
@@ -1526,6 +1578,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesPatch : GTLRCloudRunQuery
@@ -1536,6 +1589,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  set to true and the Service does not exist.
  */
 @property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  Optional. If set to true, a new revision will be created from the template
+ *  even if the system doesn't detect any changes from the previously deployed
+ *  revision. This may be useful for cases where the underlying resources need
+ *  to be recreated or reinitialized. For example if the image is specified by
+ *  label, but the underlying image digest has changed) or if the container
+ *  performs deployment initialization work that needs to be performed again.
+ */
+@property(nonatomic, assign) BOOL forceNewRevision;
 
 /**
  *  Identifier. The fully qualified name of this Service. In
@@ -1583,6 +1646,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.revisions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesRevisionsDelete : GTLRCloudRunQuery
@@ -1625,6 +1689,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.revisions.exportStatus
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesRevisionsExportStatus : GTLRCloudRunQuery
@@ -1668,7 +1733,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.revisions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesRevisionsGet : GTLRCloudRunQuery
 
@@ -1699,7 +1766,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.revisions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesRevisionsList : GTLRCloudRunQuery
 
@@ -1751,6 +1820,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesSetIamPolicy : GTLRCloudRunQuery
@@ -1789,7 +1859,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.services.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsServicesTestIamPermissions : GTLRCloudRunQuery
 
@@ -1826,6 +1898,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.workerPools.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsCreate : GTLRCloudRunQuery
@@ -1877,6 +1950,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.workerPools.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsDelete : GTLRCloudRunQuery
@@ -1921,7 +1995,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.workerPools.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsGet : GTLRCloudRunQuery
 
@@ -1954,7 +2030,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.workerPools.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsGetIamPolicy : GTLRCloudRunQuery
 
@@ -2002,7 +2080,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.workerPools.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsList : GTLRCloudRunQuery
 
@@ -2054,6 +2134,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.workerPools.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsPatch : GTLRCloudRunQuery
@@ -2121,6 +2202,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.workerPools.revisions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsRevisionsDelete : GTLRCloudRunQuery
@@ -2163,7 +2245,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.workerPools.revisions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsRevisionsGet : GTLRCloudRunQuery
 
@@ -2194,7 +2278,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.workerPools.revisions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsRevisionsList : GTLRCloudRunQuery
 
@@ -2246,6 +2332,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.workerPools.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsSetIamPolicy : GTLRCloudRunQuery
@@ -2284,7 +2371,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  Method: run.projects.locations.workerPools.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
  *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
  */
 @interface GTLRCloudRunQuery_ProjectsLocationsWorkerPoolsTestIamPermissions : GTLRCloudRunQuery
 

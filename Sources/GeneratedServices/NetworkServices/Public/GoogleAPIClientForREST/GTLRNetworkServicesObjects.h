@@ -927,6 +927,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, strong, nullable) NSNumber *failOpen;
 
 /**
+ *  Optional. List of the Envoy attributes to forward to the extension server.
+ *  The attributes provided here are included as part of the
+ *  `ProcessingRequest.attributes` field (of type `map`), where the keys are the
+ *  attribute names. Refer to the
+ *  [documentation](https://cloud.google.com/service-extensions/docs/cel-matcher-language-reference#attributes)
+ *  for the names of attributes that can be forwarded. If omitted, no attributes
+ *  are sent. Each element is a string indicating the attribute name.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forwardAttributes;
+
+/**
  *  Optional. List of the HTTP headers to forward to the extension (from the
  *  client). If omitted, all headers are sent. Each element is a string
  *  indicating the header name.
@@ -942,9 +953,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, strong, nullable) GTLRNetworkServices_AuthzExtension_Labels *labels;
 
 /**
- *  Required. All backend services and forwarding rules referenced by this
+ *  Optional. All backend services and forwarding rules referenced by this
  *  extension must share the same load balancing scheme. Supported values:
- *  `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to
+ *  `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. Can be omitted for AuthzExtensions
+ *  that do not reference a backend service. For more information, refer to
  *  [Backend services
  *  overview](https://cloud.google.com/load-balancing/docs/backend-service).
  *
@@ -1439,6 +1451,17 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *failOpen;
+
+/**
+ *  Optional. List of the Envoy attributes to forward to the extension server.
+ *  The attributes provided here are included as part of the
+ *  `ProcessingRequest.attributes` field (of type `map`), where the keys are the
+ *  attribute names. Refer to the
+ *  [documentation](https://cloud.google.com/service-extensions/docs/cel-matcher-language-reference#attributes)
+ *  for the names of attributes that can be forwarded. If omitted, no attributes
+ *  are sent. Each element is a string indicating the attribute name.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *forwardAttributes;
 
 /**
  *  Optional. List of the HTTP headers to forward to the extension (from the

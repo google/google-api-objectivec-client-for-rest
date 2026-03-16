@@ -26,7 +26,6 @@
 @class GTLRSecretManager_Location;
 @class GTLRSecretManager_Location_Labels;
 @class GTLRSecretManager_Location_Metadata;
-@class GTLRSecretManager_Operation;
 @class GTLRSecretManager_Operation_Metadata;
 @class GTLRSecretManager_Operation_Response;
 @class GTLRSecretManager_Policy;
@@ -487,38 +486,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 
 /** The standard List next-page token. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-@end
-
-
-/**
- *  The response message for Operations.ListOperations.
- *
- *  @note This class supports NSFastEnumeration and indexed subscripting over
- *        its "operations" property. If returned as the result of a query, it
- *        should support automatic pagination (when @c shouldFetchNextPages is
- *        enabled).
- */
-@interface GTLRSecretManager_ListOperationsResponse : GTLRCollectionObject
-
-/** The standard List next-page token. */
-@property(nonatomic, copy, nullable) NSString *nextPageToken;
-
-/**
- *  A list of operations that matches the specified filter in the request.
- *
- *  @note This property is used to support NSFastEnumeration and indexed
- *        subscripting on this class.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRSecretManager_Operation *> *operations;
-
-/**
- *  Unordered list. Unreachable resources. Populated when the request sets
- *  `ListOperationsRequest.return_partial_success` and reads across collections.
- *  For example, when attempting to list all resources across all supported
- *  locations.
- */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

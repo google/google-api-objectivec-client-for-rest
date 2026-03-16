@@ -121,6 +121,17 @@ NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Routines = @"ROUTI
 NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_TargetTypeUnspecified = @"TARGET_TYPE_UNSPECIFIED";
 NSString * const kGTLRBigquery_DatasetAccessEntry_TargetTypes_Views = @"VIEWS";
 
+// GTLRBigquery_DmlStatistics.dmlMode
+NSString * const kGTLRBigquery_DmlStatistics_DmlMode_CoarseGrainedDml = @"COARSE_GRAINED_DML";
+NSString * const kGTLRBigquery_DmlStatistics_DmlMode_DmlModeUnspecified = @"DML_MODE_UNSPECIFIED";
+NSString * const kGTLRBigquery_DmlStatistics_DmlMode_FineGrainedDml = @"FINE_GRAINED_DML";
+
+// GTLRBigquery_DmlStatistics.fineGrainedDmlUnusedReason
+NSString * const kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_DmlInMultiStatementTransaction = @"DML_IN_MULTI_STATEMENT_TRANSACTION";
+NSString * const kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_FineGrainedDmlUnusedReasonUnspecified = @"FINE_GRAINED_DML_UNUSED_REASON_UNSPECIFIED";
+NSString * const kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_MaxPartitionSizeExceeded = @"MAX_PARTITION_SIZE_EXCEEDED";
+NSString * const kGTLRBigquery_DmlStatistics_FineGrainedDmlUnusedReason_TableNotEnrolled = @"TABLE_NOT_ENROLLED";
+
 // GTLRBigquery_ExplainQueryStage.computeMode
 NSString * const kGTLRBigquery_ExplainQueryStage_ComputeMode_BiEngine = @"BI_ENGINE";
 NSString * const kGTLRBigquery_ExplainQueryStage_ComputeMode_Bigquery = @"BIGQUERY";
@@ -1543,7 +1554,8 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_DmlStatistics
-@dynamic deletedRowCount, insertedRowCount, updatedRowCount;
+@dynamic deletedRowCount, dmlMode, fineGrainedDmlUnusedReason, insertedRowCount,
+         updatedRowCount;
 @end
 
 
@@ -1994,7 +2006,9 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 //
 
 @implementation GTLRBigquery_IncrementalResultStats
-@dynamic disabledReason, resultSetLastModifyTime, resultSetLastReplaceTime;
+@dynamic disabledReason, disabledReasonDetails, firstIncrementalRowTime,
+         incrementalRowCount, lastIncrementalRowTime, resultSetLastModifyTime,
+         resultSetLastReplaceTime;
 @end
 
 
@@ -2436,10 +2450,10 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
          materializedViewStatistics, metadataCacheStatistics, mlStatistics,
          modelTraining, modelTrainingCurrentIteration,
          modelTrainingExpectedTotalIteration, numDmlAffectedRows,
-         performanceInsights, queryInfo, queryPlan, referencedRoutines,
-         referencedTables, reservationUsage, schema, searchStatistics,
-         sparkStatistics, statementType, timeline, totalBytesBilled,
-         totalBytesProcessed, totalBytesProcessedAccuracy,
+         performanceInsights, queryInfo, queryPlan, referencedPropertyGraphs,
+         referencedRoutines, referencedTables, reservationUsage, schema,
+         searchStatistics, sparkStatistics, statementType, timeline,
+         totalBytesBilled, totalBytesProcessed, totalBytesProcessedAccuracy,
          totalPartitionsProcessed, totalServicesSkuSlotMs, totalSlotMs,
          transferredBytes, undeclaredQueryParameters, vectorSearchStatistics;
 
@@ -2447,6 +2461,7 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
   NSDictionary<NSString *, Class> *map = @{
     @"externalServiceCosts" : [GTLRBigquery_ExternalServiceCost class],
     @"queryPlan" : [GTLRBigquery_ExplainQueryStage class],
+    @"referencedPropertyGraphs" : [GTLRBigquery_PropertyGraphReference class],
     @"referencedRoutines" : [GTLRBigquery_RoutineReference class],
     @"referencedTables" : [GTLRBigquery_TableReference class],
     @"reservationUsage" : [GTLRBigquery_JobStatistics2_ReservationUsage_Item class],
@@ -3078,6 +3093,16 @@ NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsageMode_Unused = @"
 
 @implementation GTLRBigquery_ProjectReference
 @dynamic projectId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigquery_PropertyGraphReference
+//
+
+@implementation GTLRBigquery_PropertyGraphReference
+@dynamic datasetId, projectId, propertyGraphId;
 @end
 
 

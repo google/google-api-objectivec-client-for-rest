@@ -11,8 +11,9 @@
 #import <GoogleAPIClientForREST/GTLRCloudComposer.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeCloudComposerCloudcomposer = @"https://www.googleapis.com/auth/cloudcomposer";
 NSString * const kGTLRAuthScopeCloudComposerCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------

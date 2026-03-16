@@ -2839,10 +2839,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A comma-separated list of fields to filter by, in EBNF grammar. The
  *  supported fields are: * `user_pseudo_id` * `state` * `display_name` *
- *  `starred` * `is_pinned` * `labels` * `create_time` * `update_time` Examples:
- *  * `user_pseudo_id = some_id` * `display_name = "some_name"` * `starred =
- *  true` * `is_pinned=true AND (NOT labels:hidden)` * `create_time >
- *  "1970-01-01T12:00:00Z"`
+ *  `starred` * `is_pinned` * `labels` * `create_time` * `update_time` *
+ *  `collaborative_project` Examples: * `user_pseudo_id = some_id` *
+ *  `display_name = "some_name"` * `starred = true` * `is_pinned=true AND (NOT
+ *  labels:hidden)` * `create_time > "1970-01-01T12:00:00Z"` *
+ *  `collaborative_project =
+ *  "projects/123/locations/global/collections/default_collection/engines/"
+ *  "default_engine/collaborative_projects/cp1"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -4114,6 +4117,106 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  GetAgentCard returns the agent card for the agent.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.agents.getCard
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsGetCard : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_A2aV1AgentCard.
+ *
+ *  GetAgentCard returns the agent card for the agent.
+ *
+ *  @param tenant Optional tenant, provided as a path parameter. Experimental,
+ *    might still change for 1.0 release.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsGetCard
+ */
++ (instancetype)queryWithTenant:(NSString *)tenant;
+
+@end
+
+/**
+ *  Send a message to the agent. This is a blocking call that will return the
+ *  task once it is completed, or a LRO if requested.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.agents.message.send
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsMessageSend : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_A2aV1SendMessageResponse.
+ *
+ *  Send a message to the agent. This is a blocking call that will return the
+ *  task once it is completed, or a LRO if requested.
+ *
+ *  @param object The @c GTLRDiscoveryEngine_A2aV1SendMessageRequest to include
+ *    in the query.
+ *  @param tenant Optional tenant, provided as a path parameter. Experimental,
+ *    might still change for 1.0 release.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsMessageSend
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_A2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant;
+
+@end
+
+/**
+ *  SendStreamingMessage is a streaming call that will return a stream of task
+ *  update events until the Task is in an interrupted or terminal state.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.agents.message.stream
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsMessageStream : GTLRDiscoveryEngineQuery
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_A2aV1StreamResponse.
+ *
+ *  SendStreamingMessage is a streaming call that will return a stream of task
+ *  update events until the Task is in an interrupted or terminal state.
+ *
+ *  @param object The @c GTLRDiscoveryEngine_A2aV1SendMessageRequest to include
+ *    in the query.
+ *  @param tenant Optional tenant, provided as a path parameter. Experimental,
+ *    might still change for 1.0 release.
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsMessageStream
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_A2aV1SendMessageRequest *)object
+                         tenant:(NSString *)tenant;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.
@@ -4141,6 +4244,303 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsOperationsGet
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Cancel a task from the agent. If supported one should expect no more task
+ *  updates for the task.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksCancel : GTLRDiscoveryEngineQuery
+
+/** The resource name of the task to cancel. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_A2aV1Task.
+ *
+ *  Cancel a task from the agent. If supported one should expect no more task
+ *  updates for the task.
+ *
+ *  @param object The @c GTLRDiscoveryEngine_A2aV1CancelTaskRequest to include
+ *    in the query.
+ *  @param tenant Optional tenant, provided as a path parameter. Experimental,
+ *    might still change for 1.0 release.
+ *  @param name The resource name of the task to cancel. Format: tasks/{task_id}
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksCancel
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_A2aV1CancelTaskRequest *)object
+                         tenant:(NSString *)tenant
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get the current state of a task from the agent.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksGet : GTLRDiscoveryEngineQuery
+
+/** The number of most recent messages from the task's history to retrieve. */
+@property(nonatomic, assign) NSInteger historyLength;
+
+/** Required. The resource name of the task. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_A2aV1Task.
+ *
+ *  Get the current state of a task from the agent.
+ *
+ *  @param tenant Optional tenant, provided as a path parameter. Experimental,
+ *    might still change for 1.0 release.
+ *  @param name Required. The resource name of the task. Format: tasks/{task_id}
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksGet
+ */
++ (instancetype)queryWithTenant:(NSString *)tenant
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Set a push notification config for a task.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.pushNotificationConfigs.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsCreate : GTLRDiscoveryEngineQuery
+
+/** Required. The ID for the new config. */
+@property(nonatomic, copy, nullable) NSString *configId;
+
+/**
+ *  Required. The parent task resource for this config. Format: tasks/{task_id}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_A2aV1TaskPushNotificationConfig.
+ *
+ *  Set a push notification config for a task.
+ *
+ *  @param object The @c GTLRDiscoveryEngine_A2aV1TaskPushNotificationConfig to
+ *    include in the query.
+ *  @param tenant Optional tenant, provided as a path parameter. Experimental,
+ *    might still change for 1.0 release.
+ *  @param parent Required. The parent task resource for this config. Format:
+ *    tasks/{task_id}
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRDiscoveryEngine_A2aV1TaskPushNotificationConfig *)object
+                         tenant:(NSString *)tenant
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Delete a push notification config for a task.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.pushNotificationConfigs.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsDelete : GTLRDiscoveryEngineQuery
+
+/**
+ *  The resource name of the config to delete. Format:
+ *  tasks/{task_id}/pushNotificationConfigs/{config_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_GoogleProtobufEmpty.
+ *
+ *  Delete a push notification config for a task.
+ *
+ *  @param tenant Optional tenant, provided as a path parameter. Experimental,
+ *    might still change for 1.0 release.
+ *  @param name The resource name of the config to delete. Format:
+ *    tasks/{task_id}/pushNotificationConfigs/{config_id}
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsDelete
+ */
++ (instancetype)queryWithTenant:(NSString *)tenant
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get a push notification config for a task.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.pushNotificationConfigs.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsGet : GTLRDiscoveryEngineQuery
+
+/**
+ *  The resource name of the config to retrieve. Format:
+ *  tasks/{task_id}/pushNotificationConfigs/{config_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_A2aV1TaskPushNotificationConfig.
+ *
+ *  Get a push notification config for a task.
+ *
+ *  @param tenant Optional tenant, provided as a path parameter. Experimental,
+ *    might still change for 1.0 release.
+ *  @param name The resource name of the config to retrieve. Format:
+ *    tasks/{task_id}/pushNotificationConfigs/{config_id}
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsGet
+ */
++ (instancetype)queryWithTenant:(NSString *)tenant
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get a list of push notifications configured for a task.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.pushNotificationConfigs.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsList : GTLRDiscoveryEngineQuery
+
+/**
+ *  For AIP-158 these fields are present. Usually not used/needed. The maximum
+ *  number of configurations to return. If unspecified, all configs will be
+ *  returned.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  A page token received from a previous ListTaskPushNotificationConfigRequest
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListTaskPushNotificationConfigRequest` must
+ *  match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** The parent task resource. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c
+ *  GTLRDiscoveryEngine_A2aV1ListTaskPushNotificationConfigResponse.
+ *
+ *  Get a list of push notifications configured for a task.
+ *
+ *  @param tenant Optional tenant, provided as a path parameter. Experimental,
+ *    might still change for 1.0 release.
+ *  @param parent The parent task resource. Format: tasks/{task_id}
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksPushNotificationConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithTenant:(NSString *)tenant
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  TaskSubscription is a streaming call that will return a stream of task
+ *  update events. This attaches the stream to an existing in process task. If
+ *  the task is complete the stream will return the completed task (like
+ *  GetTask) and close the stream.
+ *
+ *  Method: discoveryengine.projects.locations.collections.engines.assistants.agents.tasks.subscribe
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDiscoveryEngineCloudPlatform
+ */
+@interface GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksSubscribe : GTLRDiscoveryEngineQuery
+
+/** The resource name of the task to subscribe to. Format: tasks/{task_id} */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional tenant, provided as a path parameter. Experimental, might still
+ *  change for 1.0 release.
+ */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Fetches a @c GTLRDiscoveryEngine_A2aV1StreamResponse.
+ *
+ *  TaskSubscription is a streaming call that will return a stream of task
+ *  update events. This attaches the stream to an existing in process task. If
+ *  the task is complete the stream will return the completed task (like
+ *  GetTask) and close the stream.
+ *
+ *  @param tenant Optional tenant, provided as a path parameter. Experimental,
+ *    might still change for 1.0 release.
+ *  @param name The resource name of the task to subscribe to. Format:
+ *    tasks/{task_id}
+ *
+ *  @return GTLRDiscoveryEngineQuery_ProjectsLocationsCollectionsEnginesAssistantsAgentsTasksSubscribe
+ */
++ (instancetype)queryWithTenant:(NSString *)tenant
+                           name:(NSString *)name;
 
 @end
 
@@ -5920,10 +6320,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A comma-separated list of fields to filter by, in EBNF grammar. The
  *  supported fields are: * `user_pseudo_id` * `state` * `display_name` *
- *  `starred` * `is_pinned` * `labels` * `create_time` * `update_time` Examples:
- *  * `user_pseudo_id = some_id` * `display_name = "some_name"` * `starred =
- *  true` * `is_pinned=true AND (NOT labels:hidden)` * `create_time >
- *  "1970-01-01T12:00:00Z"`
+ *  `starred` * `is_pinned` * `labels` * `create_time` * `update_time` *
+ *  `collaborative_project` Examples: * `user_pseudo_id = some_id` *
+ *  `display_name = "some_name"` * `starred = true` * `is_pinned=true AND (NOT
+ *  labels:hidden)` * `create_time > "1970-01-01T12:00:00Z"` *
+ *  `collaborative_project =
+ *  "projects/123/locations/global/collections/default_collection/engines/"
+ *  "default_engine/collaborative_projects/cp1"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -8792,10 +9195,13 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  A comma-separated list of fields to filter by, in EBNF grammar. The
  *  supported fields are: * `user_pseudo_id` * `state` * `display_name` *
- *  `starred` * `is_pinned` * `labels` * `create_time` * `update_time` Examples:
- *  * `user_pseudo_id = some_id` * `display_name = "some_name"` * `starred =
- *  true` * `is_pinned=true AND (NOT labels:hidden)` * `create_time >
- *  "1970-01-01T12:00:00Z"`
+ *  `starred` * `is_pinned` * `labels` * `create_time` * `update_time` *
+ *  `collaborative_project` Examples: * `user_pseudo_id = some_id` *
+ *  `display_name = "some_name"` * `starred = true` * `is_pinned=true AND (NOT
+ *  labels:hidden)` * `create_time > "1970-01-01T12:00:00Z"` *
+ *  `collaborative_project =
+ *  "projects/123/locations/global/collections/default_collection/engines/"
+ *  "default_engine/collaborative_projects/cp1"`
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -10225,7 +10631,8 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Creates a LicenseConfig
+ *  Creates a LicenseConfig This method should only be used for creating
+ *  NotebookLm licenses or Gemini Enterprise free trial licenses.
  *
  *  Method: discoveryengine.projects.locations.licenseConfigs.create
  *
@@ -10252,7 +10659,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig.
  *
- *  Creates a LicenseConfig
+ *  Creates a LicenseConfig This method should only be used for creating
+ *  NotebookLm licenses or Gemini Enterprise free trial licenses.
  *
  *  @param object The @c
  *    GTLRDiscoveryEngine_GoogleCloudDiscoveryengineV1LicenseConfig to include
@@ -11096,9 +11504,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Optional. Requested page size. Server may return fewer items than requested.
- *  If unspecified, defaults to 10. The maximum value is 50; values above 50
- *  will be coerced to 50. If this field is negative, an INVALID_ARGUMENT error
- *  is returned.
+ *  If unspecified, defaults to 1000. The maximum value is 1000; values above
+ *  1000 will be coerced to 1000. If this field is negative, an INVALID_ARGUMENT
+ *  error is returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 

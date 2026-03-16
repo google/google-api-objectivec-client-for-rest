@@ -703,8 +703,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
 @interface GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsPatch : GTLRRealTimeBiddingQuery
 
 /**
- *  Output only. Name of the pretargeting configuration that must follow the
- *  pattern `bidders/{bidder_account_id}/pretargetingConfigs/{config_id}`
+ *  Output only. Name of the pretargeting config that must follow the pattern
+ *  `bidders/{bidder_account_id}/pretargetingConfigs/{config_id}`
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -722,9 +722,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBiddingViewServingDecisionOnly;
  *
  *  @param object The @c GTLRRealTimeBidding_PretargetingConfig to include in
  *    the query.
- *  @param name Output only. Name of the pretargeting configuration that must
- *    follow the pattern
- *    `bidders/{bidder_account_id}/pretargetingConfigs/{config_id}`
+ *  @param name Output only. Name of the pretargeting config that must follow
+ *    the pattern `bidders/{bidder_account_id}/pretargetingConfigs/{config_id}`
  *
  *  @return GTLRRealTimeBiddingQuery_BiddersPretargetingConfigsPatch
  */

@@ -180,6 +180,33 @@ NSString * const kGTLRAPIhubViewMcpTool                = @"MCP_TOOL";
 
 @end
 
+@implementation GTLRAPIhubQuery_ProjectsLocationsApiHubInstancesPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRAPIhub_GoogleCloudApihubV1ApiHubInstance *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRAPIhubQuery_ProjectsLocationsApiHubInstancesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRAPIhub_GoogleLongrunningOperation class];
+  query.loggingName = @"apihub.projects.locations.apiHubInstances.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRAPIhubQuery_ProjectsLocationsApisCreate
 
 @dynamic apiId, parent;

@@ -1604,6 +1604,36 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
+ *  Lists all supported permissions in VPCSC Granular Controls.
+ *
+ *  Method: accesscontextmanager.permissions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAccessContextManagerCloudPlatform
+ */
+@interface GTLRAccessContextManagerQuery_PermissionsList : GTLRAccessContextManagerQuery
+
+/**
+ *  Optional. This flag specifies the maximum number of services to return per
+ *  page. Default is 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Token to start on a later page. Default is the first page. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRAccessContextManager_ListSupportedPermissionsResponse.
+ *
+ *  Lists all supported permissions in VPCSC Granular Controls.
+ *
+ *  @return GTLRAccessContextManagerQuery_PermissionsList
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Returns a VPC-SC supported service based on the service name.
  *
  *  Method: accesscontextmanager.services.get

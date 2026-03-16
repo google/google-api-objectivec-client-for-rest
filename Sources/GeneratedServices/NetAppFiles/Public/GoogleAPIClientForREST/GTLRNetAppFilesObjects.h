@@ -30,6 +30,7 @@
 @class GTLRNetAppFiles_CacheConfig;
 @class GTLRNetAppFiles_CacheParameters;
 @class GTLRNetAppFiles_CachePrePopulate;
+@class GTLRNetAppFiles_CloneDetails;
 @class GTLRNetAppFiles_DailySchedule;
 @class GTLRNetAppFiles_DestinationVolumeParameters;
 @class GTLRNetAppFiles_ExportPolicy;
@@ -2416,6 +2417,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 
 /**
+ *  Details about a clone volume.
+ */
+@interface GTLRNetAppFiles_CloneDetails : GTLRObject
+
+/**
+ *  Output only. Shared space in GiB. Determined at volume creation time based
+ *  on size of source snapshot.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sharedSpaceGib;
+
+/**
+ *  Output only. Specifies the full resource name of the source snapshot from
+ *  which this volume was cloned. Format:
+ *  projects/{project}/locations/{location}/volumes/{volume}/snapshots/{snapshot}
+ */
+@property(nonatomic, copy, nullable) NSString *sourceSnapshot;
+
+/**
+ *  Output only. Full name of the source volume resource. Format:
+ *  projects/{project}/locations/{location}/volumes/{volume}
+ */
+@property(nonatomic, copy, nullable) NSString *sourceVolume;
+
+@end
+
+
+/**
  *  Make a snapshot every day e.g. at 04:00, 05:20, 23:50
  */
 @interface GTLRNetAppFiles_DailySchedule : GTLRObject
@@ -4700,6 +4730,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *capacityGib;
+
+/**
+ *  Output only. If this volume is a clone, this field contains details about
+ *  the clone.
+ */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_CloneDetails *cloneDetails;
 
 /**
  *  Output only. Size of the volume cold tier data rounded down to the nearest

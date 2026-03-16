@@ -1168,6 +1168,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions.sourceProvenanceHash
 
 /**
+ *  Use a dirsum_sha256 hash.
+ *
+ *  Value: "DIRSUM_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1BuildOptions_SourceProvenanceHash_DirsumSha256;
+/**
  *  Dirhash of a Go module's source code which is then hex-encoded.
  *
  *  Value: "GO_MODULE_H1"
@@ -1311,6 +1317,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbui
 // ----------------------------------------------------------------------------
 // GTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash.type
 
+/**
+ *  Use a dirsum_sha256 hash.
+ *
+ *  Value: "DIRSUM_SHA256"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_DirsumSha256;
 /**
  *  Dirhash of a Go module's source code which is then hex-encoded.
  *
@@ -2329,6 +2341,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
 
 /** The name of the base image. */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** The registry in which the base image is from. */
+@property(nonatomic, copy, nullable) NSString *registry;
 
 /** The repository name in which the base image is from. */
 @property(nonatomic, copy, nullable) NSString *repository;
@@ -5376,6 +5391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  The type of hash that was performed.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_DirsumSha256
+ *        Use a dirsum_sha256 hash. (Value: "DIRSUM_SHA256")
  *    @arg @c kGTLRContainerAnalysis_GoogleDevtoolsCloudbuildV1Hash_Type_GoModuleH1
  *        Dirhash of a Go module's source code which is then hex-encoded.
  *        (Value: "GO_MODULE_H1")
@@ -6661,9 +6678,6 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  A type of analysis that can be done for a resource.
  */
 @interface GTLRContainerAnalysis_Note : GTLRObject
-
-/** The timestamp when the advisory was first published by the source feed. */
-@property(nonatomic, strong, nullable) GTLRDateTime *advisoryPublishTime;
 
 /** A note describing an attestation role. */
 @property(nonatomic, strong, nullable) GTLRContainerAnalysis_AttestationNote *attestation;
@@ -8544,6 +8558,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainerAnalysis_VulnerabilityOccurrenc
  *  A security vulnerability that can be found in resources.
  */
 @interface GTLRContainerAnalysis_VulnerabilityNote : GTLRObject
+
+/** The time this advisory was published by the source. */
+@property(nonatomic, strong, nullable) GTLRDateTime *advisoryPublishTime;
 
 /**
  *  The CVSS score of this vulnerability. CVSS score is on a scale of 0 - 10

@@ -391,6 +391,42 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAgeRa
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AdImage;
 /**
+ *  The asset is used as an app cover photo.
+ *
+ *  Value: "APP_COVER_PHOTO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppCoverPhoto;
+/**
+ *  The asset is used as an app developer name.
+ *
+ *  Value: "APP_DEVELOPER_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppDeveloperName;
+/**
+ *  The asset is used as an app icon.
+ *
+ *  Value: "APP_ICON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppIcon;
+/**
+ *  The asset is used as an app screenshot.
+ *
+ *  Value: "APP_SCREENSHOT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppScreenshot;
+/**
+ *  The asset is used as an app short description.
+ *
+ *  Value: "APP_SHORT_DESCRIPTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppShortDescription;
+/**
+ *  The asset is used as an app title.
+ *
+ *  Value: "APP_TITLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppTitle;
+/**
  *  The asset is used as a business logo.
  *
  *  Value: "BUSINESS_LOGO"
@@ -453,6 +489,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAsset
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionInPortrait;
 /**
+ *  A description line asset used as a sitelink in position 1.
+ *
+ *  Value: "DESCRIPTION_LINE_HEADLINE_AS_SITELINK_POSITION_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionLineHeadlineAsSitelinkPositionOne;
+/**
+ *  A description line asset used as a sitelink in position 2.
+ *
+ *  Value: "DESCRIPTION_LINE_HEADLINE_AS_SITELINK_POSITION_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionLineHeadlineAsSitelinkPositionTwo;
+/**
  *  The asset is used as a description prefix.
  *
  *  Value: "DESCRIPTION_PREFIX"
@@ -484,6 +532,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAsset
  *  Value: "HEADLINE_3"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline3;
+/**
+ *  A headline asset used as a sitelink in position 1.
+ *
+ *  Value: "HEADLINE_AS_SITELINK_POSITION_ONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_HeadlineAsSitelinkPositionOne;
+/**
+ *  A headline asset used as a sitelink in position 2.
+ *
+ *  Value: "HEADLINE_AS_SITELINK_POSITION_TWO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_HeadlineAsSitelinkPositionTwo;
 /**
  *  The asset was used as a headline in portrait image.
  *
@@ -1177,6 +1237,43 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMobil
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonMobileAppAsset_AppStore_Unspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonSegments.adFormatType
+
+/**
+ *  A standard text ad format. This is currently only used for ads on the Search
+ *  network.
+ *
+ *  Value: "TEXT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdFormatType_Text;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdFormatType_Unknown;
+/**
+ *  No value has been specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdFormatType_Unspecified;
+/**
+ *  An ad format for a booking link call-to-action within a vertical ad, for
+ *  example a 'Book Now' link for a hotel ad.
+ *
+ *  Value: "VERTICAL_ADS_BOOKING_LINK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdFormatType_VerticalAdsBookingLink;
+/**
+ *  An ad format that promotes a specific entity within a vertical, for example,
+ *  a hotel ad in the Travel vertical on Search.
+ *
+ *  Value: "VERTICAL_ADS_PROMOTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdFormatType_VerticalAdsPromotion;
+
+// ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0CommonSegments.adNetworkType
 
 /**
@@ -1381,6 +1478,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegme
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ConversionActionCategory_Unspecified;
+/**
+ *  User watches an ad from a channel and later watches either the same video or
+ *  a video from the same channel as the ad.
+ *
+ *  Value: "YOUTUBE_FOLLOW_ON_VIEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ConversionActionCategory_YoutubeFollowOnViews;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0CommonSegments.dayOfWeek
@@ -1623,6 +1727,58 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegme
  *  Value: "USED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ProductSoldCondition_Used;
+
+// ----------------------------------------------------------------------------
+// GTLRSA360_GoogleAdsSearchads360V0CommonSegments.verticalAdsVertical
+
+/**
+ *  Events travel vertical.
+ *
+ *  Value: "EVENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_Events;
+/**
+ *  Flights travel vertical.
+ *
+ *  Value: "FLIGHTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_Flights;
+/**
+ *  Hotels travel vertical.
+ *
+ *  Value: "HOTELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_Hotels;
+/**
+ *  Rental cars travel vertical.
+ *
+ *  Value: "RENTAL_CARS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_RentalCars;
+/**
+ *  Things to do travel vertical.
+ *
+ *  Value: "THINGS_TO_DO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_ThingsToDo;
+/**
+ *  Used for return value only. Represents value unknown in this version.
+ *
+ *  Value: "UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_Unknown;
+/**
+ *  Not specified.
+ *
+ *  Value: "UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_Unspecified;
+/**
+ *  Vacation rentals travel vertical.
+ *
+ *  Value: "VACATION_RENTALS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_VacationRentals;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0CommonTargetImpressionShare.location
@@ -2748,6 +2904,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsError
  *  Value: "REQUESTED_METRICS_FOR_MANAGER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QueryError_RequestedMetricsForManager;
+/**
+ *  Required segment field is missing.
+ *
+ *  Value: "REQUIRED_SEGMENT_FIELD_MISSING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QueryError_RequiredSegmentFieldMissing;
 /**
  *  Query contains unterminated string.
  *
@@ -7135,6 +7297,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesCo
  *  Value: "UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Category_Unspecified;
+/**
+ *  User watches an ad from a channel and later watches either the same video or
+ *  a video from the same channel as the ad.
+ *
+ *  Value: "YOUTUBE_FOLLOW_ON_VIEWS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Category_YoutubeFollowOnViews;
 
 // ----------------------------------------------------------------------------
 // GTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction.status
@@ -9213,6 +9382,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *  Likely values:
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AdImage
  *        This asset is used as an image. (Value: "AD_IMAGE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppCoverPhoto
+ *        The asset is used as an app cover photo. (Value: "APP_COVER_PHOTO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppDeveloperName
+ *        The asset is used as an app developer name. (Value:
+ *        "APP_DEVELOPER_NAME")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppIcon
+ *        The asset is used as an app icon. (Value: "APP_ICON")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppScreenshot
+ *        The asset is used as an app screenshot. (Value: "APP_SCREENSHOT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppShortDescription
+ *        The asset is used as an app short description. (Value:
+ *        "APP_SHORT_DESCRIPTION")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_AppTitle
+ *        The asset is used as an app title. (Value: "APP_TITLE")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_BusinessLogo
  *        The asset is used as a business logo. (Value: "BUSINESS_LOGO")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_BusinessName
@@ -9237,6 +9420,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionInPortrait
  *        The asset was used as description in portrait image. (Value:
  *        "DESCRIPTION_IN_PORTRAIT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionLineHeadlineAsSitelinkPositionOne
+ *        A description line asset used as a sitelink in position 1. (Value:
+ *        "DESCRIPTION_LINE_HEADLINE_AS_SITELINK_POSITION_ONE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionLineHeadlineAsSitelinkPositionTwo
+ *        A description line asset used as a sitelink in position 2. (Value:
+ *        "DESCRIPTION_LINE_HEADLINE_AS_SITELINK_POSITION_TWO")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_DescriptionPrefix
  *        The asset is used as a description prefix. (Value:
  *        "DESCRIPTION_PREFIX")
@@ -9250,6 +9439,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        The asset is used in headline 2. (Value: "HEADLINE_2")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_Headline3
  *        The asset is used in headline 3. (Value: "HEADLINE_3")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_HeadlineAsSitelinkPositionOne
+ *        A headline asset used as a sitelink in position 1. (Value:
+ *        "HEADLINE_AS_SITELINK_POSITION_ONE")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_HeadlineAsSitelinkPositionTwo
+ *        A headline asset used as a sitelink in position 2. (Value:
+ *        "HEADLINE_AS_SITELINK_POSITION_TWO")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonAssetUsage_ServedAssetFieldType_HeadlineInPortrait
  *        The asset was used as a headline in portrait image. (Value:
  *        "HEADLINE_IN_PORTRAIT")
@@ -9874,10 +10069,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *allConversionsByConversionDate;
 
 /**
- *  The number of times people clicked the "Call" button to call a store during
- *  or after clicking an ad. This number doesn't include whether or not calls
- *  were connected, or the duration of any calls. This metric applies to feed
- *  items only.
+ *  The number of times people clicked the "Call" button to call a business
+ *  during or after clicking an ad. This number doesn't include whether or not
+ *  calls were connected, or the duration of any calls. This metric applies to
+ *  feed items only.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -9885,7 +10080,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /**
  *  The number of times people clicked a "Get directions" button to navigate to
- *  a store after clicking an ad. This metric applies to feed items only.
+ *  a business after clicking an ad. This metric applies to feed items only.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -9908,7 +10103,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *allConversionsFromInteractionsValuePerInteraction;
 
 /**
- *  The number of times people clicked a link to view a store's menu after
+ *  The number of times people clicked a link to view a business's menu after
  *  clicking an ad. This metric applies to feed items only.
  *
  *  Uses NSNumber of doubleValue.
@@ -9916,8 +10111,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *allConversionsFromMenu;
 
 /**
- *  The number of times people placed an order at a store after clicking an ad.
- *  This metric applies to feed items only.
+ *  The number of times people placed an order at a business after clicking an
+ *  ad. This metric applies to feed items only.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -9925,24 +10120,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /**
  *  The number of other conversions (for example, posting a review or saving a
- *  location for a store) that occurred after people clicked an ad. This metric
- *  applies to feed items only.
+ *  location for a business) that occurred after people clicked an ad. This
+ *  metric applies to feed items only.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allConversionsFromOtherEngagement;
 
 /**
- *  Estimated number of times people visited a store after clicking an ad. This
- *  metric applies to feed items only.
+ *  Estimated number of times people visited a business after clicking an ad.
+ *  This metric applies to feed items only.
  *
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allConversionsFromStoreVisit;
 
 /**
- *  The number of times that people were taken to a store's URL after clicking
- *  an ad. This metric applies to feed items only.
+ *  The number of times that people were taken to a business's URL after
+ *  clicking an ad. This metric applies to feed items only.
  *
  *  Uses NSNumber of doubleValue.
  */
@@ -11193,6 +11388,29 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @interface GTLRSA360_GoogleAdsSearchads360V0CommonSegments : GTLRObject
 
 /**
+ *  Ad Format type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdFormatType_Text
+ *        A standard text ad format. This is currently only used for ads on the
+ *        Search network. (Value: "TEXT")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdFormatType_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdFormatType_Unspecified
+ *        No value has been specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdFormatType_VerticalAdsBookingLink
+ *        An ad format for a booking link call-to-action within a vertical ad,
+ *        for example a 'Book Now' link for a hotel ad. (Value:
+ *        "VERTICAL_ADS_BOOKING_LINK")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_AdFormatType_VerticalAdsPromotion
+ *        An ad format that promotes a specific entity within a vertical, for
+ *        example, a hotel ad in the Travel vertical on Search. (Value:
+ *        "VERTICAL_ADS_PROMOTION")
+ */
+@property(nonatomic, copy, nullable) NSString *adFormatType;
+
+/**
  *  Ad network type.
  *
  *  Likely values:
@@ -11302,6 +11520,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        (Value: "UNKNOWN")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ConversionActionCategory_Unspecified
  *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_ConversionActionCategory_YoutubeFollowOnViews
+ *        User watches an ad from a channel and later watches either the same
+ *        video or a video from the same channel as the ad. (Value:
+ *        "YOUTUBE_FOLLOW_ON_VIEWS")
  */
 @property(nonatomic, copy, nullable) NSString *conversionActionCategory;
 
@@ -11597,6 +11819,71 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 /** The raw event conversion dimensions. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSA360_GoogleAdsSearchads360V0CommonValue *> *rawEventConversionDimensions;
+
+/**
+ *  The display names of participants in an event listing, like performers,
+ *  speakers, or teams.
+ */
+@property(nonatomic, copy, nullable) NSString *verticalAdsEventParticipantDisplayNames;
+
+/**
+ *  The class of the hotel. Generally in the range of 1 to 5 stars, but fully
+ *  customizable in the hotel feed.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verticalAdsHotelClass;
+
+/** The listing associated with a listing impression, click or conversion. */
+@property(nonatomic, copy, nullable) NSString *verticalAdsListing;
+
+/**
+ *  The brand associated with a specific listing within a Vertical Ads context,
+ *  for example, the brand of a car rental, a vacation home, or an event.
+ */
+@property(nonatomic, copy, nullable) NSString *verticalAdsListingBrand;
+
+/** The city where the vertical ads listing is located. */
+@property(nonatomic, copy, nullable) NSString *verticalAdsListingCity;
+
+/** The country where the vertical ads listing is located. */
+@property(nonatomic, copy, nullable) NSString *verticalAdsListingCountry;
+
+/** The region where the vertical ads listing is located. */
+@property(nonatomic, copy, nullable) NSString *verticalAdsListingRegion;
+
+/**
+ *  A specific partner account within a Partner Center (for example, Hotel
+ *  Center) that supplies inventory feed data for Vertical Ads.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *verticalAdsPartnerAccount;
+
+/**
+ *  Type of vertical ad, such as Vacation Rentals, Car Rentals, or Events, used
+ *  to categorize and segment data in the context of Vertical Ads.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_Events
+ *        Events travel vertical. (Value: "EVENTS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_Flights
+ *        Flights travel vertical. (Value: "FLIGHTS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_Hotels
+ *        Hotels travel vertical. (Value: "HOTELS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_RentalCars
+ *        Rental cars travel vertical. (Value: "RENTAL_CARS")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_ThingsToDo
+ *        Things to do travel vertical. (Value: "THINGS_TO_DO")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_Unknown
+ *        Used for return value only. Represents value unknown in this version.
+ *        (Value: "UNKNOWN")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_Unspecified
+ *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0CommonSegments_VerticalAdsVertical_VacationRentals
+ *        Vacation rentals travel vertical. (Value: "VACATION_RENTALS")
+ */
+@property(nonatomic, copy, nullable) NSString *verticalAdsVertical;
 
 /**
  *  Week as defined as Monday through Sunday, and represented by the date of
@@ -12774,6 +13061,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        Metrics cannot be requested for a manager account. To retrieve
  *        metrics, issue separate requests against each client account under the
  *        manager account. (Value: "REQUESTED_METRICS_FOR_MANAGER")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QueryError_RequiredSegmentFieldMissing
+ *        Required segment field is missing. (Value:
+ *        "REQUIRED_SEGMENT_FIELD_MISSING")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QueryError_StringNotTerminated
  *        Query contains unterminated string. (Value: "STRING_NOT_TERMINATED")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ErrorsErrorCode_QueryError_TooManySegments
@@ -13538,7 +13828,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, copy, nullable) NSString *adRotationMode;
 
 /**
- *  The maximum CPC (cost-per-click) bid.
+ *  The maximum CPC (cost-per-click) bid. This field is used when the ad group's
+ *  effective bidding strategy is Manual CPC. This field is not applicable and
+ *  will be ignored if the ad group's campaign is using a portfolio bidding
+ *  strategy.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -16123,9 +16416,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCampaignBudget : GTLRObject
 
 /**
- *  The amount of the budget, in the local currency for the account. Amount is
- *  specified in micros, where one million is equivalent to one currency unit.
- *  Monthly spend is capped at 30.4 times this amount.
+ *  The average daily amount to be spent by the campaign. This field is used
+ *  when the CampaignBudget `period` is set to `DAILY`, which is the default.
+ *  Amount is specified in micros in the account's local currency. One million
+ *  micros is equivalent to one currency unit. The effective monthly spend is
+ *  capped at 30.4 times this daily amount. This field is mutually exclusive
+ *  with 'total_amount_micros'. Only one of 'amount_micros' or
+ *  'total_amount_micros' should be set.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -16519,15 +16816,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *targetGoogleSearch;
 
 /**
- *  Whether ads will be served on the Google Partner Network. This is available
- *  only to some select Google partner accounts.
+ *  Whether ads will be served on the partner network. This is available only to
+ *  some select partner accounts. Unless you have been instructed to use this
+ *  field, it likely does not apply to your account. This does not control
+ *  whether ads will be served on Google Search Partners Network; use
+ *  `target_search_network` for that instead.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *targetPartnerSearchNetwork;
 
 /**
- *  Whether ads will be served on partner sites in the Google Search Network
+ *  Whether ads will be served on sites in the Google Search Partners Network
  *  (requires `target_google_search` to also be `true`).
  *
  *  Uses NSNumber of boolValue.
@@ -16635,7 +16935,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
- *  Cart data sales view.
+ *  Cart data sales view. Provides information about the products which were
+ *  purchased if conversions with cart data is implemented. Performance metrics
+ *  like revenue, gross profit, lead/cross-sell metrics etc. and Merchant Center
+ *  attributes such as brand, category etc. are available for products defined
+ *  in an inventory feed and sold as a result of Google ads. For purchases
+ *  attributed to clicks on Shopping ads, dimensions of both clicked and sold
+ *  products can be viewed together.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesCartDataSalesView : GTLRObject
 
@@ -17021,6 +17327,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
  *        (Value: "UNKNOWN")
  *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Category_Unspecified
  *        Not specified. (Value: "UNSPECIFIED")
+ *    @arg @c kGTLRSA360_GoogleAdsSearchads360V0ResourcesConversionAction_Category_YoutubeFollowOnViews
+ *        User watches an ad from a channel and later watches either the same
+ *        video or a video from the same channel as the ad. (Value:
+ *        "YOUTUBE_FOLLOW_ON_VIEWS")
  */
 @property(nonatomic, copy, nullable) NSString *category;
 
@@ -19019,7 +19329,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 
 
 /**
- *  A user list. This is a list of users a customer may target.
+ *  A user list. This is a list of users a customer may target. The unique key
+ *  of a user list consists of the following fields: `id`. Note that the `name`
+ *  must also be unique for user lists owned by a given customer, except in some
+ *  cases where `access_reason` is set to `SHARED`. Violating the unique name
+ *  constraint produces error: `UserListError.INVALID_NAME`.
  */
 @interface GTLRSA360_GoogleAdsSearchads360V0ResourcesUserList : GTLRObject
 
@@ -19033,8 +19347,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSA360_GoogleAdsSearchads360V0ServicesSea
 @property(nonatomic, strong, nullable) NSNumber *identifier;
 
 /**
- *  Name of this user list. Depending on its access_reason, the user list name
- *  may not be unique (for example, if access_reason=SHARED)
+ *  Name of this user list. Unique per user list, except in some cases where a
+ *  user list of the same name has `access_reason` set to `SHARED`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

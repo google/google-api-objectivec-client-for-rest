@@ -505,40 +505,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Undeletes Looker instance.
- *
- *  Method: looker.projects.locations.instances.undelete
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeLookerCloudPlatform
- */
-@interface GTLRLookerQuery_ProjectsLocationsInstancesUndelete : GTLRLookerQuery
-
-/**
- *  Required. Format:
- *  projects/{project}/locations/{location}/instances/{instance}
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Fetches a @c GTLRLooker_Operation.
- *
- *  Undeletes Looker instance.
- *
- *  @param object The @c GTLRLooker_UndeleteInstanceRequest to include in the
- *    query.
- *  @param name Required. Format:
- *    projects/{project}/locations/{location}/instances/{instance}
- *
- *  @return GTLRLookerQuery_ProjectsLocationsInstancesUndelete
- */
-+ (instancetype)queryWithObject:(GTLRLooker_UndeleteInstanceRequest *)object
-                           name:(NSString *)name;
-
-@end
-
-/**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: looker.projects.locations.list
  *
@@ -578,7 +549,11 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRLooker_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

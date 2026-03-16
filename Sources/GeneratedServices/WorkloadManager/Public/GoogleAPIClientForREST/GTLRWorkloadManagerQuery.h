@@ -32,31 +32,25 @@ NS_ASSUME_NONNULL_BEGIN
 // evaluationType
 
 /**
- *  Not specified
+ *  Not specified.
  *
  *  Value: "EVALUATION_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeEvaluationTypeUnspecified;
 /**
- *  Customized best practices
+ *  Customized best practices.
  *
  *  Value: "OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeOther;
 /**
- *  SAP best practices
+ *  SAP best practices.
  *
  *  Value: "SAP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSap;
 /**
- *  SCC IaC (Infra as Code) best practices.
- *
- *  Value: "SCC_IAC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSccIac GTLR_DEPRECATED;
-/**
- *  SQL best practices
+ *  SQL best practices.
  *
  *  Value: "SQL_SERVER"
  */
@@ -506,12 +500,12 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsCreate : GTLRWorkloadManagerQuery
 
-/** Required. Id of the requesting object */
+/** Required. Id of the requesting object. */
 @property(nonatomic, copy, nullable) NSString *evaluationId;
 
 /**
  *  Required. The resource prefix of the evaluation location using the form:
- *  `projects/{project_id}/locations/{location_id}`
+ *  `projects/{project_id}/locations/{location_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -537,7 +531,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  @param object The @c GTLRWorkloadManager_Evaluation to include in the query.
  *  @param parent Required. The resource prefix of the evaluation location using
- *    the form: `projects/{project_id}/locations/{location_id}`
+ *    the form: `projects/{project_id}/locations/{location_id}`.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsCreate
  */
@@ -558,11 +552,11 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 
 /**
  *  Optional. Followed the best practice from
- *  https://aip.dev/135#cascading-delete
+ *  https://aip.dev/135#cascading-delete.
  */
 @property(nonatomic, assign) BOOL force;
 
-/** Required. Name of the resource */
+/** Required. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -585,7 +579,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  Deletes a single Evaluation.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. Name of the resource.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsDelete
  */
@@ -603,7 +597,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsDelete : GTLRWorkloadManagerQuery
 
-/** Required. Name of the resource */
+/** Required. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -626,7 +620,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  Deletes a single Execution.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. Name of the resource.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsDelete
  */
@@ -644,7 +638,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsGet : GTLRWorkloadManagerQuery
 
-/** Required. Name of the resource */
+/** Required. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -652,7 +646,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  Gets details of a single Execution.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. Name of the resource.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsGet
  */
@@ -670,7 +664,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsList : GTLRWorkloadManagerQuery
 
-/** Filtering results */
+/** Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -689,7 +683,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 
 /**
  *  Required. The resource prefix of the Execution using the form:
- *  'projects/{project}/locations/{location}/evaluations/{evaluation}'
+ *  `projects/{project}/locations/{location}/evaluations/{evaluation}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -699,7 +693,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *  Lists Executions in a given project and location.
  *
  *  @param parent Required. The resource prefix of the Execution using the form:
- *    'projects/{project}/locations/{location}/evaluations/{evaluation}'
+ *    `projects/{project}/locations/{location}/evaluations/{evaluation}`.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsList
  *
@@ -721,7 +715,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsResultsList : GTLRWorkloadManagerQuery
 
-/** Filtering results */
+/** Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -735,7 +729,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 
 /**
  *  Required. The execution results. Format: {parent}/evaluations/ *
- *  /executions/ * /results
+ *  /executions/ * /results.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -745,7 +739,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *  Lists the result of a single evaluation.
  *
  *  @param parent Required. The execution results. Format: {parent}/evaluations/
- *    * /executions/ * /results
+ *    * /executions/ * /results.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsResultsList
  *
@@ -768,8 +762,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsRun : GTLRWorkloadManagerQuery
 
 /**
- *  Required. The resource name of the Execution using the form:
- *  'projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution}'
+ *  Required. The resource name of the Evaluation using the form:
+ *  `projects/{project}/locations/{location}/evaluations/{evaluation}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -780,8 +774,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  @param object The @c GTLRWorkloadManager_RunEvaluationRequest to include in
  *    the query.
- *  @param name Required. The resource name of the Execution using the form:
- *    'projects/{project}/locations/{location}/evaluations/{evaluation}/executions/{execution}'
+ *  @param name Required. The resource name of the Evaluation using the form:
+ *    `projects/{project}/locations/{location}/evaluations/{evaluation}`.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsRun
  */
@@ -800,7 +794,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsScannedResourcesList : GTLRWorkloadManagerQuery
 
-/** Filtering results */
+/** Filtering results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -817,10 +811,10 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. parent for ListScannedResourcesRequest */
+/** Required. Parent for ListScannedResourcesRequest. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
-/** rule name */
+/** Rule name. */
 @property(nonatomic, copy, nullable) NSString *rule;
 
 /**
@@ -828,7 +822,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  List all scanned resources for a single Execution.
  *
- *  @param parent Required. parent for ListScannedResourcesRequest
+ *  @param parent Required. Parent for ListScannedResourcesRequest.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsExecutionsScannedResourcesList
  *
@@ -850,7 +844,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  */
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsGet : GTLRWorkloadManagerQuery
 
-/** Required. Name of the resource */
+/** Required. Name of the resource. */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -858,7 +852,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  Gets details of a single Evaluation.
  *
- *  @param name Required. Name of the resource
+ *  @param name Required. Name of the resource.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsGet
  */
@@ -879,7 +873,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 /** Filter to be applied when listing the evaluation results. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Hint for how to order the results */
+/** Hint for how to order the results. */
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
@@ -891,7 +885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Parent value for ListEvaluationsRequest */
+/** Required. Parent value for ListEvaluationsRequest. */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -899,7 +893,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  Lists Evaluations in a given project and location.
  *
- *  @param parent Required. Parent value for ListEvaluationsRequest
+ *  @param parent Required. Parent value for ListEvaluationsRequest.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsList
  *
@@ -922,8 +916,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 @interface GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsPatch : GTLRWorkloadManagerQuery
 
 /**
- *  name of resource names have the form
- *  'projects/{project_id}/locations/{location_id}/evaluations/{evaluation_id}'
+ *  Name of resource that has the form
+ *  `projects/{project_id}/locations/{location_id}/evaluations/{evaluation_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -958,8 +952,8 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *  Updates the parameters of a single Evaluation.
  *
  *  @param object The @c GTLRWorkloadManager_Evaluation to include in the query.
- *  @param name name of resource names have the form
- *    'projects/{project_id}/locations/{location_id}/evaluations/{evaluation_id}'
+ *  @param name Name of resource that has the form
+ *    `projects/{project_id}/locations/{location_id}/evaluations/{evaluation_id}`.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsEvaluationsPatch
  */
@@ -1314,19 +1308,17 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  Likely values:
  *    @arg @c kGTLRWorkloadManagerEvaluationTypeEvaluationTypeUnspecified Not
- *        specified (Value: "EVALUATION_TYPE_UNSPECIFIED")
- *    @arg @c kGTLRWorkloadManagerEvaluationTypeSap SAP best practices (Value:
+ *        specified. (Value: "EVALUATION_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeSap SAP best practices. (Value:
  *        "SAP")
- *    @arg @c kGTLRWorkloadManagerEvaluationTypeSqlServer SQL best practices
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeSqlServer SQL best practices.
  *        (Value: "SQL_SERVER")
- *    @arg @c kGTLRWorkloadManagerEvaluationTypeOther Customized best practices
+ *    @arg @c kGTLRWorkloadManagerEvaluationTypeOther Customized best practices.
  *        (Value: "OTHER")
- *    @arg @c kGTLRWorkloadManagerEvaluationTypeSccIac SCC IaC (Infra as Code)
- *        best practices. (Value: "SCC_IAC")
  */
 @property(nonatomic, copy, nullable) NSString *evaluationType;
 
-/** Filter based on primary_category, secondary_category */
+/** Filter based on primary_category, secondary_category. */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -1341,7 +1333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
 /**
  *  Required. The [project] on which to execute the request. The format is:
  *  projects/{project_id}/locations/{location} Currently, the pre-defined rules
- *  are global available to all projects and all regions
+ *  are global available to all projects and all regions.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1352,7 +1344,7 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkloadManagerEvaluationTypeSqlServer;
  *
  *  @param parent Required. The [project] on which to execute the request. The
  *    format is: projects/{project_id}/locations/{location} Currently, the
- *    pre-defined rules are global available to all projects and all regions
+ *    pre-defined rules are global available to all projects and all regions.
  *
  *  @return GTLRWorkloadManagerQuery_ProjectsLocationsRulesList
  */

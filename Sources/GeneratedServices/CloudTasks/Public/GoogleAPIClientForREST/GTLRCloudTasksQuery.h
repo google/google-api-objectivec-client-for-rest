@@ -126,7 +126,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 @end
 
 /**
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  Method: cloudtasks.projects.locations.list
  *
@@ -166,7 +170,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 /**
  *  Fetches a @c GTLRCloudTasks_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service.
+ *  Lists information about the supported locations for this service. This
+ *  method can be called in two ways: * **List all public locations:** Use the
+ *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
+ *  `GET /v1/projects/{project_id}/locations`. This may include public locations
+ *  as well as private or other locations specifically visible to the project.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -1018,7 +1026,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
 
 /**
  *  Creates or Updates a CMEK config. Updates the Customer Managed Encryption
- *  Key assotiated with the Cloud Tasks location (Creates if the key does not
+ *  Key associated with the Cloud Tasks location (Creates if the key does not
  *  already exist). All new tasks created in the location will be encrypted
  *  at-rest with the KMS-key provided in the config.
  *
@@ -1047,7 +1055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudTasksResponseViewViewUnspecified;
  *  Fetches a @c GTLRCloudTasks_CmekConfig.
  *
  *  Creates or Updates a CMEK config. Updates the Customer Managed Encryption
- *  Key assotiated with the Cloud Tasks location (Creates if the key does not
+ *  Key associated with the Cloud Tasks location (Creates if the key does not
  *  already exist). All new tasks created in the location will be encrypted
  *  at-rest with the KMS-key provided in the config.
  *

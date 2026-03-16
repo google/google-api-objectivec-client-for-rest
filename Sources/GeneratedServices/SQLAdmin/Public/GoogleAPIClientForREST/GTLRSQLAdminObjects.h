@@ -9172,8 +9172,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  */
 @property(nonatomic, copy, nullable) NSString *privateNetwork;
 
+/**
+ *  Optional. The region of the target instance where the datasource will be
+ *  restored. For example: "us-central1".
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
 /** Target instance name. */
 @property(nonatomic, copy, nullable) NSString *targetInstance;
+
+/**
+ *  Optional. Specifies the instance settings that will be cleared from the
+ *  source instance. This field is only applicable for cross project PITRs.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *targetInstanceClearSettingsFieldNames;
+
+/**
+ *  Optional. Specifies the instance settings that will be overridden from the
+ *  source instance. This field is only applicable for cross project PITRs.
+ */
+@property(nonatomic, strong, nullable) GTLRSQLAdmin_DatabaseInstance *targetInstanceSettings;
 
 @end
 
@@ -9821,6 +9839,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *  Database instance settings.
  */
 @interface GTLRSQLAdmin_Settings : GTLRObject
+
+/**
+ *  Optional. Whether the replica is in accelerated mode. This feature is in
+ *  private preview and requires allowlisting to take effect.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *acceleratedReplicaMode;
 
 /**
  *  The activation policy specifies when the instance is activated; it is

@@ -2360,11 +2360,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *emailMessage;
 
 /**
- *  Whether the request should enforce expansive access rules.
+ *  Deprecated: All requests use the expansive access rules.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL enforceExpansiveAccess;
+@property(nonatomic, assign) BOOL enforceExpansiveAccess GTLR_DEPRECATED;
 
 /**
  *  Deprecated: See `moveToNewOwnersRoot` for details.
@@ -2464,11 +2464,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @interface GTLRDriveQuery_PermissionsDelete : GTLRDriveQuery
 
 /**
- *  Whether the request should enforce expansive access rules.
+ *  Deprecated: All requests use the expansive access rules.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL enforceExpansiveAccess;
+@property(nonatomic, assign) BOOL enforceExpansiveAccess GTLR_DEPRECATED;
 
 /** The ID of the file or shared drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;
@@ -2694,11 +2694,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @interface GTLRDriveQuery_PermissionsUpdate : GTLRDriveQuery
 
 /**
- *  Whether the request should enforce expansive access rules.
+ *  Deprecated: All requests use the expansive access rules.
  *
  *  @note If not set, the documented server-side default will be false.
  */
-@property(nonatomic, assign) BOOL enforceExpansiveAccess;
+@property(nonatomic, assign) BOOL enforceExpansiveAccess GTLR_DEPRECATED;
 
 /** The ID of the file or shared drive. */
 @property(nonatomic, copy, nullable) NSString *fileId;

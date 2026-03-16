@@ -29,6 +29,32 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// changesInReviewBehavior
+
+/**
+ *  If there are changes already in review, then this will cancel that review
+ *  first and then send all the changes for publishing.
+ *
+ *  Value: "CANCEL_IN_REVIEW_AND_SUBMIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherChangesInReviewBehaviorCancelInReviewAndSubmit;
+/**
+ *  Defaults to CANCEL_IN_REVIEW_AND_SUBMIT.
+ *
+ *  Value: "CHANGES_IN_REVIEW_BEHAVIOR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherChangesInReviewBehaviorChangesInReviewBehaviorTypeUnspecified;
+/**
+ *  If there are changes in review, then this will return an error. Please refer
+ *  to the error message sample that is returned when this happens. Note that
+ *  this won't invalidate the edit. If there aren't any changes in review, then
+ *  this will continue and send the new changes for publishing.
+ *
+ *  Value: "ERROR_IF_IN_REVIEW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherChangesInReviewBehaviorErrorIfInReview;
+
+// ----------------------------------------------------------------------------
 // deobfuscationFileType
 
 /**
@@ -307,6 +333,38 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
  *        information.
  */
 + (instancetype)queryWithPackageName:(NSString *)packageName;
+
+@end
+
+/**
+ *  Returns the list of all releases for a given track. This excludes any
+ *  releases that are obsolete.
+ *
+ *  Method: androidpublisher.applications.tracks.releases.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAndroidPublisher
+ */
+@interface GTLRAndroidPublisherQuery_ApplicationsTracksReleasesList : GTLRAndroidPublisherQuery
+
+/**
+ *  Required. The parent track, which owns this collection of releases. Format:
+ *  applications/{package_name}/tracks/{track}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRAndroidPublisher_ListReleaseSummariesResponse.
+ *
+ *  Returns the list of all releases for a given track. This excludes any
+ *  releases that are obsolete.
+ *
+ *  @param parent Required. The parent track, which owns this collection of
+ *    releases. Format: applications/{package_name}/tracks/{track}
+ *
+ *  @return GTLRAndroidPublisherQuery_ApplicationsTracksReleasesList
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -703,6 +761,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisherLatencyToleranceProductU
  *    @c kGTLRAuthScopeAndroidPublisher
  */
 @interface GTLRAndroidPublisherQuery_EditsCommit : GTLRAndroidPublisherQuery
+
+/**
+ *  Optional. Specify how the API should behave if there are changes currently
+ *  in review. If this value is not set, it will default to
+ *  "CANCEL_IN_REVIEW_AND_SUBMIT", which will cancel the changes in review and
+ *  then send all the changes for publishing.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidPublisherChangesInReviewBehaviorChangesInReviewBehaviorTypeUnspecified
+ *        Defaults to CANCEL_IN_REVIEW_AND_SUBMIT. (Value:
+ *        "CHANGES_IN_REVIEW_BEHAVIOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidPublisherChangesInReviewBehaviorCancelInReviewAndSubmit
+ *        If there are changes already in review, then this will cancel that
+ *        review first and then send all the changes for publishing. (Value:
+ *        "CANCEL_IN_REVIEW_AND_SUBMIT")
+ *    @arg @c kGTLRAndroidPublisherChangesInReviewBehaviorErrorIfInReview If
+ *        there are changes in review, then this will return an error. Please
+ *        refer to the error message sample that is returned when this happens.
+ *        Note that this won't invalidate the edit. If there aren't any changes
+ *        in review, then this will continue and send the new changes for
+ *        publishing. (Value: "ERROR_IF_IN_REVIEW")
+ */
+@property(nonatomic, copy, nullable) NSString *changesInReviewBehavior;
 
 /**
  *  When a rejection happens, the parameter will make sure that the changes in

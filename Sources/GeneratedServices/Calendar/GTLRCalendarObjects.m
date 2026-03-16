@@ -604,6 +604,15 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCalendar_EventLabel
+//
+
+@implementation GTLRCalendar_EventLabel
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCalendar_EventOutOfOfficeProperties
 //
 
@@ -787,6 +796,15 @@
   return [GTLRCalendar_FreeBusyGroup class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCalendar_LabelProperties
+//
+
+@implementation GTLRCalendar_LabelProperties
 @end
 
 

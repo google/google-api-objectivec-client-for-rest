@@ -1438,6 +1438,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 @property(nonatomic, strong, nullable) NSNumber *ephemeral;
 
 /**
+ *  Optional. User-configured PostgreSQL schema. Defaults to "public" if not
+ *  specified.
+ */
+@property(nonatomic, copy, nullable) NSString *schema;
+
+/**
  *  Optional. Configure how to perform Postgresql schema migration.
  *
  *  Likely values:

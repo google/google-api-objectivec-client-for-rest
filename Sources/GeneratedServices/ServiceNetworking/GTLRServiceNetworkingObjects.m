@@ -326,7 +326,14 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Aspect
-@dynamic kind, spec;
+@dynamic kind, rules, spec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRServiceNetworking_AspectRule class]
+  };
+  return map;
+}
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to
@@ -343,6 +350,30 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 //
 
 @implementation GTLRServiceNetworking_Aspect_Spec
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_AspectRule
+//
+
+@implementation GTLRServiceNetworking_AspectRule
+@dynamic config, selector;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRServiceNetworking_AspectRule_Config
+//
+
+@implementation GTLRServiceNetworking_AspectRule_Config
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
@@ -625,10 +656,11 @@ NSString * const kGTLRServiceNetworking_ValidateConsumerConfigResponse_Validatio
 @implementation GTLRServiceNetworking_ConsumerConfig
 @dynamic cloudsqlConfigs, consumerExportCustomRoutes,
          consumerExportSubnetRoutesWithPublicIp, consumerImportCustomRoutes,
-         consumerImportSubnetRoutesWithPublicIp, producerExportCustomRoutes,
-         producerExportSubnetRoutesWithPublicIp, producerImportCustomRoutes,
-         producerImportSubnetRoutesWithPublicIp, producerNetwork,
-         reservedRanges, usedIpRanges, vpcScReferenceArchitectureEnabled;
+         consumerImportSubnetRoutesWithPublicIp, consumerPeeringActive,
+         producerExportCustomRoutes, producerExportSubnetRoutesWithPublicIp,
+         producerImportCustomRoutes, producerImportSubnetRoutesWithPublicIp,
+         producerNetwork, reservedRanges, usedIpRanges,
+         vpcScReferenceArchitectureEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

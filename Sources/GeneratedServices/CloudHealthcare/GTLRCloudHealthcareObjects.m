@@ -53,6 +53,12 @@ NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Coldl
 NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Nearline = @"NEARLINE";
 NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Standard = @"STANDARD";
 
+// GTLRCloudHealthcare_BulkDeleteResourcesRequest.versionConfig
+NSString * const kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_All = @"ALL";
+NSString * const kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_CurrentOnly = @"CURRENT_ONLY";
+NSString * const kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_HistoryOnly = @"HISTORY_ONLY";
+NSString * const kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_VersionConfigUnspecified = @"VERSION_CONFIG_UNSPECIFIED";
+
 // GTLRCloudHealthcare_CheckDataAccessRequest.responseView
 NSString * const kGTLRCloudHealthcare_CheckDataAccessRequest_ResponseView_Basic = @"BASIC";
 NSString * const kGTLRCloudHealthcare_CheckDataAccessRequest_ResponseView_Full = @"FULL";
@@ -479,6 +485,16 @@ NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies    = @"VARIES";
 
 @implementation GTLRCloudHealthcare_BlobStorageSettings
 @dynamic blobStorageClass;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudHealthcare_BulkDeleteResourcesRequest
+//
+
+@implementation GTLRCloudHealthcare_BulkDeleteResourcesRequest
+@dynamic gcsDestination, type, until, versionConfig;
 @end
 
 

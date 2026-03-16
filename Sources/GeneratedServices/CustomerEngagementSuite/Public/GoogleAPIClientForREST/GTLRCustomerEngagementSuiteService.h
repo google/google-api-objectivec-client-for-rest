@@ -4,7 +4,7 @@
 // API:
 //   Gemini Enterprise for Customer Experience API (ces/v1)
 // Documentation:
-//   https://cloud.google.com/customer-engagement-ai/conversational-agents/ps/reference
+//   https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 

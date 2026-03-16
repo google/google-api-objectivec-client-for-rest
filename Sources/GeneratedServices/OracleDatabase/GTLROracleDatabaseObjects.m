@@ -915,7 +915,8 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 @implementation GTLROracleDatabase_Database
 @dynamic adminPassword, characterSet, createTime, databaseId, dbHomeName,
          dbName, dbUniqueName, gcpOracleZone, name, ncharacterSet, ociUrl,
-         opsInsightsStatus, properties, tdeWalletPassword;
+         opsInsightsStatus, pluggableDatabaseId, pluggableDatabaseName,
+         properties, tdeWalletPassword;
 @end
 
 

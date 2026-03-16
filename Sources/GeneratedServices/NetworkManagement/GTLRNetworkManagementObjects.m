@@ -126,6 +126,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeClusterNotRunning = @"
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeControlPlaneNoRoute = @"GKE_CONTROL_PLANE_NO_ROUTE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeControlPlaneRegionMismatch = @"GKE_CONTROL_PLANE_REGION_MISMATCH";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeMasterUnauthorizedAccess = @"GKE_MASTER_UNAUTHORIZED_ACCESS";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkeNetworkPolicy = @"GKE_NETWORK_POLICY";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkePodNotRunning = @"GKE_POD_NOT_RUNNING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GkePscEndpointMissing = @"GKE_PSC_ENDPOINT_MISSING";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_GoogleManagedServiceNoPeering = @"GOOGLE_MANAGED_SERVICE_NO_PEERING";
@@ -293,6 +294,14 @@ NSString * const kGTLRNetworkManagement_ForwardInfo_Target_SecureWebProxyGateway
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_TargetUnspecified = @"TARGET_UNSPECIFIED";
 NSString * const kGTLRNetworkManagement_ForwardInfo_Target_VpnGateway = @"VPN_GATEWAY";
 
+// GTLRNetworkManagement_GkeNetworkPolicySkippedInfo.reason
+NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_EgressFromNodeNetworkNamespacePod = @"EGRESS_FROM_NODE_NETWORK_NAMESPACE_POD";
+NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_IngressSourceOnSameNode = @"INGRESS_SOURCE_ON_SAME_NODE";
+NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_NetworkPolicyAnalysisUnsupported = @"NETWORK_POLICY_ANALYSIS_UNSUPPORTED";
+NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_NetworkPolicyDisabled = @"NETWORK_POLICY_DISABLED";
+NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_NetworkPolicyNotAppliedToResponseTraffic = @"NETWORK_POLICY_NOT_APPLIED_TO_RESPONSE_TRAFFIC";
+NSString * const kGTLRNetworkManagement_GkeNetworkPolicySkippedInfo_Reason_ReasonUnspecified = @"REASON_UNSPECIFIED";
+
 // GTLRNetworkManagement_GoogleServiceInfo.googleServiceType
 NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_CloudDns = @"CLOUD_DNS";
 NSString * const kGTLRNetworkManagement_GoogleServiceInfo_GoogleServiceType_GfeProxyOrHealthCheckProber = @"GFE_PROXY_OR_HEALTH_CHECK_PROBER";
@@ -429,10 +438,13 @@ NSString * const kGTLRNetworkManagement_SingleEdgeResponse_Result_Unreachable = 
 NSString * const kGTLRNetworkManagement_Step_State_Abort       = @"ABORT";
 NSString * const kGTLRNetworkManagement_Step_State_AnalyzeLoadBalancerBackend = @"ANALYZE_LOAD_BALANCER_BACKEND";
 NSString * const kGTLRNetworkManagement_Step_State_ApplyEgressFirewallRule = @"APPLY_EGRESS_FIREWALL_RULE";
+NSString * const kGTLRNetworkManagement_Step_State_ApplyEgressGkeNetworkPolicy = @"APPLY_EGRESS_GKE_NETWORK_POLICY";
 NSString * const kGTLRNetworkManagement_Step_State_ApplyForwardingRule = @"APPLY_FORWARDING_RULE";
 NSString * const kGTLRNetworkManagement_Step_State_ApplyIngressFirewallRule = @"APPLY_INGRESS_FIREWALL_RULE";
+NSString * const kGTLRNetworkManagement_Step_State_ApplyIngressGkeNetworkPolicy = @"APPLY_INGRESS_GKE_NETWORK_POLICY";
 NSString * const kGTLRNetworkManagement_Step_State_ApplyRoute  = @"APPLY_ROUTE";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtExternalLoadBalancer = @"ARRIVE_AT_EXTERNAL_LOAD_BALANCER";
+NSString * const kGTLRNetworkManagement_Step_State_ArriveAtGkePod = @"ARRIVE_AT_GKE_POD";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtHybridSubnet = @"ARRIVE_AT_HYBRID_SUBNET";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInstance = @"ARRIVE_AT_INSTANCE";
 NSString * const kGTLRNetworkManagement_Step_State_ArriveAtInterconnectAttachment = @"ARRIVE_AT_INTERCONNECT_ATTACHMENT";
@@ -445,8 +457,11 @@ NSString * const kGTLRNetworkManagement_Step_State_DirectVpcEgressConnection = @
 NSString * const kGTLRNetworkManagement_Step_State_Drop        = @"DROP";
 NSString * const kGTLRNetworkManagement_Step_State_Forward     = @"FORWARD";
 NSString * const kGTLRNetworkManagement_Step_State_Nat         = @"NAT";
+NSString * const kGTLRNetworkManagement_Step_State_NgfwPacketInspection = @"NGFW_PACKET_INSPECTION";
 NSString * const kGTLRNetworkManagement_Step_State_ProxyConnection = @"PROXY_CONNECTION";
 NSString * const kGTLRNetworkManagement_Step_State_ServerlessExternalConnection = @"SERVERLESS_EXTERNAL_CONNECTION";
+NSString * const kGTLRNetworkManagement_Step_State_SkipGkeEgressNetworkPolicy = @"SKIP_GKE_EGRESS_NETWORK_POLICY";
+NSString * const kGTLRNetworkManagement_Step_State_SkipGkeIngressNetworkPolicy = @"SKIP_GKE_INGRESS_NETWORK_POLICY";
 NSString * const kGTLRNetworkManagement_Step_State_SkipGkePodIpMasquerading = @"SKIP_GKE_POD_IP_MASQUERADING";
 NSString * const kGTLRNetworkManagement_Step_State_SpoofingApproved = @"SPOOFING_APPROVED";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromAppEngineVersion = @"START_FROM_APP_ENGINE_VERSION";
@@ -858,6 +873,26 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkManagement_GkeNetworkPolicyInfo
+//
+
+@implementation GTLRNetworkManagement_GkeNetworkPolicyInfo
+@dynamic action, direction, displayName, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_GkeNetworkPolicySkippedInfo
+//
+
+@implementation GTLRNetworkManagement_GkeNetworkPolicySkippedInfo
+@dynamic reason;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkManagement_GkePodInfo
 //
 
@@ -1154,6 +1189,16 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_NetworkInfo
 @dynamic displayName, matchedIpRange, matchedSubnetUri, region, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkManagement_NgfwPacketInspectionInfo
+//
+
+@implementation GTLRNetworkManagement_NgfwPacketInspectionInfo
+@dynamic securityProfileGroupUri;
 @end
 
 
@@ -1464,9 +1509,10 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 @dynamic abort, appEngineVersion, causesDrop, cloudFunction, cloudRunRevision,
          cloudSqlInstance, deliver, descriptionProperty,
          directVpcEgressConnection, drop, endpoint, firewall, forward,
-         forwardingRule, gkeMaster, gkePod, googleService, hybridSubnet,
-         instance, interconnectAttachment, ipMasqueradingSkipped, loadBalancer,
-         loadBalancerBackendInfo, nat, network, projectId, proxyConnection,
+         forwardingRule, gkeMaster, gkeNetworkPolicy, gkeNetworkPolicySkipped,
+         gkePod, googleService, hybridSubnet, instance, interconnectAttachment,
+         ipMasqueradingSkipped, loadBalancer, loadBalancerBackendInfo, nat,
+         network, ngfwPacketInspection, projectId, proxyConnection,
          redisCluster, redisInstance, route, serverlessExternalConnection,
          serverlessNeg, state, storageBucket, vpcConnector, vpnGateway,
          vpnTunnel;

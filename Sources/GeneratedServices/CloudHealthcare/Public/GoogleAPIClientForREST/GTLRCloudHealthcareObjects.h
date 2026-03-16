@@ -363,6 +363,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageSettings_Blob
 FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BlobStorageSettings_BlobStorageClass_Standard;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudHealthcare_BulkDeleteResourcesRequest.versionConfig
+
+/**
+ *  Delete the current version and all history versions.
+ *
+ *  Value: "ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_All;
+/**
+ *  Delete the current version only and create a historical version of the
+ *  deleted resource.
+ *
+ *  Value: "CURRENT_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_CurrentOnly;
+/**
+ *  Delete all history versions only.
+ *
+ *  Value: "HISTORY_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_HistoryOnly;
+/**
+ *  Unspecified version config. Defaults to ALL.
+ *
+ *  Value: "VERSION_CONFIG_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_VersionConfigUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudHealthcare_CheckDataAccessRequest.responseView
 
 /**
@@ -1840,6 +1869,55 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 
 
 /**
+ *  Request to bulk delete FHIR resources.
+ */
+@interface GTLRCloudHealthcare_BulkDeleteResourcesRequest : GTLRObject
+
+/**
+ *  Optional. The Cloud Storage output destination. The Healthcare Service Agent
+ *  account requires the `roles/storage.objectAdmin` role on the Cloud Storage
+ *  location. The deleted resources outputs are organized by FHIR resource
+ *  types. The server creates one or more objects per resource type. Each object
+ *  contains newline delimited strings in the format
+ *  {resourceType}/{resourceId}.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudHealthcare_GoogleCloudHealthcareV1FhirGcsDestination *gcsDestination;
+
+/**
+ *  Optional. String of comma-delimited FHIR resource types. If provided, only
+ *  resources of the specified resource type(s) will be deleted.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/**
+ *  Optional. If provided, only resources updated before or atthis time are
+ *  deleted. The time uses the format YYYY-MM-DDThh:mm:ss.sss+zz:zz. For
+ *  example, `2015-02-07T13:28:17.239+02:00` or `2017-01-01T00:00:00Z`. The time
+ *  must be specified to the second and include a time zone.
+ */
+@property(nonatomic, copy, nullable) NSString *until;
+
+/**
+ *  Optional. Specifies which version of the resources to delete.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_All
+ *        Delete the current version and all history versions. (Value: "ALL")
+ *    @arg @c kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_CurrentOnly
+ *        Delete the current version only and create a historical version of the
+ *        deleted resource. (Value: "CURRENT_ONLY")
+ *    @arg @c kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_HistoryOnly
+ *        Delete all history versions only. (Value: "HISTORY_ONLY")
+ *    @arg @c kGTLRCloudHealthcare_BulkDeleteResourcesRequest_VersionConfig_VersionConfigUnspecified
+ *        Unspecified version config. Defaults to ALL. (Value:
+ *        "VERSION_CONFIG_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *versionConfig;
+
+@end
+
+
+/**
  *  The configuration for exporting to Cloud Storage using the bulk export API.
  */
 @interface GTLRCloudHealthcare_BulkExportGcsDestination : GTLRObject
@@ -2597,14 +2675,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
- *  Required. The name of the DICOM store to create and write the redacted data
- *  to. For example,
+ *  Required. The name of the DICOM store to write the redacted data to. For
+ *  example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/dicomStores/{dicom_store_id}`.
- *  * The destination dataset must exist. * The source dataset and destination
- *  dataset must both reside in the same location. De-identifying data across
- *  multiple locations is not supported. * The destination DICOM store must not
- *  exist. * The caller must have the necessary permissions to create the
- *  destination DICOM store.
+ *  * The destination dataset and DICOM store must exist. * The source dataset
+ *  and destination dataset must both reside in the same location.
+ *  De-identifying data across multiple locations is not supported. * The caller
+ *  must have the healthcare.dicomStores.dicomWebWrite permission to write to
+ *  the destination DICOM store.
  */
 @property(nonatomic, copy, nullable) NSString *destinationStore;
 
@@ -2636,14 +2714,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
 @property(nonatomic, strong, nullable) GTLRCloudHealthcare_DeidentifyConfig *config;
 
 /**
- *  Required. The name of the FHIR store to create and write the redacted data
- *  to. For example,
+ *  Required. The name of the FHIR store to write the redacted data to. For
+ *  example,
  *  `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}/fhirStores/{fhir_store_id}`.
- *  * The destination dataset must exist. * The source dataset and destination
- *  dataset must both reside in the same location. De-identifying data across
- *  multiple locations is not supported. * The destination FHIR store must
- *  exist. * The caller must have the healthcare.fhirResources.update permission
- *  to write to the destination FHIR store.
+ *  * The destination dataset and FHIR store must exist. * The source dataset
+ *  and destination dataset must both reside in the same location.
+ *  De-identifying data across multiple locations is not supported. * The caller
+ *  must have the healthcare.fhirResources.update permission to write to the
+ *  destination FHIR store.
  */
 @property(nonatomic, copy, nullable) NSString *destinationStore;
 
@@ -4153,16 +4231,38 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudHealthcare_Type_Primitive_Varies;
  *  types are consistent with supported formats in DICOMweb:
  *  https://cloud.google.com/healthcare/docs/dicom#retrieve_transaction.
  *  Specifically, the following are supported: - application/dicom;
- *  transfer-syntax=1.2.840.10008.1.2.1 (uncompressed DICOM) -
- *  application/dicom; transfer-syntax=1.2.840.10008.1.2.4.50 (DICOM with
- *  embedded JPEG Baseline) - application/dicom;
+ *  transfer-syntax=1.2.840.10008.1.2 (DICOM Implicit VR Little Endian) -
+ *  application/dicom; transfer-syntax=1.2.840.10008.1.2.1 (DICOM Explicit VR
+ *  Little Endian) - application/dicom; transfer-syntax=1.2.840.10008.1.2.1.99
+ *  (DICOM Deflated Explicit VR Little Endian) - application/dicom;
+ *  transfer-syntax=1.2.840.10008.1.2.4.50 (DICOM with embedded JPEG Baseline) -
+ *  application/dicom; transfer-syntax=1.2.840.10008.1.2.4.51 (DICOM with
+ *  embedded JPEG Extended) - application/dicom;
+ *  transfer-syntax=1.2.840.10008.1.2.4.57 (DICOM with embedded JPEG Lossless) -
+ *  application/dicom; transfer-syntax=1.2.840.10008.1.2.4.70 (DICOM with
+ *  embedded JPEG Lossless First-Order Prediction) - application/dicom;
+ *  transfer-syntax=1.2.840.10008.1.2.4.80 (DICOM with embedded JPEG-LS
+ *  Lossless) - application/dicom; transfer-syntax=1.2.840.10008.1.2.4.81 (DICOM
+ *  with embedded JPEG-LS Lossy (Near-Lossless)) - application/dicom;
  *  transfer-syntax=1.2.840.10008.1.2.4.90 (DICOM with embedded JPEG 2000
  *  Lossless Only) - application/dicom; transfer-syntax=1.2.840.10008.1.2.4.91
- *  (DICOM with embedded JPEG 2000) - application/dicom; transfer-syntax=*
- *  (DICOM with no transcoding) - application/octet-stream;
- *  transfer-syntax=1.2.840.10008.1.2.1 (raw uncompressed PixelData) -
- *  application/octet-stream; transfer-syntax=* (raw PixelData in whatever
- *  format it was uploaded in) - image/jpeg;
+ *  (DICOM with embedded JPEG 2000) - application/dicom;
+ *  transfer-syntax=1.2.840.10008.1.2.4.110 (DICOM with embedded JPEG XL
+ *  Lossless) - application/dicom; transfer-syntax=1.2.840.10008.1.2.4.111
+ *  (DICOM with embedded JPEG XL JPEG Recompression) - application/dicom;
+ *  transfer-syntax=1.2.840.10008.1.2.4.112 (DICOM with embedded JPEG XL) -
+ *  application/dicom; transfer-syntax=1.2.840.10008.1.2.4.201 (DICOM with
+ *  embedded High-Throughput JPEG 2000 Lossless) - application/dicom;
+ *  transfer-syntax=1.2.840.10008.1.2.4.202 (DICOM with embedded High-Throughput
+ *  JPEG 2000 with RPCL Options Lossless) - application/dicom;
+ *  transfer-syntax=1.2.840.10008.1.2.4.203 (DICOM with embedded High-Throughput
+ *  JPEG 2000) - application/dicom; transfer-syntax=1.2.840.10008.1.2.5 (DICOM
+ *  with embedded RLE Lossless) - application/dicom;
+ *  transfer-syntax=1.2.840.10008.1.2.8.1 (DICOM with embedded Deflated Image
+ *  Frame Compression) - application/dicom; transfer-syntax=* (DICOM with no
+ *  transcoding) - application/octet-stream; transfer-syntax=1.2.840.10008.1.2.1
+ *  (raw uncompressed PixelData) - application/octet-stream; transfer-syntax=*
+ *  (raw PixelData in whatever format it was uploaded in) - image/jpeg;
  *  transfer-syntax=1.2.840.10008.1.2.4.50 (Consumer JPEG) - image/png The
  *  following extensions are used for output files: - application/dicom -> .dcm
  *  - image/jpeg -> .jpg - image/png -> .png - application/octet-stream -> no

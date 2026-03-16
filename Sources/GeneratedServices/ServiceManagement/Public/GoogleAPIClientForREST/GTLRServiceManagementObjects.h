@@ -20,6 +20,8 @@
 @class GTLRServiceManagement_Api;
 @class GTLRServiceManagement_Aspect;
 @class GTLRServiceManagement_Aspect_Spec;
+@class GTLRServiceManagement_AspectRule;
+@class GTLRServiceManagement_AspectRule_Config;
 @class GTLRServiceManagement_AuditConfig;
 @class GTLRServiceManagement_AuditLogConfig;
 @class GTLRServiceManagement_Authentication;
@@ -1233,6 +1235,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /** The type of this aspect configuration. */
 @property(nonatomic, copy, nullable) NSString *kind;
 
+/** Optional. Rules of the Configuration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_AspectRule *> *rules;
+
 /**
  *  Content of the configuration. The underlying schema should be defined by
  *  Aspect owners as protobuf message under `google/api/configaspects/proto`.
@@ -1252,6 +1257,41 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRServiceManagement_Aspect_Spec : GTLRObject
+@end
+
+
+/**
+ *  Rule-based configuration for an aspect.
+ */
+@interface GTLRServiceManagement_AspectRule : GTLRObject
+
+/**
+ *  Required. Rules of the configuration. The underlying schema should be
+ *  defined by Aspect owners as protobuf message under
+ *  `google/api/configaspects/proto`.
+ */
+@property(nonatomic, strong, nullable) GTLRServiceManagement_AspectRule_Config *config;
+
+/**
+ *  Required. Selects the RPC methods to which this rule applies. Refer to
+ *  selector for syntax details.
+ */
+@property(nonatomic, copy, nullable) NSString *selector;
+
+@end
+
+
+/**
+ *  Required. Rules of the configuration. The underlying schema should be
+ *  defined by Aspect owners as protobuf message under
+ *  `google/api/configaspects/proto`.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRServiceManagement_AspectRule_Config : GTLRObject
 @end
 
 

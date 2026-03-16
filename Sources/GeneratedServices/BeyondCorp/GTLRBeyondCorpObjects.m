@@ -956,6 +956,15 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1LoggingConfig
+//
+
+@implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1LoggingConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ProxyProtocolConfig
 //
 
@@ -994,7 +1003,8 @@ NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspec
 
 @implementation GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1SecurityGateway
 @dynamic createTime, delegatingServiceAccount, displayName, externalIps, hubs,
-         name, proxyProtocolConfig, serviceDiscovery, state, updateTime;
+         logging, name, proxyProtocolConfig, serviceDiscovery, state,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
