@@ -3734,7 +3734,31 @@ static NSDictionary *OverrideMap(EQueryOrObject queryOrObject,
       @"int64ValueSafe",
       @"utf8ValueSafe",
       // -------------------- New as of Sequoia --------------------
-      @"CA_initialize_for_decoding"
+      @"CA_initialize_for_decoding",
+      // -------------------- New as of Tahoe --------------------
+      @"accessibilityAllowsOverriddenAttributesWhenIgnored",
+      @"accessibilityBrailleMapRenderer",
+      @"accessibilityBrailleMapRenderRegion",
+      @"accessibilityOverriddenAttributes",
+      @"accessibilityParameterizedAttributeNames",
+      @"accessibilityPresenterProcessIdentifier",
+      @"accessibilityShouldUseUniqueId",
+      @"accessibilitySupportsCustomElementData",
+      @"accessibilitySupportsNotifications",
+      @"accessibilitySupportsOverriddenAttributes",
+      @"accessibilityTemporaryChildren",
+      @"accessibilityVisibleArea",
+      @"awakeFromNib",
+      @"axSuperTrampoline",
+      @"exposedBindings",
+      @"knownRepresentedElement",
+      @"NSLifeguard_autorelease",
+      @"prepareForInterfaceBuilder",
+      @"rotorOwnerElement",
+      @"safeSwiftEnumAssociatedObject",
+      @"safeSwiftEnumCase",
+      @"swiftui_accessibilityLabel",
+      @"userInterfaceItemIdentifier",
     ];
     // GTLRObject methods
     NSArray *gtlrObjectReserved = @[
