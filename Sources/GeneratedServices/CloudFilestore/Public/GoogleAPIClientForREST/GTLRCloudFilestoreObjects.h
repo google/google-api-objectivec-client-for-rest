@@ -1150,8 +1150,6 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudFilestore_UpdatePolicy_Channel_Week
 /**
  *  The resource name of the BackupDR backup, in the format
  *  `projects/{project_id}/locations/{location_id}/backupVaults/{backupvault_id}/dataSources/{datasource_id}/backups/{backup_id}`,
- *  TODO (b/443690479) - Remove visibility restrictions once the feature is
- *  ready
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackupdrBackup;
 

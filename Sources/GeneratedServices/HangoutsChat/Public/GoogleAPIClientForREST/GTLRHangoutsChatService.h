@@ -76,6 +76,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppDelete;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppMemberships;
 /**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see
+ *  members of conversations and spaces
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.memberships.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppMembershipsReadonly;
+/**
  *  Authorization scope: On their own behalf, apps in Google Chat can see all
  *  messages and their associated reactions and message content
  *
@@ -97,6 +104,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppSpaces;
  *  Value "https://www.googleapis.com/auth/chat.app.spaces.create"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppSpacesCreate;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see
+ *  conversations and spaces and their metadata (including history settings and
+ *  access settings)
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.spaces.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatAppSpacesReadonly;
 /**
  *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/chat.bot
@@ -222,6 +237,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersReadstate;
  *  Value "https://www.googleapis.com/auth/chat.users.readstate.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersReadstateReadonly;
+/**
+ *  Authorization scope: View, create, update, and delete your sections in
+ *  Google Chat; move and list your section items in Google Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.sections"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersSections;
+/**
+ *  Authorization scope: View your sections and their section items in Google
+ *  Chat
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.sections.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeHangoutsChatUsersSectionsReadonly;
 /**
  *  Authorization scope: Read and update your space settings
  *

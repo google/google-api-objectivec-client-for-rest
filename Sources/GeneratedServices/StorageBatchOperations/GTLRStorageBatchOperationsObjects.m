@@ -152,7 +152,9 @@ NSString * const kGTLRStorageBatchOperations_PutObjectHold_TemporaryHold_Unset =
 //
 
 @implementation GTLRStorageBatchOperations_Counters
-@dynamic failedObjectCount, succeededObjectCount, totalBytesFound,
+@dynamic failedObjectCount, objectCustomContextsCreated,
+         objectCustomContextsDeleted, objectCustomContextsUpdated,
+         succeededObjectCount, totalBytesFound, totalBytesTransformed,
          totalObjectCount;
 @end
 

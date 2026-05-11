@@ -63,6 +63,7 @@ NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres15 = @"POSTGRES_15
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres17 = @"POSTGRES_17";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres18 = @"POSTGRES_18";
+NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres19 = @"POSTGRES_19";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -161,6 +162,7 @@ NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres15 = @"POSTGRES
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres17 = @"POSTGRES_17";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres18 = @"POSTGRES_18";
+NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres19 = @"POSTGRES_19";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -240,6 +242,7 @@ NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres15 = @"PO
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres17 = @"POSTGRES_17";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres18 = @"POSTGRES_18";
+NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres19 = @"POSTGRES_19";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -312,6 +315,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres15 = @"P
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres17 = @"POSTGRES_17";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres18 = @"POSTGRES_18";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres19 = @"POSTGRES_19";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -358,6 +362,7 @@ NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_BillingIssue = 
 NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_KmsKeyIssue = @"KMS_KEY_ISSUE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_LegalIssue = @"LEGAL_ISSUE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_OperationalIssue = @"OPERATIONAL_ISSUE";
+NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_ProjectAbuse = @"PROJECT_ABUSE";
 NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_SqlSuspensionReasonUnspecified = @"SQL_SUSPENSION_REASON_UNSPECIFIED";
 
 // GTLRSQLAdmin_DnsNameMapping.connectionType
@@ -432,6 +437,7 @@ NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres15       = @"POSTGRES_15";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres16       = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres17       = @"POSTGRES_17";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres18       = @"POSTGRES_18";
+NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres19       = @"POSTGRES_19";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres96       = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -545,6 +551,7 @@ NSString * const kGTLRSQLAdmin_Operation_OperationType_LogCleanup = @"LOG_CLEANU
 NSString * const kGTLRSQLAdmin_Operation_OperationType_Maintenance = @"MAINTENANCE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_MajorVersionUpgrade = @"MAJOR_VERSION_UPGRADE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_ManageBackup = @"MANAGE_BACKUP";
+NSString * const kGTLRSQLAdmin_Operation_OperationType_PreCheckMajorVersionUpgrade = @"PRE_CHECK_MAJOR_VERSION_UPGRADE";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_PromoteReplica = @"PROMOTE_REPLICA";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary = @"RECONFIGURE_OLD_PRIMARY";
 NSString * const kGTLRSQLAdmin_Operation_OperationType_RecreateReplica = @"RECREATE_REPLICA";
@@ -627,6 +634,7 @@ NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabase
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres16 = @"POSTGRES_16";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres17 = @"POSTGRES_17";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres18 = @"POSTGRES_18";
+NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres19 = @"POSTGRES_19";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres96 = @"POSTGRES_9_6";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_SqlDatabaseVersionUnspecified = @"SQL_DATABASE_VERSION_UNSPECIFIED";
 NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Sqlserver2017Enterprise = @"SQLSERVER_2017_ENTERPRISE";
@@ -2436,7 +2444,7 @@ NSString * const kGTLRSQLAdmin_User_Type_EntraidUser           = @"ENTRAID_USER"
 
 @implementation GTLRSQLAdmin_PscConfig
 @dynamic allowedConsumerProjects, networkAttachmentUri, pscAutoConnections,
-         pscEnabled;
+         pscAutoDnsEnabled, pscEnabled, pscWriteEndpointDnsEnabled;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -79,7 +79,8 @@ NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_Path = @"PATH";
 //
 
 @implementation GTLRYouTubeReporting_GdataContentTypeInfo
-@dynamic bestGuess, fromBytes, fromFileName, fromHeader, fromUrlPath;
+@dynamic bestGuess, fromBytes, fromFileName, fromFusionId, fromHeader,
+         fromUrlPath, fusionIdDetectionMetadata;
 @end
 
 
@@ -156,7 +157,7 @@ NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceType_Path = @"PATH";
          diffUploadResponse, diffVersionResponse, downloadParameters, filename,
          hashProperty, hashVerified, inlineProperty, isPotentialRetry, length,
          md5Hash, mediaId, objectId, path, referenceType, sha1Hash, sha256Hash,
-         timestamp, token;
+         sha512Hash, timestamp, token;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

@@ -164,7 +164,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  */
 @interface GTLRCloudKMSQuery_FoldersGetKajPolicyConfig : GTLRCloudKMSQuery
 
-/** Required. The name of the KeyAccessJustificationsPolicyConfig to get. */
+/**
+ *  Required. Specifies the name of the KeyAccessJustificationsPolicyConfig to
+ *  get.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -173,8 +176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Gets the KeyAccessJustificationsPolicyConfig for a given organization,
  *  folder, or project.
  *
- *  @param name Required. The name of the KeyAccessJustificationsPolicyConfig to
- *    get.
+ *  @param name Required. Specifies the name of the
+ *    KeyAccessJustificationsPolicyConfig to get.
  *
  *  @return GTLRCloudKMSQuery_FoldersGetKajPolicyConfig
  */
@@ -246,13 +249,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_FoldersUpdateKajPolicyConfig : GTLRCloudKMSQuery
 
 /**
- *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
- *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ *  Identifier. Represents the resource name for this
+ *  KeyAccessJustificationsPolicyConfig in the format of
+ *  "{organizations|folders|projects}/ * /kajPolicyConfig".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The list of fields to update.
+ *  Optional. Specifies the list of fields to update.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -266,7 +270,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig to
  *    include in the query.
- *  @param name Identifier. The resource name for this
+ *  @param name Identifier. Represents the resource name for this
  *    KeyAccessJustificationsPolicyConfig in the format of
  *    "{organizations|folders|projects}/ * /kajPolicyConfig".
  *
@@ -289,7 +293,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  */
 @interface GTLRCloudKMSQuery_OrganizationsGetKajPolicyConfig : GTLRCloudKMSQuery
 
-/** Required. The name of the KeyAccessJustificationsPolicyConfig to get. */
+/**
+ *  Required. Specifies the name of the KeyAccessJustificationsPolicyConfig to
+ *  get.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -298,8 +305,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Gets the KeyAccessJustificationsPolicyConfig for a given organization,
  *  folder, or project.
  *
- *  @param name Required. The name of the KeyAccessJustificationsPolicyConfig to
- *    get.
+ *  @param name Required. Specifies the name of the
+ *    KeyAccessJustificationsPolicyConfig to get.
  *
  *  @return GTLRCloudKMSQuery_OrganizationsGetKajPolicyConfig
  */
@@ -320,13 +327,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_OrganizationsUpdateKajPolicyConfig : GTLRCloudKMSQuery
 
 /**
- *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
- *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ *  Identifier. Represents the resource name for this
+ *  KeyAccessJustificationsPolicyConfig in the format of
+ *  "{organizations|folders|projects}/ * /kajPolicyConfig".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The list of fields to update.
+ *  Optional. Specifies the list of fields to update.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -340,7 +348,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig to
  *    include in the query.
- *  @param name Identifier. The resource name for this
+ *  @param name Identifier. Represents the resource name for this
  *    KeyAccessJustificationsPolicyConfig in the format of
  *    "{organizations|folders|projects}/ * /kajPolicyConfig".
  *
@@ -396,7 +404,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  */
 @interface GTLRCloudKMSQuery_ProjectsGetKajPolicyConfig : GTLRCloudKMSQuery
 
-/** Required. The name of the KeyAccessJustificationsPolicyConfig to get. */
+/**
+ *  Required. Specifies the name of the KeyAccessJustificationsPolicyConfig to
+ *  get.
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -405,8 +416,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Gets the KeyAccessJustificationsPolicyConfig for a given organization,
  *  folder, or project.
  *
- *  @param name Required. The name of the KeyAccessJustificationsPolicyConfig to
- *    get.
+ *  @param name Required. Specifies the name of the
+ *    KeyAccessJustificationsPolicyConfig to get.
  *
  *  @return GTLRCloudKMSQuery_ProjectsGetKajPolicyConfig
  */
@@ -2760,10 +2771,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: cloudkms.projects.locations.list
  *
@@ -2774,8 +2791,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsLocationsList : GTLRCloudKMSQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2805,10 +2822,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Fetches a @c GTLRCloudKMS_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -3401,7 +3424,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsEnrollmentConfig : GTLRCloudKMSQuery
 
 /**
- *  Required. The number or id of the project to get the effective
+ *  Required. Specifies the number or id of the project to get the effective
  *  KeyAccessJustificationsEnrollmentConfig for.
  */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -3413,8 +3436,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Returns the KeyAccessJustificationsEnrollmentConfig of the resource closest
  *  to the given project in hierarchy.
  *
- *  @param project Required. The number or id of the project to get the
- *    effective KeyAccessJustificationsEnrollmentConfig for.
+ *  @param project Required. Specifies the number or id of the project to get
+ *    the effective KeyAccessJustificationsEnrollmentConfig for.
  *
  *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsEnrollmentConfig
  */
@@ -3435,7 +3458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsPolicyConfig : GTLRCloudKMSQuery
 
 /**
- *  Required. The number or id of the project to get the effective
+ *  Required. Specifies the number or id of the project to get the effective
  *  KeyAccessJustificationsPolicyConfig. In the format of "projects/{|}"
  */
 @property(nonatomic, copy, nullable) NSString *project;
@@ -3447,8 +3470,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *  Returns the KeyAccessJustificationsPolicyConfig of the resource closest to
  *  the given project in hierarchy.
  *
- *  @param project Required. The number or id of the project to get the
- *    effective KeyAccessJustificationsPolicyConfig. In the format of
+ *  @param project Required. Specifies the number or id of the project to get
+ *    the effective KeyAccessJustificationsPolicyConfig. In the format of
  *    "projects/{|}"
  *
  *  @return GTLRCloudKMSQuery_ProjectsShowEffectiveKeyAccessJustificationsPolicyConfig
@@ -3521,13 +3544,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
 @interface GTLRCloudKMSQuery_ProjectsUpdateKajPolicyConfig : GTLRCloudKMSQuery
 
 /**
- *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
- *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ *  Identifier. Represents the resource name for this
+ *  KeyAccessJustificationsPolicyConfig in the format of
+ *  "{organizations|folders|projects}/ * /kajPolicyConfig".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The list of fields to update.
+ *  Optional. Specifies the list of fields to update.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -3541,7 +3565,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMSViewFull;
  *
  *  @param object The @c GTLRCloudKMS_KeyAccessJustificationsPolicyConfig to
  *    include in the query.
- *  @param name Identifier. The resource name for this
+ *  @param name Identifier. Represents the resource name for this
  *    KeyAccessJustificationsPolicyConfig in the format of
  *    "{organizations|folders|projects}/ * /kajPolicyConfig".
  *

@@ -29,6 +29,7 @@
 @class GTLRSecretManager_Operation_Metadata;
 @class GTLRSecretManager_Operation_Response;
 @class GTLRSecretManager_Policy;
+@class GTLRSecretManager_Progress;
 @class GTLRSecretManager_Replica;
 @class GTLRSecretManager_ReplicaStatus;
 @class GTLRSecretManager_Replication;
@@ -709,11 +710,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
 /** Output only. API version used to start the operation. */
 @property(nonatomic, copy, nullable) NSString *apiVersion;
 
-/** Output only. The time the operation was created. */
+/** Output only. Time the operation was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Output only. The time the operation finished running. */
+/** Output only. Time the operation finished running. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Represents the progress of the operation. This field is
+ *  populated for operations that involve processing multiple secret versions.
+ */
+@property(nonatomic, strong, nullable) GTLRSecretManager_Progress *progress;
 
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
@@ -826,6 +833,38 @@ FOUNDATION_EXTERN NSString * const kGTLRSecretManager_SecretVersion_State_StateU
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  Represents progress information for operations involving multiple secret
+ *  versions.
+ */
+@interface GTLRSecretManager_Progress : GTLRObject
+
+/**
+ *  Output only. Number of secret versions that have been successfully processed
+ *  so far.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completedVersionCount;
+
+/**
+ *  Output only. Number of secret versions that failed to process.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failedVersionCount;
+
+/**
+ *  Output only. Provides the total number of secret versions to be processed by
+ *  the operation.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalVersionCount;
 
 @end
 

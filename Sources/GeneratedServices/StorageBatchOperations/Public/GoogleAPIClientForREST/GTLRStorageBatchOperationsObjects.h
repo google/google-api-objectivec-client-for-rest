@@ -552,11 +552,38 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
 @interface GTLRStorageBatchOperations_Counters : GTLRObject
 
 /**
- *  Output only. Number of objects failed.
+ *  Output only. The number of objects that failed due to user errors or service
+ *  errors.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *failedObjectCount;
+
+/**
+ *  Output only. Number of object custom contexts created. This field is only
+ *  populated for jobs with the UpdateObjectCustomContext transformation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *objectCustomContextsCreated;
+
+/**
+ *  Output only. Number of object custom contexts deleted. This field is only
+ *  populated for jobs with the UpdateObjectCustomContext transformation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *objectCustomContextsDeleted;
+
+/**
+ *  Output only. Number of object custom contexts updated. This counter tracks
+ *  custom contexts where the key already existed, but the payload was modified.
+ *  This field is only populated for jobs with the UpdateObjectCustomContext
+ *  transformation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *objectCustomContextsUpdated;
 
 /**
  *  Output only. Number of objects completed.
@@ -572,6 +599,15 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageBatchOperations_PutObjectHold_Tem
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *totalBytesFound;
+
+/**
+ *  Output only. The total number of bytes affected by the transformation. For
+ *  example, this counts bytes deleted for `DeleteObject` operations and bytes
+ *  rewritten for `RewriteObject` operations.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalBytesTransformed;
 
 /**
  *  Output only. Number of objects listed.

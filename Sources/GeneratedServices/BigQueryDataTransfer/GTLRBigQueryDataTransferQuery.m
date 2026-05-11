@@ -536,6 +536,44 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
 
 @end
 
+@implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsTransferResourcesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsTransferResourcesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigQueryDataTransfer_TransferResource class];
+  query.loggingName = @"bigquerydatatransfer.projects.locations.transferConfigs.transferResources.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsTransferResourcesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/transferResources";
+  GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsTransferResourcesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigQueryDataTransfer_ListTransferResourcesResponse class];
+  query.loggingName = @"bigquerydatatransfer.projects.locations.transferConfigs.transferResources.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigQueryDataTransferQuery_ProjectsLocationsUnenrollDataSources
 
 @dynamic name;
@@ -820,6 +858,44 @@ NSString * const kGTLRBigQueryDataTransferStatesTransferStateUnspecified = @"TRA
   query.parent = parent;
   query.expectedObjectClass = [GTLRBigQueryDataTransfer_StartManualTransferRunsResponse class];
   query.loggingName = @"bigquerydatatransfer.projects.transferConfigs.startManualRuns";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsTransferResourcesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsTransferResourcesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigQueryDataTransfer_TransferResource class];
+  query.loggingName = @"bigquerydatatransfer.projects.transferConfigs.transferResources.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsTransferResourcesList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/transferResources";
+  GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsTransferResourcesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigQueryDataTransfer_ListTransferResourcesResponse class];
+  query.loggingName = @"bigquerydatatransfer.projects.transferConfigs.transferResources.list";
   return query;
 }
 

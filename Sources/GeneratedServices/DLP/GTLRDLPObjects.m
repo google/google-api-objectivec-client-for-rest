@@ -530,6 +530,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope
 NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_RegionalizationScope_RegionalizationScopeUnspecified = @"REGIONALIZATION_SCOPE_UNSPECIFIED";
 
 // GTLRDLP_GooglePrivacyDlpV2MetadataLocation.type
+NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_ClientProvidedMetadata = @"CLIENT_PROVIDED_METADATA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_ContentMetadata = @"CONTENT_METADATA";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified = @"METADATATYPE_UNSPECIFIED";
 NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_StorageMetadata = @"STORAGE_METADATA";
@@ -1362,7 +1363,7 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 //
 
 @implementation GTLRDLP_GooglePrivacyDlpV2ContentItem
-@dynamic byteItem, table, value;
+@dynamic byteItem, contentMetadata, table, value;
 @end
 
 
@@ -1374,6 +1375,24 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 @implementation GTLRDLP_GooglePrivacyDlpV2ContentLocation
 @dynamic containerName, containerTimestamp, containerVersion, documentLocation,
          imageLocation, metadataLocation, recordLocation;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2ContentMetadata
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2ContentMetadata
+@dynamic properties;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"properties" : [GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataProperty class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3213,6 +3232,16 @@ NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekValue_Wednesday = @"W
 
 @implementation GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataLabel
 @dynamic key;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataProperty
+//
+
+@implementation GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataProperty
+@dynamic key, value;
 @end
 
 

@@ -44,11 +44,13 @@
 @class GTLRConnectors_ExecuteToolResponse_Metadata;
 @class GTLRConnectors_ExecuteToolResponse_Metadata_Metadata;
 @class GTLRConnectors_ExecuteToolResponse_Result;
+@class GTLRConnectors_ExecuteToolResponse_XMeta;
 @class GTLRConnectors_ExecutionConfig;
 @class GTLRConnectors_Field;
 @class GTLRConnectors_Field_AdditionalDetails;
 @class GTLRConnectors_GetResourceResponse_Metadata;
 @class GTLRConnectors_GetResourceResponse_Metadata_Metadata;
+@class GTLRConnectors_GetResourceResponse_XMeta;
 @class GTLRConnectors_InputParameter;
 @class GTLRConnectors_InputParameter_AdditionalDetails;
 @class GTLRConnectors_Instance_Labels;
@@ -59,7 +61,11 @@
 @class GTLRConnectors_Instance_SoftwareVersions;
 @class GTLRConnectors_JsonSchema;
 @class GTLRConnectors_JsonSchema_AdditionalDetails;
+@class GTLRConnectors_JsonSchema_Definitions;
+@class GTLRConnectors_JsonSchema_Dependencies;
+@class GTLRConnectors_JsonSchema_PatternProperties;
 @class GTLRConnectors_JsonSchema_Properties;
+@class GTLRConnectors_JsonSchema_XDefs;
 @class GTLRConnectors_ListActionsResponse_Metadata;
 @class GTLRConnectors_ListActionsResponse_Metadata_Metadata;
 @class GTLRConnectors_ListEntitiesResponse_Metadata;
@@ -88,12 +94,14 @@
 @class GTLRConnectors_RefreshAccessTokenResponse_Metadata;
 @class GTLRConnectors_RefreshAccessTokenResponse_Metadata_Metadata;
 @class GTLRConnectors_Resource;
+@class GTLRConnectors_Resource_XMeta;
 @class GTLRConnectors_ResultMetadata;
 @class GTLRConnectors_Schedule;
 @class GTLRConnectors_SloEligibility;
 @class GTLRConnectors_SloMetadata;
 @class GTLRConnectors_TimeOfDay;
 @class GTLRConnectors_Tool;
+@class GTLRConnectors_Tool_XMeta;
 @class GTLRConnectors_ToolAnnotations;
 @class GTLRConnectors_ToolName;
 @class GTLRConnectors_ToolSpec;
@@ -2401,12 +2409,27 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @interface GTLRConnectors_ExecuteToolResponse : GTLRObject
 
+/** Metadata for the tool execution result. */
+@property(nonatomic, strong, nullable) GTLRConnectors_ExecuteToolResponse_XMeta *xMeta;
+
 /** Metadata like service latency, etc. */
 @property(nonatomic, strong, nullable) GTLRConnectors_ExecuteToolResponse_Metadata *metadata;
 
 /** Output from the tool execution. */
 @property(nonatomic, strong, nullable) GTLRConnectors_ExecuteToolResponse_Result *result;
 
+@end
+
+
+/**
+ *  Metadata for the tool execution result.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_ExecuteToolResponse_XMeta : GTLRObject
 @end
 
 
@@ -2656,6 +2679,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @interface GTLRConnectors_GetResourceResponse : GTLRObject
 
+/** Metadata for the resource. */
+@property(nonatomic, strong, nullable) GTLRConnectors_GetResourceResponse_XMeta *xMeta;
+
 /**
  *  The content of the resource.
  *
@@ -2670,6 +2696,18 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 /** The MIME type of the resource. */
 @property(nonatomic, copy, nullable) NSString *mimeType;
 
+@end
+
+
+/**
+ *  Metadata for the resource.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_GetResourceResponse_XMeta : GTLRObject
 @end
 
 
@@ -3111,11 +3149,61 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @interface GTLRConnectors_JsonSchema : GTLRObject
 
+/** A comment on the schema. */
+@property(nonatomic, copy, nullable) NSString *xComment;
+
+/** Definitions for the schema. */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema_XDefs *xDefs;
+
+/** The URI defining the core schema meta-schema. */
+@property(nonatomic, copy, nullable) NSString *xId;
+
+/** A reference to another schema. */
+@property(nonatomic, copy, nullable) NSString *xRef;
+
+/** The URI defining the schema. */
+@property(nonatomic, copy, nullable) NSString *xSchema;
+
 /**
  *  Additional details apart from standard json schema fields, this gives
  *  flexibility to store metadata about the schema
  */
 @property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema_AdditionalDetails *additionalDetails;
+
+/** Schema for additional items. */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *additionalItems;
+
+/**
+ *  Schema for additional properties.
+ *
+ *  Remapped to 'additionalPropertiesProperty' to avoid GTLRObject's
+ *  'additionalProperties'.
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *additionalPropertiesProperty;
+
+/** Schema that must be valid against all of the sub-schemas. */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_JsonSchema *> *allOf;
+
+/** Schema that must be valid against at least one of the sub-schemas. */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_JsonSchema *> *anyOf;
+
+/**
+ *  Const value that the data must match.
+ *
+ *  Remapped to 'constProperty' to avoid language reserved word 'const'.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id constProperty;
+
+/** Schema that applies to at least one item in an array. */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *contains;
+
+/** Encoding of the content. */
+@property(nonatomic, copy, nullable) NSString *contentEncoding;
+
+/** Media type of the content. */
+@property(nonatomic, copy, nullable) NSString *contentMediaType;
 
 /**
  *  The default value of the field or object described by this schema.
@@ -3126,12 +3214,25 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @property(nonatomic, strong, nullable) id defaultProperty;
 
+/** Definitions for the schema. */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema_Definitions *definitions;
+
+/** Dependencies for the schema. */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema_Dependencies *dependencies;
+
 /**
  *  A description of this schema.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Schema that must be valid if the "if" schema is invalid.
+ *
+ *  Remapped to 'elseProperty' to avoid language reserved word 'else'.
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *elseProperty;
 
 /**
  *  Possible values for an enumeration. This works in conjunction with `type` to
@@ -3144,10 +3245,38 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 @property(nonatomic, strong, nullable) NSArray *enumProperty;
 
 /**
+ *  Examples of the value.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) NSArray *examples;
+
+/**
+ *  Whether the maximum number value is exclusive.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id exclusiveMaximum;
+
+/**
+ *  Whether the minimum number value is exclusive.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id exclusiveMinimum;
+
+/**
  *  Format of the value as per
  *  https://json-schema.org/understanding-json-schema/reference/string.html#format
  */
 @property(nonatomic, copy, nullable) NSString *format;
+
+/**
+ *  Schema that must be valid if the "if" schema is valid.
+ *
+ *  Remapped to 'ifProperty' to avoid language reserved word 'if'.
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *ifProperty;
 
 /**
  *  Schema that applies to array values, applicable only if this is of type
@@ -3251,18 +3380,142 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 @property(nonatomic, copy, nullable) NSString *jdbcType;
 
 /**
+ *  Maximum value of the number field.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id maximum;
+
+/**
+ *  Maximum number of items in the array field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxItems;
+
+/**
+ *  Maximum length of the string field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxLength;
+
+/**
+ *  Maximum number of properties.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxProperties;
+
+/**
+ *  Minimum value of the number field.
+ *
+ *  Can be any valid JSON type.
+ */
+@property(nonatomic, strong, nullable) id minimum;
+
+/**
+ *  Minimum number of items in the array field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minItems;
+
+/**
+ *  Minimum length of the string field.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minLength;
+
+/**
+ *  Minimum number of properties.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minProperties;
+
+/**
+ *  Number must be a multiple of this value.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *multipleOf;
+
+/**
+ *  Schema that must not be valid.
+ *
+ *  Remapped to 'notProperty' to avoid language reserved word 'not'.
+ */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *notProperty;
+
+/** Schema that must be valid against at least one of the sub-schemas. */
+@property(nonatomic, strong, nullable) NSArray<GTLRConnectors_JsonSchema *> *oneOf;
+
+/**
+ *  Regex pattern of the string field. This is a string value that describes the
+ *  regular expression that the string value should match.
+ */
+@property(nonatomic, copy, nullable) NSString *pattern;
+
+/** Pattern properties for the schema. */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema_PatternProperties *patternProperties;
+
+/**
  *  The child schemas, applicable only if this is of type `object`. The key is
  *  the name of the property and the value is the json schema that describes
  *  that property
  */
 @property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema_Properties *properties;
 
+/** Schema for property names. */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *propertyNames;
+
+/**
+ *  Whether the value is read-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *readOnly;
+
 /** Whether this property is required. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *required;
+
+/** Schema that must be valid if the "if" schema is valid. */
+@property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *then;
+
+/** A title of the schema. */
+@property(nonatomic, copy, nullable) NSString *title;
 
 /** JSON Schema Validation: A Vocabulary for Structural Validation of JSON */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *type;
 
+/**
+ *  Whether the items in the array field are unique.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *uniqueItems;
+
+/**
+ *  Whether the value is write-only.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeOnly;
+
+@end
+
+
+/**
+ *  Definitions for the schema.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_JsonSchema. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_JsonSchema_XDefs : GTLRObject
 @end
 
 
@@ -3276,6 +3529,42 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRConnectors_JsonSchema_AdditionalDetails : GTLRObject
+@end
+
+
+/**
+ *  Definitions for the schema.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_JsonSchema. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_JsonSchema_Definitions : GTLRObject
+@end
+
+
+/**
+ *  Dependencies for the schema.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_JsonSchema_Dependencies : GTLRObject
+@end
+
+
+/**
+ *  Pattern properties for the schema.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConnectors_JsonSchema. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_JsonSchema_PatternProperties : GTLRObject
 @end
 
 
@@ -3541,6 +3830,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 
 /** Page token. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** List of tool names to for selective tool fetching. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *toolNames;
 
 /** List of tool specifications. */
 @property(nonatomic, strong, nullable) GTLRConnectors_ToolSpec *toolSpec;
@@ -4123,6 +4415,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @interface GTLRConnectors_Resource : GTLRObject
 
+/** Metadata for the resource. */
+@property(nonatomic, strong, nullable) GTLRConnectors_Resource_XMeta *xMeta;
+
 /**
  *  A description of what this resource represents.
  *
@@ -4146,6 +4441,18 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 /** The URI of this resource. */
 @property(nonatomic, copy, nullable) NSString *uri;
 
+@end
+
+
+/**
+ *  Metadata for the resource.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_Resource_XMeta : GTLRObject
 @end
 
 
@@ -4419,6 +4726,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
  */
 @interface GTLRConnectors_Tool : GTLRObject
 
+/** Metadata for the tool. */
+@property(nonatomic, strong, nullable) GTLRConnectors_Tool_XMeta *xMeta;
+
 /** Annotations for the tool. */
 @property(nonatomic, strong, nullable) GTLRConnectors_ToolAnnotations *annotations;
 
@@ -4441,6 +4751,18 @@ FOUNDATION_EXTERN NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5;
 /** JSON schema for the output of the tool. */
 @property(nonatomic, strong, nullable) GTLRConnectors_JsonSchema *outputSchema;
 
+@end
+
+
+/**
+ *  Metadata for the tool.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConnectors_Tool_XMeta : GTLRObject
 @end
 
 

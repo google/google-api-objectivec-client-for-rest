@@ -104,6 +104,18 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRHypercomputeCluster_GcsAutoclassConfig.terminalStorageClass
 
 /**
+ *  Archive terminal storage class
+ *
+ *  Value: "ARCHIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_GcsAutoclassConfig_TerminalStorageClass_Archive;
+/**
+ *  Nearline terminal storage class
+ *
+ *  Value: "NEARLINE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_GcsAutoclassConfig_TerminalStorageClass_Nearline;
+/**
  *  Unspecified terminal storage class
  *
  *  Value: "TERMINAL_STORAGE_CLASS_UNSPECIFIED"
@@ -248,7 +260,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 @interface GTLRHypercomputeCluster_BootDisk : GTLRObject
 
 /**
- *  Required. Immutable. Size of the disk in gigabytes. Must be at least 10GB.
+ *  Required. Immutable. Size of the disk in gigabytes. Must be at least 40GB.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -313,7 +325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
- *  Optional. User-provided description of the cluster.
+ *  Optional. User-provided description of the cluster. Maximum of 2048
+ *  characters.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -334,7 +347,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. Network resources available to the cluster. Must contain at most
+ *  Optional. Network resources available to the cluster. Must contain exactly
  *  one value. Keys specify the ID of the network resource by which it can be
  *  referenced elsewhere, and must conform to
  *  [RFC-1034](https://datatracker.ietf.org/doc/html/rfc1034) (lower-case,
@@ -402,7 +415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 
 
 /**
- *  Optional. Network resources available to the cluster. Must contain at most
+ *  Optional. Network resources available to the cluster. Must contain exactly
  *  one value. Keys specify the ID of the network resource by which it can be
  *  referenced elsewhere, and must conform to
  *  [RFC-1034](https://datatracker.ietf.org/doc/html/rfc1034) (lower-case,
@@ -858,6 +871,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
  *  Optional. Terminal storage class of the autoclass bucket
  *
  *  Likely values:
+ *    @arg @c kGTLRHypercomputeCluster_GcsAutoclassConfig_TerminalStorageClass_Archive
+ *        Archive terminal storage class (Value: "ARCHIVE")
+ *    @arg @c kGTLRHypercomputeCluster_GcsAutoclassConfig_TerminalStorageClass_Nearline
+ *        Nearline terminal storage class (Value: "NEARLINE")
  *    @arg @c kGTLRHypercomputeCluster_GcsAutoclassConfig_TerminalStorageClass_TerminalStorageClassUnspecified
  *        Unspecified terminal storage class (Value:
  *        "TERMINAL_STORAGE_CLASS_UNSPECIFIED")
@@ -1080,7 +1097,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
  */
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_NetworkResourceConfig *config;
 
-/** Reference to a network in Google Compute Engine. */
+/** Output only. Reference to a network in Google Compute Engine. */
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_NetworkReference *network;
 
 @end
@@ -1278,6 +1295,16 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
  *  format `projects/{project}/locations/{location}/instances/{instance}`
  */
 @property(nonatomic, copy, nullable) NSString *lustre;
+
+/**
+ *  Optional. Immutable. Throughput of the instance in MB/s/TiB. Valid values
+ *  are 125, 250, 500, 1000. See [Performance tiers and maximum storage
+ *  capacities](https://cloud.google.com/managed-lustre/docs/create-instance#performance-tiers)
+ *  for more information.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *perUnitStorageThroughput;
 
 @end
 
@@ -1792,7 +1819,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 @interface GTLRHypercomputeCluster_SlurmNodeSet : GTLRObject
 
 /**
- *  Optional. ID of the compute resource on which this nodeset will run. Must
+ *  Required. ID of the compute resource on which this nodeset will run. Must
  *  match a key in the cluster's compute_resources.
  */
 @property(nonatomic, copy, nullable) NSString *computeId;
@@ -1989,8 +2016,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 @interface GTLRHypercomputeCluster_StorageResource : GTLRObject
 
 /**
- *  Reference to a Google Cloud Storage bucket. Populated if and only if the
- *  storage resource was configured to use Google Cloud Storage.
+ *  Output only. Reference to a Google Cloud Storage bucket. Populated if and
+ *  only if the storage resource was configured to use Google Cloud Storage.
  */
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_BucketReference *bucket;
 
@@ -2004,14 +2031,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHypercomputeCluster_OperationStep_State_
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_StorageResourceConfig *config;
 
 /**
- *  Reference to a Filestore instance. Populated if and only if the storage
- *  resource was configured to use Filestore.
+ *  Output only. Reference to a Filestore instance. Populated if and only if the
+ *  storage resource was configured to use Filestore.
  */
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_FilestoreReference *filestore;
 
 /**
- *  Reference to a Managed Lustre instance. Populated if and only if the storage
- *  resource was configured to use Managed Lustre.
+ *  Output only. Reference to a Managed Lustre instance. Populated if and only
+ *  if the storage resource was configured to use Managed Lustre.
  */
 @property(nonatomic, strong, nullable) GTLRHypercomputeCluster_LustreReference *lustre;
 

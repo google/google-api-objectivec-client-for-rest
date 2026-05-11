@@ -30,6 +30,7 @@
 @class GTLRDataManager_ErrorCount;
 @class GTLRDataManager_ErrorInfo;
 @class GTLRDataManager_Event;
+@class GTLRDataManager_EventLocation;
 @class GTLRDataManager_EventParameter;
 @class GTLRDataManager_ExperimentalField;
 @class GTLRDataManager_GcpWrappedKeyInfo;
@@ -42,6 +43,7 @@
 @class GTLRDataManager_IngestUserDataStatus;
 @class GTLRDataManager_IngestUserIdDataStatus;
 @class GTLRDataManager_Item;
+@class GTLRDataManager_ItemCustomVariable;
 @class GTLRDataManager_ItemParameter;
 @class GTLRDataManager_Location;
 @class GTLRDataManager_MarketingDataInsight;
@@ -338,6 +340,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_Processing
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonNoConsent;
 /**
+ *  One-per-click conversion actions cannot be used with BRAIDs.
+ *
+ *  Value: "PROCESSING_ERROR_REASON_ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOnePerClickConversionActionNotPermittedWithBraid;
+/**
  *  The overall consent (determined from row level consent, request level
  *  consent, and account settings) could not be determined for this user
  *
@@ -385,6 +393,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_EventSourc
  *  Value: "IN_STORE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_InStore;
+/**
+ *  The event was generated from a message.
+ *
+ *  Value: "MESSAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataManager_Event_EventSource_Message;
 /**
  *  The event was generated from other sources.
  *
@@ -917,13 +931,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_RemoveAudienceMembersRequest
 // GTLRDataManager_RequestStatusPerDestination.requestStatus
 
 /**
- *  The request failed.
+ *  Processing failed for all records. Check the `error_info` field for error
+ *  details, and check the `warning_info` field for warning details.
  *
  *  Value: "FAILED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_RequestStatusPerDestination_RequestStatus_Failed;
 /**
- *  The request partially succeeded.
+ *  Processing completed successfully without errors for some records, but
+ *  failed with errors for other records. Check the `error_info` field for error
+ *  details, and check the `warning_info` field for warning details.
  *
  *  Value: "PARTIAL_SUCCESS"
  */
@@ -941,7 +958,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_RequestStatusPerDestination_
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_RequestStatusPerDestination_RequestStatus_RequestStatusUnknown;
 /**
- *  The request succeeded.
+ *  Processing succeeded for all records without any errors. However, there may
+ *  be warnings in the `warning_info` field.
  *
  *  Value: "SUCCESS"
  */
@@ -1460,7 +1478,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonUnspecified;
 /**
- *  Failed to decrypt th UserIdentifier data using the DEK.
+ *  Failed to decrypt the UserIdentifier data using the DEK.
  *
  *  Value: "PROCESSING_WARNING_REASON_USER_IDENTIFIER_DECRYPTION_ERROR"
  */
@@ -1522,6 +1540,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  time of landing onto the advertiser’s site after interacting with the ad.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_DeviceInfo *landingPageDeviceInfo;
+
+/**
+ *  Optional. The mobile identifier for advertisers. This would be IDFA on iOS,
+ *  AdID on Android, or other platforms’ identifiers for advertisers.
+ */
+@property(nonatomic, copy, nullable) NSString *mobileDeviceId;
 
 /** Optional. Session attributes for event attribution and modeling. */
 @property(nonatomic, copy, nullable) NSString *sessionAttributes;
@@ -1639,6 +1663,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        its "items" property.
  */
 @interface GTLRDataManager_CartData : GTLRCollectionObject
+
+/**
+ *  Optional. The list of coupon codes that were applied to the cart. Cart-level
+ *  and item-level coupon codes are independent. If the event is for a Google
+ *  Analytics destination, only provide a single coupon code. Google Analytics
+ *  ignores additional coupon codes.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *couponCodes;
 
 /**
  *  Optional. The list of items associated with the event.
@@ -1817,6 +1849,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @interface GTLRDataManager_DeviceInfo : GTLRObject
 
+/** Optional. The brand of the device. */
+@property(nonatomic, copy, nullable) NSString *brand;
+
+/** Optional. The brand or type of the browser. */
+@property(nonatomic, copy, nullable) NSString *browser;
+
+/** Optional. The version of the browser. */
+@property(nonatomic, copy, nullable) NSString *browserVersion;
+
+/**
+ *  Optional. The category of device. For example, “desktop”, “tablet”,
+ *  “mobile”, “smart TV”.
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
 /**
  *  Optional. The IP address of the device for the given context. **Note:**
  *  Google Ads does not support IP address matching for end users in the
@@ -1830,6 +1877,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  details.
  */
 @property(nonatomic, copy, nullable) NSString *ipAddress;
+
+/** Optional. The language the device uses in ISO 639-1 format. */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/** Optional. The model of the device. */
+@property(nonatomic, copy, nullable) NSString *model;
+
+/** Optional. The operating system or platform of the device. */
+@property(nonatomic, copy, nullable) NSString *operatingSystem;
+
+/** Optional. The version of the operating system or platform. */
+@property(nonatomic, copy, nullable) NSString *operatingSystemVersion;
+
+/**
+ *  Optional. The height of the screen in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenHeight;
+
+/**
+ *  Optional. The width of the screen in pixels.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *screenWidth;
 
 /** Optional. The user-agent string of the device for the given context. */
 @property(nonatomic, copy, nullable) NSString *userAgent;
@@ -1943,6 +2016,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonNoConsent
  *        Advertiser did not give 3P consent for the Ads core platform services.
  *        (Value: "PROCESSING_ERROR_REASON_NO_CONSENT")
+ *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOnePerClickConversionActionNotPermittedWithBraid
+ *        One-per-click conversion actions cannot be used with BRAIDs. (Value:
+ *        "PROCESSING_ERROR_REASON_ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID")
  *    @arg @c kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnknownConsent
  *        The overall consent (determined from row level consent, request level
  *        consent, and account settings) could not be determined for this user
@@ -2004,6 +2080,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @property(nonatomic, strong, nullable) GTLRDataManager_AdIdentifiers *adIdentifiers;
 
 /**
+ *  Optional. A unique identifier for the user instance of an app client for
+ *  this GA4 app stream.
+ */
+@property(nonatomic, copy, nullable) NSString *appInstanceId;
+
+/**
  *  Optional. Information about the transaction and items associated with the
  *  event.
  */
@@ -2053,6 +2135,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_DeviceInfo *eventDeviceInfo;
 
+/**
+ *  Optional. Information gathered about the location of the user when this
+ *  event occurred.
+ */
+@property(nonatomic, strong, nullable) GTLRDataManager_EventLocation *eventLocation;
+
 /** Optional. The name of the event. Required for GA4 events. */
 @property(nonatomic, copy, nullable) NSString *eventName;
 
@@ -2067,6 +2155,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        "EVENT_SOURCE_UNSPECIFIED")
  *    @arg @c kGTLRDataManager_Event_EventSource_InStore The event was generated
  *        from an in-store transaction. (Value: "IN_STORE")
+ *    @arg @c kGTLRDataManager_Event_EventSource_Message The event was generated
+ *        from a message. (Value: "MESSAGE")
  *    @arg @c kGTLRDataManager_Event_EventSource_Other The event was generated
  *        from other sources. (Value: "OTHER")
  *    @arg @c kGTLRDataManager_Event_EventSource_Phone The event was generated
@@ -2089,8 +2179,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdatedTimestamp;
 
 /**
- *  Optional. The unique identifier for this event. Required for conversions
- *  using multiple data sources.
+ *  Optional. The same type of data provided in user_data, but explicitly
+ *  flagged as being provided as owned by a third-party and not first-party
+ *  advertiser data.
+ */
+@property(nonatomic, strong, nullable) GTLRDataManager_UserData *thirdPartyUserData;
+
+/**
+ *  Optional. The unique identifier for this event. Required for events sent as
+ *  an additional data source for tag conversions.
  */
 @property(nonatomic, copy, nullable) NSString *transactionId;
 
@@ -2110,6 +2207,37 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  Remapped to 'userPropertiesProperty' to avoid GTLRObject's 'userProperties'.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_UserProperties *userPropertiesProperty;
+
+@end
+
+
+/**
+ *  The location where the event occurred.
+ */
+@interface GTLRDataManager_EventLocation : GTLRObject
+
+/** Optional. The name of the city where the event occurred. */
+@property(nonatomic, copy, nullable) NSString *city;
+
+/** Optional. The continent code in UN M49 format where the event occurred. */
+@property(nonatomic, copy, nullable) NSString *continentCode;
+
+/** Optional. The 2-letter CLDR region code of the user's address. */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+/**
+ *  Optional. Required for Store Sales. The identifier to represent a physical
+ *  store where the event happened.
+ */
+@property(nonatomic, copy, nullable) NSString *storeId;
+
+/**
+ *  Optional. The subcontinent code in UN M49 format where the event occurred.
+ */
+@property(nonatomic, copy, nullable) NSString *subcontinentCode;
+
+/** Optional. The ISO 3166-2 subdivision code where the event occurred. */
+@property(nonatomic, copy, nullable) NSString *subdivisionCode;
 
 @end
 
@@ -2602,8 +2730,44 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataManager_ItemParameter *> *additionalItemParameters;
 
+/**
+ *  Optional. The conversion value associated with this item within the event,
+ *  for cases where the conversion value is different for each item.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conversionValue;
+
+/**
+ *  Optional. Additional key/value pair information to send to the conversion
+ *  containers (conversion action or Floodlight activity), when tracking
+ *  per-item conversions.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataManager_ItemCustomVariable *> *customVariables;
+
 /** Optional. A unique identifier to reference the item. */
 @property(nonatomic, copy, nullable) NSString *itemId;
+
+/**
+ *  Optional. The feed label of the Merchant Center feed. If countries are still
+ *  being used, the 2-letter country code in ISO-3166-1 alpha-2 can be used
+ *  instead. For Store Sales events this will override the value set at the cart
+ *  level. This field is ignored for other events.
+ */
+@property(nonatomic, copy, nullable) NSString *merchantFeedLabel;
+
+/**
+ *  Optional. The language code in ISO 639-1 associated with the Merchant Center
+ *  feed where your items are uploaded.
+ */
+@property(nonatomic, copy, nullable) NSString *merchantFeedLanguageCode;
+
+/**
+ *  Optional. The Merchant Center ID associated with the item. For Store Sales
+ *  events this will override the value set at the cart level. This field is
+ *  ignored for other events.
+ */
+@property(nonatomic, copy, nullable) NSString *merchantId;
 
 /** Optional. The product ID within the Merchant Center account. */
 @property(nonatomic, copy, nullable) NSString *merchantProductId;
@@ -2622,6 +2786,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *  Uses NSNumber of doubleValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *unitPrice;
+
+@end
+
+
+/**
+ *  Item-level custom variable for ads conversions.
+ */
+@interface GTLRDataManager_ItemCustomVariable : GTLRObject
+
+/**
+ *  Optional. Reference string used to determine which of the
+ *  Event.destination_references the custom variable should be sent to. If
+ *  empty, the Event.destination_references will be used.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *destinationReferences;
+
+/** Optional. The value to store for the custom variable. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+/**
+ *  Optional. The name of the custom variable to set. If the variable is not
+ *  found for the given destination, it will be ignored.
+ */
+@property(nonatomic, copy, nullable) NSString *variable;
 
 @end
 
@@ -3373,7 +3561,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 
 /**
  *  An error info error containing the error reason and error counts related to
- *  the upload.
+ *  the upload. Only populated if the `request_status` is `FAILED` or
+ *  `PARTIAL_SUCCESS`. This field isn't populated while the request has
+ *  `request_status` of `PROCESSING`.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_ErrorInfo *errorInfo;
 
@@ -3385,21 +3575,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *
  *  Likely values:
  *    @arg @c kGTLRDataManager_RequestStatusPerDestination_RequestStatus_Failed
- *        The request failed. (Value: "FAILED")
+ *        Processing failed for all records. Check the `error_info` field for
+ *        error details, and check the `warning_info` field for warning details.
+ *        (Value: "FAILED")
  *    @arg @c kGTLRDataManager_RequestStatusPerDestination_RequestStatus_PartialSuccess
- *        The request partially succeeded. (Value: "PARTIAL_SUCCESS")
+ *        Processing completed successfully without errors for some records, but
+ *        failed with errors for other records. Check the `error_info` field for
+ *        error details, and check the `warning_info` field for warning details.
+ *        (Value: "PARTIAL_SUCCESS")
  *    @arg @c kGTLRDataManager_RequestStatusPerDestination_RequestStatus_Processing
  *        The request is processing. (Value: "PROCESSING")
  *    @arg @c kGTLRDataManager_RequestStatusPerDestination_RequestStatus_RequestStatusUnknown
  *        The request status is unknown. (Value: "REQUEST_STATUS_UNKNOWN")
  *    @arg @c kGTLRDataManager_RequestStatusPerDestination_RequestStatus_Success
- *        The request succeeded. (Value: "SUCCESS")
+ *        Processing succeeded for all records without any errors. However,
+ *        there may be warnings in the `warning_info` field. (Value: "SUCCESS")
  */
 @property(nonatomic, copy, nullable) NSString *requestStatus;
 
 /**
  *  A warning info containing the warning reason and warning counts related to
- *  the upload.
+ *  the upload. This field isn't populated while the request has
+ *  `request_status` of `PROCESSING`.
  */
 @property(nonatomic, strong, nullable) GTLRDataManager_WarningInfo *warningInfo;
 
@@ -3486,12 +3683,26 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
 @property(nonatomic, strong, nullable) NSNumber *displayNetworkMembersCount;
 
 /**
+ *  Output only. Estimated number of members in this user list on Gmail.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gmailMembersCount;
+
+/**
  *  Output only. Estimated number of members in this user list in the google.com
  *  domain. These are the members available for targeting in Search campaigns.
  *
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *searchNetworkMembersCount;
+
+/**
+ *  Output only. Estimated number of members in this user list on YouTube.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *youtubeMembersCount;
 
 @end
 
@@ -4306,7 +4517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataManager_WarningCount_Reason_Processi
  *        The processing warning reason is unknown. (Value:
  *        "PROCESSING_WARNING_REASON_UNSPECIFIED")
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonUserIdentifierDecryptionError
- *        Failed to decrypt th UserIdentifier data using the DEK. (Value:
+ *        Failed to decrypt the UserIdentifier data using the DEK. (Value:
  *        "PROCESSING_WARNING_REASON_USER_IDENTIFIER_DECRYPTION_ERROR")
  *    @arg @c kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWipAuthFailed
  *        The WIP could not be used because it was rejected by its attestation

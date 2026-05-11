@@ -1344,8 +1344,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocMetastore_TelemetryConfig_LogFor
 
 
 /**
- *  Configuration information for migrating from self-managed hive metastore on
- *  Google Cloud using Cloud SQL as the backend database to Dataproc Metastore.
+ *  Deprecated: Migrations to Dataproc Metastore are no longer supported. Use
+ *  BigLake Metastore migration instead. Configuration information for migrating
+ *  from self-managed hive metastore on Google Cloud using Cloud SQL as the
+ *  backend database to Dataproc Metastore.
  */
 @interface GTLRDataprocMetastore_CloudSQLMigrationConfig : GTLRObject
 
@@ -2434,11 +2436,12 @@ GTLR_DEPRECATED
 @interface GTLRDataprocMetastore_MigrationExecution : GTLRObject
 
 /**
- *  Configuration information specific to migrating from self-managed hive
- *  metastore on Google Cloud using Cloud SQL as the backend database to
- *  Dataproc Metastore.
+ *  Deprecated: Migrations to Dataproc Metastore are no longer supported. Use
+ *  BigLake Metastore migration instead. Configuration information specific to
+ *  migrating from self-managed hive metastore on Google Cloud using Cloud SQL
+ *  as the backend database to Dataproc Metastore.
  */
-@property(nonatomic, strong, nullable) GTLRDataprocMetastore_CloudSQLMigrationConfig *cloudSqlMigrationConfig;
+@property(nonatomic, strong, nullable) GTLRDataprocMetastore_CloudSQLMigrationConfig *cloudSqlMigrationConfig GTLR_DEPRECATED;
 
 /** Output only. The time when the migration execution was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -2454,7 +2457,9 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Output only. The current phase of the migration execution.
+ *  Output only. Deprecated: Phase was designed for incoming migrations to
+ *  Dataproc Metastore, not applicable when migrating away from it. The current
+ *  phase of the migration execution.
  *
  *  Likely values:
  *    @arg @c kGTLRDataprocMetastore_MigrationExecution_Phase_Cutover Cutover
@@ -2472,7 +2477,7 @@ GTLR_DEPRECATED
  *        Metastore uses the customer database as the hive metastore backend
  *        database. (Value: "REPLICATION")
  */
-@property(nonatomic, copy, nullable) NSString *phase;
+@property(nonatomic, copy, nullable) NSString *phase GTLR_DEPRECATED;
 
 /**
  *  Output only. The current state of the migration execution.

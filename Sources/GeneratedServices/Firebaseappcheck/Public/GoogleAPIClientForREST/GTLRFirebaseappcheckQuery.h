@@ -444,6 +444,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseappcheckQuery_ProjectsAppsDebugTokensDelete : GTLRFirebaseappcheckQuery
 
 /**
+ *  Optional. The checksum to be validated against the current DebugToken, to
+ *  ensure the client has an up-to-date value before proceeding. This checksum
+ *  is computed by the server based on the values of fields in the DebugToken
+ *  object, and can be obtained from the DebugToken object received from the
+ *  last CreateDebugToken, GetDebugToken, ListDebugTokens, or UpdateDebugToken
+ *  call. This etag is strongly validated as defined by RFC 7232.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
  *  Required. The relative resource name of the DebugToken to delete, in the
  *  format: ```
  *  projects/{project_number}/apps/{app_id}/debugTokens/{debug_token_id} ```

@@ -16,6 +16,121 @@
 
 @end
 
+@implementation GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesCreate
+
+@dynamic aclPolicyId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRCloudRedis_AclPolicy *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/aclPolicies";
+  GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRedis_AclPolicy class];
+  query.loggingName = @"redis.projects.locations.aclPolicies.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesDelete
+
+@dynamic ETag, name, requestId;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.aclPolicies.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_AclPolicy class];
+  query.loggingName = @"redis.projects.locations.aclPolicies.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/aclPolicies";
+  GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRedis_ListAclPoliciesResponse class];
+  query.loggingName = @"redis.projects.locations.aclPolicies.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRCloudRedis_AclPolicy *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.aclPolicies.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsDelete
 
 @dynamic name, requestId;
@@ -133,6 +248,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudRedis_ListBackupCollectionsResponse class];
   query.loggingName = @"redis.projects.locations.backupCollections.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersAddTokenAuthUser
+
+@dynamic cluster;
+
++ (instancetype)queryWithObject:(GTLRCloudRedis_AddTokenAuthUserRequest *)object
+                        cluster:(NSString *)cluster {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"cluster" ];
+  NSString *pathURITemplate = @"v1/{+cluster}:addTokenAuthUser";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersAddTokenAuthUser *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.cluster = cluster;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.clusters.addTokenAuthUser";
   return query;
 }
 
@@ -317,6 +459,147 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudRedis_Operation class];
   query.loggingName = @"redis.projects.locations.clusters.rescheduleClusterMaintenance";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAddAuthToken
+
+@dynamic tokenAuthUser;
+
++ (instancetype)queryWithObject:(GTLRCloudRedis_AddAuthTokenRequest *)object
+                  tokenAuthUser:(NSString *)tokenAuthUser {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"tokenAuthUser" ];
+  NSString *pathURITemplate = @"v1/{+tokenAuthUser}:addAuthToken";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAddAuthToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.tokenAuthUser = tokenAuthUser;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.clusters.tokenAuthUsers.addAuthToken";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.clusters.tokenAuthUsers.authTokens.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_AuthToken class];
+  query.loggingName = @"redis.projects.locations.clusters.tokenAuthUsers.authTokens.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/authTokens";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRedis_ListAuthTokensResponse class];
+  query.loggingName = @"redis.projects.locations.clusters.tokenAuthUsers.authTokens.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersDelete
+
+@dynamic force, name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_Operation class];
+  query.loggingName = @"redis.projects.locations.clusters.tokenAuthUsers.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRedis_TokenAuthUser class];
+  query.loggingName = @"redis.projects.locations.clusters.tokenAuthUsers.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/tokenAuthUsers";
+  GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRCloudRedis_ListTokenAuthUsersResponse class];
+  query.loggingName = @"redis.projects.locations.clusters.tokenAuthUsers.list";
   return query;
 }
 

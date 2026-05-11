@@ -26,6 +26,8 @@ NSString * const kGTLRWorkspaceEvents_Subscription_State_StateUnspecified = @"ST
 NSString * const kGTLRWorkspaceEvents_Subscription_State_Suspended = @"SUSPENDED";
 
 // GTLRWorkspaceEvents_Subscription.suspensionReason
+NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_AppAuthorizationFailure = @"APP_AUTHORIZATION_FAILURE";
+NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_AppScopeRevoked = @"APP_SCOPE_REVOKED";
 NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_EndpointNotFound = @"ENDPOINT_NOT_FOUND";
 NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_EndpointPermissionDenied = @"ENDPOINT_PERMISSION_DENIED";
 NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_EndpointResourceExhausted = @"ENDPOINT_RESOURCE_EXHAUSTED";
@@ -428,8 +430,9 @@ NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskStateWorking = @"TASK
 
 @implementation GTLRWorkspaceEvents_Subscription
 @dynamic authority, createTime, ETag, eventTypes, expireTime, name,
-         notificationEndpoint, payloadOptions, reconciling, state,
-         suspensionReason, targetResource, ttl, uid, updateTime;
+         notificationEndpoint, payloadOptions, reconciling,
+         serviceAccountAuthority, state, suspensionReason, targetResource, ttl,
+         uid, updateTime, userAuthority;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

@@ -32,7 +32,6 @@ NSString * const kGTLRMyBusinessVerifications_Verification_Method_PhoneCall = @"
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_Sms = @"SMS";
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_TrustedPartner = @"TRUSTED_PARTNER";
 NSString * const kGTLRMyBusinessVerifications_Verification_Method_VerificationMethodUnspecified = @"VERIFICATION_METHOD_UNSPECIFIED";
-NSString * const kGTLRMyBusinessVerifications_Verification_Method_VettedPartner = @"VETTED_PARTNER";
 
 // GTLRMyBusinessVerifications_Verification.state
 NSString * const kGTLRMyBusinessVerifications_Verification_State_Completed = @"COMPLETED";
@@ -48,7 +47,6 @@ NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMet
 NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_Sms = @"SMS";
 NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_TrustedPartner = @"TRUSTED_PARTNER";
 NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_VerificationMethodUnspecified = @"VERIFICATION_METHOD_UNSPECIFIED";
-NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_VettedPartner = @"VETTED_PARTNER";
 
 // GTLRMyBusinessVerifications_VerifyLocationRequest.method
 NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Address = @"ADDRESS";
@@ -58,7 +56,6 @@ NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Phone
 NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_Sms = @"SMS";
 NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_TrustedPartner = @"TRUSTED_PARTNER";
 NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_VerificationMethodUnspecified = @"VERIFICATION_METHOD_UNSPECIFIED";
-NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_VettedPartner = @"VETTED_PARTNER";
 
 // ----------------------------------------------------------------------------
 //

@@ -1877,7 +1877,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_Package
-@dynamic location, name;
+@dynamic location, name, sha256;
 @end
 
 
@@ -2360,7 +2360,7 @@ NSString * const kGTLRDataflow_WorkItemDetails_State_ExecutionStateUnknown = @"E
 //
 
 @implementation GTLRDataflow_RuntimeUpdatableParams
-@dynamic acceptableBacklogDuration, autoscalingTier, maxNumWorkers,
+@dynamic acceptableBacklogDuration, autoscalingTier, latencyTier, maxNumWorkers,
          minNumWorkers, workerUtilizationHint;
 @end
 

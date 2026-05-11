@@ -1859,10 +1859,11 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
          destinationDatabase, displayName, dumpFlags, dumpPath, dumpType,
          duration, endTime, error, filter, labels, name, objectsConfig,
          oracleToPostgresConfig, originalMigrationName, performanceConfig,
-         phase, postgresToSqlserverConfig, purpose, reverseSshConnectivity,
-         satisfiesPzi, satisfiesPzs, source, sourceDatabase,
-         sqlserverHomogeneousMigrationJobConfig, sqlserverToPostgresConfig,
-         state, staticIpConnectivity, type, updateTime, vpcPeeringConnectivity;
+         phase, postgresHomogeneousConfig, postgresToSqlserverConfig, purpose,
+         reverseSshConnectivity, satisfiesPzi, satisfiesPzs, source,
+         sourceDatabase, sqlserverHomogeneousMigrationJobConfig,
+         sqlserverToPostgresConfig, state, staticIpConnectivity, type,
+         updateTime, vpcPeeringConnectivity;
 @end
 
 
@@ -2127,12 +2128,23 @@ NSString * const kGTLRDatabaseMigrationService_ValueListFilter_ValuePresentList_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDatabaseMigrationService_PostgresHomogeneousConfig
+//
+
+@implementation GTLRDatabaseMigrationService_PostgresHomogeneousConfig
+@dynamic isNativeLogical, maxAdditionalSubscriptions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDatabaseMigrationService_PostgreSqlConnectionProfile
 //
 
 @implementation GTLRDatabaseMigrationService_PostgreSqlConnectionProfile
-@dynamic alloydbClusterId, cloudSqlId, database, forwardSshConnectivity, host,
-         networkArchitecture, password, passwordSet, port, privateConnectivity,
+@dynamic alloydbClusterId, cloudSqlId, database, enableIamAuthentication,
+         forwardSshConnectivity, host, networkArchitecture, password,
+         passwordSet, port, privateConnectivity,
          privateServiceConnectConnectivity, ssl, staticIpConnectivity, username;
 @end
 

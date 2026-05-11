@@ -20,6 +20,8 @@
 @class GTLRLooker_EncryptionConfig;
 @class GTLRLooker_ExportEncryptionConfig;
 @class GTLRLooker_ExportMetadataEncryptionKey;
+@class GTLRLooker_IngressIpAllowlistConfig;
+@class GTLRLooker_IngressIpAllowlistRule;
 @class GTLRLooker_Instance;
 @class GTLRLooker_InstanceBackup;
 @class GTLRLooker_Location;
@@ -710,12 +712,64 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
 
 
 /**
+ *  Ingress IP allowlist configuration.
+ */
+@interface GTLRLooker_IngressIpAllowlistConfig : GTLRObject
+
+/** Optional. List of IP range rules to allow ingress traffic. */
+@property(nonatomic, strong, nullable) NSArray<GTLRLooker_IngressIpAllowlistRule *> *allowlistRules;
+
+/**
+ *  Optional. Whether ingress IP allowlist functionality is enabled on the
+ *  Looker instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Optional. Whether google service connections are enabled for the instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *googleServicesEnabled;
+
+@end
+
+
+/**
+ *  Ingress IP allowlist rule.
+ */
+@interface GTLRLooker_IngressIpAllowlistRule : GTLRObject
+
+/**
+ *  Optional. Description for the IP range.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Optional. The IP range to allow ingress traffic from. */
+@property(nonatomic, copy, nullable) NSString *ipRange;
+
+@end
+
+
+/**
  *  A Looker instance.
  */
 @interface GTLRLooker_Instance : GTLRObject
 
 /** Looker Instance Admin settings. */
 @property(nonatomic, strong, nullable) GTLRLooker_AdminSettings *adminSettings;
+
+/**
+ *  Optional. Indicates whether catalog integration is disabled for the Looker
+ *  instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *catalogIntegrationOptOut;
 
 /**
  *  Optional. Storage class of the instance.
@@ -780,6 +834,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatu
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *geminiEnabled;
+
+/** Optional. Ingress IP allowlist configuration for the Looker instance. */
+@property(nonatomic, strong, nullable) GTLRLooker_IngressIpAllowlistConfig *ingressIpAllowlistConfig;
 
 /** Output only. Private Ingress IP (IPv4). */
 @property(nonatomic, copy, nullable) NSString *ingressPrivateIp;

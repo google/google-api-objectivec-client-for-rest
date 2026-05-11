@@ -299,7 +299,7 @@ NSString * const kGTLRCloudDomains_TransferParameters_TransferLockState_Unlocked
 //
 
 @implementation GTLRCloudDomains_ConfigureManagementSettingsRequest
-@dynamic managementSettings, updateMask;
+@dynamic managementSettings, updateMask, validateOnly;
 @end
 
 

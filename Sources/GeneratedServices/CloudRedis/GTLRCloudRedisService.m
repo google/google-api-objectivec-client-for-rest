@@ -11,9 +11,11 @@
 #import <GoogleAPIClientForREST/GTLRCloudRedis.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 NSString * const kGTLRAuthScopeCloudRedisCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudRedisReadOnly      = @"https://www.googleapis.com/auth/redis.read-only";
+NSString * const kGTLRAuthScopeCloudRedisReadWrite     = @"https://www.googleapis.com/auth/redis.read-write";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudRedisService

@@ -3647,7 +3647,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
- *  The machine type to use for launching the job. The default is n1-standard-1.
+ *  The machine type to use for launching the job. If not set, Dataflow will
+ *  select a default machine type.
  */
 @property(nonatomic, copy, nullable) NSString *launcherMachineType;
 
@@ -5637,6 +5638,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 /** The name of the package. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. The hex-encoded SHA256 checksum of the package. If the checksum is
+ *  provided, the worker will verify the checksum of the package before using
+ *  it. If the checksum does not match, the worker will fail to start.
+ */
+@property(nonatomic, copy, nullable) NSString *sha256;
+
 @end
 
 
@@ -6558,16 +6566,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDataflow_WorkItemDetails_State_Execution
 @interface GTLRDataflow_RuntimeUpdatableParams : GTLRObject
 
 /**
- *  Optional. Deprecated: Use `autoscaling_tier` instead. The backlog threshold
+ *  Optional. Deprecated: Use `latency_tier` instead. The backlog threshold
  *  duration in seconds for autoscaling. Value must be non-negative.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *acceptableBacklogDuration GTLR_DEPRECATED;
 
 /**
+ *  Optional. Deprecated: Use `latency_tier` instead. The backlog threshold tier
+ *  for autoscaling. Value must be one of "low-latency", "medium-latency", or
+ *  "high-latency".
+ */
+@property(nonatomic, copy, nullable) NSString *autoscalingTier GTLR_DEPRECATED;
+
+/**
  *  Optional. The backlog threshold tier for autoscaling. Value must be one of
  *  "low-latency", "medium-latency", or "high-latency".
  */
-@property(nonatomic, copy, nullable) NSString *autoscalingTier;
+@property(nonatomic, copy, nullable) NSString *latencyTier;
 
 /**
  *  The maximum number of workers to cap autoscaling at. This field is currently

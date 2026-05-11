@@ -34,12 +34,255 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates an ACL Policy. The creation is executed synchronously and the policy
+ *  is available for use immediately after the RPC returns.
+ *
+ *  Method: redis.projects.locations.aclPolicies.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesCreate : GTLRCloudRedisQuery
+
+/**
+ *  Required. The logical name of the ACL Policy in the customer project with
+ *  the following restrictions: * Must contain only lowercase letters, numbers,
+ *  and hyphens. * Must start with a letter. * Must be between 1-63 characters.
+ *  * Must end with a number or a letter. * Must be unique within the customer
+ *  project / location
+ */
+@property(nonatomic, copy, nullable) NSString *aclPolicyId;
+
+/**
+ *  Required. The resource name of the cluster location using the form:
+ *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
+ *  to a Google Cloud region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/** Optional. Idempotent request UUID. . */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_AclPolicy.
+ *
+ *  Creates an ACL Policy. The creation is executed synchronously and the policy
+ *  is available for use immediately after the RPC returns.
+ *
+ *  @param object The @c GTLRCloudRedis_AclPolicy to include in the query.
+ *  @param parent Required. The resource name of the cluster location using the
+ *    form: `projects/{project_id}/locations/{location_id}` where `location_id`
+ *    refers to a Google Cloud region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesCreate
+ */
++ (instancetype)queryWithObject:(GTLRCloudRedis_AclPolicy *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a specific Acl Policy. This action will delete the Acl Policy and
+ *  all the rules associated with it. An ACL policy cannot be deleted if it is
+ *  attached to a cluster.
+ *
+ *  Method: redis.projects.locations.aclPolicies.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesDelete : GTLRCloudRedisQuery
+
+/**
+ *  Optional. Etag of the ACL policy. If this is different from the server's
+ *  etag, the request will fail with an ABORTED error.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  Required. Redis ACL Policy resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
+ *  where `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Deletes a specific Acl Policy. This action will delete the Acl Policy and
+ *  all the rules associated with it. An ACL policy cannot be deleted if it is
+ *  attached to a cluster.
+ *
+ *  @param name Required. Redis ACL Policy resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets the details of a specific Redis Cluster ACL Policy.
+ *
+ *  Method: redis.projects.locations.aclPolicies.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesGet : GTLRCloudRedisQuery
+
+/**
+ *  Required. Redis ACL Policy resource name using the form:
+ *  `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
+ *  where `location_id` refers to a GCP region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_AclPolicy.
+ *
+ *  Gets the details of a specific Redis Cluster ACL Policy.
+ *
+ *  @param name Required. Redis ACL Policy resource name using the form:
+ *    `projects/{project_id}/locations/{location_id}/aclPolicies/{acl_policy_id}`
+ *    where `location_id` refers to a GCP region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all ACL Policies owned by a project in either the specified location
+ *  (region) or all locations. The location should have the following format: *
+ *  `projects/{project_id}/locations/{location_id}` If `location_id` is
+ *  specified as `-` (wildcard), then all regions available to the project are
+ *  queried, and the results are aggregated.
+ *
+ *  Method: redis.projects.locations.aclPolicies.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesList : GTLRCloudRedisQuery
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 1000 will be used by the service. Regardless of the page_size
+ *  value, the response may include a partial list and a caller should only rely
+ *  on response's `next_page_token` to determine if there are more ACL policies
+ *  left to be queried. The maximum value is 1000; values above 1000 will be
+ *  coerced to 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The `next_page_token` value returned from a previous
+ *  `ListAclPolicies` request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The resource name of the cluster location using the form:
+ *  `projects/{project_id}/locations/{location_id}` where `location_id` refers
+ *  to a Google Cloud region.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_ListAclPoliciesResponse.
+ *
+ *  Lists all ACL Policies owned by a project in either the specified location
+ *  (region) or all locations. The location should have the following format: *
+ *  `projects/{project_id}/locations/{location_id}` If `location_id` is
+ *  specified as `-` (wildcard), then all regions available to the project are
+ *  queried, and the results are aggregated.
+ *
+ *  @param parent Required. The resource name of the cluster location using the
+ *    form: `projects/{project_id}/locations/{location_id}` where `location_id`
+ *    refers to a Google Cloud region.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the ACL policy. The operation applies the updated ACL policy to all
+ *  of the linked clusters. If Memorystore can apply the policy to all clusters,
+ *  then the operation returns a SUCCESS status. If Memorystore can't apply the
+ *  policy to all clusters, then to ensure eventual consistency, Memorystore
+ *  uses reconciliation to apply the policy to the failed clusters. Completed
+ *  longrunning.Operation will contain the new ACL Policy object in the response
+ *  field.
+ *
+ *  Method: redis.projects.locations.aclPolicies.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesPatch : GTLRCloudRedisQuery
+
+/** Identifier. Full resource path of the ACL policy. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Mask of fields to be updated. At least one path must be supplied
+ *  in this field. The elements of the repeated paths field may only include
+ *  these fields from `AclPolicy`: * `rules`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Updates the ACL policy. The operation applies the updated ACL policy to all
+ *  of the linked clusters. If Memorystore can apply the policy to all clusters,
+ *  then the operation returns a SUCCESS status. If Memorystore can't apply the
+ *  policy to all clusters, then to ensure eventual consistency, Memorystore
+ *  uses reconciliation to apply the policy to the failed clusters. Completed
+ *  longrunning.Operation will contain the new ACL Policy object in the response
+ *  field.
+ *
+ *  @param object The @c GTLRCloudRedis_AclPolicy to include in the query.
+ *  @param name Identifier. Full resource path of the ACL policy.
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsAclPoliciesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRedis_AclPolicy *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Deletes a specific backup.
  *
  *  Method: redis.projects.locations.backupCollections.backups.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsDelete : GTLRCloudRedisQuery
 
@@ -73,6 +316,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsExport : GTLRCloudRedisQuery
 
@@ -106,6 +350,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadOnly
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsGet : GTLRCloudRedisQuery
 
@@ -136,6 +382,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadOnly
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsBackupsList : GTLRCloudRedisQuery
 
@@ -186,6 +434,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadOnly
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsGet : GTLRCloudRedisQuery
 
@@ -221,6 +471,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadOnly
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsBackupCollectionsList : GTLRCloudRedisQuery
 
@@ -269,6 +521,41 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Adds a token auth user for a token based auth enabled cluster.
+ *
+ *  Method: redis.projects.locations.clusters.addTokenAuthUser
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersAddTokenAuthUser : GTLRCloudRedisQuery
+
+/**
+ *  Required. The cluster resource that this token auth user will be added for.
+ *  Format: projects/{project}/locations/{location}/clusters/{cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *cluster;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Adds a token auth user for a token based auth enabled cluster.
+ *
+ *  @param object The @c GTLRCloudRedis_AddTokenAuthUserRequest to include in
+ *    the query.
+ *  @param cluster Required. The cluster resource that this token auth user will
+ *    be added for. Format:
+ *    projects/{project}/locations/{location}/clusters/{cluster}
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersAddTokenAuthUser
+ */
++ (instancetype)queryWithObject:(GTLRCloudRedis_AddTokenAuthUserRequest *)object
+                        cluster:(NSString *)cluster;
+
+@end
+
+/**
  *  Backup Redis Cluster. If this is the first time a backup is being created, a
  *  backup collection will be created at the backend, and this backup belongs to
  *  this collection. Both collection and backup will have a resource name.
@@ -285,6 +572,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsClustersBackup : GTLRCloudRedisQuery
 
@@ -336,6 +624,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsClustersCreate : GTLRCloudRedisQuery
 
@@ -388,6 +677,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsClustersDelete : GTLRCloudRedisQuery
 
@@ -423,6 +713,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsClustersGet : GTLRCloudRedisQuery
 
@@ -455,6 +746,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsClustersGetCertificateAuthority : GTLRCloudRedisQuery
 
@@ -492,6 +784,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsClustersList : GTLRCloudRedisQuery
 
@@ -505,7 +798,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  The `next_page_token` value returned from a previous ListClusters request,
+ *  The `next_page_token` value returned from a previous `ListClusters` request,
  *  if any.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
@@ -550,6 +843,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsClustersPatch : GTLRCloudRedisQuery
 
@@ -599,6 +893,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsClustersRescheduleClusterMaintenance : GTLRCloudRedisQuery
 
@@ -628,12 +923,318 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Adds a auth token for a user of a token based auth enabled cluster.
+ *
+ *  Method: redis.projects.locations.clusters.tokenAuthUsers.addAuthToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAddAuthToken : GTLRCloudRedisQuery
+
+/**
+ *  Required. The name of the token auth user resource that this auth token will
+ *  be added for. Format:
+ *  projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}
+ */
+@property(nonatomic, copy, nullable) NSString *tokenAuthUser;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Adds a auth token for a user of a token based auth enabled cluster.
+ *
+ *  @param object The @c GTLRCloudRedis_AddAuthTokenRequest to include in the
+ *    query.
+ *  @param tokenAuthUser Required. The name of the token auth user resource that
+ *    this auth token will be added for. Format:
+ *    projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAddAuthToken
+ */
++ (instancetype)queryWithObject:(GTLRCloudRedis_AddAuthTokenRequest *)object
+                  tokenAuthUser:(NSString *)tokenAuthUser;
+
+@end
+
+/**
+ *  Removes a auth token for a user of a token based auth enabled instance.
+ *
+ *  Method: redis.projects.locations.clusters.tokenAuthUsers.authTokens.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensDelete : GTLRCloudRedisQuery
+
+/**
+ *  Required. The name of the token auth user resource that this auth token will
+ *  be deleted from. Format:
+ *  projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}/authTokens/{auth_token}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Removes a auth token for a user of a token based auth enabled instance.
+ *
+ *  @param name Required. The name of the token auth user resource that this
+ *    auth token will be deleted from. Format:
+ *    projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}/authTokens/{auth_token}
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a specific auth token for a specific token auth user.
+ *
+ *  Method: redis.projects.locations.clusters.tokenAuthUsers.authTokens.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensGet : GTLRCloudRedisQuery
+
+/**
+ *  Required. The name of auth token for a token based auth enabled cluster.
+ *  Format:
+ *  projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}/authTokens/{auth_token}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_AuthToken.
+ *
+ *  Gets a specific auth token for a specific token auth user.
+ *
+ *  @param name Required. The name of auth token for a token based auth enabled
+ *    cluster. Format:
+ *    projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}/authTokens/{auth_token}
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the auth tokens for a specific token auth user.
+ *
+ *  Method: redis.projects.locations.clusters.tokenAuthUsers.authTokens.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensList : GTLRCloudRedisQuery
+
+/** Optional. Expression for filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Sort results by a defined order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. The maximum value is 1000;
+ *  values above 1000 will be coerced to 1000. If not specified, a default value
+ *  of 1000 will be used by the service. Regardless of the page_size value, the
+ *  response may include a partial list and a caller should only rely on
+ *  response's `next_page_token` to determine if there are more clusters left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The `next_page_token` value returned from a previous
+ *  [ListTokenAuthUsers] request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource that this auth token will be listed for.
+ *  Format:
+ *  projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_ListAuthTokensResponse.
+ *
+ *  Lists all the auth tokens for a specific token auth user.
+ *
+ *  @param parent Required. The parent resource that this auth token will be
+ *    listed for. Format:
+ *    projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersAuthTokensList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a token auth user for a token based auth enabled cluster.
+ *
+ *  Method: redis.projects.locations.clusters.tokenAuthUsers.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersDelete : GTLRCloudRedisQuery
+
+/**
+ *  Optional. If set to true, any child auth tokens of this user will also be
+ *  deleted. Otherwise, the request will only work if the user has no auth
+ *  tokens.
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of the token auth user to delete. Format:
+ *  projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_Operation.
+ *
+ *  Deletes a token auth user for a token based auth enabled cluster.
+ *
+ *  @param name Required. The name of the token auth user to delete. Format:
+ *    projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a specific token auth user for a basic auth enabled cluster.
+ *
+ *  Method: redis.projects.locations.clusters.tokenAuthUsers.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersGet : GTLRCloudRedisQuery
+
+/**
+ *  Required. The name of token auth user for a token based auth enabled
+ *  cluster. Format:
+ *  projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_TokenAuthUser.
+ *
+ *  Gets a specific token auth user for a basic auth enabled cluster.
+ *
+ *  @param name Required. The name of token auth user for a token based auth
+ *    enabled cluster. Format:
+ *    projects/{project}/locations/{location}/clusters/{cluster}/tokenAuthUsers/{token_auth_user}
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists all the token auth users for a token based auth enabled cluster.
+ *
+ *  Method: redis.projects.locations.clusters.tokenAuthUsers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
+ */
+@interface GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersList : GTLRCloudRedisQuery
+
+/** Optional. Expression for filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Sort results by a defined order. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. The maximum number of items to return. If not specified, a default
+ *  value of 1000 will be used by the service. Regardless of the page_size
+ *  value, the response may include a partial list and a caller should only rely
+ *  on response's The maximum value is 1000; values above 1000 will be coerced
+ *  to 1000. `next_page_token` to determine if there are more clusters left to
+ *  be queried.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. The `next_page_token` value returned from a previous
+ *  [ListTokenAuthUsers] request, if any.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent resource that this token based auth user will be listed
+ *  for. Format: projects/{project}/locations/{location}/clusters/{cluster}
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRCloudRedis_ListTokenAuthUsersResponse.
+ *
+ *  Lists all the token auth users for a token based auth enabled cluster.
+ *
+ *  @param parent Required. The parent resource that this token based auth user
+ *    will be listed for. Format:
+ *    projects/{project}/locations/{location}/clusters/{cluster}
+ *
+ *  @return GTLRCloudRedisQuery_ProjectsLocationsClustersTokenAuthUsersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets information about a location.
  *
  *  Method: redis.projects.locations.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsGet : GTLRCloudRedisQuery
 
@@ -661,6 +1262,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsGetSharedRegionalCertificateAuthority : GTLRCloudRedisQuery
 
@@ -702,6 +1304,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesCreate : GTLRCloudRedisQuery
 
@@ -753,6 +1356,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesDelete : GTLRCloudRedisQuery
 
@@ -789,6 +1393,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesExport : GTLRCloudRedisQuery
 
@@ -828,6 +1433,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesFailover : GTLRCloudRedisQuery
 
@@ -864,6 +1470,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadOnly
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesGet : GTLRCloudRedisQuery
 
@@ -898,6 +1506,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadOnly
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesGetAuthString : GTLRCloudRedisQuery
 
@@ -936,6 +1546,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesImport : GTLRCloudRedisQuery
 
@@ -979,6 +1590,8 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadOnly
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesList : GTLRCloudRedisQuery
 
@@ -1037,6 +1650,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesPatch : GTLRCloudRedisQuery
 
@@ -1094,6 +1708,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesRescheduleMaintenance : GTLRCloudRedisQuery
 
@@ -1129,6 +1744,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsInstancesUpgrade : GTLRCloudRedisQuery
 
@@ -1159,21 +1775,28 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: redis.projects.locations.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsList : GTLRCloudRedisQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1203,10 +1826,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRCloudRedis_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -1235,6 +1864,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsOperationsCancel : GTLRCloudRedisQuery
 
@@ -1272,6 +1902,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsOperationsDelete : GTLRCloudRedisQuery
 
@@ -1303,6 +1934,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsOperationsGet : GTLRCloudRedisQuery
 
@@ -1332,6 +1964,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudRedisCloudPlatform
+ *    @c kGTLRAuthScopeCloudRedisReadWrite
  */
 @interface GTLRCloudRedisQuery_ProjectsLocationsOperationsList : GTLRCloudRedisQuery
 

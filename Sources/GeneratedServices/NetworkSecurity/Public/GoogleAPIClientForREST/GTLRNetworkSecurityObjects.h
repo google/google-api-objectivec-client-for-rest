@@ -31,6 +31,8 @@
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleTo;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperation;
 @class GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationHeaderSet;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP;
+@class GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCPMethod;
 @class GTLRNetworkSecurity_AuthzPolicyCustomProvider;
 @class GTLRNetworkSecurity_AuthzPolicyCustomProviderAuthzExtension;
 @class GTLRNetworkSecurity_AuthzPolicyCustomProviderCloudIap;
@@ -311,6 +313,35 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Custo
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Deny;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_AuthzPolicy.policyProfile
+
+/**
+ *  Applies to content security, sanitization, etc. Only `CUSTOM` action is
+ *  allowed in this policy profile. AuthzExtensions in the custom provider must
+ *  support `EXT_PROC_GRPC` protocol only and be capable of receiving all
+ *  `EXT_PROC_GRPC` events (REQUEST_HEADERS, REQUEST_BODY, REQUEST_TRAILERS,
+ *  RESPONSE_HEADERS, RESPONSE_BODY, RESPONSE_TRAILERS) with
+ *  `FULL_DUPLEX_STREAMED` body send mode.
+ *
+ *  Value: "CONTENT_AUTHZ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_PolicyProfile_ContentAuthz;
+/**
+ *  Unspecified policy profile.
+ *
+ *  Value: "POLICY_PROFILE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_PolicyProfile_PolicyProfileUnspecified;
+/**
+ *  Applies to request authorization. `CUSTOM` authorization policies with Authz
+ *  extensions will be allowed with `EXT_AUTHZ_GRPC` or `EXT_PROC_GRPC`
+ *  protocols. Extensions are invoked only for request header events.
+ *
+ *  Value: "REQUEST_AUTHZ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicy_PolicyProfile_RequestAuthz;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal.principalSelector
 
 /**
@@ -353,6 +384,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrin
  *  Value: "PRINCIPAL_SELECTOR_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_PrincipalSelectorUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP.baseProtocolMethodsOption
+
+/**
+ *  Unspecified option. Defaults to SKIP_BASE_PROTOCOL_METHODS.
+ *
+ *  Value: "BASE_PROTOCOL_METHODS_OPTION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP_BaseProtocolMethodsOption_BaseProtocolMethodsOptionUnspecified;
+/**
+ *  Match on the base MCP protocol methods.
+ *
+ *  Value: "MATCH_BASE_PROTOCOL_METHODS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP_BaseProtocolMethodsOption_MatchBaseProtocolMethods;
+/**
+ *  Skip matching on the base MCP protocol methods.
+ *
+ *  Value: "SKIP_BASE_PROTOCOL_METHODS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP_BaseProtocolMethodsOption_SkipBaseProtocolMethods;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkSecurity_AuthzPolicyTarget.loadBalancingScheme
@@ -1844,6 +1897,29 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
+ *  Optional. Immutable. Defines the type of authorization being performed. If
+ *  not specified, `REQUEST_AUTHZ` is applied. This field cannot be changed once
+ *  AuthzPolicy is created.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicy_PolicyProfile_ContentAuthz
+ *        Applies to content security, sanitization, etc. Only `CUSTOM` action
+ *        is allowed in this policy profile. AuthzExtensions in the custom
+ *        provider must support `EXT_PROC_GRPC` protocol only and be capable of
+ *        receiving all `EXT_PROC_GRPC` events (REQUEST_HEADERS, REQUEST_BODY,
+ *        REQUEST_TRAILERS, RESPONSE_HEADERS, RESPONSE_BODY, RESPONSE_TRAILERS)
+ *        with `FULL_DUPLEX_STREAMED` body send mode. (Value: "CONTENT_AUTHZ")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicy_PolicyProfile_PolicyProfileUnspecified
+ *        Unspecified policy profile. (Value: "POLICY_PROFILE_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicy_PolicyProfile_RequestAuthz
+ *        Applies to request authorization. `CUSTOM` authorization policies with
+ *        Authz extensions will be allowed with `EXT_AUTHZ_GRPC` or
+ *        `EXT_PROC_GRPC` protocols. Extensions are invoked only for request
+ *        header events. (Value: "REQUEST_AUTHZ")
+ */
+@property(nonatomic, copy, nullable) NSString *policyProfile;
+
+/**
  *  Required. Specifies the set of resources to which this policy should be
  *  applied to.
  */
@@ -2162,6 +2238,14 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *> *hosts;
 
 /**
+ *  Optional. Defines the MCP protocol attributes to match on. If the MCP
+ *  payload in the request body cannot be successfully parsed, the request will
+ *  be denied. This field can be set only for AuthzPolicies targeting
+ *  AgentGateway resources.
+ */
+@property(nonatomic, strong, nullable) GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP *mcp;
+
+/**
  *  Optional. A list of HTTP methods to match against. Each entry must be a
  *  valid HTTP method name (GET, PUT, POST, HEAD, PATCH, DELETE, OPTIONS). It
  *  only allows exact match and is always case sensitive. Limited to 10 methods
@@ -2195,6 +2279,68 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *  per Authorization Policy.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch *> *headers;
+
+@end
+
+
+/**
+ *  Describes a set of MCP protocol attributes to match against for a given MCP
+ *  request.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP : GTLRObject
+
+/**
+ *  Optional. If specified, matches on the MCP protocol’s non-access specific
+ *  methods namely: * initialize * completion/ * logging/ * notifications/ *
+ *  ping Defaults to SKIP_BASE_PROTOCOL_METHODS if not specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP_BaseProtocolMethodsOption_BaseProtocolMethodsOptionUnspecified
+ *        Unspecified option. Defaults to SKIP_BASE_PROTOCOL_METHODS. (Value:
+ *        "BASE_PROTOCOL_METHODS_OPTION_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP_BaseProtocolMethodsOption_MatchBaseProtocolMethods
+ *        Match on the base MCP protocol methods. (Value:
+ *        "MATCH_BASE_PROTOCOL_METHODS")
+ *    @arg @c kGTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP_BaseProtocolMethodsOption_SkipBaseProtocolMethods
+ *        Skip matching on the base MCP protocol methods. (Value:
+ *        "SKIP_BASE_PROTOCOL_METHODS")
+ */
+@property(nonatomic, copy, nullable) NSString *baseProtocolMethodsOption;
+
+/**
+ *  Optional. A list of MCP methods and associated parameters to match on. It is
+ *  recommended to use this field to match on tools, prompts and resource
+ *  accesses while setting the baseProtocolMethodsOption to
+ *  MATCH_BASE_PROTOCOL_METHODS to match on all the other MCP protocol methods.
+ *  Limited to 10 MCP methods per Authorization Policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCPMethod *> *methods;
+
+@end
+
+
+/**
+ *  Describes a set of MCP methods to match against.
+ */
+@interface GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCPMethod : GTLRObject
+
+/**
+ *  Required. The MCP method to match against. Allowed values are as follows: 1.
+ *  `tools`, `prompts`, `resources` - these will match against all sub methods
+ *  under the respective methods. 2. `prompts/list`, `tools/list`,
+ *  `resources/list`, `resources/templates/list` 3. `prompts/get`, `tools/call`,
+ *  `resources/subscribe`, `resources/unsubscribe`, `resources/read` Params
+ *  cannot be specified for categories 1 and 2.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. A list of MCP method parameters to match against. The match can be
+ *  one of exact, prefix, suffix, or contains (substring match). Matches are
+ *  always case sensitive unless the ignoreCase is set. Limited to 10 MCP method
+ *  parameters per Authorization Policy.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch *> *params;
 
 @end
 
@@ -2255,10 +2401,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @interface GTLRNetworkSecurity_AuthzPolicyTarget : GTLRObject
 
 /**
- *  Required. All gateways and forwarding rules referenced by this policy and
- *  extensions must share the same load balancing scheme. Supported values:
- *  `INTERNAL_MANAGED` and `EXTERNAL_MANAGED`. For more information, refer to
- *  [Backend services
+ *  Optional. All gateways and forwarding rules referenced by this policy and
+ *  extensions must share the same load balancing scheme. Required only when
+ *  targeting forwarding rules. If targeting Secure Web Proxy, this field must
+ *  be `INTERNAL_MANAGED` or not specified. Must not be specified when targeting
+ *  Agent Gateway. Supported values: `INTERNAL_MANAGED` and `EXTERNAL_MANAGED`.
+ *  For more information, refer to [Backend services
  *  overview](https://cloud.google.com/load-balancing/docs/backend-service).
  *
  *  Likely values:
@@ -2278,8 +2426,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
 @property(nonatomic, copy, nullable) NSString *loadBalancingScheme;
 
 /**
- *  Required. A list of references to the Forwarding Rules on which this policy
- *  will be applied.
+ *  Required. A list of references to the Forwarding Rules, Secure Web Proxy
+ *  Gateways, or Agent Gateways on which this policy will be applied.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
@@ -2707,7 +2855,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkSecurity_FirewallEndpointAssociationReference *> *associations;
 
-/** Required. Project to bill on endpoint uptime usage. */
+/**
+ *  Optional. Project to charge for the deployed firewall endpoint. This field
+ *  must be specified when creating the endpoint in the organization scope, and
+ *  should be omitted otherwise.
+ */
 @property(nonatomic, copy, nullable) NSString *billingProjectId;
 
 /** Output only. Create time stamp. */
@@ -3816,6 +3968,15 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringActio
  *  https://google.aip.dev/124.
  */
 @property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. Identifier used by the data-path. See the NSI GENEVE format for
+ *  more details:
+ *  https://docs.cloud.google.com/network-security-integration/docs/understand-geneve#network_id
+ *
+ *  Uses NSNumber of unsignedIntValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *networkCookie;
 
 /**
  *  Output only. The current state of the resource does not match the user's

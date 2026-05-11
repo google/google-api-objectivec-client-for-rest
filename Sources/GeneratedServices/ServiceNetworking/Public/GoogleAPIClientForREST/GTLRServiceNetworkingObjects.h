@@ -878,6 +878,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organizatio
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_Geo;
 /**
+ *  Health Org.
+ *
+ *  Value: "HEALTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_Publishing_Organization_Health;
+/**
  *  Photos Org.
  *
  *  Value: "PHOTOS"
@@ -1709,7 +1715,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_BackendRule_OverridesByRequestProtocol *overridesByRequestProtocol;
 
 /**
- *  no-lint
+ *  Path translation specifies how to combine the backend address with the
+ *  request path in order to produce the appropriate forwarding URL for the
+ *  request. See PathTranslation for more details.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceNetworking_BackendRule_PathTranslation_AppendPathToAddress
@@ -2098,7 +2106,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  */
 @property(nonatomic, copy, nullable) NSString *referenceDocsUri GTLR_DEPRECATED;
 
-/** Configuration for which RPCs should be generated in the GAPIC client. */
+/**
+ *  Configuration for which RPCs should be generated in the GAPIC client. Note:
+ *  This field should not be used in most cases.
+ */
 @property(nonatomic, strong, nullable) GTLRServiceNetworking_SelectiveGapicGeneration *selectiveGapicGeneration;
 
 @end
@@ -4766,6 +4777,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
  *        "GENERATIVE_AI")
  *    @arg @c kGTLRServiceNetworking_Publishing_Organization_Geo Geo Org.
  *        (Value: "GEO")
+ *    @arg @c kGTLRServiceNetworking_Publishing_Organization_Health Health Org.
+ *        (Value: "HEALTH")
  *    @arg @c kGTLRServiceNetworking_Publishing_Organization_Photos Photos Org.
  *        (Value: "PHOTOS")
  *    @arg @c kGTLRServiceNetworking_Publishing_Organization_Shopping Shopping
@@ -5227,7 +5240,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 
 /**
  *  This message is used to configure the generation of a subset of the RPCs in
- *  a service for client libraries.
+ *  a service for client libraries. Note: This feature should not be used in
+ *  most cases.
  */
 @interface GTLRServiceNetworking_SelectiveGapicGeneration : GTLRObject
 
@@ -5319,13 +5333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceNetworking_ValidateConsumerConfig
 /**
  *  Configuration for network endpoints. If this is empty, then an endpoint with
  *  the same name as the service is automatically generated to service all
- *  defined APIs. WARNING: Defining any entries in the `endpoints` list disables
- *  the automatic generation of default endpoint variations (e.g.,
- *  `{service}.clients6.google.com`, `content-{service}.googleapis.com`, and
- *  mTLS variants like `{service}.mtls.googleapis.com`). To retain these default
- *  variations, you are required to explicitly include your main service
- *  endpoint (e.g., `myservice.googleapis.com`) in this list alongside any other
- *  custom endpoints (like REP, GFE, etc.).
+ *  defined APIs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceNetworking_Endpoint *> *endpoints;
 

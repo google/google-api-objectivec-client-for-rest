@@ -22,7 +22,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
@@ -31,6 +31,20 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRedisCloudPlatform;
+/**
+ *  Authorization scope: See your Google Cloud Memorystore for Redis data and
+ *  the email address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/redis.read-only"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRedisReadOnly;
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Memorystore for Redis data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/redis.read-write"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudRedisReadWrite;
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudRedisService

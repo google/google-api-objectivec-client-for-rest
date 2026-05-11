@@ -980,6 +980,44 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @end
 
 /**
+ *  Gets information about the memory layer of a cluster.
+ *
+ *  Method: bigtableadmin.projects.instances.clusters.getMemoryLayer
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatformReadOnly
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesClustersGetMemoryLayer : GTLRBigtableAdminQuery
+
+/**
+ *  Required. The unique name of the requested cluster's memory layer. Values
+ *  are of the form
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}/memoryLayer`.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_MemoryLayer.
+ *
+ *  Gets information about the memory layer of a cluster.
+ *
+ *  @param name Required. The unique name of the requested cluster's memory
+ *    layer. Values are of the form
+ *    `projects/{project}/instances/{instance}/clusters/{cluster}/memoryLayer`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersGetMemoryLayer
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Lists hot tablets in a cluster, within the time range provided. Hot tablets
  *  are ordered based on CPU usage.
  *
@@ -1086,6 +1124,65 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *    `projects/myproject/instances/-`.
  *
  *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Lists information about memory layers.
+ *
+ *  Method: bigtableadmin.projects.instances.clusters.memoryLayers.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminBigtableAdminInstance
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdmin
+ *    @c kGTLRAuthScopeBigtableAdminCloudBigtableAdminCluster
+ *    @c kGTLRAuthScopeBigtableAdminCloudPlatform
+ */
+@interface GTLRBigtableAdminQuery_ProjectsInstancesClustersMemoryLayersList : GTLRBigtableAdminQuery
+
+/**
+ *  Optional. The maximum number of memory layers to return. The service may
+ *  return fewer than this value.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListMemoryLayers` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListMemoryLayers` must match the call that provided
+ *  the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The unique name of the cluster for which a list of memory layers
+ *  is requested. Values are of the form
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}`. Use `{cluster}
+ *  = '-'` to list MemoryLayers for all Clusters in an instance, e.g.,
+ *  `projects/myproject/instances/myinstance/clusters/-`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigtableAdmin_ListMemoryLayersResponse.
+ *
+ *  Lists information about memory layers.
+ *
+ *  @param parent Required. The unique name of the cluster for which a list of
+ *    memory layers is requested. Values are of the form
+ *    `projects/{project}/instances/{instance}/clusters/{cluster}`. Use
+ *    `{cluster} = '-'` to list MemoryLayers for all Clusters in an instance,
+ *    e.g., `projects/myproject/instances/myinstance/clusters/-`.
+ *
+ *  @return GTLRBigtableAdminQuery_ProjectsInstancesClustersMemoryLayersList
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
@@ -3723,10 +3820,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: bigtableadmin.projects.locations.list
  *
@@ -3742,8 +3845,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
 @interface GTLRBigtableAdminQuery_ProjectsLocationsList : GTLRBigtableAdminQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -3773,10 +3876,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdminViewViewUnspecified;
  *  Fetches a @c GTLRBigtableAdmin_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

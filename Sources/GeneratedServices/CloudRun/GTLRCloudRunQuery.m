@@ -199,6 +199,29 @@
 
 @end
 
+@implementation GTLRCloudRunQuery_ProjectsLocationsInstancesGetIamPolicy
+
+@dynamic optionsRequestedPolicyVersion, resource;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
+}
+
++ (instancetype)queryWithResource:(NSString *)resource {
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:getIamPolicy";
+  GTLRCloudRunQuery_ProjectsLocationsInstancesGetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleIamV1Policy class];
+  query.loggingName = @"run.projects.locations.instances.getIamPolicy";
+  return query;
+}
+
+@end
+
 @implementation GTLRCloudRunQuery_ProjectsLocationsInstancesList
 
 @dynamic pageSize, pageToken, parent, showDeleted;
@@ -213,6 +236,60 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRCloudRun_GoogleCloudRunV2ListInstancesResponse class];
   query.loggingName = @"run.projects.locations.instances.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsInstancesPatch
+
+@dynamic allowMissing, name, updateMask, validateOnly;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2Instance *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRCloudRunQuery_ProjectsLocationsInstancesPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleLongrunningOperation class];
+  query.loggingName = @"run.projects.locations.instances.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsInstancesSetIamPolicy
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:setIamPolicy";
+  GTLRCloudRunQuery_ProjectsLocationsInstancesSetIamPolicy *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleIamV1Policy class];
+  query.loggingName = @"run.projects.locations.instances.setIamPolicy";
   return query;
 }
 
@@ -267,6 +344,33 @@
   query.name = name;
   query.expectedObjectClass = [GTLRCloudRun_GoogleLongrunningOperation class];
   query.loggingName = @"run.projects.locations.instances.stop";
+  return query;
+}
+
+@end
+
+@implementation GTLRCloudRunQuery_ProjectsLocationsInstancesTestIamPermissions
+
+@dynamic resource;
+
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"resource" ];
+  NSString *pathURITemplate = @"v2/{+resource}:testIamPermissions";
+  GTLRCloudRunQuery_ProjectsLocationsInstancesTestIamPermissions *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.resource = resource;
+  query.expectedObjectClass = [GTLRCloudRun_GoogleIamV1TestIamPermissionsResponse class];
+  query.loggingName = @"run.projects.locations.instances.testIamPermissions";
   return query;
 }
 

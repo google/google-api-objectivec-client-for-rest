@@ -466,6 +466,14 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationServ
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig_ServiceAgentAuth_IdToken = @"ID_TOKEN";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig_ServiceAgentAuth_ServiceAgentAuthUnspecified = @"SERVICE_AGENT_AUTH_UNSPECIFIED";
 
+// GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock.endState
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateCancelled = @"OUTPUT_STATE_CANCELLED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateEscalated = @"OUTPUT_STATE_ESCALATED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateFailed = @"OUTPUT_STATE_FAILED";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateOk = @"OUTPUT_STATE_OK";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStatePending = @"OUTPUT_STATE_PENDING";
+NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateUnspecified = @"OUTPUT_STATE_UNSPECIFIED";
+
 // GTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals.failureReasons
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals_FailureReasons_FailedIntent = @"FAILED_INTENT";
 NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals_FailureReasons_FailedWebhook = @"FAILED_WEBHOOK";
@@ -2098,8 +2106,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3beta1Intent
-@dynamic descriptionProperty, displayName, isFallback, labels, name, parameters,
-         priority, trainingPhrases;
+@dynamic descriptionProperty, displayName, dtmfPattern, isFallback, labels,
+         name, parameters, priority, trainingPhrases;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -3957,6 +3965,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTraceMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTraceMetadata
+@dynamic displayName, flow;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTransition
 //
 
@@ -4531,8 +4549,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3Intent
-@dynamic descriptionProperty, displayName, isFallback, labels, name, parameters,
-         priority, trainingPhrases;
+@dynamic descriptionProperty, displayName, dtmfPattern, isFallback, labels,
+         name, parameters, priority, trainingPhrases;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -5492,6 +5510,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTraceMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTraceMetadata
+@dynamic displayName, playbook;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTransition
 //
 
@@ -5620,12 +5648,14 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 @dynamic advancedSettings, allowAnswerFeedback, currentFlow, currentPage,
          dataStoreConnectionSignals, diagnosticInfo, dtmf, intent,
          intentDetectionConfidence, languageCode, match, parameters,
-         responseMessages, sentimentAnalysisResult, text, transcript,
-         triggerEvent, triggerIntent, webhookPayloads, webhookStatuses;
+         responseMessages, sentimentAnalysisResult, text, traceBlocks,
+         transcript, triggerEvent, triggerIntent, webhookPayloads,
+         webhookStatuses;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"responseMessages" : [GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage class],
+    @"traceBlocks" : [GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock class],
     @"webhookPayloads" : [GTLRDialogflow_GoogleCloudDialogflowCxV3QueryResult_WebhookPayloads_Item class],
     @"webhookStatuses" : [GTLRDialogflow_GoogleRpcStatus class]
   };
@@ -6199,6 +6229,16 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3SpeechProcessingMetadata
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3SpeechProcessingMetadata
+@dynamic displayName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDialogflow_GoogleCloudDialogflowCxV3SpeechToTextSettings
 //
 
@@ -6681,6 +6721,54 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowCxV3ToolVersion
 @dynamic createTime, displayName, name, tool, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock
+@dynamic actions, completeTime, endState, flowTraceMetadata, inputParameters,
+         outputParameters, playbookTraceMetadata, speechProcessingMetadata,
+         startTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"actions" : [GTLRDialogflow_GoogleCloudDialogflowCxV3Action class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_InputParameters
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_InputParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_OutputParameters
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_OutputParameters
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -8711,7 +8799,17 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer
-@dynamic answerText, faqSource, generativeSource;
+@dynamic answerText, eventSource, faqSource, generativeSource, playbookSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerEventSource
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerEventSource
+@dynamic event, snippets;
 @end
 
 
@@ -9321,8 +9419,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall
-@dynamic action, answerRecord, createTime, inputParameters, state, tool,
-         toolDisplayDetails, toolDisplayName;
+@dynamic action, answerRecord, cesApp, cesTool, cesToolset, createTime,
+         inputParameters, state, tool, toolDisplayDetails, toolDisplayName;
 @end
 
 
@@ -9346,7 +9444,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResult
-@dynamic action, answerRecord, content, createTime, error, rawContent, tool;
+@dynamic action, answerRecord, cesApp, cesTool, cesToolset, content, createTime,
+         error, rawContent, tool;
 @end
 
 
@@ -10386,7 +10485,17 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer
-@dynamic answerText, faqSource, generativeSource;
+@dynamic answerText, eventSource, faqSource, generativeSource, playbookSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerEventSource
+//
+
+@implementation GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerEventSource
+@dynamic event, snippets;
 @end
 
 
@@ -10846,8 +10955,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2ToolCall
-@dynamic action, answerRecord, createTime, inputParameters, state, tool,
-         toolDisplayDetails, toolDisplayName;
+@dynamic action, answerRecord, cesApp, cesTool, cesToolset, createTime,
+         inputParameters, state, tool, toolDisplayDetails, toolDisplayName;
 @end
 
 
@@ -10871,7 +10980,8 @@ NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1TurnSignals_Failur
 //
 
 @implementation GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResult
-@dynamic action, answerRecord, content, createTime, error, rawContent, tool;
+@dynamic action, answerRecord, cesApp, cesTool, cesToolset, content, createTime,
+         error, rawContent, tool;
 @end
 
 

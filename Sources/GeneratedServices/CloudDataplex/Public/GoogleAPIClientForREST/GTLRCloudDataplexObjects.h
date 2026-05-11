@@ -62,10 +62,14 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfig;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigCsvOptions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigJsonOptions;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigUnstructuredDataOptions;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDatasetResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultField;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchema;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationshipSchemaPaths;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultTableResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataProduct;
@@ -95,6 +99,7 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule_Attributes;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleDebugQuery;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleNonNullExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRangeExpectation;
@@ -103,10 +108,21 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResult;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleResultDebugQueryResultSet;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSource;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSourceRulePathElement;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSourceRulePathElementEntryLinkSource;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSourceRulePathElementEntrySource;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSqlAssertion;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplate;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplate_InputParameters;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateParameterDescription;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateReference;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateReference_Values;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateReferenceParameterValue;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateSql;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleUniquenessExpectation;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpec;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActions;
@@ -159,6 +175,10 @@
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryType_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryTypeAspectInfo;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1EntryTypeAuthorization;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentity;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentityDataplexServiceAgent;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentityServiceAccount;
+@class GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentityUserCredential;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Glossary;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1Glossary_Labels;
 @class GTLRCloudDataplex_GoogleCloudDataplexV1GlossaryCategory;
@@ -618,6 +638,52 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataD
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecBigQueryPublishingConfig_TableType_TableTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship.sources
+
+/**
+ *  The source of the schema relationship is agent.
+ *
+ *  Value: "AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship_Sources_Agent;
+/**
+ *  The source of the schema relationship is query history from the source
+ *  system.
+ *
+ *  Value: "QUERY_HISTORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship_Sources_QueryHistory;
+/**
+ *  The source of the schema relationship is unspecified.
+ *
+ *  Value: "SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship_Sources_SourceUnspecified;
+/**
+ *  The source of the schema relationship is table constraints added in the
+ *  source system.
+ *
+ *  Value: "TABLE_CONSTRAINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship_Sources_TableConstraints;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship.type
+
+/**
+ *  Indicates a join relationship between the schema fields.
+ *
+ *  Value: "SCHEMA_JOIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship_Type_SchemaJoin;
+/**
+ *  The type of the schema relationship is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationSpec.generationScopes
 
 /**
@@ -674,6 +740,33 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataP
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileResultPostScanActionsResultBigQueryExportResult_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec.mode
+
+/**
+ *  Specifies lightweight profiling mode. This mode is optimized for
+ *  low-latency, low-fidelity profiling.When this mode is selected, the
+ *  following fields must not be set: sampling_percent, row_filter,
+ *  include_fields, and exclude_fields.
+ *
+ *  Value: "LIGHTWEIGHT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec_Mode_Lightweight;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec_Mode_ModeUnspecified;
+/**
+ *  Performs standard profiling. The behavior is controlled by other fields such
+ *  as sampling_percent, row_filter, and column filters. This mode allows for
+ *  full scans or custom sampling.
+ *
+ *  Value: "STANDARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec_Mode_Standard;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityResultPostScanActionsResultBigQueryExportResult.state
@@ -833,6 +926,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQ
  *  Value: "TABLE_CONDITION_EXPECTATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_TableConditionExpectation;
+/**
+ *  See DataQualityRule.TemplateReference.
+ *
+ *  Value: "TEMPLATE_REFERENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_TemplateReference;
 /**
  *  See DataQualityRule.UniquenessExpectation.
  *
@@ -1128,6 +1227,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataS
  *  Value: "SUCCEEDED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Succeeded;
+/**
+ *  The DataScanJob succeeded with errors.
+ *
+ *  Value: "SUCCEEDED_WITH_ERRORS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_SucceededWithErrors;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob.type
@@ -2897,7 +3002,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
- *  An aspect is a single piece of metadata describing an entry.
+ *  Represents a single piece of metadata describing an entry or entry link.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1Aspect : GTLRObject
 
@@ -3692,6 +3797,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplex_GoogleIamV1AuditLogConfig_
 
 
 /**
+ *  Request message for the CancelDataScanJob method.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1CancelDataScanJobRequest : GTLRObject
+@end
+
+
+/**
+ *  Response message for the CancelDataScanJob method.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1CancelDataScanJobResponse : GTLRObject
+@end
+
+
+/**
  *  Cancel task jobs.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1CancelJobRequest : GTLRObject
@@ -4237,6 +4356,9 @@ GTLR_DEPRECATED
 /** Optional. Configuration for JSON data. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigJsonOptions *jsonOptions;
 
+/** Optional. Specifies configuration for unstructured data discovery. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigUnstructuredDataOptions *unstructuredDataOptions;
+
 @end
 
 
@@ -4301,12 +4423,60 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Describes options for unstructured data discovery.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDiscoverySpecStorageConfigUnstructuredDataOptions : GTLRObject
+
+/**
+ *  Optional. Deprecated: Use semantic_inference_enabled instead. Specifies
+ *  whether deeper entity inference over the objects' contents using GenAI is
+ *  enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *entityInferenceEnabled GTLR_DEPRECATED;
+
+/**
+ *  Optional. Specifies whether deeper semantic inference over the objects'
+ *  contents using GenAI is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *semanticInferenceEnabled;
+
+@end
+
+
+/**
  *  The output of a DataDocumentation scan.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResult : GTLRObject
 
-/** Output only. Table result for insights. */
+/** Output only. Insights for a Dataset resource. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDatasetResult *datasetResult;
+
+/** Output only. Insights for a Table resource. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultTableResult *tableResult;
+
+@end
+
+
+/**
+ *  Insights for a dataset resource.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultDatasetResult : GTLRObject
+
+/** Output only. Generated Dataset description. */
+@property(nonatomic, copy, nullable) NSString *overview;
+
+/** Output only. Sample SQL queries for the dataset. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultQuery *> *queries;
+
+/**
+ *  Output only. Relationships suggesting how tables in the dataset are related
+ *  to each other, based on their schema.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship *> *schemaRelationships;
 
 @end
 
@@ -4362,7 +4532,69 @@ GTLR_DEPRECATED
 
 
 /**
- *  Generated metadata about the table.
+ *  Details of the relationship between the schema of two resources.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship : GTLRObject
+
+/**
+ *  Output only. An ordered list of fields for the join from the first table.
+ *  The size of this list must be the same as right_schema_paths. Each field at
+ *  index i in this list must correspond to a field at the same index in the
+ *  right_schema_paths list.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationshipSchemaPaths *leftSchemaPaths;
+
+/**
+ *  Output only. An ordered list of fields for the join from the second table.
+ *  The size of this list must be the same as left_schema_paths. Each field at
+ *  index i in this list must correspond to a field at the same index in the
+ *  left_schema_paths list.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationshipSchemaPaths *rightSchemaPaths;
+
+/** Output only. Sources which generated the schema relation edge. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
+
+/**
+ *  Output only. The type of relationship between the schema paths.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship_Type_SchemaJoin
+ *        Indicates a join relationship between the schema fields. (Value:
+ *        "SCHEMA_JOIN")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationship_Type_TypeUnspecified
+ *        The type of the schema relationship is unspecified. (Value:
+ *        "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  Represents an ordered set of paths within a table's schema.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultSchemaRelationshipSchemaPaths : GTLRObject
+
+/**
+ *  Output only. An ordered set of Paths to fields within the schema of the
+ *  table. For fields nested within a top level field of type record, use '.' to
+ *  separate field names. Examples: Top level field - top_level Nested field -
+ *  top_level.child.sub_field
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *paths;
+
+/**
+ *  Output only. The service-qualified full resource name of the table Ex:
+ *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
+ */
+@property(nonatomic, copy, nullable) NSString *tableFqn;
+
+@end
+
+
+/**
+ *  Insights for a table resource.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataDocumentationResultTableResult : GTLRObject
 
@@ -4923,6 +5155,24 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecSelectedFields *includeFields;
 
+/**
+ *  Optional. The execution mode for the profile scan.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec_Mode_Lightweight
+ *        Specifies lightweight profiling mode. This mode is optimized for
+ *        low-latency, low-fidelity profiling.When this mode is selected, the
+ *        following fields must not be set: sampling_percent, row_filter,
+ *        include_fields, and exclude_fields. (Value: "LIGHTWEIGHT")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec_Mode_ModeUnspecified
+ *        Default value. This value is unused. (Value: "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpec_Mode_Standard
+ *        Performs standard profiling. The behavior is controlled by other
+ *        fields such as sampling_percent, row_filter, and column filters. This
+ *        mode allows for full scans or custom sampling. (Value: "STANDARD")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
 /** Optional. Actions to take upon job completion.. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataProfileSpecPostScanActions *postScanActions;
 
@@ -5204,6 +5454,13 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule : GTLRObject
 
+/**
+ *  Optional. Map of attribute name and value linked to the rule. The rules to
+ *  evaluate can be filtered based on attributes provided here and a filter
+ *  expression provided in the DataQualitySpec.filter field.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule_Attributes *attributes;
+
 /** Optional. The unnested column which this rule is evaluated against. */
 @property(nonatomic, copy, nullable) NSString *column;
 
@@ -5266,6 +5523,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRowConditionExpectation *rowConditionExpectation;
 
 /**
+ *  Output only. Contains information about the source of the rule and its
+ *  relationship with the BigQuery table, where applicable.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSource *ruleSource;
+
+/**
  *  Row-level rule which evaluates whether each column value is contained by a
  *  specified set.
  */
@@ -5297,6 +5560,13 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTableConditionExpectation *tableConditionExpectation;
 
 /**
+ *  Aggregate rule which references a rule template and provides the parameters
+ *  to be substituted in the template. If any rows are returned, this rule
+ *  fails.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateReference *templateReference;
+
+/**
  *  Optional. The minimum ratio of passing_rows / total_rows required to pass
  *  this rule, with a range of 0.0, 1.0.0 indicates default value (i.e.
  *  1.0).This field is only valid for row-level type rules.
@@ -5308,6 +5578,20 @@ GTLR_DEPRECATED
 /** Row-level rule which evaluates whether each column value is unique. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleUniquenessExpectation *uniquenessExpectation;
 
+@end
+
+
+/**
+ *  Optional. Map of attribute name and value linked to the rule. The rules to
+ *  evaluate can be filtered based on attributes provided here and a filter
+ *  expression provided in the DataQualitySpec.filter field.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRule_Attributes : GTLRObject
 @end
 
 
@@ -5525,6 +5809,89 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Represents the rule source information from Catalog.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSource : GTLRObject
+
+/**
+ *  Output only. Rule path elements represent information about the individual
+ *  items in the relationship path between the scan resource and rule origin in
+ *  that order.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSourceRulePathElement *> *rulePathElements;
+
+@end
+
+
+/**
+ *  Path Element represents the direct relationship between the rule origin
+ *  (aspects) to the BigQuery Entry. Ordering of the rule relationship will be
+ *  maintained such that the first entry in the list is the closest ancestor
+ *  (BigQuery table itself). A blank source denotes that the rule is derived
+ *  directly from the DataScan itself.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSourceRulePathElement : GTLRObject
+
+/**
+ *  Output only. Entry link source represents information about the entry link.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSourceRulePathElementEntryLinkSource *entryLinkSource;
+
+/**
+ *  Output only. Entry source represents information about the related source
+ *  entry.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSourceRulePathElementEntrySource *entrySource;
+
+@end
+
+
+/**
+ *  Entry link source represents information about the entry link.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSourceRulePathElementEntryLinkSource : GTLRObject
+
+/**
+ *  Output only. The entry link name in the form of:
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entryLinks/{entry_link_id}
+ */
+@property(nonatomic, copy, nullable) NSString *entryLink;
+
+/**
+ *  Output only. The entry link type to represent the current relationship
+ *  between the entry and the next entry in the path. In the form of:
+ *  projects/{project_id_or_number}/locations/{location_id}/entryLinkTypes/{entry_link_type_id}
+ */
+@property(nonatomic, copy, nullable) NSString *entryLinkType;
+
+@end
+
+
+/**
+ *  Entry source represents information about the related source entry.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleRuleSourceRulePathElementEntrySource : GTLRObject
+
+/** Output only. The display name of the entry. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The entry name in the form of:
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}
+ */
+@property(nonatomic, copy, nullable) NSString *entry;
+
+/**
+ *  Output only. The entry type to represent the current characteristics of the
+ *  entry in the form of:
+ *  projects/{project_id_or_number}/locations/{location_id}/entryTypes/{entry-type-id}.
+ */
+@property(nonatomic, copy, nullable) NSString *entryType;
+
+@end
+
+
+/**
  *  Evaluates whether each column value is contained by a specified set.
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleSetExpectation : GTLRObject
@@ -5620,6 +5987,154 @@ GTLR_DEPRECATED
 
 /** Optional. The SQL expression. */
 @property(nonatomic, copy, nullable) NSString *sqlExpression;
+
+@end
+
+
+/**
+ *  DataQualityRuleTemplate represents a template which can be reused across
+ *  multiple data quality rules.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplate : GTLRObject
+
+/**
+ *  Output only. A list of features or properties supported by this rule
+ *  template.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *capabilities;
+
+/**
+ *  Output only. The dimension a rule template belongs to. Rule level results
+ *  are also aggregated at the dimension level.
+ */
+@property(nonatomic, copy, nullable) NSString *dimension;
+
+/** Output only. Description for input parameters */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplate_InputParameters *inputParameters;
+
+/**
+ *  Output only. The name of the rule template in the format:
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Collection of SQLs for data quality rules. Currently only one
+ *  SQL is supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateSql *> *sqlCollection;
+
+@end
+
+
+/**
+ *  Output only. Description for input parameters
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateParameterDescription.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplate_InputParameters : GTLRObject
+@end
+
+
+/**
+ *  Description of the input parameter. It can include the type(s) supported by
+ *  the parameter and intended usage. It is for information purposes only and
+ *  does not affect the behavior of the rule template.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateParameterDescription : GTLRObject
+
+/**
+ *  Output only. The default value for the parameter if no value is provided.
+ */
+@property(nonatomic, copy, nullable) NSString *defaultValue;
+
+/**
+ *  Output only. Description of the input parameter. It can include the type(s)
+ *  supported by the parameter and intended usage. It is for information
+ *  purposes only and does not affect the behavior of the rule template.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+@end
+
+
+/**
+ *  A rule that constructs a SQL statement to evaluate using a rule template and
+ *  parameter values. If the constructed statement returns any rows, this rule
+ *  fails
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateReference : GTLRObject
+
+/**
+ *  Required. The template entry name. Entry must be of EntryType
+ *  projects/dataplex-types/locations/global/entryTypes/data-quality-rule-template
+ *  and contains top-level aspect of AspectType
+ *  projects/dataplex-types/locations/global/aspectTypes/data-quality-rule-template.
+ *  The format is:
+ *  projects/{project_id_or_number}/locations/{location_id}/entryGroups/{entry_group_id}/entries/{entry_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The resolved SQL statement generated from the template with
+ *  parameters substituted. It is only populated in the result.
+ */
+@property(nonatomic, copy, nullable) NSString *resolvedSql;
+
+/**
+ *  Output only. The rule template used to resolve the rule. It is only
+ *  populated in the result.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplate *ruleTemplate;
+
+/**
+ *  Optional. Provides the map of parameter name and value. The maximum size of
+ *  the field is 120KB (encoded as UTF-8).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateReference_Values *values;
+
+@end
+
+
+/**
+ *  Optional. Provides the map of parameter name and value. The maximum size of
+ *  the field is 120KB (encoded as UTF-8).
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateReferenceParameterValue.
+ *        Use @c -additionalJSONKeys and @c -additionalPropertyForName: to get
+ *        the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateReference_Values : GTLRObject
+@end
+
+
+/**
+ *  Represents a parameter value.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateReferenceParameterValue : GTLRObject
+
+/** Required. Represents the string value of the parameter. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
+ *  Templatized SQL query for data quality rules. It can have parameters that
+ *  can be substituted with values when a rule is created using this template.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1DataQualityRuleTemplateSql : GTLRObject
+
+/** Output only. Templatized SQL query for data quality rules. */
+@property(nonatomic, copy, nullable) NSString *query;
 
 @end
 
@@ -5736,6 +6251,8 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_TableConditionExpectation
  *        See DataQualityRule.TableConditionExpectation. (Value:
  *        "TABLE_CONDITION_EXPECTATION")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_TemplateReference
+ *        See DataQualityRule.TemplateReference. (Value: "TEMPLATE_REFERENCE")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataQualityScanRuleResult_RuleType_UniquenessExpectation
  *        See DataQualityRule.UniquenessExpectation. (Value:
  *        "UNIQUENESS_EXPECTATION")
@@ -5764,6 +6281,34 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *catalogPublishingEnabled;
+
+/**
+ *  Optional. If enabled, the data scan will retrieve rules defined in the
+ *  dataplex-types.global.data-rules aspect on all paths of the catalog entry
+ *  corresponding to the BigQuery table resource and all attached glossary
+ *  terms. The path that data-rules aspect is attached on the table entry
+ *  defines the column that the rule will be evaluated against. For glossary
+ *  terms, the path that the terms are attached on the table entry defines the
+ *  column that the rule will be evaluated against. At the start of scan
+ *  execution, the rules reflect the latest state retrieved from the catalog
+ *  entry and any updates on the rules thereafter are ignored for that
+ *  execution. The updates will be reflected from the next execution. Rules
+ *  defined in the datascan must be empty if this field is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableCatalogBasedRules;
+
+/**
+ *  Optional. Filter for selectively running a subset of rules. You can filter
+ *  the request by the name or attribute key-value pairs defined on the rule. If
+ *  not specified, all rules are run. The filter is applicable to both, the
+ *  rules retrieved from catalog and explicitly defined rules in the scan.
+ *  Please see filter syntax
+ *  (https://docs.cloud.google.com/dataplex/docs/auto-data-quality-overview#rule-filtering)
+ *  for more details.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Optional. Actions to take upon job completion. */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1DataQualitySpecPostScanActions *postScanActions;
@@ -5909,9 +6454,10 @@ GTLR_DEPRECATED
  *  discovery: scans data in Cloud Storage buckets to extract and then catalog
  *  metadata. For more information, see Discover and catalog Cloud Storage data
  *  (https://cloud.google.com/bigquery/docs/automatic-discovery). Data
- *  documentation: analyzes the table details and generates insights including
- *  descriptions and sample SQL queries for the table. For more information, see
- *  Generate data insights in BigQuery
+ *  documentation: analyzes the table or dataset metadata and generates
+ *  insights. For tables, insights include descriptions and sample SQL queries.
+ *  For datasets, insights include descriptions, schema relationships and sample
+ *  SQL queries. For more information, see Generate data insights in BigQuery
  *  (https://cloud.google.com/bigquery/docs/data-insights).
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1DataScan : GTLRObject
@@ -5955,6 +6501,12 @@ GTLR_DEPRECATED
 
 /** Optional. User friendly display name. Must be between 1-256 characters. */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. Immutable. The identity to run the datascan. If not specified,
+ *  defaults to the Dataplex Service Agent.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentity *executionIdentity;
 
 /**
  *  Optional. DataScan execution settings.If not specified, the fields in it
@@ -6461,6 +7013,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/** Output only. A message indicating partial failure details. */
+@property(nonatomic, copy, nullable) NSString *partialFailureMessage;
+
 /** Output only. The time when the DataScanJob was started. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
@@ -6484,6 +7039,9 @@ GTLR_DEPRECATED
  *        The DataScanJob state is unspecified. (Value: "STATE_UNSPECIFIED")
  *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_Succeeded
  *        The DataScanJob completed successfully. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRCloudDataplex_GoogleCloudDataplexV1DataScanJob_State_SucceededWithErrors
+ *        The DataScanJob succeeded with errors. (Value:
+ *        "SUCCEEDED_WITH_ERRORS")
  */
 @property(nonatomic, copy, nullable) NSString *state;
 
@@ -6531,6 +7089,8 @@ GTLR_DEPRECATED
  *  table of type "TABLE" for
  *  DataProfileScan/DataQualityScan/DataDocumentationScan Format:
  *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID/tables/TABLE_ID
+ *  or BigQuery dataset for DataDocumentationScan only Format:
+ *  //bigquery.googleapis.com/projects/PROJECT_ID/datasets/DATASET_ID
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -7571,6 +8131,59 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, copy, nullable) NSString *alternateUsePermission;
 
+@end
+
+
+/**
+ *  The identity to run the datascan.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentity : GTLRObject
+
+/**
+ *  Optional. The Dataplex service agent associated with the user's project.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentityDataplexServiceAgent *dataplexServiceAgent;
+
+/** Optional. The provided service account. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentityServiceAccount *serviceAccount;
+
+/**
+ *  Optional. The credential of the calling user. Supports only ONE_TIME trigger
+ *  type.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentityUserCredential *userCredential;
+
+@end
+
+
+/**
+ *  The Dataplex service agent associated with the user's project.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentityDataplexServiceAgent : GTLRObject
+@end
+
+
+/**
+ *  The service account
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentityServiceAccount : GTLRObject
+
+/**
+ *  Required. Service account email. The datascan will execute with this service
+ *  account's credentials. The user calling this API must have permissions to
+ *  act as this service account. Dataplex service agent must be granted
+ *  iam.serviceAccounts.getAccessToken permission on this service account, for
+ *  example, through the iam.serviceAccountTokenCreator role .
+ */
+@property(nonatomic, copy, nullable) NSString *email;
+
+@end
+
+
+/**
+ *  The credential of the calling user.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ExecutionIdentityUserCredential : GTLRObject
 @end
 
 
@@ -9029,13 +9642,19 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest : GTLRObject
 
-/** Optional. Allows to configure the context. */
+/**
+ *  Optional. Allows to configure the context.Supported options: format - The
+ *  format of the context (one of yaml, xml, json, default is yaml).
+ *  context_budget - If provided, the output will be intelligently truncated on
+ *  a best-effort basis to contain approximately the desired amount of
+ *  characters. There is no guarantee to achieve the specific amount.
+ */
 @property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextRequest_Options *options;
 
 /**
- *  Required. The entry names to lookup context for. The request should have max
- *  10 of
- *  those.Examples:projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}
+ *  Required. The entry names to look up the context for. The maximum number of
+ *  resources for a request is limited to
+ *  10.Examples:projects/{project}/locations/{location}/entryGroups/{entry_group}/entries/{entry}
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resources;
 
@@ -9043,7 +9662,11 @@ GTLR_DEPRECATED
 
 
 /**
- *  Optional. Allows to configure the context.
+ *  Optional. Allows to configure the context.Supported options: format - The
+ *  format of the context (one of yaml, xml, json, default is yaml).
+ *  context_budget - If provided, the output will be intelligently truncated on
+ *  a best-effort basis to contain approximately the desired amount of
+ *  characters. There is no guarantee to achieve the specific amount.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -9059,7 +9682,10 @@ GTLR_DEPRECATED
  */
 @interface GTLRCloudDataplex_GoogleCloudDataplexV1LookupContextResponse : GTLRObject
 
-/** LLM generated context for the resources. */
+/**
+ *  Pre-formatted block of text containing the context for the requested
+ *  resources.
+ */
 @property(nonatomic, copy, nullable) NSString *context;
 
 @end
@@ -9694,6 +10320,48 @@ GTLR_DEPRECATED
 
 /** Output only. The time when the status was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Modify Entry request using permissions in the source system.
+ */
+@interface GTLRCloudDataplex_GoogleCloudDataplexV1ModifyEntryRequest : GTLRObject
+
+/**
+ *  Optional. The aspect keys which the service should modify. It supports the
+ *  following syntaxes: - matches an aspect of the given type and empty path.
+ *  \@path - matches an aspect of the given type and specified path. For
+ *  example, to attach an aspect to a field that is specified by the schema
+ *  aspect, the path should have the format Schema.. \@* - matches aspects of
+ *  the given type for all paths. *\@path - matches aspects of all types on the
+ *  given path.The service will not remove existing aspects matching the syntax
+ *  unless delete_missing_aspects is set to true.If this field is left empty,
+ *  the service treats it as specifying exactly those Aspects present in the
+ *  request.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *aspectKeys;
+
+/**
+ *  Optional. If set to true, any aspects not specified in the request will be
+ *  deleted. The default is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *deleteMissingAspects;
+
+/** Required. The entry to modify. */
+@property(nonatomic, strong, nullable) GTLRCloudDataplex_GoogleCloudDataplexV1Entry *entry;
+
+/**
+ *  Optional. Mask of fields to update. To update Aspects, the update_mask must
+ *  contain the value "aspects".If the update_mask is empty, the service will
+ *  update all modifiable fields present in the request.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
 
 @end
 

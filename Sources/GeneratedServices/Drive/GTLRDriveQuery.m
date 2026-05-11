@@ -114,6 +114,130 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
 
 @end
 
+@implementation GTLRDriveQuery_ApprovalsApprove
+
+@dynamic approvalId, fileId;
+
++ (instancetype)queryWithObject:(GTLRDrive_ApproveApprovalRequest *)object
+                         fileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"approvalId", @"fileId"
+  ];
+  NSString *pathURITemplate = @"files/{fileId}/approvals/{approvalId}:approve";
+  GTLRDriveQuery_ApprovalsApprove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.fileId = fileId;
+  query.approvalId = approvalId;
+  query.expectedObjectClass = [GTLRDrive_Approval class];
+  query.loggingName = @"drive.approvals.approve";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_ApprovalsCancel
+
+@dynamic approvalId, fileId;
+
++ (instancetype)queryWithObject:(GTLRDrive_CancelApprovalRequest *)object
+                         fileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"approvalId", @"fileId"
+  ];
+  NSString *pathURITemplate = @"files/{fileId}/approvals/{approvalId}:cancel";
+  GTLRDriveQuery_ApprovalsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.fileId = fileId;
+  query.approvalId = approvalId;
+  query.expectedObjectClass = [GTLRDrive_Approval class];
+  query.loggingName = @"drive.approvals.cancel";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_ApprovalsComment
+
+@dynamic approvalId, fileId;
+
++ (instancetype)queryWithObject:(GTLRDrive_CommentApprovalRequest *)object
+                         fileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"approvalId", @"fileId"
+  ];
+  NSString *pathURITemplate = @"files/{fileId}/approvals/{approvalId}:comment";
+  GTLRDriveQuery_ApprovalsComment *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.fileId = fileId;
+  query.approvalId = approvalId;
+  query.expectedObjectClass = [GTLRDrive_Approval class];
+  query.loggingName = @"drive.approvals.comment";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_ApprovalsDecline
+
+@dynamic approvalId, fileId;
+
++ (instancetype)queryWithObject:(GTLRDrive_DeclineApprovalRequest *)object
+                         fileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"approvalId", @"fileId"
+  ];
+  NSString *pathURITemplate = @"files/{fileId}/approvals/{approvalId}:decline";
+  GTLRDriveQuery_ApprovalsDecline *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.fileId = fileId;
+  query.approvalId = approvalId;
+  query.expectedObjectClass = [GTLRDrive_Approval class];
+  query.loggingName = @"drive.approvals.decline";
+  return query;
+}
+
+@end
+
 @implementation GTLRDriveQuery_ApprovalsGet
 
 @dynamic approvalId, fileId;
@@ -151,6 +275,64 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
   query.fileId = fileId;
   query.expectedObjectClass = [GTLRDrive_ApprovalList class];
   query.loggingName = @"drive.approvals.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_ApprovalsReassign
+
+@dynamic approvalId, fileId;
+
++ (instancetype)queryWithObject:(GTLRDrive_ReassignApprovalRequest *)object
+                         fileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[
+    @"approvalId", @"fileId"
+  ];
+  NSString *pathURITemplate = @"files/{fileId}/approvals/{approvalId}:reassign";
+  GTLRDriveQuery_ApprovalsReassign *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.fileId = fileId;
+  query.approvalId = approvalId;
+  query.expectedObjectClass = [GTLRDrive_Approval class];
+  query.loggingName = @"drive.approvals.reassign";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_ApprovalsStart
+
+@dynamic fileId;
+
++ (instancetype)queryWithObject:(GTLRDrive_StartApprovalRequest *)object
+                         fileId:(NSString *)fileId {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"fileId" ];
+  NSString *pathURITemplate = @"files/{fileId}/approvals:start";
+  GTLRDriveQuery_ApprovalsStart *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.fileId = fileId;
+  query.expectedObjectClass = [GTLRDrive_Approval class];
+  query.loggingName = @"drive.approvals.start";
   return query;
 }
 
@@ -683,6 +865,23 @@ NSString * const kGTLRDriveCorpusUser   = @"user";
   query.downloadAsDataObjectType = @"media";
   query.useMediaDownloadService = YES;
   query.loggingName = @"Download drive.files.export";
+  return query;
+}
+
+@end
+
+@implementation GTLRDriveQuery_FilesGenerateCseToken
+
+@dynamic fileId, parent;
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"files/generateCseToken";
+  GTLRDriveQuery_FilesGenerateCseToken *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRDrive_GenerateCseTokenResponse class];
+  query.loggingName = @"drive.files.generateCseToken";
   return query;
 }
 

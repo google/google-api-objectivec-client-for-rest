@@ -177,6 +177,55 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @end
 
 /**
+ *  FetchUserRepositories returns a list of UserRepos that are available for an
+ *  account connector resource.
+ *
+ *  Method: developerconnect.projects.locations.accountConnectors.fetchUserRepositories
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDeveloperConnectCloudPlatform
+ */
+@interface GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsFetchUserRepositories : GTLRDeveloperConnectQuery
+
+/**
+ *  Required. The name of the Account Connector resource in the format:
+ *  `projects/ * /locations/ * /accountConnectors/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *accountConnector;
+
+/** Optional. Number of results to return in the list. Defaults to 20. */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Page start. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Optional. The name of the repository. When specified, only the
+ *  UserRepository with this name will be returned if the repository is
+ *  accessible under this Account Connector for the calling user.
+ */
+@property(nonatomic, copy, nullable) NSString *repository;
+
+/**
+ *  Fetches a @c GTLRDeveloperConnect_FetchUserRepositoriesResponse.
+ *
+ *  FetchUserRepositories returns a list of UserRepos that are available for an
+ *  account connector resource.
+ *
+ *  @param accountConnector Required. The name of the Account Connector resource
+ *    in the format: `projects/ * /locations/ * /accountConnectors/ *`.
+ *
+ *  @return GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsFetchUserRepositories
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithAccountConnector:(NSString *)accountConnector;
+
+@end
+
+/**
  *  Gets details of a single AccountConnector.
  *
  *  Method: developerconnect.projects.locations.accountConnectors.get
@@ -1717,10 +1766,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: developerconnect.projects.locations.list
  *
@@ -1730,8 +1785,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
 @interface GTLRDeveloperConnectQuery_ProjectsLocationsList : GTLRDeveloperConnectQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1761,10 +1816,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnectRefTypeTag;
  *  Fetches a @c GTLRDeveloperConnect_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

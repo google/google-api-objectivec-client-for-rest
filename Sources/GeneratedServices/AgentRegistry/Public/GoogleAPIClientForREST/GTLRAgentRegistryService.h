@@ -2,9 +2,13 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Application Integration API (integrations/v1alpha)
+//   Agent Registry API (agentregistry/v1alpha)
+// Description:
+//   Agent Registry is a centralized, unified catalog that lets you store,
+//   discover, and govern Model Context Protocol (MCP) servers, tools, and AI
+//   agents within Google Cloud.
 // Documentation:
-//   https://cloud.google.com/application-integration
+//   https://docs.cloud.google.com/agent-registry/overview
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -20,7 +24,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
@@ -28,22 +32,47 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeIntegrationsCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAgentRegistryCloudPlatform;
+/**
+ *  Authorization scope: View your data across Google Cloud services and see the
+ *  email address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/cloud-platform.read-only"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAgentRegistryCloudPlatformReadOnly;
+/**
+ *  Authorization scope: See your Google Cloud Agent Registry data and the email
+ *  address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/agentregistry.read-only"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAgentRegistryReadOnly;
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Agent Registry data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/agentregistry.read-write"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeAgentRegistryReadWrite;
 
 // ----------------------------------------------------------------------------
-//   GTLRIntegrationsService
+//   GTLRAgentRegistryService
 //
 
 /**
- *  Service for executing Application Integration API queries.
+ *  Service for executing Agent Registry API queries.
+ *
+ *  Agent Registry is a centralized, unified catalog that lets you store,
+ *  discover, and govern Model Context Protocol (MCP) servers, tools, and AI
+ *  agents within Google Cloud.
  */
-@interface GTLRIntegrationsService : GTLRService
+@interface GTLRAgentRegistryService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRIntegrationsQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRAgentRegistryQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

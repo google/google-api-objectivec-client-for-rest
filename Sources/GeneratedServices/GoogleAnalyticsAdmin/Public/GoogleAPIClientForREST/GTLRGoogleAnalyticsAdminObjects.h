@@ -1368,7 +1368,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *gmpOrganization;
 
 /**
- *  Output only. Resource name of this account. Format: accounts/{account}
+ *  Identifier. Resource name of this account. Format: accounts/{account}
  *  Example: "accounts/100"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1398,7 +1398,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Resource name for this account summary. Format:
+ *  Identifier. Resource name for this account summary. Format:
  *  accountSummaries/{account_id} Example: "accountSummaries/1000"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1638,7 +1638,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *eventName;
 
 /**
- *  Output only. Resource name of this conversion event. Format:
+ *  Identifier. Resource name of this conversion event. Format:
  *  properties/{property}/conversionEvents/{conversion_event}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1702,7 +1702,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. Resource name for this CustomDimension resource. Format:
+ *  Identifier. Resource name for this CustomDimension resource. Format:
  *  properties/{property}/customDimensions/{customDimension}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1788,7 +1788,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *measurementUnit;
 
 /**
- *  Output only. Resource name for this CustomMetric resource. Format:
+ *  Identifier. Resource name for this CustomMetric resource. Format:
  *  properties/{property}/customMetrics/{customMetric}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1855,7 +1855,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *eventDataRetention;
 
 /**
- *  Output only. Resource name for this DataRetentionSetting resource. Format:
+ *  Identifier. Resource name for this DataRetentionSetting resource. Format:
  *  properties/{property}/dataRetentionSettings
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1905,7 +1905,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @interface GTLRGoogleAnalyticsAdmin_V1betaDataSharingSettings : GTLRObject
 
 /**
- *  Output only. Resource name. Format: accounts/{account}/dataSharingSettings
+ *  Identifier. Resource name. Format: accounts/{account}/dataSharingSettings
  *  Example: "accounts/1000/dataSharingSettings"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1991,7 +1991,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, strong, nullable) GTLRGoogleAnalyticsAdmin_V1betaDataStreamIosAppStreamData *iosAppStreamData;
 
 /**
- *  Output only. Resource name of this Data Stream. Format:
+ *  Identifier. Resource name of this Data Stream. Format:
  *  properties/{property_id}/dataStreams/{stream_id} Example:
  *  "properties/1000/dataStreams/2000"
  */
@@ -2094,7 +2094,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 /** Output only. Time when this FirebaseLink was originally created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
-/** Output only. Example format: properties/1234/firebaseLinks/5678 */
+/** Identifier. Example format: properties/1234/firebaseLinks/5678 */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -2144,9 +2144,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *customerId;
 
 /**
- *  Output only. Format:
- *  properties/{propertyId}/googleAdsLinks/{googleAdsLinkId} Note:
- *  googleAdsLinkId is not the Google Ads customer ID.
+ *  Identifier. Format: properties/{propertyId}/googleAdsLinks/{googleAdsLinkId}
+ *  Note: googleAdsLinkId is not the Google Ads customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2549,7 +2548,7 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Output only. Resource name of this secret. This secret may be a child of any
+ *  Identifier. Resource name of this secret. This secret may be a child of any
  *  type of stream. Format:
  *  properties/{property}/dataStreams/{dataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
  */
@@ -2689,8 +2688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGoogleAnalyticsAdmin_V1betaSearchChangeH
 @property(nonatomic, copy, nullable) NSString *industryCategory;
 
 /**
- *  Output only. Resource name of this property. Format:
- *  properties/{property_id} Example: "properties/1000"
+ *  Identifier. Resource name of this property. Format: properties/{property_id}
+ *  Example: "properties/1000"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 

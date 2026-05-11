@@ -77,6 +77,22 @@ NSString * const kGTLRArtifactRegistry_MavenRepositoryConfig_VersionPolicy_Versi
 NSString * const kGTLRArtifactRegistry_NpmRepository_PublicRepository_Npmjs = @"NPMJS";
 NSString * const kGTLRArtifactRegistry_NpmRepository_PublicRepository_PublicRepositoryUnspecified = @"PUBLIC_REPOSITORY_UNSPECIFIED";
 
+// GTLRArtifactRegistry_PlatformLogsConfig.loggingState
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_LoggingState_Disabled = @"DISABLED";
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_LoggingState_Enabled = @"ENABLED";
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_LoggingState_LoggingStateUnspecified = @"LOGGING_STATE_UNSPECIFIED";
+
+// GTLRArtifactRegistry_PlatformLogsConfig.severityLevel
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Alert = @"ALERT";
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Critical = @"CRITICAL";
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Debug = @"DEBUG";
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Emergency = @"EMERGENCY";
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Error = @"ERROR";
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Info = @"INFO";
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Notice = @"NOTICE";
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_SeverityLevelUnspecified = @"SEVERITY_LEVEL_UNSPECIFIED";
+NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Warning = @"WARNING";
+
 // GTLRArtifactRegistry_ProjectSettings.legacyRedirectionState
 NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoDisabled = @"REDIRECTION_FROM_GCR_IO_DISABLED";
 NSString * const kGTLRArtifactRegistry_ProjectSettings_LegacyRedirectionState_RedirectionFromGcrIoEnabled = @"REDIRECTION_FROM_GCR_IO_ENABLED";
@@ -236,6 +252,15 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_CancelOperationRequest
+//
+
+@implementation GTLRArtifactRegistry_CancelOperationRequest
 @end
 
 
@@ -1254,6 +1279,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRArtifactRegistry_PlatformLogsConfig
+//
+
+@implementation GTLRArtifactRegistry_PlatformLogsConfig
+@dynamic loggingState, severityLevel;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRArtifactRegistry_Policy
 //
 
@@ -1271,6 +1306,16 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRArtifactRegistry_ProjectConfig
+//
+
+@implementation GTLRArtifactRegistry_ProjectConfig
+@dynamic name, platformLogsConfig;
 @end
 
 
@@ -1329,9 +1374,9 @@ NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType_Source = @"SOURCE
 @implementation GTLRArtifactRegistry_Repository
 @dynamic cleanupPolicies, cleanupPolicyDryRun, createTime, descriptionProperty,
          disallowUnspecifiedMode, dockerConfig, format, kmsKeyName, labels,
-         mavenConfig, mode, name, registryUri, remoteRepositoryConfig,
-         satisfiesPzi, satisfiesPzs, sizeBytes, updateTime,
-         virtualRepositoryConfig, vulnerabilityScanningConfig;
+         mavenConfig, mode, name, platformLogsConfig, registryUri,
+         remoteRepositoryConfig, satisfiesPzi, satisfiesPzs, sizeBytes,
+         updateTime, virtualRepositoryConfig, vulnerabilityScanningConfig;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

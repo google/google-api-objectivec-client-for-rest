@@ -13,6 +13,12 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRDeveloperConnect_CustomOAuthConfig.scmProvider
+NSString * const kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_BitbucketDataCenter = @"BITBUCKET_DATA_CENTER";
+NSString * const kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_GithubEnterprise = @"GITHUB_ENTERPRISE";
+NSString * const kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_GitlabEnterprise = @"GITLAB_ENTERPRISE";
+NSString * const kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_ScmProviderUnknown = @"SCM_PROVIDER_UNKNOWN";
+
 // GTLRDeveloperConnect_DeploymentEvent.state
 NSString * const kGTLRDeveloperConnect_DeploymentEvent_State_StateActive = @"STATE_ACTIVE";
 NSString * const kGTLRDeveloperConnect_DeploymentEvent_State_StateInactive = @"STATE_INACTIVE";
@@ -71,8 +77,8 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 //
 
 @implementation GTLRDeveloperConnect_AccountConnector
-@dynamic annotations, createTime, ETag, labels, name, oauthStartUri,
-         providerOauthConfig, updateTime;
+@dynamic annotations, createTime, customOauthConfig, ETag, labels, name,
+         oauthStartUri, providerOauthConfig, proxyConfig, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -272,6 +278,26 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_CustomOAuthConfig
+//
+
+@implementation GTLRDeveloperConnect_CustomOAuthConfig
+@dynamic authUri, clientId, clientSecret, hostUri, pkceDisabled, scmProvider,
+         scopes, serverVersion, serviceDirectoryConfig, sslCaCertificate,
+         tokenUri;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"scopes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_DeploymentEvent
 //
 
@@ -433,6 +459,28 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 @implementation GTLRDeveloperConnect_FetchReadWriteTokenResponse
 @dynamic expirationTime, gitUsername, token;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_FetchUserRepositoriesResponse
+//
+
+@implementation GTLRDeveloperConnect_FetchUserRepositoriesResponse
+@dynamic nextPageToken, userRepos;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"userRepos" : [GTLRDeveloperConnect_UserRepository class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"userRepos";
+}
+
 @end
 
 
@@ -1078,6 +1126,16 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeveloperConnect_ProxyConfig
+//
+
+@implementation GTLRDeveloperConnect_ProxyConfig
+@dynamic enabled, httpProxyBaseUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeveloperConnect_RuntimeConfig
 //
 
@@ -1174,4 +1232,14 @@ NSString * const kGTLRDeveloperConnect_StartOAuthResponse_SystemProviderId_Syste
 
 @implementation GTLRDeveloperConnect_UserCredential
 @dynamic username, userTokenSecretVersion;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeveloperConnect_UserRepository
+//
+
+@implementation GTLRDeveloperConnect_UserRepository
+@dynamic cloneUri, displayName, gitProxyUri;
 @end

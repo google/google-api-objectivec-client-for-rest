@@ -49,6 +49,7 @@
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2AuthorizedViewSubsetView_FamilySubsets;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2MemoryLayerMemoryConfig;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateHyperLogLogPlusPlusUniqueCount;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateMax;
@@ -56,6 +57,7 @@
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregateSum;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeArray;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBool;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBoolEncoding;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytes;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncoding;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBytesEncodingRaw;
@@ -64,6 +66,10 @@
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat32;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeFloat64;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeGeography;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32Encoding;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32EncodingBigEndianBytes;
+@class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32EncodingOrderedCodeBytes;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64Encoding;
 @class GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64EncodingBigEndianBytes;
@@ -93,6 +99,8 @@
 @class GTLRBigtableAdmin_LogicalView;
 @class GTLRBigtableAdmin_MaterializedView;
 @class GTLRBigtableAdmin_MaterializedView_ClusterStates;
+@class GTLRBigtableAdmin_MemoryConfig;
+@class GTLRBigtableAdmin_MemoryLayer;
 @class GTLRBigtableAdmin_Modification;
 @class GTLRBigtableAdmin_MultiClusterRoutingUseAny;
 @class GTLRBigtableAdmin_Operation;
@@ -123,6 +131,7 @@
 @class GTLRBigtableAdmin_Union;
 @class GTLRBigtableAdmin_UpdateAuthorizedViewRequest;
 @class GTLRBigtableAdmin_UpdateLogicalViewRequest;
+@class GTLRBigtableAdmin_UpdateMemoryLayerRequest;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -434,6 +443,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_GoogleBigtableAdminV2Mater
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_StateNotKnown;
 
 // ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_Instance.edition
+
+/**
+ *  The edition is unspecified. This is treated as `ENTERPRISE`.
+ *
+ *  Value: "EDITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Edition_EditionUnspecified;
+/**
+ *  The Enterprise edition. This is the default offering that is designed to
+ *  meet the needs of most enterprise workloads.
+ *
+ *  Value: "ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Edition_Enterprise;
+/**
+ *  The Enterprise Plus edition. This is a premium tier that is designed for
+ *  demanding, multi-tenant workloads requiring the highest levels of
+ *  performance, scale, and global availability. The nodes in the Enterprise
+ *  Plus tier come at a higher cost than the Enterprise tier. Any Enterprise
+ *  Plus features must be disabled before downgrading to Enterprise.
+ *
+ *  Value: "ENTERPRISE_PLUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Edition_EnterprisePlus;
+
+// ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_Instance.state
 
 /**
@@ -482,6 +518,48 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_Production;
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Instance_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigtableAdmin_MemoryLayer.state
+
+/**
+ *  The memory layer is disabled. The default state for a cluster without a
+ *  memory layer.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_MemoryLayer_State_Disabled;
+/**
+ *  The memory layer is currently being enabled, and may be disabled if the
+ *  enablement process encounters an error. A cluster may not be able to serve
+ *  requests from the memory layer while being enabled.
+ *
+ *  Value: "ENABLING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_MemoryLayer_State_Enabling;
+/**
+ *  The memory layer has been successfully enabled and is ready to serve
+ *  requests.
+ *
+ *  Value: "READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_MemoryLayer_State_Ready;
+/**
+ *  The memory layer is currently being resized, and may revert to its previous
+ *  storage size if the process encounters an error. The memory layer is still
+ *  capable of serving requests while being resized, but may exhibit performance
+ *  as if its number of allocated nodes is between the starting and requested
+ *  states.
+ *
+ *  Value: "RESIZING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_MemoryLayer_State_Resizing;
+/**
+ *  The state of the memory layer could not be determined.
+ *
+ *  Value: "STATE_NOT_KNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_MemoryLayer_State_StateNotKnown;
 
 // ----------------------------------------------------------------------------
 // GTLRBigtableAdmin_RestoreInfo.sourceType
@@ -541,7 +619,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_StandardIsolation_Priority
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_Table_Granularity_Millis;
 /**
- *  The user did not specify a granularity. Should not be returned.
+ *  The user did not specify a granularity. Should not be returned. When
+ *  specified during table creation, MILLIS will be used.
  *
  *  Value: "TIMESTAMP_GRANULARITY_UNSPECIFIED"
  */
@@ -756,6 +835,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  this time is 24 hours. An undefined frequency is treated as 24 hours.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *frequency;
+
+/**
+ *  Optional. A list of Cloud Bigtable zones where automated backups are allowed
+ *  to be created. If empty, automated backups will be created in all zones of
+ *  the instance. Locations are in the format
+ *  `projects/{project}/locations/{zone}`. This field can only set for tables in
+ *  Enterprise Plus instances.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 
 /**
  *  Required. How long the automated backups should be retained. Values must be
@@ -2142,6 +2230,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
 
 
 /**
+ *  Configuration of a memory layer.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2MemoryLayerMemoryConfig : GTLRObject
+
+/**
+ *  Output only. Reporting the current size of the memory layer in GiB.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *storageSizeGib;
+
+@end
+
+
+/**
  *  A value that combines incremental updates into a summarized value. Data is
  *  never directly written or read using type `Aggregate`. Writes provide either
  *  the `input_type` or `state_type`, and reads always return the `state_type` .
@@ -2226,6 +2329,19 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  bool Values of type `Bool` are stored in `Value.bool_value`.
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBool : GTLRObject
+
+/**
+ *  Specifies the encoding to use when converting to or from lower level types.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBoolEncoding *encoding;
+
+@end
+
+
+/**
+ *  Defines rules used to convert to or from lower level types.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBoolEncoding : GTLRObject
 @end
 
 
@@ -2312,6 +2428,50 @@ FOUNDATION_EXTERN NSString * const kGTLRBigtableAdmin_TableProgress_State_StateU
  *  stored in `Value.bytes_value` as Well-Known Binary (WKB) bytes.
  */
 @interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeGeography : GTLRObject
+@end
+
+
+/**
+ *  Int32 Values of type `Int32` are stored in `Value.int_value`.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32 : GTLRObject
+
+/** The encoding to use when converting to or from lower level types. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32Encoding *encoding;
+
+@end
+
+
+/**
+ *  Rules used to convert to or from lower level types.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32Encoding : GTLRObject
+
+/** Use `BigEndianBytes` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32EncodingBigEndianBytes *bigEndianBytes;
+
+/** Use `OrderedCodeBytes` encoding. */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32EncodingOrderedCodeBytes *orderedCodeBytes;
+
+@end
+
+
+/**
+ *  Encodes the value as a 4-byte big-endian two's complement value. Sorted
+ *  mode: non-negative values are supported. Distinct mode: all values are
+ *  supported. Compatible with: - BigQuery `BINARY` encoding - HBase
+ *  `Bytes.toBytes` - Java `ByteBuffer.putInt()` with `ByteOrder.BIG_ENDIAN`
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32EncodingBigEndianBytes : GTLRObject
+@end
+
+
+/**
+ *  Encodes the value in a variable length binary format of up to 5 bytes.
+ *  Values that are closer to zero use fewer bytes. Sorted mode: all values are
+ *  supported. Distinct mode: all values are supported.
+ */
+@interface GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32EncodingOrderedCodeBytes : GTLRObject
 @end
 
 
@@ -2663,6 +2823,26 @@ GTLR_DEPRECATED
  *  confusion.
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Optional. The edition of the instance. See Edition for details.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_Instance_Edition_EditionUnspecified The edition
+ *        is unspecified. This is treated as `ENTERPRISE`. (Value:
+ *        "EDITION_UNSPECIFIED")
+ *    @arg @c kGTLRBigtableAdmin_Instance_Edition_Enterprise The Enterprise
+ *        edition. This is the default offering that is designed to meet the
+ *        needs of most enterprise workloads. (Value: "ENTERPRISE")
+ *    @arg @c kGTLRBigtableAdmin_Instance_Edition_EnterprisePlus The Enterprise
+ *        Plus edition. This is a premium tier that is designed for demanding,
+ *        multi-tenant workloads requiring the highest levels of performance,
+ *        scale, and global availability. The nodes in the Enterprise Plus tier
+ *        come at a higher cost than the Enterprise tier. Any Enterprise Plus
+ *        features must be disabled before downgrading to Enterprise. (Value:
+ *        "ENTERPRISE_PLUS")
+ */
+@property(nonatomic, copy, nullable) NSString *edition;
 
 /**
  *  Labels are a flexible and lightweight mechanism for organizing cloud
@@ -3056,6 +3236,41 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Response message for BigtableInstanceAdmin.ListMemoryLayers.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "memoryLayers" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRBigtableAdmin_ListMemoryLayersResponse : GTLRCollectionObject
+
+/**
+ *  Locations from which MemoryLayer information could not be retrieved, due to
+ *  an outage or some other transient condition. MemoryLayers from these
+ *  locations may be missing from `memory_layers`, or may only have partial
+ *  information returned. Values are of the form `projects//locations/`
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *failedLocations;
+
+/**
+ *  The list of requested memory layers.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigtableAdmin_MemoryLayer *> *memoryLayers;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  The response message for Operations.ListOperations.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -3293,6 +3508,70 @@ GTLR_DEPRECATED
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBigtableAdmin_MaterializedView_ClusterStates : GTLRObject
+@end
+
+
+/**
+ *  If set, eligible single-row requests (currently limited to ReadRows) using
+ *  this app profile will be routed to the memory layer. All eligible writes
+ *  populate the memory layer. MemoryConfig can only be set if the AppProfile
+ *  uses single cluster routing and the configured cluster has a memory layer
+ *  enabled.
+ */
+@interface GTLRBigtableAdmin_MemoryConfig : GTLRObject
+@end
+
+
+/**
+ *  The memory layer of a cluster. A memory layer serves reads from memory
+ *  without hitting the backing persistent data store.
+ */
+@interface GTLRBigtableAdmin_MemoryLayer : GTLRObject
+
+/**
+ *  Optional. The etag for this memory layer. This may be sent on update
+ *  requests to ensure that the client has an up-to-date value before
+ *  proceeding. The server returns an ABORTED error on a mismatched etag.
+ */
+@property(nonatomic, copy, nullable) NSString *ETag;
+
+/**
+ *  The configuration of this memory layer. Set an empty `memory_config` to
+ *  enable the memory layer. Unset this to disable the memory layer.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2MemoryLayerMemoryConfig *memoryConfig;
+
+/**
+ *  Identifier. Name of the memory layer. This is always:
+ *  "projects/{project}/instances/{instance}/clusters/{cluster}/memoryLayer".
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The current state of the memory layer.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigtableAdmin_MemoryLayer_State_Disabled The memory layer is
+ *        disabled. The default state for a cluster without a memory layer.
+ *        (Value: "DISABLED")
+ *    @arg @c kGTLRBigtableAdmin_MemoryLayer_State_Enabling The memory layer is
+ *        currently being enabled, and may be disabled if the enablement process
+ *        encounters an error. A cluster may not be able to serve requests from
+ *        the memory layer while being enabled. (Value: "ENABLING")
+ *    @arg @c kGTLRBigtableAdmin_MemoryLayer_State_Ready The memory layer has
+ *        been successfully enabled and is ready to serve requests. (Value:
+ *        "READY")
+ *    @arg @c kGTLRBigtableAdmin_MemoryLayer_State_Resizing The memory layer is
+ *        currently being resized, and may revert to its previous storage size
+ *        if the process encounters an error. The memory layer is still capable
+ *        of serving requests while being resized, but may exhibit performance
+ *        as if its number of allocated nodes is between the starting and
+ *        requested states. (Value: "RESIZING")
+ *    @arg @c kGTLRBigtableAdmin_MemoryLayer_State_StateNotKnown The state of
+ *        the memory layer could not be determined. (Value: "STATE_NOT_KNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
 @end
 
 
@@ -3879,6 +4158,11 @@ GTLR_DEPRECATED
 @interface GTLRBigtableAdmin_StandardIsolation : GTLRObject
 
 /**
+ *  Optional. The memory config to use for requests sent using this app profile.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_MemoryConfig *memoryConfig;
+
+/**
  *  The priority of requests sent using this app profile.
  *
  *  Likely values:
@@ -4003,8 +4287,9 @@ GTLR_DEPRECATED
  *    @arg @c kGTLRBigtableAdmin_Table_Granularity_Millis The table keeps data
  *        versioned at a granularity of 1ms. (Value: "MILLIS")
  *    @arg @c kGTLRBigtableAdmin_Table_Granularity_TimestampGranularityUnspecified
- *        The user did not specify a granularity. Should not be returned.
- *        (Value: "TIMESTAMP_GRANULARITY_UNSPECIFIED")
+ *        The user did not specify a granularity. Should not be returned. When
+ *        specified during table creation, MILLIS will be used. (Value:
+ *        "TIMESTAMP_GRANULARITY_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *granularity;
 
@@ -4307,6 +4592,9 @@ GTLR_DEPRECATED
 /** Geography */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeGeography *geographyType;
 
+/** Int32 */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32 *int32Type;
+
 /** Int64 */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt64 *int64Type;
 
@@ -4516,6 +4804,48 @@ GTLR_DEPRECATED
  *  `projects/{project}/instances/{instance}/logicalViews/{logical_view}`.
  */
 @property(nonatomic, strong, nullable) GTLRBigtableAdmin_LogicalView *logicalView;
+
+/**
+ *  Optional. The list of fields to update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+@end
+
+
+/**
+ *  The metadata for the Operation returned by UpdateMemoryLayer.
+ */
+@interface GTLRBigtableAdmin_UpdateMemoryLayerMetadata : GTLRObject
+
+/** The time at which the operation failed or was completed successfully. */
+@property(nonatomic, strong, nullable) GTLRDateTime *finishTime;
+
+/**
+ *  The request that prompted the initiation of this UpdateMemoryLayer
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_UpdateMemoryLayerRequest *originalRequest;
+
+/** The time at which the original request was received. */
+@property(nonatomic, strong, nullable) GTLRDateTime *requestTime;
+
+@end
+
+
+/**
+ *  Request message for BigtableInstanceAdmin.UpdateMemoryLayer.
+ */
+@interface GTLRBigtableAdmin_UpdateMemoryLayerRequest : GTLRObject
+
+/**
+ *  Required. The memory layer to update. The memory layer's `name` format is as
+ *  follows:
+ *  `projects/{project}/instances/{instance}/clusters/{cluster}/memoryLayer`.
+ */
+@property(nonatomic, strong, nullable) GTLRBigtableAdmin_MemoryLayer *memoryLayer;
 
 /**
  *  Optional. The list of fields to update.

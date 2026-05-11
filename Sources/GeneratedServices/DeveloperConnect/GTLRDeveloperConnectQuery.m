@@ -78,6 +78,25 @@ NSString * const kGTLRDeveloperConnectRefTypeTag               = @"TAG";
 
 @end
 
+@implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsFetchUserRepositories
+
+@dynamic accountConnector, pageSize, pageToken, repository;
+
++ (instancetype)queryWithAccountConnector:(NSString *)accountConnector {
+  NSArray *pathParams = @[ @"accountConnector" ];
+  NSString *pathURITemplate = @"v1/{+accountConnector}:fetchUserRepositories";
+  GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsFetchUserRepositories *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.accountConnector = accountConnector;
+  query.expectedObjectClass = [GTLRDeveloperConnect_FetchUserRepositoriesResponse class];
+  query.loggingName = @"developerconnect.projects.locations.accountConnectors.fetchUserRepositories";
+  return query;
+}
+
+@end
+
 @implementation GTLRDeveloperConnectQuery_ProjectsLocationsAccountConnectorsGet
 
 @dynamic name;

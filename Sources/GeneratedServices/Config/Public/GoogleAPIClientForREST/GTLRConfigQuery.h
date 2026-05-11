@@ -49,6 +49,41 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDelete;
 FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecified;
 
 // ----------------------------------------------------------------------------
+// deploymentReferencePolicy
+
+/**
+ *  The default behavior. If unspecified, the system will act as if
+ *  `FAIL_IF_ANY_REFERENCES_EXIST` is specified.
+ *
+ *  Value: "DEPLOYMENT_REFERENCE_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfigDeploymentReferencePolicyDeploymentReferencePolicyUnspecified;
+/**
+ *  Fail the deletion if any deployments currently referenced in the
+ *  `deployment_units` of the DeploymentGroup or in the latest revision are not
+ *  deleted.
+ *
+ *  Value: "FAIL_IF_ANY_REFERENCES_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfigDeploymentReferencePolicyFailIfAnyReferencesExist;
+/**
+ *  Fail the deletion only if any deployments currently referenced in the
+ *  `deployment_units` of the DeploymentGroup are not deleted. The deletion will
+ *  proceed even if the deployments in the latest revision of the
+ *  DeploymentGroup are not deleted.
+ *
+ *  Value: "FAIL_IF_METADATA_REFERENCES_EXIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfigDeploymentReferencePolicyFailIfMetadataReferencesExist;
+/**
+ *  Ignore any deployments currently referenced in the `deployment_units` of the
+ *  DeploymentGroup or in the latest revision.
+ *
+ *  Value: "IGNORE_DEPLOYMENT_REFERENCES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfigDeploymentReferencePolicyIgnoreDeploymentReferences;
+
+// ----------------------------------------------------------------------------
 // Query Classes
 //
 
@@ -59,6 +94,460 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a DeploymentGroup The newly created DeploymentGroup will be in the
+ *  `CREATING` state and can be retrieved via Get and List calls.
+ *
+ *  Method: config.projects.locations.deploymentGroups.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsDeploymentGroupsCreate : GTLRConfigQuery
+
+/** Required. The deployment group ID. */
+@property(nonatomic, copy, nullable) NSString *deploymentGroupId;
+
+/**
+ *  Required. The parent in whose context the Deployment Group is created. The
+ *  parent value is in the format: 'projects/{project_id}/locations/{location}'
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRConfig_Operation.
+ *
+ *  Creates a DeploymentGroup The newly created DeploymentGroup will be in the
+ *  `CREATING` state and can be retrieved via Get and List calls.
+ *
+ *  @param object The @c GTLRConfig_DeploymentGroup to include in the query.
+ *  @param parent Required. The parent in whose context the Deployment Group is
+ *    created. The parent value is in the format:
+ *    'projects/{project_id}/locations/{location}'
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsDeploymentGroupsCreate
+ */
++ (instancetype)queryWithObject:(GTLRConfig_DeploymentGroup *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a DeploymentGroup
+ *
+ *  Method: config.projects.locations.deploymentGroups.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsDeploymentGroupsDelete : GTLRConfigQuery
+
+/**
+ *  Optional. Policy on how to handle referenced deployments when deleting the
+ *  DeploymentGroup. If unspecified, the default behavior is to fail the
+ *  deletion if any deployments currently referenced in the `deployment_units`
+ *  of the DeploymentGroup or in the latest revision are not deleted.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConfigDeploymentReferencePolicyDeploymentReferencePolicyUnspecified
+ *        The default behavior. If unspecified, the system will act as if
+ *        `FAIL_IF_ANY_REFERENCES_EXIST` is specified. (Value:
+ *        "DEPLOYMENT_REFERENCE_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRConfigDeploymentReferencePolicyFailIfAnyReferencesExist Fail
+ *        the deletion if any deployments currently referenced in the
+ *        `deployment_units` of the DeploymentGroup or in the latest revision
+ *        are not deleted. (Value: "FAIL_IF_ANY_REFERENCES_EXIST")
+ *    @arg @c kGTLRConfigDeploymentReferencePolicyFailIfMetadataReferencesExist
+ *        Fail the deletion only if any deployments currently referenced in the
+ *        `deployment_units` of the DeploymentGroup are not deleted. The
+ *        deletion will proceed even if the deployments in the latest revision
+ *        of the DeploymentGroup are not deleted. (Value:
+ *        "FAIL_IF_METADATA_REFERENCES_EXIST")
+ *    @arg @c kGTLRConfigDeploymentReferencePolicyIgnoreDeploymentReferences
+ *        Ignore any deployments currently referenced in the `deployment_units`
+ *        of the DeploymentGroup or in the latest revision. (Value:
+ *        "IGNORE_DEPLOYMENT_REFERENCES")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentReferencePolicy;
+
+/**
+ *  Optional. If set to true, any revisions for this deployment group will also
+ *  be deleted. (Otherwise, the request will only work if the deployment group
+ *  has no revisions.)
+ */
+@property(nonatomic, assign) BOOL force;
+
+/**
+ *  Required. The name of DeploymentGroup in the format
+ *  projects/{project_id}/locations/{location_id}/deploymentGroups/{deploymentGroup}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRConfig_Operation.
+ *
+ *  Deletes a DeploymentGroup
+ *
+ *  @param name Required. The name of DeploymentGroup in the format
+ *    projects/{project_id}/locations/{location_id}/deploymentGroups/{deploymentGroup}
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsDeploymentGroupsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deprovisions a deployment group. NOTE: As a first step of this operation,
+ *  Infra Manager will automatically delete any Deployments that were part of
+ *  the *last successful* DeploymentGroupRevision but are *no longer* included
+ *  in the *current* DeploymentGroup definition (e.g., following an
+ *  `UpdateDeploymentGroup` call), along with their actuated resources.
+ *
+ *  Method: config.projects.locations.deploymentGroups.deprovision
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsDeploymentGroupsDeprovision : GTLRConfigQuery
+
+/**
+ *  Required. The name of the deployment group to deprovision. Format:
+ *  'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConfig_Operation.
+ *
+ *  Deprovisions a deployment group. NOTE: As a first step of this operation,
+ *  Infra Manager will automatically delete any Deployments that were part of
+ *  the *last successful* DeploymentGroupRevision but are *no longer* included
+ *  in the *current* DeploymentGroup definition (e.g., following an
+ *  `UpdateDeploymentGroup` call), along with their actuated resources.
+ *
+ *  @param object The @c GTLRConfig_DeprovisionDeploymentGroupRequest to include
+ *    in the query.
+ *  @param name Required. The name of the deployment group to deprovision.
+ *    Format:
+ *    'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsDeploymentGroupsDeprovision
+ */
++ (instancetype)queryWithObject:(GTLRConfig_DeprovisionDeploymentGroupRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Get a DeploymentGroup for a given project and location.
+ *
+ *  Method: config.projects.locations.deploymentGroups.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsDeploymentGroupsGet : GTLRConfigQuery
+
+/**
+ *  Required. The name of the deployment group to retrieve. Format:
+ *  'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConfig_DeploymentGroup.
+ *
+ *  Get a DeploymentGroup for a given project and location.
+ *
+ *  @param name Required. The name of the deployment group to retrieve. Format:
+ *    'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsDeploymentGroupsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  List DeploymentGroups for a given project and location.
+ *
+ *  Method: config.projects.locations.deploymentGroups.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsDeploymentGroupsList : GTLRConfigQuery
+
+/**
+ *  Optional. Lists the DeploymentGroups that match the filter expression. A
+ *  filter expression filters the deployment groups listed in the response. The
+ *  expression must be of the form '{field} {operator} {value}' where operators:
+ *  '<', '>', '<=', '>=', '!=', '=', ':' are supported (colon ':' represents a
+ *  HAS operator which is roughly synonymous with equality). {field} can refer
+ *  to a proto or JSON field, or a synthetic field. Field names can be camelCase
+ *  or snake_case. Examples: - Filter by name: name =
+ *  "projects/foo/locations/us-central1/deploymentGroups/bar" - Filter by
+ *  labels: - Resources that have a key called 'foo' labels.foo:* - Resources
+ *  that have a key called 'foo' whose value is 'bar' labels.foo = bar - Filter
+ *  by state: - DeploymentGroups in CREATING state. state=CREATING
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Field to use to sort the list. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. When requesting a page of resources, 'page_size' specifies number
+ *  of resources to return. If unspecified, at most 500 will be returned. The
+ *  maximum value is 1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token returned by previous call to 'ListDeploymentGroups' which
+ *  specifies the position in the list from where to continue listing the
+ *  deployment groups.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of deployment groups.
+ *  Format: 'projects/{project_id}/locations/{location}'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRConfig_ListDeploymentGroupsResponse.
+ *
+ *  List DeploymentGroups for a given project and location.
+ *
+ *  @param parent Required. The parent, which owns this collection of deployment
+ *    groups. Format: 'projects/{project_id}/locations/{location}'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsDeploymentGroupsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a DeploymentGroup
+ *
+ *  Method: config.projects.locations.deploymentGroups.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsDeploymentGroupsPatch : GTLRConfigQuery
+
+/**
+ *  Identifier. The name of the deployment group. Format:
+ *  'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask used to specify the fields to be overwritten in the
+ *  Deployment Group resource by the update. The fields specified in the
+ *  update_mask are relative to the resource, not the full request. A field will
+ *  be overwritten if it is in the mask. If the user does not provide a mask
+ *  then all fields will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRConfig_Operation.
+ *
+ *  Updates a DeploymentGroup
+ *
+ *  @param object The @c GTLRConfig_DeploymentGroup to include in the query.
+ *  @param name Identifier. The name of the deployment group. Format:
+ *    'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsDeploymentGroupsPatch
+ */
++ (instancetype)queryWithObject:(GTLRConfig_DeploymentGroup *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Provisions a deployment group. NOTE: As a first step of this operation,
+ *  Infra Manager will automatically delete any Deployments that were part of
+ *  the *last successful* DeploymentGroupRevision but are *no longer* included
+ *  in the *current* DeploymentGroup definition (e.g., following an
+ *  `UpdateDeploymentGroup` call), along with their actuated resources.
+ *
+ *  Method: config.projects.locations.deploymentGroups.provision
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsDeploymentGroupsProvision : GTLRConfigQuery
+
+/**
+ *  Required. The name of the deployment group to provision. Format:
+ *  'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConfig_Operation.
+ *
+ *  Provisions a deployment group. NOTE: As a first step of this operation,
+ *  Infra Manager will automatically delete any Deployments that were part of
+ *  the *last successful* DeploymentGroupRevision but are *no longer* included
+ *  in the *current* DeploymentGroup definition (e.g., following an
+ *  `UpdateDeploymentGroup` call), along with their actuated resources.
+ *
+ *  @param object The @c GTLRConfig_ProvisionDeploymentGroupRequest to include
+ *    in the query.
+ *  @param name Required. The name of the deployment group to provision. Format:
+ *    'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsDeploymentGroupsProvision
+ */
++ (instancetype)queryWithObject:(GTLRConfig_ProvisionDeploymentGroupRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details about a DeploymentGroupRevision.
+ *
+ *  Method: config.projects.locations.deploymentGroups.revisions.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsDeploymentGroupsRevisionsGet : GTLRConfigQuery
+
+/**
+ *  Required. The name of the deployment group revision to retrieve. Format:
+ *  'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}/revisions/{revision}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRConfig_DeploymentGroupRevision.
+ *
+ *  Gets details about a DeploymentGroupRevision.
+ *
+ *  @param name Required. The name of the deployment group revision to retrieve.
+ *    Format:
+ *    'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}/revisions/{revision}'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsDeploymentGroupsRevisionsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists DeploymentGroupRevisions in a given DeploymentGroup.
+ *
+ *  Method: config.projects.locations.deploymentGroups.revisions.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeConfigCloudPlatform
+ */
+@interface GTLRConfigQuery_ProjectsLocationsDeploymentGroupsRevisionsList : GTLRConfigQuery
+
+/**
+ *  Optional. When requesting a page of resources, 'page_size' specifies number
+ *  of resources to return. If unspecified, a sensible default will be used by
+ *  the server. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Token returned by previous call to 'ListDeploymentGroupRevisions'
+ *  which specifies the position in the list from where to continue listing the
+ *  deployment group revisions. All other parameters provided to
+ *  `ListDeploymentGroupRevisions` must match the call that provided the page
+ *  token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which owns this collection of deployment group
+ *  revisions. Format:
+ *  'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRConfig_ListDeploymentGroupRevisionsResponse.
+ *
+ *  Lists DeploymentGroupRevisions in a given DeploymentGroup.
+ *
+ *  @param parent Required. The parent, which owns this collection of deployment
+ *    group revisions. Format:
+ *    'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}'.
+ *
+ *  @return GTLRConfigQuery_ProjectsLocationsDeploymentGroupsRevisionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -951,10 +1440,16 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: config.projects.locations.list
  *
@@ -964,8 +1459,8 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
 @interface GTLRConfigQuery_ProjectsLocationsList : GTLRConfigQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -995,10 +1490,16 @@ FOUNDATION_EXTERN NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecifie
  *  Fetches a @c GTLRConfig_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

@@ -339,6 +339,57 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets the IAM Access Control policy currently in effect for the given
+ *  Instance. This result does not include any inherited policies.
+ *
+ *  Method: run.projects.locations.instances.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsInstancesGetIamPolicy : GTLRCloudRunQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the policy.
+ *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
+ *  rejected. Requests for policies with any conditional role bindings must
+ *  specify version 3. Policies with no conditional role bindings may specify
+ *  any valid value or leave the field unset. The policy in the response might
+ *  use the policy version that you specified, or it might use a lower policy
+ *  version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1. To learn which
+ *  resources support conditions in their IAM policies, see the [IAM
+ *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleIamV1Policy.
+ *
+ *  Gets the IAM Access Control policy currently in effect for the given
+ *  Instance. This result does not include any inherited policies.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
  *  Lists Instances. Results are sorted by creation time, descending.
  *
  *  Method: run.projects.locations.instances.list
@@ -388,6 +439,103 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates an Instance.
+ *
+ *  Method: run.projects.locations.instances.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsInstancesPatch : GTLRCloudRunQuery
+
+/**
+ *  Optional. If set to true, and if the Instance does not exist, it will create
+ *  a new one. The caller must have 'run.instances.create' permissions if this
+ *  is set to true and the Instance does not exist.
+ */
+@property(nonatomic, assign) BOOL allowMissing;
+
+/**
+ *  The fully qualified name of this Instance. In CreateInstanceRequest, this
+ *  field is ignored, and instead composed from CreateInstanceRequest.parent and
+ *  CreateInstanceRequest.instance_id. Format:
+ *  projects/{project}/locations/{location}/instances/{instance_id}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The list of fields to be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. Indicates that the request should be validated and default values
+ *  populated, without persisting the request or updating any resources.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleLongrunningOperation.
+ *
+ *  Updates an Instance.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleCloudRunV2Instance to include in the
+ *    query.
+ *  @param name The fully qualified name of this Instance. In
+ *    CreateInstanceRequest, this field is ignored, and instead composed from
+ *    CreateInstanceRequest.parent and CreateInstanceRequest.instance_id.
+ *    Format: projects/{project}/locations/{location}/instances/{instance_id}
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesPatch
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2Instance *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Sets the IAM Access control policy for the specified Instance. Overwrites
+ *  any existing policy.
+ *
+ *  Method: run.projects.locations.instances.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsInstancesSetIamPolicy : GTLRCloudRunQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleIamV1Policy.
+ *
+ *  Sets the IAM Access control policy for the specified Instance. Overwrites
+ *  any existing policy.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleIamV1SetIamPolicyRequest to include
+ *    in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 
@@ -460,6 +608,46 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)queryWithObject:(GTLRCloudRun_GoogleCloudRunV2StopInstanceRequest *)object
                            name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified Project. There are no
+ *  permissions required for making this API call.
+ *
+ *  Method: run.projects.locations.instances.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudRun
+ *    @c kGTLRAuthScopeCloudRunCloudPlatform
+ *    @c kGTLRAuthScopeCloudRunReadonly
+ */
+@interface GTLRCloudRunQuery_ProjectsLocationsInstancesTestIamPermissions : GTLRCloudRunQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
+ *  the appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudRun_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified Project. There are no
+ *  permissions required for making this API call.
+ *
+ *  @param object The @c GTLRCloudRun_GoogleIamV1TestIamPermissionsRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See [Resource
+ *    names](https://cloud.google.com/apis/design/resource_names) for the
+ *    appropriate value for this field.
+ *
+ *  @return GTLRCloudRunQuery_ProjectsLocationsInstancesTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudRun_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
 
 @end
 

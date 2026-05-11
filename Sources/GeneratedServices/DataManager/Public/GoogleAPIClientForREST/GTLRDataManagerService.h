@@ -23,7 +23,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
 /**
  *  Authorization scope: See, edit, create, import, or delete your customer data
@@ -33,6 +33,14 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/datamanager"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataManager;
+/**
+ *  Authorization scope: View, create, or delete your partner links in Google
+ *  Ads, Marketing Platform (Campaign Manager 360, Search Ads 360, Display &
+ *  Video 360), and Analytics
+ *
+ *  Value "https://www.googleapis.com/auth/datamanager.partnerlink"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataManagerPartnerlink;
 
 // ----------------------------------------------------------------------------
 //   GTLRDataManagerService

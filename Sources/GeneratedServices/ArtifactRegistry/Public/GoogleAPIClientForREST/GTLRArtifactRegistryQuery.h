@@ -118,6 +118,37 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 @end
 
 /**
+ *  Retrieves the project configuration.
+ *
+ *  Method: artifactregistry.projects.locations.getProjectConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatformReadOnly
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsGetProjectConfig : GTLRArtifactRegistryQuery
+
+/**
+ *  Required. The name of the project's logging configuration:
+ *  projects/{project}/locations/{location}/projectConfig
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ProjectConfig.
+ *
+ *  Retrieves the project configuration.
+ *
+ *  @param name Required. The name of the project's logging configuration:
+ *    projects/{project}/locations/{location}/projectConfig
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsGetProjectConfig
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Retrieves the VPCSC Config for the Project.
  *
  *  Method: artifactregistry.projects.locations.getVpcscConfig
@@ -146,10 +177,16 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  [ListLocationsRequest.name] field: * **Global locations**: If `name` is
+ *  empty, the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: artifactregistry.projects.locations.list
  *
@@ -191,10 +228,16 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *  Fetches a @c GTLRArtifactRegistry_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  [ListLocationsRequest.name] field: * **Global locations**: If `name` is
+ *  empty, the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -205,6 +248,51 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  Method: artifactregistry.projects.locations.operations.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsOperationsCancel : GTLRArtifactRegistryQuery
+
+/** The name of the operation resource to be cancelled. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_Empty.
+ *
+ *  Starts asynchronous cancellation on a long-running operation. The server
+ *  makes a best effort to cancel the operation, but success is not guaranteed.
+ *  If the server doesn't support this method, it returns
+ *  `google.rpc.Code.UNIMPLEMENTED`. Clients can use Operations.GetOperation or
+ *  other methods to check whether the cancellation succeeded or whether the
+ *  operation completed despite cancellation. On successful cancellation, the
+ *  operation is not deleted; instead, it becomes an operation with an
+ *  Operation.error value with a google.rpc.Status.code of `1`, corresponding to
+ *  `Code.CANCELLED`.
+ *
+ *  @param object The @c GTLRArtifactRegistry_CancelOperationRequest to include
+ *    in the query.
+ *  @param name The name of the operation resource to be cancelled.
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsOperationsCancel
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_CancelOperationRequest *)object
+                           name:(NSString *)name;
 
 @end
 
@@ -2407,6 +2495,48 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistryViewVersionViewUnspecifi
 + (instancetype)queryWithObject:(GTLRArtifactRegistry_UploadYumArtifactRequest *)object
                          parent:(NSString *)parent
                uploadParameters:(nullable GTLRUploadParameters *)uploadParameters;
+
+@end
+
+/**
+ *  Updates the project configuration.
+ *
+ *  Method: artifactregistry.projects.locations.updateProjectConfig
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeArtifactRegistryCloudPlatform
+ */
+@interface GTLRArtifactRegistryQuery_ProjectsLocationsUpdateProjectConfig : GTLRArtifactRegistryQuery
+
+/**
+ *  Identifier. The name of the project's configuration. Always of the form:
+ *  projects/{project}/locations/{location}/projectConfig
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Field mask to support partial updates. See
+ *  https://protobuf.dev/reference/protobuf/google.protobuf/#field-mask for more
+ *  details.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRArtifactRegistry_ProjectConfig.
+ *
+ *  Updates the project configuration.
+ *
+ *  @param object The @c GTLRArtifactRegistry_ProjectConfig to include in the
+ *    query.
+ *  @param name Identifier. The name of the project's configuration. Always of
+ *    the form: projects/{project}/locations/{location}/projectConfig
+ *
+ *  @return GTLRArtifactRegistryQuery_ProjectsLocationsUpdateProjectConfig
+ */
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_ProjectConfig *)object
+                           name:(NSString *)name;
 
 @end
 

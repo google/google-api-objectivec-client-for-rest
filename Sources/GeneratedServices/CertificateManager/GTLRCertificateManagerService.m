@@ -4,7 +4,7 @@
 // API:
 //   Certificate Manager API (certificatemanager/v1)
 // Documentation:
-//   https://cloud.google.com/certificate-manager
+//   https://docs.cloud.google.com/certificate-manager/docs/overview
 
 #import <GoogleAPIClientForREST/GTLRCertificateManager.h>
 

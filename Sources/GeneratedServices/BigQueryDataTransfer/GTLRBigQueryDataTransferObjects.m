@@ -59,6 +59,27 @@ NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_Info = @"INF
 NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_MessageSeverityUnspecified = @"MESSAGE_SEVERITY_UNSPECIFIED";
 NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_Warning = @"WARNING";
 
+// GTLRBigQueryDataTransfer_TransferResource.destination
+NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBiglakeHiveCatalog = @"RESOURCE_DESTINATION_BIGLAKE_HIVE_CATALOG";
+NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBiglakeMetastore = @"RESOURCE_DESTINATION_BIGLAKE_METASTORE";
+NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBiglakeRestCatalog = @"RESOURCE_DESTINATION_BIGLAKE_REST_CATALOG";
+NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBigquery = @"RESOURCE_DESTINATION_BIGQUERY";
+NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationDataprocMetastore = @"RESOURCE_DESTINATION_DATAPROC_METASTORE";
+NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationUnspecified = @"RESOURCE_DESTINATION_UNSPECIFIED";
+
+// GTLRBigQueryDataTransfer_TransferResource.type
+NSString * const kGTLRBigQueryDataTransfer_TransferResource_Type_ResourceTypePartition = @"RESOURCE_TYPE_PARTITION";
+NSString * const kGTLRBigQueryDataTransfer_TransferResource_Type_ResourceTypeTable = @"RESOURCE_TYPE_TABLE";
+NSString * const kGTLRBigQueryDataTransfer_TransferResource_Type_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
+
+// GTLRBigQueryDataTransfer_TransferResourceStatusDetail.state
+NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferCancelled = @"RESOURCE_TRANSFER_CANCELLED";
+NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferFailed = @"RESOURCE_TRANSFER_FAILED";
+NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferPending = @"RESOURCE_TRANSFER_PENDING";
+NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferRunning = @"RESOURCE_TRANSFER_RUNNING";
+NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferStateUnspecified = @"RESOURCE_TRANSFER_STATE_UNSPECIFIED";
+NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferSucceeded = @"RESOURCE_TRANSFER_SUCCEEDED";
+
 // GTLRBigQueryDataTransfer_TransferRun.state
 NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Cancelled = @"CANCELLED";
 NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Failed = @"FAILED";
@@ -66,6 +87,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Pending = @"PENDING
 NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Running = @"RUNNING";
 NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspecified = @"TRANSFER_STATE_UNSPECIFIED";
+
+// GTLRBigQueryDataTransfer_TransferStatusMetric.unit
+NSString * const kGTLRBigQueryDataTransfer_TransferStatusMetric_Unit_TransferStatusUnitBytes = @"TRANSFER_STATUS_UNIT_BYTES";
+NSString * const kGTLRBigQueryDataTransfer_TransferStatusMetric_Unit_TransferStatusUnitObjects = @"TRANSFER_STATUS_UNIT_OBJECTS";
+NSString * const kGTLRBigQueryDataTransfer_TransferStatusMetric_Unit_TransferStatusUnitUnspecified = @"TRANSFER_STATUS_UNIT_UNSPECIFIED";
+
+// GTLRBigQueryDataTransfer_TransferStatusSummary.progressUnit
+NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_TransferStatusUnitBytes = @"TRANSFER_STATUS_UNIT_BYTES";
+NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_TransferStatusUnitObjects = @"TRANSFER_STATUS_UNIT_OBJECTS";
+NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_TransferStatusUnitUnspecified = @"TRANSFER_STATUS_UNIT_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 //
@@ -198,6 +229,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_HierarchyDetail
+//
+
+@implementation GTLRBigQueryDataTransfer_HierarchyDetail
+@dynamic partitionDetail, tableDetail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_ListDataSourcesResponse
 //
 
@@ -286,6 +327,28 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_ListTransferResourcesResponse
+//
+
+@implementation GTLRBigQueryDataTransfer_ListTransferResourcesResponse
+@dynamic nextPageToken, transferResources;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"transferResources" : [GTLRBigQueryDataTransfer_TransferResource class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"transferResources";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_ListTransferRunsResponse
 //
 
@@ -350,6 +413,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 //
 
 @implementation GTLRBigQueryDataTransfer_ManualSchedule
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_PartitionDetail
+//
+
+@implementation GTLRBigQueryDataTransfer_PartitionDetail
+@dynamic table;
 @end
 
 
@@ -463,6 +536,16 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_TableDetail
+//
+
+@implementation GTLRBigQueryDataTransfer_TableDetail
+@dynamic partitionCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_TimeBasedSchedule
 //
 
@@ -521,6 +604,27 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataTransfer_TransferResource
+//
+
+@implementation GTLRBigQueryDataTransfer_TransferResource
+@dynamic destination, hierarchyDetail, lastSuccessfulRun, latestRun,
+         latestStatusDetail, name, type, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_TransferResourceStatusDetail
+//
+
+@implementation GTLRBigQueryDataTransfer_TransferResourceStatusDetail
+@dynamic completedPercentage, error, state, summary;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataTransfer_TransferRun
 //
 
@@ -540,6 +644,44 @@ NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspec
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_TransferRunBrief
+//
+
+@implementation GTLRBigQueryDataTransfer_TransferRunBrief
+@dynamic run, startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_TransferStatusMetric
+//
+
+@implementation GTLRBigQueryDataTransfer_TransferStatusMetric
+@dynamic completed, failed, pending, total, unit;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigQueryDataTransfer_TransferStatusSummary
+//
+
+@implementation GTLRBigQueryDataTransfer_TransferStatusSummary
+@dynamic metrics, progressUnit;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"metrics" : [GTLRBigQueryDataTransfer_TransferStatusMetric class]
+  };
+  return map;
 }
 
 @end

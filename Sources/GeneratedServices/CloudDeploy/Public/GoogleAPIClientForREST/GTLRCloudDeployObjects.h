@@ -16,6 +16,13 @@
 @class GTLRCloudDeploy_AdvanceChildRolloutJobRun;
 @class GTLRCloudDeploy_AdvanceRolloutOperation;
 @class GTLRCloudDeploy_AdvanceRolloutRule;
+@class GTLRCloudDeploy_AlertPolicyCheck;
+@class GTLRCloudDeploy_AlertPolicyCheck_Labels;
+@class GTLRCloudDeploy_AlertPolicyCheckStatus;
+@class GTLRCloudDeploy_AlertPolicyCheckStatus_Labels;
+@class GTLRCloudDeploy_Analysis;
+@class GTLRCloudDeploy_AnalysisJob;
+@class GTLRCloudDeploy_AnalysisJobRun;
 @class GTLRCloudDeploy_AnthosCluster;
 @class GTLRCloudDeploy_AssociatedEntities;
 @class GTLRCloudDeploy_AuditConfig;
@@ -37,14 +44,19 @@
 @class GTLRCloudDeploy_CloudRunLocation;
 @class GTLRCloudDeploy_CloudRunMetadata;
 @class GTLRCloudDeploy_CloudRunRenderMetadata;
+@class GTLRCloudDeploy_ContainerTask;
+@class GTLRCloudDeploy_ContainerTask_Env;
 @class GTLRCloudDeploy_CreateChildRolloutJob;
 @class GTLRCloudDeploy_CreateChildRolloutJobRun;
 @class GTLRCloudDeploy_CustomCanaryDeployment;
+@class GTLRCloudDeploy_CustomCheck;
+@class GTLRCloudDeploy_CustomCheckStatus;
 @class GTLRCloudDeploy_CustomMetadata;
 @class GTLRCloudDeploy_CustomMetadata_Values;
 @class GTLRCloudDeploy_CustomTarget;
 @class GTLRCloudDeploy_CustomTargetDeployMetadata;
 @class GTLRCloudDeploy_CustomTargetSkaffoldActions;
+@class GTLRCloudDeploy_CustomTargetTasks;
 @class GTLRCloudDeploy_CustomTargetType;
 @class GTLRCloudDeploy_CustomTargetType_Annotations;
 @class GTLRCloudDeploy_CustomTargetType_Labels;
@@ -69,11 +81,14 @@
 @class GTLRCloudDeploy_DeployPolicyResourceSelector;
 @class GTLRCloudDeploy_ExecutionConfig;
 @class GTLRCloudDeploy_Expr;
+@class GTLRCloudDeploy_FailedAlertPolicy;
 @class GTLRCloudDeploy_GatewayServiceMesh;
 @class GTLRCloudDeploy_GkeCluster;
+@class GTLRCloudDeploy_GoogleCloudAnalysis;
 @class GTLRCloudDeploy_Job;
 @class GTLRCloudDeploy_JobRun;
 @class GTLRCloudDeploy_KubernetesConfig;
+@class GTLRCloudDeploy_KubernetesRenderMetadata;
 @class GTLRCloudDeploy_Location;
 @class GTLRCloudDeploy_Location_Labels;
 @class GTLRCloudDeploy_Location_Metadata;
@@ -95,9 +110,11 @@
 @class GTLRCloudDeploy_Postdeploy;
 @class GTLRCloudDeploy_PostdeployJob;
 @class GTLRCloudDeploy_PostdeployJobRun;
+@class GTLRCloudDeploy_PostdeployJobRunMetadata;
 @class GTLRCloudDeploy_Predeploy;
 @class GTLRCloudDeploy_PredeployJob;
 @class GTLRCloudDeploy_PredeployJobRun;
+@class GTLRCloudDeploy_PredeployJobRunMetadata;
 @class GTLRCloudDeploy_PrivatePool;
 @class GTLRCloudDeploy_PromoteReleaseOperation;
 @class GTLRCloudDeploy_PromoteReleaseRule;
@@ -152,6 +169,7 @@
 @class GTLRCloudDeploy_Targets;
 @class GTLRCloudDeploy_TargetsPresentCondition;
 @class GTLRCloudDeploy_TargetsTypeCondition;
+@class GTLRCloudDeploy_Task;
 @class GTLRCloudDeploy_TimedPromoteReleaseCondition;
 @class GTLRCloudDeploy_TimedPromoteReleaseOperation;
 @class GTLRCloudDeploy_TimedPromoteReleaseRule;
@@ -159,8 +177,10 @@
 @class GTLRCloudDeploy_TimeWindows;
 @class GTLRCloudDeploy_ToolVersions;
 @class GTLRCloudDeploy_ToolVersionSupportedCondition;
+@class GTLRCloudDeploy_Verify;
 @class GTLRCloudDeploy_VerifyJob;
 @class GTLRCloudDeploy_VerifyJobRun;
+@class GTLRCloudDeploy_VerifyJobRunMetadata;
 @class GTLRCloudDeploy_WeeklyWindow;
 
 // Generated comments include content from the discovery document; avoid them
@@ -362,6 +382,45 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_Type
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudDeploy_CustomCheckStatus.failureCause
+
+/**
+ *  Cloud Build failed to fulfill Cloud Deploy's request. See failure_message
+ *  for additional details.
+ *
+ *  Value: "CLOUD_BUILD_REQUEST_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomCheckStatus_FailureCause_CloudBuildRequestFailed;
+/**
+ *  Cloud Build is not available, either because it is not enabled or because
+ *  Cloud Deploy has insufficient permissions. See [required
+ *  permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *
+ *  Value: "CLOUD_BUILD_UNAVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomCheckStatus_FailureCause_CloudBuildUnavailable;
+/**
+ *  The analysis job run did not complete within the alloted time defined in the
+ *  target's execution environment configuration.
+ *
+ *  Value: "DEADLINE_EXCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomCheckStatus_FailureCause_DeadlineExceeded;
+/**
+ *  The analysis operation did not complete successfully; check Cloud Build
+ *  logs.
+ *
+ *  Value: "EXECUTION_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomCheckStatus_FailureCause_ExecutionFailed;
+/**
+ *  No reason for failure is specified.
+ *
+ *  Value: "FAILURE_CAUSE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_CustomCheckStatus_FailureCause_FailureCauseUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_CustomTargetTypeNotificationEvent.type
@@ -659,6 +718,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEven
 // ----------------------------------------------------------------------------
 // GTLRCloudDeploy_ExecutionConfig.usages
 
+/**
+ *  Use for analysis job execution.
+ *
+ *  Value: "ANALYSIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Analysis;
 /**
  *  Use for deploying and deployment hooks.
  *
@@ -2149,6 +2214,177 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
+ *  AlertPolicyCheck configures a set of Cloud Monitoring alerting policies that
+ *  will be periodically polled for alerts. If any of the listed policies have
+ *  an active alert, the analysis check will fail.
+ */
+@interface GTLRCloudDeploy_AlertPolicyCheck : GTLRObject
+
+/**
+ *  Required. The Cloud Monitoring Alert Policies to check for active alerts.
+ *  Format is `projects/{project}/alertPolicies/{alert_policy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alertPolicies;
+
+/**
+ *  Required. The ID of the analysis check.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. A set of labels to filter active alerts. If set, only alerts
+ *  having all of the specified labels will be considered. Otherwise, all active
+ *  alerts will be considered.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_AlertPolicyCheck_Labels *labels;
+
+@end
+
+
+/**
+ *  Optional. A set of labels to filter active alerts. If set, only alerts
+ *  having all of the specified labels will be considered. Otherwise, all active
+ *  alerts will be considered.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_AlertPolicyCheck_Labels : GTLRObject
+@end
+
+
+/**
+ *  AlertPolicyCheckStatus contains information specific to a single run of an
+ *  alert policy check.
+ */
+@interface GTLRCloudDeploy_AlertPolicyCheckStatus : GTLRObject
+
+/**
+ *  Output only. The alert policies that this analysis monitors. Format is
+ *  `projects/{project}/locations/{location}/alertPolicies/{alertPolicy}`.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alertPolicies;
+
+/**
+ *  Output only. The alert policies that were found to be firing during this
+ *  check. This will be empty if no incidents were found.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_FailedAlertPolicy *> *failedAlertPolicies;
+
+/**
+ *  Output only. Additional information about the alert policy check failure, if
+ *  available. This will be empty if the alert policy check succeeded.
+ */
+@property(nonatomic, copy, nullable) NSString *failureMessage;
+
+/**
+ *  Output only. The ID of this analysis.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Output only. The resolved labels used to filter for specific incidents. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_AlertPolicyCheckStatus_Labels *labels;
+
+@end
+
+
+/**
+ *  Output only. The resolved labels used to filter for specific incidents.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_AlertPolicyCheckStatus_Labels : GTLRObject
+@end
+
+
+/**
+ *  Analysis contains the configuration for the set of analyses to be performed
+ *  on the target.
+ */
+@interface GTLRCloudDeploy_Analysis : GTLRObject
+
+/** Optional. Custom analysis checks from 3P metric providers. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_CustomCheck *> *customChecks;
+
+/**
+ *  Required. The amount of time in minutes the analysis on the target will
+ *  last. If all analysis checks have successfully completed before the
+ *  specified duration, the analysis is successful. If a check is still running
+ *  while the specified duration passes, it will wait for that check to complete
+ *  to determine if the analysis is successful. The maximum duration is 48
+ *  hours.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/** Optional. Google Cloud - based analysis checks. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_GoogleCloudAnalysis *googleCloud;
+
+@end
+
+
+/**
+ *  An analysis Job.
+ */
+@interface GTLRCloudDeploy_AnalysisJob : GTLRObject
+
+/**
+ *  Output only. Custom analysis checks from 3P metric providers that are run as
+ *  part of the analysis Job.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_CustomCheck *> *customChecks;
+
+/**
+ *  Output only. The amount of time in minutes the analysis Job will run, up to
+ *  a maximum of 48 hours. If any check in this Job is still running when the
+ *  duration ends, the Job keeps running until that check completes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *duration;
+
+/**
+ *  Output only. Google Cloud - based analysis checks that are run as part of
+ *  the analysis Job.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_GoogleCloudAnalysis *googleCloud;
+
+@end
+
+
+/**
+ *  AnalysisJobRun contains information specific to an analysis `JobRun`.
+ */
+@interface GTLRCloudDeploy_AnalysisJobRun : GTLRObject
+
+/**
+ *  Output only. The status of the running alert policy checks configured for
+ *  this analysis.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_AlertPolicyCheckStatus *> *alertPolicyAnalyses;
+
+/**
+ *  Output only. The status of the running custom checks configured for this
+ *  analysis.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_CustomCheckStatus *> *customCheckAnalyses;
+
+/**
+ *  Output only. The ID of the configured check that failed. This will always be
+ *  blank while the analysis is in progress or if it succeeded.
+ */
+@property(nonatomic, copy, nullable) NSString *failedCheckId;
+
+@end
+
+
+/**
  *  Information specifying an Anthos Cluster.
  */
 @interface GTLRCloudDeploy_AnthosCluster : GTLRObject
@@ -2856,6 +3092,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @interface GTLRCloudDeploy_CanaryDeployment : GTLRObject
 
 /**
+ *  Optional. Configuration for the analysis job. If configured, the analysis
+ *  will run after each percentage deployment.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Analysis *analysis;
+
+/**
  *  Required. The percentage based deployments that will occur as a part of a
  *  `Rollout`. List is expected in ascending order and each integer n is 0 <= n
  *  < 100. If the GatewayServiceMesh is configured for Kubernetes, then the
@@ -2884,6 +3126,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *verify;
+
+/**
+ *  Optional. Configuration for the verify job. Cannot be set if `verify` is set
+ *  to true.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Verify *verifyConfig;
 
 @end
 
@@ -3006,6 +3254,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @property(nonatomic, copy, nullable) NSString *job;
 
+/**
+ *  Output only. The previous Cloud Run Revision name associated with a
+ *  `Rollout`. Only set when a canary deployment strategy is configured. Format
+ *  for service is
+ *  projects/{project}/locations/{location}/services/{service}/revisions/{revision}.
+ *  Format for worker pool is
+ *  projects/{project}/locations/{location}/workerPools/{workerpool}/revisions/{revision}.
+ */
+@property(nonatomic, copy, nullable) NSString *previousRevision;
+
 /** Output only. The Cloud Run Revision id associated with a `Rollout`. */
 @property(nonatomic, copy, nullable) NSString *revision;
 
@@ -3036,6 +3294,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *  `Release` render.
  */
 @interface GTLRCloudDeploy_CloudRunRenderMetadata : GTLRObject
+
+/**
+ *  Output only. The name of the Cloud Run Job in the rendered manifest. Format
+ *  is `projects/{project}/locations/{location}/jobs/{job}`.
+ */
+@property(nonatomic, copy, nullable) NSString *job;
+
+/**
+ *  Output only. The name of the Cloud Run Revision in the rendered manifest.
+ *  Format is
+ *  `projects/{project}/locations/{location}/services/{service}/revisions/{revision}`.
+ */
+@property(nonatomic, copy, nullable) NSString *revision;
 
 /**
  *  Output only. The name of the Cloud Run Service in the rendered manifest.
@@ -3080,6 +3351,51 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
+ *  This task is represented by a container that is executed in the Cloud Build
+ *  execution environment.
+ */
+@interface GTLRCloudDeploy_ContainerTask : GTLRObject
+
+/**
+ *  Optional. Args is the container arguments to use. This overrides the default
+ *  arguments defined in the container image.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  Optional. Command is the container entrypoint to use. This overrides the
+ *  default entrypoint defined in the container image.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *command;
+
+/** Optional. Environment variables that are set in the container. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_ContainerTask_Env *env;
+
+/** Required. Image is the container image to use. */
+@property(nonatomic, copy, nullable) NSString *image;
+
+/**
+ *  Optional. Shell script to execute. If provided then command and args cannot
+ *  be specified.
+ */
+@property(nonatomic, copy, nullable) NSString *script;
+
+@end
+
+
+/**
+ *  Optional. Environment variables that are set in the container.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudDeploy_ContainerTask_Env : GTLRObject
+@end
+
+
+/**
  *  A createChildRollout Job.
  */
 @interface GTLRCloudDeploy_CreateChildRolloutJob : GTLRObject
@@ -3115,6 +3431,99 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *  executed.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_PhaseConfig *> *phaseConfigs;
+
+@end
+
+
+/**
+ *  CustomCheck configures a third-party metric provider to run the analysis,
+ *  via a Task that runs at a specified frequency.
+ */
+@interface GTLRCloudDeploy_CustomCheck : GTLRObject
+
+/**
+ *  Optional. The frequency at which the custom check will be run, with a
+ *  minimum and default of 5 minutes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *frequency;
+
+/**
+ *  Required. The ID of the custom Analysis check.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/** Required. The Task to be run for this custom check. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Task *task;
+
+@end
+
+
+/**
+ *  CustomCheckStatus contains information specific to a single iteration of a
+ *  custom analysis job.
+ */
+@interface GTLRCloudDeploy_CustomCheckStatus : GTLRObject
+
+/**
+ *  Output only. The reason the analysis failed. This will always be unspecified
+ *  while the analysis is in progress or if it succeeded.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudDeploy_CustomCheckStatus_FailureCause_CloudBuildRequestFailed
+ *        Cloud Build failed to fulfill Cloud Deploy's request. See
+ *        failure_message for additional details. (Value:
+ *        "CLOUD_BUILD_REQUEST_FAILED")
+ *    @arg @c kGTLRCloudDeploy_CustomCheckStatus_FailureCause_CloudBuildUnavailable
+ *        Cloud Build is not available, either because it is not enabled or
+ *        because Cloud Deploy has insufficient permissions. See [required
+ *        permission](https://cloud.google.com/deploy/docs/cloud-deploy-service-account#required_permissions).
+ *        (Value: "CLOUD_BUILD_UNAVAILABLE")
+ *    @arg @c kGTLRCloudDeploy_CustomCheckStatus_FailureCause_DeadlineExceeded
+ *        The analysis job run did not complete within the alloted time defined
+ *        in the target's execution environment configuration. (Value:
+ *        "DEADLINE_EXCEEDED")
+ *    @arg @c kGTLRCloudDeploy_CustomCheckStatus_FailureCause_ExecutionFailed
+ *        The analysis operation did not complete successfully; check Cloud
+ *        Build logs. (Value: "EXECUTION_FAILED")
+ *    @arg @c kGTLRCloudDeploy_CustomCheckStatus_FailureCause_FailureCauseUnspecified
+ *        No reason for failure is specified. (Value:
+ *        "FAILURE_CAUSE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *failureCause;
+
+/**
+ *  Output only. Additional information about the analysis failure, if
+ *  available.
+ */
+@property(nonatomic, copy, nullable) NSString *failureMessage;
+
+/** Output only. The frequency in minutes at which the custom check is run. */
+@property(nonatomic, strong, nullable) GTLRDuration *frequency;
+
+/**
+ *  Output only. The ID of the custom check.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Output only. The resource name of the Cloud Build `Build` object that was
+ *  used to execute the latest run of this custom action check. Format is
+ *  `projects/{project}/locations/{location}/builds/{build}`.
+ */
+@property(nonatomic, copy, nullable) NSString *latestBuild;
+
+/**
+ *  Output only. Custom metadata provided by the user-defined custom check
+ *  operation. result.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata *metadata;
+
+/** Output only. The task that ran for this custom check. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Task *task;
 
 @end
 
@@ -3197,6 +3606,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
+ *  CustomTargetTasks represents the `CustomTargetType` configuration using
+ *  tasks.
+ */
+@interface GTLRCloudDeploy_CustomTargetTasks : GTLRObject
+
+/** Required. The task responsible for deploy operations. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Task *deploy;
+
+/**
+ *  Optional. The task responsible for render operations. If not provided then
+ *  Cloud Deploy will perform its default rendering operation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Task *render;
+
+@end
+
+
+/**
  *  A `CustomTargetType` resource in the Cloud Deploy API. A `CustomTargetType`
  *  defines a type of custom target that can be referenced in a `Target` in
  *  order to facilitate deploying to other systems besides the supported
@@ -3257,6 +3684,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *  `[a-z]([a-z0-9-]{0,61}[a-z0-9])?`
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Configures render and deploy for the `CustomTargetType` using
+ *  tasks.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomTargetTasks *tasks;
 
 /** Output only. Unique identifier of the `CustomTargetType`. */
 @property(nonatomic, copy, nullable) NSString *uid;
@@ -3706,6 +4139,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *  Deployment job composition.
  */
 @interface GTLRCloudDeploy_DeploymentJobs : GTLRObject
+
+/**
+ *  Output only. The analysis Job. Runs after a verify if there is a verify job
+ *  and the verify job succeeds.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Job *analysisJob;
 
 /** Output only. The deploy Job. This is the deploy job in the phase. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_Job *deployJob;
@@ -4162,6 +4601,28 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
+ *  FailedAlertPolicy contains information about an alert policy that was found
+ *  to be firing during an alert policy check.
+ */
+@interface GTLRCloudDeploy_FailedAlertPolicy : GTLRObject
+
+/**
+ *  Output only. The name of the alert policy that was found to be firing.
+ *  Format is
+ *  `projects/{project}/locations/{location}/alertPolicies/{alertPolicy}`.
+ */
+@property(nonatomic, copy, nullable) NSString *alertPolicy;
+
+/**
+ *  Output only. Open alerts for the alerting policies that matched the alert
+ *  policy check configuration.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alerts;
+
+@end
+
+
+/**
  *  Information about the Kubernetes Gateway API service mesh configuration.
  */
 @interface GTLRCloudDeploy_GatewayServiceMesh : GTLRObject
@@ -4253,6 +4714,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
+ *  GoogleCloudAnalysis is a set of Google Cloud-based checks to perform on the
+ *  deployment.
+ */
+@interface GTLRCloudDeploy_GoogleCloudAnalysis : GTLRObject
+
+/**
+ *  Optional. A list of Cloud Monitoring Alert Policy checks to perform as part
+ *  of the analysis.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_AlertPolicyCheck *> *alertPolicyChecks;
+
+@end
+
+
+/**
  *  The request object used by `IgnoreJob`.
  */
 @interface GTLRCloudDeploy_IgnoreJobRequest : GTLRObject
@@ -4286,6 +4762,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 /** Output only. An advanceChildRollout Job. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_AdvanceChildRolloutJob *advanceChildRolloutJob;
+
+/** Output only. An analysis Job. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_AnalysisJob *analysisJob;
 
 /** Output only. A createChildRollout Job. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CreateChildRolloutJob *createChildRolloutJob;
@@ -4357,6 +4836,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 /** Output only. Information specific to an advanceChildRollout `JobRun` */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_AdvanceChildRolloutJobRun *advanceChildRolloutJobRun;
+
+/** Output only. Information specific to an analysis `JobRun`. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_AnalysisJobRun *analysisJobRun;
 
 /** Output only. Information specific to a createChildRollout `JobRun`. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CreateChildRolloutJobRun *createChildRolloutJobRun;
@@ -4501,6 +4983,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 /** Optional. Kubernetes Service networking configuration. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_ServiceNetworking *serviceNetworking;
+
+@end
+
+
+/**
+ *  KubernetesRenderMetadata contains Kubernetes information associated with a
+ *  `Release` render.
+ */
+@interface GTLRCloudDeploy_KubernetesRenderMetadata : GTLRObject
+
+/**
+ *  Output only. Name of the canary version of the Kubernetes Deployment that
+ *  will be applied to the GKE cluster. Only set if a canary deployment strategy
+ *  was configured.
+ */
+@property(nonatomic, copy, nullable) NSString *canaryDeployment;
+
+/**
+ *  Output only. Name of the Kubernetes Deployment that will be applied to the
+ *  GKE cluster. Only set if a single Deployment was provided in the rendered
+ *  manifest.
+ */
+@property(nonatomic, copy, nullable) NSString *deployment;
+
+/**
+ *  Output only. Namespace the Kubernetes resources will be applied to in the
+ *  GKE cluster. Only set if applying resources to a single namespace.
+ */
+@property(nonatomic, copy, nullable) NSString *kubernetesNamespace;
 
 @end
 
@@ -5150,6 +5661,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @interface GTLRCloudDeploy_PhaseConfig : GTLRObject
 
 /**
+ *  Optional. Configuration for the analysis job of this phase. If this is not
+ *  configured, there will be no analysis job for this phase.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Analysis *analysis;
+
+/**
  *  Required. Percentage deployment for the phase.
  *
  *  Uses NSNumber of intValue.
@@ -5191,6 +5708,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *verify;
+
+/**
+ *  Optional. Configuration for the verify job. Cannot be set if `verify` is set
+ *  to true.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Verify *verifyConfig;
 
 @end
 
@@ -5386,6 +5909,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *actions;
 
+/**
+ *  Optional. The tasks that will run as a part of the postdeploy job. The tasks
+ *  are executed sequentially in the order specified. Only one of `actions` or
+ *  `tasks` can be specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Task *> *tasks;
+
 @end
 
 
@@ -5396,6 +5926,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 /** Output only. The custom actions that the postdeploy Job executes. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *actions;
+
+/** Output only. The tasks that are executed as part of the postdeploy Job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Task *> *tasks;
 
 @end
 
@@ -5444,6 +5977,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @property(nonatomic, copy, nullable) NSString *failureMessage;
 
+/**
+ *  Output only. Metadata containing information about the postdeploy `JobRun`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_PostdeployJobRunMetadata *metadata;
+
+@end
+
+
+/**
+ *  PostdeployJobRunMetadata contains metadata about the postdeploy `JobRun`.
+ */
+@interface GTLRCloudDeploy_PostdeployJobRunMetadata : GTLRObject
+
+/**
+ *  Output only. Custom metadata provided by user-defined postdeploy operation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata *custom;
+
 @end
 
 
@@ -5458,6 +6009,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *actions;
 
+/**
+ *  Optional. The tasks that will run as a part of the predeploy job. The tasks
+ *  are executed sequentially in the order specified. Only one of `actions` or
+ *  `tasks` can be specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Task *> *tasks;
+
 @end
 
 
@@ -5468,6 +6026,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 /** Output only. The custom actions that the predeploy Job executes. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *actions;
+
+/** Output only. The tasks that are executed as part of the predeploy Job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Task *> *tasks;
 
 @end
 
@@ -5515,6 +6076,24 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *  available.
  */
 @property(nonatomic, copy, nullable) NSString *failureMessage;
+
+/**
+ *  Output only. Metadata containing information about the predeploy `JobRun`.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_PredeployJobRunMetadata *metadata;
+
+@end
+
+
+/**
+ *  PredeployJobRunMetadata contains metadata about the predeploy `JobRun`.
+ */
+@interface GTLRCloudDeploy_PredeployJobRunMetadata : GTLRObject
+
+/**
+ *  Output only. Custom metadata provided by user-defined predeploy operation.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata *custom;
 
 @end
 
@@ -6031,6 +6610,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 /** Output only. Custom metadata provided by user-defined render operation. */
 @property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata *custom;
+
+/**
+ *  Output only. Metadata associated with rendering for a Kubernetes cluster
+ *  (GKE or GKE Enterprise target).
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_KubernetesRenderMetadata *kubernetes;
 
 @end
 
@@ -7134,6 +7719,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 @interface GTLRCloudDeploy_Standard : GTLRObject
 
 /**
+ *  Optional. Configuration for the analysis job. If this is not configured, the
+ *  analysis job will not be present.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Analysis *analysis;
+
+/**
  *  Optional. Configuration for the postdeploy job. If this is not configured,
  *  the postdeploy job will not be present.
  */
@@ -7151,6 +7742,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *verify;
+
+/**
+ *  Optional. Configuration for the verify job. Cannot be set if `verify` is set
+ *  to true.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_Verify *verifyConfig;
 
 @end
 
@@ -7651,6 +8248,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
+ *  A Task represents a unit of work that is executed as part of a Job.
+ */
+@interface GTLRCloudDeploy_Task : GTLRObject
+
+/**
+ *  Optional. This task is represented by a container that is executed in the
+ *  Cloud Build execution environment.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_ContainerTask *container;
+
+@end
+
+
+/**
  *  The request object used by `TerminateJobRun`.
  */
 @interface GTLRCloudDeploy_TerminateJobRunRequest : GTLRObject
@@ -7931,9 +8542,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
 
 
 /**
+ *  Verify contains the verify job configuration information.
+ */
+@interface GTLRCloudDeploy_Verify : GTLRObject
+
+/**
+ *  Optional. The tasks that will run as a part of the verify job. The tasks are
+ *  executed sequentially in the order specified.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Task *> *tasks;
+
+@end
+
+
+/**
  *  A verify Job.
  */
 @interface GTLRCloudDeploy_VerifyJob : GTLRObject
+
+/** Output only. The tasks that are executed as part of the verify Job. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudDeploy_Task *> *tasks;
+
 @end
 
 
@@ -7994,6 +8623,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wedn
  *  Output only. Additional information about the verify failure, if available.
  */
 @property(nonatomic, copy, nullable) NSString *failureMessage;
+
+/** Output only. Metadata containing information about the verify `JobRun`. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_VerifyJobRunMetadata *metadata;
+
+@end
+
+
+/**
+ *  VerifyJobRunMetadata contains metadata about the verify `JobRun`.
+ */
+@interface GTLRCloudDeploy_VerifyJobRunMetadata : GTLRObject
+
+/** Output only. Custom metadata provided by user-defined verify operation. */
+@property(nonatomic, strong, nullable) GTLRCloudDeploy_CustomMetadata *custom;
 
 @end
 

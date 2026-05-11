@@ -896,8 +896,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @interface GTLRNetworkServices_AuthzExtension : GTLRObject
 
 /**
- *  Required. The `:authority` header in the gRPC request sent from Envoy to the
- *  extension service.
+ *  Optional. The `:authority` header in the gRPC request sent from Envoy to the
+ *  extension service. It is required when the `service` field points to a
+ *  backend service or a wasm plugin.
  */
 @property(nonatomic, copy, nullable) NSString *authority;
 
@@ -1502,15 +1503,11 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. When set to `TRUE`, enables `observability_mode` on the `ext_proc`
- *  filter. This makes `ext_proc` calls asynchronous. Envoy doesn't check for
- *  the response from `ext_proc` calls. For more information about the filter,
- *  see:
- *  https://www.envoyproxy.io/docs/envoy/v1.32.3/api-v3/extensions/filters/http/ext_proc/v3/ext_proc.proto#extensions-filters-http-ext-proc-v3-externalprocessor
- *  This field is helpful when you want to try out the extension in async
- *  log-only mode. Supported by regional `LbTrafficExtension` and
- *  `LbRouteExtension` resources. Only `STREAMED` (default) body processing mode
- *  is supported.
+ *  Optional. When set to `true`, the calls to the extension backend are
+ *  performed asynchronously, without pausing the processing of the ongoing
+ *  request. In this mode, only `STREAMED` (default) body processing is
+ *  supported. Responses, if any, are ignored. Supported by regional
+ *  `LbTrafficExtension` and `LbRouteExtension` resources.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1683,6 +1680,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinL
  *  Gateways of type 'OPEN_MESH' listen on 0.0.0.0 for IPv4 and :: for IPv6.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *addresses;
+
+/**
+ *  Optional. If true, the gateway will allow traffic from clients outside of
+ *  the region where the gateway is located. This field is configurable only for
+ *  gateways of type SECURE_WEB_GATEWAY.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowGlobalAccess;
+
+/**
+ *  Optional. If true, the Gateway will listen on all ports. This is mutually
+ *  exclusive with the `ports` field. This field only applies to gateways of
+ *  type 'SECURE_WEB_GATEWAY'.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allPorts;
 
 /**
  *  Optional. A fully-qualified Certificates URL reference. The proxy presents a

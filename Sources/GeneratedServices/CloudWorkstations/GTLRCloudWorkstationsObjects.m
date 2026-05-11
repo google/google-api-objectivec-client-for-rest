@@ -329,7 +329,8 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 //
 
 @implementation GTLRCloudWorkstations_GceRegionalPersistentDisk
-@dynamic diskType, fsType, reclaimPolicy, sizeGb, sourceSnapshot;
+@dynamic archiveTimeout, diskType, fsType, reclaimPolicy, sizeGb,
+         sourceSnapshot;
 @end
 
 
@@ -887,7 +888,7 @@ NSString * const kGTLRCloudWorkstations_Workstation_State_StateUnspecified = @"S
 @dynamic annotations, conditions, controlPlaneIp, createTime, degraded,
          deleteTime, displayName, domainConfig, ETag, gatewayConfig, labels,
          name, network, privateClusterConfig, reconciling, subnetwork, tags,
-         uid, updateTime;
+         uid, updateTime, workstationAuthorizationUrl, workstationLaunchUrl;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

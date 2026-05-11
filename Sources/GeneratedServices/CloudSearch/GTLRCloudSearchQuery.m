@@ -585,12 +585,13 @@ NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMappingsFound = @"TO
 
 @implementation GTLRCloudSearchQuery_QuerySourcesList
 
-@dynamic pageToken, requestOptionsDebugOptionsEnableDebugging,
-         requestOptionsLanguageCode, requestOptionsSearchApplicationId,
-         requestOptionsTimeZone;
+@dynamic pageToken, requestOptionsClientDisplayLanguageCode,
+         requestOptionsDebugOptionsEnableDebugging, requestOptionsLanguageCode,
+         requestOptionsSearchApplicationId, requestOptionsTimeZone;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
+    @"requestOptionsClientDisplayLanguageCode" : @"requestOptions.clientDisplayLanguageCode",
     @"requestOptionsDebugOptionsEnableDebugging" : @"requestOptions.debugOptions.enableDebugging",
     @"requestOptionsLanguageCode" : @"requestOptions.languageCode",
     @"requestOptionsSearchApplicationId" : @"requestOptions.searchApplicationId",

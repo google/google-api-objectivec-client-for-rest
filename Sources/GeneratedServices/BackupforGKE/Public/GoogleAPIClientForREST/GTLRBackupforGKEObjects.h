@@ -1737,7 +1737,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /**
  *  Log entry for Backup and Restore Job for resources using BackupPlan based
- *  protection. Next Id: 23
+ *  protection. Next Id: 24
  */
 @interface GTLRBackupforGKE_BDRBackupRestoreJobLog : GTLRObject
 
@@ -1771,6 +1771,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupforGKE_VolumeRestore_VolumeType_Vo
 
 /** Full resource name backup vault name */
 @property(nonatomic, copy, nullable) NSString *backupVaultName;
+
+/** Canonical Data Source Name */
+@property(nonatomic, copy, nullable) NSString *dataSourceName;
 
 /** End time of the job. */
 @property(nonatomic, strong, nullable) GTLRDateTime *endTime;

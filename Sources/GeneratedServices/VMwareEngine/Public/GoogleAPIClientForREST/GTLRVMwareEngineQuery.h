@@ -589,10 +589,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: vmwareengine.projects.locations.list
  *
@@ -633,10 +639,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRVMwareEngine_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -696,6 +708,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRVMwareEngine_Operation.
@@ -941,6 +959,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
  *  Modifies a `NetworkPeering` resource. Only the `description` field can be
@@ -1074,6 +1098,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
  *  Creates a new network policy in a given VMware Engine network of a project
@@ -1190,6 +1220,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRVMwareEngine_Operation.
@@ -1418,6 +1454,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the// request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRVMwareEngine_Operation.
@@ -1660,6 +1702,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRVMwareEngine_Operation.
@@ -1941,8 +1989,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. True if you want the request to be validated and not executed;
- *  false otherwise.
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -2326,8 +2374,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
- *  Optional. True if you want the request to be validated and not executed;
- *  false otherwise.
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -2515,8 +2563,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
- *  Optional. True if you want the request to be validated and not executed;
- *  false otherwise.
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
  */
 @property(nonatomic, assign) BOOL validateOnly;
 
@@ -2672,6 +2720,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRVMwareEngine_Operation.
@@ -2909,6 +2963,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRVMwareEngine_Operation.
@@ -4094,6 +4154,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
  *  Modifies a `PrivateCloud` resource. Only the following fields can be
@@ -4873,6 +4939,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *requestId;
 
 /**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
  *  Creates a new private connection that can be used for accessing private
@@ -5108,6 +5180,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
 /**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
+
+/**
  *  Fetches a @c GTLRVMwareEngine_Operation.
  *
  *  Modifies a `PrivateConnection` resource. Only `description` and
@@ -5216,6 +5294,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Required. The user-provided identifier of the new VMware Engine network.
@@ -5475,6 +5559,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  String format is a comma-separated list of fields.
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ */
+@property(nonatomic, assign) BOOL validateOnly;
 
 /**
  *  Fetches a @c GTLRVMwareEngine_Operation.

@@ -182,6 +182,13 @@ FOUNDATION_EXTERN NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedE
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  Specifies whether objects are ingested into the cache upon write.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *ingestOnWrite;
+
+/**
  *  The kind of item this is. For Anywhere Cache, this is always
  *  storage#anywhereCache.
  */

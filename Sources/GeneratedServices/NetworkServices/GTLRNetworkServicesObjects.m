@@ -429,10 +429,10 @@ NSString * const kGTLRNetworkServices_WasmPluginLogConfig_MinLogLevel_Warn = @"W
 //
 
 @implementation GTLRNetworkServices_Gateway
-@dynamic addresses, certificateUrls, createTime, descriptionProperty,
-         envoyHeaders, gatewaySecurityPolicy, ipVersion, labels, name, network,
-         ports, routingMode, scope, selfLink, serverTlsPolicy, subnetwork, type,
-         updateTime;
+@dynamic addresses, allowGlobalAccess, allPorts, certificateUrls, createTime,
+         descriptionProperty, envoyHeaders, gatewaySecurityPolicy, ipVersion,
+         labels, name, network, ports, routingMode, scope, selfLink,
+         serverTlsPolicy, subnetwork, type, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

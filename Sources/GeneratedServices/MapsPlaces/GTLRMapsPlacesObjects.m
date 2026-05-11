@@ -66,6 +66,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1FuelOptionsFuelPrice_Type_Tru
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_BusinessStatusUnspecified = @"BUSINESS_STATUS_UNSPECIFIED";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_ClosedPermanently = @"CLOSED_PERMANENTLY";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_ClosedTemporarily = @"CLOSED_TEMPORARILY";
+NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_FutureOpening = @"FUTURE_OPENING";
 NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_Operational = @"OPERATIONAL";
 
 // GTLRMapsPlaces_GoogleMapsPlacesV1Place.priceLevel
@@ -211,9 +212,9 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1AutocompletePlacesRequest
 @dynamic includedPrimaryTypes, includedRegionCodes,
-         includePureServiceAreaBusinesses, includeQueryPredictions, input,
-         inputOffset, languageCode, locationBias, locationRestriction, origin,
-         regionCode, sessionToken;
+         includeFutureOpeningBusinesses, includePureServiceAreaBusinesses,
+         includeQueryPredictions, input, inputOffset, languageCode,
+         locationBias, locationRestriction, origin, regionCode, sessionToken;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -548,7 +549,7 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
          googleMapsTypeLabel, googleMapsUri, iconBackgroundColor,
          iconMaskBaseUri, identifier, internationalPhoneNumber, liveMusic,
          location, menuForChildren, movedPlace, movedPlaceId, name,
-         nationalPhoneNumber, neighborhoodSummary, outdoorSeating,
+         nationalPhoneNumber, neighborhoodSummary, openingDate, outdoorSeating,
          parkingOptions, paymentOptions, photos, plusCode, postalAddress,
          priceLevel, priceRange, primaryType, primaryTypeDisplayName,
          pureServiceAreaBusiness, rating, regularOpeningHours,
@@ -908,8 +909,9 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1SearchNearbyRequest
 @dynamic excludedPrimaryTypes, excludedTypes, includedPrimaryTypes,
-         includedTypes, languageCode, locationRestriction, maxResultCount,
-         rankPreference, regionCode, routingParameters;
+         includedTypes, includeFutureOpeningBusinesses, languageCode,
+         locationRestriction, maxResultCount, rankPreference, regionCode,
+         routingParameters;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -959,11 +961,11 @@ NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequestEVOptions_Co
 //
 
 @implementation GTLRMapsPlaces_GoogleMapsPlacesV1SearchTextRequest
-@dynamic evOptions, includedType, includePureServiceAreaBusinesses,
-         languageCode, locationBias, locationRestriction, maxResultCount,
-         minRating, openNow, pageSize, pageToken, priceLevels, rankPreference,
-         regionCode, routingParameters, searchAlongRouteParameters,
-         strictTypeFiltering, textQuery;
+@dynamic evOptions, includedType, includeFutureOpeningBusinesses,
+         includePureServiceAreaBusinesses, languageCode, locationBias,
+         locationRestriction, maxResultCount, minRating, openNow, pageSize,
+         pageToken, priceLevels, rankPreference, regionCode, routingParameters,
+         searchAlongRouteParameters, strictTypeFiltering, textQuery;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

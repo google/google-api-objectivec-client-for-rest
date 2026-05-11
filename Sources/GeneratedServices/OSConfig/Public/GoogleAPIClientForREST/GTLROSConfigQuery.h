@@ -235,7 +235,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROSConfigQuery_FoldersLocationsGlobalPolicyOrchestratorsPatch : GTLROSConfigQuery
 
 /**
- *  Immutable. Identifier. In form of *
+ *  Immutable. Identifier. In the following format: *
  *  `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
  *  *
  *  `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
@@ -271,7 +271,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator to
  *    include in the query.
- *  @param name Immutable. Identifier. In form of *
+ *  @param name Immutable. Identifier. In the following format: *
  *    `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
  *    *
  *    `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
@@ -647,7 +647,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROSConfigQuery_OrganizationsLocationsGlobalPolicyOrchestratorsPatch : GTLROSConfigQuery
 
 /**
- *  Immutable. Identifier. In form of *
+ *  Immutable. Identifier. In the following format: *
  *  `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
  *  *
  *  `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
@@ -683,7 +683,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator to
  *    include in the query.
- *  @param name Immutable. Identifier. In form of *
+ *  @param name Immutable. Identifier. In the following format: *
  *    `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
  *    *
  *    `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
@@ -1057,7 +1057,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLROSConfigQuery_ProjectsLocationsGlobalPolicyOrchestratorsPatch : GTLROSConfigQuery
 
 /**
- *  Immutable. Identifier. In form of *
+ *  Immutable. Identifier. In the following format: *
  *  `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
  *  *
  *  `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
@@ -1093,7 +1093,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator to
  *    include in the query.
- *  @param name Immutable. Identifier. In form of *
+ *  @param name Immutable. Identifier. In the following format: *
  *    `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
  *    *
  *    `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`

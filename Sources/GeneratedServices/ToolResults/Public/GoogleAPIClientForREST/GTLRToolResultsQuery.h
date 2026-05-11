@@ -1497,7 +1497,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  project. Except for in rare cases, calling this method in parallel from
  *  multiple clients will only create a single bucket. In order to avoid
  *  unnecessary storage charges, the bucket is configured to automatically
- *  delete objects older than 90 days. The bucket is created with the following
+ *  delete objects older than 60 days. The bucket is created with the following
  *  permissions: - Owner access for owners of central storage project
  *  (FTL-owned) - Writer access for owners/editors of customer project - Reader
  *  access for viewers of customer project The default ACL on objects created in
@@ -1530,7 +1530,7 @@ FOUNDATION_EXTERN NSString * const kGTLRToolResultsFilterPerfMetricTypeUnspecifi
  *  project. Except for in rare cases, calling this method in parallel from
  *  multiple clients will only create a single bucket. In order to avoid
  *  unnecessary storage charges, the bucket is configured to automatically
- *  delete objects older than 90 days. The bucket is created with the following
+ *  delete objects older than 60 days. The bucket is created with the following
  *  permissions: - Owner access for owners of central storage project
  *  (FTL-owned) - Writer access for owners/editors of customer project - Reader
  *  access for viewers of customer project The default ACL on objects created in

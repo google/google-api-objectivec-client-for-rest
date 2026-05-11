@@ -4707,6 +4707,29 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTime
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUserChoice;
 
 // ----------------------------------------------------------------------------
+// GTLRAndroidManagement_Policy.autofillPolicy
+
+/**
+ *  Autofill is disabled and the user is not allowed to change this setting.
+ *  This is supported only on Android 8 and above.
+ *
+ *  Value: "AUTOFILL_DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillDisabled;
+/**
+ *  Defaults to AUTOFILL_USER_CHOICE.
+ *
+ *  Value: "AUTOFILL_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillPolicyUnspecified;
+/**
+ *  The user can choose and use an autofill service.
+ *
+ *  Value: "AUTOFILL_USER_CHOICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillUserChoice;
+
+// ----------------------------------------------------------------------------
 // GTLRAndroidManagement_Policy.cameraAccess
 
 /**
@@ -4850,9 +4873,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EncryptionPolic
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameHidden;
 /**
- *  Unspecified. Defaults to displaying the enterprise name that's set at the
- *  time of device setup. In future, this will default to
- *  ENTERPRISE_DISPLAY_NAME_VISIBLE.
+ *  Unspecified. Defaults to ENTERPRISE_DISPLAY_NAME_VISIBLE.
  *
  *  Value: "ENTERPRISE_DISPLAY_NAME_VISIBILITY_UNSPECIFIED"
  */
@@ -12697,7 +12718,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *privateSpacePolicy;
 
 /**
- *  If true, screen capture is disabled for all users.
+ *  If true, screen capture is disabled for all users. This also blocks Circle
+ *  to Search (https://support.google.com/android/answer/14508957).
  *
  *  Uses NSNumber of boolValue.
  */
@@ -12831,6 +12853,23 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *autoDateAndTimeZone;
 
 /**
+ *  Optional. The policy for the autofill service.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillDisabled
+ *        Autofill is disabled and the user is not allowed to change this
+ *        setting. This is supported only on Android 8 and above. (Value:
+ *        "AUTOFILL_DISABLED")
+ *    @arg @c kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillPolicyUnspecified
+ *        Defaults to AUTOFILL_USER_CHOICE. (Value:
+ *        "AUTOFILL_POLICY_UNSPECIFIED")
+ *    @arg @c kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillUserChoice
+ *        The user can choose and use an autofill service. (Value:
+ *        "AUTOFILL_USER_CHOICE")
+ */
+@property(nonatomic, copy, nullable) NSString *autofillPolicy;
+
+/**
  *  Whether auto time is required, which prevents the user from manually setting
  *  the date and time. If autoDateAndTimeZone is set, this field is ignored.
  *
@@ -12942,8 +12981,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *createWindowsDisabled;
 
 /**
- *  Controls which apps are allowed to act as credential providers on Android 14
- *  and above. These apps store credentials, see this
+ *  Optional. Controls which apps are allowed to act as credential providers on
+ *  Android 14 and above. These apps store credentials, see this
  *  (https://developer.android.com/training/sign-in/passkeys) and this
  *  (https://developer.android.com/reference/androidx/credentials/CredentialManager)
  *  for details. See also credentialProviderPolicy.
@@ -13081,9 +13120,7 @@ GTLR_DEPRECATED
  *        The enterprise display name is hidden on the device. (Value:
  *        "ENTERPRISE_DISPLAY_NAME_HIDDEN")
  *    @arg @c kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameVisibilityUnspecified
- *        Unspecified. Defaults to displaying the enterprise name that's set at
- *        the time of device setup. In future, this will default to
- *        ENTERPRISE_DISPLAY_NAME_VISIBLE. (Value:
+ *        Unspecified. Defaults to ENTERPRISE_DISPLAY_NAME_VISIBLE. (Value:
  *        "ENTERPRISE_DISPLAY_NAME_VISIBILITY_UNSPECIFIED")
  *    @arg @c kGTLRAndroidManagement_Policy_EnterpriseDisplayNameVisibility_EnterpriseDisplayNameVisible
  *        The enterprise display name is visible on the device. Supported on
@@ -13477,7 +13514,8 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *safeBootDisabled GTLR_DEPRECATED;
 
 /**
- *  Whether screen capture is disabled.
+ *  Whether screen capture is disabled. This also blocks Circle to Search
+ *  (https://support.google.com/android/answer/14508957).
  *
  *  Uses NSNumber of boolValue.
  */

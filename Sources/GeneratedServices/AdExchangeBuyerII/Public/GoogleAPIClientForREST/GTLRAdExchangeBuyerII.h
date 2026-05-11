@@ -4,7 +4,7 @@
 // API:
 //   Ad Exchange Buyer API II (adexchangebuyer2/v2beta1)
 // Description:
-//   Accesses the latest features for managing Authorized Buyers accounts,
+//   Access the latest features for managing Authorized Buyers accounts,
 //   Real-Time Bidding configurations and auction metrics, and Marketplace
 //   programmatic deals.
 // Documentation:

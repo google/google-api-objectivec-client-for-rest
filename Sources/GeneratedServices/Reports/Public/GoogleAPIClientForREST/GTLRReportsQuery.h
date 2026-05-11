@@ -88,6 +88,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChat;
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChrome;
 /**
+ *  The Chrome Sync application's activity reports return information about
+ *  various types of Chrome Sync activity events.
+ *
+ *  Value: "chrome_sync"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameChromeSync;
+/**
  *  The Classroom activity reports return information about different types of
  *  [Classroom activity
  *  events](https://developers.google.com/workspace/admin/reports/v1/appendix/activity/classroom).
@@ -295,6 +302,13 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameUserAccounts;
  *  Value: "vault"
  */
 FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameVault;
+/**
+ *  The Voice application's activity reports return information about various
+ *  types of Voice activity events.
+ *
+ *  Value: "voice"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRReportsApplicationNameVoice;
 
 // ----------------------------------------------------------------------------
 // entityType
@@ -478,6 +492,12 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameGraduation The Graduation application's
  *        activity reports return information about various types of Graduation
  *        activity events. (Value: "graduation")
+ *    @arg @c kGTLRReportsApplicationNameVoice The Voice application's activity
+ *        reports return information about various types of Voice activity
+ *        events. (Value: "voice")
+ *    @arg @c kGTLRReportsApplicationNameChromeSync The Chrome Sync
+ *        application's activity reports return information about various types
+ *        of Chrome Sync activity events. (Value: "chrome_sync")
  */
 @property(nonatomic, copy, nullable) NSString *applicationName;
 
@@ -559,6 +579,14 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *  Google Group](https://support.google.com/a/answer/11482175)
  */
 @property(nonatomic, copy, nullable) NSString *groupIdFilter;
+
+/**
+ *  Optional. When set to `true`, this field allows sensitive user-generated
+ *  content to be included in the returned audit logs. This parameter is
+ *  supported only for Rules (DLP) and Chat applications; using it with any
+ *  other application will result in a permission error.
+ */
+@property(nonatomic, assign) BOOL includeSensitiveData;
 
 /**
  *  Determines how many activity records are shown on each response page. For
@@ -809,6 +837,12 @@ FOUNDATION_EXTERN NSString * const kGTLRReportsEntityTypeGplusCommunities;
  *    @arg @c kGTLRReportsApplicationNameGraduation The Graduation application's
  *        activity reports return information about various types of Graduation
  *        activity events. (Value: "graduation")
+ *    @arg @c kGTLRReportsApplicationNameVoice The Voice application's activity
+ *        reports return information about various types of Voice activity
+ *        events. (Value: "voice")
+ *    @arg @c kGTLRReportsApplicationNameChromeSync The Chrome Sync
+ *        application's activity reports return information about various types
+ *        of Chrome Sync activity events. (Value: "chrome_sync")
  *
  *  @return GTLRReportsQuery_ActivitiesList
  *

@@ -584,6 +584,16 @@ NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetting_PrivateIpRanges
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAppengine_ExportAppImageRequest
+//
+
+@implementation GTLRAppengine_ExportAppImageRequest
+@dynamic destinationRepository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAppengine_FeatureSettings
 //
 

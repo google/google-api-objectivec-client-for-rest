@@ -314,6 +314,13 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Promotion_P
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeCycleOptions;
 /**
+ *  Resume the subscription and start a new billing cycle immediately, resulting
+ *  in a new charge.
+ *
+ *  Value: "RESUME_MODE_IMMEDIATE_NEW_CYCLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeImmediateNewCycle;
+/**
  *  Resume the subscription with the existing billing schedule. The
  *  subscription's next renewal time must still be in the future for this mode
  *  to be applicable.
@@ -619,6 +626,32 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_Subscriptio
  *  Value: "BILLING_CYCLE_SPEC_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SubscriptionUpgradeDowngradeDetails_BillingCycleSpec_BillingCycleSpecUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRPaymentsResellerSubscription_SuspendSubscriptionRequest.suspendMode
+
+/**
+ *  Suspend the subscription, and the subscription will be auto cancelled after
+ *  the grace period. Contract terms dictate how long the grace period is.
+ *
+ *  Value: "SUSPEND_MODE_CANCEL_AFTER_GRACE_PERIOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SuspendSubscriptionRequest_SuspendMode_SuspendModeCancelAfterGracePeriod;
+/**
+ *  Suspend the subscription, and the subscription will be auto cancelled after
+ *  the retention period. Contract terms dictate how long the retention period
+ *  is.
+ *
+ *  Value: "SUSPEND_MODE_CANCEL_AFTER_RETENTION_PERIOD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SuspendSubscriptionRequest_SuspendMode_SuspendModeCancelAfterRetentionPeriod;
+/**
+ *  The default value. Suspend the subscription, and the subscription will stay
+ *  suspended indefinitely.
+ *
+ *  Value: "SUSPEND_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_SuspendSubscriptionRequest_SuspendMode_SuspendModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRPaymentsResellerSubscription_YoutubePayload.partnerPlanType
@@ -1524,6 +1557,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *    @arg @c kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeCycleOptions
  *        Resume the subscription using the input from `cycle_options`. (Value:
  *        "RESUME_MODE_CYCLE_OPTIONS")
+ *    @arg @c kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeImmediateNewCycle
+ *        Resume the subscription and start a new billing cycle immediately,
+ *        resulting in a new charge. (Value: "RESUME_MODE_IMMEDIATE_NEW_CYCLE")
  *    @arg @c kGTLRPaymentsResellerSubscription_ResumeSubscriptionRequest_ResumeMode_ResumeModeRestoreExistingBillingSchedule
  *        Resume the subscription with the existing billing schedule. The
  *        subscription's next renewal time must still be in the future for this
@@ -2061,6 +2097,29 @@ FOUNDATION_EXTERN NSString * const kGTLRPaymentsResellerSubscription_YoutubePayl
  *  Request to suspend a subscription.
  */
 @interface GTLRPaymentsResellerSubscription_SuspendSubscriptionRequest : GTLRObject
+
+/**
+ *  Optional. The mode to suspend the subscription. It's required for partners
+ *  to specify the suspend mode, whether suspend immediately and indefinitely,
+ *  or cancel the subscription after grace_period_millis or
+ *  auto_cancel_duration_millis if it's not resumed.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPaymentsResellerSubscription_SuspendSubscriptionRequest_SuspendMode_SuspendModeCancelAfterGracePeriod
+ *        Suspend the subscription, and the subscription will be auto cancelled
+ *        after the grace period. Contract terms dictate how long the grace
+ *        period is. (Value: "SUSPEND_MODE_CANCEL_AFTER_GRACE_PERIOD")
+ *    @arg @c kGTLRPaymentsResellerSubscription_SuspendSubscriptionRequest_SuspendMode_SuspendModeCancelAfterRetentionPeriod
+ *        Suspend the subscription, and the subscription will be auto cancelled
+ *        after the retention period. Contract terms dictate how long the
+ *        retention period is. (Value:
+ *        "SUSPEND_MODE_CANCEL_AFTER_RETENTION_PERIOD")
+ *    @arg @c kGTLRPaymentsResellerSubscription_SuspendSubscriptionRequest_SuspendMode_SuspendModeUnspecified
+ *        The default value. Suspend the subscription, and the subscription will
+ *        stay suspended indefinitely. (Value: "SUSPEND_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *suspendMode;
+
 @end
 
 

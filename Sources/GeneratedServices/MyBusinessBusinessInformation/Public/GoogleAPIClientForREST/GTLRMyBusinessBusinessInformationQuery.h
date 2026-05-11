@@ -442,7 +442,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 @end
 
 /**
- *  Gets the Google-updated version of the specified location.
+ *  Retrieves attributes for a location as they appear live on Google Maps and
+ *  Search. This consumer-facing view may have been updated by Google or
+ *  user-generated content and may differ from the merchant's version.
  *
  *  Method: mybusinessbusinessinformation.locations.attributes.getGoogleUpdated
  */
@@ -457,7 +459,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 /**
  *  Fetches a @c GTLRMyBusinessBusinessInformation_Attributes.
  *
- *  Gets the Google-updated version of the specified location.
+ *  Retrieves attributes for a location as they appear live on Google Maps and
+ *  Search. This consumer-facing view may have been updated by Google or
+ *  user-generated content and may differ from the merchant's version.
  *
  *  @param name Required. Google identifier for this location in the form of
  *    `locations/{location_id}/attributes`.
@@ -498,7 +502,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 @end
 
 /**
- *  Returns the specified location.
+ *  Returns the specified location as last set by the merchant. It may not
+ *  reflect updates from Google or user-generated content that are live on
+ *  Google Maps.
  *
  *  Method: mybusinessbusinessinformation.locations.get
  */
@@ -517,7 +523,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 /**
  *  Fetches a @c GTLRMyBusinessBusinessInformation_Location.
  *
- *  Returns the specified location.
+ *  Returns the specified location as last set by the merchant. It may not
+ *  reflect updates from Google or user-generated content that are live on
+ *  Google Maps.
  *
  *  @param name Required. The name of the location to fetch.
  *
@@ -528,7 +536,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 @end
 
 /**
- *  Looks up all the attributes set for a given location.
+ *  Retrieves attributes for a location as last set by the merchant. It may not
+ *  reflect updates from Google or user-generated content that are live on
+ *  Google Maps.
  *
  *  Method: mybusinessbusinessinformation.locations.getAttributes
  */
@@ -543,7 +553,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 /**
  *  Fetches a @c GTLRMyBusinessBusinessInformation_Attributes.
  *
- *  Looks up all the attributes set for a given location.
+ *  Retrieves attributes for a location as last set by the merchant. It may not
+ *  reflect updates from Google or user-generated content that are live on
+ *  Google Maps.
  *
  *  @param name Required. Google identifier for this location in the form of
  *    `locations/{location_id}/attributes`.
@@ -555,7 +567,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 @end
 
 /**
- *  Gets the Google-updated version of the specified location.
+ *  Returns the specified location as it appears live on Google Maps and Search.
+ *  This consumer-facing view may have been updated by Google or user-generated
+ *  content and may differ from the merchant's version. The returned
+ *  GoogleUpdatedLocation contains masks that indicate which fields differ from
+ *  the merchant's information.
  *
  *  Method: mybusinessbusinessinformation.locations.getGoogleUpdated
  */
@@ -574,7 +590,11 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformationViewFull;
 /**
  *  Fetches a @c GTLRMyBusinessBusinessInformation_GoogleUpdatedLocation.
  *
- *  Gets the Google-updated version of the specified location.
+ *  Returns the specified location as it appears live on Google Maps and Search.
+ *  This consumer-facing view may have been updated by Google or user-generated
+ *  content and may differ from the merchant's version. The returned
+ *  GoogleUpdatedLocation contains masks that indicate which fields differ from
+ *  the merchant's information.
  *
  *  @param name Required. The name of the location to fetch.
  *

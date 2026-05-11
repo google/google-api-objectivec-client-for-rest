@@ -21,6 +21,7 @@ NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeLarge = @"LARGE";
 NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeMedium = @"MEDIUM";
 NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeSmall = @"SMALL";
 NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified = @"THUMBNAIL_SIZE_UNSPECIFIED";
+NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeWidth2000Px = @"WIDTH2000_PX";
 
 // ----------------------------------------------------------------------------
 // Query Classes

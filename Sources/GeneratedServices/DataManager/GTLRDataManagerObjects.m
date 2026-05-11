@@ -60,6 +60,7 @@ NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalid
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonInvalidWip = @"PROCESSING_ERROR_REASON_INVALID_WIP";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonKekPermissionDenied = @"PROCESSING_ERROR_REASON_KEK_PERMISSION_DENIED";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonNoConsent = @"PROCESSING_ERROR_REASON_NO_CONSENT";
+NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonOnePerClickConversionActionNotPermittedWithBraid = @"PROCESSING_ERROR_REASON_ONE_PER_CLICK_CONVERSION_ACTION_NOT_PERMITTED_WITH_BRAID";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnknownConsent = @"PROCESSING_ERROR_REASON_UNKNOWN_CONSENT";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUnspecified = @"PROCESSING_ERROR_REASON_UNSPECIFIED";
 NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonUserIdentifierDecryptionError = @"PROCESSING_ERROR_REASON_USER_IDENTIFIER_DECRYPTION_ERROR";
@@ -69,6 +70,7 @@ NSString * const kGTLRDataManager_ErrorCount_Reason_ProcessingErrorReasonWipAuth
 NSString * const kGTLRDataManager_Event_EventSource_App        = @"APP";
 NSString * const kGTLRDataManager_Event_EventSource_EventSourceUnspecified = @"EVENT_SOURCE_UNSPECIFIED";
 NSString * const kGTLRDataManager_Event_EventSource_InStore    = @"IN_STORE";
+NSString * const kGTLRDataManager_Event_EventSource_Message    = @"MESSAGE";
 NSString * const kGTLRDataManager_Event_EventSource_Other      = @"OTHER";
 NSString * const kGTLRDataManager_Event_EventSource_Phone      = @"PHONE";
 NSString * const kGTLRDataManager_Event_EventSource_Web        = @"WEB";
@@ -311,7 +313,8 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_AdIdentifiers
-@dynamic gbraid, gclid, landingPageDeviceInfo, sessionAttributes, wbraid;
+@dynamic gbraid, gclid, landingPageDeviceInfo, mobileDeviceId,
+         sessionAttributes, wbraid;
 @end
 
 
@@ -360,11 +363,12 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_CartData
-@dynamic items, merchantFeedLabel, merchantFeedLanguageCode, merchantId,
-         transactionDiscount;
+@dynamic couponCodes, items, merchantFeedLabel, merchantFeedLanguageCode,
+         merchantId, transactionDiscount;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"couponCodes" : [NSString class],
     @"items" : [GTLRDataManager_Item class]
   };
   return map;
@@ -428,7 +432,9 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_DeviceInfo
-@dynamic ipAddress, userAgent;
+@dynamic brand, browser, browserVersion, category, ipAddress, languageCode,
+         model, operatingSystem, operatingSystemVersion, screenHeight,
+         screenWidth, userAgent;
 @end
 
 
@@ -485,11 +491,12 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_Event
-@dynamic additionalEventParameters, adIdentifiers, cartData, clientId, consent,
-         conversionValue, currency, customVariables, destinationReferences,
-         eventDeviceInfo, eventName, eventSource, eventTimestamp,
-         experimentalFields, lastUpdatedTimestamp, transactionId, userData,
-         userId, userPropertiesProperty;
+@dynamic additionalEventParameters, adIdentifiers, appInstanceId, cartData,
+         clientId, consent, conversionValue, currency, customVariables,
+         destinationReferences, eventDeviceInfo, eventLocation, eventName,
+         eventSource, eventTimestamp, experimentalFields, lastUpdatedTimestamp,
+         thirdPartyUserData, transactionId, userData, userId,
+         userPropertiesProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"userPropertiesProperty" : @"userProperties" };
@@ -505,6 +512,17 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_EventLocation
+//
+
+@implementation GTLRDataManager_EventLocation
+@dynamic city, continentCode, regionCode, storeId, subcontinentCode,
+         subdivisionCode;
 @end
 
 
@@ -694,12 +712,32 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_Item
-@dynamic additionalItemParameters, itemId, merchantProductId, quantity,
-         unitPrice;
+@dynamic additionalItemParameters, conversionValue, customVariables, itemId,
+         merchantFeedLabel, merchantFeedLanguageCode, merchantId,
+         merchantProductId, quantity, unitPrice;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"additionalItemParameters" : [GTLRDataManager_ItemParameter class]
+    @"additionalItemParameters" : [GTLRDataManager_ItemParameter class],
+    @"customVariables" : [GTLRDataManager_ItemCustomVariable class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataManager_ItemCustomVariable
+//
+
+@implementation GTLRDataManager_ItemCustomVariable
+@dynamic destinationReferences, value, variable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"destinationReferences" : [NSString class]
   };
   return map;
 }
@@ -1142,7 +1180,8 @@ NSString * const kGTLRDataManager_WarningCount_Reason_ProcessingWarningReasonWip
 //
 
 @implementation GTLRDataManager_SizeInfo
-@dynamic displayNetworkMembersCount, searchNetworkMembersCount;
+@dynamic displayNetworkMembersCount, gmailMembersCount,
+         searchNetworkMembersCount, youtubeMembersCount;
 @end
 
 

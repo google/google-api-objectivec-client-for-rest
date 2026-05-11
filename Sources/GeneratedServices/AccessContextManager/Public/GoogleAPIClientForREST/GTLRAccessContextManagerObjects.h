@@ -1124,8 +1124,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 /**
  *  A list of identities that are allowed access through [EgressPolicy].
- *  Identities can be an individual user, service account, Google group, or
- *  third-party identity. For the list of supported identity types, see
+ *  Identities can be an individual user, service account, Google group,
+ *  third-party identity, or agent identity. For the list of supported identity
+ *  types, see
  *  https://docs.cloud.google.com/vpc-service-controls/docs/supported-identities.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
@@ -1476,8 +1477,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 
 /**
  *  A list of identities that are allowed access through [IngressPolicy].
- *  Identities can be an individual user, service account, Google group, or
- *  third-party identity. For the list of supported identity types, see
+ *  Identities can be an individual user, service account, Google group,
+ *  third-party identity, or agent identity. For the list of supported identity
+ *  types, see
  *  https://docs.cloud.google.com/vpc-service-controls/docs/supported-identities.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *identities;
@@ -1780,12 +1782,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @interface GTLRAccessContextManager_ListSupportedPermissionsResponse : GTLRObject
 
 /**
- *  The pagination token to retrieve the next page of results. If the value is
- *  empty, no further results remain.
+ *  Use this pagination token to retrieve the next page of results. An empty
+ *  value indicates that no further results are available.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** List of VPC-SC supported permissions. */
+/** List of VPC Service Controls supported permissions. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *supportedPermissions;
 
 @end
@@ -1802,8 +1804,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManager_SupportedService_Su
 @interface GTLRAccessContextManager_ListSupportedServicesResponse : GTLRCollectionObject
 
 /**
- *  The pagination token to retrieve the next page of results. If the value is
- *  empty, no further results remain.
+ *  Use this pagination token to retrieve the next page of results. An empty
+ *  value indicates that no further results are available.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 

@@ -17,6 +17,7 @@
 // GTLRDataform_ComputeRepositoryAccessTokenStatusResponse.tokenStatus
 NSString * const kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_Invalid = @"INVALID";
 NSString * const kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_NotFound = @"NOT_FOUND";
+NSString * const kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_PermissionDenied = @"PERMISSION_DENIED";
 NSString * const kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_TokenStatusUnspecified = @"TOKEN_STATUS_UNSPECIFIED";
 NSString * const kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_Valid = @"VALID";
 
@@ -456,11 +457,31 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_DeleteFolderTreeRequest
+//
+
+@implementation GTLRDataform_DeleteFolderTreeRequest
+@dynamic force;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_DeleteTeamFolderTreeRequest
+//
+
+@implementation GTLRDataform_DeleteTeamFolderTreeRequest
+@dynamic force;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_DirectoryEntry
 //
 
 @implementation GTLRDataform_DirectoryEntry
-@dynamic directory, file;
+@dynamic directory, file, metadata;
 @end
 
 
@@ -603,6 +624,37 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_FileSearchResult
 @dynamic path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_FilesystemEntryMetadata
+//
+
+@implementation GTLRDataform_FilesystemEntryMetadata
+@dynamic sizeBytes, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_Folder
+//
+
+@implementation GTLRDataform_Folder
+@dynamic containingFolder, createTime, creatorIamPrincipal, displayName,
+         internalMetadata, name, teamFolderName, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_FolderContentsEntry
+//
+
+@implementation GTLRDataform_FolderContentsEntry
+@dynamic folder, repository;
 @end
 
 
@@ -998,6 +1050,26 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_MoveFolderRequest
+//
+
+@implementation GTLRDataform_MoveFolderRequest
+@dynamic destinationContainingFolder;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_MoveRepositoryRequest
+//
+
+@implementation GTLRDataform_MoveRepositoryRequest
+@dynamic destinationContainingFolder;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_Notebook
 //
 
@@ -1236,6 +1308,28 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataform_QueryFolderContentsResponse
+//
+
+@implementation GTLRDataform_QueryFolderContentsResponse
+@dynamic entries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRDataform_FolderContentsEntry class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"entries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataform_QueryRepositoryDirectoryContentsResponse
 //
 
@@ -1251,6 +1345,50 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 + (NSString *)collectionItemsKey {
   return @"directoryEntries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_QueryTeamFolderContentsResponse
+//
+
+@implementation GTLRDataform_QueryTeamFolderContentsResponse
+@dynamic entries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRDataform_TeamFolderContentsEntry class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"entries";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_QueryUserRootContentsResponse
+//
+
+@implementation GTLRDataform_QueryUserRootContentsResponse
+@dynamic entries, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"entries" : [GTLRDataform_RootContentsEntry class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"entries";
 }
 
 @end
@@ -1438,10 +1576,11 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Repository
-@dynamic createTime, dataEncryptionState, displayName, gitRemoteSettings,
-         internalMetadata, kmsKeyName, labels, name,
+@dynamic containingFolder, createTime, dataEncryptionState, displayName,
+         gitRemoteSettings, internalMetadata, kmsKeyName, labels, name,
          npmrcEnvironmentVariablesSecretVersion, serviceAccount,
-         setAuthenticatedUserAdmin, workspaceCompilationOverrides;
+         setAuthenticatedUserAdmin, teamFolderName,
+         workspaceCompilationOverrides;
 @end
 
 
@@ -1483,6 +1622,16 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_ResetWorkspaceChangesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_RootContentsEntry
+//
+
+@implementation GTLRDataform_RootContentsEntry
+@dynamic folder, repository;
 @end
 
 
@@ -1535,6 +1684,28 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_SearchResult
 @dynamic directory, file;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_SearchTeamFoldersResponse
+//
+
+@implementation GTLRDataform_SearchTeamFoldersResponse
+@dynamic nextPageToken, results;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"results" : [GTLRDataform_TeamFolderSearchResult class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"results";
+}
+
 @end
 
 
@@ -1616,6 +1787,37 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 
 @implementation GTLRDataform_Target
 @dynamic database, name, schema;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_TeamFolder
+//
+
+@implementation GTLRDataform_TeamFolder
+@dynamic createTime, creatorIamPrincipal, displayName, internalMetadata, name,
+         updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_TeamFolderContentsEntry
+//
+
+@implementation GTLRDataform_TeamFolderContentsEntry
+@dynamic folder, repository;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataform_TeamFolderSearchResult
+//
+
+@implementation GTLRDataform_TeamFolderSearchResult
+@dynamic teamFolder;
 @end
 
 
@@ -1714,7 +1916,7 @@ NSString * const kGTLRDataform_WorkflowInvocationAction_State_Succeeded = @"SUCC
 //
 
 @implementation GTLRDataform_Workspace
-@dynamic createTime, dataEncryptionState, internalMetadata, name,
+@dynamic createTime, dataEncryptionState, disableMoves, internalMetadata, name,
          privateResourceMetadata;
 @end
 

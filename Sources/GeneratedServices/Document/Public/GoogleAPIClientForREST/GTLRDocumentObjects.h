@@ -9796,6 +9796,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainPro
 @property(nonatomic, strong, nullable) NSNumber *learningRateMultiplier;
 
 /**
+ *  Optional. Resource name of a previously fine tuned version id to copy the
+ *  overwritten configs from. The base_processor_version should be newer than
+ *  the base processor version used to fine tune this provided processor
+ *  version. Format:
+ *  `projects/{project}/locations/{location}/processors/{processor}/processorVersions/{processorVersion}`.
+ */
+@property(nonatomic, copy, nullable) NSString *previousFineTunedProcessorVersionName;
+
+/**
  *  Optional. The number of steps to run for model tuning. Valid values are
  *  between 1 and 400. If not provided, recommended steps will be used.
  *

@@ -2,12 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Search Ads 360 Reporting API (searchads360/v0)
+//   Developer Knowledge API (developerknowledge/v1)
 // Description:
-//   The Search Ads 360 API allows developers to automate downloading reports
-//   from Search Ads 360.
+//   The Developer Knowledge API provides access to Google's developer
+//   knowledge.
 // Documentation:
-//   https://developers.google.com/search-ads/reporting
+//   https://developers.google.com/knowledge
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -26,30 +26,29 @@ NS_ASSUME_NONNULL_BEGIN
 // Authorization scope
 
 /**
- *  Authorization scope: View and manage your advertising data in DoubleClick
- *  Search
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud data
+ *  and see the email address for your Google Account.
  *
- *  Value "https://www.googleapis.com/auth/doubleclicksearch"
+ *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSA360Doubleclicksearch;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDeveloperKnowledgeCloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRSA360Service
+//   GTLRDeveloperKnowledgeService
 //
 
 /**
- *  Service for executing Search Ads 360 Reporting API queries.
+ *  Service for executing Developer Knowledge API queries.
  *
- *  The Search Ads 360 API allows developers to automate downloading reports
- *  from Search Ads 360.
+ *  The Developer Knowledge API provides access to Google's developer knowledge.
  */
-@interface GTLRSA360Service : GTLRService
+@interface GTLRDeveloperKnowledgeService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRSA360Query.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRDeveloperKnowledgeQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

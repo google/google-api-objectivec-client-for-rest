@@ -32,6 +32,62 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Finds orphan ResourceEvents matching the criteria and moves them to the
+ *  ArchivedResourceEvents table.
+ *
+ *  Method: assuredworkloads.assuredworkloads.archiveResourceEvents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_AssuredworkloadsArchiveResourceEvents : GTLRAssuredworkloadsQuery
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsResponse.
+ *
+ *  Finds orphan ResourceEvents matching the criteria and moves them to the
+ *  ArchivedResourceEvents table.
+ *
+ *  @param object The @c
+ *    GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsRequest
+ *    to include in the query.
+ *
+ *  @return GTLRAssuredworkloadsQuery_AssuredworkloadsArchiveResourceEvents
+ */
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsRequest *)object;
+
+@end
+
+/**
+ *  Finds matching ArchivedResourceEvents and moves them back to the
+ *  ResourceEvents table.
+ *
+ *  Method: assuredworkloads.assuredworkloads.revertArchivedResourceEvents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAssuredworkloadsCloudPlatform
+ */
+@interface GTLRAssuredworkloadsQuery_AssuredworkloadsRevertArchivedResourceEvents : GTLRAssuredworkloadsQuery
+
+/**
+ *  Fetches a @c
+ *  GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsResponse.
+ *
+ *  Finds matching ArchivedResourceEvents and moves them back to the
+ *  ResourceEvents table.
+ *
+ *  @param object The @c
+ *    GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsRequest
+ *    to include in the query.
+ *
+ *  @return GTLRAssuredworkloadsQuery_AssuredworkloadsRevertArchivedResourceEvents
+ */
++ (instancetype)queryWithObject:(GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsRequest *)object;
+
+@end
+
+/**
  *  Gets the latest state of a long-running operation. Clients can use this
  *  method to poll the operation result at intervals as recommended by the API
  *  service.

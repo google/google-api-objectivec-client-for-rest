@@ -293,6 +293,117 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
 
 @end
 
+@implementation GTLRChromeManagementQuery_CustomersConnectorConfigsCreate
+
+@dynamic connectorConfigId, parent;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/connectorConfigs";
+  GTLRChromeManagementQuery_CustomersConnectorConfigsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig class];
+  query.loggingName = @"chromemanagement.customers.connectorConfigs.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersConnectorConfigsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersConnectorConfigsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleProtobufEmpty class];
+  query.loggingName = @"chromemanagement.customers.connectorConfigs.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersConnectorConfigsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersConnectorConfigsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig class];
+  query.loggingName = @"chromemanagement.customers.connectorConfigs.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersConnectorConfigsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/connectorConfigs";
+  GTLRChromeManagementQuery_CustomersConnectorConfigsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ListConnectorConfigsResponse class];
+  query.loggingName = @"chromemanagement.customers.connectorConfigs.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersConnectorConfigsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRChromeManagementQuery_CustomersConnectorConfigsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig class];
+  query.loggingName = @"chromemanagement.customers.connectorConfigs.patch";
+  return query;
+}
+
+@end
+
 @implementation GTLRChromeManagementQuery_CustomersProfilesCommandsCreate
 
 @dynamic parent;
@@ -704,6 +815,26 @@ NSString * const kGTLRChromeManagementAppTypeTheme             = @"THEME";
   query.customer = customer;
   query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1FindInstalledAppDevicesResponse class];
   query.loggingName = @"chromemanagement.customers.reports.findInstalledAppDevices";
+  return query;
+}
+
+@end
+
+@implementation GTLRChromeManagementQuery_CustomersReportsFindInstalledAppProfiles
+
+@dynamic appId, appType, customer, filter, orderBy, orgUnitId, pageSize,
+         pageToken;
+
++ (instancetype)queryWithCustomer:(NSString *)customer {
+  NSArray *pathParams = @[ @"customer" ];
+  NSString *pathURITemplate = @"v1/{+customer}/reports:findInstalledAppProfiles";
+  GTLRChromeManagementQuery_CustomersReportsFindInstalledAppProfiles *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.customer = customer;
+  query.expectedObjectClass = [GTLRChromeManagement_GoogleChromeManagementV1FindInstalledAppProfilesResponse class];
+  query.loggingName = @"chromemanagement.customers.reports.findInstalledAppProfiles";
   return query;
 }
 

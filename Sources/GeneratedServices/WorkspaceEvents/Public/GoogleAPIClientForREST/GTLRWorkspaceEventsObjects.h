@@ -106,6 +106,20 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_State_Suspe
 // GTLRWorkspaceEvents_Subscription.suspensionReason
 
 /**
+ *  The app that authorized the creation of the subscription no longer has
+ *  access to the subscription's target resource.
+ *
+ *  Value: "APP_AUTHORIZATION_FAILURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_AppAuthorizationFailure;
+/**
+ *  The domain administrator has revoked the grant of one or more OAuth scopes
+ *  for the app.
+ *
+ *  Value: "APP_SCOPE_REVOKED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_Subscription_SuspensionReason_AppScopeRevoked;
+/**
  *  The subscription's notification endpoint doesn't exist, or the endpoint
  *  can't be found in the Google Cloud project where you created the
  *  subscription.
@@ -883,6 +897,14 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskSta
 @property(nonatomic, strong, nullable) NSNumber *reconciling;
 
 /**
+ *  Output only. The service account that was used to authorize the creation of
+ *  the subscription. This service account must be owned by the same Google
+ *  Cloud project where you created this subscription. Format:
+ *  `projects/{project_id}/serviceAccounts/{service_account_id}`
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountAuthority;
+
+/**
  *  Output only. The state of the subscription. Determines whether the
  *  subscription can receive events and deliver them to the notification
  *  endpoint.
@@ -907,6 +929,13 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskSta
  *  method.
  *
  *  Likely values:
+ *    @arg @c kGTLRWorkspaceEvents_Subscription_SuspensionReason_AppAuthorizationFailure
+ *        The app that authorized the creation of the subscription no longer has
+ *        access to the subscription's target resource. (Value:
+ *        "APP_AUTHORIZATION_FAILURE")
+ *    @arg @c kGTLRWorkspaceEvents_Subscription_SuspensionReason_AppScopeRevoked
+ *        The domain administrator has revoked the grant of one or more OAuth
+ *        scopes for the app. (Value: "APP_SCOPE_REVOKED")
  *    @arg @c kGTLRWorkspaceEvents_Subscription_SuspensionReason_EndpointNotFound
  *        The subscription's notification endpoint doesn't exist, or the
  *        endpoint can't be found in the Google Cloud project where you created
@@ -962,6 +991,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWorkspaceEvents_TaskStatus_State_TaskSta
 
 /** Output only. The last time that the subscription is updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Output only. The user who authorized the creation of the subscription. The
+ *  user must be able to view the `target_resource`. For Google Workspace users,
+ *  the `{user}` value is the
+ *  [`user.id`](https://developers.google.com/workspace/admin/directory/reference/rest/v1/users#User.FIELDS.id)
+ *  field from the Directory API. Format: `users/{user}`
+ */
+@property(nonatomic, copy, nullable) NSString *userAuthority;
 
 @end
 

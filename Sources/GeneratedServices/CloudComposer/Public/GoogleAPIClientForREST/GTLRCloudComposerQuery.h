@@ -210,6 +210,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsFetchDatabaseProperties : GTLRCloudComposerQuery
@@ -242,6 +243,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsGet : GTLRCloudComposerQuery
@@ -273,6 +275,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsList : GTLRCloudComposerQuery
@@ -469,6 +472,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsPollAirflowCommand : GTLRCloudComposerQuery
@@ -687,6 +691,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsGet : GTLRCloudComposerQuery
@@ -722,6 +727,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsConfigMapsList : GTLRCloudComposerQuery
@@ -878,6 +884,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsGet : GTLRCloudComposerQuery
@@ -912,6 +919,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsUserWorkloadsSecretsList : GTLRCloudComposerQuery
@@ -995,6 +1003,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsEnvironmentsWorkloadsList : GTLRCloudComposerQuery
@@ -1051,6 +1060,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsImageVersionsList : GTLRCloudComposerQuery
@@ -1132,6 +1142,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsOperationsGet : GTLRCloudComposerQuery
@@ -1162,6 +1173,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudComposerCloudcomposer
+ *    @c kGTLRAuthScopeCloudComposerCloudcomposerReadonly
  *    @c kGTLRAuthScopeCloudComposerCloudPlatform
  */
 @interface GTLRCloudComposerQuery_ProjectsLocationsOperationsList : GTLRCloudComposerQuery

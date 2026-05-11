@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   SaaS Runtime API (saasservicemgmt/v1beta1)
+//   App Lifecycle Manager API (saasservicemgmt/v1)
 // Description:
 //   Model, deploy, and operate your SaaS at scale.
 // Documentation:
@@ -31,16 +31,30 @@ NSString * const kGTLRSaaSServiceManagement_RolloutControl_Action_RolloutActionP
 NSString * const kGTLRSaaSServiceManagement_RolloutControl_Action_RolloutActionRun = @"ROLLOUT_ACTION_RUN";
 NSString * const kGTLRSaaSServiceManagement_RolloutControl_Action_RolloutActionUnspecified = @"ROLLOUT_ACTION_UNSPECIFIED";
 
-// GTLRSaaSServiceManagement_RolloutKind.maintenancePolicyEnforcement
-NSString * const kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementIgnored = @"MAINTENANCE_POLICY_ENFORCEMENT_IGNORED";
-NSString * const kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementSkipped = @"MAINTENANCE_POLICY_ENFORCEMENT_SKIPPED";
-NSString * const kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementStrict = @"MAINTENANCE_POLICY_ENFORCEMENT_STRICT";
-NSString * const kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementUnspecified = @"MAINTENANCE_POLICY_ENFORCEMENT_UNSPECIFIED";
-
 // GTLRSaaSServiceManagement_RolloutKind.updateUnitKindStrategy
 NSString * const kGTLRSaaSServiceManagement_RolloutKind_UpdateUnitKindStrategy_UpdateUnitKindStrategyNever = @"UPDATE_UNIT_KIND_STRATEGY_NEVER";
 NSString * const kGTLRSaaSServiceManagement_RolloutKind_UpdateUnitKindStrategy_UpdateUnitKindStrategyOnStart = @"UPDATE_UNIT_KIND_STRATEGY_ON_START";
 NSString * const kGTLRSaaSServiceManagement_RolloutKind_UpdateUnitKindStrategy_UpdateUnitKindStrategyUnspecified = @"UPDATE_UNIT_KIND_STRATEGY_UNSPECIFIED";
+
+// GTLRSaaSServiceManagement_Saas.state
+NSString * const kGTLRSaaSServiceManagement_Saas_State_Active  = @"ACTIVE";
+NSString * const kGTLRSaaSServiceManagement_Saas_State_Failed  = @"FAILED";
+NSString * const kGTLRSaaSServiceManagement_Saas_State_Running = @"RUNNING";
+NSString * const kGTLRSaaSServiceManagement_Saas_State_StateActive = @"STATE_ACTIVE";
+NSString * const kGTLRSaaSServiceManagement_Saas_State_StateFailed = @"STATE_FAILED";
+NSString * const kGTLRSaaSServiceManagement_Saas_State_StateRunning = @"STATE_RUNNING";
+NSString * const kGTLRSaaSServiceManagement_Saas_State_StateTypeUnspecified = @"STATE_TYPE_UNSPECIFIED";
+
+// GTLRSaaSServiceManagement_SaasCondition.status
+NSString * const kGTLRSaaSServiceManagement_SaasCondition_Status_StatusFalse = @"STATUS_FALSE";
+NSString * const kGTLRSaaSServiceManagement_SaasCondition_Status_StatusTrue = @"STATUS_TRUE";
+NSString * const kGTLRSaaSServiceManagement_SaasCondition_Status_StatusUnknown = @"STATUS_UNKNOWN";
+NSString * const kGTLRSaaSServiceManagement_SaasCondition_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
+
+// GTLRSaaSServiceManagement_SaasCondition.type
+NSString * const kGTLRSaaSServiceManagement_SaasCondition_Type_TypeReady = @"TYPE_READY";
+NSString * const kGTLRSaaSServiceManagement_SaasCondition_Type_TypeSynchronized = @"TYPE_SYNCHRONIZED";
+NSString * const kGTLRSaaSServiceManagement_SaasCondition_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRSaaSServiceManagement_Unit.managementMode
 NSString * const kGTLRSaaSServiceManagement_Unit_ManagementMode_ManagementModeSystem = @"MANAGEMENT_MODE_SYSTEM";
@@ -69,6 +83,7 @@ NSString * const kGTLRSaaSServiceManagement_UnitCondition_Status_StatusUnknown =
 NSString * const kGTLRSaaSServiceManagement_UnitCondition_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRSaaSServiceManagement_UnitCondition.type
+NSString * const kGTLRSaaSServiceManagement_UnitCondition_Type_TypeFlagsConfigInitialized = @"TYPE_FLAGS_CONFIG_INITIALIZED";
 NSString * const kGTLRSaaSServiceManagement_UnitCondition_Type_TypeOperationError = @"TYPE_OPERATION_ERROR";
 NSString * const kGTLRSaaSServiceManagement_UnitCondition_Type_TypeProvisioned = @"TYPE_PROVISIONED";
 NSString * const kGTLRSaaSServiceManagement_UnitCondition_Type_TypeReady = @"TYPE_READY";
@@ -99,16 +114,21 @@ NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Status_Status
 NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Status_StatusUnspecified = @"STATUS_UNSPECIFIED";
 
 // GTLRSaaSServiceManagement_UnitOperationCondition.type
+NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeAppComponentsRegistered = @"TYPE_APP_COMPONENTS_REGISTERED";
+NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeAppCreated = @"TYPE_APP_CREATED";
 NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeCancelled = @"TYPE_CANCELLED";
 NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeRunning = @"TYPE_RUNNING";
 NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeScheduled = @"TYPE_SCHEDULED";
 NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeSucceeded = @"TYPE_SUCCEEDED";
 NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeWorkloadSucceeded = @"TYPE_WORKLOAD_SUCCEEDED";
 
 // GTLRSaaSServiceManagement_UnitVariable.type
 NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_Bool = @"BOOL";
 NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_Int = @"INT";
+NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_List = @"LIST";
 NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_String = @"STRING";
+NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_Struct = @"STRUCT";
 NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
@@ -166,6 +186,16 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 @implementation GTLRSaaSServiceManagement_ErrorBudget
 @dynamic allowedCount, allowedPercentage;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_FlagUpdate
+//
+
+@implementation GTLRSaaSServiceManagement_FlagUpdate
+@dynamic flagRelease;
 @end
 
 
@@ -544,10 +574,10 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 @implementation GTLRSaaSServiceManagement_Rollout
 @dynamic annotations, control, createTime, deleteTime, effectiveUnitFilter,
-         endTime, ETag, labels, name, parentRollout, releaseProperty,
-         rolloutKind, rolloutOrchestrationStrategy, rootRollout, startTime,
-         state, stateMessage, stateTransitionTime, stats, uid, unitFilter,
-         updateTime;
+         endTime, ETag, flagRelease, labels, name, parentRollout,
+         releaseProperty, rolloutKind, rolloutOrchestrationStrategy,
+         rootRollout, startTime, state, stateMessage, stateTransitionTime,
+         stats, uid, unitFilter, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -604,9 +634,9 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 //
 
 @implementation GTLRSaaSServiceManagement_RolloutKind
-@dynamic annotations, createTime, errorBudget, ETag, labels,
-         maintenancePolicyEnforcement, name, rolloutOrchestrationStrategy, uid,
-         unitFilter, unitKind, updateTime, updateUnitKindStrategy;
+@dynamic annotations, createTime, errorBudget, ETag, labels, name,
+         rolloutOrchestrationStrategy, uid, unitFilter, unitKind, updateTime,
+         updateUnitKindStrategy;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -649,7 +679,7 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 //
 
 @implementation GTLRSaaSServiceManagement_RolloutStats
-@dynamic operationsByState;
+@dynamic estimatedTotalUnitCount, operationsByState;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -677,8 +707,8 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 //
 
 @implementation GTLRSaaSServiceManagement_Saas
-@dynamic annotations, createTime, ETag, labels, locations, name, uid,
-         updateTime;
+@dynamic annotations, conditions, createTime, error, ETag, labels, locations,
+         name, state, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -686,6 +716,7 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"conditions" : [GTLRSaaSServiceManagement_SaasCondition class],
     @"locations" : [GTLRSaaSServiceManagement_Location class]
   };
   return map;
@@ -724,11 +755,53 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRSaaSServiceManagement_SaasCondition
+//
+
+@implementation GTLRSaaSServiceManagement_SaasCondition
+@dynamic lastTransitionTime, message, reason, status, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRSaaSServiceManagement_Schedule
 //
 
 @implementation GTLRSaaSServiceManagement_Schedule
 @dynamic startTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_Status
+//
+
+@implementation GTLRSaaSServiceManagement_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRSaaSServiceManagement_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSaaSServiceManagement_Status_Details_Item
+//
+
+@implementation GTLRSaaSServiceManagement_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -793,10 +866,11 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 @implementation GTLRSaaSServiceManagement_Unit
 @dynamic annotations, conditions, createTime, dependencies, dependents, ETag,
-         inputVariables, labels, maintenance, managementMode, name,
-         ongoingOperations, outputVariables, pendingOperations, releaseProperty,
-         scheduledOperations, state, systemCleanupAt, systemManagedState,
-         tenant, uid, unitKind, updateTime;
+         flagRevisions, inputVariables, labels, maintenance, managementMode,
+         name, ongoingOperations, outputVariables, pendingOperations,
+         releaseProperty, satisfiesPzi, satisfiesPzs, scheduledOperations,
+         state, systemCleanupAt, systemManagedState, tenant, uid, unitKind,
+         updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -811,6 +885,7 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
     @"conditions" : [GTLRSaaSServiceManagement_UnitCondition class],
     @"dependencies" : [GTLRSaaSServiceManagement_UnitDependency class],
     @"dependents" : [GTLRSaaSServiceManagement_UnitDependency class],
+    @"flagRevisions" : [NSString class],
     @"inputVariables" : [GTLRSaaSServiceManagement_UnitVariable class],
     @"ongoingOperations" : [NSString class],
     @"outputVariables" : [GTLRSaaSServiceManagement_UnitVariable class],
@@ -877,9 +952,9 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 //
 
 @implementation GTLRSaaSServiceManagement_UnitKind
-@dynamic annotations, createTime, defaultRelease, dependencies, ETag,
-         inputVariableMappings, labels, name, outputVariableMappings, saas, uid,
-         updateTime;
+@dynamic annotations, createTime, defaultFlagRevisions, defaultRelease,
+         dependencies, ETag, inputVariableMappings, labels, name,
+         outputVariableMappings, saas, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -887,6 +962,7 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"defaultFlagRevisions" : [NSString class],
     @"dependencies" : [GTLRSaaSServiceManagement_Dependency class],
     @"inputVariableMappings" : [GTLRSaaSServiceManagement_VariableMapping class],
     @"outputVariableMappings" : [GTLRSaaSServiceManagement_VariableMapping class]
@@ -932,8 +1008,9 @@ NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified = 
 
 @implementation GTLRSaaSServiceManagement_UnitOperation
 @dynamic annotations, cancel, conditions, createTime, deleteTime, deprovision,
-         engineState, errorCategory, ETag, labels, name, parentUnitOperation,
-         provision, rollout, schedule, state, uid, unit, updateTime, upgrade;
+         engineState, errorCategory, ETag, flagUpdate, labels, name,
+         parentUnitOperation, provision, rollout, schedule, state, uid, unit,
+         updateTime, upgrade;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

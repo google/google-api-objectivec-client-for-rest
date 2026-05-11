@@ -29,6 +29,7 @@
 @class GTLRDeveloperConnect_Connection_Annotations;
 @class GTLRDeveloperConnect_Connection_Labels;
 @class GTLRDeveloperConnect_CryptoKeyConfig;
+@class GTLRDeveloperConnect_CustomOAuthConfig;
 @class GTLRDeveloperConnect_DeploymentEvent;
 @class GTLRDeveloperConnect_ExchangeError;
 @class GTLRDeveloperConnect_GenericHTTPEndpointConfig;
@@ -61,6 +62,7 @@
 @class GTLRDeveloperConnect_Operation_Response;
 @class GTLRDeveloperConnect_Projects;
 @class GTLRDeveloperConnect_ProviderOAuthConfig;
+@class GTLRDeveloperConnect_ProxyConfig;
 @class GTLRDeveloperConnect_RuntimeConfig;
 @class GTLRDeveloperConnect_SecureSourceManagerInstanceConfig;
 @class GTLRDeveloperConnect_ServiceDirectoryConfig;
@@ -68,6 +70,7 @@
 @class GTLRDeveloperConnect_Status_Details_Item;
 @class GTLRDeveloperConnect_User;
 @class GTLRDeveloperConnect_UserCredential;
+@class GTLRDeveloperConnect_UserRepository;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -78,6 +81,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRDeveloperConnect_CustomOAuthConfig.scmProvider
+
+/**
+ *  BYO Account Connector is an instance of Bitbucket Data Center.
+ *
+ *  Value: "BITBUCKET_DATA_CENTER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_BitbucketDataCenter;
+/**
+ *  BYO Account Connector is an instance of GitHub Enterprise.
+ *
+ *  Value: "GITHUB_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_GithubEnterprise;
+/**
+ *  BYO Account Connector is an instance of GitLab Enterprise.
+ *
+ *  Value: "GITLAB_ENTERPRISE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_GitlabEnterprise;
+/**
+ *  The SCM is not specified or BYO Account Connector is not an SCM.
+ *
+ *  Value: "SCM_PROVIDER_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_ScmProviderUnknown;
 
 // ----------------------------------------------------------------------------
 // GTLRDeveloperConnect_DeploymentEvent.state
@@ -360,6 +391,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 /** Output only. The timestamp when the accountConnector was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
+/** Custom OAuth config. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_CustomOAuthConfig *customOauthConfig;
+
 /**
  *  Optional. This checksum is computed by the server based on the value of
  *  other fields, and may be sent on update and delete requests to ensure the
@@ -381,6 +415,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 /** Optional. Provider OAuth config. */
 @property(nonatomic, strong, nullable) GTLRDeveloperConnect_ProviderOAuthConfig *providerOauthConfig;
+
+/** Optional. Configuration for the http and git proxy features. */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_ProxyConfig *proxyConfig;
+
+/**
+ *  Output only. A system-assigned unique identifier for the Account Connector.
+ */
+@property(nonatomic, copy, nullable) NSString *uid;
 
 /** Output only. The timestamp when the accountConnector was updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
@@ -784,6 +826,74 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
+ *  Message for a customized OAuth config.
+ */
+@interface GTLRDeveloperConnect_CustomOAuthConfig : GTLRObject
+
+/** Required. Immutable. The OAuth2 authorization server URL. */
+@property(nonatomic, copy, nullable) NSString *authUri;
+
+/** Required. The client ID of the OAuth application. */
+@property(nonatomic, copy, nullable) NSString *clientId;
+
+/**
+ *  Required. Input only. The client secret of the OAuth application. It will be
+ *  provided as plain text, but encrypted and stored in developer connect. As
+ *  INPUT_ONLY field, it will not be included in the output.
+ */
+@property(nonatomic, copy, nullable) NSString *clientSecret;
+
+/** Required. The host URI of the OAuth application. */
+@property(nonatomic, copy, nullable) NSString *hostUri;
+
+/**
+ *  Optional. Disable PKCE for this OAuth config. PKCE is enabled by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pkceDisabled;
+
+/**
+ *  Required. The type of the SCM provider.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_BitbucketDataCenter
+ *        BYO Account Connector is an instance of Bitbucket Data Center. (Value:
+ *        "BITBUCKET_DATA_CENTER")
+ *    @arg @c kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_GithubEnterprise
+ *        BYO Account Connector is an instance of GitHub Enterprise. (Value:
+ *        "GITHUB_ENTERPRISE")
+ *    @arg @c kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_GitlabEnterprise
+ *        BYO Account Connector is an instance of GitLab Enterprise. (Value:
+ *        "GITLAB_ENTERPRISE")
+ *    @arg @c kGTLRDeveloperConnect_CustomOAuthConfig_ScmProvider_ScmProviderUnknown
+ *        The SCM is not specified or BYO Account Connector is not an SCM.
+ *        (Value: "SCM_PROVIDER_UNKNOWN")
+ */
+@property(nonatomic, copy, nullable) NSString *scmProvider;
+
+/** Required. The scopes to be requested during OAuth. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *scopes;
+
+/** Output only. SCM server version installed at the host URI. */
+@property(nonatomic, copy, nullable) NSString *serverVersion;
+
+/**
+ *  Optional. Configuration for using Service Directory to connect to a private
+ *  service.
+ */
+@property(nonatomic, strong, nullable) GTLRDeveloperConnect_ServiceDirectoryConfig *serviceDirectoryConfig;
+
+/** Optional. SSL certificate to use for requests to a private service. */
+@property(nonatomic, copy, nullable) NSString *sslCaCertificate;
+
+/** Required. Immutable. The OAuth2 token request URL. */
+@property(nonatomic, copy, nullable) NSString *tokenUri;
+
+@end
+
+
+/**
  *  The DeploymentEvent resource represents the deployment of the artifact
  *  within the InsightsConfig resource.
  */
@@ -1013,6 +1123,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 /** The token content. */
 @property(nonatomic, copy, nullable) NSString *token;
+
+@end
+
+
+/**
+ *  Response message for FetchUserRepositories.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "userRepos" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDeveloperConnect_FetchUserRepositoriesResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The repositories that the user can access with this account connector.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDeveloperConnect_UserRepository *> *userRepos;
 
 @end
 
@@ -2214,6 +2348,30 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
 
 
 /**
+ *  The proxy configuration.
+ */
+@interface GTLRDeveloperConnect_ProxyConfig : GTLRObject
+
+/**
+ *  Optional. Setting this to true allows the git and http proxies to perform
+ *  actions on behalf of the user configured under the account connector.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  Output only. The base URI for the HTTP proxy endpoint. Has the format
+ *  `https://{generatedID}-a-h-{shortRegion}.developerconnect.dev` Populated
+ *  only when `enabled` is set to `true`. This endpoint is used by other Google
+ *  services that integrate with Developer Connect.
+ */
+@property(nonatomic, copy, nullable) NSString *httpProxyBaseUri;
+
+@end
+
+
+/**
  *  RuntimeConfig represents the runtimes where the application is deployed.
  */
 @interface GTLRDeveloperConnect_RuntimeConfig : GTLRObject
@@ -2435,6 +2593,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDeveloperConnect_StartOAuthResponse_Syst
  *  regional secrets are supported in that location).
  */
 @property(nonatomic, copy, nullable) NSString *userTokenSecretVersion;
+
+@end
+
+
+/**
+ *  A user repository that can be linked to the account connector. Consists of
+ *  the repo name and the git proxy URL to forward requests to this repo.
+ */
+@interface GTLRDeveloperConnect_UserRepository : GTLRObject
+
+/**
+ *  Output only. The git clone URL of the repo. For example:
+ *  https://github.com/myuser/myrepo.git
+ */
+@property(nonatomic, copy, nullable) NSString *cloneUri;
+
+/** Output only. The user friendly repo name (e.g., myuser/myrepo) */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. The Git proxy URL for this repo. For example:
+ *  https://us-west1-git.developerconnect.dev/a/my-proj/my-ac/myuser/myrepo.git.
+ *  Populated only when `proxy_config.enabled` is set to `true` in the Account
+ *  Connector. This URL is used by other Google services that integrate with
+ *  Developer Connect.
+ */
+@property(nonatomic, copy, nullable) NSString *gitProxyUri;
 
 @end
 

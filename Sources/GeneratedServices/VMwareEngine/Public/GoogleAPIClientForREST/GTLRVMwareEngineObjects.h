@@ -3717,6 +3717,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 
+/**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
 @end
 
 
@@ -5382,6 +5390,14 @@ FOUNDATION_EXTERN NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay
  *  UUID is not supported (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. If set to `true`, only validates the request but doesn’t execute
+ *  the request. If set to `false`, validates and executes the request.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
 
 @end
 

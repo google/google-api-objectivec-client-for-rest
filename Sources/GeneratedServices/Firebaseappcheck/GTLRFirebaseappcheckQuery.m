@@ -248,7 +248,11 @@
 
 @implementation GTLRFirebaseappcheckQuery_ProjectsAppsDebugTokensDelete
 
-@dynamic name;
+@dynamic ETag, name;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"ETag" : @"etag" };
+}
 
 + (instancetype)queryWithName:(NSString *)name {
   NSArray *pathParams = @[ @"name" ];

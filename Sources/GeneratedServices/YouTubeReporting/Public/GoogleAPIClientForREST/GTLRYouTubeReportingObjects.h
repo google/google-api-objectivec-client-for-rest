@@ -323,10 +323,21 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
 @property(nonatomic, copy, nullable) NSString *fromFileName;
 
 /** gdata */
+@property(nonatomic, copy, nullable) NSString *fromFusionId;
+
+/** gdata */
 @property(nonatomic, copy, nullable) NSString *fromHeader;
 
 /** gdata */
 @property(nonatomic, copy, nullable) NSString *fromUrlPath;
+
+/**
+ *  gdata
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fusionIdDetectionMetadata;
 
 @end
 
@@ -624,6 +635,14 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeReporting_GdataMedia_ReferenceTyp
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *sha256Hash;
+
+/**
+ *  gdata
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *sha512Hash;
 
 /**
  *  gdata

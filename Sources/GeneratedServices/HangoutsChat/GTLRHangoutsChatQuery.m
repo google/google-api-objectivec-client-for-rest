@@ -15,10 +15,20 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// createMessageNotificationOptionsNotificationType
+NSString * const kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeForceNotify = @"NOTIFICATION_TYPE_FORCE_NOTIFY";
+NSString * const kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeNone = @"NOTIFICATION_TYPE_NONE";
+NSString * const kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeSilent = @"NOTIFICATION_TYPE_SILENT";
+
 // messageReplyOption
 NSString * const kGTLRHangoutsChatMessageReplyOptionMessageReplyOptionUnspecified = @"MESSAGE_REPLY_OPTION_UNSPECIFIED";
 NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageFallbackToNewThread = @"REPLY_MESSAGE_FALLBACK_TO_NEW_THREAD";
 NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY_MESSAGE_OR_FAIL";
+
+// spaceView
+NSString * const kGTLRHangoutsChatSpaceViewSpaceViewExpanded   = @"SPACE_VIEW_EXPANDED";
+NSString * const kGTLRHangoutsChatSpaceViewSpaceViewResourceNameOnly = @"SPACE_VIEW_RESOURCE_NAME_ONLY";
+NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecified = @"SPACE_VIEW_UNSPECIFIED";
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -250,6 +260,30 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @end
 
+@implementation GTLRHangoutsChatQuery_SpacesFindGroupChats
+
+@dynamic pageSize, pageToken, spaceView, users;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"users" : [NSString class]
+  };
+  return map;
+}
+
++ (instancetype)query {
+  NSString *pathURITemplate = @"v1/spaces:findGroupChats";
+  GTLRHangoutsChatQuery_SpacesFindGroupChats *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:nil];
+  query.expectedObjectClass = [GTLRHangoutsChat_FindGroupChatsResponse class];
+  query.loggingName = @"chat.spaces.findGroupChats";
+  return query;
+}
+
+@end
+
 @implementation GTLRHangoutsChatQuery_SpacesGet
 
 @dynamic name, useAdminAccess;
@@ -419,7 +453,12 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
 
 @implementation GTLRHangoutsChatQuery_SpacesMessagesCreate
 
-@dynamic messageId, messageReplyOption, parent, requestId, threadKey;
+@dynamic createMessageNotificationOptionsNotificationType, messageId,
+         messageReplyOption, parent, requestId, threadKey;
+
++ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
+  return @{ @"createMessageNotificationOptionsNotificationType" : @"createMessageNotificationOptions.notificationType" };
+}
 
 + (instancetype)queryWithObject:(GTLRHangoutsChat_Message *)object
                          parent:(NSString *)parent {
@@ -719,6 +758,171 @@ NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail = @"REPLY
   query.parent = parent;
   query.expectedObjectClass = [GTLRHangoutsChat_ListSpaceEventsResponse class];
   query.loggingName = @"chat.spaces.spaceEvents.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSectionsCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_GoogleChatV1Section *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/sections";
+  GTLRHangoutsChatQuery_UsersSectionsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_GoogleChatV1Section class];
+  query.loggingName = @"chat.users.sections.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSectionsDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSectionsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_Empty class];
+  query.loggingName = @"chat.users.sections.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSectionsItemsList
+
+@dynamic filter, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/items";
+  GTLRHangoutsChatQuery_UsersSectionsItemsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_ListSectionItemsResponse class];
+  query.loggingName = @"chat.users.sections.items.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSectionsItemsMove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_MoveSectionItemRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:move";
+  GTLRHangoutsChatQuery_UsersSectionsItemsMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_MoveSectionItemResponse class];
+  query.loggingName = @"chat.users.sections.items.move";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSectionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/sections";
+  GTLRHangoutsChatQuery_UsersSectionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRHangoutsChat_ListSectionsResponse class];
+  query.loggingName = @"chat.users.sections.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSectionsPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_GoogleChatV1Section *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRHangoutsChatQuery_UsersSectionsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_GoogleChatV1Section class];
+  query.loggingName = @"chat.users.sections.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRHangoutsChatQuery_UsersSectionsPosition
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRHangoutsChat_PositionSectionRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:position";
+  GTLRHangoutsChatQuery_UsersSectionsPosition *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRHangoutsChat_PositionSectionResponse class];
+  query.loggingName = @"chat.users.sections.position";
   return query;
 }
 

@@ -1373,7 +1373,7 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 //
 
 @implementation GTLRVMwareEngine_MountDatastoreRequest
-@dynamic datastoreMountConfig, ignoreColocation, requestId;
+@dynamic datastoreMountConfig, ignoreColocation, requestId, validateOnly;
 @end
 
 
@@ -1875,7 +1875,7 @@ NSString * const kGTLRVMwareEngine_WeeklyTimeInterval_StartDay_Wednesday = @"WED
 //
 
 @implementation GTLRVMwareEngine_UnmountDatastoreRequest
-@dynamic datastore, requestId;
+@dynamic datastore, requestId, validateOnly;
 @end
 
 

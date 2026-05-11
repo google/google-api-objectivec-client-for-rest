@@ -63,6 +63,7 @@
 @class GTLRNetworkManagement_Operation_Metadata;
 @class GTLRNetworkManagement_Operation_Response;
 @class GTLRNetworkManagement_Policy;
+@class GTLRNetworkManagement_PrivateConnectionInfo;
 @class GTLRNetworkManagement_ProbingDetails;
 @class GTLRNetworkManagement_ProxyConnectionInfo;
 @class GTLRNetworkManagement_ReachabilityDetails;
@@ -284,6 +285,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_Permis
  *  Value: "RESOURCE_CONFIG_NOT_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_ResourceConfigNotFound;
+/**
+ *  Aborted because the response size exceeds the limit.
+ *
+ *  Value: "RESPONSE_TOO_LARGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_AbortInfo_Cause_ResponseTooLarge;
 /**
  *  Aborted because expected route configuration was missing.
  *
@@ -1017,6 +1024,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoTraff
  *  Value: "NO_VALID_ROUTE_FROM_GOOGLE_MANAGED_NETWORK_TO_DESTINATION"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoValidRouteFromGoogleManagedNetworkToDestination;
+/**
+ *  Packet is dropped due to no running instance found for private connection.
+ *
+ *  Value: "PRIVATE_CONNECTION_NO_RUNNING_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateConnectionNoRunningInstance;
 /**
  *  Endpoint with only an internal IP address tries to access Google API and
  *  services, but Private Google Access is not enabled in the subnet or is not
@@ -2789,6 +2802,18 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromCl
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudSqlInstance;
 /**
+ *  Initial state: packet originating from a Datastream Private Connection.
+ *
+ *  Value: "START_FROM_DATASTREAM_PRIVATE_CONNECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromDatastreamPrivateConnection;
+/**
+ *  Initial state: packet originating from a DMS Private Connection.
+ *
+ *  Value: "START_FROM_DMS_PRIVATE_CONNECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_Step_State_StartFromDmsPrivateConnection;
+/**
  *  Initial state: packet originating from a Google Kubernetes Engine cluster
  *  master. A GKEMasterInfo is populated with starting instance information.
  *
@@ -3158,6 +3183,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_ResourceConfigNotFound
  *        Aborted because expected resource configuration was missing. (Value:
  *        "RESOURCE_CONFIG_NOT_FOUND")
+ *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_ResponseTooLarge Aborted
+ *        because the response size exceeds the limit. (Value:
+ *        "RESPONSE_TOO_LARGE")
  *    @arg @c kGTLRNetworkManagement_AbortInfo_Cause_RouteConfigNotFound Aborted
  *        because expected route configuration was missing. (Value:
  *        "ROUTE_CONFIG_NOT_FOUND")
@@ -4009,6 +4037,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Packet is dropped because there is no valid matching route from the
  *        network of the Google-managed service to the destination. (Value:
  *        "NO_VALID_ROUTE_FROM_GOOGLE_MANAGED_NETWORK_TO_DESTINATION")
+ *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateConnectionNoRunningInstance
+ *        Packet is dropped due to no running instance found for private
+ *        connection. (Value: "PRIVATE_CONNECTION_NO_RUNNING_INSTANCE")
  *    @arg @c kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed
  *        Endpoint with only an internal IP address tries to access Google API
  *        and services, but Private Google Access is not enabled in the subnet
@@ -5989,6 +6020,20 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 
 /**
+ *  For display only. Metadata associated with a Private Connection.
+ */
+@interface GTLRNetworkManagement_PrivateConnectionInfo : GTLRObject
+
+/**
+ *  URI of the Private Connection in format
+ *  "projects/{project_id}/locations/{location}/privateConnections/{private_connection_id}"
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Results of active probing from the last run of the test.
  */
 @interface GTLRNetworkManagement_ProbingDetails : GTLRObject
@@ -6436,7 +6481,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /**
  *  Region of the route. DYNAMIC, PEERING_DYNAMIC, POLICY_BASED and ADVERTISED
  *  routes only. If set for POLICY_BASED route, this is a region of VLAN
- *  attachments for Cloud Interconnect the route applies to.
+ *  attachments for Cloud Interconnect the route applies to. If set to "all" for
+ *  POLICY_BASED route, the route applies to VLAN attachments of Cloud
+ *  Interconnect in all regions.
  */
 @property(nonatomic, copy, nullable) NSString *region;
 
@@ -6713,6 +6760,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 /** Display information of a Cloud SQL instance. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_CloudSQLInstanceInfo *cloudSqlInstance;
 
+/** Display information of a Datastream Private Connection. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_PrivateConnectionInfo *datastreamPrivateConnection;
+
 /** Display information of the final state "deliver" and reason. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_DeliverInfo *deliver;
 
@@ -6725,6 +6775,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
 
 /** Display information of a serverless direct VPC egress connection. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_DirectVpcEgressConnectionInfo *directVpcEgressConnection;
+
+/** Display information of a DMS Private Connection. */
+@property(nonatomic, strong, nullable) GTLRNetworkManagement_PrivateConnectionInfo *dmsPrivateConnection;
 
 /** Display information of the final state "drop" and reason. */
 @property(nonatomic, strong, nullable) GTLRNetworkManagement_DropInfo *drop;
@@ -6924,6 +6977,12 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingT
  *        Initial state: packet originating from a Cloud SQL instance. A
  *        CloudSQLInstanceInfo is populated with starting instance information.
  *        (Value: "START_FROM_CLOUD_SQL_INSTANCE")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromDatastreamPrivateConnection
+ *        Initial state: packet originating from a Datastream Private
+ *        Connection. (Value: "START_FROM_DATASTREAM_PRIVATE_CONNECTION")
+ *    @arg @c kGTLRNetworkManagement_Step_State_StartFromDmsPrivateConnection
+ *        Initial state: packet originating from a DMS Private Connection.
+ *        (Value: "START_FROM_DMS_PRIVATE_CONNECTION")
  *    @arg @c kGTLRNetworkManagement_Step_State_StartFromGkeMaster Initial
  *        state: packet originating from a Google Kubernetes Engine cluster
  *        master. A GKEMasterInfo is populated with starting instance

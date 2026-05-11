@@ -189,6 +189,7 @@ NSString * const kGTLRServiceUsage_Publishing_Organization_ClientLibraryOrganiza
 NSString * const kGTLRServiceUsage_Publishing_Organization_Cloud = @"CLOUD";
 NSString * const kGTLRServiceUsage_Publishing_Organization_GenerativeAi = @"GENERATIVE_AI";
 NSString * const kGTLRServiceUsage_Publishing_Organization_Geo = @"GEO";
+NSString * const kGTLRServiceUsage_Publishing_Organization_Health = @"HEALTH";
 NSString * const kGTLRServiceUsage_Publishing_Organization_Photos = @"PHOTOS";
 NSString * const kGTLRServiceUsage_Publishing_Organization_Shopping = @"SHOPPING";
 NSString * const kGTLRServiceUsage_Publishing_Organization_StreetView = @"STREET_VIEW";
@@ -1859,56 +1860,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 
 // ----------------------------------------------------------------------------
 //
-//   GTLRServiceUsage_McpEnableRule
-//
-
-@implementation GTLRServiceUsage_McpEnableRule
-@dynamic mcpServices;
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"mcpServices" : [GTLRServiceUsage_McpService class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_McpPolicy
-//
-
-@implementation GTLRServiceUsage_McpPolicy
-@dynamic createTime, ETag, mcpEnableRules, name, updateTime;
-
-+ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"ETag" : @"etag" };
-}
-
-+ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
-  NSDictionary<NSString *, Class> *map = @{
-    @"mcpEnableRules" : [GTLRServiceUsage_McpEnableRule class]
-  };
-  return map;
-}
-
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_McpService
-//
-
-@implementation GTLRServiceUsage_McpService
-@dynamic service;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
 //   GTLRServiceUsage_Method
 //
 
@@ -2561,15 +2512,6 @@ NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3   = @"SYNTAX_PROTO3"
 //
 
 @implementation GTLRServiceUsage_UpdateContentSecurityPolicyMetadata
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRServiceUsage_UpdateMcpPolicyMetadata
-//
-
-@implementation GTLRServiceUsage_UpdateMcpPolicyMetadata
 @end
 
 

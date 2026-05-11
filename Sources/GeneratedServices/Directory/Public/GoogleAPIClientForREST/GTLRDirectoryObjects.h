@@ -5598,9 +5598,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDirectory_RoleAssignment_AssigneeType_Us
 @interface GTLRDirectory_UserLocation : GTLRObject
 
 /**
- *  Textual location. This is most useful for display purposes to concisely
- *  describe the location. For example 'Mountain View, CA', 'Near Seattle',
- *  'US-NYC-9TH 9A209A.''
+ *  Required. Textual location. This is most useful for display purposes to
+ *  concisely describe the location. For example 'Mountain View, CA', 'Near
+ *  Seattle', 'US-NYC-9TH 9A209A.''
  */
 @property(nonatomic, copy, nullable) NSString *area;
 

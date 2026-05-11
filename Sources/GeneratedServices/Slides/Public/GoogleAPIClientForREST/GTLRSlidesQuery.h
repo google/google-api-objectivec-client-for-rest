@@ -65,6 +65,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeSm
  *  Value: "THUMBNAIL_SIZE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeThumbnailSizeUnspecified;
+/**
+ *  The thumbnail image width of 2000px.
+ *
+ *  Value: "WIDTH2000_PX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeWidth2000Px;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -285,6 +291,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSlidesThumbnailPropertiesThumbnailSizeTh
  *        image width of 800px. (Value: "MEDIUM")
  *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeSmall The thumbnail
  *        image width of 200px. (Value: "SMALL")
+ *    @arg @c kGTLRSlidesThumbnailPropertiesThumbnailSizeWidth2000Px The
+ *        thumbnail image width of 2000px. (Value: "WIDTH2000_PX")
  */
 @property(nonatomic, copy, nullable) NSString *thumbnailPropertiesThumbnailSize;
 

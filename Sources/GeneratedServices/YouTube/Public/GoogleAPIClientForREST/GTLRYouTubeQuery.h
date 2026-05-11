@@ -641,7 +641,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 
 @property(nonatomic, copy, nullable) NSString *channelId;
 
-@property(nonatomic, assign) BOOL home;
+@property(nonatomic, assign) BOOL home GTLR_DEPRECATED;
 
 /**
  *  The *maxResults* parameter specifies the maximum number of items that should
@@ -652,7 +652,7 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
  */
 @property(nonatomic, assign) NSUInteger maxResults;
 
-@property(nonatomic, assign) BOOL mine GTLR_DEPRECATED;
+@property(nonatomic, assign) BOOL mine;
 
 /**
  *  The *pageToken* parameter identifies a specific page in the result set that
@@ -4826,6 +4826,8 @@ FOUNDATION_EXTERN NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified;
 @interface GTLRYouTubeQuery_TestsInsert : GTLRYouTubeQuery
 
 @property(nonatomic, copy, nullable) NSString *externalChannelId;
+
+@property(nonatomic, copy, nullable) NSString *onBehalfOfContentOwnerChannel;
 
 @property(nonatomic, strong, nullable) NSArray<NSString *> *part;
 

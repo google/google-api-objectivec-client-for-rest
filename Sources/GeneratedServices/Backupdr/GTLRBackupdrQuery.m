@@ -29,6 +29,44 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
 
 @end
 
+@implementation GTLRBackupdrQuery_FoldersLocationsResourceBackupConfigsFetch
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/resourceBackupConfigs:fetch";
+  GTLRBackupdrQuery_FoldersLocationsResourceBackupConfigsFetch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_FetchResourceBackupConfigsResponse class];
+  query.loggingName = @"backupdr.folders.locations.resourceBackupConfigs.fetch";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_OrganizationsLocationsResourceBackupConfigsFetch
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/resourceBackupConfigs:fetch";
+  GTLRBackupdrQuery_OrganizationsLocationsResourceBackupConfigsFetch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_FetchResourceBackupConfigsResponse class];
+  query.loggingName = @"backupdr.organizations.locations.resourceBackupConfigs.fetch";
+  return query;
+}
+
+@end
+
 @implementation GTLRBackupdrQuery_ProjectsLocationsBackupPlanAssociationsCreate
 
 @dynamic backupPlanAssociationId, parent, requestId;
@@ -1243,6 +1281,25 @@ NSString * const kGTLRBackupdrViewBackupViewUnspecified      = @"BACKUP_VIEW_UNS
   query.name = name;
   query.expectedObjectClass = [GTLRBackupdr_ListOperationsResponse class];
   query.loggingName = @"backupdr.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsFetch
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/resourceBackupConfigs:fetch";
+  GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsFetch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBackupdr_FetchResourceBackupConfigsResponse class];
+  query.loggingName = @"backupdr.projects.locations.resourceBackupConfigs.fetch";
   return query;
 }
 

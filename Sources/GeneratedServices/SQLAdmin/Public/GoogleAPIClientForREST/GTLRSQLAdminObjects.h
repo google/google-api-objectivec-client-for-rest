@@ -417,6 +417,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres18;
 /**
+ *  The database version is PostgreSQL 19.
+ *
+ *  Value: "POSTGRES_19"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres19;
+/**
  *  The database version is PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
@@ -947,6 +953,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postg
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres18;
 /**
+ *  The database version is PostgreSQL 19.
+ *
+ *  Value: "POSTGRES_19"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres19;
+/**
  *  The database version is PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
@@ -1391,6 +1403,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres18;
 /**
+ *  The database version is PostgreSQL 19.
+ *
+ *  Value: "POSTGRES_19"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres19;
+/**
  *  The database version is PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
@@ -1793,6 +1811,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersio
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres18;
 /**
+ *  The database version is PostgreSQL 19.
+ *
+ *  Value: "POSTGRES_19"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres19;
+/**
  *  The database version is PostgreSQL 9.6.
  *
  *  Value: "POSTGRES_9_6"
@@ -2039,6 +2063,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReas
  *  Value: "OPERATIONAL_ISSUE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_OperationalIssue;
+/**
+ *  The project is suspended due to abuse detected by Ares.
+ *
+ *  Value: "PROJECT_ABUSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_DatabaseInstance_SuspensionReason_ProjectAbuse;
 /**
  *  This is an unknown suspension reason.
  *
@@ -2429,6 +2459,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres17;
  *  Value: "POSTGRES_18"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres18;
+/**
+ *  The database version is PostgreSQL 19.
+ *
+ *  Value: "POSTGRES_19"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Flag_AppliesTo_Postgres19;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -3051,6 +3087,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_MajorVe
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_ManageBackup;
 /**
+ *  Pre-checks the major version upgrade operation.
+ *
+ *  Value: "PRE_CHECK_MAJOR_VERSION_UPGRADE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_Operation_OperationType_PreCheckMajorVersionUpgrade;
+/**
  *  Promotes a Cloud SQL replica instance.
  *
  *  Value: "PROMOTE_REPLICA"
@@ -3513,6 +3555,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeCont
  *  Value: "POSTGRES_18"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres18;
+/**
+ *  The database version is PostgreSQL 19.
+ *
+ *  Value: "POSTGRES_19"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres19;
 /**
  *  The database version is PostgreSQL 9.6.
  *
@@ -4831,6 +4879,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        version is PostgreSQL 17. (Value: "POSTGRES_17")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres18 The database
  *        version is PostgreSQL 18. (Value: "POSTGRES_18")
+ *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres19 The database
+ *        version is PostgreSQL 19. (Value: "POSTGRES_19")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_Postgres96 The database
  *        version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_Backup_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -5319,6 +5369,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        version is PostgreSQL 17. (Value: "POSTGRES_17")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres18 The database
  *        version is PostgreSQL 18. (Value: "POSTGRES_18")
+ *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres19 The database
+ *        version is PostgreSQL 19. (Value: "POSTGRES_19")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_Postgres96 The database
  *        version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_BackupRun_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -5853,6 +5905,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        database version is PostgreSQL 17. (Value: "POSTGRES_17")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres18 The
  *        database version is PostgreSQL 18. (Value: "POSTGRES_18")
+ *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres19 The
+ *        database version is PostgreSQL 19. (Value: "POSTGRES_19")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_ConnectSettings_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -6197,6 +6251,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        database version is PostgreSQL 17. (Value: "POSTGRES_17")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres18 The
  *        database version is PostgreSQL 18. (Value: "POSTGRES_18")
+ *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres19 The
+ *        database version is PostgreSQL 19. (Value: "POSTGRES_19")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_Postgres96 The
  *        database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_DatabaseInstance_DatabaseVersion_SqlDatabaseVersionUnspecified
@@ -6854,7 +6910,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 @property(nonatomic, copy, nullable) NSString *application;
 
 /**
- *  Optional. When set to true, the API caller identity associated with the
+ *  Optional. When set to `true`, the API caller identity associated with the
  *  request is used for database authentication. The API caller must be an IAM
  *  user in the database.
  *
@@ -8759,6 +8815,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        "MAJOR_VERSION_UPGRADE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ManageBackup Changes the
  *        BackupTier of a Cloud SQL instance. (Value: "MANAGE_BACKUP")
+ *    @arg @c kGTLRSQLAdmin_Operation_OperationType_PreCheckMajorVersionUpgrade
+ *        Pre-checks the major version upgrade operation. (Value:
+ *        "PRE_CHECK_MAJOR_VERSION_UPGRADE")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_PromoteReplica Promotes a
  *        Cloud SQL replica instance. (Value: "PROMOTE_REPLICA")
  *    @arg @c kGTLRSQLAdmin_Operation_OperationType_ReconfigureOldPrimary
@@ -9057,51 +9116,52 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 
 /**
- *  Performance Capture configuration.
+ *  Performance capture configuration.
  */
 @interface GTLRSQLAdmin_PerformanceCaptureConfig : GTLRObject
 
 /**
- *  Optional. Enable or disable the Performance Capture feature.
+ *  Optional. Enables or disables the performance capture feature.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  Optional. The minimum number of consecutive readings above threshold that
- *  triggers instance state capture.
+ *  Optional. Specifies the minimum number of consecutive probe threshold that
+ *  triggers performance capture.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *probeThreshold;
 
 /**
- *  Optional. The time interval in seconds between any two probes.
+ *  Optional. Specifies the interval in seconds between consecutive probes that
+ *  check if any trigger condition thresholds have been reached.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *probingIntervalSeconds;
 
 /**
- *  Optional. The minimum number of server threads running to trigger the
- *  capture on primary.
+ *  Optional. Specifies the minimum number of MySQL `Threads_running` to trigger
+ *  the performance capture on the primary instance.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *runningThreadsThreshold;
 
 /**
- *  Optional. The minimum number of seconds replica must be lagging behind
- *  primary to trigger capture on replica.
+ *  Optional. Specifies the minimum number of seconds replica must be lagging
+ *  behind primary instance to trigger the performance capture on replica.
  *
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *secondsBehindSourceThreshold;
 
 /**
- *  Optional. The amount of time in seconds that a transaction needs to have
- *  been open before the watcher starts recording it.
+ *  Optional. Specifies the amount of time in seconds that a transaction needs
+ *  to have been open before the watcher starts recording it.
  *
  *  Uses NSNumber of intValue.
  */
@@ -9377,6 +9437,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
  *        The database version is PostgreSQL 17. (Value: "POSTGRES_17")
  *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres18
  *        The database version is PostgreSQL 18. (Value: "POSTGRES_18")
+ *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres19
+ *        The database version is PostgreSQL 19. (Value: "POSTGRES_19")
  *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_Postgres96
  *        The database version is PostgreSQL 9.6. (Value: "POSTGRES_9_6")
  *    @arg @c kGTLRSQLAdmin_PreCheckMajorVersionUpgradeContext_TargetDatabaseVersion_SqlDatabaseVersionUnspecified
@@ -9485,8 +9547,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 
 /**
  *  Optional. This is the project ID of consumer service project of this
- *  consumer endpoint. Optional. This is only applicable if consumer_network is
- *  a shared vpc network.
+ *  consumer endpoint. This is only applicable if `consumer_network` is a shared
+ *  VPC network.
  */
 @property(nonatomic, copy, nullable) NSString *consumerProject;
 
@@ -9527,11 +9589,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdmin_User_Type_EntraidUser;
 @property(nonatomic, strong, nullable) NSArray<GTLRSQLAdmin_PscAutoConnectionConfig *> *pscAutoConnections;
 
 /**
+ *  Optional. Indicates whether PSC DNS automation is enabled for this instance.
+ *  When enabled, Cloud SQL provisions a universal DNS record across all
+ *  networks configured with Private Service Connect (PSC) auto-connections.
+ *  This will default to true for new instances when Private Service Connect is
+ *  enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pscAutoDnsEnabled;
+
+/**
  *  Whether PSC connectivity is enabled for this instance.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *pscEnabled;
+
+/**
+ *  Optional. Indicates whether PSC write endpoint DNS automation is enabled for
+ *  this instance. When enabled, Cloud SQL provisions a universal global DNS
+ *  record across all networks configured with Private Service Connect (PSC)
+ *  auto-connections that always points to the cluster primary instance. This
+ *  feature is only supported for Enterprise Plus edition. This will default to
+ *  true for new Enterprise Plus instances when `psc_auto_dns_enabled` is
+ *  enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pscWriteEndpointDnsEnabled;
 
 @end
 

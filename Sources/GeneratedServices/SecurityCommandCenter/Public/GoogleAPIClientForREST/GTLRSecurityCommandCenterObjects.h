@@ -22,6 +22,7 @@
 @class GTLRSecurityCommandCenter_AdcApplicationTemplateRevision;
 @class GTLRSecurityCommandCenter_AdcSharedTemplateRevision;
 @class GTLRSecurityCommandCenter_AffectedResources;
+@class GTLRSecurityCommandCenter_AgentDataAccessEvent;
 @class GTLRSecurityCommandCenter_AiModel;
 @class GTLRSecurityCommandCenter_Allowed;
 @class GTLRSecurityCommandCenter_Application;
@@ -77,6 +78,7 @@
 @class GTLRSecurityCommandCenter_Dataset;
 @class GTLRSecurityCommandCenter_Denied;
 @class GTLRSecurityCommandCenter_Detection;
+@class GTLRSecurityCommandCenter_DiscoveredWorkload;
 @class GTLRSecurityCommandCenter_Disk;
 @class GTLRSecurityCommandCenter_DiskPath;
 @class GTLRSecurityCommandCenter_DynamicMuteRecord;
@@ -133,6 +135,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcApplicationTemplateRevision;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AdcSharedTemplateRevision;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AffectedResources;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Allowed;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Application;
@@ -174,6 +177,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Dataset;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Denied;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Detection;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Disk;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiskPath;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DynamicMuteRecord;
@@ -192,6 +196,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Framework;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Geolocation;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2GroupMembership;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2HttpResponse;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2IamBinding;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Indicator;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2InfoType;
@@ -238,6 +243,7 @@
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pipeline;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Pod;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2PolicyDriftDetails;
+@class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2PolicyViolationSummary;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2PortRange;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Process;
 @class GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ProcessSignature;
@@ -275,6 +281,7 @@
 @class GTLRSecurityCommandCenter_GroupMembership;
 @class GTLRSecurityCommandCenter_GroupResult;
 @class GTLRSecurityCommandCenter_GroupResult_Properties;
+@class GTLRSecurityCommandCenter_HttpResponse;
 @class GTLRSecurityCommandCenter_IamBinding;
 @class GTLRSecurityCommandCenter_IamPolicy;
 @class GTLRSecurityCommandCenter_Indicator;
@@ -308,6 +315,7 @@
 @class GTLRSecurityCommandCenter_Pod;
 @class GTLRSecurityCommandCenter_Policy;
 @class GTLRSecurityCommandCenter_PolicyDriftDetails;
+@class GTLRSecurityCommandCenter_PolicyViolationSummary;
 @class GTLRSecurityCommandCenter_PortRange;
 @class GTLRSecurityCommandCenter_Position;
 @class GTLRSecurityCommandCenter_Process;
@@ -358,6 +366,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_AgentDataAccessEvent.operation
+
+/**
+ *  Represents a copy operation.
+ *
+ *  Value: "COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AgentDataAccessEvent_Operation_Copy;
+/**
+ *  Represents a move operation.
+ *
+ *  Value: "MOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AgentDataAccessEvent_Operation_Move;
+/**
+ *  The operation is unspecified.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AgentDataAccessEvent_Operation_OperationUnspecified;
+/**
+ *  Represents a read operation.
+ *
+ *  Value: "READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_AgentDataAccessEvent_Operation_Read;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_AiModel.deploymentPlatform
@@ -1028,6 +1064,50 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDelet
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DataRetentionDeletionEvent_EventType_EventTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_DiscoveredWorkload.confidence
+
+/**
+ *  High confidence in detection of a workload.
+ *
+ *  Value: "CONFIDENCE_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DiscoveredWorkload_Confidence_ConfidenceHigh;
+/**
+ *  Unspecified confidence level.
+ *
+ *  Value: "CONFIDENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DiscoveredWorkload_Confidence_ConfidenceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_DiscoveredWorkload.workloadType
+
+/**
+ *  A workload of type LLM Agent
+ *
+ *  Value: "AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DiscoveredWorkload_WorkloadType_Agent;
+/**
+ *  A workload of type AI Inference
+ *
+ *  Value: "AI_INFERENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DiscoveredWorkload_WorkloadType_AiInference;
+/**
+ *  A workload of type MCP Server
+ *
+ *  Value: "MCP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DiscoveredWorkload_WorkloadType_McpServer;
+/**
+ *  Unspecified workload type
+ *
+ *  Value: "WORKLOAD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_DiscoveredWorkload_WorkloadType_WorkloadTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_EffectiveEventThreatDetectionCustomModule.cloudProvider
 
 /**
@@ -1243,6 +1323,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingCla
  *  Value: "SCC_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_SccError;
+/**
+ *  Describes a potential security risk due to plaintext credentials, keys, or
+ *  tokens being exposed in an asset or workload.
+ *
+ *  Value: "SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_Finding_FindingClass_Secret;
 /**
  *  Describes a potential security risk to data assets that contain sensitive
  *  data.
@@ -1991,6 +2078,34 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV1SensitiveDataProtectionMapping_MediumSensitivityMapping_ResourceValueUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent.operation
+
+/**
+ *  Represents a copy operation.
+ *
+ *  Value: "COPY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent_Operation_Copy;
+/**
+ *  Represents a move operation.
+ *
+ *  Value: "MOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent_Operation_Move;
+/**
+ *  The operation is unspecified.
+ *
+ *  Value: "OPERATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent_Operation_OperationUnspecified;
+/**
+ *  Represents a read operation.
+ *
+ *  Value: "READ"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent_Operation_Read;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel.deploymentPlatform
 
 /**
@@ -2550,6 +2665,50 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DataRetentionDeletionEvent_EventType_EventTypeUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload.confidence
+
+/**
+ *  High confidence in detection of a workload.
+ *
+ *  Value: "CONFIDENCE_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_Confidence_ConfidenceHigh;
+/**
+ *  Unspecified confidence level.
+ *
+ *  Value: "CONFIDENCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_Confidence_ConfidenceUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload.workloadType
+
+/**
+ *  A workload of type LLM Agent
+ *
+ *  Value: "AGENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_WorkloadType_Agent;
+/**
+ *  A workload of type AI Inference
+ *
+ *  Value: "AI_INFERENCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_WorkloadType_AiInference;
+/**
+ *  A workload of type MCP Server
+ *
+ *  Value: "MCP_SERVER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_WorkloadType_McpServer;
+/**
+ *  Unspecified workload type
+ *
+ *  Value: "WORKLOAD_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_WorkloadType_WorkloadTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2File.fileLoadState
 
 /**
@@ -2659,6 +2818,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecurit
  *  Value: "SCC_ERROR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_SccError;
+/**
+ *  Describes a potential security risk due to plaintext credentials, keys, or
+ *  tokens being exposed in an asset or workload.
+ *
+ *  Value: "SECRET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Secret;
 /**
  *  Describes a potential security risk to data assets that contain sensitive
  *  data.
@@ -8200,6 +8366,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Details about a data access attempt made by an agent principal not
+ *  authorized under applicable data security policy.
+ */
+@interface GTLRSecurityCommandCenter_AgentDataAccessEvent : GTLRObject
+
+/** Unique identifier for data access event. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/** Timestamp of data access event. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  The operation performed by the principal to access the data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_AgentDataAccessEvent_Operation_Copy
+ *        Represents a copy operation. (Value: "COPY")
+ *    @arg @c kGTLRSecurityCommandCenter_AgentDataAccessEvent_Operation_Move
+ *        Represents a move operation. (Value: "MOVE")
+ *    @arg @c kGTLRSecurityCommandCenter_AgentDataAccessEvent_Operation_OperationUnspecified
+ *        The operation is unspecified. (Value: "OPERATION_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_AgentDataAccessEvent_Operation_Read
+ *        Represents a read operation. (Value: "READ")
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/** The agent principal that accessed the data. */
+@property(nonatomic, copy, nullable) NSString *principalSubject;
+
+@end
+
+
+/**
  *  Contains information about the AI model associated with the finding.
  */
 @interface GTLRSecurityCommandCenter_AiModel : GTLRObject
@@ -10118,6 +10317,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Represents discovered, customer managed workload that is not registered with
+ *  the respective GCP service.
+ */
+@interface GTLRSecurityCommandCenter_DiscoveredWorkload : GTLRObject
+
+/**
+ *  The confidence in detection of this workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_DiscoveredWorkload_Confidence_ConfidenceHigh
+ *        High confidence in detection of a workload. (Value: "CONFIDENCE_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_DiscoveredWorkload_Confidence_ConfidenceUnspecified
+ *        Unspecified confidence level. (Value: "CONFIDENCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *confidence;
+
+/**
+ *  A boolean flag set to true if associated hardware strongly predicts the
+ *  workload type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detectedRelevantHardware;
+
+/**
+ *  A boolean flag set to true if associated keywords strongly predict the
+ *  workload type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detectedRelevantKeywords;
+
+/**
+ *  A boolean flag set to true if installed packages strongly predict the
+ *  workload type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detectedRelevantPackages;
+
+/**
+ *  The type of workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_DiscoveredWorkload_WorkloadType_Agent A
+ *        workload of type LLM Agent (Value: "AGENT")
+ *    @arg @c kGTLRSecurityCommandCenter_DiscoveredWorkload_WorkloadType_AiInference
+ *        A workload of type AI Inference (Value: "AI_INFERENCE")
+ *    @arg @c kGTLRSecurityCommandCenter_DiscoveredWorkload_WorkloadType_McpServer
+ *        A workload of type MCP Server (Value: "MCP_SERVER")
+ *    @arg @c kGTLRSecurityCommandCenter_DiscoveredWorkload_WorkloadType_WorkloadTypeUnspecified
+ *        Unspecified workload type (Value: "WORKLOAD_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *workloadType;
+
+@end
+
+
+/**
  *  Contains information about the disk associated with the finding.
  */
 @interface GTLRSecurityCommandCenter_Disk : GTLRObject
@@ -10507,10 +10765,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @interface GTLRSecurityCommandCenter_ExternalExposure : GTLRObject
 
 /**
+ *  The full resource name of the load balancer backend bucket, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/backendBuckets/{name}"
+ */
+@property(nonatomic, copy, nullable) NSString *backendBucket;
+
+/**
  *  The full resource name of load balancer backend service, for example,
  *  "//compute.googleapis.com/projects/{project-id}/global/backendServices/{name}".
  */
 @property(nonatomic, copy, nullable) NSString *backendService;
+
+/**
+ *  The name and version of the exposed web application, for example, "Jenkins
+ *  2.184".
+ */
+@property(nonatomic, copy, nullable) NSString *exposedApplication;
 
 /**
  *  The resource which is running the exposed service, for example,
@@ -10530,10 +10800,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
 
 /**
+ *  Hostname of the exposed application, for example,
+ *  "https://test-app.a.run.app/"
+ */
+@property(nonatomic, copy, nullable) NSString *hostnameUri;
+
+/** The http response returned by the web application. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_HttpResponse *> *httpResponse;
+
+/**
  *  The full resource name of the instance group, for example,
  *  "//compute.googleapis.com/projects/{project-id}/global/instanceGroups/{name}".
  */
 @property(nonatomic, copy, nullable) NSString *instanceGroup;
+
+/**
+ *  The full resource name of load balancer backend service in the internal
+ *  project having resource exposed via PSC, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/backendServices/{name}".
+ */
+@property(nonatomic, copy, nullable) NSString *internalBackendService;
 
 /**
  *  The full resource name of the load balancer firewall policy, for example,
@@ -10547,11 +10833,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
 
+/**
+ *  The full resource name of the network ingress firewall policy, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/firewallPolicies/{name}".
+ */
+@property(nonatomic, copy, nullable) NSString *networkIngressFirewallPolicy;
+
 /** Private IP address of the exposed endpoint. */
 @property(nonatomic, copy, nullable) NSString *privateIpAddress;
 
 /** Port number associated with private IP address. */
 @property(nonatomic, copy, nullable) NSString *privatePort;
+
+/**
+ *  The full resource name of the PSC (Private Service Connect) network
+ *  attachment that network interface controller is attached to, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/regions/{region}/networkAttachments/{name}"
+ */
+@property(nonatomic, copy, nullable) NSString *pscNetworkAttachment;
+
+/**
+ *  The full resource name of the PSC (Private Service Connect) service
+ *  attachment that the load balancer network endpoint group targets, for
+ *  example,
+ *  "//compute.googleapis.com/projects/{project-id}/regions/{region}/serviceAttachments/{name}"
+ */
+@property(nonatomic, copy, nullable) NSString *pscServiceAttachment;
 
 /** Public IP address of the exposed endpoint. */
 @property(nonatomic, copy, nullable) NSString *publicIpAddress;
@@ -10679,6 +10986,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** AffectedResources associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AffectedResources *affectedResources;
 
+/** Agent data access events associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_AgentDataAccessEvent *> *agentDataAccessEvents;
+
 /** The AI model associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_AiModel *aiModel;
 
@@ -10782,6 +11092,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** DiscoveredWorkload associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_DiscoveredWorkload *discoveredWorkload;
+
 /** Disk associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_Disk *disk;
 
@@ -10842,6 +11155,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        posture. (Value: "POSTURE_VIOLATION")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_SccError Describes
  *        an error that prevents some SCC functionality. (Value: "SCC_ERROR")
+ *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_Secret Describes a
+ *        potential security risk due to plaintext credentials, keys, or tokens
+ *        being exposed in an asset or workload. (Value: "SECRET")
  *    @arg @c kGTLRSecurityCommandCenter_Finding_FindingClass_SensitiveDataRisk
  *        Describes a potential security risk to data assets that contain
  *        sensitive data. (Value: "SENSITIVE_DATA_RISK")
@@ -10974,6 +11290,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  "Event Threat Detection" or "Security Health Analytics".
  */
 @property(nonatomic, copy, nullable) NSString *parentDisplayName;
+
+/** PolicyViolationSummary associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_PolicyViolationSummary *policyViolationSummary;
 
 /** Represents operating system processes associated with the Finding. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_Process *> *processes;
@@ -12729,6 +13048,39 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Details about a data access attempt made by an agent principal not
+ *  authorized under applicable data security policy.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent : GTLRObject
+
+/** Unique identifier for data access event. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/** Timestamp of data access event. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+/**
+ *  The operation performed by the principal to access the data.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent_Operation_Copy
+ *        Represents a copy operation. (Value: "COPY")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent_Operation_Move
+ *        Represents a move operation. (Value: "MOVE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent_Operation_OperationUnspecified
+ *        The operation is unspecified. (Value: "OPERATION_UNSPECIFIED")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent_Operation_Read
+ *        Represents a read operation. (Value: "READ")
+ */
+@property(nonatomic, copy, nullable) NSString *operation;
+
+/** The agent principal that accessed the data. */
+@property(nonatomic, copy, nullable) NSString *principalSubject;
+
+@end
+
+
+/**
  *  Contains information about the AI model associated with the finding.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel : GTLRObject
@@ -14237,6 +14589,65 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 
 
 /**
+ *  Represents discovered, customer managed workload that is not registered with
+ *  the respective GCP service.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload : GTLRObject
+
+/**
+ *  The confidence in detection of this workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_Confidence_ConfidenceHigh
+ *        High confidence in detection of a workload. (Value: "CONFIDENCE_HIGH")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_Confidence_ConfidenceUnspecified
+ *        Unspecified confidence level. (Value: "CONFIDENCE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *confidence;
+
+/**
+ *  A boolean flag set to true if associated hardware strongly predicts the
+ *  workload type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detectedRelevantHardware;
+
+/**
+ *  A boolean flag set to true if associated keywords strongly predict the
+ *  workload type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detectedRelevantKeywords;
+
+/**
+ *  A boolean flag set to true if installed packages strongly predict the
+ *  workload type.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *detectedRelevantPackages;
+
+/**
+ *  The type of workload.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_WorkloadType_Agent
+ *        A workload of type LLM Agent (Value: "AGENT")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_WorkloadType_AiInference
+ *        A workload of type AI Inference (Value: "AI_INFERENCE")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_WorkloadType_McpServer
+ *        A workload of type MCP Server (Value: "MCP_SERVER")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload_WorkloadType_WorkloadTypeUnspecified
+ *        Unspecified workload type (Value: "WORKLOAD_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *workloadType;
+
+@end
+
+
+/**
  *  Contains information about the disk associated with the finding.
  */
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Disk : GTLRObject
@@ -14364,10 +14775,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2ExternalExposure : GTLRObject
 
 /**
+ *  The full resource name of the load balancer backend bucket, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/backendBuckets/{name}"
+ */
+@property(nonatomic, copy, nullable) NSString *backendBucket;
+
+/**
  *  The full resource name of load balancer backend service, for example,
  *  "//compute.googleapis.com/projects/{project-id}/global/backendServices/{name}".
  */
 @property(nonatomic, copy, nullable) NSString *backendService;
+
+/**
+ *  The name and version of the exposed web application, for example, "Jenkins
+ *  2.184".
+ */
+@property(nonatomic, copy, nullable) NSString *exposedApplication;
 
 /**
  *  The resource which is running the exposed service, for example,
@@ -14387,10 +14810,26 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 @property(nonatomic, copy, nullable) NSString *forwardingRule;
 
 /**
+ *  Hostname of the exposed application, for example,
+ *  "https://test-app.a.run.app/"
+ */
+@property(nonatomic, copy, nullable) NSString *hostnameUri;
+
+/** The http response returned by the web application. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2HttpResponse *> *httpResponse;
+
+/**
  *  The full resource name of the instance group, for example,
  *  "//compute.googleapis.com/projects/{project-id}/global/instanceGroups/{name}".
  */
 @property(nonatomic, copy, nullable) NSString *instanceGroup;
+
+/**
+ *  The full resource name of load balancer backend service in the internal
+ *  project having resource exposed via PSC, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/backendServices/{name}".
+ */
+@property(nonatomic, copy, nullable) NSString *internalBackendService;
 
 /**
  *  The full resource name of the load balancer firewall policy, for example,
@@ -14404,11 +14843,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, copy, nullable) NSString *networkEndpointGroup;
 
+/**
+ *  The full resource name of the network ingress firewall policy, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/global/firewallPolicies/{name}".
+ */
+@property(nonatomic, copy, nullable) NSString *networkIngressFirewallPolicy;
+
 /** Private IP address of the exposed endpoint. */
 @property(nonatomic, copy, nullable) NSString *privateIpAddress;
 
 /** Port number associated with private IP address. */
 @property(nonatomic, copy, nullable) NSString *privatePort;
+
+/**
+ *  The full resource name of the PSC (Private Service Connect) network
+ *  attachment that network interface controller is attached to, for example,
+ *  "//compute.googleapis.com/projects/{project-id}/regions/{region}/networkAttachments/{name}"
+ */
+@property(nonatomic, copy, nullable) NSString *pscNetworkAttachment;
+
+/**
+ *  The full resource name of the PSC (Private Service Connect) service
+ *  attachment that the load balancer network endpoint group targets, for
+ *  example,
+ *  "//compute.googleapis.com/projects/{project-id}/regions/{region}/serviceAttachments/{name}"
+ */
+@property(nonatomic, copy, nullable) NSString *pscServiceAttachment;
 
 /** Public IP address of the exposed endpoint. */
 @property(nonatomic, copy, nullable) NSString *publicIpAddress;
@@ -14599,6 +15059,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
 /** AffectedResources associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AffectedResources *affectedResources;
 
+/** Agent data access events associated with the finding. */
+@property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AgentDataAccessEvent *> *agentDataAccessEvents;
+
 /** The AI model associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2AiModel *aiModel;
 
@@ -14714,6 +15177,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  */
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
+/** DiscoveredWorkload associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2DiscoveredWorkload *discoveredWorkload;
+
 /** Disk associated with the finding. */
 @property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Disk *disk;
 
@@ -14775,6 +15241,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_SccError
  *        Describes an error that prevents some SCC functionality. (Value:
  *        "SCC_ERROR")
+ *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_Secret
+ *        Describes a potential security risk due to plaintext credentials,
+ *        keys, or tokens being exposed in an asset or workload. (Value:
+ *        "SECRET")
  *    @arg @c kGTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Finding_FindingClass_SensitiveDataRisk
  *        Describes a potential security risk to data assets that contain
  *        sensitive data. (Value: "SENSITIVE_DATA_RISK")
@@ -14917,6 +15387,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  "Event Threat Detection" or "Security Health Analytics".
  */
 @property(nonatomic, copy, nullable) NSString *parentDisplayName;
+
+/** PolicyViolationSummary associated with the finding. */
+@property(nonatomic, strong, nullable) GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2PolicyViolationSummary *policyViolationSummary;
 
 /** Represents operating system processes associated with the Finding. */
 @property(nonatomic, strong, nullable) NSArray<GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2Process *> *processes;
@@ -15180,6 +15653,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        Default value. (Value: "GROUP_TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *groupType;
+
+@end
+
+
+/**
+ *  The http response returned by the web application.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2HttpResponse : GTLRObject
+
+/**
+ *  The http path for which response code was returned by web application, for
+ *  example, "https://test-app.a.run.app/test".
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  The http response code returned by the web application, for example, 200.
+ */
+@property(nonatomic, copy, nullable) NSString *statusCode;
 
 @end
 
@@ -16506,6 +16998,49 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  constraint.implementation.policy_rules[0].enforce
  */
 @property(nonatomic, copy, nullable) NSString *field;
+
+@end
+
+
+/**
+ *  Metadata summarizing policy violations of child resources of the affected
+ *  resource. `finding_category` and `resource` determine the exact semantics of
+ *  the counts. For example, when
+ *  category=DATA_SECURITY_POSTURE_OBJECT_PUBLIC_ACCESS_VIOLATION and
+ *  resource='storage.googleapis.com/buckets/my-bucket-name' then this counts
+ *  the number of Cloud Storage objects in my-bucket-name which violate a Public
+ *  Access control.
+ */
+@interface GTLRSecurityCommandCenter_GoogleCloudSecuritycenterV2PolicyViolationSummary : GTLRObject
+
+/**
+ *  Total number of child resources that conform to the policy.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conformantResourcesCount;
+
+/**
+ *  Number of child resources for which errors during evaluation occurred. The
+ *  evaluation result for these child resources is effectively "unknown".
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *evaluationErrorsCount;
+
+/**
+ *  Total count of child resources which were not in scope for evaluation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outOfScopeResourcesCount;
+
+/**
+ *  Count of child resources in violation of the policy.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policyViolationsCount;
 
 @end
 
@@ -17944,6 +18479,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRSecurityCommandCenter_GroupResult_Properties : GTLRObject
+@end
+
+
+/**
+ *  The http response returned by the web application.
+ */
+@interface GTLRSecurityCommandCenter_HttpResponse : GTLRObject
+
+/**
+ *  The http path for which response code was returned by web application, for
+ *  example, "https://test-app.a.run.app/test".
+ */
+@property(nonatomic, copy, nullable) NSString *path;
+
+/**
+ *  The http response code returned by the web application, for example, 200.
+ */
+@property(nonatomic, copy, nullable) NSString *statusCode;
+
 @end
 
 
@@ -19417,6 +19971,49 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityCommandCenter_VulnerabilitySnaps
  *  constraint.implementation.policy_rules[0].enforce
  */
 @property(nonatomic, copy, nullable) NSString *field;
+
+@end
+
+
+/**
+ *  Metadata summarizing policy violations of child resources of the affected
+ *  resource. `finding_category` and `resource` determine the exact semantics of
+ *  the counts. For example, when
+ *  category=DATA_SECURITY_POSTURE_OBJECT_PUBLIC_ACCESS_VIOLATION and
+ *  resource='storage.googleapis.com/buckets/my-bucket-name' then this counts
+ *  the number of Cloud Storage objects in my-bucket-name which violate a Public
+ *  Access control.
+ */
+@interface GTLRSecurityCommandCenter_PolicyViolationSummary : GTLRObject
+
+/**
+ *  Total number of child resources that conform to the policy.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *conformantResourcesCount;
+
+/**
+ *  Number of child resources for which errors during evaluation occurred. The
+ *  evaluation result for these child resources is effectively "unknown".
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *evaluationErrorsCount;
+
+/**
+ *  Total count of child resources which were not in scope for evaluation.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *outOfScopeResourcesCount;
+
+/**
+ *  Count of child resources in violation of the policy.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *policyViolationsCount;
 
 @end
 

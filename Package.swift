@@ -62,6 +62,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_Advisorynotifications"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_AgentRegistry",
+            targets: ["GoogleAPIClientForREST_AgentRegistry"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_Aiplatform",
             targets: ["GoogleAPIClientForREST_Aiplatform"]
         ),
@@ -494,10 +498,6 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_DataLabeling"]
         ),
         .library(
-            name: "GoogleAPIClientForREST_Datalineage",
-            targets: ["GoogleAPIClientForREST_Datalineage"]
-        ),
-        .library(
             name: "GoogleAPIClientForREST_DataManager",
             targets: ["GoogleAPIClientForREST_DataManager"]
         ),
@@ -536,6 +536,10 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_DeveloperConnect",
             targets: ["GoogleAPIClientForREST_DeveloperConnect"]
+        ),
+        .library(
+            name: "GoogleAPIClientForREST_DeveloperKnowledge",
+            targets: ["GoogleAPIClientForREST_DeveloperKnowledge"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Dfareporting",
@@ -706,6 +710,10 @@ let package = Package(
             targets: ["GoogleAPIClientForREST_GoogleAnalyticsAdmin"]
         ),
         .library(
+            name: "GoogleAPIClientForREST_GoogleHealthAPI",
+            targets: ["GoogleAPIClientForREST_GoogleHealthAPI"]
+        ),
+        .library(
             name: "GoogleAPIClientForREST_GoogleMarketingPlatformAdminAPI",
             targets: ["GoogleAPIClientForREST_GoogleMarketingPlatformAdminAPI"]
         ),
@@ -752,10 +760,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Indexing",
             targets: ["GoogleAPIClientForREST_Indexing"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_Integrations",
-            targets: ["GoogleAPIClientForREST_Integrations"]
         ),
         .library(
             name: "GoogleAPIClientForREST_Keep",
@@ -984,10 +988,6 @@ let package = Package(
         .library(
             name: "GoogleAPIClientForREST_Reseller",
             targets: ["GoogleAPIClientForREST_Reseller"]
-        ),
-        .library(
-            name: "GoogleAPIClientForREST_SA360",
-            targets: ["GoogleAPIClientForREST_SA360"]
         ),
         .library(
             name: "GoogleAPIClientForREST_SaaSServiceManagement",
@@ -1319,6 +1319,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_Advisorynotifications",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Advisorynotifications",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_AgentRegistry",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/AgentRegistry",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -1970,12 +1976,6 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
-            name: "GoogleAPIClientForREST_Datalineage",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/Datalineage",
-            publicHeadersPath: "Public"
-        ),
-        .target(
             name: "GoogleAPIClientForREST_DataManager",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/DataManager",
@@ -2033,6 +2033,12 @@ let package = Package(
             name: "GoogleAPIClientForREST_DeveloperConnect",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/DeveloperConnect",
+            publicHeadersPath: "Public"
+        ),
+        .target(
+            name: "GoogleAPIClientForREST_DeveloperKnowledge",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/DeveloperKnowledge",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2288,6 +2294,12 @@ let package = Package(
             publicHeadersPath: "Public"
         ),
         .target(
+            name: "GoogleAPIClientForREST_GoogleHealthAPI",
+            dependencies: ["GoogleAPIClientForRESTCore"],
+            path: "Sources/GeneratedServices/GoogleHealthAPI",
+            publicHeadersPath: "Public"
+        ),
+        .target(
             name: "GoogleAPIClientForREST_GoogleMarketingPlatformAdminAPI",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/GoogleMarketingPlatformAdminAPI",
@@ -2357,12 +2369,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_Indexing",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Indexing",
-            publicHeadersPath: "Public"
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_Integrations",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/Integrations",
             publicHeadersPath: "Public"
         ),
         .target(
@@ -2705,12 +2711,6 @@ let package = Package(
             name: "GoogleAPIClientForREST_Reseller",
             dependencies: ["GoogleAPIClientForRESTCore"],
             path: "Sources/GeneratedServices/Reseller",
-            publicHeadersPath: "Public"
-        ),
-        .target(
-            name: "GoogleAPIClientForREST_SA360",
-            dependencies: ["GoogleAPIClientForRESTCore"],
-            path: "Sources/GeneratedServices/SA360",
             publicHeadersPath: "Public"
         ),
         .target(

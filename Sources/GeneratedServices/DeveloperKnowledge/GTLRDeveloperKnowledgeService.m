@@ -2,28 +2,31 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Application Integration API (integrations/v1alpha)
+//   Developer Knowledge API (developerknowledge/v1)
+// Description:
+//   The Developer Knowledge API provides access to Google's developer
+//   knowledge.
 // Documentation:
-//   https://cloud.google.com/application-integration
+//   https://developers.google.com/knowledge
 
-#import <GoogleAPIClientForREST/GTLRIntegrations.h>
+#import <GoogleAPIClientForREST/GTLRDeveloperKnowledge.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeIntegrationsCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeDeveloperKnowledgeCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRIntegrationsService
+//   GTLRDeveloperKnowledgeService
 //
 
-@implementation GTLRIntegrationsService
+@implementation GTLRDeveloperKnowledgeService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://integrations.googleapis.com/";
+    self.rootURLString = @"https://developerknowledge.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

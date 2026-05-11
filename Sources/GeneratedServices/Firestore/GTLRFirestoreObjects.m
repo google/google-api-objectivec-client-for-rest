@@ -201,6 +201,14 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_Op
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Processing = @"PROCESSING";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Successful = @"SUCCESSFUL";
 
+// GTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec.indexType
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_IndexType_TextIndexTypeUnspecified = @"TEXT_INDEX_TYPE_UNSPECIFIED";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_IndexType_Tokenized = @"TOKENIZED";
+
+// GTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec.matchType
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_MatchType_MatchGlobally = @"MATCH_GLOBALLY";
+NSString * const kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_MatchType_TextMatchTypeUnspecified = @"TEXT_MATCH_TYPE_UNSPECIFIED";
+
 // GTLRFirestore_GoogleFirestoreAdminV1TtlConfig.state
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_Active = @"ACTIVE";
 NSString * const kGTLRFirestore_GoogleFirestoreAdminV1TtlConfig_State_Creating = @"CREATING";
@@ -231,6 +239,11 @@ NSString * const kGTLRFirestore_GoogleFirestoreAdminV1WeeklyRecurrence_Day_Wedne
 NSString * const kGTLRFirestore_Order_Direction_Ascending      = @"ASCENDING";
 NSString * const kGTLRFirestore_Order_Direction_Descending     = @"DESCENDING";
 NSString * const kGTLRFirestore_Order_Direction_DirectionUnspecified = @"DIRECTION_UNSPECIFIED";
+
+// GTLRFirestore_ReadWrite.concurrencyMode
+NSString * const kGTLRFirestore_ReadWrite_ConcurrencyMode_ConcurrencyModeUnspecified = @"CONCURRENCY_MODE_UNSPECIFIED";
+NSString * const kGTLRFirestore_ReadWrite_ConcurrencyMode_Optimistic = @"OPTIMISTIC";
+NSString * const kGTLRFirestore_ReadWrite_ConcurrencyMode_Pessimistic = @"PESSIMISTIC";
 
 // GTLRFirestore_TargetChange.targetChangeType
 NSString * const kGTLRFirestore_TargetChange_TargetChangeType_Add = @"ADD";
@@ -1218,8 +1231,8 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1Index
-@dynamic apiScope, density, fields, multikey, name, queryScope, shardCount,
-         state, unique;
+@dynamic apiScope, density, fields, multikey, name, queryScope,
+         searchIndexOptions, shardCount, state, unique;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1265,7 +1278,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1IndexField
-@dynamic arrayConfig, fieldPath, order, vectorConfig;
+@dynamic arrayConfig, fieldPath, order, searchConfig, vectorConfig;
 @end
 
 
@@ -1482,6 +1495,64 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirestore_GoogleFirestoreAdminV1SearchConfig
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1SearchConfig
+@dynamic geoSpec, textSpec;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1SearchGeoSpec
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1SearchGeoSpec
+@dynamic geoJsonIndexingDisabled;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1SearchIndexOptions
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1SearchIndexOptions
+@dynamic textLanguage, textLanguageOverrideFieldPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec
+@dynamic indexType, matchType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirestore_GoogleFirestoreAdminV1SearchTextSpec
+//
+
+@implementation GTLRFirestore_GoogleFirestoreAdminV1SearchTextSpec
+@dynamic indexSpecs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"indexSpecs" : [GTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions
 //
 
@@ -1515,7 +1586,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1TtlConfig
-@dynamic state;
+@dynamic expirationOffset, state;
 @end
 
 
@@ -1525,7 +1596,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_GoogleFirestoreAdminV1TtlConfigDelta
-@dynamic changeType;
+@dynamic changeType, expirationOffset;
 @end
 
 
@@ -1962,7 +2033,7 @@ NSString * const kGTLRFirestore_Value_NullValue_NullValue = @"NULL_VALUE";
 //
 
 @implementation GTLRFirestore_ReadWrite
-@dynamic retryTransaction;
+@dynamic concurrencyMode, retryTransaction;
 @end
 
 

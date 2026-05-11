@@ -42,6 +42,7 @@ NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudN
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoCloudRouterConfigs = @"PERMISSION_DENIED_NO_CLOUD_ROUTER_CONFIGS";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_PermissionDeniedNoNegEndpointConfigs = @"PERMISSION_DENIED_NO_NEG_ENDPOINT_CONFIGS";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_ResourceConfigNotFound = @"RESOURCE_CONFIG_NOT_FOUND";
+NSString * const kGTLRNetworkManagement_AbortInfo_Cause_ResponseTooLarge = @"RESPONSE_TOO_LARGE";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_RouteConfigNotFound = @"ROUTE_CONFIG_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceEndpointNotFound = @"SOURCE_ENDPOINT_NOT_FOUND";
 NSString * const kGTLRNetworkManagement_AbortInfo_Cause_SourceExternalCloudSqlUnsupported = @"SOURCE_EXTERNAL_CLOUD_SQL_UNSUPPORTED";
@@ -157,6 +158,7 @@ NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPriv
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoRouteFromInternetToPrivateIpv6Address = @"NO_ROUTE_FROM_INTERNET_TO_PRIVATE_IPV6_ADDRESS";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoTrafficSelectorToGcpDestination = @"NO_TRAFFIC_SELECTOR_TO_GCP_DESTINATION";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_NoValidRouteFromGoogleManagedNetworkToDestination = @"NO_VALID_ROUTE_FROM_GOOGLE_MANAGED_NETWORK_TO_DESTINATION";
+NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateConnectionNoRunningInstance = @"PRIVATE_CONNECTION_NO_RUNNING_INSTANCE";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessDisallowed = @"PRIVATE_GOOGLE_ACCESS_DISALLOWED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateGoogleAccessViaVpnTunnelUnsupported = @"PRIVATE_GOOGLE_ACCESS_VIA_VPN_TUNNEL_UNSUPPORTED";
 NSString * const kGTLRNetworkManagement_DropInfo_Cause_PrivateNatToPscEndpointUnsupported = @"PRIVATE_NAT_TO_PSC_ENDPOINT_UNSUPPORTED";
@@ -468,6 +470,8 @@ NSString * const kGTLRNetworkManagement_Step_State_StartFromAppEngineVersion = @
 NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudFunction = @"START_FROM_CLOUD_FUNCTION";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudRunRevision = @"START_FROM_CLOUD_RUN_REVISION";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromCloudSqlInstance = @"START_FROM_CLOUD_SQL_INSTANCE";
+NSString * const kGTLRNetworkManagement_Step_State_StartFromDatastreamPrivateConnection = @"START_FROM_DATASTREAM_PRIVATE_CONNECTION";
+NSString * const kGTLRNetworkManagement_Step_State_StartFromDmsPrivateConnection = @"START_FROM_DMS_PRIVATE_CONNECTION";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromGkeMaster = @"START_FROM_GKE_MASTER";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromGkePod = @"START_FROM_GKE_POD";
 NSString * const kGTLRNetworkManagement_Step_State_StartFromGoogleService = @"START_FROM_GOOGLE_SERVICE";
@@ -1276,6 +1280,16 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkManagement_PrivateConnectionInfo
+//
+
+@implementation GTLRNetworkManagement_PrivateConnectionInfo
+@dynamic uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkManagement_ProbingDetails
 //
 
@@ -1507,15 +1521,15 @@ NSString * const kGTLRNetworkManagement_VpnTunnelInfo_RoutingType_RoutingTypeUns
 
 @implementation GTLRNetworkManagement_Step
 @dynamic abort, appEngineVersion, causesDrop, cloudFunction, cloudRunRevision,
-         cloudSqlInstance, deliver, descriptionProperty,
-         directVpcEgressConnection, drop, endpoint, firewall, forward,
-         forwardingRule, gkeMaster, gkeNetworkPolicy, gkeNetworkPolicySkipped,
-         gkePod, googleService, hybridSubnet, instance, interconnectAttachment,
-         ipMasqueradingSkipped, loadBalancer, loadBalancerBackendInfo, nat,
-         network, ngfwPacketInspection, projectId, proxyConnection,
-         redisCluster, redisInstance, route, serverlessExternalConnection,
-         serverlessNeg, state, storageBucket, vpcConnector, vpnGateway,
-         vpnTunnel;
+         cloudSqlInstance, datastreamPrivateConnection, deliver,
+         descriptionProperty, directVpcEgressConnection, dmsPrivateConnection,
+         drop, endpoint, firewall, forward, forwardingRule, gkeMaster,
+         gkeNetworkPolicy, gkeNetworkPolicySkipped, gkePod, googleService,
+         hybridSubnet, instance, interconnectAttachment, ipMasqueradingSkipped,
+         loadBalancer, loadBalancerBackendInfo, nat, network,
+         ngfwPacketInspection, projectId, proxyConnection, redisCluster,
+         redisInstance, route, serverlessExternalConnection, serverlessNeg,
+         state, storageBucket, vpcConnector, vpnGateway, vpnTunnel;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

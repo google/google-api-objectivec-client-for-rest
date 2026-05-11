@@ -959,6 +959,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @interface GTLRCloudWorkstations_GceRegionalPersistentDisk : GTLRObject
 
 /**
+ *  Optional. Number of seconds to wait after initially creating or subsequently
+ *  shutting down the workstation before converting its disk into a snapshot.
+ *  This generally saves costs at the expense of greater startup time on next
+ *  workstation start, as the service will need to create a disk from the
+ *  archival snapshot. A value of `"0s"` indicates that the disk will never be
+ *  archived.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *archiveTimeout;
+
+/**
  *  Optional. The [type of the persistent
  *  disk](https://cloud.google.com/compute/docs/disks#disk-types) for the home
  *  directory. Defaults to `"pd-standard"`.
@@ -1742,7 +1752,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Optional. If set, validate the request and preview the review, but do not
+ *  Optional. If set, validate the request and preview the result, but do not
  *  actually apply it.
  *
  *  Uses NSNumber of boolValue.
@@ -1809,7 +1819,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
- *  Optional. If set, validate the request and preview the review, but do not
+ *  Optional. If set, validate the request and preview the result, but do not
  *  actually apply it.
  *
  *  Uses NSNumber of boolValue.
@@ -2108,6 +2118,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudWorkstations_Workstation_State_Stat
  *  Output only. Time when this workstation cluster was most recently updated.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+/**
+ *  Optional. Specifies the redirect URL for unauthorized requests received by
+ *  workstation VMs in this cluster. Redirects to this endpoint will send a
+ *  base64 encoded `state` query param containing the target workstation name
+ *  and original request hostname. The endpoint is responsible for retrieving a
+ *  token using `GenerateAccessToken` and redirecting back to the original
+ *  hostname with the token.
+ */
+@property(nonatomic, copy, nullable) NSString *workstationAuthorizationUrl;
+
+/**
+ *  Optional. Specifies the launch URL for workstations in this cluster.
+ *  Requests sent to unstarted workstations will be redirected to this URL.
+ *  Requests redirected to the launch endpoint will be sent with a `workstation`
+ *  and `project` query parameter containing the full workstation resource name
+ *  and project ID, respectively. The launch endpoint is responsible for
+ *  starting the workstation, polling it until it reaches `STATE_RUNNING`, and
+ *  then issuing a redirect to the workstation's host URL.
+ */
+@property(nonatomic, copy, nullable) NSString *workstationLaunchUrl;
 
 @end
 

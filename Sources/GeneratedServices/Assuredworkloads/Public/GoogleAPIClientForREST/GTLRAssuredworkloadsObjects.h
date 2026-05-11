@@ -114,13 +114,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata.complianceRegime
 
 /**
- *  Assured Workloads for Partners;
+ *  Specifies a [Sovereign Controls by
+ *  Partners](https://cloud.google.com/sovereign-controls-by-partners/docs/overview)
+ *  control package. To use this control package, you must also specify the
+ *  partner field from the list of Sovereign Controls by Partners.
  *
  *  Value: "ASSURED_WORKLOADS_FOR_PARTNERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AssuredWorkloadsForPartners;
 /**
- *  Assured Workloads for Australia Regions and Support controls
+ *  Use the AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "AU_REGIONS_AND_US_SUPPORT"
  */
@@ -132,7 +137,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AustraliaDataBoundaryAndSupport;
 /**
- *  Canada Controlled Goods
+ *  Use the DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS enum for this control
+ *  package instead, as the name of the associated Assured Workloads control
+ *  package has changed.
  *
  *  Value: "CANADA_CONTROLLED_GOODS"
  */
@@ -144,25 +151,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CanadaDataBoundaryAndSupport;
 /**
- *  Assured Workloads for Canada Protected B regime
+ *  Use the DATA_BOUNDARY_FOR_CANADA_PROTECTED_B enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "CA_PROTECTED_B"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaProtectedB;
 /**
- *  Assured Workloads For Canada Regions and Support controls
+ *  Use the CANADA_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "CA_REGIONS_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport;
 /**
- *  Criminal Justice Information Services (CJIS) Security policies.
+ *  Use the DATA_BOUNDARY_FOR_CJIS enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "CJIS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Cjis;
 /**
- *  Unknown compliance regime.
+ *  The default value. This value is used if the control package is omitted or
+ *  unknown.
  *
  *  Value: "COMPLIANCE_REGIME_UNSPECIFIED"
  */
@@ -180,7 +193,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCanadaProtectedB;
 /**
- *  Data Boundary for CJIS
+ *  Data Boundary for Criminal Justice Information Systems (CJIS)
  *
  *  Value: "DATA_BOUNDARY_FOR_CJIS"
  */
@@ -198,19 +211,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForFedrampModerate;
 /**
- *  Data Boundary for IL2
+ *  Data Boundary for Impact Level 2 (IL2)
  *
  *  Value: "DATA_BOUNDARY_FOR_IL2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl2;
 /**
- *  Data Boundary for IL4
+ *  Data Boundary for Impact Level 4 (IL4)
  *
  *  Value: "DATA_BOUNDARY_FOR_IL4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl4;
 /**
- *  Data Boundary for IL5
+ *  Data Boundary for Impact Level 5 (IL5)
  *
  *  Value: "DATA_BOUNDARY_FOR_IL5"
  */
@@ -222,163 +235,192 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIrsPublication1075;
 /**
- *  Data Boundary for ITAR
+ *  Data Boundary for International Traffic in Arms Regulations (ITAR)
  *
  *  Value: "DATA_BOUNDARY_FOR_ITAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForItar;
 /**
- *  Data Boundary for EU Regions and Support
+ *  European Union (EU) Data Boundary and Support
  *
  *  Value: "EU_DATA_BOUNDARY_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuDataBoundaryAndSupport;
 /**
- *  Assured Workloads For EU Regions and Support controls
+ *  Use the EU_DATA_BOUNDARY_AND_SUPPORT enum for this control package instead,
+ *  as the name of the associated Assured Workloads control package has changed.
  *
  *  Value: "EU_REGIONS_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport;
 /**
- *  FedRAMP High data protection controls
+ *  Use the DATA_BOUNDARY_FOR_FEDRAMP_HIGH enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "FEDRAMP_HIGH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampHigh;
 /**
- *  FedRAMP Moderate data protection controls
+ *  Use the DATA_BOUNDARY_FOR_FEDRAMP_MODERATE enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "FEDRAMP_MODERATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate;
 /**
- *  Healthcare and Life Science Controls
+ *  Use the US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES enum for this
+ *  control package instead, as the name of the associated Assured Workloads
+ *  control package has changed.
  *
  *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControls;
 /**
- *  Healthcare and Life Science Controls with US Support
+ *  Use the US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT enum
+ *  for this control package instead, as the name of the associated Assured
+ *  Workloads control package has changed.
  *
  *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport;
 /**
- *  [DEPRECATED] Health Insurance Portability and Accountability Act controls
+ *  Deprecated: Consider using the Data Boundary for US Healthcare and Life
+ *  Sciences control package instead.
  *
  *  Value: "HIPAA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa GTLR_DEPRECATED;
 /**
- *  [DEPRECATED] Health Information Trust Alliance controls
+ *  Deprecated: Consider using the Data Boundary for US Healthcare and Life
+ *  Sciences control package instead.
  *
  *  Value: "HITRUST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust GTLR_DEPRECATED;
 /**
- *  Information protection as per DoD IL2 requirements.
+ *  Use the DATA_BOUNDARY_FOR_IL2 enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "IL2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il2;
 /**
- *  Information protection as per DoD IL4 requirements.
+ *  Use the DATA_BOUNDARY_FOR_IL4 enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "IL4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4;
 /**
- *  Information protection as per DoD IL5 requirements.
+ *  Use the DATA_BOUNDARY_FOR_IL5 enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "IL5"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il5;
 /**
- *  Internal Revenue Service 1075 controls
+ *  Use the DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075 enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "IRS_1075"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Irs1075;
 /**
- *  Data Boundary for Israel Regions
+ *  Israel Data Boundary and Support
  *
  *  Value: "ISRAEL_DATA_BOUNDARY_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsraelDataBoundaryAndSupport;
 /**
- *  Assured Workloads for Israel Regions
+ *  Use the ISRAEL_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "ISR_REGIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions;
 /**
- *  Assured Workloads for Israel Regions
+ *  Use the ISRAEL_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "ISR_REGIONS_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegionsAndSupport;
 /**
- *  International Traffic in Arms Regulations
+ *  Use the DATA_BOUNDARY_FOR_ITAR enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "ITAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar;
 /**
- *  JAPAN Data Boundary
+ *  Japan Data Boundary
  *
  *  Value: "JAPAN_DATA_BOUNDARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JapanDataBoundary;
 /**
- *  Assured Workloads for Japan Regions
+ *  Use the JAPAN_DATA_BOUNDARY enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "JP_REGIONS_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JpRegionsAndSupport;
 /**
- *  KSA Data Boundary with Access Justifications
+ *  Kingdom of Saudi Arabia (KSA) Data Boundary with Access Justifications
  *
  *  Value: "KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaDataBoundaryWithAccessJustifications;
 /**
- *  Assured Workloads Sovereign Controls KSA
+ *  Use the KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS enum for this control
+ *  package instead, as the name of the associated Assured Workloads control
+ *  package has changed.
  *
  *  Value: "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls;
 /**
- *  Assured Workloads for Regional Controls
+ *  Use the REGIONAL_DATA_BOUNDARY enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "REGIONAL_CONTROLS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControls;
 /**
- *  Regional Data Boundary
+ *  Data boundary for one of Assured Workloads' *Free tier* control packages.
+ *  Determines the region by specifying the data location during workload
+ *  creation.
  *
  *  Value: "REGIONAL_DATA_BOUNDARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalDataBoundary;
 /**
- *  Data Boundary for US Regions and Support
+ *  United States (US) Data Boundary and Support
  *
  *  Value: "US_DATA_BOUNDARY_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryAndSupport;
 /**
- *  Data Boundary for US Healthcare and Life Sciences
+ *  United States (US) Data Boundary for Healthcare and Life Sciences
  *
  *  Value: "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences;
 /**
- *  Data Boundary for US Healthcare and Life Sciences with Support
+ *  United States (US) Data Boundary for Healthcare and Life Sciences with
+ *  Support
  *
  *  Value: "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport;
 /**
- *  Assured Workloads For US Regions data protection controls
+ *  Use the US_DATA_BOUNDARY_AND_SUPPORT enum for this control package instead,
+ *  as the name of the associated Assured Workloads control package has changed.
  *
  *  Value: "US_REGIONAL_ACCESS"
  */
@@ -521,13 +563,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 // GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload.complianceRegime
 
 /**
- *  Assured Workloads for Partners;
+ *  Specifies a [Sovereign Controls by
+ *  Partners](https://cloud.google.com/sovereign-controls-by-partners/docs/overview)
+ *  control package. To use this control package, you must also specify the
+ *  partner field from the list of Sovereign Controls by Partners.
  *
  *  Value: "ASSURED_WORKLOADS_FOR_PARTNERS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AssuredWorkloadsForPartners;
 /**
- *  Assured Workloads for Australia Regions and Support controls
+ *  Use the AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "AU_REGIONS_AND_US_SUPPORT"
  */
@@ -539,7 +586,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AustraliaDataBoundaryAndSupport;
 /**
- *  Canada Controlled Goods
+ *  Use the DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS enum for this control
+ *  package instead, as the name of the associated Assured Workloads control
+ *  package has changed.
  *
  *  Value: "CANADA_CONTROLLED_GOODS"
  */
@@ -551,25 +600,31 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CanadaDataBoundaryAndSupport;
 /**
- *  Assured Workloads for Canada Protected B regime
+ *  Use the DATA_BOUNDARY_FOR_CANADA_PROTECTED_B enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "CA_PROTECTED_B"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaProtectedB;
 /**
- *  Assured Workloads For Canada Regions and Support controls
+ *  Use the CANADA_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "CA_REGIONS_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport;
 /**
- *  Criminal Justice Information Services (CJIS) Security policies.
+ *  Use the DATA_BOUNDARY_FOR_CJIS enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "CJIS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Cjis;
 /**
- *  Unknown compliance regime.
+ *  The default value. This value is used if the control package is omitted or
+ *  unknown.
  *
  *  Value: "COMPLIANCE_REGIME_UNSPECIFIED"
  */
@@ -587,7 +642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCanadaProtectedB;
 /**
- *  Data Boundary for CJIS
+ *  Data Boundary for Criminal Justice Information Systems (CJIS)
  *
  *  Value: "DATA_BOUNDARY_FOR_CJIS"
  */
@@ -605,19 +660,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForFedrampModerate;
 /**
- *  Data Boundary for IL2
+ *  Data Boundary for Impact Level 2 (IL2)
  *
  *  Value: "DATA_BOUNDARY_FOR_IL2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl2;
 /**
- *  Data Boundary for IL4
+ *  Data Boundary for Impact Level 4 (IL4)
  *
  *  Value: "DATA_BOUNDARY_FOR_IL4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl4;
 /**
- *  Data Boundary for IL5
+ *  Data Boundary for Impact Level 5 (IL5)
  *
  *  Value: "DATA_BOUNDARY_FOR_IL5"
  */
@@ -629,163 +684,192 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIrsPublication1075;
 /**
- *  Data Boundary for ITAR
+ *  Data Boundary for International Traffic in Arms Regulations (ITAR)
  *
  *  Value: "DATA_BOUNDARY_FOR_ITAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForItar;
 /**
- *  Data Boundary for EU Regions and Support
+ *  European Union (EU) Data Boundary and Support
  *
  *  Value: "EU_DATA_BOUNDARY_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuDataBoundaryAndSupport;
 /**
- *  Assured Workloads For EU Regions and Support controls
+ *  Use the EU_DATA_BOUNDARY_AND_SUPPORT enum for this control package instead,
+ *  as the name of the associated Assured Workloads control package has changed.
  *
  *  Value: "EU_REGIONS_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuRegionsAndSupport;
 /**
- *  FedRAMP High data protection controls
+ *  Use the DATA_BOUNDARY_FOR_FEDRAMP_HIGH enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "FEDRAMP_HIGH"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampHigh;
 /**
- *  FedRAMP Moderate data protection controls
+ *  Use the DATA_BOUNDARY_FOR_FEDRAMP_MODERATE enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "FEDRAMP_MODERATE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate;
 /**
- *  Healthcare and Life Science Controls
+ *  Use the US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES enum for this
+ *  control package instead, as the name of the associated Assured Workloads
+ *  control package has changed.
  *
  *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControls;
 /**
- *  Healthcare and Life Science Controls with US Support
+ *  Use the US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT enum
+ *  for this control package instead, as the name of the associated Assured
+ *  Workloads control package has changed.
  *
  *  Value: "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport;
 /**
- *  [DEPRECATED] Health Insurance Portability and Accountability Act controls
+ *  Deprecated: Consider using the Data Boundary for US Healthcare and Life
+ *  Sciences control package instead.
  *
  *  Value: "HIPAA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa GTLR_DEPRECATED;
 /**
- *  [DEPRECATED] Health Information Trust Alliance controls
+ *  Deprecated: Consider using the Data Boundary for US Healthcare and Life
+ *  Sciences control package instead.
  *
  *  Value: "HITRUST"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust GTLR_DEPRECATED;
 /**
- *  Information protection as per DoD IL2 requirements.
+ *  Use the DATA_BOUNDARY_FOR_IL2 enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "IL2"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il2;
 /**
- *  Information protection as per DoD IL4 requirements.
+ *  Use the DATA_BOUNDARY_FOR_IL4 enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "IL4"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4;
 /**
- *  Information protection as per DoD IL5 requirements.
+ *  Use the DATA_BOUNDARY_FOR_IL5 enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "IL5"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il5;
 /**
- *  Internal Revenue Service 1075 controls
+ *  Use the DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075 enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "IRS_1075"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Irs1075;
 /**
- *  Data Boundary for Israel Regions
+ *  Israel Data Boundary and Support
  *
  *  Value: "ISRAEL_DATA_BOUNDARY_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsraelDataBoundaryAndSupport;
 /**
- *  Assured Workloads for Israel Regions
+ *  Use the ISRAEL_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "ISR_REGIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions;
 /**
- *  Assured Workloads for Israel Regions
+ *  Use the ISRAEL_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *  instead, as the name of the associated Assured Workloads control package has
+ *  changed.
  *
  *  Value: "ISR_REGIONS_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegionsAndSupport;
 /**
- *  International Traffic in Arms Regulations
+ *  Use the DATA_BOUNDARY_FOR_ITAR enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "ITAR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar;
 /**
- *  JAPAN Data Boundary
+ *  Japan Data Boundary
  *
  *  Value: "JAPAN_DATA_BOUNDARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JapanDataBoundary;
 /**
- *  Assured Workloads for Japan Regions
+ *  Use the JAPAN_DATA_BOUNDARY enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "JP_REGIONS_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JpRegionsAndSupport;
 /**
- *  KSA Data Boundary with Access Justifications
+ *  Kingdom of Saudi Arabia (KSA) Data Boundary with Access Justifications
  *
  *  Value: "KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaDataBoundaryWithAccessJustifications;
 /**
- *  Assured Workloads Sovereign Controls KSA
+ *  Use the KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS enum for this control
+ *  package instead, as the name of the associated Assured Workloads control
+ *  package has changed.
  *
  *  Value: "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls;
 /**
- *  Assured Workloads for Regional Controls
+ *  Use the REGIONAL_DATA_BOUNDARY enum for this control package instead, as the
+ *  name of the associated Assured Workloads control package has changed.
  *
  *  Value: "REGIONAL_CONTROLS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControls;
 /**
- *  Regional Data Boundary
+ *  Data boundary for one of Assured Workloads' *Free tier* control packages.
+ *  Determines the region by specifying the data location during workload
+ *  creation.
  *
  *  Value: "REGIONAL_DATA_BOUNDARY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalDataBoundary;
 /**
- *  Data Boundary for US Regions and Support
+ *  United States (US) Data Boundary and Support
  *
  *  Value: "US_DATA_BOUNDARY_AND_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryAndSupport;
 /**
- *  Data Boundary for US Healthcare and Life Sciences
+ *  United States (US) Data Boundary for Healthcare and Life Sciences
  *
  *  Value: "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences;
 /**
- *  Data Boundary for US Healthcare and Life Sciences with Support
+ *  United States (US) Data Boundary for Healthcare and Life Sciences with
+ *  Support
  *
  *  Value: "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport;
 /**
- *  Assured Workloads For US Regions data protection controls
+ *  Use the US_DATA_BOUNDARY_AND_SUPPORT enum for this control package instead,
+ *  as the name of the associated Assured Workloads control package has changed.
  *
  *  Value: "US_REGIONAL_ACCESS"
  */
@@ -1255,6 +1339,68 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
+ *  Request for archiving resource events.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsRequest : GTLRObject
+
+/**
+ *  Optional. Time to set as ArchiveTime in the archive table. If not provided,
+ *  the current time is used.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *archiveTime;
+
+/**
+ *  Required. The number of events to process in a single transaction batch.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchSize;
+
+/**
+ *  Required. Only events with EventTime earlier than this cutoff will be
+ *  archived.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventCutoffTime;
+
+/**
+ *  Required. The maximum total number of events to move in this request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxEventsMove;
+
+/**
+ *  Required. The organization ID for which to archive events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *organizationId;
+
+/**
+ *  Required. The region of the workload(s) whose events should be archived.
+ *  This is used to filter workloads based on AssurantWorkloadData.region.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+@end
+
+
+/**
+ *  Response for archiving resource events.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsResponse : GTLRObject
+
+/**
+ *  The total number of events successfully moved to the archive table.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *movedEventsCount;
+
+@end
+
+
+/**
  *  Represents move analysis results for an asset.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AssetMoveAnalysis : GTLRObject
@@ -1289,30 +1435,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AssuredWorkloadsForPartners
- *        Assured Workloads for Partners; (Value:
- *        "ASSURED_WORKLOADS_FOR_PARTNERS")
+ *        Specifies a [Sovereign Controls by
+ *        Partners](https://cloud.google.com/sovereign-controls-by-partners/docs/overview)
+ *        control package. To use this control package, you must also specify
+ *        the partner field from the list of Sovereign Controls by Partners.
+ *        (Value: "ASSURED_WORKLOADS_FOR_PARTNERS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AuRegionsAndUsSupport
- *        Assured Workloads for Australia Regions and Support controls (Value:
- *        "AU_REGIONS_AND_US_SUPPORT")
+ *        Use the AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT enum for this control
+ *        package instead, as the name of the associated Assured Workloads
+ *        control package has changed. (Value: "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_AustraliaDataBoundaryAndSupport
  *        Australia Data Boundary and Support (Value:
  *        "AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CanadaControlledGoods
- *        Canada Controlled Goods (Value: "CANADA_CONTROLLED_GOODS")
+ *        Use the DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS enum for this
+ *        control package instead, as the name of the associated Assured
+ *        Workloads control package has changed. (Value:
+ *        "CANADA_CONTROLLED_GOODS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CanadaDataBoundaryAndSupport
  *        Canada Data Boundary and Support (Value:
  *        "CANADA_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaProtectedB
- *        Assured Workloads for Canada Protected B regime (Value:
- *        "CA_PROTECTED_B")
+ *        Use the DATA_BOUNDARY_FOR_CANADA_PROTECTED_B enum for this control
+ *        package instead, as the name of the associated Assured Workloads
+ *        control package has changed. (Value: "CA_PROTECTED_B")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_CaRegionsAndSupport
- *        Assured Workloads For Canada Regions and Support controls (Value:
- *        "CA_REGIONS_AND_SUPPORT")
+ *        Use the CANADA_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "CA_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Cjis
- *        Criminal Justice Information Services (CJIS) Security policies.
- *        (Value: "CJIS")
+ *        Use the DATA_BOUNDARY_FOR_CJIS enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_ComplianceRegimeUnspecified
- *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *        The default value. This value is used if the control package is
+ *        omitted or unknown. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCanadaControlledGoods
  *        Data Boundary for Canada Controlled Goods (Value:
  *        "DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS")
@@ -1320,7 +1477,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Data Boundary for Canada Protected B (Value:
  *        "DATA_BOUNDARY_FOR_CANADA_PROTECTED_B")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForCjis
- *        Data Boundary for CJIS (Value: "DATA_BOUNDARY_FOR_CJIS")
+ *        Data Boundary for Criminal Justice Information Systems (CJIS) (Value:
+ *        "DATA_BOUNDARY_FOR_CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForFedrampHigh
  *        Data Boundary for FedRAMP High (Value:
  *        "DATA_BOUNDARY_FOR_FEDRAMP_HIGH")
@@ -1328,82 +1486,118 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Data Boundary for FedRAMP Moderate (Value:
  *        "DATA_BOUNDARY_FOR_FEDRAMP_MODERATE")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl2
- *        Data Boundary for IL2 (Value: "DATA_BOUNDARY_FOR_IL2")
+ *        Data Boundary for Impact Level 2 (IL2) (Value:
+ *        "DATA_BOUNDARY_FOR_IL2")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl4
- *        Data Boundary for IL4 (Value: "DATA_BOUNDARY_FOR_IL4")
+ *        Data Boundary for Impact Level 4 (IL4) (Value:
+ *        "DATA_BOUNDARY_FOR_IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIl5
- *        Data Boundary for IL5 (Value: "DATA_BOUNDARY_FOR_IL5")
+ *        Data Boundary for Impact Level 5 (IL5) (Value:
+ *        "DATA_BOUNDARY_FOR_IL5")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForIrsPublication1075
  *        Data Boundary for IRS Publication 1075 (Value:
  *        "DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_DataBoundaryForItar
- *        Data Boundary for ITAR (Value: "DATA_BOUNDARY_FOR_ITAR")
+ *        Data Boundary for International Traffic in Arms Regulations (ITAR)
+ *        (Value: "DATA_BOUNDARY_FOR_ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuDataBoundaryAndSupport
- *        Data Boundary for EU Regions and Support (Value:
+ *        European Union (EU) Data Boundary and Support (Value:
  *        "EU_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_EuRegionsAndSupport
- *        Assured Workloads For EU Regions and Support controls (Value:
- *        "EU_REGIONS_AND_SUPPORT")
+ *        Use the EU_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "EU_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampHigh
- *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
+ *        Use the DATA_BOUNDARY_FOR_FEDRAMP_HIGH enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_FedrampModerate
- *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *        Use the DATA_BOUNDARY_FOR_FEDRAMP_MODERATE enum for this control
+ *        package instead, as the name of the associated Assured Workloads
+ *        control package has changed. (Value: "FEDRAMP_MODERATE")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControls
- *        Healthcare and Life Science Controls (Value:
+ *        Use the US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES enum for
+ *        this control package instead, as the name of the associated Assured
+ *        Workloads control package has changed. (Value:
  *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport
- *        Healthcare and Life Science Controls with US Support (Value:
+ *        Use the US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT
+ *        enum for this control package instead, as the name of the associated
+ *        Assured Workloads control package has changed. (Value:
  *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hipaa
- *        [DEPRECATED] Health Insurance Portability and Accountability Act
- *        controls (Value: "HIPAA")
+ *        Deprecated: Consider using the Data Boundary for US Healthcare and
+ *        Life Sciences control package instead. (Value: "HIPAA")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Hitrust
- *        [DEPRECATED] Health Information Trust Alliance controls (Value:
- *        "HITRUST")
+ *        Deprecated: Consider using the Data Boundary for US Healthcare and
+ *        Life Sciences control package instead. (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il2
- *        Information protection as per DoD IL2 requirements. (Value: "IL2")
+ *        Use the DATA_BOUNDARY_FOR_IL2 enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "IL2")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il4
- *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *        Use the DATA_BOUNDARY_FOR_IL4 enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Il5
- *        Information protection as per DoD IL5 requirements. (Value: "IL5")
+ *        Use the DATA_BOUNDARY_FOR_IL5 enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "IL5")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Irs1075
- *        Internal Revenue Service 1075 controls (Value: "IRS_1075")
+ *        Use the DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075 enum for this control
+ *        package instead, as the name of the associated Assured Workloads
+ *        control package has changed. (Value: "IRS_1075")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsraelDataBoundaryAndSupport
- *        Data Boundary for Israel Regions (Value:
+ *        Israel Data Boundary and Support (Value:
  *        "ISRAEL_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegions
- *        Assured Workloads for Israel Regions (Value: "ISR_REGIONS")
+ *        Use the ISRAEL_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "ISR_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_IsrRegionsAndSupport
- *        Assured Workloads for Israel Regions (Value:
- *        "ISR_REGIONS_AND_SUPPORT")
+ *        Use the ISRAEL_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "ISR_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_Itar
- *        International Traffic in Arms Regulations (Value: "ITAR")
+ *        Use the DATA_BOUNDARY_FOR_ITAR enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JapanDataBoundary
- *        JAPAN Data Boundary (Value: "JAPAN_DATA_BOUNDARY")
+ *        Japan Data Boundary (Value: "JAPAN_DATA_BOUNDARY")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_JpRegionsAndSupport
- *        Assured Workloads for Japan Regions (Value: "JP_REGIONS_AND_SUPPORT")
+ *        Use the JAPAN_DATA_BOUNDARY enum for this control package instead, as
+ *        the name of the associated Assured Workloads control package has
+ *        changed. (Value: "JP_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaDataBoundaryWithAccessJustifications
- *        KSA Data Boundary with Access Justifications (Value:
- *        "KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS")
+ *        Kingdom of Saudi Arabia (KSA) Data Boundary with Access Justifications
+ *        (Value: "KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls
- *        Assured Workloads Sovereign Controls KSA (Value:
+ *        Use the KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS enum for this
+ *        control package instead, as the name of the associated Assured
+ *        Workloads control package has changed. (Value:
  *        "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalControls
- *        Assured Workloads for Regional Controls (Value: "REGIONAL_CONTROLS")
+ *        Use the REGIONAL_DATA_BOUNDARY enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "REGIONAL_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_RegionalDataBoundary
- *        Regional Data Boundary (Value: "REGIONAL_DATA_BOUNDARY")
+ *        Data boundary for one of Assured Workloads' *Free tier* control
+ *        packages. Determines the region by specifying the data location during
+ *        workload creation. (Value: "REGIONAL_DATA_BOUNDARY")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryAndSupport
- *        Data Boundary for US Regions and Support (Value:
+ *        United States (US) Data Boundary and Support (Value:
  *        "US_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences
- *        Data Boundary for US Healthcare and Life Sciences (Value:
- *        "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES")
+ *        United States (US) Data Boundary for Healthcare and Life Sciences
+ *        (Value: "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport
- *        Data Boundary for US Healthcare and Life Sciences with Support (Value:
+ *        United States (US) Data Boundary for Healthcare and Life Sciences with
+ *        Support (Value:
  *        "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1CreateWorkloadOperationMetadata_ComplianceRegime_UsRegionalAccess
- *        Assured Workloads For US Regions data protection controls (Value:
- *        "US_REGIONAL_ACCESS")
+ *        Use the US_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "US_REGIONAL_ACCESS")
  */
 @property(nonatomic, copy, nullable) NSString *complianceRegime;
 
@@ -1725,6 +1919,68 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 
 /**
+ *  Request for reverting archived resource events.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsRequest : GTLRObject
+
+/**
+ *  Required. Only events within this time range will be reverted. This helps
+ *  prevent reverting everything when something goes wrong.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *archiveEndTime;
+
+/**
+ *  Required. Only events within this time range will be reverted. This helps
+ *  prevent reverting everything when something goes wrong.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *archiveStartTime;
+
+/**
+ *  Required. The number of events to process in a single transaction batch.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *batchSize;
+
+/**
+ *  Required. The maximum total number of events to move in this request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxEventsMove;
+
+/**
+ *  Required. The organization ID for which to revert events.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *organizationId;
+
+/**
+ *  Required. The region of the workload(s) whose events should be reverted.
+ *  This is used to filter workloads based on AssurantWorkloadData.region.
+ */
+@property(nonatomic, copy, nullable) NSString *region;
+
+@end
+
+
+/**
+ *  Response for reverting archived resource events.
+ */
+@interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsResponse : GTLRObject
+
+/**
+ *  The total number of events successfully moved to the original table.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *movedEventsCount;
+
+@end
+
+
+/**
  *  The details of the update.
  */
 @interface GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1UpdateDetails : GTLRObject
@@ -2015,30 +2271,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *
  *  Likely values:
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AssuredWorkloadsForPartners
- *        Assured Workloads for Partners; (Value:
- *        "ASSURED_WORKLOADS_FOR_PARTNERS")
+ *        Specifies a [Sovereign Controls by
+ *        Partners](https://cloud.google.com/sovereign-controls-by-partners/docs/overview)
+ *        control package. To use this control package, you must also specify
+ *        the partner field from the list of Sovereign Controls by Partners.
+ *        (Value: "ASSURED_WORKLOADS_FOR_PARTNERS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AuRegionsAndUsSupport
- *        Assured Workloads for Australia Regions and Support controls (Value:
- *        "AU_REGIONS_AND_US_SUPPORT")
+ *        Use the AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT enum for this control
+ *        package instead, as the name of the associated Assured Workloads
+ *        control package has changed. (Value: "AU_REGIONS_AND_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_AustraliaDataBoundaryAndSupport
  *        Australia Data Boundary and Support (Value:
  *        "AUSTRALIA_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CanadaControlledGoods
- *        Canada Controlled Goods (Value: "CANADA_CONTROLLED_GOODS")
+ *        Use the DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS enum for this
+ *        control package instead, as the name of the associated Assured
+ *        Workloads control package has changed. (Value:
+ *        "CANADA_CONTROLLED_GOODS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CanadaDataBoundaryAndSupport
  *        Canada Data Boundary and Support (Value:
  *        "CANADA_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaProtectedB
- *        Assured Workloads for Canada Protected B regime (Value:
- *        "CA_PROTECTED_B")
+ *        Use the DATA_BOUNDARY_FOR_CANADA_PROTECTED_B enum for this control
+ *        package instead, as the name of the associated Assured Workloads
+ *        control package has changed. (Value: "CA_PROTECTED_B")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_CaRegionsAndSupport
- *        Assured Workloads For Canada Regions and Support controls (Value:
- *        "CA_REGIONS_AND_SUPPORT")
+ *        Use the CANADA_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "CA_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Cjis
- *        Criminal Justice Information Services (CJIS) Security policies.
- *        (Value: "CJIS")
+ *        Use the DATA_BOUNDARY_FOR_CJIS enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_ComplianceRegimeUnspecified
- *        Unknown compliance regime. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
+ *        The default value. This value is used if the control package is
+ *        omitted or unknown. (Value: "COMPLIANCE_REGIME_UNSPECIFIED")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCanadaControlledGoods
  *        Data Boundary for Canada Controlled Goods (Value:
  *        "DATA_BOUNDARY_FOR_CANADA_CONTROLLED_GOODS")
@@ -2046,7 +2313,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Data Boundary for Canada Protected B (Value:
  *        "DATA_BOUNDARY_FOR_CANADA_PROTECTED_B")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForCjis
- *        Data Boundary for CJIS (Value: "DATA_BOUNDARY_FOR_CJIS")
+ *        Data Boundary for Criminal Justice Information Systems (CJIS) (Value:
+ *        "DATA_BOUNDARY_FOR_CJIS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForFedrampHigh
  *        Data Boundary for FedRAMP High (Value:
  *        "DATA_BOUNDARY_FOR_FEDRAMP_HIGH")
@@ -2054,82 +2322,118 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
  *        Data Boundary for FedRAMP Moderate (Value:
  *        "DATA_BOUNDARY_FOR_FEDRAMP_MODERATE")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl2
- *        Data Boundary for IL2 (Value: "DATA_BOUNDARY_FOR_IL2")
+ *        Data Boundary for Impact Level 2 (IL2) (Value:
+ *        "DATA_BOUNDARY_FOR_IL2")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl4
- *        Data Boundary for IL4 (Value: "DATA_BOUNDARY_FOR_IL4")
+ *        Data Boundary for Impact Level 4 (IL4) (Value:
+ *        "DATA_BOUNDARY_FOR_IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIl5
- *        Data Boundary for IL5 (Value: "DATA_BOUNDARY_FOR_IL5")
+ *        Data Boundary for Impact Level 5 (IL5) (Value:
+ *        "DATA_BOUNDARY_FOR_IL5")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForIrsPublication1075
  *        Data Boundary for IRS Publication 1075 (Value:
  *        "DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_DataBoundaryForItar
- *        Data Boundary for ITAR (Value: "DATA_BOUNDARY_FOR_ITAR")
+ *        Data Boundary for International Traffic in Arms Regulations (ITAR)
+ *        (Value: "DATA_BOUNDARY_FOR_ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuDataBoundaryAndSupport
- *        Data Boundary for EU Regions and Support (Value:
+ *        European Union (EU) Data Boundary and Support (Value:
  *        "EU_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_EuRegionsAndSupport
- *        Assured Workloads For EU Regions and Support controls (Value:
- *        "EU_REGIONS_AND_SUPPORT")
+ *        Use the EU_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "EU_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampHigh
- *        FedRAMP High data protection controls (Value: "FEDRAMP_HIGH")
+ *        Use the DATA_BOUNDARY_FOR_FEDRAMP_HIGH enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "FEDRAMP_HIGH")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_FedrampModerate
- *        FedRAMP Moderate data protection controls (Value: "FEDRAMP_MODERATE")
+ *        Use the DATA_BOUNDARY_FOR_FEDRAMP_MODERATE enum for this control
+ *        package instead, as the name of the associated Assured Workloads
+ *        control package has changed. (Value: "FEDRAMP_MODERATE")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControls
- *        Healthcare and Life Science Controls (Value:
+ *        Use the US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES enum for
+ *        this control package instead, as the name of the associated Assured
+ *        Workloads control package has changed. (Value:
  *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_HealthcareAndLifeSciencesControlsUsSupport
- *        Healthcare and Life Science Controls with US Support (Value:
+ *        Use the US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT
+ *        enum for this control package instead, as the name of the associated
+ *        Assured Workloads control package has changed. (Value:
  *        "HEALTHCARE_AND_LIFE_SCIENCES_CONTROLS_US_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hipaa
- *        [DEPRECATED] Health Insurance Portability and Accountability Act
- *        controls (Value: "HIPAA")
+ *        Deprecated: Consider using the Data Boundary for US Healthcare and
+ *        Life Sciences control package instead. (Value: "HIPAA")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Hitrust
- *        [DEPRECATED] Health Information Trust Alliance controls (Value:
- *        "HITRUST")
+ *        Deprecated: Consider using the Data Boundary for US Healthcare and
+ *        Life Sciences control package instead. (Value: "HITRUST")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il2
- *        Information protection as per DoD IL2 requirements. (Value: "IL2")
+ *        Use the DATA_BOUNDARY_FOR_IL2 enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "IL2")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il4
- *        Information protection as per DoD IL4 requirements. (Value: "IL4")
+ *        Use the DATA_BOUNDARY_FOR_IL4 enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "IL4")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Il5
- *        Information protection as per DoD IL5 requirements. (Value: "IL5")
+ *        Use the DATA_BOUNDARY_FOR_IL5 enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "IL5")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Irs1075
- *        Internal Revenue Service 1075 controls (Value: "IRS_1075")
+ *        Use the DATA_BOUNDARY_FOR_IRS_PUBLICATION_1075 enum for this control
+ *        package instead, as the name of the associated Assured Workloads
+ *        control package has changed. (Value: "IRS_1075")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsraelDataBoundaryAndSupport
- *        Data Boundary for Israel Regions (Value:
+ *        Israel Data Boundary and Support (Value:
  *        "ISRAEL_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegions
- *        Assured Workloads for Israel Regions (Value: "ISR_REGIONS")
+ *        Use the ISRAEL_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "ISR_REGIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_IsrRegionsAndSupport
- *        Assured Workloads for Israel Regions (Value:
- *        "ISR_REGIONS_AND_SUPPORT")
+ *        Use the ISRAEL_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "ISR_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_Itar
- *        International Traffic in Arms Regulations (Value: "ITAR")
+ *        Use the DATA_BOUNDARY_FOR_ITAR enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "ITAR")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JapanDataBoundary
- *        JAPAN Data Boundary (Value: "JAPAN_DATA_BOUNDARY")
+ *        Japan Data Boundary (Value: "JAPAN_DATA_BOUNDARY")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_JpRegionsAndSupport
- *        Assured Workloads for Japan Regions (Value: "JP_REGIONS_AND_SUPPORT")
+ *        Use the JAPAN_DATA_BOUNDARY enum for this control package instead, as
+ *        the name of the associated Assured Workloads control package has
+ *        changed. (Value: "JP_REGIONS_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaDataBoundaryWithAccessJustifications
- *        KSA Data Boundary with Access Justifications (Value:
- *        "KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS")
+ *        Kingdom of Saudi Arabia (KSA) Data Boundary with Access Justifications
+ *        (Value: "KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_KsaRegionsAndSupportWithSovereigntyControls
- *        Assured Workloads Sovereign Controls KSA (Value:
+ *        Use the KSA_DATA_BOUNDARY_WITH_ACCESS_JUSTIFICATIONS enum for this
+ *        control package instead, as the name of the associated Assured
+ *        Workloads control package has changed. (Value:
  *        "KSA_REGIONS_AND_SUPPORT_WITH_SOVEREIGNTY_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalControls
- *        Assured Workloads for Regional Controls (Value: "REGIONAL_CONTROLS")
+ *        Use the REGIONAL_DATA_BOUNDARY enum for this control package instead,
+ *        as the name of the associated Assured Workloads control package has
+ *        changed. (Value: "REGIONAL_CONTROLS")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_RegionalDataBoundary
- *        Regional Data Boundary (Value: "REGIONAL_DATA_BOUNDARY")
+ *        Data boundary for one of Assured Workloads' *Free tier* control
+ *        packages. Determines the region by specifying the data location during
+ *        workload creation. (Value: "REGIONAL_DATA_BOUNDARY")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryAndSupport
- *        Data Boundary for US Regions and Support (Value:
+ *        United States (US) Data Boundary and Support (Value:
  *        "US_DATA_BOUNDARY_AND_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciences
- *        Data Boundary for US Healthcare and Life Sciences (Value:
- *        "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES")
+ *        United States (US) Data Boundary for Healthcare and Life Sciences
+ *        (Value: "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsDataBoundaryForHealthcareAndLifeSciencesWithSupport
- *        Data Boundary for US Healthcare and Life Sciences with Support (Value:
+ *        United States (US) Data Boundary for Healthcare and Life Sciences with
+ *        Support (Value:
  *        "US_DATA_BOUNDARY_FOR_HEALTHCARE_AND_LIFE_SCIENCES_WITH_SUPPORT")
  *    @arg @c kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1Workload_ComplianceRegime_UsRegionalAccess
- *        Assured Workloads For US Regions data protection controls (Value:
- *        "US_REGIONAL_ACCESS")
+ *        Use the US_DATA_BOUNDARY_AND_SUPPORT enum for this control package
+ *        instead, as the name of the associated Assured Workloads control
+ *        package has changed. (Value: "US_REGIONAL_ACCESS")
  */
 @property(nonatomic, copy, nullable) NSString *complianceRegime;
 
@@ -2245,9 +2549,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkl
 
 /**
  *  Optional. Billing account necessary for purchasing services from Sovereign
- *  Partners. This field is required for creating SIA/PSN/CNTXT partner
- *  workloads. The caller should have 'billing.resourceAssociations.create' IAM
- *  permission on this billing-account. The format of this string is
+ *  Partners. This field is required for creating SIA/PSN/CNTXT/Telefonica
+ *  partner workloads. The caller should have
+ *  'billing.resourceAssociations.create' IAM permission on this
+ *  billing-account. The format of this string is
  *  billingAccounts/AAAAAA-BBBBBB-CCCCCC
  */
 @property(nonatomic, copy, nullable) NSString *partnerServicesBillingAccount;

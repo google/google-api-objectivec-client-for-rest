@@ -60,6 +60,7 @@
 @class GTLRChromeManagement_GoogleChromeManagementV1PeripheralsReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1PrinterReport;
 @class GTLRChromeManagement_GoogleChromeManagementV1PrintJob;
+@class GTLRChromeManagement_GoogleChromeManagementV1ProfileAppInstallInstance;
 @class GTLRChromeManagement_GoogleChromeManagementV1RiskAssessment;
 @class GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentData;
 @class GTLRChromeManagement_GoogleChromeManagementV1RiskAssessmentEntry;
@@ -102,18 +103,33 @@
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsDevice;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeOsUserSession;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigDetails;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeConfig;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeFalconNextGenConfig;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeXdrConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericProfile;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1GoogleSecOpsConfig;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1MipLabelConfig;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1PaloAltoNetworksConfig;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubConfig;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubXdrConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingData;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionData;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataExtensionPolicyData;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepCaConnection;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1SplunkConfig;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName;
 @class GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser;
+@class GTLRChromeManagement_GoogleChromeManagementVersionsV1XdrSettings;
 @class GTLRChromeManagement_GoogleLongrunningOperation;
 @class GTLRChromeManagement_GoogleLongrunningOperation_Metadata;
 @class GTLRChromeManagement_GoogleLongrunningOperation_Response;
@@ -2405,6 +2421,80 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Success;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig.type
+
+/**
+ *  Certificate authority connector. Not yet supported in the API.
+ *
+ *  Value: "CERTIFICATE_AUTHORITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_CertificateAuthority;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "CONNECTOR_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_ConnectorTypeUnspecified;
+/**
+ *  Content analysis connector.
+ *
+ *  Value: "CONTENT_ANALYSIS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_ContentAnalysis;
+/**
+ *  Device trust connector.
+ *
+ *  Value: "DEVICE_TRUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_DeviceTrust;
+/**
+ *  Authentication connector.
+ *
+ *  Value: "IDENTITY_BASED_ENROLLMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_IdentityBasedEnrollment;
+/**
+ *  Reporting connector.
+ *
+ *  Value: "REPORTING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_Reporting;
+/**
+ *  Root certificate connector.
+ *
+ *  Value: "ROOT_STORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_RootStore;
+/**
+ *  XDR connector.
+ *
+ *  Value: "XDR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_Xdr;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus.state
+
+/**
+ *  Default value.
+ *
+ *  Value: "CONFIG_STATE_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_ConfigStateUnknown;
+/**
+ *  The connector config is transiently disabled due to failures.
+ *
+ *  Value: "DISABLED_BY_FAILURES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_DisabledByFailures;
+/**
+ *  The connector config is enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_Enabled;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo.deviceType
 
 /**
@@ -2419,6 +2509,92 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  Value: "DEVICE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_DeviceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig.scope
+
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "BROWSER_ENFORCEMENT_SCOPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_BrowserEnforcementScopeUnspecified;
+/**
+ *  Both browsers and profiles are enforced.
+ *
+ *  Value: "BROWSERS_AND_PROFILES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_BrowsersAndProfiles;
+/**
+ *  Only browsers are enforced.
+ *
+ *  Value: "BROWSERS_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_BrowsersOnly;
+/**
+ *  Only profiles are enforced.
+ *
+ *  Value: "PROFILES_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_ProfilesOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig.serviceProvider
+
+/**
+ *  Duo service provider.
+ *
+ *  Value: "DUO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Duo;
+/**
+ *  JumpCloud service provider.
+ *
+ *  Value: "JUMPCLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Jumpcloud;
+/**
+ *  Okta service provider.
+ *
+ *  Value: "OKTA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Okta;
+/**
+ *  Omnissa service provider.
+ *
+ *  Value: "OMNISSA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Omnissa;
+/**
+ *  OneLogin service provider.
+ *
+ *  Value: "ONELOGIN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Onelogin;
+/**
+ *  Ping Identity service provider.
+ *
+ *  Value: "PING_IDENTITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_PingIdentity;
+/**
+ *  Default value.
+ *
+ *  Value: "SERVICE_PROVIDER_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_ServiceProviderUnspecified;
+/**
+ *  Universal device trust connector.
+ *
+ *  Value: "UNIVERSAL_DEVICE_TRUST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_UniversalDeviceTrust;
+/**
+ *  Zscaler service provider.
+ *
+ *  Value: "ZSCALER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Zscaler;
 
 // ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData.source
@@ -2581,6 +2757,174 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserPlatform;
 
 // ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings.enabledDefaultEvents
+
+/**
+ *  All default events.
+ *
+ *  Value: "ALL_DEFAULT_EVENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_AllDefaultEvents;
+/**
+ *  Browser crash event.
+ *
+ *  Value: "BROWSER_CRASH_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_BrowserCrashEvent;
+/**
+ *  Browser extension install event.
+ *
+ *  Value: "BROWSER_EXTENSION_INSTALL_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_BrowserExtensionInstallEvent;
+/**
+ *  Content transfer event.
+ *
+ *  Value: "CONTENT_TRANSFER_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_ContentTransferEvent;
+/**
+ *  Content unscanned event.
+ *
+ *  Value: "CONTENT_UNSCANNED_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_ContentUnscannedEvent;
+/**
+ *  Data access control event.
+ *
+ *  Value: "DATA_ACCESS_CONTROL_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_DataAccessControlEvent;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DEFAULT_EVENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_DefaultEventUnspecified;
+/**
+ *  Malware transfer event.
+ *
+ *  Value: "MALWARE_TRANSFER_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_MalwareTransferEvent;
+/**
+ *  Password changed event.
+ *
+ *  Value: "PASSWORD_CHANGED_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_PasswordChangedEvent;
+/**
+ *  Password reuse event.
+ *
+ *  Value: "PASSWORD_REUSE_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_PasswordReuseEvent;
+/**
+ *  Sensitive data transfer event.
+ *
+ *  Value: "SENSITIVE_DATA_TRANSFER_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_SensitiveDataTransferEvent;
+/**
+ *  Suspicious URL event.
+ *
+ *  Value: "SUSPICIOUS_URL_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_SuspiciousUrlEvent;
+/**
+ *  Unsafe site visit event.
+ *
+ *  Value: "UNSAFE_SITE_VISIT_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_UnsafeSiteVisitEvent;
+/**
+ *  URL filtering interstitial event.
+ *
+ *  Value: "URL_FILTERING_INTERSTITIAL_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_UrlFilteringInterstitialEvent;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings.enabledDeviceEvents
+
+/**
+ *  Add/remove user event.
+ *
+ *  Value: "ADD_REMOVE_USER_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_AddRemoveUserEvent;
+/**
+ *  All device events.
+ *
+ *  Value: "ALL_DEVICE_EVENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_AllDeviceEvents;
+/**
+ *  CRD event.
+ *
+ *  Value: "CRD_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_CrdEvent;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "DEVICE_EVENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_DeviceEventUnspecified;
+/**
+ *  Login/logout event.
+ *
+ *  Value: "LOGIN_LOGOUT_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_LoginLogoutEvent;
+/**
+ *  Peripheral event.
+ *
+ *  Value: "PERIPHERAL_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_PeripheralEvent;
+
+// ----------------------------------------------------------------------------
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings.enabledOptInEvents
+
+/**
+ *  All opt-in events.
+ *
+ *  Value: "ALL_OPT_IN_EVENTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_AllOptInEvents;
+/**
+ *  Extension telemetry event.
+ *
+ *  Value: "EXTENSION_TELEMETRY_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_ExtensionTelemetryEvent;
+/**
+ *  Login event.
+ *
+ *  Value: "LOGIN_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_LoginEvent;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "OPT_IN_EVENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_OptInEventUnspecified;
+/**
+ *  Password breach event.
+ *
+ *  Value: "PASSWORD_BREACH_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_PasswordBreachEvent;
+/**
+ *  URL navigation event.
+ *
+ *  Value: "URL_NAVIGATION_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_UrlNavigationEvent;
+
+// ----------------------------------------------------------------------------
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile.keyUsages
 
 /**
@@ -2697,6 +3041,12 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  extension, "com.google.android.apps.docs" for the Google Drive Android app.
  */
 @property(nonatomic, copy, nullable) NSString *appId;
+
+/**
+ *  Output only. The category IDs of the app, which are the same as stored in
+ *  the Web Store item. It's expected that there is only one category ID.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *categoryIds;
 
 /** Output only. Chrome Web Store app information. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementV1ChromeAppInfo *chromeAppInfo;
@@ -4403,6 +4753,38 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response containing a list of profiles with queried app installed.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "profiles" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1FindInstalledAppProfilesResponse : GTLRCollectionObject
+
+/** Token to specify the next page of the request. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  A list of profiles which have the app installed. Sorted in ascending
+ *  alphabetical order on the profile.Email field.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementV1ProfileAppInstallInstance *> *profiles;
+
+/**
+ *  Total number of profiles matching request.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *totalSize;
+
+@end
+
+
+/**
  *  Information of a graphics adapter (GPU).
  */
 @interface GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo : GTLRObject
@@ -5333,6 +5715,29 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** The unique Directory API ID of the user who submitted the print job. */
 @property(nonatomic, copy, nullable) NSString *userId;
+
+@end
+
+
+/**
+ *  Describes a profile reporting Chrome Profile information.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementV1ProfileAppInstallInstance : GTLRObject
+
+/** Output only. The email of the profile. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** Output only. The Chrome client side profile ID. */
+@property(nonatomic, copy, nullable) NSString *profileId;
+
+/** Output only. The organizational unit id of the profile. */
+@property(nonatomic, copy, nullable) NSString *profileOrgUnitId;
+
+/**
+ *  Output only. Profile permanent ID is the unique identifier of a profile
+ *  within one customer.
+ */
+@property(nonatomic, copy, nullable) NSString *profilePermanentId;
 
 @end
 
@@ -7359,6 +7764,192 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  A representation of a connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig : GTLRObject
+
+/** Required. The details of the connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigDetails *details;
+
+/** Required. The display name of the config. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. Format: customers/{customer}/connectorConfigs/{connector_config}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The status of the connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus *status;
+
+/**
+ *  Required. The type of the connector.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_CertificateAuthority
+ *        Certificate authority connector. Not yet supported in the API. (Value:
+ *        "CERTIFICATE_AUTHORITY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_ConnectorTypeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "CONNECTOR_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_ContentAnalysis
+ *        Content analysis connector. (Value: "CONTENT_ANALYSIS")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_DeviceTrust
+ *        Device trust connector. (Value: "DEVICE_TRUST")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_IdentityBasedEnrollment
+ *        Authentication connector. (Value: "IDENTITY_BASED_ENROLLMENT")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_Reporting
+ *        Reporting connector. (Value: "REPORTING")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_RootStore
+ *        Root certificate connector. (Value: "ROOT_STORE")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_Xdr
+ *        XDR connector. (Value: "XDR")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
+ *  The details of the connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigDetails : GTLRObject
+
+/** CrowdStrike connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeConfig *crowdStrikeConfig;
+
+/** CrowdStrike Falcon Next Gen connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeFalconNextGenConfig *crowdStrikeFalconNextGenConfig;
+
+/** CrowdStrike XDR connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeXdrConfig *crowdStrikeXdrConfig;
+
+/** Device trust connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig *deviceTrustConfig;
+
+/** Google SecOps connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1GoogleSecOpsConfig *googleSecOpsConfig;
+
+/** MIP label connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1MipLabelConfig *mipLabelConfig;
+
+/** Palo Alto Networks connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1PaloAltoNetworksConfig *paloAltoNetworksConfig;
+
+/** Pub/Sub connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubConfig *pubSubConfig;
+
+/** Pub/Sub XDR connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubXdrConfig *pubSubXdrConfig;
+
+/** Splunk connector config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1SplunkConfig *splunkConfig;
+
+@end
+
+
+/**
+ *  The status of the connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus : GTLRObject
+
+/**
+ *  Output only. Field recording time of the earliest failure since the last
+ *  success event. This field is only set when the state is
+ *  `DISABLED_BY_FAILURES`.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *failureStartTime;
+
+/**
+ *  Output only. The state of the connector config. The connector state is
+ *  disabled if the connector has not successfully sent an event in the last 24
+ *  hours.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_ConfigStateUnknown
+ *        Default value. (Value: "CONFIG_STATE_UNKNOWN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_DisabledByFailures
+ *        The connector config is transiently disabled due to failures. (Value:
+ *        "DISABLED_BY_FAILURES")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_Enabled
+ *        The connector config is enabled. (Value: "ENABLED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Output only. Field recording time of most recent modification of the status.
+ *  For `ENABLED`, this is the time the status was changed to `ENABLED`. For
+ *  `DISABLED_BY_FAILURES`, this is the time of the most recent failed attempt
+ *  to send an event to this config.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  CrowdStrike connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeConfig : GTLRObject
+
+/** Required. Input only. API key to use on the ingestion API. */
+@property(nonatomic, copy, nullable) NSString *apiKey;
+
+/**
+ *  Required. Host to identify the customer specific server to receive the
+ *  events.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/** Required. The reporting settings for the CrowdStrike config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings *reportingSettings;
+
+@end
+
+
+/**
+ *  CrowdStrike Falcon Next Gen connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeFalconNextGenConfig : GTLRObject
+
+/** Required. Input only. API key to use on the ingestion API. */
+@property(nonatomic, copy, nullable) NSString *apiKey;
+
+/**
+ *  Required. Host to identify the customer specific server to receive the
+ *  events.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Required. The reporting settings for the CrowdStrike Falcon Next Gen config.
+ */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings *reportingSettings;
+
+@end
+
+
+/**
+ *  CrowdStrike XDR connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeXdrConfig : GTLRObject
+
+/** Required. Input only. API key to use on the ingestion API. */
+@property(nonatomic, copy, nullable) NSString *apiKey;
+
+/**
+ *  Required. Host to identify the customer specific server to receive the
+ *  events.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/** Required. The XDR settings for the CrowdStrike XDR config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1XdrSettings *xdrSettings;
+
+@end
+
+
+/**
  *  Information of a device that runs a Chrome browser profile.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo : GTLRObject
@@ -7398,6 +7989,72 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Device trust config for device trust connectors.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig : GTLRObject
+
+/**
+ *  Required. The scope at which this configuration will be applied. Note that
+ *  this only applies to Chrome browser, as in ChromeOS it's always applied.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_BrowserEnforcementScopeUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "BROWSER_ENFORCEMENT_SCOPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_BrowsersAndProfiles
+ *        Both browsers and profiles are enforced. (Value:
+ *        "BROWSERS_AND_PROFILES")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_BrowsersOnly
+ *        Only browsers are enforced. (Value: "BROWSERS_ONLY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_ProfilesOnly
+ *        Only profiles are enforced. (Value: "PROFILES_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *scope;
+
+/**
+ *  Required. A list of email addresses of the service accounts which are
+ *  allowed to call the Verified Access API with full access.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *serviceAccounts;
+
+/**
+ *  Optional. The service provider for the device trust connector.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Duo
+ *        Duo service provider. (Value: "DUO")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Jumpcloud
+ *        JumpCloud service provider. (Value: "JUMPCLOUD")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Okta
+ *        Okta service provider. (Value: "OKTA")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Omnissa
+ *        Omnissa service provider. (Value: "OMNISSA")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Onelogin
+ *        OneLogin service provider. (Value: "ONELOGIN")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_PingIdentity
+ *        Ping Identity service provider. (Value: "PING_IDENTITY")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_ServiceProviderUnspecified
+ *        Default value. (Value: "SERVICE_PROVIDER_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_UniversalDeviceTrust
+ *        Universal device trust connector. (Value: "UNIVERSAL_DEVICE_TRUST")
+ *    @arg @c kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Zscaler
+ *        Zscaler service provider. (Value: "ZSCALER")
+ */
+@property(nonatomic, copy, nullable) NSString *serviceProvider;
+
+/**
+ *  Required. List of URLs allowed to be part of the attestation flow to get the
+ *  set of signals from the machine. URLs must have HTTPS scheme, e.g.
+ *  "https://example.com". Wildcards, *, are allowed. For detailed information
+ *  on valid URL patterns, please see
+ *  https://cloud.google.com/docs/chrome-enterprise/policies/url-patterns.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *urlMatchers;
+
+@end
+
+
+/**
  *  Describes a generic Certificate Authority Connection.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericCaConnection : GTLRObject
@@ -7421,6 +8078,27 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  configuration for the certificate provisioning profile.
  */
 @property(nonatomic, copy, nullable) NSString *profileAdapterConfigReference;
+
+@end
+
+
+/**
+ *  Google SecOps connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1GoogleSecOpsConfig : GTLRObject
+
+/** Required. Input only. API key to use on the ingestion API. */
+@property(nonatomic, copy, nullable) NSString *apiKey;
+
+/**
+ *  Required. Host of ingestion API endpoint. Allows customer to upload events
+ *  to servers in specific geographical regions. Existing configs that don't
+ *  have this setting default to US.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/** Required. The reporting settings for the Google SecOps config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings *reportingSettings;
 
 @end
 
@@ -7489,6 +8167,51 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Response to ListConnectorConfigs method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "connectorConfigs" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ListConnectorConfigsResponse : GTLRCollectionObject
+
+/**
+ *  The list of connector configs returned.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig *> *connectorConfigs;
+
+/**
+ *  The page token used to retrieve the next page of the listing request. If the
+ *  token is empty, there are no more pages to retrieve.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  MIP label connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1MipLabelConfig : GTLRObject
+
+/**
+ *  Optional. Domain can be used optionally for the corner case where one Dasher
+ *  customer ID maps to multiple Microsoft tenant ID. Each domain can be
+ *  verified with at most one Microsoft tenant.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *domains;
+
+/** Required. Microsoft tenant ID. */
+@property(nonatomic, copy, nullable) NSString *microsoftTenantId;
+
+@end
+
+
+/**
  *  Request to MoveThirdPartyProfileUser method.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserRequest : GTLRObject
@@ -7509,6 +8232,54 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 /** Output only. The moved third party profile user. */
 @property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ThirdPartyProfileUser *thirdPartyProfileUser;
+
+@end
+
+
+/**
+ *  Palo Alto Networks connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1PaloAltoNetworksConfig : GTLRObject
+
+/** Required. Input only. API key to use on the ingestion API. */
+@property(nonatomic, copy, nullable) NSString *apiKey;
+
+/**
+ *  Required. Host to identify the customer specific server to receive the
+ *  events.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/** Required. The reporting settings for the Palo Alto Networks config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings *reportingSettings;
+
+@end
+
+
+/**
+ *  Pub/Sub connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubConfig : GTLRObject
+
+/** Required. The reporting settings for the Pub/Sub config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings *reportingSettings;
+
+/** Required. The full path to the topic to send the event to. */
+@property(nonatomic, copy, nullable) NSString *topicFullPath;
+
+@end
+
+
+/**
+ *  Pub/Sub XDR connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubXdrConfig : GTLRObject
+
+/** Required. The full path to the topic to send the event to. */
+@property(nonatomic, copy, nullable) NSString *topicFullPath;
+
+/** Required. The XDR settings for the Pub/Sub XDR config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1XdrSettings *xdrSettings;
 
 @end
 
@@ -7731,6 +8502,35 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Reporting settings for connector configs.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings : GTLRObject
+
+/**
+ *  Optional. The list of user and browser events that are enabled for this
+ *  connector. An empty list disables all default events, and using
+ *  `ALL_DEFAULT_EVENTS` will enable all default events.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledDefaultEvents;
+
+/**
+ *  Optional. The list of device events that are enabled for this config. An
+ *  empty list disables all device events, and using `ALL_DEVICE_EVENTS` will
+ *  enable all device events.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledDeviceEvents;
+
+/**
+ *  Optional. The list of opt-in events that are enabled for this config. An
+ *  empty list disables all opt-in events, and using `ALL_OPT_IN_EVENTS` will
+ *  enable all opt-in events.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *enabledOptInEvents;
+
+@end
+
+
+/**
  *  Describes a SCEP Certificate Authority Connection.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepCaConnection : GTLRObject
@@ -7869,6 +8669,50 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
 
 
 /**
+ *  Splunk connector config.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1SplunkConfig : GTLRObject
+
+/**
+ *  Required. Input only. The data input's HTTP Event Collector token to use as
+ *  an Authorization header.
+ */
+@property(nonatomic, copy, nullable) NSString *hecToken;
+
+/**
+ *  Required. Host to identify the customer specific server to receive the
+ *  events.
+ */
+@property(nonatomic, copy, nullable) NSString *host;
+
+/**
+ *  Optional. The port number to use. If not set, the default Splunk port is
+ *  used.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *portNumber;
+
+/** Required. The reporting settings for the Splunk config. */
+@property(nonatomic, strong, nullable) GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings *reportingSettings;
+
+/**
+ *  Optional. Optional source name to override the default one set in the Splunk
+ *  admin console.
+ */
+@property(nonatomic, copy, nullable) NSString *source;
+
+/**
+ *  Optional. Whether to use an unsecure HTTP scheme. Defaults to false (HTTPS).
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *unsecureScheme;
+
+@end
+
+
+/**
  *  Describes a subject alternative name.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName : GTLRObject
@@ -7939,6 +8783,21 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagement_GoogleChromeManagementV
  *  provisioning process.
  */
 @interface GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateResponse : GTLRObject
+@end
+
+
+/**
+ *  XDR settings for connector configs.
+ */
+@interface GTLRChromeManagement_GoogleChromeManagementVersionsV1XdrSettings : GTLRObject
+
+/**
+ *  Required. Whether to enable all XDR events.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableAllXdrEvents;
+
 @end
 
 

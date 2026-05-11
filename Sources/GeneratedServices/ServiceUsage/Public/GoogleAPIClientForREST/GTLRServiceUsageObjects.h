@@ -86,8 +86,6 @@
 @class GTLRServiceUsage_Logging;
 @class GTLRServiceUsage_LoggingDestination;
 @class GTLRServiceUsage_LongRunning;
-@class GTLRServiceUsage_McpEnableRule;
-@class GTLRServiceUsage_McpService;
 @class GTLRServiceUsage_Method;
 @class GTLRServiceUsage_MethodPolicy;
 @class GTLRServiceUsage_MethodSettings;
@@ -1099,6 +1097,12 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Publishing_Organization_Gen
  */
 FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Publishing_Organization_Geo;
 /**
+ *  Health Org.
+ *
+ *  Value: "HEALTH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Publishing_Organization_Health;
+/**
  *  Photos Org.
  *
  *  Value: "PHOTOS"
@@ -1699,7 +1703,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 @property(nonatomic, strong, nullable) GTLRServiceUsage_BackendRule_OverridesByRequestProtocol *overridesByRequestProtocol;
 
 /**
- *  no-lint
+ *  Path translation specifies how to combine the backend address with the
+ *  request path in order to produce the appropriate forwarding URL for the
+ *  request. See PathTranslation for more details.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceUsage_BackendRule_PathTranslation_AppendPathToAddress
@@ -2126,7 +2132,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  */
 @property(nonatomic, copy, nullable) NSString *referenceDocsUri GTLR_DEPRECATED;
 
-/** Configuration for which RPCs should be generated in the GAPIC client. */
+/**
+ *  Configuration for which RPCs should be generated in the GAPIC client. Note:
+ *  This field should not be used in most cases.
+ */
 @property(nonatomic, strong, nullable) GTLRServiceUsage_SelectiveGapicGeneration *selectiveGapicGeneration;
 
 @end
@@ -3155,13 +3164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 /**
  *  Configuration for network endpoints. If this is empty, then an endpoint with
  *  the same name as the service is automatically generated to service all
- *  defined APIs. WARNING: Defining any entries in the `endpoints` list disables
- *  the automatic generation of default endpoint variations (e.g.,
- *  `{service}.clients6.google.com`, `content-{service}.googleapis.com`, and
- *  mTLS variants like `{service}.mtls.googleapis.com`). To retain these default
- *  variations, you are required to explicitly include your main service
- *  endpoint (e.g., `myservice.googleapis.com`) in this list alongside any other
- *  custom endpoints (like REP, GFE, etc.).
+ *  defined APIs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_Endpoint *> *endpoints;
 
@@ -4415,68 +4418,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 
 /**
- *  McpEnableRule contains MCP enablement related rules.
- */
-@interface GTLRServiceUsage_McpEnableRule : GTLRObject
-
-/** List of enabled MCP services. */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_McpService *> *mcpServices;
-
-@end
-
-
-/**
- *  MCP Consumer Policy is a set of rules that define MCP related policy for a
- *  cloud resource hierarchy.
- */
-@interface GTLRServiceUsage_McpPolicy : GTLRObject
-
-/**
- *  Output only. The time the policy was created. For singleton policies (such
- *  as the `default` policy), this is the first touch of the policy.
- */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/**
- *  An opaque tag indicating the current version of the policy, used for
- *  concurrency control.
- */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/** McpEnableRules contains MCP enablement related rules. */
-@property(nonatomic, strong, nullable) NSArray<GTLRServiceUsage_McpEnableRule *> *mcpEnableRules;
-
-/**
- *  Output only. The resource name of the policy. Only the `default` policy is
- *  supported. We allow the following formats:
- *  `projects/{PROJECT_NUMBER}/mcpPolicies/default`,
- *  `projects/{PROJECT_ID}/mcpPolicies/default`,
- *  `folders/{FOLDER_ID}/mcpPolicies/default`,
- *  `organizations/{ORG_ID}/mcpPolicies/default`.
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/** Output only. The time the policy was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
-
-@end
-
-
-/**
- *  McpService contains the service names that are enabled for MCP.
- */
-@interface GTLRServiceUsage_McpService : GTLRObject
-
-/**
- *  The names of the services that are enabled for MCP. Example:
- *  `services/library-example.googleapis.com`
- */
-@property(nonatomic, copy, nullable) NSString *service;
-
-@end
-
-
-/**
  *  Method represents a method of an API interface. New usages of this message
  *  as an alternative to MethodDescriptorProto are strongly discouraged. This
  *  message does not reliability preserve all information necessary to model the
@@ -5430,6 +5371,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *        AI - https://developers.generativeai.google (Value: "GENERATIVE_AI")
  *    @arg @c kGTLRServiceUsage_Publishing_Organization_Geo Geo Org. (Value:
  *        "GEO")
+ *    @arg @c kGTLRServiceUsage_Publishing_Organization_Health Health Org.
+ *        (Value: "HEALTH")
  *    @arg @c kGTLRServiceUsage_Publishing_Organization_Photos Photos Org.
  *        (Value: "PHOTOS")
  *    @arg @c kGTLRServiceUsage_Publishing_Organization_Shopping Shopping Org.
@@ -5747,7 +5690,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
 
 /**
  *  This message is used to configure the generation of a subset of the RPCs in
- *  a service for client libraries.
+ *  a service for client libraries. Note: This feature should not be used in
+ *  most cases.
  */
 @interface GTLRServiceUsage_SelectiveGapicGeneration : GTLRObject
 
@@ -6015,13 +5959,6 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceUsage_Type_Syntax_SyntaxProto3;
  *  Metadata for the `UpdateContentSecurityPolicy` method.
  */
 @interface GTLRServiceUsage_UpdateContentSecurityPolicyMetadata : GTLRObject
-@end
-
-
-/**
- *  Metadata for the `UpdateMcpPolicy` method.
- */
-@interface GTLRServiceUsage_UpdateMcpPolicyMetadata : GTLRObject
 @end
 
 

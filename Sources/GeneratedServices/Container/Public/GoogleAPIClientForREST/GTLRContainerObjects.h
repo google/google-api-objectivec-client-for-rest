@@ -16,6 +16,7 @@
 #endif
 
 @class GTLRContainer_AcceleratorConfig;
+@class GTLRContainer_AccurateTimeConfig;
 @class GTLRContainer_AdditionalIPRangesConfig;
 @class GTLRContainer_AdditionalNodeNetworkConfig;
 @class GTLRContainer_AdditionalPodNetworkConfig;
@@ -50,17 +51,21 @@
 @class GTLRContainer_Cluster_ResourceLabels;
 @class GTLRContainer_ClusterAutoscaling;
 @class GTLRContainer_ClusterNetworkPerformanceConfig;
+@class GTLRContainer_ClusterPolicyConfig;
 @class GTLRContainer_ClusterUpdate;
 @class GTLRContainer_CompliancePostureConfig;
 @class GTLRContainer_ComplianceStandard;
 @class GTLRContainer_ConfidentialNodes;
 @class GTLRContainer_ConfigConnectorConfig;
 @class GTLRContainer_ConsumptionMeteringConfig;
+@class GTLRContainer_ControlPlaneEgress;
 @class GTLRContainer_ControlPlaneEndpointsConfig;
 @class GTLRContainer_CostManagementConfig;
 @class GTLRContainer_CrashLoopBackOffConfig;
+@class GTLRContainer_CustomNodeInit;
 @class GTLRContainer_DailyMaintenanceWindow;
 @class GTLRContainer_DatabaseEncryption;
+@class GTLRContainer_Date;
 @class GTLRContainer_DConfig;
 @class GTLRContainer_DedicatedLocalSsdProfile;
 @class GTLRContainer_DefaultComputeClassConfig;
@@ -101,6 +106,7 @@
 @class GTLRContainer_HugepagesConfig;
 @class GTLRContainer_IdentityServiceConfig;
 @class GTLRContainer_ILBSubsettingConfig;
+@class GTLRContainer_InitScript;
 @class GTLRContainer_IntraNodeVisibilityConfig;
 @class GTLRContainer_IPAllocationPolicy;
 @class GTLRContainer_IPEndpointsConfig;
@@ -119,6 +125,7 @@
 @class GTLRContainer_MaintenancePolicy;
 @class GTLRContainer_MaintenanceWindow;
 @class GTLRContainer_MaintenanceWindow_MaintenanceExclusions;
+@class GTLRContainer_ManagedMachineLearningDiagnosticsConfig;
 @class GTLRContainer_ManagedOpenTelemetryConfig;
 @class GTLRContainer_ManagedPrometheusConfig;
 @class GTLRContainer_MasterAuth;
@@ -153,6 +160,7 @@
 @class GTLRContainer_NodePoolAutoscaling;
 @class GTLRContainer_NodePoolDefaults;
 @class GTLRContainer_NodePoolLoggingConfig;
+@class GTLRContainer_NodeReadinessConfig;
 @class GTLRContainer_NodeTaint;
 @class GTLRContainer_NodeTaints;
 @class GTLRContainer_NotificationConfig;
@@ -166,6 +174,7 @@
 @class GTLRContainer_PlacementPolicy;
 @class GTLRContainer_PodAutoscaling;
 @class GTLRContainer_PodCIDROverprovisionConfig;
+@class GTLRContainer_PodSnapshotConfig;
 @class GTLRContainer_PrivateClusterConfig;
 @class GTLRContainer_PrivateClusterMasterGlobalAccessConfig;
 @class GTLRContainer_PrivateRegistryAccessConfig;
@@ -177,6 +186,7 @@
 @class GTLRContainer_RayClusterMonitoringConfig;
 @class GTLRContainer_RayOperatorConfig;
 @class GTLRContainer_RBACBindingConfig;
+@class GTLRContainer_RecurringMaintenanceWindow;
 @class GTLRContainer_RecurringTimeWindow;
 @class GTLRContainer_RegistryHeader;
 @class GTLRContainer_RegistryHostConfig;
@@ -191,15 +201,18 @@
 @class GTLRContainer_ResourceUsageExportConfig;
 @class GTLRContainer_RotationConfig;
 @class GTLRContainer_SandboxConfig;
+@class GTLRContainer_ScheduleUpgradeConfig;
 @class GTLRContainer_SecondaryBootDisk;
 @class GTLRContainer_SecondaryBootDiskUpdateStrategy;
 @class GTLRContainer_SecretManagerConfig;
+@class GTLRContainer_SecretSyncConfig;
 @class GTLRContainer_SecurityPostureConfig;
 @class GTLRContainer_ServiceExternalIPsConfig;
 @class GTLRContainer_SetLabelsRequest_ResourceLabels;
 @class GTLRContainer_ShieldedInstanceConfig;
 @class GTLRContainer_ShieldedNodes;
 @class GTLRContainer_SliceControllerConfig;
+@class GTLRContainer_SlurmOperatorConfig;
 @class GTLRContainer_SoleTenantConfig;
 @class GTLRContainer_StandardRolloutPolicy;
 @class GTLRContainer_StatefulHAConfig;
@@ -207,6 +220,9 @@
 @class GTLRContainer_Status_Details_Item;
 @class GTLRContainer_StatusCondition;
 @class GTLRContainer_SwapConfig;
+@class GTLRContainer_SyncRotationConfig;
+@class GTLRContainer_TaintConfig;
+@class GTLRContainer_TimeOfDay;
 @class GTLRContainer_TimeWindow;
 @class GTLRContainer_TopologyManager;
 @class GTLRContainer_UpdateInfo;
@@ -827,8 +843,49 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_ConfidentialNodes_Confidential
 FOUNDATION_EXTERN NSString * const kGTLRContainer_ConfidentialNodes_ConfidentialInstanceType_Tdx;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_ControlPlaneEgress.mode
+
+/**
+ *  Default value not specified.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ControlPlaneEgress_Mode_ModeUnspecified;
+/**
+ *  No public IP on control plane and only internal allowlisted egress.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ControlPlaneEgress_Mode_None;
+/**
+ *  Control plane has public IP and no restriction on egress.
+ *
+ *  Value: "VIA_CONTROL_PLANE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_ControlPlaneEgress_Mode_ViaControlPlane;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_DatabaseEncryption.currentState
 
+/**
+ *  Encryption of all objects in the storage is enabled. It does not guarantee
+ *  that all objects in the storage are encrypted, but eventually they will be.
+ *
+ *  Value: "CURRENT_STATE_ALL_OBJECTS_ENCRYPTION_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateAllObjectsEncryptionEnabled;
+/**
+ *  Enabling encryption of all objects in storage encountered an error.
+ *
+ *  Value: "CURRENT_STATE_ALL_OBJECTS_ENCRYPTION_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateAllObjectsEncryptionError;
+/**
+ *  Enablement of the encryption of all objects in storage is pending.
+ *
+ *  Value: "CURRENT_STATE_ALL_OBJECTS_ENCRYPTION_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateAllObjectsEncryptionPending;
 /**
  *  Secrets in etcd are stored in plain text (at etcd level) - this is unrelated
  *  to Compute Engine level full disk encryption.
@@ -878,6 +935,13 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_CurrentStat
 // ----------------------------------------------------------------------------
 // GTLRContainer_DatabaseEncryption.state
 
+/**
+ *  Encryption of all objects in the storage is enabled. There is no guarantee
+ *  that all objects in the storage are encrypted, but eventually they will be.
+ *
+ *  Value: "ALL_OBJECTS_ENCRYPTION_ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_DatabaseEncryption_State_AllObjectsEncryptionEnabled;
 /**
  *  Secrets in etcd are stored in plain text (at etcd level) - this is unrelated
  *  to Compute Engine level full disk encryption.
@@ -2764,6 +2828,28 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_SetByOper
 FOUNDATION_EXTERN NSString * const kGTLRContainer_StatusCondition_Code_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRContainer_TaintConfig.architectureTaintBehavior
+
+/**
+ *  Specifies that the behavior is unspecified, defaults to ARM.
+ *
+ *  Value: "ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_TaintConfig_ArchitectureTaintBehavior_ArchitectureTaintBehaviorUnspecified;
+/**
+ *  Taints all the nodes in the node pool with the default ARM taint.
+ *
+ *  Value: "ARM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_TaintConfig_ArchitectureTaintBehavior_Arm;
+/**
+ *  Disables default architecture taints on the node pool.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_TaintConfig_ArchitectureTaintBehavior_None;
+
+// ----------------------------------------------------------------------------
 // GTLRContainer_UpgradeAvailableEvent.resourceType
 
 /**
@@ -2938,6 +3024,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_State_Cancele
  */
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_State_Failed;
 /**
+ *  SCHEDULED indicates the upgrade was scheduled.
+ *
+ *  Value: "SCHEDULED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeInfoEvent_State_Scheduled;
+/**
  *  STARTED indicates the upgrade has started.
  *
  *  Value: "STARTED"
@@ -2974,7 +3066,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeSettings_Strategy_BlueG
 FOUNDATION_EXTERN NSString * const kGTLRContainer_UpgradeSettings_Strategy_NodePoolUpdateStrategyUnspecified;
 /**
  *  SHORT_LIVED is the dedicated upgrade strategy for QueuedProvisioning and
- *  flex start nodepools scaled up only by enqueueing to the Dynamic Workload
+ *  flex start node pools scaled up only by enqueueing to the Dynamic Workload
  *  Scheduler (DWS).
  *
  *  Value: "SHORT_LIVED"
@@ -3105,6 +3197,22 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The configuration for GPU sharing options. */
 @property(nonatomic, strong, nullable) GTLRContainer_GPUSharingConfig *gpuSharingConfig;
+
+@end
+
+
+/**
+ *  AccurateTimeConfig contains configuration for the accurate time
+ *  synchronization feature.
+ */
+@interface GTLRContainer_AccurateTimeConfig : GTLRObject
+
+/**
+ *  Enables enhanced time synchronization using PTP-KVM.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enablePtpKvmTimeSync;
 
 @end
 
@@ -3273,14 +3381,23 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkPolicyConfig *networkPolicyConfig;
 
+/** Optional. Configuration for NodeReadinessController add-on. */
+@property(nonatomic, strong, nullable) GTLRContainer_NodeReadinessConfig *nodeReadinessConfig;
+
 /** Configuration for the Cloud Storage Parallelstore CSI driver. */
 @property(nonatomic, strong, nullable) GTLRContainer_ParallelstoreCsiDriverConfig *parallelstoreCsiDriverConfig;
+
+/** Optional. Configuration for the Pod Snapshot feature. */
+@property(nonatomic, strong, nullable) GTLRContainer_PodSnapshotConfig *podSnapshotConfig;
 
 /** Optional. Configuration for Ray Operator addon. */
 @property(nonatomic, strong, nullable) GTLRContainer_RayOperatorConfig *rayOperatorConfig;
 
 /** Optional. Configuration for the slice controller add-on. */
 @property(nonatomic, strong, nullable) GTLRContainer_SliceControllerConfig *sliceControllerConfig;
+
+/** Configuration for the Slurm Operator. */
+@property(nonatomic, strong, nullable) GTLRContainer_SlurmOperatorConfig *slurmOperatorConfig;
 
 /** Optional. Configuration for the StatefulHA add-on. */
 @property(nonatomic, strong, nullable) GTLRContainer_StatefulHAConfig *statefulHaConfig;
@@ -3456,6 +3573,12 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @interface GTLRContainer_Autopilot : GTLRObject
 
 /**
+ *  ClusterPolicyConfig denotes cluster level policies that are enforced for the
+ *  cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ClusterPolicyConfig *clusterPolicyConfig;
+
+/**
  *  Enable Autopilot
  *
  *  Uses NSNumber of boolValue.
@@ -3524,8 +3647,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  AutopilotConfig contains configuration of autopilot feature for this
- *  nodepool.
+ *  AutopilotConfig contains configuration of autopilot feature for this node
+ *  pool.
  */
 @interface GTLRContainer_AutopilotConfig : GTLRObject
 
@@ -3798,7 +3921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
- *  BootDisk specifies the boot disk configuration for nodepools.
+ *  BootDisk specifies the boot disk configuration for node pools.
  */
 @interface GTLRContainer_BootDisk : GTLRObject
 
@@ -3898,7 +4021,8 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /**
  *  List of fully qualified domain names (FQDN). Specifying port is supported.
- *  Wildcards are NOT supported. Examples: - my.customdomain.com - 10.0.1.2:5000
+ *  Wildcards are NOT supported. Examples: - `my.customdomain.com` -
+ *  `10.0.1.2:5000`
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *fqdns;
 
@@ -4072,6 +4196,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  Confidential VM once enabled.
  */
 @property(nonatomic, strong, nullable) GTLRContainer_ConfidentialNodes *confidentialNodes;
+
+/** Configuration for control plane egress control. */
+@property(nonatomic, strong, nullable) GTLRContainer_ControlPlaneEgress *controlPlaneEgress;
 
 /** Configuration for all cluster's control plane endpoints. */
 @property(nonatomic, strong, nullable) GTLRContainer_ControlPlaneEndpointsConfig *controlPlaneEndpointsConfig;
@@ -4265,6 +4392,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 /** Configure the maintenance policy for this cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_MaintenancePolicy *maintenancePolicy;
 
+/** Configuration for Managed Machine Learning Diagnostics. */
+@property(nonatomic, strong, nullable) GTLRContainer_ManagedMachineLearningDiagnosticsConfig *managedMachineLearningDiagnosticsConfig;
+
 /** Configuration for Managed OpenTelemetry pipeline. */
 @property(nonatomic, strong, nullable) GTLRContainer_ManagedOpenTelemetryConfig *managedOpentelemetryConfig;
 
@@ -4423,8 +4553,14 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
+/** Optional. Configuration for scheduled upgrades. */
+@property(nonatomic, strong, nullable) GTLRContainer_ScheduleUpgradeConfig *scheduleUpgradeConfig;
+
 /** Secret CSI driver configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_SecretManagerConfig *secretManagerConfig;
+
+/** Configuration for sync Secret Manager secrets as k8s secrets. */
+@property(nonatomic, strong, nullable) GTLRContainer_SecretSyncConfig *secretSyncConfig;
 
 /** Optional. Enable/Disable Security Posture API features for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_SecurityPostureConfig *securityPostureConfig;
@@ -4615,6 +4751,44 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 
 /**
+ *  ClusterPolicyConfig stores the configuration for cluster wide policies.
+ */
+@interface GTLRContainer_ClusterPolicyConfig : GTLRObject
+
+/**
+ *  Denotes preventing standard node pools and requiring only autopilot node
+ *  pools.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noStandardNodePools;
+
+/**
+ *  Denotes preventing impersonation and CSRs for GKE System users.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noSystemImpersonation;
+
+/**
+ *  Denotes that preventing creation and mutation of resources in GKE managed
+ *  namespaces and cluster-scoped GKE managed resources .
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noSystemMutation;
+
+/**
+ *  Denotes preventing unsafe webhooks.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *noUnsafeWebhooks;
+
+@end
+
+
+/**
  *  ClusterUpdate describes an update to the cluster. Exactly one update can be
  *  applied to a cluster with each request, so at most one field can be
  *  provided.
@@ -4646,6 +4820,11 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 @property(nonatomic, strong, nullable) GTLRContainer_AutoIpamConfig *desiredAutoIpamConfig;
 
 /**
+ *  The desired autopilot cluster policies that to be enforced in the cluster.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_ClusterPolicyConfig *desiredAutopilotClusterPolicyConfig;
+
+/**
  *  WorkloadPolicyConfig is the configuration related to GCW workload policy
  */
 @property(nonatomic, strong, nullable) GTLRContainer_WorkloadPolicyConfig *desiredAutopilotWorkloadPolicyConfig;
@@ -4665,6 +4844,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** The desired containerd config for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_DConfig *desiredContainerdConfig;
+
+/** The desired control plane egress control config for the cluster. */
+@property(nonatomic, strong, nullable) GTLRContainer_ControlPlaneEgress *desiredControlPlaneEgress;
 
 /** Control plane endpoints configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ControlPlaneEndpointsConfig *desiredControlPlaneEndpointsConfig;
@@ -4817,6 +4999,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
  *  `logging.googleapis.com` for earlier versions.
  */
 @property(nonatomic, copy, nullable) NSString *desiredLoggingService;
+
+/** The desired managed machine learning diagnostics configuration. */
+@property(nonatomic, strong, nullable) GTLRContainer_ManagedMachineLearningDiagnosticsConfig *desiredManagedMachineLearningDiagnosticsConfig;
 
 /** The desired managed open telemetry configuration. */
 @property(nonatomic, strong, nullable) GTLRContainer_ManagedOpenTelemetryConfig *desiredManagedOpentelemetryConfig;
@@ -4979,6 +5164,9 @@ FOUNDATION_EXTERN NSString * const kGTLRContainer_WorkloadMetadataConfig_Mode_Mo
 
 /** Enable/Disable Secret Manager Config. */
 @property(nonatomic, strong, nullable) GTLRContainer_SecretManagerConfig *desiredSecretManagerConfig;
+
+/** Configuration for sync Secret Manager secrets as k8s secrets. */
+@property(nonatomic, strong, nullable) GTLRContainer_SecretSyncConfig *desiredSecretSyncConfig;
 
 /** Enable/Disable Security Posture API features for the cluster. */
 @property(nonatomic, strong, nullable) GTLRContainer_SecurityPostureConfig *desiredSecurityPostureConfig;
@@ -5228,6 +5416,29 @@ GTLR_DEPRECATED
 
 
 /**
+ *  ControlPlaneEgress defines the settings needed to enable control plane
+ *  egress control.
+ */
+@interface GTLRContainer_ControlPlaneEgress : GTLRObject
+
+/**
+ *  Defines the mode of control plane egress.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_ControlPlaneEgress_Mode_ModeUnspecified Default
+ *        value not specified. (Value: "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_ControlPlaneEgress_Mode_None No public IP on
+ *        control plane and only internal allowlisted egress. (Value: "NONE")
+ *    @arg @c kGTLRContainer_ControlPlaneEgress_Mode_ViaControlPlane Control
+ *        plane has public IP and no restriction on egress. (Value:
+ *        "VIA_CONTROL_PLANE")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
+@end
+
+
+/**
  *  Configuration for all of the cluster's control plane endpoints.
  */
 @interface GTLRContainer_ControlPlaneEndpointsConfig : GTLRObject
@@ -5354,6 +5565,17 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Support for running custom init code while bootstrapping nodes.
+ */
+@interface GTLRContainer_CustomNodeInit : GTLRObject
+
+/** Optional. The init script to be executed on the node. */
+@property(nonatomic, strong, nullable, getter=valueOf_initScript) GTLRContainer_InitScript *initScript;
+
+@end
+
+
+/**
  *  Time window specified for daily maintenance operations.
  */
 @interface GTLRContainer_DailyMaintenanceWindow : GTLRObject
@@ -5384,6 +5606,17 @@ GTLR_DEPRECATED
  *  Output only. The current state of etcd encryption.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateAllObjectsEncryptionEnabled
+ *        Encryption of all objects in the storage is enabled. It does not
+ *        guarantee that all objects in the storage are encrypted, but
+ *        eventually they will be. (Value:
+ *        "CURRENT_STATE_ALL_OBJECTS_ENCRYPTION_ENABLED")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateAllObjectsEncryptionError
+ *        Enabling encryption of all objects in storage encountered an error.
+ *        (Value: "CURRENT_STATE_ALL_OBJECTS_ENCRYPTION_ERROR")
+ *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateAllObjectsEncryptionPending
+ *        Enablement of the encryption of all objects in storage is pending.
+ *        (Value: "CURRENT_STATE_ALL_OBJECTS_ENCRYPTION_PENDING")
  *    @arg @c kGTLRContainer_DatabaseEncryption_CurrentState_CurrentStateDecrypted
  *        Secrets in etcd are stored in plain text (at etcd level) - this is
  *        unrelated to Compute Engine level full disk encryption. (Value:
@@ -5430,6 +5663,10 @@ GTLR_DEPRECATED
  *  The desired state of etcd encryption.
  *
  *  Likely values:
+ *    @arg @c kGTLRContainer_DatabaseEncryption_State_AllObjectsEncryptionEnabled
+ *        Encryption of all objects in the storage is enabled. There is no
+ *        guarantee that all objects in the storage are encrypted, but
+ *        eventually they will be. (Value: "ALL_OBJECTS_ENCRYPTION_ENABLED")
  *    @arg @c kGTLRContainer_DatabaseEncryption_State_Decrypted Secrets in etcd
  *        are stored in plain text (at etcd level) - this is unrelated to
  *        Compute Engine level full disk encryption. (Value: "DECRYPTED")
@@ -5439,6 +5676,46 @@ GTLR_DEPRECATED
  *        set (Value: "UNKNOWN")
  */
 @property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
+ *  Represents a whole or partial calendar date, such as a birthday. The time of
+ *  day and time zone are either specified elsewhere or are insignificant. The
+ *  date is relative to the Gregorian Calendar. This can represent one of the
+ *  following: * A full date, with non-zero year, month, and day values. * A
+ *  month and day, with a zero year (for example, an anniversary). * A year on
+ *  its own, with a zero month and a zero day. * A year and month, with a zero
+ *  day (for example, a credit card expiration date). Related types: *
+ *  google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+ */
+@interface GTLRContainer_Date : GTLRObject
+
+/**
+ *  Day of a month. Must be from 1 to 31 and valid for the year and month, or 0
+ *  to specify a year by itself or a year and month where the day isn't
+ *  significant.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *day;
+
+/**
+ *  Month of a year. Must be from 1 to 12, or 0 to specify a year without a
+ *  month and day.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *month;
+
+/**
+ *  Year of the date. Must be from 1 to 9999, or 0 to specify a date without a
+ *  year.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *year;
 
 @end
 
@@ -6431,8 +6708,10 @@ GTLR_DEPRECATED
 
 /**
  *  Host configures the registry host/mirror. It supports fully qualified domain
- *  names (FQDN) and IP addresses: Specifying port is supported. Wildcards are
- *  NOT supported. Examples: - my.customdomain.com - 10.0.1.2:5000
+ *  names (FQDNs) and IP addresses. Specifying scheme, port or path is
+ *  supported. Scheme can only be http or https. Wildcards are NOT supported.
+ *  Examples: - `my.customdomain.com` - `https://my.customdomain.com/path` -
+ *  `10.0.1.2:5000`
  */
 @property(nonatomic, copy, nullable) NSString *host;
 
@@ -6537,6 +6816,47 @@ GTLR_DEPRECATED
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
+ *  InitScript provide a simply bash script to be executed on the node.
+ */
+@interface GTLRContainer_InitScript : GTLRObject
+
+/** Optional. The optional arguments line to be passed to the init script. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *args;
+
+/**
+ *  The resource name of the secret manager secret hosting the init script. Both
+ *  global and regional secrets are supported with format below: Global secret:
+ *  projects/{project}/secrets/{secret}/versions/{version} Regional secret:
+ *  projects/{project}/locations/{location}/secrets/{secret}/versions/{version}
+ *  Example: projects/1234567890/secrets/script_1/versions/1. Accept version
+ *  number only, not support version alias. User can't configure both
+ *  gcp_secret_manager_secret_uri and gcs_uri.
+ */
+@property(nonatomic, copy, nullable) NSString *gcpSecretManagerSecretUri;
+
+/**
+ *  The generation of the init script stored in Gloud Storage. This is the
+ *  required field to identify the version of the init script. User can get the
+ *  genetaion from `gcloud storage objects describe gs://BUCKET_NAME/OBJECT_NAME
+ *  --format="value(generation)"` or from the "Version history" tab of the
+ *  object in the Cloud Console UI.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *gcsGeneration;
+
+/**
+ *  The Cloud Storage URI for storing the init script. Format:
+ *  gs://BUCKET_NAME/OBJECT_NAME The service account on the node pool must have
+ *  read access to the object. User can't configure both gcs_uri and
+ *  gcp_secret_manager_secret_uri.
+ */
+@property(nonatomic, copy, nullable) NSString *gcsUri;
 
 @end
 
@@ -6904,6 +7224,9 @@ GTLR_DEPRECATED
  */
 @interface GTLRContainer_LinuxNodeConfig : GTLRObject
 
+/** Optional. The accurate time configuration for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_AccurateTimeConfig *accurateTimeConfig;
+
 /**
  *  cgroup_mode specifies the cgroup mode to be used on the node.
  *
@@ -6920,6 +7243,11 @@ GTLR_DEPRECATED
  *        on the node image. (Value: "CGROUP_MODE_V2")
  */
 @property(nonatomic, copy, nullable) NSString *cgroupMode;
+
+/**
+ *  Optional. Allow users to run arbitrary bash script or container on the node.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_CustomNodeInit *customNodeInit;
 
 /** Optional. Amounts for 2M and 1G hugepages */
 @property(nonatomic, strong, nullable) GTLRContainer_HugepagesConfig *hugepages;
@@ -7218,6 +7546,16 @@ GTLR_DEPRECATED
 @interface GTLRContainer_LustreCsiDriverConfig : GTLRObject
 
 /**
+ *  When set to true, this disables multi-NIC support for the Lustre CSI driver.
+ *  By default, GKE enables multi-NIC support, which allows the Lustre CSI
+ *  driver to automatically detect and configure all suitable network interfaces
+ *  on a node to maximize I/O performance for demanding workloads.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableMultiNic;
+
+/**
  *  Whether the Lustre CSI driver is enabled for this cluster.
  *
  *  Uses NSNumber of boolValue.
@@ -7320,6 +7658,14 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRContainer_MaintenanceWindow_MaintenanceExclusions *maintenanceExclusions;
 
 /**
+ *  RecurringMaintenanceWindow specifies some number of recurring time periods
+ *  for maintenance to occur. The time windows may be overlapping. If no
+ *  maintenance windows are set, maintenance can occur at any time. Alternative
+ *  to RecurringWindow, with renamed fields.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_RecurringMaintenanceWindow *recurringMaintenanceWindow;
+
+/**
  *  RecurringWindow specifies some number of recurring time periods for
  *  maintenance to occur. The time windows may be overlapping. If no maintenance
  *  windows are set, maintenance can occur at any time.
@@ -7339,6 +7685,22 @@ GTLR_DEPRECATED
  *        fetch them; or @c -additionalProperties to fetch them all at once.
  */
 @interface GTLRContainer_MaintenanceWindow_MaintenanceExclusions : GTLRObject
+@end
+
+
+/**
+ *  ManagedMachineLearningDiagnosticsConfig is the configuration for the GKE
+ *  Managed Machine Learning Diagnostics pipeline.
+ */
+@interface GTLRContainer_ManagedMachineLearningDiagnosticsConfig : GTLRObject
+
+/**
+ *  Enable/Disable Managed Machine Learning Diagnostics.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
 @end
 
 
@@ -8011,13 +8373,17 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRContainer_NodeKubeletConfig *kubeletConfig;
 
 /**
- *  The map of Kubernetes labels (key/value pairs) to be applied to each node.
- *  These will added in addition to any default label(s) that Kubernetes may
- *  apply to the node. In case of conflict in label keys, the applied set may
- *  differ depending on the Kubernetes version -- it's best to assume the
- *  behavior is undefined and conflicts should be avoided. For more information,
- *  including usage and the valid values, see:
- *  https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+ *  The Kubernetes labels (key/value pairs) to apply to each node. The values in
+ *  this field are added to the set of default labels Kubernetes applies to
+ *  nodes. This field has the following restrictions: * Labels must use a valid
+ *  Kubernetes syntax and character set, as defined in
+ *  https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set.
+ *  * This field supports up to 1,024 total characters in a single request.
+ *  Depending on the Kubernetes version, keys in this field might conflict with
+ *  the keys of the default labels, which might change which of your labels are
+ *  applied to the nodes. Assume that the behavior is unpredictable and avoid
+ *  label key conflicts. For more information about the default labels, see:
+ *  https://kubernetes.io/docs/reference/labels-annotations-taints/
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NodeConfig_Labels *labels;
 
@@ -8193,6 +8559,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
 
+/** Optional. The taint configuration for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_TaintConfig *taintConfig;
+
 /**
  *  List of kubernetes taints to be applied to each node. For more information,
  *  including usage and the valid values, see:
@@ -8210,13 +8579,17 @@ GTLR_DEPRECATED
 
 
 /**
- *  The map of Kubernetes labels (key/value pairs) to be applied to each node.
- *  These will added in addition to any default label(s) that Kubernetes may
- *  apply to the node. In case of conflict in label keys, the applied set may
- *  differ depending on the Kubernetes version -- it's best to assume the
- *  behavior is undefined and conflicts should be avoided. For more information,
- *  including usage and the valid values, see:
- *  https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+ *  The Kubernetes labels (key/value pairs) to apply to each node. The values in
+ *  this field are added to the set of default labels Kubernetes applies to
+ *  nodes. This field has the following restrictions: * Labels must use a valid
+ *  Kubernetes syntax and character set, as defined in
+ *  https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set.
+ *  * This field supports up to 1,024 total characters in a single request.
+ *  Depending on the Kubernetes version, keys in this field might conflict with
+ *  the keys of the default labels, which might change which of your labels are
+ *  applied to the nodes. Assume that the behavior is unpredictable and avoid
+ *  label key conflicts. For more information about the default labels, see:
+ *  https://kubernetes.io/docs/reference/labels-annotations-taints/
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -8289,8 +8662,8 @@ GTLR_DEPRECATED
 
 
 /**
- *  NodeDrainConfig contains the node drain related configurations for this
- *  nodepool.
+ *  NodeDrainConfig contains the node drain related configurations for this node
+ *  pool.
  */
 @interface GTLRContainer_NodeDrainConfig : GTLRObject
 
@@ -8631,6 +9004,14 @@ GTLR_DEPRECATED
 @interface GTLRContainer_NodeNetworkConfig : GTLRObject
 
 /**
+ *  Immutable. The accelerator network profile for the node pool. For now the
+ *  only valid value is "auto". If specified, the network configuration of the
+ *  nodes in this node pool will be managed by this profile for the supported
+ *  machine types, zone, etc.
+ */
+@property(nonatomic, copy, nullable) NSString *acceleratorNetworkProfile;
+
+/**
  *  We specify the additional node networks for this node pool using this list.
  *  Each node network corresponds to an additional interface
  */
@@ -8674,7 +9055,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkTierConfig *networkTierConfig;
 
 /**
- *  [PRIVATE FIELD] Pod CIDR size overprovisioning config for the nodepool. Pod
+ *  [PRIVATE FIELD] Pod CIDR size overprovisioning config for the node pool. Pod
  *  CIDR size per node depends on max_pods_per_node. By default, the value of
  *  max_pods_per_node is rounded off to next power of 2 and we then double that
  *  to get the size of pod CIDR block per node. Example: max_pods_per_node of 30
@@ -8940,7 +9321,7 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  Location policy used when scaling up a nodepool.
+ *  Location policy used when scaling up a node pool.
  *
  *  Likely values:
  *    @arg @c kGTLRContainer_NodePoolAutoscaling_LocationPolicy_Any ANY policy
@@ -9003,7 +9384,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  NodePoolLoggingConfig specifies logging configuration for nodepools.
+ *  NodePoolLoggingConfig specifies logging configuration for node pools.
  */
 @interface GTLRContainer_NodePoolLoggingConfig : GTLRObject
 
@@ -9014,7 +9395,7 @@ GTLR_DEPRECATED
 
 
 /**
- *  NodePoolUpgradeInfo contains the upgrade information of a nodepool.
+ *  NodePoolUpgradeInfo contains the upgrade information of a node pool.
  */
 @interface GTLRContainer_NodePoolUpgradeInfo : GTLRObject
 
@@ -9022,12 +9403,12 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSArray<NSString *> *autoUpgradeStatus;
 
 /**
- *  The nodepool's current minor version's end of extended support timestamp.
+ *  The node pool's current minor version's end of extended support timestamp.
  */
 @property(nonatomic, copy, nullable) NSString *endOfExtendedSupportTimestamp;
 
 /**
- *  The nodepool's current minor version's end of standard support timestamp.
+ *  The node pool's current minor version's end of standard support timestamp.
  */
 @property(nonatomic, copy, nullable) NSString *endOfStandardSupportTimestamp;
 
@@ -9042,6 +9423,22 @@ GTLR_DEPRECATED
 
 /** The list of past auto upgrades. */
 @property(nonatomic, strong, nullable) NSArray<GTLRContainer_UpgradeDetails *> *upgradeDetails;
+
+@end
+
+
+/**
+ *  Configuration for the GKE Node Readiness Controller.
+ */
+@interface GTLRContainer_NodeReadinessConfig : GTLRObject
+
+/**
+ *  Optional. Whether the GKE Node Readiness Controller is enabled for this
+ *  cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
 
 @end
 
@@ -9507,6 +9904,21 @@ GTLR_DEPRECATED
 
 
 /**
+ *  PodSnapshotConfig is the configuration for GKE Pod Snapshots feature.
+ */
+@interface GTLRContainer_PodSnapshotConfig : GTLRObject
+
+/**
+ *  Whether or not the Pod Snapshots feature is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  Configuration options for private clusters.
  */
 @interface GTLRContainer_PrivateClusterConfig : GTLRObject
@@ -9662,7 +10074,7 @@ GTLR_DEPRECATED
 @interface GTLRContainer_QueuedProvisioning : GTLRObject
 
 /**
- *  Denotes that this nodepool is QRM specific, meaning nodes can be only
+ *  Denotes that this node pool is QRM specific, meaning nodes can be only
  *  obtained through queuing via the Cluster Autoscaler ProvisioningRequest API.
  *
  *  Uses NSNumber of boolValue.
@@ -9768,6 +10180,42 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Represents an arbitrary window of time that recurs. Will replace
+ *  RecurringTimeWindow.
+ */
+@interface GTLRContainer_RecurringMaintenanceWindow : GTLRObject
+
+/**
+ *  Optional. Specifies the date before which will not be scheduled. Depending
+ *  on the recurrence, this may be the date the first window appears. Days are
+ *  measured in the UTC timezone. This setting must be used when INTERVAL>1 or
+ *  FREQ=WEEKLY/MONTHLY and no BYDAY specified.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_Date *delayUntil;
+
+/**
+ *  Required. An RRULE (https://tools.ietf.org/html/rfc5545#section-3.8.5.3) for
+ *  how this window recurs. For example, to have something repeat every weekday,
+ *  you'd use: `FREQ=WEEKLY;BYDAY=MO,TU,WE,TH,FR` To repeat some window daily
+ *  (equivalent to the DailyMaintenanceWindow): `FREQ=DAILY` For the first
+ *  weekend of every month: `FREQ=MONTHLY;BYSETPOS=1;BYDAY=SA,SU` The FREQ
+ *  values of HOURLY, MINUTELY, and SECONDLY are not supported.
+ */
+@property(nonatomic, copy, nullable) NSString *recurrence;
+
+/** Required. Duration of the window. */
+@property(nonatomic, strong, nullable) GTLRDuration *windowDuration;
+
+/**
+ *  Required. Start time of the window on days that it is scheduled, assuming
+ *  UTC timezone.
+ */
+@property(nonatomic, strong, nullable) GTLRContainer_TimeOfDay *windowStartTime;
+
+@end
+
+
+/**
  *  Represents an arbitrary window of time that recurs.
  */
 @interface GTLRContainer_RecurringTimeWindow : GTLRObject
@@ -9830,8 +10278,8 @@ GTLR_DEPRECATED
  *  Defines the host name of the registry server, which will be used to create
  *  configuration file as /etc/containerd/hosts.d//hosts.toml. It supports fully
  *  qualified domain names (FQDN) and IP addresses: Specifying port is
- *  supported. Wildcards are NOT supported. Examples: - my.customdomain.com -
- *  10.0.1.2:5000
+ *  supported, while scheme and path are NOT supported. Wildcards are NOT
+ *  supported. Examples: - `my.customdomain.com` - `10.0.1.2:5000`
  */
 @property(nonatomic, copy, nullable) NSString *server;
 
@@ -10157,6 +10605,21 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for scheduled upgrades on the cluster.
+ */
+@interface GTLRContainer_ScheduleUpgradeConfig : GTLRObject
+
+/**
+ *  Optional. Whether or not scheduled upgrades are enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  SecondaryBootDisk represents a persistent disk attached to a node with
  *  special configurations based on its mode.
  */
@@ -10202,6 +10665,24 @@ GTLR_DEPRECATED
 
 /** Rotation config for secret manager. */
 @property(nonatomic, strong, nullable) GTLRContainer_RotationConfig *rotationConfig;
+
+@end
+
+
+/**
+ *  Configuration for sync Secret Manager secrets as k8s secrets.
+ */
+@interface GTLRContainer_SecretSyncConfig : GTLRObject
+
+/**
+ *  Enable/Disable Secret Sync Config.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/** Rotation config for secret manager. */
+@property(nonatomic, strong, nullable) GTLRContainer_SyncRotationConfig *rotationConfig;
 
 @end
 
@@ -10995,6 +11476,22 @@ GTLR_DEPRECATED
 
 
 /**
+ *  Configuration for the Slurm Operator.
+ */
+@interface GTLRContainer_SlurmOperatorConfig : GTLRObject
+
+/**
+ *  When enabled, it runs a Slurm Operator that manages the set of compute pods
+ *  for Slurm Cluster.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+@end
+
+
+/**
  *  SoleTenantConfig contains the NodeAffinities to specify what shared sole
  *  tenant node groups should back the node pool.
  */
@@ -11320,6 +11817,94 @@ GTLR_DEPRECATED
 
 /** Swap on the local SSD shared with pod ephemeral storage. */
 @property(nonatomic, strong, nullable) GTLRContainer_EphemeralLocalSsdProfile *ephemeralLocalSsdProfile;
+
+@end
+
+
+/**
+ *  SyncRotationConfig is config for secret manager auto rotation.
+ */
+@interface GTLRContainer_SyncRotationConfig : GTLRObject
+
+/**
+ *  Whether the rotation is enabled.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enabled;
+
+/**
+ *  The interval between two consecutive rotations. Default rotation interval is
+ *  2 minutes.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *rotationInterval;
+
+@end
+
+
+/**
+ *  TaintConfig contains the configuration for the taints of the node pool.
+ */
+@interface GTLRContainer_TaintConfig : GTLRObject
+
+/**
+ *  Optional. Controls architecture tainting behavior.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRContainer_TaintConfig_ArchitectureTaintBehavior_ArchitectureTaintBehaviorUnspecified
+ *        Specifies that the behavior is unspecified, defaults to ARM. (Value:
+ *        "ARCHITECTURE_TAINT_BEHAVIOR_UNSPECIFIED")
+ *    @arg @c kGTLRContainer_TaintConfig_ArchitectureTaintBehavior_Arm Taints
+ *        all the nodes in the node pool with the default ARM taint. (Value:
+ *        "ARM")
+ *    @arg @c kGTLRContainer_TaintConfig_ArchitectureTaintBehavior_None Disables
+ *        default architecture taints on the node pool. (Value: "NONE")
+ */
+@property(nonatomic, copy, nullable) NSString *architectureTaintBehavior;
+
+@end
+
+
+/**
+ *  Represents a time of day. The date and time zone are either not significant
+ *  or are specified elsewhere. An API may choose to allow leap seconds. Related
+ *  types are google.type.Date and `google.protobuf.Timestamp`.
+ */
+@interface GTLRContainer_TimeOfDay : GTLRObject
+
+/**
+ *  Hours of a day in 24 hour format. Must be greater than or equal to 0 and
+ *  typically must be less than or equal to 23. An API may choose to allow the
+ *  value "24:00:00" for scenarios like business closing time.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *hours;
+
+/**
+ *  Minutes of an hour. Must be greater than or equal to 0 and less than or
+ *  equal to 59.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *minutes;
+
+/**
+ *  Fractions of seconds, in nanoseconds. Must be greater than or equal to 0 and
+ *  less than or equal to 999,999,999.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *nanos;
+
+/**
+ *  Seconds of a minute. Must be greater than or equal to 0 and typically must
+ *  be less than or equal to 59. An API may allow the value 60 if it allows
+ *  leap-seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *seconds;
 
 @end
 
@@ -11684,6 +12269,9 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) GTLRContainer_NetworkTags *tags;
 
+/** The taint configuration for the node pool. */
+@property(nonatomic, strong, nullable) GTLRContainer_TaintConfig *taintConfig;
+
 /**
  *  The desired node taints to be applied to all nodes in the node pool. If this
  *  field is not present, the taints will not be changed. Otherwise, the
@@ -11932,6 +12520,8 @@ GTLR_DEPRECATED
  *        the upgrade has canceled. (Value: "CANCELED")
  *    @arg @c kGTLRContainer_UpgradeInfoEvent_State_Failed FAILED indicates the
  *        upgrade has failed. (Value: "FAILED")
+ *    @arg @c kGTLRContainer_UpgradeInfoEvent_State_Scheduled SCHEDULED
+ *        indicates the upgrade was scheduled. (Value: "SCHEDULED")
  *    @arg @c kGTLRContainer_UpgradeInfoEvent_State_Started STARTED indicates
  *        the upgrade has started. (Value: "STARTED")
  *    @arg @c kGTLRContainer_UpgradeInfoEvent_State_StateUnspecified
@@ -12015,7 +12605,7 @@ GTLR_DEPRECATED
  *        "NODE_POOL_UPDATE_STRATEGY_UNSPECIFIED")
  *    @arg @c kGTLRContainer_UpgradeSettings_Strategy_ShortLived SHORT_LIVED is
  *        the dedicated upgrade strategy for QueuedProvisioning and flex start
- *        nodepools scaled up only by enqueueing to the Dynamic Workload
+ *        node pools scaled up only by enqueueing to the Dynamic Workload
  *        Scheduler (DWS). (Value: "SHORT_LIVED")
  *    @arg @c kGTLRContainer_UpgradeSettings_Strategy_Surge SURGE is the
  *        traditional way of upgrade a node pool. max_surge and max_unavailable

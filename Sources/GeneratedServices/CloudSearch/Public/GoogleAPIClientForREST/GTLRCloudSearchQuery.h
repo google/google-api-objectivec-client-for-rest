@@ -1176,6 +1176,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearchResolutionStatusCodeTooManyMa
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
+ *  The BCP-47 language code, such as "pt" or "en". It represents the user's
+ *  preferred Display Language.
+ */
+@property(nonatomic, copy, nullable) NSString *requestOptionsClientDisplayLanguageCode;
+
+/**
  *  If you are asked by Google to help with debugging, set this field.
  *  Otherwise, ignore this field.
  */

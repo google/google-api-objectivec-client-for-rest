@@ -372,6 +372,14 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_
  */
 @interface GTLRServiceControl_AuditLog : GTLRObject
 
+/**
+ *  The API version identifier of the operation that uses interface based
+ *  versioning (IBV). For example, `"2026-01-01-preview"`. The version
+ *  identifier generally follows the format of [variant_]date[_decorator]. It
+ *  should not be parsed because the exact format varies across services.
+ */
+@property(nonatomic, copy, nullable) NSString *apiVersionIdentifier;
+
 /** Authentication information. */
 @property(nonatomic, strong, nullable) GTLRServiceControl_AuthenticationInfo *authenticationInfo;
 

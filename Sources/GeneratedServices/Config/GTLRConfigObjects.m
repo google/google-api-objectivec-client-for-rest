@@ -53,6 +53,25 @@ NSString * const kGTLRConfig_Deployment_State_StateUnspecified = @"STATE_UNSPECI
 NSString * const kGTLRConfig_Deployment_State_Suspended        = @"SUSPENDED";
 NSString * const kGTLRConfig_Deployment_State_Updating         = @"UPDATING";
 
+// GTLRConfig_DeploymentGroup.provisioningState
+NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_Deprovisioned = @"DEPROVISIONED";
+NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_Deprovisioning = @"DEPROVISIONING";
+NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_FailedToDeprovision = @"FAILED_TO_DEPROVISION";
+NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_FailedToProvision = @"FAILED_TO_PROVISION";
+NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_Provisioned = @"PROVISIONED";
+NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_Provisioning = @"PROVISIONING";
+NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_ProvisioningStateUnspecified = @"PROVISIONING_STATE_UNSPECIFIED";
+
+// GTLRConfig_DeploymentGroup.state
+NSString * const kGTLRConfig_DeploymentGroup_State_Active      = @"ACTIVE";
+NSString * const kGTLRConfig_DeploymentGroup_State_Creating    = @"CREATING";
+NSString * const kGTLRConfig_DeploymentGroup_State_Deleted     = @"DELETED";
+NSString * const kGTLRConfig_DeploymentGroup_State_Deleting    = @"DELETING";
+NSString * const kGTLRConfig_DeploymentGroup_State_Failed      = @"FAILED";
+NSString * const kGTLRConfig_DeploymentGroup_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRConfig_DeploymentGroup_State_Suspended   = @"SUSPENDED";
+NSString * const kGTLRConfig_DeploymentGroup_State_Updating    = @"UPDATING";
+
 // GTLRConfig_DeploymentOperationMetadata.step
 NSString * const kGTLRConfig_DeploymentOperationMetadata_Step_DeploymentStepUnspecified = @"DEPLOYMENT_STEP_UNSPECIFIED";
 NSString * const kGTLRConfig_DeploymentOperationMetadata_Step_DownloadingBlueprint = @"DOWNLOADING_BLUEPRINT";
@@ -67,6 +86,46 @@ NSString * const kGTLRConfig_DeploymentOperationMetadata_Step_RunningTfValidate 
 NSString * const kGTLRConfig_DeploymentOperationMetadata_Step_Succeeded = @"SUCCEEDED";
 NSString * const kGTLRConfig_DeploymentOperationMetadata_Step_UnlockingDeployment = @"UNLOCKING_DEPLOYMENT";
 NSString * const kGTLRConfig_DeploymentOperationMetadata_Step_ValidatingRepository = @"VALIDATING_REPOSITORY";
+
+// GTLRConfig_DeploymentOperationSummary.deploymentStep
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_DeploymentStepUnspecified = @"DEPLOYMENT_STEP_UNSPECIFIED";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_DownloadingBlueprint = @"DOWNLOADING_BLUEPRINT";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_Failed = @"FAILED";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_PreparingStorageBucket = @"PREPARING_STORAGE_BUCKET";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningQuotaValidation = @"RUNNING_QUOTA_VALIDATION";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfApply = @"RUNNING_TF_APPLY";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfDestroy = @"RUNNING_TF_DESTROY";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfInit = @"RUNNING_TF_INIT";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfPlan = @"RUNNING_TF_PLAN";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfValidate = @"RUNNING_TF_VALIDATE";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_UnlockingDeployment = @"UNLOCKING_DEPLOYMENT";
+NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_ValidatingRepository = @"VALIDATING_REPOSITORY";
+
+// GTLRConfig_DeploymentUnitProgress.intent
+NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_CleanUp = @"CLEAN_UP";
+NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_CreateDeployment = @"CREATE_DEPLOYMENT";
+NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_DeleteDeployment = @"DELETE_DEPLOYMENT";
+NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_IntentUnspecified = @"INTENT_UNSPECIFIED";
+NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_RecreateDeployment = @"RECREATE_DEPLOYMENT";
+NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_Unchanged = @"UNCHANGED";
+NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_UpdateDeployment = @"UPDATE_DEPLOYMENT";
+
+// GTLRConfig_DeploymentUnitProgress.state
+NSString * const kGTLRConfig_DeploymentUnitProgress_State_Aborted = @"ABORTED";
+NSString * const kGTLRConfig_DeploymentUnitProgress_State_ApplyingDeployment = @"APPLYING_DEPLOYMENT";
+NSString * const kGTLRConfig_DeploymentUnitProgress_State_DeletingDeployment = @"DELETING_DEPLOYMENT";
+NSString * const kGTLRConfig_DeploymentUnitProgress_State_Failed = @"FAILED";
+NSString * const kGTLRConfig_DeploymentUnitProgress_State_PreviewingDeployment = @"PREVIEWING_DEPLOYMENT";
+NSString * const kGTLRConfig_DeploymentUnitProgress_State_Queued = @"QUEUED";
+NSString * const kGTLRConfig_DeploymentUnitProgress_State_Skipped = @"SKIPPED";
+NSString * const kGTLRConfig_DeploymentUnitProgress_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRConfig_DeploymentUnitProgress_State_Succeeded = @"SUCCEEDED";
+
+// GTLRConfig_DeprovisionDeploymentGroupRequest.deletePolicy
+NSString * const kGTLRConfig_DeprovisionDeploymentGroupRequest_DeletePolicy_Abandon = @"ABANDON";
+NSString * const kGTLRConfig_DeprovisionDeploymentGroupRequest_DeletePolicy_Delete = @"DELETE";
+NSString * const kGTLRConfig_DeprovisionDeploymentGroupRequest_DeletePolicy_DeletePolicyUnspecified = @"DELETE_POLICY_UNSPECIFIED";
 
 // GTLRConfig_Preview.errorCode
 NSString * const kGTLRConfig_Preview_ErrorCode_BucketCreationFailed = @"BUCKET_CREATION_FAILED";
@@ -109,6 +168,16 @@ NSString * const kGTLRConfig_PreviewOperationMetadata_Step_ValidatingRepository 
 // GTLRConfig_ProviderConfig.sourceType
 NSString * const kGTLRConfig_ProviderConfig_SourceType_ProviderSourceUnspecified = @"PROVIDER_SOURCE_UNSPECIFIED";
 NSString * const kGTLRConfig_ProviderConfig_SourceType_ServiceMaintained = @"SERVICE_MAINTAINED";
+
+// GTLRConfig_ProvisionDeploymentGroupOperationMetadata.step
+NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_AssociatingDeploymentsToDeploymentGroup = @"ASSOCIATING_DEPLOYMENTS_TO_DEPLOYMENT_GROUP";
+NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_DeprovisioningDeploymentUnits = @"DEPROVISIONING_DEPLOYMENT_UNITS";
+NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_DisassociatingDeploymentsFromDeploymentGroup = @"DISASSOCIATING_DEPLOYMENTS_FROM_DEPLOYMENT_GROUP";
+NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_Failed = @"FAILED";
+NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_ProvisionDeploymentGroupStepUnspecified = @"PROVISION_DEPLOYMENT_GROUP_STEP_UNSPECIFIED";
+NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_ProvisioningDeploymentUnits = @"PROVISIONING_DEPLOYMENT_UNITS";
+NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_Succeeded = @"SUCCEEDED";
+NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_ValidatingDeploymentGroup = @"VALIDATING_DEPLOYMENT_GROUP";
 
 // GTLRConfig_Resource.intent
 NSString * const kGTLRConfig_Resource_Intent_Create            = @"CREATE";
@@ -323,11 +392,150 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConfig_DeploymentGroup
+//
+
+@implementation GTLRConfig_DeploymentGroup
+@dynamic annotations, createTime, deploymentUnits, labels, name,
+         provisioningError, provisioningState, provisioningStateDescription,
+         state, stateDescription, updateTime;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deploymentUnits" : [GTLRConfig_DeploymentUnit class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_DeploymentGroup_Annotations
+//
+
+@implementation GTLRConfig_DeploymentGroup_Annotations
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_DeploymentGroup_Labels
+//
+
+@implementation GTLRConfig_DeploymentGroup_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_DeploymentGroupRevision
+//
+
+@implementation GTLRConfig_DeploymentGroupRevision
+@dynamic alternativeIds, createTime, name, snapshot;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alternativeIds" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConfig_DeploymentOperationMetadata
 //
 
 @implementation GTLRConfig_DeploymentOperationMetadata
 @dynamic applyResults, build, logs, step;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_DeploymentOperationSummary
+//
+
+@implementation GTLRConfig_DeploymentOperationSummary
+@dynamic artifacts, build, content, deploymentStep, logs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_DeploymentSource
+//
+
+@implementation GTLRConfig_DeploymentSource
+@dynamic deployment, outputName;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_DeploymentSpec
+//
+
+@implementation GTLRConfig_DeploymentSpec
+@dynamic deployment, deploymentId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_DeploymentUnit
+//
+
+@implementation GTLRConfig_DeploymentUnit
+@dynamic dependencies, deployment, identifier;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"dependencies" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_DeploymentUnitProgress
+//
+
+@implementation GTLRConfig_DeploymentUnitProgress
+@dynamic deployment, deploymentOperationSummary, error, intent, state,
+         stateDescription, unitId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_DeprovisionDeploymentGroupRequest
+//
+
+@implementation GTLRConfig_DeprovisionDeploymentGroupRequest
+@dynamic deletePolicy, force;
 @end
 
 
@@ -395,6 +603,16 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRConfig_ExternalValueSource
+//
+
+@implementation GTLRConfig_ExternalValueSource
+@dynamic deploymentSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRConfig_GitSource
 //
 
@@ -410,6 +628,52 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 
 @implementation GTLRConfig_ImportStatefileRequest
 @dynamic lockId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_ListDeploymentGroupRevisionsResponse
+//
+
+@implementation GTLRConfig_ListDeploymentGroupRevisionsResponse
+@dynamic deploymentGroupRevisions, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deploymentGroupRevisions" : [GTLRConfig_DeploymentGroupRevision class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"deploymentGroupRevisions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_ListDeploymentGroupsResponse
+//
+
+@implementation GTLRConfig_ListDeploymentGroupsResponse
+@dynamic deploymentGroups, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deploymentGroups" : [GTLRConfig_DeploymentGroup class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"deploymentGroups";
+}
+
 @end
 
 
@@ -721,7 +985,8 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 
 @implementation GTLRConfig_OperationMetadata
 @dynamic apiVersion, createTime, deploymentMetadata, endTime, previewMetadata,
-         requestedCancellation, statusMessage, target, verb;
+         provisionDeploymentGroupMetadata, requestedCancellation, statusMessage,
+         target, verb;
 @end
 
 
@@ -873,6 +1138,48 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 
 @implementation GTLRConfig_ProviderConfig
 @dynamic sourceType;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_ProvisionDeploymentGroupOperationMetadata
+//
+
+@implementation GTLRConfig_ProvisionDeploymentGroupOperationMetadata
+@dynamic deploymentUnitProgresses, step;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"deploymentUnitProgresses" : [GTLRConfig_DeploymentUnitProgress class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_ProvisionDeploymentGroupRequest
+//
+
+@implementation GTLRConfig_ProvisionDeploymentGroupRequest
+@dynamic deploymentSpecs;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_ProvisionDeploymentGroupRequest_DeploymentSpecs
+//
+
+@implementation GTLRConfig_ProvisionDeploymentGroupRequest_DeploymentSpecs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConfig_DeploymentSpec class];
+}
+
 @end
 
 
@@ -1069,7 +1376,21 @@ NSString * const kGTLRConfig_TerraformVersion_State_StateUnspecified = @"STATE_U
 //
 
 @implementation GTLRConfig_TerraformBlueprint
-@dynamic gcsSource, gitSource, inputValues;
+@dynamic externalValues, gcsSource, gitSource, inputValues;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConfig_TerraformBlueprint_ExternalValues
+//
+
+@implementation GTLRConfig_TerraformBlueprint_ExternalValues
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConfig_ExternalValueSource class];
+}
+
 @end
 
 

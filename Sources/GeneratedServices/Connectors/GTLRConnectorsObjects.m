@@ -792,7 +792,26 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ExecuteToolResponse
-@dynamic metadata, result;
+@dynamic xMeta, metadata, result;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"xMeta" : @"_meta" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_ExecuteToolResponse_XMeta
+//
+
+@implementation GTLRConnectors_ExecuteToolResponse_XMeta
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -922,7 +941,26 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_GetResourceResponse
-@dynamic data, metadata, mimeType;
+@dynamic xMeta, data, metadata, mimeType;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"xMeta" : @"_meta" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_GetResourceResponse_XMeta
+//
+
+@implementation GTLRConnectors_GetResourceResponse_XMeta
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
 @end
 
 
@@ -1096,25 +1134,61 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_JsonSchema
-@dynamic additionalDetails, defaultProperty, descriptionProperty, enumProperty,
-         format, items, jdbcType, properties, required, type;
+@dynamic xComment, xDefs, xId, xRef, xSchema, additionalDetails,
+         additionalItems, additionalPropertiesProperty, allOf, anyOf,
+         constProperty, contains, contentEncoding, contentMediaType,
+         defaultProperty, definitions, dependencies, descriptionProperty,
+         elseProperty, enumProperty, examples, exclusiveMaximum,
+         exclusiveMinimum, format, ifProperty, items, jdbcType, maximum,
+         maxItems, maxLength, maxProperties, minimum, minItems, minLength,
+         minProperties, multipleOf, notProperty, oneOf, pattern,
+         patternProperties, properties, propertyNames, readOnly, required, then,
+         title, type, uniqueItems, writeOnly;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
+    @"additionalPropertiesProperty" : @"additionalProperties",
+    @"constProperty" : @"const",
     @"defaultProperty" : @"default",
     @"descriptionProperty" : @"description",
-    @"enumProperty" : @"enum"
+    @"elseProperty" : @"else",
+    @"enumProperty" : @"enum",
+    @"ifProperty" : @"if",
+    @"notProperty" : @"not",
+    @"xComment" : @"$comment",
+    @"xDefs" : @"$defs",
+    @"xId" : @"$id",
+    @"xRef" : @"$ref",
+    @"xSchema" : @"$schema"
   };
   return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"allOf" : [GTLRConnectors_JsonSchema class],
+    @"anyOf" : [GTLRConnectors_JsonSchema class],
     @"enum" : [NSObject class],
+    @"examples" : [NSObject class],
+    @"oneOf" : [GTLRConnectors_JsonSchema class],
     @"required" : [NSString class],
     @"type" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_JsonSchema_XDefs
+//
+
+@implementation GTLRConnectors_JsonSchema_XDefs
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_JsonSchema class];
 }
 
 @end
@@ -1129,6 +1203,48 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_JsonSchema_Definitions
+//
+
+@implementation GTLRConnectors_JsonSchema_Definitions
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_JsonSchema class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_JsonSchema_Dependencies
+//
+
+@implementation GTLRConnectors_JsonSchema_Dependencies
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_JsonSchema_PatternProperties
+//
+
+@implementation GTLRConnectors_JsonSchema_PatternProperties
+
++ (Class)classForAdditionalProperties {
+  return [GTLRConnectors_JsonSchema class];
 }
 
 @end
@@ -1374,7 +1490,15 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_ListToolsPostRequest
-@dynamic executionConfig, pageSize, pageToken, toolSpec;
+@dynamic executionConfig, pageSize, pageToken, toolNames, toolSpec;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"toolNames" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1667,10 +1791,28 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_Resource
-@dynamic descriptionProperty, mimeType, name, size, uri;
+@dynamic xMeta, descriptionProperty, mimeType, name, size, uri;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"xMeta" : @"_meta"
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Resource_XMeta
+//
+
+@implementation GTLRConnectors_Resource_XMeta
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end
@@ -1746,11 +1888,15 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
 //
 
 @implementation GTLRConnectors_Tool
-@dynamic annotations, dependsOn, descriptionProperty, inputSchema, name,
+@dynamic xMeta, annotations, dependsOn, descriptionProperty, inputSchema, name,
          outputSchema;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
-  return @{ @"descriptionProperty" : @"description" };
+  NSDictionary<NSString *, NSString *> *map = @{
+    @"descriptionProperty" : @"description",
+    @"xMeta" : @"_meta"
+  };
+  return map;
 }
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
@@ -1758,6 +1904,20 @@ NSString * const kGTLRConnectors_UpdatePolicy_Channel_Week5    = @"WEEK5";
     @"dependsOn" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRConnectors_Tool_XMeta
+//
+
+@implementation GTLRConnectors_Tool_XMeta
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

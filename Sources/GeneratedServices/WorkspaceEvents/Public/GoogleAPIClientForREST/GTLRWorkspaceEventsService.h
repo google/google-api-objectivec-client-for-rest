@@ -33,6 +33,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMemberships;
 /**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see
+ *  members of conversations and spaces
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.memberships.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMembershipsReadonly;
+/**
  *  Authorization scope: On their own behalf, apps in Google Chat can see all
  *  messages and their associated reactions and message content
  *
@@ -47,6 +54,14 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMessagesR
  *  Value "https://www.googleapis.com/auth/chat.app.spaces"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppSpaces;
+/**
+ *  Authorization scope: On their own behalf, apps in Google Chat can see
+ *  conversations and spaces and their metadata (including history settings and
+ *  access settings)
+ *
+ *  Value "https://www.googleapis.com/auth/chat.app.spaces.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatAppSpacesReadonly;
 /**
  *  Authorization scope: Private Service:
  *  https://www.googleapis.com/auth/chat.bot
@@ -108,6 +123,19 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatSpaces;
  *  Value "https://www.googleapis.com/auth/chat.spaces.readonly"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly;
+/**
+ *  Authorization scope: View and modify last read time for Google Chat
+ *  conversations
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.readstate"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatUsersReadstate;
+/**
+ *  Authorization scope: View last read time for Google Chat conversations
+ *
+ *  Value "https://www.googleapis.com/auth/chat.users.readstate.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly;
 /**
  *  Authorization scope: See, edit, create, and delete all of your Google Drive
  *  files

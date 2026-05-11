@@ -11,9 +11,11 @@
 #import <GoogleAPIClientForREST/GTLRDataproc.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+NSString * const kGTLRAuthScopeDataproc              = @"https://www.googleapis.com/auth/dataproc";
 NSString * const kGTLRAuthScopeDataprocCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeDataprocReadOnly      = @"https://www.googleapis.com/auth/dataproc.read-only";
 
 // ----------------------------------------------------------------------------
 //   GTLRDataprocService

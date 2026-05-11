@@ -94,7 +94,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Creates a new draft with the `DRAFT` label.
+ *  Creates a draft with the `DRAFT` label. For more information, see [Create
+ *  and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  Method: gmail.users.drafts.create
  *
@@ -117,7 +119,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Draft.
  *
- *  Creates a new draft with the `DRAFT` label.
+ *  Creates a draft with the `DRAFT` label. For more information, see [Create
+ *  and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  @param object The @c GTLRGmail_Draft to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -135,7 +139,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Immediately and permanently deletes the specified draft. Does not simply
- *  trash it.
+ *  trash it. For more information, see [Create and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  Method: gmail.users.drafts.delete
  *
@@ -167,7 +172,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  be nil. This query does not fetch an object.
  *
  *  Immediately and permanently deletes the specified draft. Does not simply
- *  trash it.
+ *  trash it. For more information, see [Create and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -181,7 +187,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets the specified draft.
+ *  Gets the specified draft. For more information, see [Create and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  Method: gmail.users.drafts.get
  *
@@ -234,7 +241,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Draft.
  *
- *  Gets the specified draft.
+ *  Gets the specified draft. For more information, see [Create and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -248,7 +256,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Lists the drafts in the user's mailbox.
+ *  Lists the drafts in the user's mailbox. For more information, see [Create
+ *  and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  Method: gmail.users.drafts.list
  *
@@ -296,7 +306,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ListDraftsResponse.
  *
- *  Lists the drafts in the user's mailbox.
+ *  Lists the drafts in the user's mailbox. For more information, see [Create
+ *  and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -313,7 +325,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Sends the specified, existing draft to the recipients in the `To`, `Cc`, and
- *  `Bcc` headers.
+ *  `Bcc` headers. For more information, see [Create and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  Method: gmail.users.drafts.send
  *
@@ -337,7 +350,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_Message.
  *
  *  Sends the specified, existing draft to the recipients in the `To`, `Cc`, and
- *  `Bcc` headers.
+ *  `Bcc` headers. For more information, see [Create and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  @param object The @c GTLRGmail_Draft to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -354,7 +368,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Replaces a draft's content.
+ *  Replaces a draft's content. For more information, see [Create and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  Method: gmail.users.drafts.update
  *
@@ -384,7 +399,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Draft.
  *
- *  Replaces a draft's content.
+ *  Replaces a draft's content. For more information, see [Create and send draft
+ *  emails](https://developers.google.com/workspace/gmail/api/guides/drafts).
  *
  *  @param object The @c GTLRGmail_Draft to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -440,7 +456,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Lists the history of all changes to the given mailbox. History results are
- *  returned in chronological order (increasing `historyId`).
+ *  returned in chronological order (increasing `historyId`). For more
+ *  information, see [Synchronize clients with
+ *  Gmail](https://developers.google.com/workspace/gmail/api/guides/sync).
  *
  *  Method: gmail.users.history.list
  *
@@ -504,7 +522,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_ListHistoryResponse.
  *
  *  Lists the history of all changes to the given mailbox. History results are
- *  returned in chronological order (increasing `historyId`).
+ *  returned in chronological order (increasing `historyId`). For more
+ *  information, see [Synchronize clients with
+ *  Gmail](https://developers.google.com/workspace/gmail/api/guides/sync).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -520,7 +540,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Creates a new label.
+ *  Creates a label. For more information, see [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  Method: gmail.users.labels.create
  *
@@ -542,7 +563,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Label.
  *
- *  Creates a new label.
+ *  Creates a label. For more information, see [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  @param object The @c GTLRGmail_Label to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -557,7 +579,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Immediately and permanently deletes the specified label and removes it from
- *  any messages and threads that it is applied to.
+ *  any messages and threads that it's applied to. For more information, see
+ *  [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  Method: gmail.users.labels.delete
  *
@@ -588,7 +612,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  be nil. This query does not fetch an object.
  *
  *  Immediately and permanently deletes the specified label and removes it from
- *  any messages and threads that it is applied to.
+ *  any messages and threads that it's applied to. For more information, see
+ *  [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -602,7 +628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets the specified label.
+ *  Gets the specified label. For more information, see [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  Method: gmail.users.labels.get
  *
@@ -633,7 +660,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Label.
  *
- *  Gets the specified label.
+ *  Gets the specified label. For more information, see [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -647,7 +675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Lists all labels in the user's mailbox.
+ *  Lists all labels in the user's mailbox. For more information, see [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  Method: gmail.users.labels.list
  *
@@ -671,7 +700,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ListLabelsResponse.
  *
- *  Lists all labels in the user's mailbox.
+ *  Lists all labels in the user's mailbox. For more information, see [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -683,7 +713,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Patch the specified label.
+ *  Patch the specified label. For more information, see [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  Method: gmail.users.labels.patch
  *
@@ -712,7 +743,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Label.
  *
- *  Patch the specified label.
+ *  Patch the specified label. For more information, see [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  @param object The @c GTLRGmail_Label to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -728,7 +760,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Updates the specified label.
+ *  Updates the specified label. For more information, see [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  Method: gmail.users.labels.update
  *
@@ -757,7 +790,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Label.
  *
- *  Updates the specified label.
+ *  Updates the specified label. For more information, see [Manage
+ *  labels](https://developers.google.com/workspace/gmail/api/guides/labels).
  *
  *  @param object The @c GTLRGmail_Label to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -1024,7 +1058,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  delivery scanning and classification similar to receiving via SMTP. This
  *  method doesn't perform SPF checks, so it might not work for some spam
  *  messages, such as those attempting to perform domain spoofing. This method
- *  does not send a message. Note that the maximum size of the message is 150MB.
+ *  does not send a message. Note that the maximum size of the message is 150
+ *  MB.
  *
  *  Method: gmail.users.messages.import
  *
@@ -1088,7 +1123,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  delivery scanning and classification similar to receiving via SMTP. This
  *  method doesn't perform SPF checks, so it might not work for some spam
  *  messages, such as those attempting to perform domain spoofing. This method
- *  does not send a message. Note that the maximum size of the message is 150MB.
+ *  does not send a message. Note that the maximum size of the message is 150
+ *  MB.
  *
  *  @param object The @c GTLRGmail_Message to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -1107,7 +1143,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Directly inserts a message into only this user's mailbox similar to `IMAP
  *  APPEND`, bypassing most scanning and classification. Does not send a
- *  message.
+ *  message. For more information, see [Create and send email
+ *  messages](https://developers.google.com/workspace/gmail/api/guides/sending).
  *
  *  Method: gmail.users.messages.insert
  *
@@ -1153,7 +1190,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Directly inserts a message into only this user's mailbox similar to `IMAP
  *  APPEND`, bypassing most scanning and classification. Does not send a
- *  message.
+ *  message. For more information, see [Create and send email
+ *  messages](https://developers.google.com/workspace/gmail/api/guides/sending).
  *
  *  @param object The @c GTLRGmail_Message to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -1170,7 +1208,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Lists the messages in the user's mailbox. For example usage, see [List Gmail
+ *  Lists the messages in the user's mailbox. For more information, see [List
+ *  Gmail
  *  messages](https://developers.google.com/workspace/gmail/api/guides/list-messages).
  *
  *  Method: gmail.users.messages.list
@@ -1228,7 +1267,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ListMessagesResponse.
  *
- *  Lists the messages in the user's mailbox. For example usage, see [List Gmail
+ *  Lists the messages in the user's mailbox. For more information, see [List
+ *  Gmail
  *  messages](https://developers.google.com/workspace/gmail/api/guides/list-messages).
  *
  *  @param userId The user's email address. The special value `me` can be used
@@ -1290,8 +1330,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc`
- *  headers. For example usage, see [Sending
- *  email](https://developers.google.com/workspace/gmail/api/guides/sending).
+ *  headers. For more information, see [Create and send email
+ *  messages](https://developers.google.com/workspace/gmail/api/guides/sending).
  *
  *  Method: gmail.users.messages.send
  *
@@ -1316,8 +1356,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_Message.
  *
  *  Sends the specified message to the recipients in the `To`, `Cc`, and `Bcc`
- *  headers. For example usage, see [Sending
- *  email](https://developers.google.com/workspace/gmail/api/guides/sending).
+ *  headers. For more information, see [Create and send email
+ *  messages](https://developers.google.com/workspace/gmail/api/guides/sending).
  *
  *  @param object The @c GTLRGmail_Message to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -2150,15 +2190,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Adds a delegate with its verification status set directly to `accepted`,
  *  without sending any verification email. The delegate user must be a member
- *  of the same Google Workspace organization as the delegator user. Gmail
- *  imposes limitations on the number of delegates and delegators each user in a
- *  Google Workspace organization can have. These limits depend on your
- *  organization, but in general each user can have up to 25 delegates and up to
- *  10 delegators. Note that a delegate user must be referred to by their
- *  primary email address, and not an email alias. Also note that when a new
- *  delegate is created, there may be up to a one minute delay before the new
- *  delegate is available for use. This method is only available to service
- *  account clients that have been delegated domain-wide authority.
+ *  of the same Google Workspace organization as the delegator user. For more
+ *  information, see [Manage
+ *  delegates](https://developers.google.com/workspace/gmail/api/guides/delegate_settings).
+ *  Gmail imposes limitations on the number of delegates and delegators each
+ *  user in a Google Workspace organization can have. These limits depend on
+ *  your organization, but in general each user can have up to 25 delegates and
+ *  up to 10 delegators. A delegate user must be referred to by their primary
+ *  email address, and not an email alias. When a new delegate is created, there
+ *  may be up to a one minute delay before the new delegate is available for
+ *  use. This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.delegates.create
  *
@@ -2180,15 +2222,17 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Adds a delegate with its verification status set directly to `accepted`,
  *  without sending any verification email. The delegate user must be a member
- *  of the same Google Workspace organization as the delegator user. Gmail
- *  imposes limitations on the number of delegates and delegators each user in a
- *  Google Workspace organization can have. These limits depend on your
- *  organization, but in general each user can have up to 25 delegates and up to
- *  10 delegators. Note that a delegate user must be referred to by their
- *  primary email address, and not an email alias. Also note that when a new
- *  delegate is created, there may be up to a one minute delay before the new
- *  delegate is available for use. This method is only available to service
- *  account clients that have been delegated domain-wide authority.
+ *  of the same Google Workspace organization as the delegator user. For more
+ *  information, see [Manage
+ *  delegates](https://developers.google.com/workspace/gmail/api/guides/delegate_settings).
+ *  Gmail imposes limitations on the number of delegates and delegators each
+ *  user in a Google Workspace organization can have. These limits depend on
+ *  your organization, but in general each user can have up to 25 delegates and
+ *  up to 10 delegators. A delegate user must be referred to by their primary
+ *  email address, and not an email alias. When a new delegate is created, there
+ *  may be up to a one minute delay before the new delegate is available for
+ *  use. This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_Delegate to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -2203,9 +2247,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Removes the specified delegate (which can be of any verification status),
- *  and revokes any verification that may have been required for using it. Note
- *  that a delegate user must be referred to by their primary email address, and
- *  not an email alias. This method is only available to service account clients
+ *  and revokes any verification that may have been required for using it. For
+ *  more information, see [Manage
+ *  delegates](https://developers.google.com/workspace/gmail/api/guides/delegate_settings).
+ *  A delegate user must be referred to by their primary email address, and not
+ *  an email alias. This method is only available to service account clients
  *  that have been delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.delegates.delete
@@ -2231,9 +2277,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  be nil. This query does not fetch an object.
  *
  *  Removes the specified delegate (which can be of any verification status),
- *  and revokes any verification that may have been required for using it. Note
- *  that a delegate user must be referred to by their primary email address, and
- *  not an email alias. This method is only available to service account clients
+ *  and revokes any verification that may have been required for using it. For
+ *  more information, see [Manage
+ *  delegates](https://developers.google.com/workspace/gmail/api/guides/delegate_settings).
+ *  A delegate user must be referred to by their primary email address, and not
+ *  an email alias. This method is only available to service account clients
  *  that have been delegated domain-wide authority.
  *
  *  @param userId User's email address. The special value "me" can be used to
@@ -2249,10 +2297,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets the specified delegate. Note that a delegate user must be referred to
- *  by their primary email address, and not an email alias. This method is only
- *  available to service account clients that have been delegated domain-wide
- *  authority.
+ *  Gets the specified delegate. For more information, see [Manage
+ *  delegates](https://developers.google.com/workspace/gmail/api/guides/delegate_settings).
+ *  A delegate user must be referred to by their primary email address, and not
+ *  an email alias. This method is only available to service account clients
+ *  that have been delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.delegates.get
  *
@@ -2281,10 +2330,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Delegate.
  *
- *  Gets the specified delegate. Note that a delegate user must be referred to
- *  by their primary email address, and not an email alias. This method is only
- *  available to service account clients that have been delegated domain-wide
- *  authority.
+ *  Gets the specified delegate. For more information, see [Manage
+ *  delegates](https://developers.google.com/workspace/gmail/api/guides/delegate_settings).
+ *  A delegate user must be referred to by their primary email address, and not
+ *  an email alias. This method is only available to service account clients
+ *  that have been delegated domain-wide authority.
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2299,8 +2349,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Lists the delegates for the specified account. This method is only available
- *  to service account clients that have been delegated domain-wide authority.
+ *  Lists the delegates for the specified account. For more information, see
+ *  [Manage
+ *  delegates](https://developers.google.com/workspace/gmail/api/guides/delegate_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.delegates.list
  *
@@ -2323,8 +2376,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ListDelegatesResponse.
  *
- *  Lists the delegates for the specified account. This method is only available
- *  to service account clients that have been delegated domain-wide authority.
+ *  Lists the delegates for the specified account. For more information, see
+ *  [Manage
+ *  delegates](https://developers.google.com/workspace/gmail/api/guides/delegate_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2336,7 +2392,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Creates a filter. Note: you can only create a maximum of 1,000 filters.
+ *  Creates a filter. Note: you can only create a maximum of 1,000 filters. For
+ *  more information, see [Manage Gmail
+ *  filters](https://developers.google.com/workspace/gmail/api/guides/filter_settings).
  *
  *  Method: gmail.users.settings.filters.create
  *
@@ -2356,7 +2414,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Filter.
  *
- *  Creates a filter. Note: you can only create a maximum of 1,000 filters.
+ *  Creates a filter. Note: you can only create a maximum of 1,000 filters. For
+ *  more information, see [Manage Gmail
+ *  filters](https://developers.google.com/workspace/gmail/api/guides/filter_settings).
  *
  *  @param object The @c GTLRGmail_Filter to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -2370,7 +2430,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Immediately and permanently deletes the specified filter.
+ *  Immediately and permanently deletes the specified filter. For more
+ *  information, see [Manage Gmail
+ *  filters](https://developers.google.com/workspace/gmail/api/guides/filter_settings).
  *
  *  Method: gmail.users.settings.filters.delete
  *
@@ -2398,7 +2460,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Immediately and permanently deletes the specified filter.
+ *  Immediately and permanently deletes the specified filter. For more
+ *  information, see [Manage Gmail
+ *  filters](https://developers.google.com/workspace/gmail/api/guides/filter_settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2412,7 +2476,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets a filter.
+ *  Gets a filter. For more information, see [Manage Gmail
+ *  filters](https://developers.google.com/workspace/gmail/api/guides/filter_settings).
  *
  *  Method: gmail.users.settings.filters.get
  *
@@ -2442,7 +2507,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Filter.
  *
- *  Gets a filter.
+ *  Gets a filter. For more information, see [Manage Gmail
+ *  filters](https://developers.google.com/workspace/gmail/api/guides/filter_settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2456,7 +2522,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Lists the message filters of a Gmail user.
+ *  Lists the message filters of a Gmail user. For more information, see [Manage
+ *  Gmail
+ *  filters](https://developers.google.com/workspace/gmail/api/guides/filter_settings).
  *
  *  Method: gmail.users.settings.filters.list
  *
@@ -2479,7 +2547,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ListFiltersResponse.
  *
- *  Lists the message filters of a Gmail user.
+ *  Lists the message filters of a Gmail user. For more information, see [Manage
+ *  Gmail
+ *  filters](https://developers.google.com/workspace/gmail/api/guides/filter_settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2494,8 +2564,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Creates a forwarding address. If ownership verification is required, a
  *  message will be sent to the recipient and the resource's verification status
  *  will be set to `pending`; otherwise, the resource will be created with
- *  verification status set to `accepted`. This method is only available to
- *  service account clients that have been delegated domain-wide authority.
+ *  verification status set to `accepted`. For more information, see [Manage
+ *  email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.forwardingAddresses.create
  *
@@ -2518,8 +2591,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Creates a forwarding address. If ownership verification is required, a
  *  message will be sent to the recipient and the resource's verification status
  *  will be set to `pending`; otherwise, the resource will be created with
- *  verification status set to `accepted`. This method is only available to
- *  service account clients that have been delegated domain-wide authority.
+ *  verification status set to `accepted`. For more information, see [Manage
+ *  email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_ForwardingAddress to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -2534,8 +2610,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Deletes the specified forwarding address and revokes any verification that
- *  may have been required. This method is only available to service account
- *  clients that have been delegated domain-wide authority.
+ *  may have been required. For more information, see [Manage email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.forwardingAddresses.delete
  *
@@ -2560,8 +2638,10 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  be nil. This query does not fetch an object.
  *
  *  Deletes the specified forwarding address and revokes any verification that
- *  may have been required. This method is only available to service account
- *  clients that have been delegated domain-wide authority.
+ *  may have been required. For more information, see [Manage email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2575,7 +2655,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets the specified forwarding address.
+ *  Gets the specified forwarding address. For more information, see [Manage
+ *  email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
  *
  *  Method: gmail.users.settings.forwardingAddresses.get
  *
@@ -2601,7 +2683,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ForwardingAddress.
  *
- *  Gets the specified forwarding address.
+ *  Gets the specified forwarding address. For more information, see [Manage
+ *  email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2615,7 +2699,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Lists the forwarding addresses for the specified account.
+ *  Lists the forwarding addresses for the specified account. For more
+ *  information, see [Manage email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
  *
  *  Method: gmail.users.settings.forwardingAddresses.list
  *
@@ -2638,7 +2724,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ListForwardingAddressesResponse.
  *
- *  Lists the forwarding addresses for the specified account.
+ *  Lists the forwarding addresses for the specified account. For more
+ *  information, see [Manage email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2650,7 +2738,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets the auto-forwarding setting for the specified account.
+ *  Gets the auto-forwarding setting for the specified account. For more
+ *  information, see [Manage email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
  *
  *  Method: gmail.users.settings.getAutoForwarding
  *
@@ -2673,7 +2763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_AutoForwarding.
  *
- *  Gets the auto-forwarding setting for the specified account.
+ *  Gets the auto-forwarding setting for the specified account. For more
+ *  information, see [Manage email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2685,7 +2777,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets IMAP settings.
+ *  Gets IMAP settings. For more information, see [Configure POP and IMAP
+ *  settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings).
  *
  *  Method: gmail.users.settings.getImap
  *
@@ -2708,7 +2802,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ImapSettings.
  *
- *  Gets IMAP settings.
+ *  Gets IMAP settings. For more information, see [Configure POP and IMAP
+ *  settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2720,7 +2816,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets language settings.
+ *  Gets language settings. For more information, see [Manage language
+ *  settings](https://developers.google.com/workspace/gmail/api/guides/language-settings).
  *
  *  Method: gmail.users.settings.getLanguage
  *
@@ -2743,7 +2840,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_LanguageSettings.
  *
- *  Gets language settings.
+ *  Gets language settings. For more information, see [Manage language
+ *  settings](https://developers.google.com/workspace/gmail/api/guides/language-settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2755,7 +2853,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets POP settings.
+ *  Gets POP settings. For more information, see [Configure POP and IMAP
+ *  settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings).
  *
  *  Method: gmail.users.settings.getPop
  *
@@ -2778,7 +2878,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_PopSettings.
  *
- *  Gets POP settings.
+ *  Gets POP settings. For more information, see [Configure POP and IMAP
+ *  settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2790,7 +2892,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets vacation responder settings.
+ *  Gets vacation responder settings. For more information, see [Manage vacation
+ *  settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/vacation_settings).
  *
  *  Method: gmail.users.settings.getVacation
  *
@@ -2813,7 +2917,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_VacationSettings.
  *
- *  Gets vacation responder settings.
+ *  Gets vacation responder settings. For more information, see [Manage vacation
+ *  settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/vacation_settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2831,9 +2937,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  alias, a message will be sent to the email address and the resource's
  *  verification status will be set to `pending`; otherwise, the resource will
  *  be created with verification status set to `accepted`. If a signature is
- *  provided, Gmail will sanitize the HTML before saving it with the alias. This
- *  method is only available to service account clients that have been delegated
- *  domain-wide authority.
+ *  provided, Gmail will sanitize the HTML before saving it with the alias. For
+ *  more information, see [Manage aliases and signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.sendAs.create
  *
@@ -2859,9 +2967,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  alias, a message will be sent to the email address and the resource's
  *  verification status will be set to `pending`; otherwise, the resource will
  *  be created with verification status set to `accepted`. If a signature is
- *  provided, Gmail will sanitize the HTML before saving it with the alias. This
- *  method is only available to service account clients that have been delegated
- *  domain-wide authority.
+ *  provided, Gmail will sanitize the HTML before saving it with the alias. For
+ *  more information, see [Manage aliases and signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_SendAs to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -2876,8 +2986,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Deletes the specified send-as alias. Revokes any verification that may have
- *  been required for using it. This method is only available to service account
- *  clients that have been delegated domain-wide authority.
+ *  been required for using it. For more information, see [Manage aliases and
+ *  signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.sendAs.delete
  *
@@ -2902,8 +3015,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  be nil. This query does not fetch an object.
  *
  *  Deletes the specified send-as alias. Revokes any verification that may have
- *  been required for using it. This method is only available to service account
- *  clients that have been delegated domain-wide authority.
+ *  been required for using it. For more information, see [Manage aliases and
+ *  signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2918,7 +3034,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Gets the specified send-as alias. Fails with an HTTP 404 error if the
- *  specified address is not a member of the collection.
+ *  specified address is not a member of the collection. For more information,
+ *  see [Manage aliases and signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
  *
  *  Method: gmail.users.settings.sendAs.get
  *
@@ -2945,7 +3063,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_SendAs.
  *
  *  Gets the specified send-as alias. Fails with an HTTP 404 error if the
- *  specified address is not a member of the collection.
+ *  specified address is not a member of the collection. For more information,
+ *  see [Manage aliases and signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2961,7 +3081,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Lists the send-as aliases for the specified account. The result includes the
  *  primary send-as address associated with the account as well as any custom
- *  "from" aliases.
+ *  "from" aliases. For more information, see [Manage aliases and signatures
+ *  with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
  *
  *  Method: gmail.users.settings.sendAs.list
  *
@@ -2986,7 +3108,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Lists the send-as aliases for the specified account. The result includes the
  *  primary send-as address associated with the account as well as any custom
- *  "from" aliases.
+ *  "from" aliases. For more information, see [Manage aliases and signatures
+ *  with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -2998,7 +3122,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Patch the specified send-as alias.
+ *  Patch the specified send-as alias. For more information, see [Manage aliases
+ *  and signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
  *
  *  Method: gmail.users.settings.sendAs.patch
  *
@@ -3022,7 +3148,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_SendAs.
  *
- *  Patch the specified send-as alias.
+ *  Patch the specified send-as alias. For more information, see [Manage aliases
+ *  and signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
  *
  *  @param object The @c GTLRGmail_SendAs to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -3038,7 +3166,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Deletes the specified S/MIME config for the specified send-as alias.
+ *  Deletes the specified S/MIME config for the specified send-as alias. For
+ *  more information, see [Manage S/MIME certificates with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/smime_certs).
  *
  *  Method: gmail.users.settings.sendAs.smimeInfo.delete
  *
@@ -3073,7 +3203,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Deletes the specified S/MIME config for the specified send-as alias.
+ *  Deletes the specified S/MIME config for the specified send-as alias. For
+ *  more information, see [Manage S/MIME certificates with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/smime_certs).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3090,7 +3222,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets the specified S/MIME config for the specified send-as alias.
+ *  Gets the specified S/MIME config for the specified send-as alias. For more
+ *  information, see [Manage S/MIME certificates with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/smime_certs).
  *
  *  Method: gmail.users.settings.sendAs.smimeInfo.get
  *
@@ -3127,7 +3261,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_SmimeInfo.
  *
- *  Gets the specified S/MIME config for the specified send-as alias.
+ *  Gets the specified S/MIME config for the specified send-as alias. For more
+ *  information, see [Manage S/MIME certificates with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/smime_certs).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3145,7 +3281,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Insert (upload) the given S/MIME config for the specified send-as alias.
- *  Note that pkcs12 format is required for the key.
+ *  Note that `pkcs12` format is required for the key. For more information, see
+ *  [Manage S/MIME certificates with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/smime_certs).
  *
  *  Method: gmail.users.settings.sendAs.smimeInfo.insert
  *
@@ -3173,7 +3311,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_SmimeInfo.
  *
  *  Insert (upload) the given S/MIME config for the specified send-as alias.
- *  Note that pkcs12 format is required for the key.
+ *  Note that `pkcs12` format is required for the key. For more information, see
+ *  [Manage S/MIME certificates with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/smime_certs).
  *
  *  @param object The @c GTLRGmail_SmimeInfo to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -3190,7 +3330,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Lists S/MIME configs for the specified send-as alias.
+ *  Lists S/MIME configs for the specified send-as alias. For more information,
+ *  see [Manage S/MIME certificates with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/smime_certs).
  *
  *  Method: gmail.users.settings.sendAs.smimeInfo.list
  *
@@ -3220,7 +3362,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ListSmimeInfoResponse.
  *
- *  Lists S/MIME configs for the specified send-as alias.
+ *  Lists S/MIME configs for the specified send-as alias. For more information,
+ *  see [Manage S/MIME certificates with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/smime_certs).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3235,7 +3379,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Sets the default S/MIME config for the specified send-as alias.
+ *  Sets the default S/MIME config for the specified send-as alias. For more
+ *  information, see [Manage S/MIME certificates with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/smime_certs).
  *
  *  Method: gmail.users.settings.sendAs.smimeInfo.setDefault
  *
@@ -3270,7 +3416,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Sets the default S/MIME config for the specified send-as alias.
+ *  Sets the default S/MIME config for the specified send-as alias. For more
+ *  information, see [Manage S/MIME certificates with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/smime_certs).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3288,9 +3436,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Updates a send-as alias. If a signature is provided, Gmail will sanitize the
- *  HTML before saving it with the alias. Addresses other than the primary
- *  address for the account can only be updated by service account clients that
- *  have been delegated domain-wide authority.
+ *  HTML before saving it with the alias. For more information, see [Manage
+ *  aliases and signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
+ *  Addresses other than the primary address for the account can only be updated
+ *  by service account clients that have been delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.sendAs.update
  *
@@ -3315,9 +3465,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_SendAs.
  *
  *  Updates a send-as alias. If a signature is provided, Gmail will sanitize the
- *  HTML before saving it with the alias. Addresses other than the primary
- *  address for the account can only be updated by service account clients that
- *  have been delegated domain-wide authority.
+ *  HTML before saving it with the alias. For more information, see [Manage
+ *  aliases and signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
+ *  Addresses other than the primary address for the account can only be updated
+ *  by service account clients that have been delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_SendAs to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -3334,8 +3486,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Sends a verification email to the specified send-as alias address. The
- *  verification status must be `pending`. This method is only available to
- *  service account clients that have been delegated domain-wide authority.
+ *  verification status must be `pending`. For more information, see [Manage
+ *  aliases and signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.sendAs.verify
  *
@@ -3360,8 +3515,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  be nil. This query does not fetch an object.
  *
  *  Sends a verification email to the specified send-as alias address. The
- *  verification status must be `pending`. This method is only available to
- *  service account clients that have been delegated domain-wide authority.
+ *  verification status must be `pending`. For more information, see [Manage
+ *  aliases and signatures with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/alias_and_signature_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param userId User's email address. The special value "me" can be used to
  *    indicate the authenticated user. (Default me)
@@ -3376,9 +3534,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Updates the auto-forwarding setting for the specified account. A verified
- *  forwarding address must be specified when auto-forwarding is enabled. This
- *  method is only available to service account clients that have been delegated
- *  domain-wide authority.
+ *  forwarding address must be specified when auto-forwarding is enabled. For
+ *  more information, see [Manage email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  Method: gmail.users.settings.updateAutoForwarding
  *
@@ -3399,9 +3559,11 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_AutoForwarding.
  *
  *  Updates the auto-forwarding setting for the specified account. A verified
- *  forwarding address must be specified when auto-forwarding is enabled. This
- *  method is only available to service account clients that have been delegated
- *  domain-wide authority.
+ *  forwarding address must be specified when auto-forwarding is enabled. For
+ *  more information, see [Manage email
+ *  forwarding](https://developers.google.com/workspace/gmail/api/guides/forwarding_settings).
+ *  This method is only available to service account clients that have been
+ *  delegated domain-wide authority.
  *
  *  @param object The @c GTLRGmail_AutoForwarding to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -3415,7 +3577,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Updates IMAP settings.
+ *  Updates IMAP settings. For more information, see [Configure POP and IMAP
+ *  settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings).
  *
  *  Method: gmail.users.settings.updateImap
  *
@@ -3435,7 +3599,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ImapSettings.
  *
- *  Updates IMAP settings.
+ *  Updates IMAP settings. For more information, see [Configure POP and IMAP
+ *  settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings).
  *
  *  @param object The @c GTLRGmail_ImapSettings to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -3449,11 +3615,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Updates language settings. If successful, the return object contains the
- *  `displayLanguage` that was saved for the user, which may differ from the
- *  value passed into the request. This is because the requested
- *  `displayLanguage` may not be directly supported by Gmail but have a close
- *  variant that is, and so the variant may be chosen and saved instead.
+ *  Updates language settings. For more information, see [Manage language
+ *  settings](https://developers.google.com/workspace/gmail/api/guides/language-settings).
+ *  If successful, the return object contains the `displayLanguage` that was
+ *  saved for the user, which may differ from the value passed into the request.
+ *  This is because the requested `displayLanguage` may not be directly
+ *  supported by Gmail but have a close variant that is, and so the variant may
+ *  be chosen and saved instead.
  *
  *  Method: gmail.users.settings.updateLanguage
  *
@@ -3473,11 +3641,13 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_LanguageSettings.
  *
- *  Updates language settings. If successful, the return object contains the
- *  `displayLanguage` that was saved for the user, which may differ from the
- *  value passed into the request. This is because the requested
- *  `displayLanguage` may not be directly supported by Gmail but have a close
- *  variant that is, and so the variant may be chosen and saved instead.
+ *  Updates language settings. For more information, see [Manage language
+ *  settings](https://developers.google.com/workspace/gmail/api/guides/language-settings).
+ *  If successful, the return object contains the `displayLanguage` that was
+ *  saved for the user, which may differ from the value passed into the request.
+ *  This is because the requested `displayLanguage` may not be directly
+ *  supported by Gmail but have a close variant that is, and so the variant may
+ *  be chosen and saved instead.
  *
  *  @param object The @c GTLRGmail_LanguageSettings to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -3491,7 +3661,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Updates POP settings.
+ *  Updates POP settings. For more information, see [Configure POP and IMAP
+ *  settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings).
  *
  *  Method: gmail.users.settings.updatePop
  *
@@ -3511,7 +3683,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_PopSettings.
  *
- *  Updates POP settings.
+ *  Updates POP settings. For more information, see [Configure POP and IMAP
+ *  settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/pop_imap_settings).
  *
  *  @param object The @c GTLRGmail_PopSettings to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -3525,7 +3699,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Updates vacation responder settings.
+ *  Updates vacation responder settings. For more information, see [Manage
+ *  vacation settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/vacation_settings).
  *
  *  Method: gmail.users.settings.updateVacation
  *
@@ -3545,7 +3721,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_VacationSettings.
  *
- *  Updates vacation responder settings.
+ *  Updates vacation responder settings. For more information, see [Manage
+ *  vacation settings with the Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/vacation_settings).
  *
  *  @param object The @c GTLRGmail_VacationSettings to include in the query.
  *  @param userId User's email address. The special value "me" can be used to
@@ -3559,7 +3737,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Stop receiving push notifications for the given user mailbox.
+ *  Turn off push notification delivery for the given user mailbox. For more
+ *  information, see [Configure push notifications in Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/push).
  *
  *  Method: gmail.users.stop
  *
@@ -3583,7 +3763,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Upon successful completion, the callback's object and error parameters will
  *  be nil. This query does not fetch an object.
  *
- *  Stop receiving push notifications for the given user mailbox.
+ *  Turn off push notification delivery for the given user mailbox. For more
+ *  information, see [Configure push notifications in Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/push).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3597,7 +3779,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Immediately and permanently deletes the specified thread. Any messages that
  *  belong to the thread are also deleted. This operation cannot be undone.
- *  Prefer `threads.trash` instead.
+ *  Prefer `threads.trash` instead. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  Method: gmail.users.threads.delete
  *
@@ -3627,7 +3810,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *
  *  Immediately and permanently deletes the specified thread. Any messages that
  *  belong to the thread are also deleted. This operation cannot be undone.
- *  Prefer `threads.trash` instead.
+ *  Prefer `threads.trash` instead. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3641,7 +3825,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Gets the specified thread.
+ *  Gets the specified thread. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  Method: gmail.users.threads.get
  *
@@ -3696,7 +3881,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_Thread.
  *
- *  Gets the specified thread.
+ *  Gets the specified thread. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3710,7 +3896,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Lists the threads in the user's mailbox.
+ *  Lists the threads in the user's mailbox. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  Method: gmail.users.threads.list
  *
@@ -3764,7 +3951,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_ListThreadsResponse.
  *
- *  Lists the threads in the user's mailbox.
+ *  Lists the threads in the user's mailbox. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3781,7 +3969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Modifies the labels applied to the thread. This applies to all messages in
- *  the thread.
+ *  the thread. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  Method: gmail.users.threads.modify
  *
@@ -3810,7 +3999,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_Thread.
  *
  *  Modifies the labels applied to the thread. This applies to all messages in
- *  the thread.
+ *  the thread. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  @param object The @c GTLRGmail_ModifyThreadRequest to include in the query.
  *  @param userId The user's email address. The special value `me` can be used
@@ -3827,7 +4017,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Moves the specified thread to the trash. Any messages that belong to the
- *  thread are also moved to the trash.
+ *  thread are also moved to the trash. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  Method: gmail.users.threads.trash
  *
@@ -3856,7 +4047,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_Thread.
  *
  *  Moves the specified thread to the trash. Any messages that belong to the
- *  thread are also moved to the trash.
+ *  thread are also moved to the trash. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3871,7 +4063,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 
 /**
  *  Removes the specified thread from the trash. Any messages that belong to the
- *  thread are also removed from the trash.
+ *  thread are also removed from the trash. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  Method: gmail.users.threads.untrash
  *
@@ -3900,7 +4093,8 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
  *  Fetches a @c GTLRGmail_Thread.
  *
  *  Removes the specified thread from the trash. Any messages that belong to the
- *  thread are also removed from the trash.
+ *  thread are also removed from the trash. For more information, see [Manage
+ *  threads](https://developers.google.com/workspace/gmail/api/guides/threads).
  *
  *  @param userId The user's email address. The special value `me` can be used
  *    to indicate the authenticated user. (Default me)
@@ -3914,7 +4108,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 @end
 
 /**
- *  Set up or update a push notification watch on the given user mailbox.
+ *  Set up or update a push notification watch on the given user mailbox. For
+ *  more information, see [Configure push notifications in Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/push).
  *
  *  Method: gmail.users.watch
  *
@@ -3937,7 +4133,9 @@ FOUNDATION_EXTERN NSString * const kGTLRGmailInternalDateSourceReceivedTime;
 /**
  *  Fetches a @c GTLRGmail_WatchResponse.
  *
- *  Set up or update a push notification watch on the given user mailbox.
+ *  Set up or update a push notification watch on the given user mailbox. For
+ *  more information, see [Configure push notifications in Gmail
+ *  API](https://developers.google.com/workspace/gmail/api/guides/push).
  *
  *  @param object The @c GTLRGmail_WatchRequest to include in the query.
  *  @param userId The user's email address. The special value `me` can be used

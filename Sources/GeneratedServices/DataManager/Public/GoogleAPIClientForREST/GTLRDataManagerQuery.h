@@ -91,15 +91,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  authorizes access for the request: * `login-account`: (Optional) The
  *  resource name of the account where the Google Account of the credentials is
  *  a user. If not set, defaults to the account of the request. Format:
- *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
- *  `linked-account`: (Optional) The resource name of the account with an
- *  established product link to the `login-account`. Format:
- *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}`
  *
  *  Method: datamanager.accountTypes.accounts.partnerLinks.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataManager
+ *    @c kGTLRAuthScopeDataManagerPartnerlink
  */
 @interface GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksCreate : GTLRDataManagerQuery
 
@@ -117,10 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  authorizes access for the request: * `login-account`: (Optional) The
  *  resource name of the account where the Google Account of the credentials is
  *  a user. If not set, defaults to the account of the request. Format:
- *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
- *  `linked-account`: (Optional) The resource name of the account with an
- *  established product link to the `login-account`. Format:
- *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}`
  *
  *  @param object The @c GTLRDataManager_PartnerLink to include in the query.
  *  @param parent Required. The parent, which owns this collection of partner
@@ -139,15 +134,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  authorizes access for the request: * `login-account`: (Optional) The
  *  resource name of the account where the Google Account of the credentials is
  *  a user. If not set, defaults to the account of the request. Format:
- *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
- *  `linked-account`: (Optional) The resource name of the account with an
- *  established product link to the `login-account`. Format:
- *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}`
  *
  *  Method: datamanager.accountTypes.accounts.partnerLinks.delete
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataManager
+ *    @c kGTLRAuthScopeDataManagerPartnerlink
  */
 @interface GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksDelete : GTLRDataManagerQuery
 
@@ -165,10 +158,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  authorizes access for the request: * `login-account`: (Optional) The
  *  resource name of the account where the Google Account of the credentials is
  *  a user. If not set, defaults to the account of the request. Format:
- *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
- *  `linked-account`: (Optional) The resource name of the account with an
- *  established product link to the `login-account`. Format:
- *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}`
  *
  *  @param name Required. The resource name of the partner link to delete.
  *    Format:
@@ -186,15 +176,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  the API authorizes access for the request: * `login-account`: (Optional) The
  *  resource name of the account where the Google Account of the credentials is
  *  a user. If not set, defaults to the account of the request. Format:
- *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
- *  `linked-account`: (Optional) The resource name of the account with an
- *  established product link to the `login-account`. Format:
- *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}`
  *
  *  Method: datamanager.accountTypes.accounts.partnerLinks.search
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeDataManager
+ *    @c kGTLRAuthScopeDataManagerPartnerlink
  */
 @interface GTLRDataManagerQuery_AccountTypesAccountsPartnerLinksSearch : GTLRDataManagerQuery
 
@@ -243,10 +231,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  the API authorizes access for the request: * `login-account`: (Optional) The
  *  resource name of the account where the Google Account of the credentials is
  *  a user. If not set, defaults to the account of the request. Format:
- *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}` *
- *  `linked-account`: (Optional) The resource name of the account with an
- *  established product link to the `login-account`. Format:
- *  `accountTypes/{linkedAccountType}/accounts/{linkedAccountId}`
+ *  `accountTypes/{loginAccountType}/accounts/{loginAccountId}`
  *
  *  @param parent Required. Account to search for partner links. If no `filter`
  *    is specified, all partner links where this account is either the

@@ -116,7 +116,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *keyId;
 
-/** Required. The project in which the API key is created. */
+/**
+ *  Required. The project in which the API key is created. The parent field must
+ *  be in format of "projects//locations/global".
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -126,7 +129,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  supported value for location is `global`.
  *
  *  @param object The @c GTLRApiKeysService_V2Key to include in the query.
- *  @param parent Required. The project in which the API key is created.
+ *  @param parent Required. The project in which the API key is created. The
+ *    parent field must be in format of "projects//locations/global".
  *
  *  @return GTLRApiKeysServiceQuery_ProjectsLocationsKeysCreate
  */
@@ -252,7 +256,10 @@ NS_ASSUME_NONNULL_BEGIN
 /** Optional. Requests a specific page of results. */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
-/** Required. Lists all API keys associated with this project. */
+/**
+ *  Required. Lists all API keys associated with this project. The parent field
+ *  must be in format of "projects//locations/global".
+ */
 @property(nonatomic, copy, nullable) NSString *parent;
 
 /**
@@ -268,7 +275,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  included in the response. NOTE: Key is a global resource; hence the only
  *  supported value for location is `global`.
  *
- *  @param parent Required. Lists all API keys associated with this project.
+ *  @param parent Required. Lists all API keys associated with this project. The
+ *    parent field must be in format of "projects//locations/global".
  *
  *  @return GTLRApiKeysServiceQuery_ProjectsLocationsKeysList
  *
@@ -293,7 +301,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRApiKeysServiceQuery_ProjectsLocationsKeysPatch : GTLRApiKeysServiceQuery
 
 /**
- *  Output only. The resource name of the key. The `name` has the form:
+ *  Identifier. The resource name of the key. The `name` has the form:
  *  `projects//locations/global/keys/`. For example:
  *  `projects/123456867718/locations/global/keys/b7ff1f9f-8275-410a-94dd-3855ee9b5dd2`
  *  NOTE: Key is a global resource; hence the only supported value for location
@@ -321,7 +329,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  only supported value for location is `global`.
  *
  *  @param object The @c GTLRApiKeysService_V2Key to include in the query.
- *  @param name Output only. The resource name of the key. The `name` has the
+ *  @param name Identifier. The resource name of the key. The `name` has the
  *    form: `projects//locations/global/keys/`. For example:
  *    `projects/123456867718/locations/global/keys/b7ff1f9f-8275-410a-94dd-3855ee9b5dd2`
  *    NOTE: Key is a global resource; hence the only supported value for

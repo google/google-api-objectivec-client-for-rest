@@ -992,9 +992,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  */
 @property(nonatomic, copy, nullable) NSString *instance;
 
-/**
- *  Required. Project ID of the source as well as the clone Cloud SQL instance.
- */
+/** Required. Project ID of the source Cloud SQL instance. */
 @property(nonatomic, copy, nullable) NSString *project;
 
 /**
@@ -1005,8 +1003,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSQLAdminModeSyncFromPrimary;
  *
  *  @param object The @c GTLRSQLAdmin_InstancesCloneRequest to include in the
  *    query.
- *  @param project Required. Project ID of the source as well as the clone Cloud
- *    SQL instance.
+ *  @param project Required. Project ID of the source Cloud SQL instance.
  *  @param instance Required. The ID of the Cloud SQL instance to be cloned
  *    (source). This does not include the project ID.
  *

@@ -188,11 +188,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskEncrypt
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_DiskTypeUnspecified;
 /**
- *  Hyperdisk Balanced persistent disk type.
+ *  Represents the Hyperdisk Balanced persistent disk type. Can be used as a
+ *  boot disk or data disk.
  *
  *  Value: "HYPERDISK_BALANCED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskBalanced;
+/**
+ *  Represents the Hyperdisk Balanced High Availability persistent disk type.
+ *  Can be used as a boot disk or data disk.
+ *
+ *  Value: "HYPERDISK_BALANCED_HIGH_AVAILABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskBalancedHighAvailability;
+/**
+ *  Represents the Hyperdisk Extreme persistent disk type. Can only be used as a
+ *  data disk.
+ *
+ *  Value: "HYPERDISK_EXTREME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskExtreme;
+/**
+ *  Represents the Hyperdisk ML persistent disk type. Can be used as a boot disk
+ *  or data disk.
+ *
+ *  Value: "HYPERDISK_ML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskMl;
+/**
+ *  Represents the Hyperdisk Throughput persistent disk type. Can only be used
+ *  as a data disk.
+ *
+ *  Value: "HYPERDISK_THROUGHPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskThroughput;
 /**
  *  Balanced persistent disk type.
  *
@@ -266,11 +295,40 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskEncrypt
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_DiskTypeUnspecified;
 /**
- *  Hyperdisk Balanced persistent disk type.
+ *  Represents the Hyperdisk Balanced persistent disk type. Can be used as a
+ *  boot disk or data disk.
  *
  *  Value: "HYPERDISK_BALANCED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskBalanced;
+/**
+ *  Represents the Hyperdisk Balanced High Availability persistent disk type.
+ *  Can be used as a boot disk or data disk.
+ *
+ *  Value: "HYPERDISK_BALANCED_HIGH_AVAILABILITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskBalancedHighAvailability;
+/**
+ *  Represents the Hyperdisk Extreme persistent disk type. Can only be used as a
+ *  data disk.
+ *
+ *  Value: "HYPERDISK_EXTREME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskExtreme;
+/**
+ *  Represents the Hyperdisk ML persistent disk type. Can be used as a boot disk
+ *  or data disk.
+ *
+ *  Value: "HYPERDISK_ML"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskMl;
+/**
+ *  Represents the Hyperdisk Throughput persistent disk type. Can only be used
+ *  as a data disk.
+ *
+ *  Value: "HYPERDISK_THROUGHPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskThroughput;
 /**
  *  Balanced persistent disk type.
  *
@@ -755,7 +813,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_DiskTypeUnspecified
  *        Disk type not set. (Value: "DISK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskBalanced
- *        Hyperdisk Balanced persistent disk type. (Value: "HYPERDISK_BALANCED")
+ *        Represents the Hyperdisk Balanced persistent disk type. Can be used as
+ *        a boot disk or data disk. (Value: "HYPERDISK_BALANCED")
+ *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskBalancedHighAvailability
+ *        Represents the Hyperdisk Balanced High Availability persistent disk
+ *        type. Can be used as a boot disk or data disk. (Value:
+ *        "HYPERDISK_BALANCED_HIGH_AVAILABILITY")
+ *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskExtreme
+ *        Represents the Hyperdisk Extreme persistent disk type. Can only be
+ *        used as a data disk. (Value: "HYPERDISK_EXTREME")
+ *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskMl Represents
+ *        the Hyperdisk ML persistent disk type. Can be used as a boot disk or
+ *        data disk. (Value: "HYPERDISK_ML")
+ *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskThroughput
+ *        Represents the Hyperdisk Throughput persistent disk type. Can only be
+ *        used as a data disk. (Value: "HYPERDISK_THROUGHPUT")
  *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdBalanced Balanced
  *        persistent disk type. (Value: "PD_BALANCED")
  *    @arg @c kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdExtreme Extreme
@@ -969,7 +1041,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAIPlatformNotebooks_UpgradeHistoryEntry_
  *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_DiskTypeUnspecified
  *        Disk type not set. (Value: "DISK_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskBalanced
- *        Hyperdisk Balanced persistent disk type. (Value: "HYPERDISK_BALANCED")
+ *        Represents the Hyperdisk Balanced persistent disk type. Can be used as
+ *        a boot disk or data disk. (Value: "HYPERDISK_BALANCED")
+ *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskBalancedHighAvailability
+ *        Represents the Hyperdisk Balanced High Availability persistent disk
+ *        type. Can be used as a boot disk or data disk. (Value:
+ *        "HYPERDISK_BALANCED_HIGH_AVAILABILITY")
+ *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskExtreme
+ *        Represents the Hyperdisk Extreme persistent disk type. Can only be
+ *        used as a data disk. (Value: "HYPERDISK_EXTREME")
+ *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskMl Represents
+ *        the Hyperdisk ML persistent disk type. Can be used as a boot disk or
+ *        data disk. (Value: "HYPERDISK_ML")
+ *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskThroughput
+ *        Represents the Hyperdisk Throughput persistent disk type. Can only be
+ *        used as a data disk. (Value: "HYPERDISK_THROUGHPUT")
  *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_PdBalanced Balanced
  *        persistent disk type. (Value: "PD_BALANCED")
  *    @arg @c kGTLRAIPlatformNotebooks_DataDisk_DiskType_PdExtreme Extreme

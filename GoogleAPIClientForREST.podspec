@@ -115,6 +115,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/Advisorynotifications/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Advisorynotifications/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'AgentRegistry' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/AgentRegistry/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/AgentRegistry/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'Aiplatform' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Aiplatform/**/*.{h,m}'
@@ -655,11 +660,6 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/DataLabeling/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/DataLabeling/Public/GoogleAPIClientForREST/*.h'
   end
-  s.subspec 'Datalineage' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/Datalineage/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/Datalineage/Public/GoogleAPIClientForREST/*.h'
-  end
   s.subspec 'DataManager' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/DataManager/**/*.{h,m}'
@@ -709,6 +709,11 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/DeveloperConnect/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/DeveloperConnect/Public/GoogleAPIClientForREST/*.h'
+  end
+  s.subspec 'DeveloperKnowledge' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/DeveloperKnowledge/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/DeveloperKnowledge/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Dfareporting' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -920,6 +925,11 @@ Pod::Spec.new do |s|
     sp.source_files = 'Sources/GeneratedServices/GoogleAnalyticsAdmin/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/GoogleAnalyticsAdmin/Public/GoogleAPIClientForREST/*.h'
   end
+  s.subspec 'GoogleHealthAPI' do |sp|
+    sp.dependency 'GoogleAPIClientForREST/Core'
+    sp.source_files = 'Sources/GeneratedServices/GoogleHealthAPI/**/*.{h,m}'
+    sp.public_header_files = 'Sources/GeneratedServices/GoogleHealthAPI/Public/GoogleAPIClientForREST/*.h'
+  end
   s.subspec 'GoogleMarketingPlatformAdminAPI' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/GoogleMarketingPlatformAdminAPI/**/*.{h,m}'
@@ -979,11 +989,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Indexing/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Indexing/Public/GoogleAPIClientForREST/*.h'
-  end
-  s.subspec 'Integrations' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/Integrations/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/Integrations/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'Keep' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'
@@ -1269,11 +1274,6 @@ Pod::Spec.new do |s|
     sp.dependency 'GoogleAPIClientForREST/Core'
     sp.source_files = 'Sources/GeneratedServices/Reseller/**/*.{h,m}'
     sp.public_header_files = 'Sources/GeneratedServices/Reseller/Public/GoogleAPIClientForREST/*.h'
-  end
-  s.subspec 'SA360' do |sp|
-    sp.dependency 'GoogleAPIClientForREST/Core'
-    sp.source_files = 'Sources/GeneratedServices/SA360/**/*.{h,m}'
-    sp.public_header_files = 'Sources/GeneratedServices/SA360/Public/GoogleAPIClientForREST/*.h'
   end
   s.subspec 'SaaSServiceManagement' do |sp|
     sp.dependency 'GoogleAPIClientForREST/Core'

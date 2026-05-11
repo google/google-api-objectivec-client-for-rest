@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   SaaS Runtime API (saasservicemgmt/v1beta1)
+//   App Lifecycle Manager API (saasservicemgmt/v1)
 // Description:
 //   Model, deploy, and operate your SaaS at scale.
 // Documentation:
@@ -37,7 +37,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAuthScopeSaaSServiceManagementCloudPlatf
 //
 
 /**
- *  Service for executing SaaS Runtime API queries.
+ *  Service for executing App Lifecycle Manager API queries.
  *
  *  Model, deploy, and operate your SaaS at scale.
  */

@@ -258,126 +258,6 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
-// GTLRApigee_ApiservingMcpMcpToolDataHandlingProfile.inputDataAccessLevel
-
-/**
- *  Confidential data.
- *
- *  Value: "DATA_ACCESS_LEVEL_CONFIDENTIAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelConfidential;
-/**
- *  Need-to-know data.
- *
- *  Value: "DATA_ACCESS_LEVEL_NEED_TO_KNOW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNeedToKnow;
-/**
- *  The tool does not access any data.
- *
- *  Value: "DATA_ACCESS_LEVEL_NO_DATA_ACCESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNoDataAccess;
-/**
- *  Personally Identifiable Information (PII) data.
- *
- *  Value: "DATA_ACCESS_LEVEL_PII"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPii;
-/**
- *  Public data.
- *
- *  Value: "DATA_ACCESS_LEVEL_PUBLIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPublic;
-/**
- *  The default value. This value is unused.
- *
- *  Value: "DATA_ACCESS_LEVEL_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUnspecified;
-/**
- *  User data.
- *
- *  Value: "DATA_ACCESS_LEVEL_USER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUser;
-
-// ----------------------------------------------------------------------------
-// GTLRApigee_ApiservingMcpMcpToolDataHandlingProfile.outputDataAccessLevel
-
-/**
- *  Confidential data.
- *
- *  Value: "DATA_ACCESS_LEVEL_CONFIDENTIAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelConfidential;
-/**
- *  Need-to-know data.
- *
- *  Value: "DATA_ACCESS_LEVEL_NEED_TO_KNOW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNeedToKnow;
-/**
- *  The tool does not access any data.
- *
- *  Value: "DATA_ACCESS_LEVEL_NO_DATA_ACCESS"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNoDataAccess;
-/**
- *  Personally Identifiable Information (PII) data.
- *
- *  Value: "DATA_ACCESS_LEVEL_PII"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPii;
-/**
- *  Public data.
- *
- *  Value: "DATA_ACCESS_LEVEL_PUBLIC"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPublic;
-/**
- *  The default value. This value is unused.
- *
- *  Value: "DATA_ACCESS_LEVEL_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUnspecified;
-/**
- *  User data.
- *
- *  Value: "DATA_ACCESS_LEVEL_USER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUser;
-
-// ----------------------------------------------------------------------------
-// GTLRApigee_ApiservingMcpMcpToolLifecycleProfile.launchState
-
-/**
- *  The tool is currently in development.
- *
- *  Value: "LAUNCH_STATE_DEVELOPMENT"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateDevelopment;
-/**
- *  The tool is generally available.
- *
- *  Value: "LAUNCH_STATE_GENERAL_AVAILABILITY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateGeneralAvailability;
-/**
- *  The tool is in production preview.
- *
- *  Value: "LAUNCH_STATE_PRODUCTION_PREVIEW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateProductionPreview;
-/**
- *  The default value. This value is unused.
- *
- *  Value: "LAUNCH_STATE_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1Alias.type
 
 /**
@@ -1831,7 +1711,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_State
 // GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.exporter
 
 /**
- *  Cloudtrace exporter
+ *  Exports events to Cloud Trace. Compatible with OpenCensus protocol.
  *
  *  Value: "CLOUD_TRACE"
  */
@@ -1843,17 +1723,67 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceCo
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_ExporterUnspecified;
 /**
- *  Jaeger exporter
+ *  Exports events to Jaeger. Compatible with OpenCensus protocol.
  *
  *  Value: "JAEGER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_Jaeger;
 /**
- *  Open Telemetry Collector
+ *  Exports events to Cloud Trace. Compatible with OpenTelemetry protocol.
+ *
+ *  Value: "OPEN_TELEMETRY_CLOUD_TRACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_OpenTelemetryCloudTrace;
+/**
+ *  OpenTelemetry Collector. Compatible with OpenTelemetry protocol.
  *
  *  Value: "OPEN_TELEMETRY_COLLECTOR"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_OpenTelemetryCollector;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.traceProtocol
+
+/**
+ *  Uses OpenCensus protocol.
+ *
+ *  Value: "OPEN_CENSUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_OpenCensus;
+/**
+ *  Uses OpenTelemetry Protocol (OTLP).
+ *
+ *  Value: "OTLP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_Otlp;
+/**
+ *  Protocol unspecified. Defaults to OPEN_CENSUS.
+ *
+ *  Value: "TRACE_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_TraceProtocolUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride.traceProtocol
+
+/**
+ *  Uses OpenCensus protocol.
+ *
+ *  Value: "OPEN_CENSUS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_TraceProtocol_OpenCensus;
+/**
+ *  Uses OpenTelemetry Protocol (OTLP).
+ *
+ *  Value: "OTLP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_TraceProtocol_Otlp;
+/**
+ *  Protocol unspecified. Defaults to OPEN_CENSUS.
+ *
+ *  Value: "TRACE_PROTOCOL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_TraceProtocol_TraceProtocolUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig.sampler
@@ -2404,7 +2334,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerCo
 // GTLRApigee_GoogleCloudApigeeV1TraceConfig.exporter
 
 /**
- *  Cloudtrace exporter
+ *  Exports events to Cloud Trace. Compatible with OpenCensus protocol.
  *
  *  Value: "CLOUD_TRACE"
  */
@@ -2416,13 +2346,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Ex
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_ExporterUnspecified;
 /**
- *  Jaeger exporter
+ *  Exports events to Jaeger. Compatible with OpenCensus protocol.
  *
  *  Value: "JAEGER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_Jaeger;
 /**
- *  Open Telemetry Collector
+ *  Exports events to Cloud Trace. Compatible with OpenTelemetry protocol.
+ *
+ *  Value: "OPEN_TELEMETRY_CLOUD_TRACE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCloudTrace;
+/**
+ *  OpenTelemetry Collector. Compatible with OpenTelemetry protocol.
  *
  *  Value: "OPEN_TELEMETRY_COLLECTOR"
  */
@@ -2642,94 +2578,6 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Value: "LOG_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified;
-
-/**
- *  Profile describing the data handling characteristics of an MCP tool. When
- *  used within the McpTool.meta field, this message should be packed into a
- *  google.protobuf.Any and associated with the key:
- *  "google.com/tool.profiles/data_handling"
- */
-@interface GTLRApigee_ApiservingMcpMcpToolDataHandlingProfile : GTLRObject
-
-/**
- *  // The data access level of the tool's inputs.
- *
- *  Likely values:
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelConfidential
- *        Confidential data. (Value: "DATA_ACCESS_LEVEL_CONFIDENTIAL")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNeedToKnow
- *        Need-to-know data. (Value: "DATA_ACCESS_LEVEL_NEED_TO_KNOW")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNoDataAccess
- *        The tool does not access any data. (Value:
- *        "DATA_ACCESS_LEVEL_NO_DATA_ACCESS")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPii
- *        Personally Identifiable Information (PII) data. (Value:
- *        "DATA_ACCESS_LEVEL_PII")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPublic
- *        Public data. (Value: "DATA_ACCESS_LEVEL_PUBLIC")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUnspecified
- *        The default value. This value is unused. (Value:
- *        "DATA_ACCESS_LEVEL_UNSPECIFIED")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUser
- *        User data. (Value: "DATA_ACCESS_LEVEL_USER")
- */
-@property(nonatomic, copy, nullable) NSString *inputDataAccessLevel;
-
-/**
- *  The data access level of the tool's outputs.
- *
- *  Likely values:
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelConfidential
- *        Confidential data. (Value: "DATA_ACCESS_LEVEL_CONFIDENTIAL")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNeedToKnow
- *        Need-to-know data. (Value: "DATA_ACCESS_LEVEL_NEED_TO_KNOW")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNoDataAccess
- *        The tool does not access any data. (Value:
- *        "DATA_ACCESS_LEVEL_NO_DATA_ACCESS")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPii
- *        Personally Identifiable Information (PII) data. (Value:
- *        "DATA_ACCESS_LEVEL_PII")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPublic
- *        Public data. (Value: "DATA_ACCESS_LEVEL_PUBLIC")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUnspecified
- *        The default value. This value is unused. (Value:
- *        "DATA_ACCESS_LEVEL_UNSPECIFIED")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUser
- *        User data. (Value: "DATA_ACCESS_LEVEL_USER")
- */
-@property(nonatomic, copy, nullable) NSString *outputDataAccessLevel;
-
-@end
-
-
-/**
- *  Profile describing the lifecycle stage of an MCP tool. When used within the
- *  McpTool.meta field, this message should be packed into a google.protobuf.Any
- *  and associated with the key: "google.com/tool.profiles/lifecycle"
- */
-@interface GTLRApigee_ApiservingMcpMcpToolLifecycleProfile : GTLRObject
-
-/**
- *  Output only. The current launch state of the MCP tool.
- *
- *  Likely values:
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateDevelopment
- *        The tool is currently in development. (Value:
- *        "LAUNCH_STATE_DEVELOPMENT")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateGeneralAvailability
- *        The tool is generally available. (Value:
- *        "LAUNCH_STATE_GENERAL_AVAILABILITY")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateProductionPreview
- *        The tool is in production preview. (Value:
- *        "LAUNCH_STATE_PRODUCTION_PREVIEW")
- *    @arg @c kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateUnspecified
- *        The default value. This value is unused. (Value:
- *        "LAUNCH_STATE_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *launchState;
-
-@end
-
 
 /**
  *  Describes why a bundle is invalid. Intended for use in error details.
@@ -6842,10 +6690,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  */
 @property(nonatomic, strong, nullable) NSNumber *ipHeaderIndex;
 
-/**
- *  Required. The name of the header to extract the client ip from. We are
- *  currently only supporting the X-Forwarded-For header.
- */
+/** Required. The name of the header to extract the client ip from. */
 @property(nonatomic, copy, nullable) NSString *ipHeaderName;
 
 @end
@@ -11232,7 +11077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 
 /**
- *  NEXT ID: 9 RuntimeTraceConfig defines the configurations for distributed
+ *  NEXT ID: 10 RuntimeTraceConfig defines the configurations for distributed
  *  trace in an environment.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig : GTLRObject
@@ -11247,13 +11092,19 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_CloudTrace
- *        Cloudtrace exporter (Value: "CLOUD_TRACE")
+ *        Exports events to Cloud Trace. Compatible with OpenCensus protocol.
+ *        (Value: "CLOUD_TRACE")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_ExporterUnspecified
  *        Exporter unspecified (Value: "EXPORTER_UNSPECIFIED")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_Jaeger
- *        Jaeger exporter (Value: "JAEGER")
+ *        Exports events to Jaeger. Compatible with OpenCensus protocol. (Value:
+ *        "JAEGER")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_OpenTelemetryCloudTrace
+ *        Exports events to Cloud Trace. Compatible with OpenTelemetry protocol.
+ *        (Value: "OPEN_TELEMETRY_CLOUD_TRACE")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_OpenTelemetryCollector
- *        Open Telemetry Collector (Value: "OPEN_TELEMETRY_COLLECTOR")
+ *        OpenTelemetry Collector. Compatible with OpenTelemetry protocol.
+ *        (Value: "OPEN_TELEMETRY_COLLECTOR")
  */
 @property(nonatomic, copy, nullable) NSString *exporter;
 
@@ -11264,16 +11115,17 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If `true`, the runtime uses OpenTelemetry Protocol (OTLP) to send trace
- *  data. Configuration Requirements (if `open_telemetry_protocol_enabled` is
- *  `true`): - Allowed `Exporter`s: `CLOUD_TRACE` or `OPEN_TELEMETRY_COLLECTOR`.
- *  - If `Exporter` is `OPEN_TELEMETRY_COLLECTOR`: - `endpoint` refers to a
- *  valid OTLP collector URL. - If `Exporter` is `CLOUD_TRACE`: - `endpoint`
- *  refers to a valid project ID
+ *  Optional. If `true`, the runtime uses OpenTelemetry Protocol (OTLP) to send
+ *  trace data. Configuration Requirements (if `open_telemetry_protocol_enabled`
+ *  is `true`): - Allowed `Exporter`s: `CLOUD_TRACE` or
+ *  `OPEN_TELEMETRY_COLLECTOR`. - If `Exporter` is `OPEN_TELEMETRY_COLLECTOR`: -
+ *  `endpoint` refers to a valid OTLP collector URL. - If `Exporter` is
+ *  `CLOUD_TRACE`: - `endpoint` refers to a valid project ID Deprecated: Use
+ *  trace_protocol instead.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *openTelemetryProtocolEnabled;
+@property(nonatomic, strong, nullable) NSNumber *openTelemetryProtocolEnabled GTLR_DEPRECATED;
 
 /** List of trace configuration overrides for spicific API proxies. */
 @property(nonatomic, strong, nullable) NSArray<GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride *> *overrides;
@@ -11290,11 +11142,25 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 /** Trace configuration for all API proxies in an environment. */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig *samplingConfig;
 
+/**
+ *  Optional. The trace protocol to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_OpenCensus
+ *        Uses OpenCensus protocol. (Value: "OPEN_CENSUS")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_Otlp
+ *        Uses OpenTelemetry Protocol (OTLP). (Value: "OTLP")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_TraceProtocolUnspecified
+ *        Protocol unspecified. Defaults to OPEN_CENSUS. (Value:
+ *        "TRACE_PROTOCOL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *traceProtocol;
+
 @end
 
 
 /**
- *  NEXT ID: 8 Trace configuration override for a specific API proxy in an
+ *  NEXT ID: 9 Trace configuration override for a specific API proxy in an
  *  environment.
  */
 @interface GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride : GTLRObject
@@ -11312,16 +11178,17 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  If `true`, the runtime uses OpenTelemetry Protocol (OTLP) to send trace
- *  data. Configuration Requirements (if `open_telemetry_protocol_enabled` is
- *  `true`): - Allowed `Exporter`s: `CLOUD_TRACE` or `OPEN_TELEMETRY_COLLECTOR`.
- *  - If `Exporter` is `OPEN_TELEMETRY_COLLECTOR`: - `endpoint` refers to a
- *  valid OTLP collector URL. - If `Exporter` is `CLOUD_TRACE`: - `endpoint`
- *  refers to a valid project ID
+ *  Optional. If `true`, the runtime uses OpenTelemetry Protocol (OTLP) to send
+ *  trace data. Configuration Requirements (if `open_telemetry_protocol_enabled`
+ *  is `true`): - Allowed `Exporter`s: `CLOUD_TRACE` or
+ *  `OPEN_TELEMETRY_COLLECTOR`. - If `Exporter` is `OPEN_TELEMETRY_COLLECTOR`: -
+ *  `endpoint` refers to a valid OTLP collector URL. - If `Exporter` is
+ *  `CLOUD_TRACE`: - `endpoint` refers to a valid project ID Deprecated: Use
+ *  trace_protocol instead.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *openTelemetryProtocolEnabled;
+@property(nonatomic, strong, nullable) NSNumber *openTelemetryProtocolEnabled GTLR_DEPRECATED;
 
 /** The timestamp that the revision was created or updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *revisionCreateTime;
@@ -11336,6 +11203,20 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
  *  Trace configuration override for a specific API proxy in an environment.
  */
 @property(nonatomic, strong, nullable) GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig *samplingConfig;
+
+/**
+ *  Optional. The trace protocol to use.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_TraceProtocol_OpenCensus
+ *        Uses OpenCensus protocol. (Value: "OPEN_CENSUS")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_TraceProtocol_Otlp
+ *        Uses OpenTelemetry Protocol (OTLP). (Value: "OTLP")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_TraceProtocol_TraceProtocolUnspecified
+ *        Protocol unspecified. Defaults to OPEN_CENSUS. (Value:
+ *        "TRACE_PROTOCOL_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *traceProtocol;
 
 /**
  *  Unique ID for the configuration override. The ID will only change if the
@@ -13498,18 +13379,25 @@ FOUNDATION_EXTERN NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType
 
 /**
  *  Required. Exporter that is used to view the distributed trace captured using
- *  OpenCensus. An exporter sends traces to any backend that is capable of
- *  consuming them. Recorded spans can be exported by registered exporters.
+ *  the chosen trace protocol. An exporter sends traces to any backend that is
+ *  capable of consuming them. Recorded spans can be exported by registered
+ *  exporters.
  *
  *  Likely values:
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_CloudTrace
- *        Cloudtrace exporter (Value: "CLOUD_TRACE")
+ *        Exports events to Cloud Trace. Compatible with OpenCensus protocol.
+ *        (Value: "CLOUD_TRACE")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_ExporterUnspecified
  *        Exporter unspecified (Value: "EXPORTER_UNSPECIFIED")
- *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_Jaeger Jaeger
- *        exporter (Value: "JAEGER")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_Jaeger Exports
+ *        events to Jaeger. Compatible with OpenCensus protocol. (Value:
+ *        "JAEGER")
+ *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCloudTrace
+ *        Exports events to Cloud Trace. Compatible with OpenTelemetry protocol.
+ *        (Value: "OPEN_TELEMETRY_CLOUD_TRACE")
  *    @arg @c kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCollector
- *        Open Telemetry Collector (Value: "OPEN_TELEMETRY_COLLECTOR")
+ *        OpenTelemetry Collector. Compatible with OpenTelemetry protocol.
+ *        (Value: "OPEN_TELEMETRY_COLLECTOR")
  */
 @property(nonatomic, copy, nullable) NSString *exporter;
 

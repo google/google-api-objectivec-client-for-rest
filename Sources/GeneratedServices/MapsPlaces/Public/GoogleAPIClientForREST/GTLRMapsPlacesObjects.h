@@ -390,6 +390,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_Busin
  */
 FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_ClosedTemporarily;
 /**
+ *  The establishment will open in the future.
+ *
+ *  Value: "FUTURE_OPENING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_FutureOpening;
+/**
  *  The establishment is operational, not necessarily open now.
  *
  *  Value: "OPERATIONAL"
@@ -964,6 +970,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  the results will be located in the area of intersection.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedRegionCodes;
+
+/**
+ *  Optional. If true, include businesses that are not yet open but will open in
+ *  the future.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeFutureOpeningBusinesses;
 
 /**
  *  Optional. Include pure service area businesses if the field is set to true.
@@ -1758,6 +1772,8 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *        The establishment is permanently closed. (Value: "CLOSED_PERMANENTLY")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_ClosedTemporarily
  *        The establishment is temporarily closed. (Value: "CLOSED_TEMPORARILY")
+ *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_FutureOpening
+ *        The establishment will open in the future. (Value: "FUTURE_OPENING")
  *    @arg @c kGTLRMapsPlaces_GoogleMapsPlacesV1Place_BusinessStatus_Operational
  *        The establishment is operational, not necessarily open now. (Value:
  *        "OPERATIONAL")
@@ -1944,6 +1960,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 
 /** A summary of points of interest near the place. */
 @property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleMapsPlacesV1PlaceNeighborhoodSummary *neighborhoodSummary;
+
+/**
+ *  The date this place will open in the future. This field is only populated if
+ *  the business status is FUTURE_OPENING.
+ */
+@property(nonatomic, strong, nullable) GTLRMapsPlaces_GoogleTypeDate *openingDate;
 
 /**
  *  Place provides outdoor seating.
@@ -3158,6 +3180,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
 @property(nonatomic, strong, nullable) NSArray<NSString *> *includedTypes;
 
 /**
+ *  Optional. If true, include businesses that are not yet open but will open in
+ *  the future.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeFutureOpeningBusinesses;
+
+/**
  *  Place details will be displayed with the preferred language if available. If
  *  the language code is unspecified or unrecognized, place details of any
  *  language may be returned, with a preference for English if such details
@@ -3256,6 +3286,14 @@ FOUNDATION_EXTERN NSString * const kGTLRMapsPlaces_GoogleMapsPlacesV1SearchTextR
  *  Only support one included type.
  */
 @property(nonatomic, copy, nullable) NSString *includedType;
+
+/**
+ *  Optional. If true, include businesses that are not yet open but will open in
+ *  the future.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *includeFutureOpeningBusinesses;
 
 /**
  *  Optional. Include pure service area businesses if the field is set to true.

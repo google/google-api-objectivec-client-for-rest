@@ -103,6 +103,7 @@
 @class GTLRHangoutsChat_GoogleAppsCardV1Validation;
 @class GTLRHangoutsChat_GoogleAppsCardV1Widget;
 @class GTLRHangoutsChat_GoogleAppsCardV1Widgets;
+@class GTLRHangoutsChat_GoogleChatV1Section;
 @class GTLRHangoutsChat_Group;
 @class GTLRHangoutsChat_HostAppDataSourceMarkup;
 @class GTLRHangoutsChat_Image;
@@ -139,6 +140,7 @@
 @class GTLRHangoutsChat_ReactionDeletedEventData;
 @class GTLRHangoutsChat_RichLinkMetadata;
 @class GTLRHangoutsChat_Section;
+@class GTLRHangoutsChat_SectionItem;
 @class GTLRHangoutsChat_SelectionItems;
 @class GTLRHangoutsChat_SlashCommand;
 @class GTLRHangoutsChat_SlashCommandMetadata;
@@ -1509,6 +1511,44 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visi
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visibility_Visible;
 
 // ----------------------------------------------------------------------------
+// GTLRHangoutsChat_GoogleChatV1Section.type
+
+/**
+ *  Custom section.
+ *
+ *  Value: "CUSTOM_SECTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleChatV1Section_Type_CustomSection;
+/**
+ *  Default section containing a user's installed apps.
+ *
+ *  Value: "DEFAULT_APPS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleChatV1Section_Type_DefaultApps;
+/**
+ *  Default section containing
+ *  [DIRECT_MESSAGE](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces#spacetype)
+ *  between two human users or
+ *  [GROUP_CHAT](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces#spacetype)
+ *  spaces that don't belong to any custom section.
+ *
+ *  Value: "DEFAULT_DIRECT_MESSAGES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleChatV1Section_Type_DefaultDirectMessages;
+/**
+ *  Default spaces that don't belong to any custom section.
+ *
+ *  Value: "DEFAULT_SPACES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleChatV1Section_Type_DefaultSpaces;
+/**
+ *  Unspecified section type.
+ *
+ *  Value: "SECTION_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_GoogleChatV1Section_Type_SectionTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRHangoutsChat_ImageButton.icon
 
 /** Value: "AIRPLANE" */
@@ -1772,6 +1812,28 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_Membership
  *  Value: "NOT_A_MEMBER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_Membership_State_NotAMember;
+
+// ----------------------------------------------------------------------------
+// GTLRHangoutsChat_PositionSectionRequest.relativePosition
+
+/**
+ *  End of the list of sections.
+ *
+ *  Value: "END"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_End;
+/**
+ *  Unspecified position.
+ *
+ *  Value: "POSITION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_PositionUnspecified;
+/**
+ *  Start of the list of sections.
+ *
+ *  Value: "START"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_Start;
 
 // ----------------------------------------------------------------------------
 // GTLRHangoutsChat_QuotedMessageMetadata.quoteType
@@ -3559,6 +3621,34 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  A response containing group chat spaces with exactly the calling user and
+ *  the requested users.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "spaces" property. If returned as the result of a query, it should
+ *        support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRHangoutsChat_FindGroupChatsResponse : GTLRCollectionObject
+
+/**
+ *  A token that you can send as `pageToken` to retrieve the next page of
+ *  results. If empty, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of spaces in the requested (or first) page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Space *> *spaces;
+
+@end
+
+
+/**
  *  A form action describes the behavior when the form is submitted. For
  *  example, you can invoke Apps Script to handle the form.
  */
@@ -3879,7 +3969,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  dialog](https://developers.google.com/workspace/chat/design-components-card-dialog).
  *  * For Google Workspace add-ons, see [Card-based
  *  interfaces](https://developers.google.com/apps-script/add-ons/concepts/cards).
- *  Note: You can add up to 100 widgets per card. Any widgets beyond this limit
+ *  Note: You can add up to 100 widgets per card. If a section's widgets push
+ *  the total count above 100, that entire section and all following sections
  *  are ignored. This limit applies to both card messages and dialogs in Google
  *  Chat apps, and to cards in Google Workspace add-ons. **Example: Card message
  *  for a Google Chat app** ![Example contact
@@ -5975,6 +6066,73 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  Represents a [section](https://support.google.com/chat/answer/16059854) in
+ *  Google Chat. Sections help users organize their spaces. There are two types
+ *  of sections: 1. **System Sections:** These are predefined sections managed
+ *  by Google Chat. Their resource names are fixed, and they cannot be created,
+ *  deleted, or have their `display_name` modified. Examples include: *
+ *  `users/{user}/sections/default-direct-messages` *
+ *  `users/{user}/sections/default-spaces` *
+ *  `users/{user}/sections/default-apps` 2. **Custom Sections:** These are
+ *  sections created and managed by the user. Creating a custom section using
+ *  `CreateSection` **requires** a `display_name`. Custom sections can be
+ *  updated using `UpdateSection` and deleted using `DeleteSection`.
+ */
+@interface GTLRHangoutsChat_GoogleChatV1Section : GTLRObject
+
+/**
+ *  Optional. The section's display name. Only populated for sections of type
+ *  `CUSTOM_SECTION`. Supports up to 80 characters. Required when creating a
+ *  `CUSTOM_SECTION`.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Identifier. Resource name of the section. For system sections, the section
+ *  ID is a constant string: - DEFAULT_DIRECT_MESSAGES:
+ *  `users/{user}/sections/default-direct-messages` - DEFAULT_SPACES:
+ *  `users/{user}/sections/default-spaces` - DEFAULT_APPS:
+ *  `users/{user}/sections/default-apps` Format:
+ *  `users/{user}/sections/{section}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The order of the section in relation to other sections.
+ *  Sections with a lower `sort_order` value appear before sections with a
+ *  higher value.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sortOrder;
+
+/**
+ *  Required. The type of the section.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_GoogleChatV1Section_Type_CustomSection Custom
+ *        section. (Value: "CUSTOM_SECTION")
+ *    @arg @c kGTLRHangoutsChat_GoogleChatV1Section_Type_DefaultApps Default
+ *        section containing a user's installed apps. (Value: "DEFAULT_APPS")
+ *    @arg @c kGTLRHangoutsChat_GoogleChatV1Section_Type_DefaultDirectMessages
+ *        Default section containing
+ *        [DIRECT_MESSAGE](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces#spacetype)
+ *        between two human users or
+ *        [GROUP_CHAT](https://developers.google.com/workspace/chat/api/reference/rest/v1/spaces#spacetype)
+ *        spaces that don't belong to any custom section. (Value:
+ *        "DEFAULT_DIRECT_MESSAGES")
+ *    @arg @c kGTLRHangoutsChat_GoogleChatV1Section_Type_DefaultSpaces Default
+ *        spaces that don't belong to any custom section. (Value:
+ *        "DEFAULT_SPACES")
+ *    @arg @c kGTLRHangoutsChat_GoogleChatV1Section_Type_SectionTypeUnspecified
+ *        Unspecified section type. (Value: "SECTION_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  A Google Group in Google Chat.
  */
 @interface GTLRHangoutsChat_Group : GTLRObject
@@ -6346,6 +6504,60 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_Reaction *> *reactions;
+
+@end
+
+
+/**
+ *  Response message for listing section items.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sectionItems" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRHangoutsChat_ListSectionItemsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The section items from the specified section.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_SectionItem *> *sectionItems;
+
+@end
+
+
+/**
+ *  Response message for listing sections.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "sections" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRHangoutsChat_ListSectionsResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The sections from the specified user.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_GoogleChatV1Section *> *sections;
 
 @end
 
@@ -6789,8 +7001,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  formatting. This field might not capture all formatting visible in the UI,
  *  but includes the following: * [Markup
  *  syntax](https://developers.google.com/workspace/chat/format-messages) for
- *  bold, italic, strikethrough, monospace, monospace block, and bulleted list.
- *  * [User
+ *  bold, italic, strikethrough, monospace, monospace block, bulleted list, and
+ *  block quote. * [User
  *  mentions](https://developers.google.com/workspace/chat/format-messages#messages-\@mention)
  *  using the format ``. * Custom hyperlinks using the format
  *  `<{url}|{rendered_text}>` where the first string is the URL and the second
@@ -6810,8 +7022,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 @property(nonatomic, strong, nullable) GTLRDateTime *lastUpdateTime;
 
 /**
- *  Output only. A URL in `spaces.messages.text` that matches a link preview
- *  pattern. For more information, see [Preview
+ *  Output only. A URL in the Chat message `text` field that matches a link
+ *  preview pattern. For more information, see [Preview
  *  links](https://developers.google.com/workspace/chat/preview-links).
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_MatchedUrl *matchedUrl;
@@ -6862,6 +7074,14 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
  *  `name` and `type`.
  */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_User *sender;
+
+/**
+ *  Output only. Whether this is a silent message. Silent messages are messages
+ *  where Chat suppresses push notifications for recipients.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *silent;
 
 /** Output only. Slash command information, if applicable. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_SlashCommand *slashCommand;
@@ -6982,6 +7202,31 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 
 /**
+ *  Request message for moving a section item across sections.
+ */
+@interface GTLRHangoutsChat_MoveSectionItemRequest : GTLRObject
+
+/**
+ *  Required. The resource name of the section to move the section item to.
+ *  Format: `users/{user}/sections/{section}`
+ */
+@property(nonatomic, copy, nullable) NSString *targetSection;
+
+@end
+
+
+/**
+ *  Response message for moving a section item.
+ */
+@interface GTLRHangoutsChat_MoveSectionItemResponse : GTLRObject
+
+/** The updated section item. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_SectionItem *sectionItem;
+
+@end
+
+
+/**
  *  An `onclick` action (for example, open a link).
  */
 @interface GTLRHangoutsChat_OnClick : GTLRObject
@@ -7070,6 +7315,49 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /** Optional. Setting for using \@all in a space. */
 @property(nonatomic, strong, nullable) GTLRHangoutsChat_PermissionSetting *useAtMentionAll;
+
+@end
+
+
+/**
+ *  Request message for positioning a section.
+ */
+@interface GTLRHangoutsChat_PositionSectionRequest : GTLRObject
+
+/**
+ *  Optional. The relative position of the section in the list of sections.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_End End
+ *        of the list of sections. (Value: "END")
+ *    @arg @c kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_PositionUnspecified
+ *        Unspecified position. (Value: "POSITION_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_Start
+ *        Start of the list of sections. (Value: "START")
+ */
+@property(nonatomic, copy, nullable) NSString *relativePosition;
+
+/**
+ *  Optional. The absolute position of the section in the list of sections. The
+ *  position must be greater than 0. If the position is greater than the number
+ *  of sections, the section will be appended to the end of the list. This
+ *  operation inserts the section at the given position and shifts the original
+ *  section at that position, and those below it, to the next position.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sortOrder;
+
+@end
+
+
+/**
+ *  Response message for positioning a section.
+ */
+@interface GTLRHangoutsChat_PositionSectionResponse : GTLRObject
+
+/** The updated section. */
+@property(nonatomic, strong, nullable) GTLRHangoutsChat_GoogleChatV1Section *section;
 
 @end
 
@@ -7339,6 +7627,24 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Ty
 
 /** A section must contain at least one widget. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHangoutsChat_WidgetMarkup *> *widgets;
+
+@end
+
+
+/**
+ *  A user's defined section item. This is used to represent section items, such
+ *  as spaces, grouped under a section.
+ */
+@interface GTLRHangoutsChat_SectionItem : GTLRObject
+
+/**
+ *  Identifier. The resource name of the section item. Format:
+ *  `users/{user}/sections/{section}/items/{item}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. The space resource name. Format: `spaces/{space}` */
+@property(nonatomic, copy, nullable) NSString *space;
 
 @end
 

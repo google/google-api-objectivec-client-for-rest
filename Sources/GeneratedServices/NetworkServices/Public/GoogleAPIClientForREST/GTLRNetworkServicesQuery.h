@@ -1387,6 +1387,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
+/** Optional. Idempotent request UUID. */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
 /**
  *  Fetches a @c GTLRNetworkServices_Operation.
  *
@@ -1472,6 +1475,9 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *    @c kGTLRAuthScopeNetworkServicesCloudPlatform
  */
 @interface GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesList : GTLRNetworkServicesQuery
+
+/** Optional. Filter expression to restrict the list. */
+@property(nonatomic, copy, nullable) NSString *filter;
 
 /** Maximum number of HttpRoutes to return per call. */
 @property(nonatomic, assign) NSInteger pageSize;
@@ -2280,10 +2286,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: networkservices.projects.locations.list
  *
@@ -2293,8 +2305,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
 @interface GTLRNetworkServicesQuery_ProjectsLocationsList : GTLRNetworkServicesQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2324,10 +2336,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspeci
  *  Fetches a @c GTLRNetworkServices_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

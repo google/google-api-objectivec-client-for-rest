@@ -2151,6 +2151,24 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengine_VpcAccessConnector_EgressSetti
 
 
 /**
+ *  Request message for Versions.ExportAppImage.
+ */
+@interface GTLRAppengine_ExportAppImageRequest : GTLRObject
+
+/**
+ *  Optional. The full resource name of the AR repository to export to. Format:
+ *  projects/{project}/locations/{location}/repositories/{repository} If not
+ *  specified, defaults to
+ *  projects/{project}/locations/{location}/repositories/gae-standard in the
+ *  same region as the app. The default repository will be created if it does
+ *  not exist.
+ */
+@property(nonatomic, copy, nullable) NSString *destinationRepository;
+
+@end
+
+
+/**
  *  The feature specific settings to be used in the application. These define
  *  behaviors that are user configurable.
  */

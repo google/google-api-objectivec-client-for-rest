@@ -133,6 +133,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Build_State_Built;
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Build_State_Deploying;
 /**
+ *  The build has expired and may not be reused.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Build_State_Expired;
+/**
  *  The build has failed.
  *
  *  Value: "FAILED"
@@ -1170,6 +1176,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppHosting_Rollout_State_Succeed
  *        Hosting starts to set up infrastructure. (Value: "BUILT")
  *    @arg @c kGTLRFirebaseAppHosting_Build_State_Deploying The infrastructure
  *        for this build is being set up. (Value: "DEPLOYING")
+ *    @arg @c kGTLRFirebaseAppHosting_Build_State_Expired The build has expired
+ *        and may not be reused. (Value: "EXPIRED")
  *    @arg @c kGTLRFirebaseAppHosting_Build_State_Failed The build has failed.
  *        (Value: "FAILED")
  *    @arg @c kGTLRFirebaseAppHosting_Build_State_Ready The infrastructure for

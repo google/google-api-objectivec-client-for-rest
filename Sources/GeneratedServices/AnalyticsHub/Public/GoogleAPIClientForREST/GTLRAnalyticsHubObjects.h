@@ -1330,9 +1330,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 
 /**
  *  Defines the destination Pub/Sub subscription. If none of `push_config`,
- *  `bigquery_config`, `cloud_storage_config`, `pubsub_export_config`, or
- *  `pubsublite_export_config` is set, then the subscriber will pull and ack
- *  messages using API methods. At most one of these fields may be set.
+ *  `bigquery_config`, `cloud_storage_config`, `bigtable_config`,
+ *  `pubsub_export_config`, or `pubsublite_export_config` is set, then the
+ *  subscriber will pull and ack messages using API methods. At most one of
+ *  these fields may be set.
  */
 @interface GTLRAnalyticsHub_GooglePubsubV1Subscription : GTLRObject
 
@@ -1497,7 +1498,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  "marketing" See
+ *  https://{$universe.dns_names.final_documentation_domain}/pubsub/docs/tags
+ *  for more information on using tags with Pub/Sub resources.
  */
 @property(nonatomic, strong, nullable) GTLRAnalyticsHub_GooglePubsubV1Subscription_Tags *tags;
 
@@ -1520,7 +1523,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAnalyticsHub_Subscription_State_StateUns
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  "marketing" See
+ *  https://{$universe.dns_names.final_documentation_domain}/pubsub/docs/tags
+ *  for more information on using tags with Pub/Sub resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

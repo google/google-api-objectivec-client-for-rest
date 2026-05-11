@@ -1015,73 +1015,104 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericClass_ViewUnlockReq
 // GTLRWalletobjects_GenericObject.genericType
 
 /**
- *  Auto-insurance cards
+ *  Represents an auto-insurance card.
  *
  *  Value: "GENERIC_AUTO_INSURANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericAutoInsurance;
 /**
- *  Entry tickets
+ *  Represents a barcode pass.
+ *
+ *  Value: "GENERIC_BARCODE_PASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericBarcodePass;
+/**
+ *  Represents a business card.
+ *
+ *  Value: "GENERIC_BUSINESS_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericBusinessCard;
+/**
+ *  Represents an entry ticket.
  *
  *  Value: "GENERIC_ENTRY_TICKET"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericEntryTicket;
 /**
- *  Gym membership cards
+ *  Represents a gym membership card.
  *
  *  Value: "GENERIC_GYM_MEMBERSHIP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericGymMembership;
 /**
- *  Home-insurance cards
+ *  Represents a home-insurance card.
  *
  *  Value: "GENERIC_HOME_INSURANCE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericHomeInsurance;
 /**
- *  Library membership cards
+ *  Represents a library card.
  *
  *  Value: "GENERIC_LIBRARY_MEMBERSHIP"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericLibraryMembership;
 /**
- *  Loyalty cards. Please note that it is advisable to use a dedicated Loyalty
- *  card pass type instead of this generic type. A dedicated loyalty card pass
- *  type offers more features and functionality than a generic pass type.
+ *  Represents a loyalty card. Please note that it is advisable to use a
+ *  dedicated Loyalty card pass type instead of this generic type. A dedicated
+ *  loyalty card pass type offers more features and functionality than a generic
+ *  pass type.
  *
  *  Value: "GENERIC_LOYALTY_CARD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericLoyaltyCard;
 /**
- *  Other type
+ *  Represents a membership card.
+ *
+ *  Value: "GENERIC_MEMBERSHIP_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericMembershipCard;
+/**
+ *  Represents another type of generic pass.
  *
  *  Value: "GENERIC_OTHER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericOther;
 /**
- *  Parking pass
+ *  Represents a parking pass.
  *
  *  Value: "GENERIC_PARKING_PASS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericParkingPass;
 /**
- *  Receipts
+ *  Represents a receipt.
  *
  *  Value: "GENERIC_RECEIPT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericReceipt;
 /**
- *  Reservations
+ *  Represents a reservation.
  *
  *  Value: "GENERIC_RESERVATIONS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericReservations;
 /**
- *  Season pass
+ *  Represents a season pass.
  *
  *  Value: "GENERIC_SEASON_PASS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericSeasonPass;
+/**
+ *  Represents a student card.
+ *
+ *  Value: "GENERIC_STUDENT_CARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericStudentCard;
+/**
+ *  Represents a transit pass.
+ *
+ *  Value: "GENERIC_TRANSIT_PASS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericTransitPass;
 /**
  *  Unspecified generic type.
  *
@@ -1089,13 +1120,19 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericTypeUnspecified;
 /**
- *  Utility bills
+ *  Represents a utility bill.
  *
  *  Value: "GENERIC_UTILITY_BILLS"
  */
 FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericUtilityBills;
 /**
- *  Voucher
+ *  Represents a vehicle registration.
+ *
+ *  Value: "GENERIC_VEHICLE_REGISTRATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericVehicleRegistration;
+/**
+ *  Represents a voucher.
  *
  *  Value: "GENERIC_VOUCHER"
  */
@@ -3068,6 +3105,9 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  */
 @property(nonatomic, copy, nullable) NSString *fromFileName;
 
+/** The content type of the file detected by Fusion ID. go/fusionid */
+@property(nonatomic, copy, nullable) NSString *fromFusionId;
+
 /**
  *  The content type of the file as specified in the request headers, multipart
  *  headers, or RUPIO start request.
@@ -3080,6 +3120,15 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *  only true for agents that are providing a REST API).
  */
 @property(nonatomic, copy, nullable) NSString *fromUrlPath;
+
+/**
+ *  Metadata information from Fusion ID detection. Serialized
+ *  FusionIdDetectionMetadata proto. Only set if from_fusion_id is set.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fusionIdDetectionMetadata;
 
 @end
 
@@ -5455,36 +5504,50 @@ FOUNDATION_EXTERN NSString * const kGTLRWalletobjects_TransitObject_TripType_Tri
  *
  *  Likely values:
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericAutoInsurance
- *        Auto-insurance cards (Value: "GENERIC_AUTO_INSURANCE")
+ *        Represents an auto-insurance card. (Value: "GENERIC_AUTO_INSURANCE")
+ *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericBarcodePass
+ *        Represents a barcode pass. (Value: "GENERIC_BARCODE_PASS")
+ *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericBusinessCard
+ *        Represents a business card. (Value: "GENERIC_BUSINESS_CARD")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericEntryTicket
- *        Entry tickets (Value: "GENERIC_ENTRY_TICKET")
+ *        Represents an entry ticket. (Value: "GENERIC_ENTRY_TICKET")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericGymMembership
- *        Gym membership cards (Value: "GENERIC_GYM_MEMBERSHIP")
+ *        Represents a gym membership card. (Value: "GENERIC_GYM_MEMBERSHIP")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericHomeInsurance
- *        Home-insurance cards (Value: "GENERIC_HOME_INSURANCE")
+ *        Represents a home-insurance card. (Value: "GENERIC_HOME_INSURANCE")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericLibraryMembership
- *        Library membership cards (Value: "GENERIC_LIBRARY_MEMBERSHIP")
+ *        Represents a library card. (Value: "GENERIC_LIBRARY_MEMBERSHIP")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericLoyaltyCard
- *        Loyalty cards. Please note that it is advisable to use a dedicated
- *        Loyalty card pass type instead of this generic type. A dedicated
- *        loyalty card pass type offers more features and functionality than a
- *        generic pass type. (Value: "GENERIC_LOYALTY_CARD")
- *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericOther Other
- *        type (Value: "GENERIC_OTHER")
+ *        Represents a loyalty card. Please note that it is advisable to use a
+ *        dedicated Loyalty card pass type instead of this generic type. A
+ *        dedicated loyalty card pass type offers more features and
+ *        functionality than a generic pass type. (Value:
+ *        "GENERIC_LOYALTY_CARD")
+ *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericMembershipCard
+ *        Represents a membership card. (Value: "GENERIC_MEMBERSHIP_CARD")
+ *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericOther
+ *        Represents another type of generic pass. (Value: "GENERIC_OTHER")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericParkingPass
- *        Parking pass (Value: "GENERIC_PARKING_PASS")
+ *        Represents a parking pass. (Value: "GENERIC_PARKING_PASS")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericReceipt
- *        Receipts (Value: "GENERIC_RECEIPT")
+ *        Represents a receipt. (Value: "GENERIC_RECEIPT")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericReservations
- *        Reservations (Value: "GENERIC_RESERVATIONS")
+ *        Represents a reservation. (Value: "GENERIC_RESERVATIONS")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericSeasonPass
- *        Season pass (Value: "GENERIC_SEASON_PASS")
+ *        Represents a season pass. (Value: "GENERIC_SEASON_PASS")
+ *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericStudentCard
+ *        Represents a student card. (Value: "GENERIC_STUDENT_CARD")
+ *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericTransitPass
+ *        Represents a transit pass. (Value: "GENERIC_TRANSIT_PASS")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericTypeUnspecified
  *        Unspecified generic type. (Value: "GENERIC_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericUtilityBills
- *        Utility bills (Value: "GENERIC_UTILITY_BILLS")
+ *        Represents a utility bill. (Value: "GENERIC_UTILITY_BILLS")
+ *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericVehicleRegistration
+ *        Represents a vehicle registration. (Value:
+ *        "GENERIC_VEHICLE_REGISTRATION")
  *    @arg @c kGTLRWalletobjects_GenericObject_GenericType_GenericVoucher
- *        Voucher (Value: "GENERIC_VOUCHER")
+ *        Represents a voucher. (Value: "GENERIC_VOUCHER")
  */
 @property(nonatomic, copy, nullable) NSString *genericType;
 

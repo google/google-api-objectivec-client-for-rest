@@ -2,28 +2,31 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Data Lineage API (datalineage/v1)
+//   Google Health API (health/v4)
+// Description:
+//   The Google Health API lets you view and manage health and fitness metrics
+//   and measurement data.
 // Documentation:
-//   https://cloud.google.com/data-catalog
+//   https://developers.google.com/health
 
-#import <GoogleAPIClientForREST/GTLRDatalineage.h>
+#import <GoogleAPIClientForREST/GTLRGoogleHealthAPI.h>
 
 // ----------------------------------------------------------------------------
 // Authorization scope
 
-NSString * const kGTLRAuthScopeDatalineageCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeGoogleHealthAPICloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
-//   GTLRDatalineageService
+//   GTLRGoogleHealthAPIService
 //
 
-@implementation GTLRDatalineageService
+@implementation GTLRGoogleHealthAPIService
 
 - (instancetype)init {
   self = [super init];
   if (self) {
     // From discovery.
-    self.rootURLString = @"https://datalineage.googleapis.com/";
+    self.rootURLString = @"https://health.googleapis.com/";
     self.batchPath = @"batch";
     self.prettyPrintQueryParameterNames = @[ @"prettyPrint" ];
   }

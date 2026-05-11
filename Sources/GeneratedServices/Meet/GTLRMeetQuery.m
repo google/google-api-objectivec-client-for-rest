@@ -166,6 +166,44 @@
 
 @end
 
+@implementation GTLRMeetQuery_ConferenceRecordsSmartNotesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRMeetQuery_ConferenceRecordsSmartNotesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRMeet_SmartNote class];
+  query.loggingName = @"meet.conferenceRecords.smartNotes.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRMeetQuery_ConferenceRecordsSmartNotesList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/smartNotes";
+  GTLRMeetQuery_ConferenceRecordsSmartNotesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRMeet_ListSmartNotesResponse class];
+  query.loggingName = @"meet.conferenceRecords.smartNotes.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRMeetQuery_ConferenceRecordsTranscriptsEntriesGet
 
 @dynamic name;

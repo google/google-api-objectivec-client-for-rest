@@ -41,8 +41,9 @@ NSString * const kGTLRStorage_Bucket_Encryption_GoogleManagedEncryptionEnforceme
 //
 
 @implementation GTLRStorage_AnywhereCache
-@dynamic admissionPolicy, anywhereCacheId, bucket, createTime, identifier, kind,
-         pendingUpdate, selfLink, state, ttl, updateTime, zoneProperty;
+@dynamic admissionPolicy, anywhereCacheId, bucket, createTime, identifier,
+         ingestOnWrite, kind, pendingUpdate, selfLink, state, ttl, updateTime,
+         zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

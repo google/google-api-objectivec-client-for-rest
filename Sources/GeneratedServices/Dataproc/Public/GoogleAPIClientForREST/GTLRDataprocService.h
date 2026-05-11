@@ -22,8 +22,15 @@
 NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
+/**
+ *  Authorization scope: See, edit, configure, and delete your Google Cloud
+ *  Dataproc data and see the email address for your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/dataproc"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataproc;
 /**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.
@@ -31,6 +38,13 @@ NS_ASSUME_NONNULL_BEGIN
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataprocCloudPlatform;
+/**
+ *  Authorization scope: See your Google Cloud Dataproc data and the email
+ *  address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/dataproc.read-only"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDataprocReadOnly;
 
 // ----------------------------------------------------------------------------
 //   GTLRDataprocService

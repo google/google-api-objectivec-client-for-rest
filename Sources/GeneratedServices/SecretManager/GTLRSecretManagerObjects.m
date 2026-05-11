@@ -357,8 +357,8 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRSecretManager_OperationMetadata
-@dynamic apiVersion, createTime, endTime, requestedCancellation, statusMessage,
-         target, verb;
+@dynamic apiVersion, createTime, endTime, progress, requestedCancellation,
+         statusMessage, target, verb;
 @end
 
 
@@ -382,6 +382,16 @@ NSString * const kGTLRSecretManager_SecretVersion_State_StateUnspecified = @"STA
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSecretManager_Progress
+//
+
+@implementation GTLRSecretManager_Progress
+@dynamic completedVersionCount, failedVersionCount, totalVersionCount;
 @end
 
 

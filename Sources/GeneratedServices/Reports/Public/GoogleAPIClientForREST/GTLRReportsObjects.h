@@ -23,6 +23,9 @@
 @class GTLRReports_Activity_Events_Item_Parameters_Item;
 @class GTLRReports_Activity_Events_Item_Parameters_Item_MessageValue;
 @class GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item;
+@class GTLRReports_Activity_Events_Item_SensitiveParameters_Item;
+@class GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MessageValue;
+@class GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MultiMessageValue_Item;
 @class GTLRReports_Activity_Id;
 @class GTLRReports_ActivityEventsStatus;
 @class GTLRReports_ActivityNetworkInfo;
@@ -204,6 +207,9 @@ NS_ASSUME_NONNULL_BEGIN
 /** Resource ids associated with the event. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceIds;
 
+/** Includes sensitive parameter value pairs for various applications. */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_Activity_Events_Item_SensitiveParameters_Item *> *sensitiveParameters;
+
 /** Status of the event. Note: Not all events have status. */
 @property(nonatomic, strong, nullable) GTLRReports_ActivityEventsStatus *status;
 
@@ -321,6 +327,55 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  GTLRReports_Activity_Events_Item_SensitiveParameters_Item
+ */
+@interface GTLRReports_Activity_Events_Item_SensitiveParameters_Item : GTLRObject
+
+/**
+ *  Boolean value of the parameter.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *boolValue;
+
+/**
+ *  Integer value of the parameter.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *intValue;
+
+/**
+ *  Nested parameter value pairs associated with this parameter. Complex value
+ *  type for a parameter are returned as a list of parameter values. For
+ *  example, the address parameter may have a value as `[{parameter: [{name:
+ *  city, value: abc}]}]`
+ */
+@property(nonatomic, strong, nullable) GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MessageValue *messageValue;
+
+/**
+ *  Integer values of the parameter.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSNumber *> *multiIntValue;
+
+/** List of `messageValue` objects. */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MultiMessageValue_Item *> *multiMessageValue;
+
+/** String values of the parameter. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *multiValue;
+
+/** The name of the parameter. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** String value of the parameter. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  Nested parameter value pairs associated with this parameter. Complex value
  *  type for a parameter are returned as a list of parameter values. For
  *  example, the address parameter may have a value as `[{parameter: [{name:
@@ -338,6 +393,31 @@ NS_ASSUME_NONNULL_BEGIN
  *  GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item
  */
 @interface GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item : GTLRObject
+
+/** Parameter values */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_NestedParameter *> *parameter;
+
+@end
+
+
+/**
+ *  Nested parameter value pairs associated with this parameter. Complex value
+ *  type for a parameter are returned as a list of parameter values. For
+ *  example, the address parameter may have a value as `[{parameter: [{name:
+ *  city, value: abc}]}]`
+ */
+@interface GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MessageValue : GTLRObject
+
+/** Parameter values */
+@property(nonatomic, strong, nullable) NSArray<GTLRReports_NestedParameter *> *parameter;
+
+@end
+
+
+/**
+ *  GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MultiMessageValue_Item
+ */
+@interface GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MultiMessageValue_Item : GTLRObject
 
 /** Parameter values */
 @property(nonatomic, strong, nullable) NSArray<GTLRReports_NestedParameter *> *parameter;

@@ -1445,6 +1445,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDocs_InsertRichLinkRequest
+//
+
+@implementation GTLRDocs_InsertRichLinkRequest
+@dynamic endOfSegmentLocation, location, richLinkProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDocs_InsertSectionBreakRequest
 //
 
@@ -2102,12 +2112,13 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
          deleteFooter, deleteHeader, deleteNamedRange, deleteParagraphBullets,
          deletePositionedObject, deleteTab, deleteTableColumn, deleteTableRow,
          insertDate, insertInlineImage, insertPageBreak, insertPerson,
-         insertSectionBreak, insertTable, insertTableColumn, insertTableRow,
-         insertText, mergeTableCells, pinTableHeaderRows, replaceAllText,
-         replaceImage, replaceNamedRangeContent, unmergeTableCells,
-         updateDocumentStyle, updateDocumentTabProperties, updateParagraphStyle,
-         updateSectionStyle, updateTableCellStyle, updateTableColumnProperties,
-         updateTableRowStyle, updateTextStyle;
+         insertRichLink, insertSectionBreak, insertTable, insertTableColumn,
+         insertTableRow, insertText, mergeTableCells, pinTableHeaderRows,
+         replaceAllText, replaceImage, replaceNamedRangeContent,
+         unmergeTableCells, updateDocumentStyle, updateDocumentTabProperties,
+         updateNamedStyle, updateParagraphStyle, updateSectionStyle,
+         updateTableCellStyle, updateTableColumnProperties, updateTableRowStyle,
+         updateTextStyle;
 @end
 
 
@@ -2774,6 +2785,16 @@ NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscript = @"SUPERSCRIPT"
 
 @implementation GTLRDocs_UpdateDocumentTabPropertiesRequest
 @dynamic fields, tabProperties;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDocs_UpdateNamedStyleRequest
+//
+
+@implementation GTLRDocs_UpdateNamedStyleRequest
+@dynamic fields, namedStyle, tabId;
 @end
 
 

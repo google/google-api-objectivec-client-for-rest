@@ -1598,7 +1598,9 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 @property(nonatomic, strong, nullable) GTLRServiceManagement_BackendRule_OverridesByRequestProtocol *overridesByRequestProtocol;
 
 /**
- *  no-lint
+ *  Path translation specifies how to combine the backend address with the
+ *  request path in order to produce the appropriate forwarding URL for the
+ *  request. See PathTranslation for more details.
  *
  *  Likely values:
  *    @arg @c kGTLRServiceManagement_BackendRule_PathTranslation_AppendPathToAddress
@@ -2052,7 +2054,10 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
  */
 @property(nonatomic, copy, nullable) NSString *referenceDocsUri GTLR_DEPRECATED;
 
-/** Configuration for which RPCs should be generated in the GAPIC client. */
+/**
+ *  Configuration for which RPCs should be generated in the GAPIC client. Note:
+ *  This field should not be used in most cases.
+ */
 @property(nonatomic, strong, nullable) GTLRServiceManagement_SelectiveGapicGeneration *selectiveGapicGeneration;
 
 @end
@@ -5089,7 +5094,8 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 
 /**
  *  This message is used to configure the generation of a subset of the RPCs in
- *  a service for client libraries.
+ *  a service for client libraries. Note: This feature should not be used in
+ *  most cases.
  */
 @interface GTLRServiceManagement_SelectiveGapicGeneration : GTLRObject
 
@@ -5181,13 +5187,7 @@ FOUNDATION_EXTERN NSString * const kGTLRServiceManagement_Type_Syntax_SyntaxProt
 /**
  *  Configuration for network endpoints. If this is empty, then an endpoint with
  *  the same name as the service is automatically generated to service all
- *  defined APIs. WARNING: Defining any entries in the `endpoints` list disables
- *  the automatic generation of default endpoint variations (e.g.,
- *  `{service}.clients6.google.com`, `content-{service}.googleapis.com`, and
- *  mTLS variants like `{service}.mtls.googleapis.com`). To retain these default
- *  variations, you are required to explicitly include your main service
- *  endpoint (e.g., `myservice.googleapis.com`) in this list alongside any other
- *  custom endpoints (like REP, GFE, etc.).
+ *  defined APIs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRServiceManagement_Endpoint *> *endpoints;
 

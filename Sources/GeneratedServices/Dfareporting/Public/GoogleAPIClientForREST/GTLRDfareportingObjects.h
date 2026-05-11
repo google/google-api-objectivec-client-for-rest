@@ -10675,6 +10675,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDfareporting_YoutubeSettings_CallToActio
 @interface GTLRDfareporting_DependentFieldValue : GTLRObject
 
 /**
+ *  Optional. The ID of the dynamic feed that value's field will match against.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *dynamicFeedId;
+
+/**
  *  Optional. The ID of the element that value's field will match against.
  *
  *  Uses NSNumber of longLongValue.

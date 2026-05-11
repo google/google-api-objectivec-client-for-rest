@@ -219,18 +219,24 @@ NSString * const kGTLRWalletobjects_GenericClass_ViewUnlockRequirement_ViewUnloc
 
 // GTLRWalletobjects_GenericObject.genericType
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericAutoInsurance = @"GENERIC_AUTO_INSURANCE";
+NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericBarcodePass = @"GENERIC_BARCODE_PASS";
+NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericBusinessCard = @"GENERIC_BUSINESS_CARD";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericEntryTicket = @"GENERIC_ENTRY_TICKET";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericGymMembership = @"GENERIC_GYM_MEMBERSHIP";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericHomeInsurance = @"GENERIC_HOME_INSURANCE";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericLibraryMembership = @"GENERIC_LIBRARY_MEMBERSHIP";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericLoyaltyCard = @"GENERIC_LOYALTY_CARD";
+NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericMembershipCard = @"GENERIC_MEMBERSHIP_CARD";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericOther = @"GENERIC_OTHER";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericParkingPass = @"GENERIC_PARKING_PASS";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericReceipt = @"GENERIC_RECEIPT";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericReservations = @"GENERIC_RESERVATIONS";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericSeasonPass = @"GENERIC_SEASON_PASS";
+NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericStudentCard = @"GENERIC_STUDENT_CARD";
+NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericTransitPass = @"GENERIC_TRANSIT_PASS";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericTypeUnspecified = @"GENERIC_TYPE_UNSPECIFIED";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericUtilityBills = @"GENERIC_UTILITY_BILLS";
+NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericVehicleRegistration = @"GENERIC_VEHICLE_REGISTRATION";
 NSString * const kGTLRWalletobjects_GenericObject_GenericType_GenericVoucher = @"GENERIC_VOUCHER";
 
 // GTLRWalletobjects_GenericObject.state
@@ -779,7 +785,8 @@ NSString * const kGTLRWalletobjects_TransitObject_TripType_TripTypeUnspecified =
 //
 
 @implementation GTLRWalletobjects_ContentTypeInfo
-@dynamic bestGuess, fromBytes, fromFileName, fromHeader, fromUrlPath;
+@dynamic bestGuess, fromBytes, fromFileName, fromFusionId, fromHeader,
+         fromUrlPath, fusionIdDetectionMetadata;
 @end
 
 

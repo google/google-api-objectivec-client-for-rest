@@ -20,6 +20,12 @@ NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_ImageryQualityUnspec
 NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_Low = @"LOW";
 NSString * const kGTLRSolar_BuildingInsights_ImageryQuality_Medium = @"MEDIUM";
 
+// GTLRSolar_BuildingInsightsDetectedArrays.detectionStatus
+NSString * const kGTLRSolar_BuildingInsightsDetectedArrays_DetectionStatus_DetectionStatusArraysDetected = @"DETECTION_STATUS_ARRAYS_DETECTED";
+NSString * const kGTLRSolar_BuildingInsightsDetectedArrays_DetectionStatus_DetectionStatusDataUnavailable = @"DETECTION_STATUS_DATA_UNAVAILABLE";
+NSString * const kGTLRSolar_BuildingInsightsDetectedArrays_DetectionStatus_DetectionStatusNoArraysDetected = @"DETECTION_STATUS_NO_ARRAYS_DETECTED";
+NSString * const kGTLRSolar_BuildingInsightsDetectedArrays_DetectionStatus_DetectionStatusUnspecified = @"DETECTION_STATUS_UNSPECIFIED";
+
 // GTLRSolar_DataLayers.imageryQuality
 NSString * const kGTLRSolar_DataLayers_ImageryQuality_Base     = @"BASE";
 NSString * const kGTLRSolar_DataLayers_ImageryQuality_High     = @"HIGH";
@@ -38,9 +44,19 @@ NSString * const kGTLRSolar_Panel_Orientation_SolarPanelOrientationUnspecified =
 //
 
 @implementation GTLRSolar_BuildingInsights
-@dynamic administrativeArea, boundingBox, center, imageryDate,
+@dynamic administrativeArea, boundingBox, center, detectedArrays, imageryDate,
          imageryProcessedDate, imageryQuality, name, postalCode, regionCode,
          solarPotential, statisticalArea;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRSolar_BuildingInsightsDetectedArrays
+//
+
+@implementation GTLRSolar_BuildingInsightsDetectedArrays
+@dynamic detectionStatus, latestCaptureDate;
 @end
 
 

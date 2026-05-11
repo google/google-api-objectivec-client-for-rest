@@ -136,7 +136,7 @@ NSString * const kGTLRDatastream_ValidationMessage_Level_Warning = @"WARNING";
 //
 
 @implementation GTLRDatastream_BackfillJob
-@dynamic errors, lastEndTime, lastStartTime, state, trigger;
+@dynamic errors, eventFilter, lastEndTime, lastStartTime, state, trigger;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

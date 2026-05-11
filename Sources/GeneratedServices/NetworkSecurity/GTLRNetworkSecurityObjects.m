@@ -49,11 +49,21 @@ NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_AuthzActionUnspecified 
 NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Custom = @"CUSTOM";
 NSString * const kGTLRNetworkSecurity_AuthzPolicy_Action_Deny  = @"DENY";
 
+// GTLRNetworkSecurity_AuthzPolicy.policyProfile
+NSString * const kGTLRNetworkSecurity_AuthzPolicy_PolicyProfile_ContentAuthz = @"CONTENT_AUTHZ";
+NSString * const kGTLRNetworkSecurity_AuthzPolicy_PolicyProfile_PolicyProfileUnspecified = @"POLICY_PROFILE_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_AuthzPolicy_PolicyProfile_RequestAuthz = @"REQUEST_AUTHZ";
+
 // GTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal.principalSelector
 NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertCommonName = @"CLIENT_CERT_COMMON_NAME";
 NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertDnsNameSan = @"CLIENT_CERT_DNS_NAME_SAN";
 NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_ClientCertUriSan = @"CLIENT_CERT_URI_SAN";
 NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRulePrincipal_PrincipalSelector_PrincipalSelectorUnspecified = @"PRINCIPAL_SELECTOR_UNSPECIFIED";
+
+// GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP.baseProtocolMethodsOption
+NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP_BaseProtocolMethodsOption_BaseProtocolMethodsOptionUnspecified = @"BASE_PROTOCOL_METHODS_OPTION_UNSPECIFIED";
+NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP_BaseProtocolMethodsOption_MatchBaseProtocolMethods = @"MATCH_BASE_PROTOCOL_METHODS";
+NSString * const kGTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP_BaseProtocolMethodsOption_SkipBaseProtocolMethods = @"SKIP_BASE_PROTOCOL_METHODS";
 
 // GTLRNetworkSecurity_AuthzPolicyTarget.loadBalancingScheme
 NSString * const kGTLRNetworkSecurity_AuthzPolicyTarget_LoadBalancingScheme_ExternalManaged = @"EXTERNAL_MANAGED";
@@ -390,7 +400,7 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 
 @implementation GTLRNetworkSecurity_AuthzPolicy
 @dynamic action, createTime, customProvider, descriptionProperty, httpRules,
-         labels, name, target, updateTime;
+         labels, name, policyProfile, target, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
@@ -562,7 +572,7 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 //
 
 @implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperation
-@dynamic headerSet, hosts, methods, paths;
+@dynamic headerSet, hosts, mcp, methods, paths;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -587,6 +597,42 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"headers" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleHeaderMatch class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCP
+@dynamic baseProtocolMethodsOption, methods;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"methods" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCPMethod class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCPMethod
+//
+
+@implementation GTLRNetworkSecurity_AuthzPolicyAuthzRuleToRequestOperationMCPMethod
+@dynamic name, params;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"params" : [GTLRNetworkSecurity_AuthzPolicyAuthzRuleStringMatch class]
   };
   return map;
 }
@@ -1249,7 +1295,8 @@ NSString * const kGTLRNetworkSecurity_UrlFilter_FilteringAction_UrlFilteringActi
 
 @implementation GTLRNetworkSecurity_InterceptEndpointGroupAssociation
 @dynamic createTime, interceptEndpointGroup, labels, locations,
-         locationsDetails, name, network, reconciling, state, updateTime;
+         locationsDetails, name, network, networkCookie, reconciling, state,
+         updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

@@ -1339,7 +1339,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  you are updating. The API product name required in the request URL is the
  *  internal name of the product, not the display name. While they may be the
  *  same, it depends on whether the API product was created via UI or API. View
- *  the list of API products to identify their internal names.
+ *  the list of API products to identify their internal names. **Note:** We
+ *  recommend that you avoid making concurrent update requests for the same
+ *  resource. Near-simultaneous writes to the same entity can result in
+ *  conflicts and unexpected behavior. Ensure operations are sequential when
+ *  modifying a single resource.
  *
  *  Method: apigee.organizations.apiproducts.update
  *
@@ -1365,7 +1369,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  you are updating. The API product name required in the request URL is the
  *  internal name of the product, not the display name. While they may be the
  *  same, it depends on whether the API product was created via UI or API. View
- *  the list of API products to identify their internal names.
+ *  the list of API products to identify their internal names. **Note:** We
+ *  recommend that you avoid making concurrent update requests for the same
+ *  resource. Near-simultaneous writes to the same entity can result in
+ *  conflicts and unexpected behavior. Ensure operations are sequential when
+ *  modifying a single resource.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1ApiProduct to include in
  *    the query.
@@ -2826,7 +2834,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  it is the primary key used to identify the app and cannot be changed. This
  *  API replaces the existing attributes with those specified in the request.
  *  Include or exclude any existing attributes that you want to retain or
- *  delete, respectively.
+ *  delete, respectively. **Note:** We recommend that you avoid making
+ *  concurrent update requests for the same resource. Near-simultaneous writes
+ *  to the same entity can result in conflicts and unexpected behavior. Ensure
+ *  operations are sequential when modifying a single resource.
  *
  *  Method: apigee.organizations.appgroups.apps.update
  *
@@ -2859,7 +2870,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  it is the primary key used to identify the app and cannot be changed. This
  *  API replaces the existing attributes with those specified in the request.
  *  Include or exclude any existing attributes that you want to retain or
- *  delete, respectively.
+ *  delete, respectively. **Note:** We recommend that you avoid making
+ *  concurrent update requests for the same resource. Near-simultaneous writes
+ *  to the same entity can result in conflicts and unexpected behavior. Ensure
+ *  operations are sequential when modifying a single resource.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1AppGroupApp to include in
  *    the query.
@@ -3331,7 +3345,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Updates an AppGroup. This API replaces the existing AppGroup details with
  *  those specified in the request. Include or exclude any existing details that
  *  you want to retain or delete, respectively. Note that the state of the
- *  AppGroup should be updated using `action`, and not via AppGroup.
+ *  AppGroup should be updated using `action`, and not via AppGroup. **Note:**
+ *  We recommend that you avoid making concurrent update requests for the same
+ *  resource. Near-simultaneous writes to the same entity can result in
+ *  conflicts and unexpected behavior. Ensure operations are sequential when
+ *  modifying a single resource.
  *
  *  Method: apigee.organizations.appgroups.update
  *
@@ -3359,7 +3377,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  Updates an AppGroup. This API replaces the existing AppGroup details with
  *  those specified in the request. Include or exclude any existing details that
  *  you want to retain or delete, respectively. Note that the state of the
- *  AppGroup should be updated using `action`, and not via AppGroup.
+ *  AppGroup should be updated using `action`, and not via AppGroup. **Note:**
+ *  We recommend that you avoid making concurrent update requests for the same
+ *  resource. Near-simultaneous writes to the same entity can result in
+ *  conflicts and unexpected behavior. Ensure operations are sequential when
+ *  modifying a single resource.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1AppGroup to include in
  *    the query.
@@ -3374,7 +3396,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 @end
 
 /**
- *  Updates the monetization configuration for the AppGroup.
+ *  Updates the monetization configuration for the AppGroup. **Note:** We
+ *  recommend that you avoid making concurrent update requests for the same
+ *  resource. Near-simultaneous writes to the same entity can result in
+ *  conflicts and unexpected behavior. Ensure operations are sequential when
+ *  modifying a single resource.
  *
  *  Method: apigee.organizations.appgroups.updateMonetizationConfig
  *
@@ -3393,7 +3419,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Fetches a @c GTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig.
  *
- *  Updates the monetization configuration for the AppGroup.
+ *  Updates the monetization configuration for the AppGroup. **Note:** We
+ *  recommend that you avoid making concurrent update requests for the same
+ *  resource. Near-simultaneous writes to the same entity can result in
+ *  conflicts and unexpected behavior. Ensure operations are sequential when
+ *  modifying a single resource.
  *
  *  @param object The @c
  *    GTLRApigee_GoogleCloudApigeeV1AppGroupMonetizationConfig to include in the
@@ -4645,7 +4675,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 /**
  *  Optional. Specifies whether to expand the results. Set to `true` to expand
  *  the results. This query parameter is not valid if you use the `count` or
- *  `startKey` query parameters.
+ *  `startKey` query parameters. **Note**: If set to `true`, the
+ *  `apigee.developerapps.get` permission is required.
  */
 @property(nonatomic, assign) BOOL expand;
 
@@ -4657,7 +4688,8 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
 
 /**
  *  Optional. Specifies whether to expand the results in shallow mode. Set to
- *  `true` to expand the results in shallow mode.
+ *  `true` to expand the results in shallow mode. **Note**: If set to `true`,
+ *  the `apigee.developerapps.get` permission is required.
  */
 @property(nonatomic, assign) BOOL shallowExpand;
 
@@ -4697,7 +4729,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  changed. * Scopes associated with the app. Instead, use the
  *  ReplaceDeveloperAppKey API. This API replaces the existing attributes with
  *  those specified in the request. Include or exclude any existing attributes
- *  that you want to retain or delete, respectively.
+ *  that you want to retain or delete, respectively. **Note:** We recommend that
+ *  you avoid making concurrent update requests for the same resource.
+ *  Near-simultaneous writes to the same entity can result in conflicts and
+ *  unexpected behavior. Ensure operations are sequential when modifying a
+ *  single resource.
  *
  *  Method: apigee.organizations.developers.apps.update
  *
@@ -4724,7 +4760,11 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  changed. * Scopes associated with the app. Instead, use the
  *  ReplaceDeveloperAppKey API. This API replaces the existing attributes with
  *  those specified in the request. Include or exclude any existing attributes
- *  that you want to retain or delete, respectively.
+ *  that you want to retain or delete, respectively. **Note:** We recommend that
+ *  you avoid making concurrent update requests for the same resource.
+ *  Near-simultaneous writes to the same entity can result in conflicts and
+ *  unexpected behavior. Ensure operations are sequential when modifying a
+ *  single resource.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1DeveloperApp to include
  *    in the query.
@@ -5469,7 +5509,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  default). Any custom attributes associated with these entities are cached
  *  for at least 180 seconds after the entity is accessed at runtime. Therefore,
  *  an `ExpiresIn` element on the OAuthV2 policy won't be able to expire an
- *  access token in less than 180 seconds.
+ *  access token in less than 180 seconds. **Note:** We recommend that you avoid
+ *  making concurrent update requests for the same resource. Near-simultaneous
+ *  writes to the same entity can result in conflicts and unexpected behavior.
+ *  Ensure operations are sequential when modifying a single resource.
  *
  *  Method: apigee.organizations.developers.update
  *
@@ -5495,7 +5538,10 @@ FOUNDATION_EXTERN NSString * const kGTLRApigeeViewIngressConfigViewUnspecified;
  *  default). Any custom attributes associated with these entities are cached
  *  for at least 180 seconds after the entity is accessed at runtime. Therefore,
  *  an `ExpiresIn` element on the OAuthV2 policy won't be able to expire an
- *  access token in less than 180 seconds.
+ *  access token in less than 180 seconds. **Note:** We recommend that you avoid
+ *  making concurrent update requests for the same resource. Near-simultaneous
+ *  writes to the same entity can result in conflicts and unexpected behavior.
+ *  Ensure operations are sequential when modifying a single resource.
  *
  *  @param object The @c GTLRApigee_GoogleCloudApigeeV1Developer to include in
  *    the query.

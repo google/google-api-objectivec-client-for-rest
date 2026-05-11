@@ -67,6 +67,25 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
 
 @end
 
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsGetProjectConfig
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRArtifactRegistryQuery_ProjectsLocationsGetProjectConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_ProjectConfig class];
+  query.loggingName = @"artifactregistry.projects.locations.getProjectConfig";
+  return query;
+}
+
+@end
+
 @implementation GTLRArtifactRegistryQuery_ProjectsLocationsGetVpcscConfig
 
 @dynamic name;
@@ -107,6 +126,33 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   query.name = name;
   query.expectedObjectClass = [GTLRArtifactRegistry_ListLocationsResponse class];
   query.loggingName = @"artifactregistry.projects.locations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsOperationsCancel
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_CancelOperationRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:cancel";
+  GTLRArtifactRegistryQuery_ProjectsLocationsOperationsCancel *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_Empty class];
+  query.loggingName = @"artifactregistry.projects.locations.operations.cancel";
   return query;
 }
 
@@ -1390,6 +1436,33 @@ NSString * const kGTLRArtifactRegistryViewVersionViewUnspecified = @"VERSION_VIE
   query.uploadParameters = uploadParameters;
   query.expectedObjectClass = [GTLRArtifactRegistry_UploadYumArtifactMediaResponse class];
   query.loggingName = @"artifactregistry.projects.locations.repositories.yumArtifacts.upload";
+  return query;
+}
+
+@end
+
+@implementation GTLRArtifactRegistryQuery_ProjectsLocationsUpdateProjectConfig
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRArtifactRegistry_ProjectConfig *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRArtifactRegistryQuery_ProjectsLocationsUpdateProjectConfig *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRArtifactRegistry_ProjectConfig class];
+  query.loggingName = @"artifactregistry.projects.locations.updateProjectConfig";
   return query;
 }
 

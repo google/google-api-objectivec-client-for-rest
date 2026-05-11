@@ -36,6 +36,21 @@ NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_Offline = @"O
 NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_Realtime = @"REALTIME";
 NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_ReportedUsageUnspecified = @"REPORTED_USAGE_UNSPECIFIED";
 
+// GTLRTexttospeech_SafetySetting.category
+NSString * const kGTLRTexttospeech_SafetySetting_Category_HarmCategoryDangerousContent = @"HARM_CATEGORY_DANGEROUS_CONTENT";
+NSString * const kGTLRTexttospeech_SafetySetting_Category_HarmCategoryHarassment = @"HARM_CATEGORY_HARASSMENT";
+NSString * const kGTLRTexttospeech_SafetySetting_Category_HarmCategoryHateSpeech = @"HARM_CATEGORY_HATE_SPEECH";
+NSString * const kGTLRTexttospeech_SafetySetting_Category_HarmCategorySexuallyExplicit = @"HARM_CATEGORY_SEXUALLY_EXPLICIT";
+NSString * const kGTLRTexttospeech_SafetySetting_Category_HarmCategoryUnspecified = @"HARM_CATEGORY_UNSPECIFIED";
+
+// GTLRTexttospeech_SafetySetting.threshold
+NSString * const kGTLRTexttospeech_SafetySetting_Threshold_BlockLowAndAbove = @"BLOCK_LOW_AND_ABOVE";
+NSString * const kGTLRTexttospeech_SafetySetting_Threshold_BlockMediumAndAbove = @"BLOCK_MEDIUM_AND_ABOVE";
+NSString * const kGTLRTexttospeech_SafetySetting_Threshold_BlockNone = @"BLOCK_NONE";
+NSString * const kGTLRTexttospeech_SafetySetting_Threshold_BlockOnlyHigh = @"BLOCK_ONLY_HIGH";
+NSString * const kGTLRTexttospeech_SafetySetting_Threshold_HarmBlockThresholdUnspecified = @"HARM_BLOCK_THRESHOLD_UNSPECIFIED";
+NSString * const kGTLRTexttospeech_SafetySetting_Threshold_Off = @"OFF";
+
 // GTLRTexttospeech_Voice.ssmlGender
 NSString * const kGTLRTexttospeech_Voice_SsmlGender_Female     = @"FEMALE";
 NSString * const kGTLRTexttospeech_Voice_SsmlGender_Male       = @"MALE";
@@ -54,7 +69,8 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 //
 
 @implementation GTLRTexttospeech_AdvancedVoiceOptions
-@dynamic enableTextnorm, lowLatencyJourneySynthesis, relaxSafetyFilters;
+@dynamic enableTextnorm, lowLatencyJourneySynthesis, relaxSafetyFilters,
+         safetySettings;
 @end
 
 
@@ -263,6 +279,34 @@ NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGender_SsmlVoiceGend
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_SafetySetting
+//
+
+@implementation GTLRTexttospeech_SafetySetting
+@dynamic category, threshold;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRTexttospeech_SafetySettings
+//
+
+@implementation GTLRTexttospeech_SafetySettings
+@dynamic settings;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"settings" : [GTLRTexttospeech_SafetySetting class]
+  };
+  return map;
 }
 
 @end

@@ -947,7 +947,7 @@ NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Succeeded =
 //
 
 @implementation GTLRCloudKMS_KeyAccessJustificationsPolicyConfig
-@dynamic defaultKeyAccessJustificationPolicy, name;
+@dynamic defaultKeyAccessJustificationPolicy, defaultPolicyAvailable, name;
 @end
 
 
@@ -1626,8 +1626,8 @@ NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal_State_Succeeded =
 //
 
 @implementation GTLRCloudKMS_SingleTenantHsmInstance
-@dynamic createTime, deleteTime, disableTime, name, quorumAuth, state,
-         unrefreshedDurationUntilDisable;
+@dynamic createTime, deleteTime, disableTime, keyPortabilityEnabled, name,
+         quorumAuth, state, unrefreshedDurationUntilDisable;
 @end
 
 

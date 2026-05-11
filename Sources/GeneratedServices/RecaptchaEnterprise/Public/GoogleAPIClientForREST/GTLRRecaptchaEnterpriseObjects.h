@@ -601,17 +601,21 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_LowConfidenceScore;
 /**
- *  The request matches behavioral characteristics of a carding attack.
+ *  Deprecated: Use FraudPreventionAssessment.transaction_risk and
+ *  FraudPreventionAssessment.RiskReason.Reason.EXCESSIVE_ENUMERATION_PATTERN
+ *  instead.
  *
  *  Value: "SUSPECTED_CARDING"
  */
-FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_SuspectedCarding;
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_SuspectedCarding GTLR_DEPRECATED;
 /**
- *  The request matches behavioral characteristics of chargebacks for fraud.
+ *  Deprecated: Use FraudPreventionAssessment.transaction_risk and
+ *  FraudPreventionAssessment.RiskReason.Reason.ASSOCIATED_WITH_FRAUD_CLUSTER
+ *  instead.
  *
  *  Value: "SUSPECTED_CHARGEBACK"
  */
-FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_SuspectedChargeback;
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1RiskAnalysis_Reasons_SuspectedChargeback GTLR_DEPRECATED;
 /**
  *  Traffic volume from the event source is higher than normal.
  *
@@ -683,6 +687,13 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_BrowserError;
 /**
+ *  The domain of the page on which the token was generated does not match the
+ *  `allowed_domains` configured in the `site_key`.
+ *
+ *  Value: "DOMAIN_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_DomainMismatch;
+/**
  *  The user verification had already been seen.
  *
  *  Value: "DUPE"
@@ -700,6 +711,12 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *  Value: "INVALID_REASON_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_InvalidReasonUnspecified;
+/**
+ *  The key used to generate the token does not match the `site_key`.
+ *
+ *  Value: "KEY_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_KeyMismatch;
 /**
  *  The provided user verification token was malformed.
  *
@@ -2535,9 +2552,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *challenge;
 
 /**
- *  Output only. Advanced reasons contributing to the risk analysis verdict.
+ *  Output only. Additional reasons contributing to the risk analysis verdict.
  *  These reasons are available to Enterprise tier projects only. Contact sales
- *  for more information. The set of possible reasons is subject to change.
+ *  for more information. The set of reasons is subject to change.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extendedVerdictReasons;
 
@@ -2780,12 +2797,19 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_BrowserError
  *        A retriable error (such as network failure) occurred on the browser.
  *        Could easily be simulated by an attacker. (Value: "BROWSER_ERROR")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_DomainMismatch
+ *        The domain of the page on which the token was generated does not match
+ *        the `allowed_domains` configured in the `site_key`. (Value:
+ *        "DOMAIN_MISMATCH")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_Dupe
  *        The user verification had already been seen. (Value: "DUPE")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_Expired
  *        The user verification token had expired. (Value: "EXPIRED")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_InvalidReasonUnspecified
  *        Default unspecified type. (Value: "INVALID_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_KeyMismatch
+ *        The key used to generate the token does not match the `site_key`.
+ *        (Value: "KEY_MISMATCH")
  *    @arg @c kGTLRRecaptchaEnterprise_GoogleCloudRecaptchaenterpriseV1TokenProperties_InvalidReason_Malformed
  *        The provided user verification token was malformed. (Value:
  *        "MALFORMED")
@@ -2812,11 +2836,9 @@ FOUNDATION_EXTERN NSString * const kGTLRRecaptchaEnterprise_GoogleCloudRecaptcha
 @property(nonatomic, copy, nullable) NSString *iosBundleId;
 
 /**
- *  Output only. Whether the provided user response token is valid. When valid =
- *  false, the reason could be specified in invalid_reason or it could also be
- *  due to a user failing to solve a challenge or a sitekey mismatch (i.e the
- *  sitekey used to generate the token was different than the one specified in
- *  the assessment).
+ *  Output only. Indicates whether the provided user response token is valid. If
+ *  `false`, the token is invalid, either because the user failed the challenge
+ *  or for a reason provided in the `invalid_reason` field.
  *
  *  Uses NSNumber of boolValue.
  */

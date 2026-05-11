@@ -90,6 +90,13 @@
 @class GTLRBigquery_FeatureValue;
 @class GTLRBigquery_ForeignTypeInfo;
 @class GTLRBigquery_ForeignViewDefinition;
+@class GTLRBigquery_GenAiErrorStats;
+@class GTLRBigquery_GenAiFunctionCostOptimizationStats;
+@class GTLRBigquery_GenAiFunctionErrorStats;
+@class GTLRBigquery_GenAiFunctionStats;
+@class GTLRBigquery_GenAiStats;
+@class GTLRBigquery_GeneratedColumn;
+@class GTLRBigquery_GeneratedExpressionInfo;
 @class GTLRBigquery_GetPolicyOptions;
 @class GTLRBigquery_GlobalExplanation;
 @class GTLRBigquery_GoogleSheetsOptions;
@@ -178,6 +185,7 @@
 @class GTLRBigquery_RemoteModelInfo;
 @class GTLRBigquery_RestrictionConfig;
 @class GTLRBigquery_Routine;
+@class GTLRBigquery_RoutineBuildStatus;
 @class GTLRBigquery_RoutineReference;
 @class GTLRBigquery_Row;
 @class GTLRBigquery_RowAccessPolicy;
@@ -982,6 +990,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_ForeignTypeInfo_TypeSystem_Hive
  *  Value: "TYPE_SYSTEM_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_ForeignTypeInfo_TypeSystem_TypeSystemUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_GeneratedColumn.generatedMode
+
+/**
+ *  Field can only have system generated values. Users cannot manually insert
+ *  values into the field.
+ *
+ *  Value: "GENERATED_ALWAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_GeneratedColumn_GeneratedMode_GeneratedAlways;
+/**
+ *  Use system generated values only if the user does not explicitly provide a
+ *  value.
+ *
+ *  Value: "GENERATED_BY_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_GeneratedColumn_GeneratedMode_GeneratedByDefault;
+/**
+ *  Unspecified GeneratedMode will default to GENERATED_ALWAYS.
+ *
+ *  Value: "GENERATED_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_GeneratedColumn_GeneratedMode_GeneratedModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_HparamTuningTrial.status
@@ -2151,6 +2183,34 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_SecurityMode_Invoker;
  *  Value: "SECURITY_MODE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigquery_Routine_SecurityMode_SecurityModeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigquery_RoutineBuildStatus.buildState
+
+/**
+ *  Default value.
+ *
+ *  Value: "BUILD_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_RoutineBuildStatus_BuildState_BuildStateUnspecified;
+/**
+ *  The build has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_RoutineBuildStatus_BuildState_Failed;
+/**
+ *  The build is in progress.
+ *
+ *  Value: "IN_PROGRESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_RoutineBuildStatus_BuildState_InProgress;
+/**
+ *  The build has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigquery_RoutineBuildStatus_BuildState_Succeeded;
 
 // ----------------------------------------------------------------------------
 // GTLRBigquery_ScriptOptions.keyResultStatement
@@ -5559,6 +5619,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Dataset_Access_Item *> *access;
 
 /**
+ *  Output only. The origin of the dataset, one of: * (Unset) - Native BigQuery
+ *  Dataset * BIGLAKE - Dataset is backed by a namespace stored natively in
+ *  Biglake
+ */
+@property(nonatomic, copy, nullable) NSString *catalogSource;
+
+/**
  *  Output only. The time when this dataset was created, in milliseconds since
  *  the epoch.
  *
@@ -5806,7 +5873,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Output only. Same as `type` in `ListFormatDataset`. The type of the dataset,
  *  one of: * DEFAULT - only accessible by owner and authorized accounts, *
  *  PUBLIC - accessible by everyone, * LINKED - linked dataset, * EXTERNAL -
- *  dataset with definition in external metadata catalog.
+ *  dataset with definition in external metadata catalog, * BIGLAKE_ICEBERG - a
+ *  Biglake dataset accessible through the Iceberg API, * BIGLAKE_HIVE - a
+ *  Biglake dataset accessible through the Hive API.
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -6030,6 +6099,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @interface GTLRBigquery_DatasetList_Datasets_Item : GTLRObject
 
 /**
+ *  Output only. The origin of the dataset, one of: * (Unset) - Native BigQuery
+ *  Dataset. * BIGLAKE - Dataset is backed by a namespace stored natively in
+ *  Biglake.
+ */
+@property(nonatomic, copy, nullable) NSString *catalogSource;
+
+/**
  *  The dataset reference. Use this property to access specific parts of the
  *  dataset's ID, such as project ID or dataset ID.
  */
@@ -6067,6 +6143,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /** The geographic location where the dataset resides. */
 @property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Output only. Same as `type` in `Dataset`. The type of the dataset, one of: *
+ *  DEFAULT - only accessible by owner and authorized accounts, * PUBLIC -
+ *  accessible by everyone, * LINKED - linked dataset, * EXTERNAL - dataset with
+ *  definition in external metadata catalog, * BIGLAKE_ICEBERG - a Biglake
+ *  dataset accessible through the Iceberg API, * BIGLAKE_HIVE - a Biglake
+ *  dataset accessible through the Hive API.
+ */
+@property(nonatomic, copy, nullable) NSString *type;
 
 @end
 
@@ -7152,7 +7238,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Precisions (maximum number of total digits in base 10) for seconds of
  *  TIMESTAMP types that are allowed to the destination table for autodetection
- *  mode. Available for the formats: CSV. For the CSV Format, Possible values
+ *  mode. Available for the formats: CSV, PARQUET, and AVRO. Possible values
  *  include: Not Specified, [], or [6]: timestamp(6) for all auto detected
  *  TIMESTAMP columns [6, 12]: timestamp(6) for all auto detected TIMESTAMP
  *  columns that have less than 6 digits of subseconds. timestamp(12) for all
@@ -7348,6 +7434,163 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 
 /** Required. The query that defines the view. */
 @property(nonatomic, copy, nullable) NSString *query;
+
+@end
+
+
+/**
+ *  Provides error statistics for the query job across all AI function calls.
+ */
+@interface GTLRBigquery_GenAiErrorStats : GTLRObject
+
+/**
+ *  A list of unique errors at query level (up to 5, truncated to 100 chars)
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
+
+@end
+
+
+/**
+ *  Provides cost optimization statistics for a GenAi function call.
+ */
+@interface GTLRBigquery_GenAiFunctionCostOptimizationStats : GTLRObject
+
+/**
+ *  System generated message to provide insights into cost optimization state.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Number of rows inferred via cost optimized workflow.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numCostOptimizedRows;
+
+@end
+
+
+/**
+ *  Provides error statistics for a GenAi function call.
+ */
+@interface GTLRBigquery_GenAiFunctionErrorStats : GTLRObject
+
+/**
+ *  A list of unique errors at function level (up to 5, truncated to 100 chars).
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *errors;
+
+/**
+ *  Number of failed rows processed by the function
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numFailedRows;
+
+@end
+
+
+/**
+ *  Provides statistics for each Ai function call within a query.
+ */
+@interface GTLRBigquery_GenAiFunctionStats : GTLRObject
+
+/**
+ *  Cost optimization stats if applied on the rows processed by the function.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_GenAiFunctionCostOptimizationStats *costOptimizationStats;
+
+/** Error stats for the function. */
+@property(nonatomic, strong, nullable) GTLRBigquery_GenAiFunctionErrorStats *errorStats;
+
+/** Name of the function. */
+@property(nonatomic, copy, nullable) NSString *functionName;
+
+/**
+ *  Number of rows processed by this GenAi function. This includes all
+ *  cost_optimized, llm_inferred and failed_rows.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *numProcessedRows;
+
+/** User input prompt of the function (truncated to 20 chars). */
+@property(nonatomic, copy, nullable) NSString *prompt;
+
+@end
+
+
+/**
+ *  GenAi stats for the query job.
+ */
+@interface GTLRBigquery_GenAiStats : GTLRObject
+
+/** Job level error stats across all GenAi functions */
+@property(nonatomic, strong, nullable) GTLRBigquery_GenAiErrorStats *errorStats;
+
+/**
+ *  Function level stats for GenAi Functions. See
+ *  https://docs.cloud.google.com/bigquery/docs/generative-ai-overview
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigquery_GenAiFunctionStats *> *functionStats;
+
+@end
+
+
+/**
+ *  Optional. Definition of how values are generated for the field. Only valid
+ *  for top-level schema fields (not nested fields).
+ */
+@interface GTLRBigquery_GeneratedColumn : GTLRObject
+
+/** Definition of the expression used to generate the field. */
+@property(nonatomic, strong, nullable) GTLRBigquery_GeneratedExpressionInfo *generatedExpressionInfo;
+
+/**
+ *  Optional. Dictates when system generated values are used to populate the
+ *  field.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_GeneratedColumn_GeneratedMode_GeneratedAlways Field
+ *        can only have system generated values. Users cannot manually insert
+ *        values into the field. (Value: "GENERATED_ALWAYS")
+ *    @arg @c kGTLRBigquery_GeneratedColumn_GeneratedMode_GeneratedByDefault Use
+ *        system generated values only if the user does not explicitly provide a
+ *        value. (Value: "GENERATED_BY_DEFAULT")
+ *    @arg @c kGTLRBigquery_GeneratedColumn_GeneratedMode_GeneratedModeUnspecified
+ *        Unspecified GeneratedMode will default to GENERATED_ALWAYS. (Value:
+ *        "GENERATED_MODE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *generatedMode;
+
+@end
+
+
+/**
+ *  Definition of the expression used to generate the field.
+ */
+@interface GTLRBigquery_GeneratedExpressionInfo : GTLRObject
+
+/**
+ *  Optional. Whether the column generation is done asynchronously.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *asynchronous;
+
+/**
+ *  Optional. The generation expression (e.g. AI.EMBED(...)) used to generated
+ *  the field.
+ */
+@property(nonatomic, copy, nullable) NSString *generationExpression;
+
+/**
+ *  Optional. Whether the generated column is stored in the table.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *stored;
 
 @end
 
@@ -8821,7 +9064,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 /**
  *  Precisions (maximum number of total digits in base 10) for seconds of
  *  TIMESTAMP types that are allowed to the destination table for autodetection
- *  mode. Available for the formats: CSV. For the CSV Format, Possible values
+ *  mode. Available for the formats: CSV, PARQUET, and AVRO. Possible values
  *  include: Not Specified, [], or [6]: timestamp(6) for all auto detected
  *  TIMESTAMP columns [6, 12]: timestamp(6) for all auto detected TIMESTAMP
  *  columns that have less than 6 digits of subseconds. timestamp(12) for all
@@ -9620,6 +9863,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  service costs.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_ExternalServiceCost *> *externalServiceCosts;
+
+/** Output only. Statistics related to GenAI usage in the query. */
+@property(nonatomic, strong, nullable) GTLRBigquery_GenAiStats *genAiStats;
 
 /**
  *  Output only. Statistics related to incremental query results, if enabled for
@@ -11164,7 +11410,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 /**
- *  Projects to which the user has at least READ access.
+ *  Projects to which the user has at least READ access. This field can be
+ *  omitted if `totalItems` is 0.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -12211,6 +12458,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
 @property(nonatomic, strong, nullable) NSArray<GTLRBigquery_Argument *> *arguments;
 
 /**
+ *  Output only. The build status of the routine. This field is only applicable
+ *  to Python UDFs.
+ *  [Preview](https://cloud.google.com/products/#product-launch-stages)
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_RoutineBuildStatus *buildStatus;
+
+/**
  *  Output only. The time when this routine was created, in milliseconds since
  *  the epoch.
  *
@@ -12404,6 +12658,52 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *strictMode;
+
+@end
+
+
+/**
+ *  The status of a routine build.
+ */
+@interface GTLRBigquery_RoutineBuildStatus : GTLRObject
+
+/**
+ *  Output only. The time taken for the image build. Populated only after the
+ *  build succeeds or fails.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *buildDuration;
+
+/**
+ *  Output only. The current build state of the routine.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigquery_RoutineBuildStatus_BuildState_BuildStateUnspecified
+ *        Default value. (Value: "BUILD_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBigquery_RoutineBuildStatus_BuildState_Failed The build has
+ *        failed. (Value: "FAILED")
+ *    @arg @c kGTLRBigquery_RoutineBuildStatus_BuildState_InProgress The build
+ *        is in progress. (Value: "IN_PROGRESS")
+ *    @arg @c kGTLRBigquery_RoutineBuildStatus_BuildState_Succeeded The build
+ *        has succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *buildState;
+
+/** Output only. The time when the build state was updated last. */
+@property(nonatomic, strong, nullable) GTLRDateTime *buildStateUpdateTime;
+
+/**
+ *  Output only. A result object that will be present only if the build has
+ *  failed.
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_ErrorProto *errorResult;
+
+/**
+ *  Output only. The size of the image in bytes. Populated only after the build
+ *  succeeds.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *imageSizeBytes;
 
 @end
 
@@ -14011,6 +14311,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBigquery_VectorSearchStatistics_IndexUsa
  *  required.
  */
 @property(nonatomic, copy, nullable) NSString *foreignTypeDefinition;
+
+/**
+ *  Optional. Definition of how values are generated for the field. Only valid
+ *  for top-level schema fields (not nested fields).
+ */
+@property(nonatomic, strong, nullable) GTLRBigquery_GeneratedColumn *generatedColumn;
 
 /**
  *  Optional. Maximum length of values of this field for STRINGS or BYTES. If

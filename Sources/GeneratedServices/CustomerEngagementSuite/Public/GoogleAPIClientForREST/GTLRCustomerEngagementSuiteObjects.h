@@ -16,10 +16,13 @@
 @class GTLRCustomerEngagementSuite_ActionEntityOperation;
 @class GTLRCustomerEngagementSuite_Agent;
 @class GTLRCustomerEngagementSuite_AgentAgentToolset;
+@class GTLRCustomerEngagementSuite_AgentCard;
+@class GTLRCustomerEngagementSuite_AgentInterface;
 @class GTLRCustomerEngagementSuite_AgentLlmAgent;
 @class GTLRCustomerEngagementSuite_AgentRemoteDialogflowAgent;
 @class GTLRCustomerEngagementSuite_AgentRemoteDialogflowAgent_InputVariableMapping;
 @class GTLRCustomerEngagementSuite_AgentRemoteDialogflowAgent_OutputVariableMapping;
+@class GTLRCustomerEngagementSuite_AgentSkill;
 @class GTLRCustomerEngagementSuite_AgentTool;
 @class GTLRCustomerEngagementSuite_AgentTransfer;
 @class GTLRCustomerEngagementSuite_AmbientSoundConfig;
@@ -85,6 +88,9 @@
 @class GTLRCustomerEngagementSuite_EndUserAuthConfigOauth2AuthCodeConfig;
 @class GTLRCustomerEngagementSuite_EndUserAuthConfigOauth2JwtBearerConfig;
 @class GTLRCustomerEngagementSuite_ErrorHandlingSettings;
+@class GTLRCustomerEngagementSuite_ErrorHandlingSettingsEndSessionConfig;
+@class GTLRCustomerEngagementSuite_ErrorHandlingSettingsFallbackResponseConfig;
+@class GTLRCustomerEngagementSuite_ErrorHandlingSettingsFallbackResponseConfig_CustomFallbackMessages;
 @class GTLRCustomerEngagementSuite_EvaluationMetricsThresholds;
 @class GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholds;
 @class GTLRCustomerEngagementSuite_EvaluationMetricsThresholdsGoldenEvaluationMetricsThresholdsExpectationLevelMetricsThresholds;
@@ -97,6 +103,9 @@
 @class GTLRCustomerEngagementSuite_ExecuteToolRequest_Variables;
 @class GTLRCustomerEngagementSuite_ExecuteToolResponse_Response;
 @class GTLRCustomerEngagementSuite_ExecuteToolResponse_Variables;
+@class GTLRCustomerEngagementSuite_ExperimentConfig;
+@class GTLRCustomerEngagementSuite_ExperimentConfigVersionRelease;
+@class GTLRCustomerEngagementSuite_ExperimentConfigVersionReleaseTrafficAllocation;
 @class GTLRCustomerEngagementSuite_ExpressionCondition;
 @class GTLRCustomerEngagementSuite_FileSearchTool;
 @class GTLRCustomerEngagementSuite_GoogleSearchSuggestions;
@@ -124,6 +133,10 @@
 @class GTLRCustomerEngagementSuite_McpToolset_CustomHeaders;
 @class GTLRCustomerEngagementSuite_Message;
 @class GTLRCustomerEngagementSuite_MetricAnalysisSettings;
+@class GTLRCustomerEngagementSuite_MockConfig;
+@class GTLRCustomerEngagementSuite_MockedToolCall;
+@class GTLRCustomerEngagementSuite_MockedToolCall_ExpectedArgsPattern;
+@class GTLRCustomerEngagementSuite_MockedToolCall_MockResponse;
 @class GTLRCustomerEngagementSuite_ModelSettings;
 @class GTLRCustomerEngagementSuite_OAuthConfig;
 @class GTLRCustomerEngagementSuite_OmnichannelIntegrationConfig;
@@ -144,6 +157,7 @@
 @class GTLRCustomerEngagementSuite_PythonCodeCondition;
 @class GTLRCustomerEngagementSuite_PythonFunction;
 @class GTLRCustomerEngagementSuite_RedactionConfig;
+@class GTLRCustomerEngagementSuite_RemoteAgentTool;
 @class GTLRCustomerEngagementSuite_Schema;
 @class GTLRCustomerEngagementSuite_Schema_Defs;
 @class GTLRCustomerEngagementSuite_Schema_Properties;
@@ -187,11 +201,13 @@
 @class GTLRCustomerEngagementSuite_TriggerActionRespondImmediately;
 @class GTLRCustomerEngagementSuite_TriggerActionResponse;
 @class GTLRCustomerEngagementSuite_TriggerActionTransferAgent;
+@class GTLRCustomerEngagementSuite_VpcScSettings;
 @class GTLRCustomerEngagementSuite_WebSearchQuery;
 @class GTLRCustomerEngagementSuite_WidgetTool;
 @class GTLRCustomerEngagementSuite_WidgetTool_UiConfig;
 @class GTLRCustomerEngagementSuite_WidgetToolDataMapping;
 @class GTLRCustomerEngagementSuite_WidgetToolDataMapping_FieldMappings;
+@class GTLRCustomerEngagementSuite_WidgetToolTextResponseConfig;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -485,31 +501,37 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_Cha
 // GTLRCustomerEngagementSuite_Conversation.inputTypes
 
 /**
- *  The input message is audio.
+ *  Audio input.
  *
  *  Value: "INPUT_TYPE_AUDIO"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_InputTypes_InputTypeAudio;
 /**
- *  The input message is blob file.
+ *  Blob input.
  *
  *  Value: "INPUT_TYPE_BLOB"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_InputTypes_InputTypeBlob;
 /**
- *  The input message is image.
+ *  Event input.
+ *
+ *  Value: "INPUT_TYPE_EVENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_InputTypes_InputTypeEvent;
+/**
+ *  Image input.
  *
  *  Value: "INPUT_TYPE_IMAGE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_InputTypes_InputTypeImage;
 /**
- *  The input message is text.
+ *  Text input.
  *
  *  Value: "INPUT_TYPE_TEXT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_InputTypes_InputTypeText;
 /**
- *  The input message is client function tool response.
+ *  Client function tool response input.
  *
  *  Value: "INPUT_TYPE_TOOL_RESPONSE"
  */
@@ -521,7 +543,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_Inp
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_InputTypes_InputTypeUnspecified;
 /**
- *  The input message are variables.
+ *  Variables input.
  *
  *  Value: "INPUT_TYPE_VARIABLES"
  */
@@ -530,6 +552,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_Inp
 // ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_Conversation.source
 
+/**
+ *  The conversation is from an agent tool. Agent tool runs the agent in a
+ *  separate session, which is persisted for testing and debugging purposes.
+ *
+ *  Value: "AGENT_TOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_Conversation_Source_AgentTool;
 /**
  *  The conversation is from the evaluation.
  *
@@ -753,6 +782,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EndpointControlP
 // GTLRCustomerEngagementSuite_ErrorHandlingSettings.errorHandlingStrategy
 
 /**
+ *  An EndSession signal will be emitted in case of system errors (e.g. LLM
+ *  errors).
+ *
+ *  Value: "END_SESSION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_EndSession;
+/**
  *  Unspecified error handling strategy.
  *
  *  Value: "ERROR_HANDLING_STRATEGY_UNSPECIFIED"
@@ -881,6 +917,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EvaluationMetric
  *  Value: "FAIL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_EvaluationMetricsThresholdsToolMatchingSettings_ExtraToolCallBehavior_Fail;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_ExperimentConfigVersionRelease.state
+
+/**
+ *  Done state. Experiment is done and no longer valid.
+ *
+ *  Value: "DONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Done;
+/**
+ *  Expired state. Experiment is expired and no longer valid.
+ *
+ *  Value: "EXPIRED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Expired;
+/**
+ *  Pending state. Experiment is pending and not valid.
+ *
+ *  Value: "PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Pending;
+/**
+ *  Running state. Experiment is running and valid.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Running;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_ExportAppRequest.exportFormat
@@ -1118,6 +1188,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_InputAudioConfig
  *  Value: "MULAW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_InputAudioConfig_AudioEncoding_Mulaw;
+
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_MockConfig.unmatchedToolCallBehavior
+
+/**
+ *  Throw an error for any tool calls that don't match a mock expected input
+ *  pattern.
+ *
+ *  Value: "FAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_MockConfig_UnmatchedToolCallBehavior_Fail;
+/**
+ *  For unmatched tool calls, pass the tool call through to real tool.
+ *
+ *  Value: "PASS_THROUGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_MockConfig_UnmatchedToolCallBehavior_PassThrough;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "UNMATCHED_TOOL_CALL_BEHAVIOR_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_MockConfig_UnmatchedToolCallBehavior_UnmatchedToolCallBehaviorUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCustomerEngagementSuite_OAuthConfig.oauthGrantType
@@ -1384,6 +1477,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
  */
 FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMapping_Mode_PythonScript;
 
+// ----------------------------------------------------------------------------
+// GTLRCustomerEngagementSuite_WidgetToolTextResponseConfig.type
+
+/**
+ *  The LLM is explicitly required to generate a text response.
+ *
+ *  Value: "LLM_GENERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_LlmGenerated;
+/**
+ *  The LLM dynamically decides whether to generate a text response alongside
+ *  the widget based on the conversation context.
+ *
+ *  Value: "NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_None;
+/**
+ *  A pre-defined static text response is always used.
+ *
+ *  Value: "STATIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_Static;
+/**
+ *  Unspecified type.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_TypeUnspecified;
+
 /**
  *  Configuration of an Action for the tool to use. Note: This can be either an
  *  Action or an Operation. See
@@ -1583,6 +1705,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 /** Output only. Timestamp when the agent was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/**
+ *  Output only. Misconfigurations or errors in the agent that may affect agent
+ *  quality.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *validationErrors;
+
 @end
 
 
@@ -1599,6 +1727,75 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
  *  `projects/{project}/locations/{location}/apps/{app}/toolsets/{toolset}`
  */
 @property(nonatomic, copy, nullable) NSString *toolset;
+
+@end
+
+
+/**
+ *  AgentCard conveys key information about a remote agent. It is a trimmed
+ *  version of the AgentCard defined in the A2A protocol
+ *  https://a2a-protocol.org/dev/specification/#441-agentcard
+ */
+@interface GTLRCustomerEngagementSuite_AgentCard : GTLRObject
+
+/**
+ *  Required. A description of the agent's domain of action/solution space.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. A human-readable name for the agent. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. Skills represent a unit of ability an agent can perform. This may
+ *  somewhat abstract but represents a more focused set of actions that the
+ *  agent is highly likely to succeed at.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_AgentSkill *> *skills;
+
+/**
+ *  Required. Ordered list of supported interfaces. The first entry is
+ *  preferred.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_AgentInterface *> *supportedInterfaces;
+
+/** Required. The version of the agent. */
+@property(nonatomic, copy, nullable) NSString *version;
+
+@end
+
+
+/**
+ *  Declares a combination of a target URL, transport and protocol version for
+ *  interacting with the agent. This allows agents to expose the same
+ *  functionality over multiple protocol binding mechanisms.
+ */
+@interface GTLRCustomerEngagementSuite_AgentInterface : GTLRObject
+
+/**
+ *  Required. The protocol binding supported at this URL. This is an open form
+ *  string, to be easily extended for other protocol bindings. The core ones
+ *  officially supported are `JSONRPC`, `GRPC` and `HTTP+JSON`.
+ */
+@property(nonatomic, copy, nullable) NSString *protocolBinding;
+
+/**
+ *  Required. The version of the A2A protocol this interface exposes. Use the
+ *  latest supported minor version per major version. Examples: "0.3", "1.0"
+ */
+@property(nonatomic, copy, nullable) NSString *protocolVersion;
+
+/** Tenant ID to be used in the request when calling the agent. */
+@property(nonatomic, copy, nullable) NSString *tenant;
+
+/**
+ *  Required. The URL where this interface is available. Must be a valid
+ *  absolute HTTPS URL in production. Example: "https://api.example.com/a2a/v1",
+ *  "https://grpc.example.com/a2a"
+ */
+@property(nonatomic, copy, nullable) NSString *url;
 
 @end
 
@@ -1694,9 +1891,58 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 
 
 /**
+ *  Represents a distinct capability or function that an agent can perform.
+ */
+@interface GTLRCustomerEngagementSuite_AgentSkill : GTLRObject
+
+/**
+ *  Required. A detailed description of the skill.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Example prompts or scenarios that this skill can handle. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *examples;
+
+/**
+ *  Required. A unique identifier for the agent's skill.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  The set of supported input media types for this skill, overriding the
+ *  agent's defaults.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *inputModes;
+
+/** Required. A human-readable name for the skill. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  The set of supported output media types for this skill, overriding the
+ *  agent's defaults.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *outputModes;
+
+/** Required. A set of keywords describing the skill's capabilities. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
  *  Represents a tool that allows the agent to call another agent.
  */
 @interface GTLRCustomerEngagementSuite_AgentTool : GTLRObject
+
+/**
+ *  Optional. The resource name of the agent that is the entry point of the
+ *  tool. Format: `projects/{project}/locations/{location}/agents/{agent}`
+ */
+@property(nonatomic, copy, nullable) NSString *agent;
 
 /**
  *  Optional. Description of the tool's purpose.
@@ -1709,10 +1955,11 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
- *  Optional. The resource name of the root agent that is the entry point of the
- *  tool. Format: `projects/{project}/locations/{location}/agents/{agent}`
+ *  Optional. Deprecated: Use `agent` instead. The resource name of the root
+ *  agent that is the entry point of the tool. Format:
+ *  `projects/{project}/locations/{location}/agents/{agent}`
  */
-@property(nonatomic, copy, nullable) NSString *rootAgent;
+@property(nonatomic, copy, nullable) NSString *rootAgent GTLR_DEPRECATED;
 
 @end
 
@@ -1993,8 +2240,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 /** Output only. Timestamp when the app was last updated. */
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+/** Output only. Misconfigurations or warnings in the app. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *validationErrors;
+
 /** Optional. The declarations of the variables. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_AppVariableDeclaration *> *variableDeclarations;
+
+/** Optional. VPC-SC settings for the app. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_VpcScSettings *vpcScSettings;
 
 @end
 
@@ -2246,7 +2499,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
  */
 @interface GTLRCustomerEngagementSuite_BigQueryExportSettings : GTLRObject
 
-/** Optional. The BigQuery dataset to export the data to. */
+/** Optional. The BigQuery **dataset ID** to export the data to. */
 @property(nonatomic, copy, nullable) NSString *dataset;
 
 /**
@@ -2257,7 +2510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 @property(nonatomic, strong, nullable) NSNumber *enabled;
 
 /**
- *  Optional. The project ID of the BigQuery dataset to export the data to.
+ *  Optional. The **project ID** of the BigQuery dataset to export the data to.
  *  Note: If the BigQuery dataset is in a different project from the app, you
  *  should grant `roles/bigquery.admin` role to the CES service agent
  *  `service-\@gcp-sa-ces.iam.gserviceaccount.com`.
@@ -2950,6 +3203,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
  *  Output only. Indicate the source of the conversation.
  *
  *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_Conversation_Source_AgentTool The
+ *        conversation is from an agent tool. Agent tool runs the agent in a
+ *        separate session, which is persisted for testing and debugging
+ *        purposes. (Value: "AGENT_TOOL")
  *    @arg @c kGTLRCustomerEngagementSuite_Conversation_Source_Eval The
  *        conversation is from the evaluation. (Value: "EVAL")
  *    @arg @c kGTLRCustomerEngagementSuite_Conversation_Source_Live The
@@ -2988,6 +3245,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *disableConversationLogging;
+
+/**
+ *  Optional. Controls the retention window for the conversation. If not set,
+ *  the conversation will be retained for 365 days.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *retentionWindow;
 
 @end
 
@@ -3510,6 +3773,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
+/** Optional. Experiment configuration for the deployment. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ExperimentConfig *experimentConfig;
+
 /**
  *  Identifier. The resource name of the deployment. Format:
  *  `projects/{project}/locations/{location}/apps/{app}/deployments/{deployment}`
@@ -3659,9 +3925,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 @interface GTLRCustomerEngagementSuite_ErrorHandlingSettings : GTLRObject
 
 /**
+ *  Optional. Configuration for ending the session in case of system errors
+ *  (e.g. LLM errors).
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ErrorHandlingSettingsEndSessionConfig *endSessionConfig;
+
+/**
  *  Optional. The strategy to use for error handling.
  *
  *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_EndSession
+ *        An EndSession signal will be emitted in case of system errors (e.g.
+ *        LLM errors). (Value: "END_SESSION")
  *    @arg @c kGTLRCustomerEngagementSuite_ErrorHandlingSettings_ErrorHandlingStrategy_ErrorHandlingStrategyUnspecified
  *        Unspecified error handling strategy. (Value:
  *        "ERROR_HANDLING_STRATEGY_UNSPECIFIED")
@@ -3673,6 +3948,66 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
  */
 @property(nonatomic, copy, nullable) NSString *errorHandlingStrategy;
 
+/** Optional. Configuration for handling fallback responses. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ErrorHandlingSettingsFallbackResponseConfig *fallbackResponseConfig;
+
+@end
+
+
+/**
+ *  Configuration for ending the session in case of system errors (e.g. LLM
+ *  errors).
+ */
+@interface GTLRCustomerEngagementSuite_ErrorHandlingSettingsEndSessionConfig : GTLRObject
+
+/**
+ *  Optional. Whether to escalate the session in EndSession. If session is
+ *  escalated, metadata in EndSession will contain `session_escalated = true`.
+ *  See
+ *  https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/deploy/google-telephony-platform#transfer_a_call_to_a_human_agent
+ *  for details.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *escalateSession;
+
+@end
+
+
+/**
+ *  Configuration for handling fallback responses.
+ */
+@interface GTLRCustomerEngagementSuite_ErrorHandlingSettingsFallbackResponseConfig : GTLRObject
+
+/**
+ *  Optional. The fallback messages in case of system errors (e.g. LLM errors),
+ *  mapped by [supported language
+ *  code](https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/reference/language).
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ErrorHandlingSettingsFallbackResponseConfig_CustomFallbackMessages *customFallbackMessages;
+
+/**
+ *  Optional. The maximum number of fallback attempts to make before the agent
+ *  emitting EndSession Signal.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxFallbackAttempts;
+
+@end
+
+
+/**
+ *  Optional. The fallback messages in case of system errors (e.g. LLM errors),
+ *  mapped by [supported language
+ *  code](https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps/reference/language).
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_ErrorHandlingSettingsFallbackResponseConfig_CustomFallbackMessages : GTLRObject
 @end
 
 
@@ -3915,6 +4250,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ExecuteToolRequest_Context *context;
 
 /**
+ *  Optional. Mock configuration for the tool execution. If this field is set,
+ *  tools that call other tools will be mocked based on the provided patterns
+ *  and responses.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_MockConfig *mockConfig;
+
+/**
  *  Optional. The name of the tool to execute. Format:
  *  projects/{project}/locations/{location}/apps/{app}/tools/{tool}
  */
@@ -4023,6 +4365,76 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRCustomerEngagementSuite_ExecuteToolResponse_Variables : GTLRObject
+@end
+
+
+/**
+ *  Experiment for the deployment.
+ */
+@interface GTLRCustomerEngagementSuite_ExperimentConfig : GTLRObject
+
+/** Optional. Version release for the experiment. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ExperimentConfigVersionRelease *versionRelease;
+
+@end
+
+
+/**
+ *  Version release for the experiment.
+ */
+@interface GTLRCustomerEngagementSuite_ExperimentConfigVersionRelease : GTLRObject
+
+/**
+ *  Optional. State of the version release.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Done
+ *        Done state. Experiment is done and no longer valid. (Value: "DONE")
+ *    @arg @c kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Expired
+ *        Expired state. Experiment is expired and no longer valid. (Value:
+ *        "EXPIRED")
+ *    @arg @c kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Pending
+ *        Pending state. Experiment is pending and not valid. (Value: "PENDING")
+ *    @arg @c kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_Running
+ *        Running state. Experiment is running and valid. (Value: "RUNNING")
+ *    @arg @c kGTLRCustomerEngagementSuite_ExperimentConfigVersionRelease_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Optional. Traffic allocations for the version release. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_ExperimentConfigVersionReleaseTrafficAllocation *> *trafficAllocations;
+
+@end
+
+
+/**
+ *  Traffic allocation for the version release.
+ */
+@interface GTLRCustomerEngagementSuite_ExperimentConfigVersionReleaseTrafficAllocation : GTLRObject
+
+/**
+ *  Optional. App version of the traffic allocation. Format:
+ *  `projects/{project}/locations/{location}/apps/{app}/versions/{version}`
+ */
+@property(nonatomic, copy, nullable) NSString *appVersion;
+
+/**
+ *  Optional. Id of the traffic allocation. Free format string, up to 128
+ *  characters.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+/**
+ *  Optional. Traffic percentage of the traffic allocation. Must be between 0
+ *  and 100.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trafficPercentage;
+
 @end
 
 
@@ -4785,14 +5197,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 @property(nonatomic, strong, nullable) NSNumber *enableMultilingualSupport;
 
 /**
- *  Optional. The action to perform when an agent receives input in an
- *  unsupported language. This can be a predefined action or a custom tool call.
- *  Valid values are: - A tool's full resource name, which triggers a specific
- *  tool execution. - A predefined system action, such as "escalate" or "exit",
- *  which triggers an EndSession signal with corresponding metadata to terminate
- *  the conversation.
+ *  Optional. Deprecated: This feature is no longer supported. Use
+ *  `enable_multilingual_support` instead to improve handling of multilingual
+ *  input. The action to perform when an agent receives input in an unsupported
+ *  language. This can be a predefined action or a custom tool call. Valid
+ *  values are: - A tool's full resource name, which triggers a specific tool
+ *  execution. - A predefined system action, such as "escalate" or "exit", which
+ *  triggers an EndSession signal with corresponding metadata to terminate the
+ *  conversation.
  */
-@property(nonatomic, copy, nullable) NSString *fallbackAction;
+@property(nonatomic, copy, nullable) NSString *fallbackAction GTLR_DEPRECATED;
 
 /**
  *  Optional. List of languages codes supported by the app, in addition to the
@@ -5234,6 +5648,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 /** Optional. Configuration for how sensitive data should be redacted. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_RedactionConfig *redactionConfig;
 
+/**
+ *  Optional. Configures recording of unredacted audio. Use this to maintain a
+ *  raw backup with restricted access when audio redaction is enabled, typically
+ *  for auditing or monitoring purposes.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AudioRecordingConfig *unredactedAudioRecordingConfig;
+
 @end
 
 
@@ -5417,6 +5838,96 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
  */
 @property(nonatomic, strong, nullable) NSNumber *llmMetricsOptedOut;
 
+@end
+
+
+/**
+ *  Mock tool calls configuration for the session.
+ */
+@interface GTLRCustomerEngagementSuite_MockConfig : GTLRObject
+
+/** Optional. All tool calls to mock for the duration of the session. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCustomerEngagementSuite_MockedToolCall *> *mockedToolCalls;
+
+/**
+ *  Required. Beavhior for tool calls that don't match any args patterns in
+ *  mocked_tool_calls.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_MockConfig_UnmatchedToolCallBehavior_Fail
+ *        Throw an error for any tool calls that don't match a mock expected
+ *        input pattern. (Value: "FAIL")
+ *    @arg @c kGTLRCustomerEngagementSuite_MockConfig_UnmatchedToolCallBehavior_PassThrough
+ *        For unmatched tool calls, pass the tool call through to real tool.
+ *        (Value: "PASS_THROUGH")
+ *    @arg @c kGTLRCustomerEngagementSuite_MockConfig_UnmatchedToolCallBehavior_UnmatchedToolCallBehaviorUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "UNMATCHED_TOOL_CALL_BEHAVIOR_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *unmatchedToolCallBehavior;
+
+@end
+
+
+/**
+ *  A mocked tool call. Expresses the target tool + a pattern to match against
+ *  that tool's args / inputs. If the pattern matches, then the mock response
+ *  will be returned.
+ */
+@interface GTLRCustomerEngagementSuite_MockedToolCall : GTLRObject
+
+/**
+ *  Required. A pattern to match against the args / inputs of all dispatched
+ *  tool calls. If the tool call inputs match this pattern, then mock output
+ *  will be returned.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_MockedToolCall_ExpectedArgsPattern *expectedArgsPattern;
+
+/**
+ *  Optional. The mock response / output to return if the tool call args /
+ *  inputs match the pattern.
+ */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_MockedToolCall_MockResponse *mockResponse;
+
+/** Optional. Deprecated. Use tool_identifier instead. */
+@property(nonatomic, copy, nullable) NSString *tool GTLR_DEPRECATED;
+
+/**
+ *  Optional. The name of the tool to mock. Format:
+ *  `projects/{project}/locations/{location}/apps/{app}/tools/{tool}`
+ */
+@property(nonatomic, copy, nullable) NSString *toolId;
+
+/** Optional. The toolset to mock. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ToolsetTool *toolset;
+
+@end
+
+
+/**
+ *  Required. A pattern to match against the args / inputs of all dispatched
+ *  tool calls. If the tool call inputs match this pattern, then mock output
+ *  will be returned.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_MockedToolCall_ExpectedArgsPattern : GTLRObject
+@end
+
+
+/**
+ *  Optional. The mock response / output to return if the tool call args /
+ *  inputs match the pattern.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRCustomerEngagementSuite_MockedToolCall_MockResponse : GTLRObject
 @end
 
 
@@ -5995,6 +6506,27 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 
 
 /**
+ *  Represents a tool that allows the agent to call another remote agent.
+ */
+@interface GTLRCustomerEngagementSuite_RemoteAgentTool : GTLRObject
+
+/** Required. The agent card of the remote agent that this tool invokes. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_AgentCard *agentCard;
+
+/**
+ *  Required. The description of the tool.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/** Required. The name of the tool. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Request message for AgentService.RestoreAppVersion
  */
 @interface GTLRCustomerEngagementSuite_RestoreAppVersionRequest : GTLRObject
@@ -6349,6 +6881,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
  *  `projects/{project}/locations/{location}/apps/{app}/deployments/{deployment}`
  */
 @property(nonatomic, copy, nullable) NSString *deployment;
+
+/**
+ *  Optional. Whether to enable streaming text outputs from the model. By
+ *  default, text outputs from the model are collected before sending to the
+ *  client. NOTE: This is only supported for text (non-voice) sessions via
+ *  StreamRunSession or BidiRunSession.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableTextStreaming;
 
 /**
  *  Optional. The entry agent to handle the session. If not specified, the
@@ -6901,8 +7443,18 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 /** Optional. The python function tool. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_PythonFunction *pythonFunction;
 
+/** Optional. The remote agent tool. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_RemoteAgentTool *remoteAgentTool;
+
 /** Optional. The system tool. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_SystemTool *systemTool;
+
+/**
+ *  Optional. The timeout for the tool execution. If not set, the default
+ *  timeout is 30 seconds for `SYNCHRONOUS` tools and 60 seconds for
+ *  `ASYNCHRONOUS` tools.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *timeout;
 
 /** Optional. Configuration for tool behavior in fake mode. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_ToolFakeConfig *toolFakeConfig;
@@ -7305,6 +7857,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 
 
 /**
+ *  VPC-SC settings for the app.
+ */
+@interface GTLRCustomerEngagementSuite_VpcScSettings : GTLRObject
+
+/**
+ *  Optional. The allowed HTTP(s) origins that OpenAPI tools in the App are able
+ *  to directly call when VPC Service Controls are enabled. These strings must
+ *  match the origin exactly, including the port if specified. For example,
+ *  "https://example.com" or "https://example.com:443". This list does not yet
+ *  apply to Python tools that may make direct HTTP calls.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *allowedOrigins;
+
+@end
+
+
+/**
  *  Represents a single web search query and its associated search uri.
  */
 @interface GTLRCustomerEngagementSuite_WebSearchQuery : GTLRObject
@@ -7344,6 +7913,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 
 /** Optional. The input parameters of the widget tool. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_Schema *parameters;
+
+/** Optional. Configuration for always-included text responses. */
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_WidgetToolTextResponseConfig *textResponseConfig;
 
 /** Optional. Configuration for rendering the widget. */
 @property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_WidgetTool_UiConfig *uiConfig;
@@ -7425,11 +7997,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
 @property(nonatomic, copy, nullable) NSString *mode;
 
 /**
- *  Optional. A Python script used to transform the source tool's output into
- *  the widget's input format. This is used when the mapping is too complex for
- *  simple field mappings.
+ *  Optional. Configuration for a Python function used to transform the source
+ *  tool's output into the widget's input format.
  */
-@property(nonatomic, copy, nullable) NSString *pythonScript;
+@property(nonatomic, strong, nullable) GTLRCustomerEngagementSuite_PythonFunction *pythonFunction;
+
+/** Deprecated: Use `python_function` instead. */
+@property(nonatomic, copy, nullable) NSString *pythonScript GTLR_DEPRECATED;
 
 /**
  *  Optional. The resource name of the tool that provides the data for the
@@ -7451,6 +8025,41 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuite_WidgetToolDataMa
  *        fetch them all at once.
  */
 @interface GTLRCustomerEngagementSuite_WidgetToolDataMapping_FieldMappings : GTLRObject
+@end
+
+
+/**
+ *  Configuration for the text response returned with the widget.
+ */
+@interface GTLRCustomerEngagementSuite_WidgetToolTextResponseConfig : GTLRObject
+
+/** Optional. The static text response to return when type is STATIC. */
+@property(nonatomic, copy, nullable) NSString *staticText;
+
+/**
+ *  Optional. Instruction for the LLM on how to generate the text response. Used
+ *  as the description for the text response parameter if type is LLM_GENERATED.
+ */
+@property(nonatomic, copy, nullable) NSString *textResponseInstruction;
+
+/**
+ *  Optional. The strategy for providing the text response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_LlmGenerated
+ *        The LLM is explicitly required to generate a text response. (Value:
+ *        "LLM_GENERATED")
+ *    @arg @c kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_None
+ *        The LLM dynamically decides whether to generate a text response
+ *        alongside the widget based on the conversation context. (Value:
+ *        "NONE")
+ *    @arg @c kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_Static
+ *        A pre-defined static text response is always used. (Value: "STATIC")
+ *    @arg @c kGTLRCustomerEngagementSuite_WidgetToolTextResponseConfig_Type_TypeUnspecified
+ *        Unspecified type. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
 @end
 
 NS_ASSUME_NONNULL_END

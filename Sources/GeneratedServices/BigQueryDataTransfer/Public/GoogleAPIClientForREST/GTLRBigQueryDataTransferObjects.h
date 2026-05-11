@@ -20,21 +20,29 @@
 @class GTLRBigQueryDataTransfer_EmailPreferences;
 @class GTLRBigQueryDataTransfer_EncryptionConfiguration;
 @class GTLRBigQueryDataTransfer_EventDrivenSchedule;
+@class GTLRBigQueryDataTransfer_HierarchyDetail;
 @class GTLRBigQueryDataTransfer_Location;
 @class GTLRBigQueryDataTransfer_Location_Labels;
 @class GTLRBigQueryDataTransfer_Location_Metadata;
 @class GTLRBigQueryDataTransfer_ManualSchedule;
+@class GTLRBigQueryDataTransfer_PartitionDetail;
 @class GTLRBigQueryDataTransfer_ScheduleOptions;
 @class GTLRBigQueryDataTransfer_ScheduleOptionsV2;
 @class GTLRBigQueryDataTransfer_Status;
 @class GTLRBigQueryDataTransfer_Status_Details_Item;
+@class GTLRBigQueryDataTransfer_TableDetail;
 @class GTLRBigQueryDataTransfer_TimeBasedSchedule;
 @class GTLRBigQueryDataTransfer_TimeRange;
 @class GTLRBigQueryDataTransfer_TransferConfig;
 @class GTLRBigQueryDataTransfer_TransferConfig_Params;
 @class GTLRBigQueryDataTransfer_TransferMessage;
+@class GTLRBigQueryDataTransfer_TransferResource;
+@class GTLRBigQueryDataTransfer_TransferResourceStatusDetail;
 @class GTLRBigQueryDataTransfer_TransferRun;
 @class GTLRBigQueryDataTransfer_TransferRun_Params;
+@class GTLRBigQueryDataTransfer_TransferRunBrief;
+@class GTLRBigQueryDataTransfer_TransferStatusMetric;
+@class GTLRBigQueryDataTransfer_TransferStatusSummary;
 @class GTLRBigQueryDataTransfer_UserInfo;
 
 // Generated comments include content from the discovery document; avoid them
@@ -270,6 +278,108 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Sev
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferMessage_Severity_Warning;
 
 // ----------------------------------------------------------------------------
+// GTLRBigQueryDataTransfer_TransferResource.destination
+
+/**
+ *  BigLake Hive Catalog.
+ *
+ *  Value: "RESOURCE_DESTINATION_BIGLAKE_HIVE_CATALOG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBiglakeHiveCatalog;
+/**
+ *  BigLake Metastore.
+ *
+ *  Value: "RESOURCE_DESTINATION_BIGLAKE_METASTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBiglakeMetastore;
+/**
+ *  BigLake REST Catalog.
+ *
+ *  Value: "RESOURCE_DESTINATION_BIGLAKE_REST_CATALOG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBiglakeRestCatalog;
+/**
+ *  BigQuery.
+ *
+ *  Value: "RESOURCE_DESTINATION_BIGQUERY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBigquery;
+/**
+ *  Dataproc Metastore.
+ *
+ *  Value: "RESOURCE_DESTINATION_DATAPROC_METASTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationDataprocMetastore;
+/**
+ *  Default value.
+ *
+ *  Value: "RESOURCE_DESTINATION_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigQueryDataTransfer_TransferResource.type
+
+/**
+ *  Partition resource type.
+ *
+ *  Value: "RESOURCE_TYPE_PARTITION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResource_Type_ResourceTypePartition;
+/**
+ *  Table resource type.
+ *
+ *  Value: "RESOURCE_TYPE_TABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResource_Type_ResourceTypeTable;
+/**
+ *  Default value.
+ *
+ *  Value: "RESOURCE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResource_Type_ResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigQueryDataTransfer_TransferResourceStatusDetail.state
+
+/**
+ *  Resource transfer was cancelled.
+ *
+ *  Value: "RESOURCE_TRANSFER_CANCELLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferCancelled;
+/**
+ *  Resource transfer failed.
+ *
+ *  Value: "RESOURCE_TRANSFER_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferFailed;
+/**
+ *  Resource is waiting to be transferred.
+ *
+ *  Value: "RESOURCE_TRANSFER_PENDING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferPending;
+/**
+ *  Resource transfer is running.
+ *
+ *  Value: "RESOURCE_TRANSFER_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferRunning;
+/**
+ *  Default value.
+ *
+ *  Value: "RESOURCE_TRANSFER_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferStateUnspecified;
+/**
+ *  Resource transfer is a success.
+ *
+ *  Value: "RESOURCE_TRANSFER_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferSucceeded;
+
+// ----------------------------------------------------------------------------
 // GTLRBigQueryDataTransfer_TransferRun.state
 
 /**
@@ -309,6 +419,50 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_S
  *  Value: "TRANSFER_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_TransferStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigQueryDataTransfer_TransferStatusMetric.unit
+
+/**
+ *  Bytes.
+ *
+ *  Value: "TRANSFER_STATUS_UNIT_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferStatusMetric_Unit_TransferStatusUnitBytes;
+/**
+ *  Objects.
+ *
+ *  Value: "TRANSFER_STATUS_UNIT_OBJECTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferStatusMetric_Unit_TransferStatusUnitObjects;
+/**
+ *  Default value.
+ *
+ *  Value: "TRANSFER_STATUS_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferStatusMetric_Unit_TransferStatusUnitUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRBigQueryDataTransfer_TransferStatusSummary.progressUnit
+
+/**
+ *  Bytes.
+ *
+ *  Value: "TRANSFER_STATUS_UNIT_BYTES"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_TransferStatusUnitBytes;
+/**
+ *  Objects.
+ *
+ *  Value: "TRANSFER_STATUS_UNIT_OBJECTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_TransferStatusUnitObjects;
+/**
+ *  Default value.
+ *
+ *  Value: "TRANSFER_STATUS_UNIT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_TransferStatusUnitUnspecified;
 
 /**
  *  A request to determine whether the user has valid credentials. This method
@@ -667,6 +821,20 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
+ *  Details about the hierarchy.
+ */
+@interface GTLRBigQueryDataTransfer_HierarchyDetail : GTLRObject
+
+/** Optional. Partition details related to hierarchy. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_PartitionDetail *partitionDetail;
+
+/** Optional. Table details related to hierarchy. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TableDetail *tableDetail;
+
+@end
+
+
+/**
  *  Returns list of supported data sources and their metadata.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -775,6 +943,33 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
+ *  Response for the `ListTransferResources` RPC.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "transferResources" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBigQueryDataTransfer_ListTransferResourcesResponse : GTLRCollectionObject
+
+/**
+ *  Output only. A token, which can be sent as `page_token` to retrieve the next
+ *  page. If this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Output only. The transfer resources.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryDataTransfer_TransferResource *> *transferResources;
+
+@end
+
+
+/**
  *  The returned list of pipelines in the project.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -867,6 +1062,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *  Options customizing manual transfers schedule.
  */
 @interface GTLRBigQueryDataTransfer_ManualSchedule : GTLRObject
+@end
+
+
+/**
+ *  Partition details related to hierarchy.
+ */
+@interface GTLRBigQueryDataTransfer_PartitionDetail : GTLRObject
+
+/** Optional. Name of the table which has the partitions. */
+@property(nonatomic, copy, nullable) NSString *table;
+
 @end
 
 
@@ -1042,6 +1248,21 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBigQueryDataTransfer_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  Table details related to hierarchy.
+ */
+@interface GTLRBigQueryDataTransfer_TableDetail : GTLRObject
+
+/**
+ *  Optional. Total number of partitions being tracked within the table.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *partitionCount;
+
 @end
 
 
@@ -1327,6 +1548,108 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
 
 
 /**
+ *  Resource (table/partition) that is being transferred.
+ */
+@interface GTLRBigQueryDataTransfer_TransferResource : GTLRObject
+
+/**
+ *  Optional. Resource destination.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBiglakeHiveCatalog
+ *        BigLake Hive Catalog. (Value:
+ *        "RESOURCE_DESTINATION_BIGLAKE_HIVE_CATALOG")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBiglakeMetastore
+ *        BigLake Metastore. (Value: "RESOURCE_DESTINATION_BIGLAKE_METASTORE")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBiglakeRestCatalog
+ *        BigLake REST Catalog. (Value:
+ *        "RESOURCE_DESTINATION_BIGLAKE_REST_CATALOG")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationBigquery
+ *        BigQuery. (Value: "RESOURCE_DESTINATION_BIGQUERY")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationDataprocMetastore
+ *        Dataproc Metastore. (Value: "RESOURCE_DESTINATION_DATAPROC_METASTORE")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResource_Destination_ResourceDestinationUnspecified
+ *        Default value. (Value: "RESOURCE_DESTINATION_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *destination;
+
+/** Optional. Details about the hierarchy. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_HierarchyDetail *hierarchyDetail;
+
+/** Output only. Run details for the last successful run. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferRunBrief *lastSuccessfulRun;
+
+/** Optional. Run details for the latest run. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferRunBrief *latestRun;
+
+/** Optional. Status details for the latest run. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferResourceStatusDetail *latestStatusDetail;
+
+/** Identifier. Resource name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Resource type.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResource_Type_ResourceTypePartition
+ *        Partition resource type. (Value: "RESOURCE_TYPE_PARTITION")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResource_Type_ResourceTypeTable
+ *        Table resource type. (Value: "RESOURCE_TYPE_TABLE")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResource_Type_ResourceTypeUnspecified
+ *        Default value. (Value: "RESOURCE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+/** Output only. Time when the resource was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Status details of the resource being transferred.
+ */
+@interface GTLRBigQueryDataTransfer_TransferResourceStatusDetail : GTLRObject
+
+/**
+ *  Output only. Percentage of the transfer completed. Valid values: 0-100.
+ *
+ *  Uses NSNumber of doubleValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completedPercentage;
+
+/** Optional. Transfer error details for the resource. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_Status *error;
+
+/**
+ *  Optional. Transfer state of the resource.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferCancelled
+ *        Resource transfer was cancelled. (Value:
+ *        "RESOURCE_TRANSFER_CANCELLED")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferFailed
+ *        Resource transfer failed. (Value: "RESOURCE_TRANSFER_FAILED")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferPending
+ *        Resource is waiting to be transferred. (Value:
+ *        "RESOURCE_TRANSFER_PENDING")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferRunning
+ *        Resource transfer is running. (Value: "RESOURCE_TRANSFER_RUNNING")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferStateUnspecified
+ *        Default value. (Value: "RESOURCE_TRANSFER_STATE_UNSPECIFIED")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferResourceStatusDetail_State_ResourceTransferSucceeded
+ *        Resource transfer is a success. (Value: "RESOURCE_TRANSFER_SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Optional. Transfer status summary of the resource. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataTransfer_TransferStatusSummary *summary;
+
+@end
+
+
+/**
  *  Represents a data transfer run.
  */
 @interface GTLRBigQueryDataTransfer_TransferRun : GTLRObject
@@ -1446,6 +1769,97 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransfer_TransferRun_State_T
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRBigQueryDataTransfer_TransferRun_Params : GTLRObject
+@end
+
+
+/**
+ *  Basic information about a transfer run.
+ */
+@interface GTLRBigQueryDataTransfer_TransferRunBrief : GTLRObject
+
+/**
+ *  Optional. Run URI. The format must be:
+ *  `projects/{project}/locations/{location}/transferConfigs/{transfer_config}/run/{run}`
+ */
+@property(nonatomic, copy, nullable) NSString *run;
+
+/** Optional. Start time of the transfer run. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  Metrics for tracking the transfer status.
+ */
+@interface GTLRBigQueryDataTransfer_TransferStatusMetric : GTLRObject
+
+/**
+ *  Optional. Number of units transferred successfully.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *completed;
+
+/**
+ *  Optional. Number of units that failed to transfer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *failed;
+
+/**
+ *  Optional. Number of units pending transfer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *pending;
+
+/**
+ *  Optional. Total number of units for the transfer.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *total;
+
+/**
+ *  Optional. Unit for measuring progress (e.g., BYTES).
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferStatusMetric_Unit_TransferStatusUnitBytes
+ *        Bytes. (Value: "TRANSFER_STATUS_UNIT_BYTES")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferStatusMetric_Unit_TransferStatusUnitObjects
+ *        Objects. (Value: "TRANSFER_STATUS_UNIT_OBJECTS")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferStatusMetric_Unit_TransferStatusUnitUnspecified
+ *        Default value. (Value: "TRANSFER_STATUS_UNIT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *unit;
+
+@end
+
+
+/**
+ *  Status summary of the resource being transferred.
+ */
+@interface GTLRBigQueryDataTransfer_TransferStatusSummary : GTLRObject
+
+/** Optional. List of transfer status metrics. */
+@property(nonatomic, strong, nullable) NSArray<GTLRBigQueryDataTransfer_TransferStatusMetric *> *metrics;
+
+/**
+ *  Input only. Unit based on which transfer status progress should be
+ *  calculated.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_TransferStatusUnitBytes
+ *        Bytes. (Value: "TRANSFER_STATUS_UNIT_BYTES")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_TransferStatusUnitObjects
+ *        Objects. (Value: "TRANSFER_STATUS_UNIT_OBJECTS")
+ *    @arg @c kGTLRBigQueryDataTransfer_TransferStatusSummary_ProgressUnit_TransferStatusUnitUnspecified
+ *        Default value. (Value: "TRANSFER_STATUS_UNIT_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *progressUnit;
+
 @end
 
 

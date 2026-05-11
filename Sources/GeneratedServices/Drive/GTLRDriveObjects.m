@@ -166,6 +166,16 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_AddReviewer
+//
+
+@implementation GTLRDrive_AddReviewer
+@dynamic addedReviewerEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_App
 //
 
@@ -275,6 +285,26 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_ApproveApprovalRequest
+//
+
+@implementation GTLRDrive_ApproveApprovalRequest
+@dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_CancelApprovalRequest
+//
+
+@implementation GTLRDrive_CancelApprovalRequest
+@dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_Change
 //
 
@@ -338,6 +368,16 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_ClientEncryptionDetails
+//
+
+@implementation GTLRDrive_ClientEncryptionDetails
+@dynamic decryptionMetadata, encryptionState;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_Comment
 //
 
@@ -373,6 +413,16 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_CommentApprovalRequest
+//
+
+@implementation GTLRDrive_CommentApprovalRequest
+@dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_CommentList
 //
 
@@ -401,6 +451,27 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 @implementation GTLRDrive_ContentRestriction
 @dynamic ownerRestricted, readOnly, reason, restrictingUser, restrictionTime,
          systemRestricted, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_DeclineApprovalRequest
+//
+
+@implementation GTLRDrive_DeclineApprovalRequest
+@dynamic message;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_DecryptionMetadata
+//
+
+@implementation GTLRDrive_DecryptionMetadata
+@dynamic aes256GcmChunkSize, encryptionResourceKeyHash, jwt, kaclsId, kaclsName,
+         keyFormat, wrappedKey;
 @end
 
 
@@ -513,10 +584,10 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 //
 
 @implementation GTLRDrive_File
-@dynamic appProperties, capabilities, contentHints, contentRestrictions,
-         copyRequiresWriterPermission, createdTime, descriptionProperty,
-         downloadRestrictions, driveId, explicitlyTrashed, exportLinks,
-         fileExtension, folderColorRgb, fullFileExtension,
+@dynamic appProperties, capabilities, clientEncryptionDetails, contentHints,
+         contentRestrictions, copyRequiresWriterPermission, createdTime,
+         descriptionProperty, downloadRestrictions, driveId, explicitlyTrashed,
+         exportLinks, fileExtension, folderColorRgb, fullFileExtension,
          hasAugmentedPermissions, hasThumbnail, headRevisionId, iconLink,
          identifier, imageMediaMetadata, inheritedPermissionsDisabled,
          isAppAuthorized, kind, labelInfo, lastModifyingUser, linkShareMetadata,
@@ -587,8 +658,8 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
          canMoveItemWithinDrive, canMoveItemWithinTeamDrive,
          canMoveTeamDriveItem, canReadDrive, canReadLabels, canReadRevisions,
          canReadTeamDrive, canRemoveChildren, canRemoveContentRestriction,
-         canRemoveMyDriveParent, canRename, canShare, canTrash,
-         canTrashChildren, canUntrash;
+         canRemoveMyDriveParent, canRename, canShare, canStartApproval,
+         canTrash, canTrashChildren, canUntrash;
 @end
 
 
@@ -728,6 +799,23 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 
 + (NSString *)collectionItemsKey {
   return @"files";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_GenerateCseTokenResponse
+//
+
+@implementation GTLRDrive_GenerateCseTokenResponse
+@dynamic currentKaclsId, currentKaclsName, fileId, jwt, kind;
+
++ (BOOL)isKindValidForClassRegistry {
+  // This class has a "kind" property that doesn't appear to be usable to
+  // determine what type of object was encoded in the JSON.
+  return NO;
 }
 
 @end
@@ -1078,6 +1166,35 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDrive_ReassignApprovalRequest
+//
+
+@implementation GTLRDrive_ReassignApprovalRequest
+@dynamic addReviewers, message, replaceReviewers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"addReviewers" : [GTLRDrive_AddReviewer class],
+    @"replaceReviewers" : [GTLRDrive_ReplaceReviewer class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_ReplaceReviewer
+//
+
+@implementation GTLRDrive_ReplaceReviewer
+@dynamic addedReviewerEmail, removedReviewerEmail;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDrive_Reply
 //
 
@@ -1204,6 +1321,24 @@ NSString * const kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified = @"RE
 
 + (NSString *)collectionItemsKey {
   return @"revisions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDrive_StartApprovalRequest
+//
+
+@implementation GTLRDrive_StartApprovalRequest
+@dynamic dueTime, lockFile, message, reviewerEmails;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"reviewerEmails" : [NSString class]
+  };
+  return map;
 }
 
 @end

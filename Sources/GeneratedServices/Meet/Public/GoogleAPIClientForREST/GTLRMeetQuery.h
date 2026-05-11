@@ -358,6 +358,81 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Gets smart notes by smart note ID.
+ *
+ *  Method: meet.conferenceRecords.smartNotes.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceReadonly
+ */
+@interface GTLRMeetQuery_ConferenceRecordsSmartNotesGet : GTLRMeetQuery
+
+/**
+ *  Required. Resource name of the smart note. Format:
+ *  conferenceRecords/{conference_record}/smartNotes/{smart_note}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRMeet_SmartNote.
+ *
+ *  Gets smart notes by smart note ID.
+ *
+ *  @param name Required. Resource name of the smart note. Format:
+ *    conferenceRecords/{conference_record}/smartNotes/{smart_note}
+ *
+ *  @return GTLRMeetQuery_ConferenceRecordsSmartNotesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists the set of smart notes from the conference record. By default, ordered
+ *  by start time and in ascending order.
+ *
+ *  Method: meet.conferenceRecords.smartNotes.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceCreated
+ *    @c kGTLRAuthScopeMeetMeetingsSpaceReadonly
+ */
+@interface GTLRMeetQuery_ConferenceRecordsSmartNotesList : GTLRMeetQuery
+
+/**
+ *  Optional. Maximum number of smart notes to return. The service might return
+ *  fewer than this value. If unspecified, at most 10 smart notes are returned.
+ *  The maximum value is 100; values above 100 are coerced to 100. Maximum might
+ *  change in the future.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Page token returned from previous List Call. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Format: `conferenceRecords/{conference_record}` */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRMeet_ListSmartNotesResponse.
+ *
+ *  Lists the set of smart notes from the conference record. By default, ordered
+ *  by start time and in ascending order.
+ *
+ *  @param parent Required. Format: `conferenceRecords/{conference_record}`
+ *
+ *  @return GTLRMeetQuery_ConferenceRecordsSmartNotesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Gets a `TranscriptEntry` resource by entry ID. Note: The transcript entries
  *  returned by the Google Meet API might not match the transcription found in
  *  the Google Docs transcript file. This can occur when 1) we have interleaved

@@ -52,8 +52,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_Allow;
 /**
- *  This is only used for distinguishing unset values and should never be used.
- *  Results in an error.
+ *  This is only used for distinguishing unset values, and results in an error
+ *  if set.
  *
  *  Value: "CONSTRAINT_DEFAULT_UNSPECIFIED"
  */
@@ -70,8 +70,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Const
 // GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition.actionType
 
 /**
- *  This is only used for distinguishing unset values and should never be used.
- *  Results in an error.
+ *  This is only used for distinguishing unset values, and results in an error
+ *  if used.
  *
  *  Value: "ACTION_TYPE_UNSPECIFIED"
  */
@@ -99,7 +99,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Const
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_Create;
 /**
- *  Constraint applied when deleting the resource. Not currently supported.
+ *  Constraint applied when deleting the resource. Not supported.
  *
  *  Value: "DELETE"
  */
@@ -111,8 +111,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Const
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_MethodTypes_GovernTags;
 /**
- *  This is only used for distinguishing unset values and should never be used.
- *  Results in an error.
+ *  This is only used for distinguishing unset values, and results in an error
+ *  if used.
  *
  *  Value: "METHOD_TYPE_UNSPECIFIED"
  */
@@ -152,8 +152,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Const
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_String;
 /**
- *  This is only used for distinguishing unset values and should never be used.
- *  Results in an error.
+ *  This is only used for distinguishing unset values, and results in an error
+ *  if used.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -181,8 +181,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Const
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_String;
 /**
- *  This is only used for distinguishing unset values and should never be used.
- *  Results in an error.
+ *  This is only used for distinguishing unset values, and results in an error
+ *  if used.
  *
  *  Value: "TYPE_UNSPECIFIED"
  */
@@ -192,8 +192,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Const
 // GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint.actionType
 
 /**
- *  This is only used for distinguishing unset values and should never be used.
- *  Results in an error.
+ *  This is only used for distinguishing unset values, and results in an error
+ *  if used.
  *
  *  Value: "ACTION_TYPE_UNSPECIFIED"
  */
@@ -221,7 +221,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Create;
 /**
- *  Constraint applied when deleting the resource. Not currently supported.
+ *  Constraint applied when deleting the resource. Not supported.
  *
  *  Value: "DELETE"
  */
@@ -233,8 +233,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  */
 FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_GovernTags;
 /**
- *  This is only used for distinguishing unset values and should never be used.
- *  Results in an error.
+ *  This is only used for distinguishing unset values, and results in an error
+ *  if used.
  *
  *  Value: "METHOD_TYPE_UNSPECIFIED"
  */
@@ -260,7 +260,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 
 /**
  *  Reference to the launch that will be used while audit logging and to control
- *  the launch. Should be set only in the alternate policy.
+ *  the launch. Set only in the alternate policy.
  */
 @property(nonatomic, copy, nullable) NSString *launch;
 
@@ -271,7 +271,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 
 
 /**
- *  A constraint describes a way to restrict resource's configuration. For
+ *  A constraint describes a way to restrict a resource's configuration. For
  *  example, you could enforce a constraint that controls which Google Cloud
  *  services can be activated across an organization, or whether a Compute
  *  Engine instance can have serial port connections established. Constraints
@@ -297,8 +297,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  *        Indicate that all values are allowed for list constraints. Indicate
  *        that enforcement is off for boolean constraints. (Value: "ALLOW")
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_ConstraintDefaultUnspecified
- *        This is only used for distinguishing unset values and should never be
- *        used. Results in an error. (Value: "CONSTRAINT_DEFAULT_UNSPECIFIED")
+ *        This is only used for distinguishing unset values, and results in an
+ *        error if set. (Value: "CONSTRAINT_DEFAULT_UNSPECIFIED")
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint_ConstraintDefault_Deny
  *        Indicate that all values are denied for list constraints. Indicate
  *        that enforcement is on for boolean constraints. (Value: "DENY")
@@ -317,8 +317,11 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 @property(nonatomic, copy, nullable) NSString *displayName;
 
 /**
- *  Managed constraint and canned constraint sometimes can have equivalents.
- *  This field is used to store the equivalent constraint name.
+ *  Defines the equivalent constraint name, if it exists. Managed constraints
+ *  can have an equivalent legacy managed constraint, and legacy managed
+ *  constraints can have an equivalent managed constraint. For example,
+ *  "constraints/iam.disableServiceAccountKeyUpload" is equivalent to
+ *  "constraints/iam.managed.disableServiceAccountKeyUpload".
  */
 @property(nonatomic, copy, nullable) NSString *equivalentConstraint;
 
@@ -374,8 +377,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  *
  *  Likely values:
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_ActionTypeUnspecified
- *        This is only used for distinguishing unset values and should never be
- *        used. Results in an error. (Value: "ACTION_TYPE_UNSPECIFIED")
+ *        This is only used for distinguishing unset values, and results in an
+ *        error if used. (Value: "ACTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_Allow
  *        Allowed action type. (Value: "ALLOW")
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_ActionType_Deny
@@ -401,8 +404,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 @property(nonatomic, strong, nullable) GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinition_Parameters *parameters;
 
 /**
- *  The resource instance type on which this policy applies. Format will be of
- *  the form : `/` Example: * `compute.googleapis.com/Instance`.
+ *  The resource instance type that this policy applies to, in the format `/`.
+ *  Example: * `compute.googleapis.com/Instance`.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *resourceTypes;
 
@@ -447,8 +450,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_String
  *        String parameter type. (Value: "STRING")
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Item_TypeUnspecified
- *        This is only used for distinguishing unset values and should never be
- *        used. Results in an error. (Value: "TYPE_UNSPECIFIED")
+ *        This is only used for distinguishing unset values, and results in an
+ *        error if used. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *item;
 
@@ -469,15 +472,15 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_String
  *        String parameter type. (Value: "STRING")
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameter_Type_TypeUnspecified
- *        This is only used for distinguishing unset values and should never be
- *        used. Results in an error. (Value: "TYPE_UNSPECIFIED")
+ *        This is only used for distinguishing unset values, and results in an
+ *        error if used. (Value: "TYPE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
  *  Provides a CEL expression to specify the acceptable parameter values during
  *  assignment. For example, parameterName in ("parameterValue1",
- *  "parameterValue2")
+ *  "parameterValue2").
  */
 @property(nonatomic, copy, nullable) NSString *validValuesExpr;
 
@@ -490,7 +493,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 @interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ConstraintCustomConstraintDefinitionParameterMetadata : GTLRObject
 
 /**
- *  Detailed description of what this `parameter` is and use of it. Mutable.
+ *  Detailed description of what this `parameter` is and its use. Mutable.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */
@@ -540,8 +543,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  *
  *  Likely values:
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_ActionTypeUnspecified
- *        This is only used for distinguishing unset values and should never be
- *        used. Results in an error. (Value: "ACTION_TYPE_UNSPECIFIED")
+ *        This is only used for distinguishing unset values, and results in an
+ *        error if used. (Value: "ACTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Allow
  *        Allowed action type. (Value: "ALLOW")
  *    @arg @c kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Deny
@@ -577,7 +580,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 
 /**
  *  Immutable. Name of the constraint. This is unique within the organization.
- *  Format of the name should be *
+ *  The name must be of the form: *
  *  `organizations/{organization_id}/customConstraints/{custom_constraint_id}`
  *  Example: `organizations/123/customConstraints/custom.createOnlyE2TypeVms`
  *  The max length is 71 characters and the minimum length is 1. Note that the
@@ -620,7 +623,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  */
 @property(nonatomic, strong, nullable) NSArray<GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Constraint *> *constraints;
 
-/** Page token used to retrieve the next page. This is currently not used. */
+/** Page token used to retrieve the next page. This is not used. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
 @end
@@ -648,8 +651,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 @property(nonatomic, strong, nullable) NSArray<GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2CustomConstraint *> *customConstraints;
 
 /**
- *  Page token used to retrieve the next page. This is currently not used, but
- *  the server may at any point start supplying a valid token.
+ *  Page token used to retrieve the next page. This is not used, but the server
+ *  may at any point start supplying a valid token.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -668,8 +671,8 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 @interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2ListPoliciesResponse : GTLRCollectionObject
 
 /**
- *  Page token used to retrieve the next page. This is currently not used, but
- *  the server may at any point start supplying a valid token.
+ *  Page token used to retrieve the next page. This is not used, but the server
+ *  may at any point start supplying a valid token.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
@@ -686,7 +689,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 
 
 /**
- *  Defines an organization policy which is used to specify constraints for
+ *  Defines an organization policy that is used to specify constraints for
  *  configurations of Google Cloud resources.
  */
 @interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Policy : GTLRObject
@@ -702,15 +705,15 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 
 /**
  *  Optional. An opaque tag indicating the current state of the policy, used for
- *  concurrency control. This 'etag' is computed by the server based on the
- *  value of other fields, and may be sent on update and delete requests to
- *  ensure the client has an up-to-date value before proceeding.
+ *  concurrency control. This entity tag (ETag) is computed by the server based
+ *  on the value of other fields, and may be sent on update and delete requests
+ *  to ensure the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Immutable. The resource name of the policy. Must be one of the following
- *  forms, where `constraint_name` is the name of the constraint which this
+ *  forms, where `constraint_name` is the name of the constraint that this
  *  policy configures: * `projects/{project_number}/policies/{constraint_name}`
  *  * `folders/{folder_id}/policies/{constraint_name}` *
  *  `organizations/{organization_id}/policies/{constraint_name}` For example,
@@ -728,7 +731,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 
 
 /**
- *  Defines a Google Cloud policy specification which is used to specify
+ *  Defines a Google Cloud policy specification that is used to specify
  *  constraints for configurations of Google Cloud resources.
  */
 @interface GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2PolicySpec : GTLRObject
@@ -737,9 +740,10 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  *  An opaque tag indicating the current version of the policySpec, used for
  *  concurrency control. This field is ignored if used in a `CreatePolicy`
  *  request. When the policy is returned from either a `GetPolicy` or a
- *  `ListPolicies` request, this `etag` indicates the version of the current
- *  policySpec to use when executing a read-modify-write loop. When the policy
- *  is returned from a `GetEffectivePolicy` request, the `etag` will be unset.
+ *  `ListPolicies` request, this entity tag (ETag) indicates the version of the
+ *  current policySpec to use when executing a read-modify-write loop. When the
+ *  policy is returned from a `GetEffectivePolicy` request, the ETag will be
+ *  unset.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -748,7 +752,7 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
  *  `inherit_from_parent` is true, policy rules set higher up in the hierarchy
  *  (up to the closest root) are inherited and present in the effective policy.
  *  If it is false, then no rules are inherited, and this policy becomes the new
- *  root for evaluation. This field can be set only for policies which configure
+ *  root for evaluation. This field can be set only for policies that configure
  *  list constraints.
  *
  *  Uses NSNumber of boolValue.
@@ -768,10 +772,10 @@ FOUNDATION_EXTERN NSString * const kGTLROrgPolicyAPI_GoogleCloudOrgpolicyV2Custo
 
 /**
  *  In policies for boolean constraints, the following requirements apply: -
- *  There must be one and only one policy rule where condition is unset. -
- *  Boolean policy rules with conditions must set `enforced` to the opposite of
- *  the policy rule without a condition. - During policy evaluation, policy
- *  rules with conditions that are true for a target resource take precedence.
+ *  There must be exactly one policy rule where a condition is unset. - Boolean
+ *  policy rules with conditions must set `enforced` to the opposite of the
+ *  policy rule without a condition. - During policy evaluation, policy rules
+ *  with conditions that are true for a target resource take precedence.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLROrgPolicyAPI_GoogleCloudOrgpolicyV2PolicySpecPolicyRule *> *rules;
 

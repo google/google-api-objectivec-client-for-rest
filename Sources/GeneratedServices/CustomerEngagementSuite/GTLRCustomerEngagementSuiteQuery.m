@@ -12,12 +12,14 @@
 // Constants
 
 // source
+NSString * const kGTLRCustomerEngagementSuiteSourceAgentTool   = @"AGENT_TOOL";
 NSString * const kGTLRCustomerEngagementSuiteSourceEval        = @"EVAL";
 NSString * const kGTLRCustomerEngagementSuiteSourceLive        = @"LIVE";
 NSString * const kGTLRCustomerEngagementSuiteSourceSimulator   = @"SIMULATOR";
 NSString * const kGTLRCustomerEngagementSuiteSourceSourceUnspecified = @"SOURCE_UNSPECIFIED";
 
 // sources
+NSString * const kGTLRCustomerEngagementSuiteSourcesAgentTool  = @"AGENT_TOOL";
 NSString * const kGTLRCustomerEngagementSuiteSourcesEval       = @"EVAL";
 NSString * const kGTLRCustomerEngagementSuiteSourcesLive       = @"LIVE";
 NSString * const kGTLRCustomerEngagementSuiteSourcesSimulator  = @"SIMULATOR";
@@ -894,6 +896,33 @@ NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnspecified = @"SOURCE
   query.session = session;
   query.expectedObjectClass = [GTLRCustomerEngagementSuite_RunSessionResponse class];
   query.loggingName = @"ces.projects.locations.apps.sessions.runSession";
+  return query;
+}
+
+@end
+
+@implementation GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsSessionsStreamRunSession
+
+@dynamic session;
+
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_RunSessionRequest *)object
+                        session:(NSString *)session {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"session" ];
+  NSString *pathURITemplate = @"v1/{+session}:streamRunSession";
+  GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsSessionsStreamRunSession *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.session = session;
+  query.expectedObjectClass = [GTLRCustomerEngagementSuite_RunSessionResponse class];
+  query.loggingName = @"ces.projects.locations.apps.sessions.streamRunSession";
   return query;
 }
 

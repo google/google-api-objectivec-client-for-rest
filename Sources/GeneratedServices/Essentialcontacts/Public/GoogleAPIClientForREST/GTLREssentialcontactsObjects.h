@@ -304,9 +304,9 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontacts_GoogleCloudEssentialco
 
 /**
  *  Required. The list of names of the contacts to send a test message to.
- *  Format: organizations/{organization_id}/contacts/{contact_id},
- *  folders/{folder_id}/contacts/{contact_id} or
- *  projects/{project_id}/contacts/{contact_id}
+ *  Format: organizations/{organization}/contacts/{contact},
+ *  folders/{folder}/contacts/{contact} or projects/{project}/contacts/{contact}
+ *  (where {project} is the project number)
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *contacts;
 

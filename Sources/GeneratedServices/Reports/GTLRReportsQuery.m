@@ -24,6 +24,7 @@ NSString * const kGTLRReportsApplicationNameAssignments        = @"assignments";
 NSString * const kGTLRReportsApplicationNameCalendar           = @"calendar";
 NSString * const kGTLRReportsApplicationNameChat               = @"chat";
 NSString * const kGTLRReportsApplicationNameChrome             = @"chrome";
+NSString * const kGTLRReportsApplicationNameChromeSync         = @"chrome_sync";
 NSString * const kGTLRReportsApplicationNameClassroom          = @"classroom";
 NSString * const kGTLRReportsApplicationNameCloudSearch        = @"cloud_search";
 NSString * const kGTLRReportsApplicationNameContacts           = @"contacts";
@@ -54,6 +55,7 @@ NSString * const kGTLRReportsApplicationNameTasks              = @"tasks";
 NSString * const kGTLRReportsApplicationNameToken              = @"token";
 NSString * const kGTLRReportsApplicationNameUserAccounts       = @"user_accounts";
 NSString * const kGTLRReportsApplicationNameVault              = @"vault";
+NSString * const kGTLRReportsApplicationNameVoice              = @"voice";
 
 // entityType
 NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
@@ -71,9 +73,9 @@ NSString * const kGTLRReportsEntityTypeGplusCommunities = @"gplus_communities";
 @implementation GTLRReportsQuery_ActivitiesList
 
 @dynamic actorIpAddress, applicationInfoFilter, applicationName, customerId,
-         endTime, eventName, filters, groupIdFilter, maxResults,
-         networkInfoFilter, orgUnitID, pageToken, resourceDetailsFilter,
-         startTime, statusFilter, userKey;
+         endTime, eventName, filters, groupIdFilter, includeSensitiveData,
+         maxResults, networkInfoFilter, orgUnitID, pageToken,
+         resourceDetailsFilter, startTime, statusFilter, userKey;
 
 + (instancetype)queryWithUserKey:(NSString *)userKey
                  applicationName:(NSString *)applicationName {

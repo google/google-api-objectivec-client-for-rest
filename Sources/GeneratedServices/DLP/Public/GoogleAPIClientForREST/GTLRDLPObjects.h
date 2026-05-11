@@ -70,6 +70,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2Container;
 @class GTLRDLP_GooglePrivacyDlpV2ContentItem;
 @class GTLRDLP_GooglePrivacyDlpV2ContentLocation;
+@class GTLRDLP_GooglePrivacyDlpV2ContentMetadata;
 @class GTLRDLP_GooglePrivacyDlpV2CryptoDeterministicConfig;
 @class GTLRDLP_GooglePrivacyDlpV2CryptoHashConfig;
 @class GTLRDLP_GooglePrivacyDlpV2CryptoKey;
@@ -195,6 +196,7 @@
 @class GTLRDLP_GooglePrivacyDlpV2KAnonymityResult;
 @class GTLRDLP_GooglePrivacyDlpV2Key;
 @class GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataLabel;
+@class GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataProperty;
 @class GTLRDLP_GooglePrivacyDlpV2KindExpression;
 @class GTLRDLP_GooglePrivacyDlpV2KMapEstimationConfig;
 @class GTLRDLP_GooglePrivacyDlpV2KMapEstimationHistogramBucket;
@@ -3037,6 +3039,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2LocationSupport_Re
 // GTLRDLP_GooglePrivacyDlpV2MetadataLocation.type
 
 /**
+ *  Metadata provided by the client.
+ *
+ *  Value: "CLIENT_PROVIDED_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_ClientProvidedMetadata;
+/**
  *  Metadata extracted from the files.
  *
  *  Value: "CONTENT_METADATA"
@@ -5350,6 +5358,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 /** Content data to inspect or redact. Replaces `type` and `data`. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ByteContentItem *byteItem;
 
+/** User provided metadata for the content. */
+@property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2ContentMetadata *contentMetadata;
+
 /**
  *  Structured content for inspection. See
  *  https://cloud.google.com/sensitive-data-protection/docs/inspecting-text#inspecting_a_table
@@ -5404,6 +5415,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 /** Location within a row or record of a database table. */
 @property(nonatomic, strong, nullable) GTLRDLP_GooglePrivacyDlpV2RecordLocation *recordLocation;
+
+@end
+
+
+/**
+ *  Metadata on content to be scanned.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2ContentMetadata : GTLRObject
+
+/** User provided key-value pairs of content metadata. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataProperty *> *properties;
 
 @end
 
@@ -7911,7 +7933,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  guaranteed to be written, so data may not be instantly visible to queries by
  *  the time your topic receives the Pub/Sub notification. * The best practice
  *  is to use the same table for an entire organization so that you can take
- *  advantage of the [provided Looker
+ *  advantage of the [provided Data Studio
  *  reports](https://cloud.google.com/sensitive-data-protection/docs/analyze-data-profiles#use_a_premade_report).
  *  If you use VPC Service Controls to define security perimeters, then you must
  *  use a separate table for each boundary.
@@ -9865,6 +9887,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
 
 
 /**
+ *  A key-value pair in the Metadata.
+ */
+@interface GTLRDLP_GooglePrivacyDlpV2KeyValueMetadataProperty : GTLRObject
+
+/** The key of the property. */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/** The value of the property. */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  A representation of a Datastore kind.
  */
 @interface GTLRDLP_GooglePrivacyDlpV2KindExpression : GTLRObject
@@ -10612,6 +10648,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDLP_GooglePrivacyDlpV2Value_DayOfWeekVal
  *  Type of metadata containing the finding.
  *
  *  Likely values:
+ *    @arg @c kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_ClientProvidedMetadata
+ *        Metadata provided by the client. (Value: "CLIENT_PROVIDED_METADATA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_ContentMetadata
  *        Metadata extracted from the files. (Value: "CONTENT_METADATA")
  *    @arg @c kGTLRDLP_GooglePrivacyDlpV2MetadataLocation_Type_MetadatatypeUnspecified

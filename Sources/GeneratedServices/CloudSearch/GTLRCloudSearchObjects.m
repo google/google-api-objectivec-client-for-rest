@@ -444,6 +444,13 @@ NSString * const kGTLRCloudSearch_QueryOperator_Type_Text      = @"TEXT";
 NSString * const kGTLRCloudSearch_QueryOperator_Type_Timestamp = @"TIMESTAMP";
 NSString * const kGTLRCloudSearch_QueryOperator_Type_Unknown   = @"UNKNOWN";
 
+// GTLRCloudSearch_QuerySuggestion.sourceCorpus
+NSString * const kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Calendar = @"CALENDAR";
+NSString * const kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Chat = @"CHAT";
+NSString * const kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Drive = @"DRIVE";
+NSString * const kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Gmail = @"GMAIL";
+NSString * const kGTLRCloudSearch_QuerySuggestion_SourceCorpus_SourceCorpusUnspecified = @"SOURCE_CORPUS_UNSPECIFIED";
+
 // GTLRCloudSearch_RepositoryError.type
 NSString * const kGTLRCloudSearch_RepositoryError_Type_AuthenticationError = @"AUTHENTICATION_ERROR";
 NSString * const kGTLRCloudSearch_RepositoryError_Type_AuthorizationError = @"AUTHORIZATION_ERROR";
@@ -2905,6 +2912,7 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_QuerySuggestion
+@dynamic lastQueryTime, sourceCorpus;
 @end
 
 
@@ -2943,7 +2951,8 @@ NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionStatusCode_TooManyM
 //
 
 @implementation GTLRCloudSearch_RequestOptions
-@dynamic debugOptions, languageCode, searchApplicationId, timeZone;
+@dynamic clientDisplayLanguageCode, debugOptions, languageCode,
+         searchApplicationId, timeZone;
 @end
 
 

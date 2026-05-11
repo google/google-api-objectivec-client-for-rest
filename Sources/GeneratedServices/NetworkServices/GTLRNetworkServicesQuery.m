@@ -760,7 +760,7 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesCreate
 
-@dynamic httpRouteId, parent;
+@dynamic httpRouteId, parent, requestId;
 
 + (instancetype)queryWithObject:(GTLRNetworkServices_HttpRoute *)object
                          parent:(NSString *)parent {
@@ -825,7 +825,7 @@ NSString * const kGTLRNetworkServicesViewWasmPluginViewUnspecified = @"WASM_PLUG
 
 @implementation GTLRNetworkServicesQuery_ProjectsLocationsHttpRoutesList
 
-@dynamic pageSize, pageToken, parent, returnPartialSuccess;
+@dynamic filter, pageSize, pageToken, parent, returnPartialSuccess;
 
 + (instancetype)queryWithParent:(NSString *)parent {
   NSArray *pathParams = @[ @"parent" ];

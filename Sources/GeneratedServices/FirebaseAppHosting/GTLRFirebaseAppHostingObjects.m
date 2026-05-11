@@ -28,6 +28,7 @@ NSString * const kGTLRFirebaseAppHosting_Backend_ServingLocality_ServingLocality
 NSString * const kGTLRFirebaseAppHosting_Build_State_Building  = @"BUILDING";
 NSString * const kGTLRFirebaseAppHosting_Build_State_Built     = @"BUILT";
 NSString * const kGTLRFirebaseAppHosting_Build_State_Deploying = @"DEPLOYING";
+NSString * const kGTLRFirebaseAppHosting_Build_State_Expired   = @"EXPIRED";
 NSString * const kGTLRFirebaseAppHosting_Build_State_Failed    = @"FAILED";
 NSString * const kGTLRFirebaseAppHosting_Build_State_Ready     = @"READY";
 NSString * const kGTLRFirebaseAppHosting_Build_State_Skipped   = @"SKIPPED";

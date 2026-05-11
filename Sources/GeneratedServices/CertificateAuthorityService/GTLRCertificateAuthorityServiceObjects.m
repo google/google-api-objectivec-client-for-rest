@@ -306,8 +306,8 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 @implementation GTLRCertificateAuthorityService_Certificate
 @dynamic certificateDescription, certificateTemplate, config, createTime,
          issuerCertificateAuthority, labels, lifetime, name, pemCertificate,
-         pemCertificateChain, pemCsr, revocationDetails, subjectMode,
-         updateTime;
+         pemCertificateChain, pemCsr, requestedNotBeforeTime, revocationDetails,
+         subjectMode, updateTime;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -643,9 +643,9 @@ NSString * const kGTLRCertificateAuthorityService_RevokedCertificate_RevocationR
 //
 
 @implementation GTLRCertificateAuthorityService_IssuancePolicy
-@dynamic allowedIssuanceModes, allowedKeyTypes, backdateDuration,
-         baselineValues, identityConstraints, maximumLifetime,
-         passthroughExtensions;
+@dynamic allowedIssuanceModes, allowedKeyTypes,
+         allowRequesterSpecifiedNotBeforeTime, backdateDuration, baselineValues,
+         identityConstraints, maximumLifetime, passthroughExtensions;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

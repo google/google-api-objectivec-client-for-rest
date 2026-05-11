@@ -878,9 +878,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 @property(nonatomic, strong, nullable) GTLRManagedKafka_CapacityConfig *capacityConfig;
 
 /**
- *  Optional. Configurations for the worker that are overridden from the
- *  defaults. The key of the map is a Kafka Connect worker property name, for
- *  example: `exactly.once.source.support`.
+ *  Optional. Reserved for future use. This field is meant for worker config
+ *  overrides, but is unsupported for now.
  */
 @property(nonatomic, strong, nullable) GTLRManagedKafka_ConnectCluster_Config *config;
 
@@ -947,9 +946,8 @@ FOUNDATION_EXTERN NSString * const kGTLRManagedKafka_UpdateSchemaModeRequest_Mod
 
 
 /**
- *  Optional. Configurations for the worker that are overridden from the
- *  defaults. The key of the map is a Kafka Connect worker property name, for
- *  example: `exactly.once.source.support`.
+ *  Optional. Reserved for future use. This field is meant for worker config
+ *  overrides, but is unsupported for now.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
