@@ -759,6 +759,21 @@ static void CheckForUnknownJSON(GTLRObject *obj, NSArray *keyPath,
       messageHandler(kSGGeneratorHandlerMessageError, errStr);
       allGood = NO;
     }
+
+    // ...for parameters with unexpected types.
+    for (GTLRDiscovery_JsonSchema *param in DictionaryObjectsSortedByKeys(method.parameters.additionalProperties)) {
+      NSString *paramType = param.type;
+      if (!([paramType isEqual:@"string"] ||
+            [paramType isEqual:@"boolean"] ||
+            [paramType isEqual:@"integer"] ||
+            [paramType isEqual:@"number"])) {
+        NSString *errStr =
+          [NSString stringWithFormat:@"Method '%@' has parameter '%@' which is an exoected type: '%@'",
+           method.identifier, param.sg_name, paramType];
+        messageHandler(kSGGeneratorHandlerMessageError, errStr);
+        allGood = NO;
+      }
+    }
   }  // for (method in self.api.sg_allMethods)
 
   // Check the toplevel parameters to be sure they are query params (all we
@@ -4526,100 +4541,36 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
                          comment:(NSString **)comment
                   itemsClassName:(NSString **)itemsClassName {
 
+  // The parameters can't be references, so no need to use `sg_resolveSchema`.
+
   // NOTE: This is on Parameters, meaning we're query objects.  Since we get
   // default values and we don't need to communicate the "removal" of some
-  // property, we can use raw NSInteger, BOOL, etc. for the values.
+  // property, we can use raw NSInteger, BOOL, etc. for the values. So only
+  // need objects form of it is repeating.
+  SGTypeInfo *typeInfo = LookupTypeInfo(self.type, self.format, self.repeated);
+  NSAssert(typeInfo != nil,
+           @"Looking at parameter '%@:%@', found a type/format pair of '%@/%@', and don't how to map that to Objective-C",
+           self.sg_method.sg_name, self.sg_name, self.type, self.format);
 
-  // Resolve the schema to get real types. Let everything else use
-  // the references to get local names.
-  GTLRDiscovery_JsonSchema *resolvedSchema = self.sg_resolvedSchema;
-
-  NSString *paramType = resolvedSchema.type;
-  NSString *paramFormat = resolvedSchema.format;
-
-  // Repeating means it's an array.  But when schemas are inlined, it could
-  // also be type 'array'.  So pick them off, and figure out the type/format
-  // to look up for the items within the array.
-  if (resolvedSchema.repeated || [paramType isEqual:@"array"]) {
-
+  if (self.repeated) {
+    // Repeating means it's an array.
     if (asPointer) *asPointer = YES;
     if (objcPropertySemantics) *objcPropertySemantics = @"strong";
-
-    NSInteger depth = 1;
-    GTLRDiscovery_JsonSchema *itemsSchema = resolvedSchema;
-
-    if ([paramType isEqual:@"array"]) {
-      // type 'array' means pull the info off the item (like objects).
-      itemsSchema = [resolvedSchema sg_itemsSchemaResolving:YES depth:&depth];
-      if (itemsSchema == nil) {
-        paramType = @"any";
-        paramFormat = nil;
-        SGGenerator *generator = self.sg_generator;
-        NSString *msg =
-          [NSString stringWithFormat:@"Schema %@ is array but lacks items, assuming \"any\".",
-                                     [self sg_fullSchemaName]];
-        [generator addWarning:msg];
-      } else {
-        paramType = itemsSchema.type;
-        paramFormat = itemsSchema.format;
-      }
-    }
-
-    // Look up the item info.
-    SGTypeInfo *typeInfo = LookupTypeInfo(paramType, paramFormat, YES);
-    if (typeInfo == nil) {
-      [NSException raise:kFatalGeneration
-                  format:@"Looking at parameter '%@:%@', found a repeating type/format pair of '%@/%@', and don't how to map that to Objective-C",
-       self.sg_method.sg_name, self.sg_name, paramType, paramFormat];
-    }
-
-    NSString *localItemsClassName = typeInfo->objcType;
-    if ([localItemsClassName isEqual:kUseItemsClass]) {
-      if (resolvedSchema == itemsSchema) {
-        [NSException raise:kFatalGeneration
-                    format:@"Looking at parameter '%@:%@', found a repeating object, currently can't generate class names for those correctly.",
-         self.sg_method.sg_name, self.sg_name];
-      }
-      localItemsClassName = itemsSchema.sg_objcClassName;
-    }
-
-    if (itemsClassName) *itemsClassName = localItemsClassName;
-    if (comment && (typeInfo->comment.length > 0)) {
-      *comment = typeInfo->comment;
-    }
-
-    if ([localItemsClassName isEqual:@"id"]) {
+    if ([typeInfo->objcType isEqual:@"id"]) {
       // Accepts anything, no need for generics.
       *objcType = @"NSArray";
     } else {
-      *objcType = [NSString stringWithFormat:@"NSArray<%@ *>", localItemsClassName];
+      *objcType = [NSString stringWithFormat:@"NSArray<%@ *>", typeInfo->objcType];
     }
-    while (--depth > 0) {
-      *objcType = [NSString stringWithFormat:@"NSArray<%@ *>", *objcType];
-    }
-
+    if (itemsClassName) *itemsClassName = typeInfo->objcType;
   } else {
-
-    // Look it up
-    SGTypeInfo *typeInfo = LookupTypeInfo(paramType, paramFormat, NO);
-    if (typeInfo == nil) {
-      [NSException raise:kFatalGeneration
-                  format:@"Looking at parameter '%@:%@', found a type/format pair of '%@/%@', and don't how to map that to Objective-C",
-       self.sg_method.sg_name, self.sg_name, paramType, paramFormat];
-    }
-
-    if ([typeInfo->objcType isEqual:kUseItemsClass]) {
-      *objcType = resolvedSchema.sg_objcClassName;
-    } else {
-      *objcType = typeInfo->objcType;
-    }
-
     if (asPointer) *asPointer = typeInfo->asPointer;
     if (objcPropertySemantics) *objcPropertySemantics = typeInfo->objcPropertySemantics;
-    if (comment) *comment = typeInfo->comment;
+    *objcType = typeInfo->objcType;
     if (itemsClassName) *itemsClassName = nil;
-
   }
+
+  if (comment) *comment = typeInfo->comment;
 
 }
 
