@@ -4839,6 +4839,143 @@ FOUNDATION_EXTERN NSString * const kGTLRContactcenterinsightsViewFull;
 @end
 
 /**
+ *  Analyzes conversation data using specialized agentic workflows, such as
+ *  ReAct, to diagnose issues and provide insights.
+ *
+ *  Method: contactcenterinsights.projects.locations.diagnoseConversations
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDiagnoseConversations : GTLRContactcenterinsightsQuery
+
+/** Required. The parent resource where the analysis will be performed. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleLongrunningOperation.
+ *
+ *  Analyzes conversation data using specialized agentic workflows, such as
+ *  ReAct, to diagnose issues and provide insights.
+ *
+ *  @param object The @c
+ *    GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest
+ *    to include in the query.
+ *  @param parent Required. The parent resource where the analysis will be
+ *    performed.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDiagnoseConversations
+ */
++ (instancetype)queryWithObject:(GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1DiagnoseConversationsRequest *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a diagnostic.
+ *
+ *  Method: contactcenterinsights.projects.locations.diagnostics.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDiagnosticsDelete : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the diagnostic to delete. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRContactcenterinsights_GoogleProtobufEmpty.
+ *
+ *  Deletes a diagnostic.
+ *
+ *  @param name Required. The name of the diagnostic to delete.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDiagnosticsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a diagnostic.
+ *
+ *  Method: contactcenterinsights.projects.locations.diagnostics.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDiagnosticsGet : GTLRContactcenterinsightsQuery
+
+/** Required. The name of the diagnostic to retrieve. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1Diagnostic.
+ *
+ *  Gets a diagnostic.
+ *
+ *  @param name Required. The name of the diagnostic to retrieve.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDiagnosticsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists diagnostics.
+ *
+ *  Method: contactcenterinsights.projects.locations.diagnostics.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeContactcenterinsightsCloudPlatform
+ */
+@interface GTLRContactcenterinsightsQuery_ProjectsLocationsDiagnosticsList : GTLRContactcenterinsightsQuery
+
+/**
+ *  Optional. A filter to apply to the list (e.g. `create_time >
+ *  "2023-01-01T00:00:00Z"`).
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of diagnostics to return. The service may
+ *  return fewer than this value. If unspecified, at most 100 diagnostics will
+ *  be returned. The maximum value is 1000; values above 1000 will be coerced to
+ *  1000.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListDiagnostics` call.
+ *  Provide this to retrieve the subsequent page.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. The parent resource of the diagnostics. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRContactcenterinsights_GoogleCloudContactcenterinsightsV1ListDiagnosticsResponse.
+ *
+ *  Lists diagnostics.
+ *
+ *  @param parent Required. The parent resource of the diagnostics.
+ *
+ *  @return GTLRContactcenterinsightsQuery_ProjectsLocationsDiagnosticsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Initializes a location-level encryption key specification. An error will
  *  result if the location has resources already created before the
  *  initialization. After the encryption specification is initialized at a

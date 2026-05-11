@@ -2107,10 +2107,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: networkconnectivity.projects.locations.list
  *
@@ -2120,8 +2126,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @interface GTLRNetworkconnectivityQuery_ProjectsLocationsList : GTLRNetworkconnectivityQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2151,10 +2157,16 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  Fetches a @c GTLRNetworkconnectivity_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -3039,6 +3051,79 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
+ *  Gets details of a single RemoteTransportProfile.
+ *
+ *  Method: networkconnectivity.projects.locations.remoteTransportProfiles.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesGet : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_RemoteTransportProfile.
+ *
+ *  Gets details of a single RemoteTransportProfile.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists RemoteTransportProfiles in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.remoteTransportProfiles.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesList : GTLRNetworkconnectivityQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListRemoteTransportProfilesRequest. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListRemoteTransportProfilesResponse.
+ *
+ *  Lists RemoteTransportProfiles in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListRemoteTransportProfilesRequest.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Deletes a single ServiceClass.
  *
  *  Method: networkconnectivity.projects.locations.serviceClasses.delete
@@ -3109,55 +3194,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesGet
  */
 + (instancetype)queryWithName:(NSString *)name;
-
-@end
-
-/**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: networkconnectivity.projects.locations.serviceClasses.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
- */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesGetIamPolicy : GTLRNetworkconnectivityQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkconnectivity_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
 
 @end
 
@@ -3264,90 +3300,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_ServiceClass *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: networkconnectivity.projects.locations.serviceClasses.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
- */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesSetIamPolicy : GTLRNetworkconnectivityQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkconnectivity_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRNetworkconnectivity_SetIamPolicyRequest to include
- *    in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: networkconnectivity.projects.locations.serviceClasses.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
- */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesTestIamPermissions : GTLRNetworkconnectivityQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkconnectivity_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRNetworkconnectivity_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 
@@ -3482,55 +3434,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: networkconnectivity.projects.locations.serviceConnectionMaps.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
- */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsGetIamPolicy : GTLRNetworkconnectivityQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkconnectivity_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
  *  Lists ServiceConnectionMaps in a given project and location.
  *
  *  Method: networkconnectivity.projects.locations.serviceConnectionMaps.list
@@ -3633,90 +3536,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_ServiceConnectionMap *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: networkconnectivity.projects.locations.serviceConnectionMaps.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
- */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsSetIamPolicy : GTLRNetworkconnectivityQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkconnectivity_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRNetworkconnectivity_SetIamPolicyRequest to include
- *    in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: networkconnectivity.projects.locations.serviceConnectionMaps.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
- */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsTestIamPermissions : GTLRNetworkconnectivityQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkconnectivity_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRNetworkconnectivity_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 
@@ -3899,55 +3718,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: networkconnectivity.projects.locations.serviceConnectionPolicies.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
- */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesGetIamPolicy : GTLRNetworkconnectivityQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the policy.
- *  Valid values are 0, 1, and 3. Requests specifying an invalid value will be
- *  rejected. Requests for policies with any conditional role bindings must
- *  specify version 3. Policies with no conditional role bindings may specify
- *  any valid value or leave the field unset. The policy in the response might
- *  use the policy version that you specified, or it might use a lower policy
- *  version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1. To learn which
- *  resources support conditions in their IAM policies, see the [IAM
- *  documentation](https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkconnectivity_Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
  *  Lists ServiceConnectionPolicies in a given project and location.
  *
  *  Method: networkconnectivity.projects.locations.serviceConnectionPolicies.list
@@ -4050,90 +3820,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_ServiceConnectionPolicy *)object
                            name:(NSString *)name;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  Method: networkconnectivity.projects.locations.serviceConnectionPolicies.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
- */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesSetIamPolicy : GTLRNetworkconnectivityQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkconnectivity_Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
- *  `PERMISSION_DENIED` errors.
- *
- *  @param object The @c GTLRNetworkconnectivity_SetIamPolicyRequest to include
- *    in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: networkconnectivity.projects.locations.serviceConnectionPolicies.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
- */
-@interface GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesTestIamPermissions : GTLRNetworkconnectivityQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  [Resource names](https://cloud.google.com/apis/design/resource_names) for
- *  the appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRNetworkconnectivity_TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  `NOT_FOUND` error. Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRNetworkconnectivity_TestIamPermissionsRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See [Resource
- *    names](https://cloud.google.com/apis/design/resource_names) for the
- *    appropriate value for this field.
- *
- *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
 
 @end
 
@@ -4659,6 +4345,222 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecif
  */
 + (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
                        resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Creates a new Transport in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.transports.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsCreate : GTLRNetworkconnectivityQuery
+
+/** Required. Value for parent. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/** Required. Id of the requesting object */
+@property(nonatomic, copy, nullable) NSString *transportId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Creates a new Transport in a given project and location.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_Transport to include in the
+ *    query.
+ *  @param parent Required. Value for parent.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsCreate
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_Transport *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Transport.
+ *
+ *  Method: networkconnectivity.projects.locations.transports.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsDelete : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes after the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Deletes a single Transport.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets details of a single Transport.
+ *
+ *  Method: networkconnectivity.projects.locations.transports.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsGet : GTLRNetworkconnectivityQuery
+
+/** Required. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_Transport.
+ *
+ *  Gets details of a single Transport.
+ *
+ *  @param name Required. Name of the resource.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists Transports in a given project and location.
+ *
+ *  Method: networkconnectivity.projects.locations.transports.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsList : GTLRNetworkconnectivityQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will pick an appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Parent value for ListTransportsRequest. */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_ListTransportsResponse.
+ *
+ *  Lists Transports in a given project and location.
+ *
+ *  @param parent Required. Parent value for ListTransportsRequest.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates the parameters of a single Transport.
+ *
+ *  Method: networkconnectivity.projects.locations.transports.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetworkconnectivityCloudPlatform
+ */
+@interface GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsPatch : GTLRNetworkconnectivityQuery
+
+/** Identifier. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. An optional request ID to identify requests. Specify a unique
+ *  request ID so that if you must retry your request, the server will know to
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request. For example,
+ *  consider a situation where you make an initial request and the request times
+ *  out. If you make the request again with the same request ID, the server can
+ *  check if original operation with the same request ID was received, and if
+ *  so, will ignore the second request. This prevents clients from accidentally
+ *  creating duplicate commitments. The request ID must be a valid UUID with the
+ *  exception that zero UUID is not supported
+ *  (00000000-0000-0000-0000-000000000000).
+ */
+@property(nonatomic, copy, nullable) NSString *requestId;
+
+/**
+ *  Optional. Field mask is used to specify the fields to be overwritten in the
+ *  Transport resource by the update. The fields specified in the update_mask
+ *  are relative to the resource, not the full request. A field will be
+ *  overwritten if it is in the mask. If the user does not provide a mask then
+ *  all fields present in the request will be overwritten.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRNetworkconnectivity_GoogleLongrunningOperation.
+ *
+ *  Updates the parameters of a single Transport.
+ *
+ *  @param object The @c GTLRNetworkconnectivity_Transport to include in the
+ *    query.
+ *  @param name Identifier. Name of the resource.
+ *
+ *  @return GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_Transport *)object
+                           name:(NSString *)name;
 
 @end
 

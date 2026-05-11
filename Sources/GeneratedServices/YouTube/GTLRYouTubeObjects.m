@@ -2492,7 +2492,7 @@ NSString * const kGTLRYouTube_VideoSuggestions_ProcessingWarnings_UnsupportedVrS
 
 @implementation GTLRYouTube_LiveChatGiftDetails
 @dynamic altText, comboCount, giftDuration, giftName, giftUrl, hasVisualEffect,
-         jewelsCount, language;
+         jewelsAmount, language;
 @end
 
 

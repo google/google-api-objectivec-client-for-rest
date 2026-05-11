@@ -134,12 +134,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_Verification_Met
  *  Value: "VERIFICATION_METHOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_Verification_Method_VerificationMethodUnspecified;
-/**
- *  This option may not be available for all locations.
- *
- *  Value: "VETTED_PARTNER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_Verification_Method_VettedPartner;
 
 // ----------------------------------------------------------------------------
 // GTLRMyBusinessVerifications_Verification.state
@@ -219,12 +213,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerificationOpti
  *  Value: "VERIFICATION_METHOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_VerificationMethodUnspecified;
-/**
- *  This option may not be available for all locations.
- *
- *  Value: "VETTED_PARTNER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_VettedPartner;
 
 // ----------------------------------------------------------------------------
 // GTLRMyBusinessVerifications_VerifyLocationRequest.method
@@ -276,12 +264,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *  Value: "VERIFICATION_METHOD_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_VerificationMethodUnspecified;
-/**
- *  This option may not be available for all locations.
- *
- *  Value: "VETTED_PARTNER"
- */
-FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_VettedPartner;
 
 /**
  *  Display data for verifications through postcard.
@@ -701,9 +683,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *    @arg @c kGTLRMyBusinessVerifications_Verification_Method_VerificationMethodUnspecified
  *        Default value, will result in errors. (Value:
  *        "VERIFICATION_METHOD_UNSPECIFIED")
- *    @arg @c kGTLRMyBusinessVerifications_Verification_Method_VettedPartner
- *        This option may not be available for all locations. (Value:
- *        "VETTED_PARTNER")
  */
 @property(nonatomic, copy, nullable) NSString *method;
 
@@ -776,9 +755,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *    @arg @c kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_VerificationMethodUnspecified
  *        Default value, will result in errors. (Value:
  *        "VERIFICATION_METHOD_UNSPECIFIED")
- *    @arg @c kGTLRMyBusinessVerifications_VerificationOption_VerificationMethod_VettedPartner
- *        This option may not be available for all locations. (Value:
- *        "VETTED_PARTNER")
  */
 @property(nonatomic, copy, nullable) NSString *verificationMethod;
 
@@ -876,9 +852,6 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessVerifications_VerifyLocationRe
  *    @arg @c kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_VerificationMethodUnspecified
  *        Default value, will result in errors. (Value:
  *        "VERIFICATION_METHOD_UNSPECIFIED")
- *    @arg @c kGTLRMyBusinessVerifications_VerifyLocationRequest_Method_VettedPartner
- *        This option may not be available for all locations. (Value:
- *        "VETTED_PARTNER")
  */
 @property(nonatomic, copy, nullable) NSString *method;
 

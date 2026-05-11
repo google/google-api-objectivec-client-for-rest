@@ -1236,6 +1236,14 @@ FOUNDATION_EXTERN NSString * const kGTLRClassroom_StudentSubmission_State_Turned
 @property(nonatomic, copy, nullable) NSString *identifier;
 
 /**
+ *  Optional. Levels for the course. Examples: "9th grade", "Middle school",
+ *  "4th - 5th", "K-2", "3000". If set, this field must be a valid UTF-8 string
+ *  and fewer than 1000 characters. This field can only be cleared using the
+ *  `PatchCourse` method.
+ */
+@property(nonatomic, copy, nullable) NSString *levels;
+
+/**
  *  Name of the course. For example, "10th Grade Biology". The name is required.
  *  It must be between 1 and 750 characters and a valid UTF-8 string.
  */

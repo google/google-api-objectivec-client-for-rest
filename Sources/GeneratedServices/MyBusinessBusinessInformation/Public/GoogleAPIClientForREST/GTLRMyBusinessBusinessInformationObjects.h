@@ -179,7 +179,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_OpenInfo_S
 FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_RelevantLocation_RelationType_DepartmentOf;
 /**
  *  This represents the cases where 2 locations are co-located in the same
- *  physical location, but from different companies (e.g. Starbucks in a
+ *  physical location, but from different companies (e.g., Starbucks in a
  *  Safeway, shops in a mall).
  *
  *  Value: "INDEPENDENT_ESTABLISHMENT_IN"
@@ -696,7 +696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 /**
  *  Represents a free-form service offered by the merchant. These are services
  *  that are not exposed as part of our structure service data. The merchant
- *  manually enters the names for of such services via a geomerchant surface.
+ *  manually enters the names for such services using a geomerchant surface.
  */
 @interface GTLRMyBusinessBusinessInformation_FreeFormServiceItem : GTLRObject
 
@@ -711,7 +711,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
  *  Required. Language-tagged labels for the item. We recommend that item names
  *  be 140 characters or less, and descriptions 250 characters or less. This
  *  field should only be set if the input is a custom service item. Standardized
- *  service types should be updated via service_type_id.
+ *  service types should be updated using service_type_id.
  */
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_Label *label;
 
@@ -747,12 +747,15 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 
 
 /**
- *  Represents a location that was modified by Google.
+ *  Represents the view of a location as it appears to consumers, which includes
+ *  updates that are currently serving on Google Maps and Search.
  */
 @interface GTLRMyBusinessBusinessInformation_GoogleUpdatedLocation : GTLRObject
 
 /**
- *  The fields that Google updated.
+ *  The fields where the values in the view as it appears to consumers are
+ *  different than the merchant's information. To accept these changes, patch
+ *  the location. To reject, patch with your preferred values.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -762,8 +765,9 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_Location *location;
 
 /**
- *  The fields that have pending edits that haven't yet been pushed to Maps and
- *  Search.
+ *  The fields where the merchant has provided an update that is currently in
+ *  flight and hasn't yet been published to Maps and Search. This mask only
+ *  tracks the status of the merchant's own edits, not external changes.
  *
  *  String format is a comma-separated list of fields.
  */
@@ -982,7 +986,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 /**
  *  Optional. Describes your business in your own voice and shares with users
  *  the unique story of your business and offerings. This field is required for
- *  all categories except lodging categories (e.g. hotels, motels, inns).
+ *  all categories except lodging categories (e.g., hotels, motels, inns).
  */
 @property(nonatomic, strong, nullable) GTLRMyBusinessBusinessInformation_Profile *profile;
 
@@ -1115,7 +1119,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
 /**
  *  Output only. Indicates whether the place ID associated with this location
  *  has updates that need to be updated or rejected by the client. If this
- *  boolean is set, you should call the `getGoogleUpdated` method to lookup
+ *  boolean is set, you should call the `getGoogleUpdated` method to look up
  *  information that's needs to be verified.
  *
  *  Uses NSNumber of boolValue.
@@ -1516,7 +1520,7 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessBusinessInformation_TimePeriod
  *        "DEPARTMENT_OF")
  *    @arg @c kGTLRMyBusinessBusinessInformation_RelevantLocation_RelationType_IndependentEstablishmentIn
  *        This represents the cases where 2 locations are co-located in the same
- *        physical location, but from different companies (e.g. Starbucks in a
+ *        physical location, but from different companies (e.g., Starbucks in a
  *        Safeway, shops in a mall). (Value: "INDEPENDENT_ESTABLISHMENT_IN")
  *    @arg @c kGTLRMyBusinessBusinessInformation_RelevantLocation_RelationType_RelationTypeUnspecified
  *        Type unspecified. (Value: "RELATION_TYPE_UNSPECIFIED")

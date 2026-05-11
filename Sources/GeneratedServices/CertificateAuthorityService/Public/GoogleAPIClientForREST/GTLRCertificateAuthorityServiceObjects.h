@@ -1178,6 +1178,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
 @property(nonatomic, copy, nullable) NSString *pemCsr;
 
 /**
+ *  Optional. The requested not_before_time of this Certificate. This field may
+ *  only be set if the
+ *  CaPool.IssuancePolicy.allow_requester_specified_not_before_time field is set
+ *  to true for the issuing CaPool. If this field is specified, the certificate
+ *  will be issued with this 'not_before_time'. If this is not specified, the
+ *  'not_before_time' will be set to the issuance time or issuance time minus
+ *  backdate_duration depending on the CaPool configuration.
+ */
+@property(nonatomic, strong, nullable) GTLRDateTime *requestedNotBeforeTime;
+
+/**
  *  Output only. Details regarding the revocation of this Certificate. This
  *  Certificate is considered revoked if and only if this field is present.
  */
@@ -2060,6 +2071,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCertificateAuthorityService_RevokedCerti
  *  may be used.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRCertificateAuthorityService_AllowedKeyType *> *allowedKeyTypes;
+
+/**
+ *  Optional. If set to true, allows requesters to specify the
+ *  requested_not_before_time field when creating a Certificate. Certificates
+ *  requested with this option enabled will have a 'not_before_time' equal to
+ *  the value specified in the request. The 'not_after_time' will be adjusted to
+ *  preserve the requested lifetime. The maximum time that a certificate can be
+ *  backdated with these options is 48 hours in the past. This option cannot be
+ *  set if backdate_duration is set.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowRequesterSpecifiedNotBeforeTime;
 
 /**
  *  Optional. If set, all certificates issued from this CaPool will be backdated

@@ -67,6 +67,30 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the classes' properties below.
 
 // ----------------------------------------------------------------------------
+// GTLRGames_AchievementDefinition.achievementLifecycleState
+
+/**
+ *  The achievement is active and published, and can be earned by players.
+ *
+ *  Value: "ACHIEVEMENT_LIFECYCLE_STATE_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_AchievementLifecycleState_AchievementLifecycleStateActive;
+/**
+ *  The achievement is archived. It cannot be earned by players, and is hidden
+ *  from players who have not already unlocked it. from players who haven't
+ *  unlocked it.
+ *
+ *  Value: "ACHIEVEMENT_LIFECYCLE_STATE_ARCHIVED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_AchievementLifecycleState_AchievementLifecycleStateArchived;
+/**
+ *  Default value. Should not be used.
+ *
+ *  Value: "ACHIEVEMENT_LIFECYCLE_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRGames_AchievementDefinition_AchievementLifecycleState_AchievementLifecycleStateUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRGames_AchievementDefinition.achievementType
 
 /**
@@ -553,6 +577,23 @@ FOUNDATION_EXTERN NSString * const kGTLRGames_Snapshot_Type_SaveGame;
  *  An achievement definition object.
  */
 @interface GTLRGames_AchievementDefinition : GTLRObject
+
+/**
+ *  Output only. The lifecycle state of the achievement.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRGames_AchievementDefinition_AchievementLifecycleState_AchievementLifecycleStateActive
+ *        The achievement is active and published, and can be earned by players.
+ *        (Value: "ACHIEVEMENT_LIFECYCLE_STATE_ACTIVE")
+ *    @arg @c kGTLRGames_AchievementDefinition_AchievementLifecycleState_AchievementLifecycleStateArchived
+ *        The achievement is archived. It cannot be earned by players, and is
+ *        hidden from players who have not already unlocked it. from players who
+ *        haven't unlocked it. (Value: "ACHIEVEMENT_LIFECYCLE_STATE_ARCHIVED")
+ *    @arg @c kGTLRGames_AchievementDefinition_AchievementLifecycleState_AchievementLifecycleStateUnspecified
+ *        Default value. Should not be used. (Value:
+ *        "ACHIEVEMENT_LIFECYCLE_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *achievementLifecycleState;
 
 /**
  *  The type of the achievement.

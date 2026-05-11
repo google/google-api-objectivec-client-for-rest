@@ -76,8 +76,8 @@ NS_ASSUME_NONNULL_BEGIN
 // GTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint.actionType
 
 /**
- *  This is only used for distinguishing unset values and should never be used.
- *  Results in an error.
+ *  This is only used for distinguishing unset values, and results in an error
+ *  if used.
  *
  *  Value: "ACTION_TYPE_UNSPECIFIED"
  */
@@ -105,7 +105,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2Cu
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_Create;
 /**
- *  Constraint applied when deleting the resource. Not currently supported.
+ *  Constraint applied when deleting the resource. Not supported.
  *
  *  Value: "DELETE"
  */
@@ -117,8 +117,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2Cu
  */
 FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_MethodTypes_GovernTags;
 /**
- *  This is only used for distinguishing unset values and should never be used.
- *  Results in an error.
+ *  This is only used for distinguishing unset values, and results in an error
+ *  if used.
  *
  *  Value: "METHOD_TYPE_UNSPECIFIED"
  */
@@ -691,7 +691,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 /**
  *  Reference to the launch that will be used while audit logging and to control
- *  the launch. Should be set only in the alternate policy.
+ *  the launch. Set only in the alternate policy.
  */
 @property(nonatomic, copy, nullable) NSString *launch;
 
@@ -714,8 +714,8 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *
  *  Likely values:
  *    @arg @c kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_ActionTypeUnspecified
- *        This is only used for distinguishing unset values and should never be
- *        used. Results in an error. (Value: "ACTION_TYPE_UNSPECIFIED")
+ *        This is only used for distinguishing unset values, and results in an
+ *        error if used. (Value: "ACTION_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Allow
  *        Allowed action type. (Value: "ALLOW")
  *    @arg @c kGTLRPolicySimulator_GoogleCloudOrgpolicyV2CustomConstraint_ActionType_Deny
@@ -751,7 +751,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 /**
  *  Immutable. Name of the constraint. This is unique within the organization.
- *  Format of the name should be *
+ *  The name must be of the form: *
  *  `organizations/{organization_id}/customConstraints/{custom_constraint_id}`
  *  Example: `organizations/123/customConstraints/custom.createOnlyE2TypeVms`
  *  The max length is 71 characters and the minimum length is 1. Note that the
@@ -777,7 +777,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 
 /**
- *  Defines an organization policy which is used to specify constraints for
+ *  Defines an organization policy that is used to specify constraints for
  *  configurations of Google Cloud resources.
  */
 @interface GTLRPolicySimulator_GoogleCloudOrgpolicyV2Policy : GTLRObject
@@ -793,15 +793,15 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 /**
  *  Optional. An opaque tag indicating the current state of the policy, used for
- *  concurrency control. This 'etag' is computed by the server based on the
- *  value of other fields, and may be sent on update and delete requests to
- *  ensure the client has an up-to-date value before proceeding.
+ *  concurrency control. This entity tag (ETag) is computed by the server based
+ *  on the value of other fields, and may be sent on update and delete requests
+ *  to ensure the client has an up-to-date value before proceeding.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
  *  Immutable. The resource name of the policy. Must be one of the following
- *  forms, where `constraint_name` is the name of the constraint which this
+ *  forms, where `constraint_name` is the name of the constraint that this
  *  policy configures: * `projects/{project_number}/policies/{constraint_name}`
  *  * `folders/{folder_id}/policies/{constraint_name}` *
  *  `organizations/{organization_id}/policies/{constraint_name}` For example,
@@ -819,7 +819,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 
 /**
- *  Defines a Google Cloud policy specification which is used to specify
+ *  Defines a Google Cloud policy specification that is used to specify
  *  constraints for configurations of Google Cloud resources.
  */
 @interface GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpec : GTLRObject
@@ -828,9 +828,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *  An opaque tag indicating the current version of the policySpec, used for
  *  concurrency control. This field is ignored if used in a `CreatePolicy`
  *  request. When the policy is returned from either a `GetPolicy` or a
- *  `ListPolicies` request, this `etag` indicates the version of the current
- *  policySpec to use when executing a read-modify-write loop. When the policy
- *  is returned from a `GetEffectivePolicy` request, the `etag` will be unset.
+ *  `ListPolicies` request, this entity tag (ETag) indicates the version of the
+ *  current policySpec to use when executing a read-modify-write loop. When the
+ *  policy is returned from a `GetEffectivePolicy` request, the ETag will be
+ *  unset.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
 
@@ -839,7 +840,7 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
  *  `inherit_from_parent` is true, policy rules set higher up in the hierarchy
  *  (up to the closest root) are inherited and present in the effective policy.
  *  If it is false, then no rules are inherited, and this policy becomes the new
- *  root for evaluation. This field can be set only for policies which configure
+ *  root for evaluation. This field can be set only for policies that configure
  *  list constraints.
  *
  *  Uses NSNumber of boolValue.
@@ -859,10 +860,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPolicySimulator_GoogleIamV1AuditLogConfi
 
 /**
  *  In policies for boolean constraints, the following requirements apply: -
- *  There must be one and only one policy rule where condition is unset. -
- *  Boolean policy rules with conditions must set `enforced` to the opposite of
- *  the policy rule without a condition. - During policy evaluation, policy
- *  rules with conditions that are true for a target resource take precedence.
+ *  There must be exactly one policy rule where a condition is unset. - Boolean
+ *  policy rules with conditions must set `enforced` to the opposite of the
+ *  policy rule without a condition. - During policy evaluation, policy rules
+ *  with conditions that are true for a target resource take precedence.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRPolicySimulator_GoogleCloudOrgpolicyV2PolicySpecPolicyRule *> *rules;
 

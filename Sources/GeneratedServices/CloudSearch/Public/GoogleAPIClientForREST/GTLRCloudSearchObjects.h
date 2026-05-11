@@ -2033,6 +2033,40 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Timestamp
 FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QueryOperator_Type_Unknown;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudSearch_QuerySuggestion.sourceCorpus
+
+/**
+ *  Source corpus is Calendar.
+ *
+ *  Value: "CALENDAR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Calendar;
+/**
+ *  Source corpus is Chat.
+ *
+ *  Value: "CHAT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Chat;
+/**
+ *  Source corpus is Drive.
+ *
+ *  Value: "DRIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Drive;
+/**
+ *  Source corpus is Gmail.
+ *
+ *  Value: "GMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Gmail;
+/**
+ *  Source corpus is unspecified.
+ *
+ *  Value: "SOURCE_CORPUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_QuerySuggestion_SourceCorpus_SourceCorpusUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudSearch_RepositoryError.type
 
 /**
@@ -7565,10 +7599,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  This field does not contain anything as of now and is just used as an
- *  indicator that the suggest result was a phrase completion.
+ *  GTLRCloudSearch_QuerySuggestion
  */
 @interface GTLRCloudSearch_QuerySuggestion : GTLRObject
+
+/** Last query time of the suggestion for query history suggestions. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastQueryTime;
+
+/**
+ *  Source corpus of the suggestion.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Calendar Source
+ *        corpus is Calendar. (Value: "CALENDAR")
+ *    @arg @c kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Chat Source corpus
+ *        is Chat. (Value: "CHAT")
+ *    @arg @c kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Drive Source corpus
+ *        is Drive. (Value: "DRIVE")
+ *    @arg @c kGTLRCloudSearch_QuerySuggestion_SourceCorpus_Gmail Source corpus
+ *        is Gmail. (Value: "GMAIL")
+ *    @arg @c kGTLRCloudSearch_QuerySuggestion_SourceCorpus_SourceCorpusUnspecified
+ *        Source corpus is unspecified. (Value: "SOURCE_CORPUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sourceCorpus;
+
 @end
 
 
@@ -7649,6 +7703,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
  *  Shared request options for all RPC methods.
  */
 @interface GTLRCloudSearch_RequestOptions : GTLRObject
+
+/**
+ *  The BCP-47 language code, such as "pt" or "en". It represents the user's
+ *  preferred Display Language.
+ */
+@property(nonatomic, copy, nullable) NSString *clientDisplayLanguageCode;
 
 /** Debug options of the request */
 @property(nonatomic, strong, nullable) GTLRCloudSearch_DebugOptions *debugOptions;
@@ -8104,7 +8164,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSearch_UnmappedIdentity_ResolutionS
 
 
 /**
- *  The search API request. NEXT ID: 24
+ *  The search API request. NEXT ID: 25
  */
 @interface GTLRCloudSearch_SearchRequest : GTLRObject
 

@@ -224,6 +224,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Environment_Type_TypeUnspecified;
  */
 FOUNDATION_EXTERN NSString * const kGTLRAppHub_FunctionalType_Type_Agent;
 /**
+ *  Endpoint type.
+ *
+ *  Value: "ENDPOINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAppHub_FunctionalType_Type_Endpoint;
+/**
  *  MCP Server type.
  *
  *  Value: "MCP_SERVER"
@@ -948,6 +954,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppHub_Workload_State_StateUnspecified;
  *
  *  Likely values:
  *    @arg @c kGTLRAppHub_FunctionalType_Type_Agent Agent type. (Value: "AGENT")
+ *    @arg @c kGTLRAppHub_FunctionalType_Type_Endpoint Endpoint type. (Value:
+ *        "ENDPOINT")
  *    @arg @c kGTLRAppHub_FunctionalType_Type_McpServer MCP Server type. (Value:
  *        "MCP_SERVER")
  *    @arg @c kGTLRAppHub_FunctionalType_Type_TypeUnspecified Unspecified type.

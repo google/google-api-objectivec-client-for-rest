@@ -44,6 +44,12 @@ NSString * const kGTLRMeet_RecordingConfig_AutoRecordingGeneration_AutoGeneratio
 NSString * const kGTLRMeet_RecordingConfig_AutoRecordingGeneration_Off = @"OFF";
 NSString * const kGTLRMeet_RecordingConfig_AutoRecordingGeneration_On = @"ON";
 
+// GTLRMeet_SmartNote.state
+NSString * const kGTLRMeet_SmartNote_State_Ended            = @"ENDED";
+NSString * const kGTLRMeet_SmartNote_State_FileGenerated    = @"FILE_GENERATED";
+NSString * const kGTLRMeet_SmartNote_State_Started          = @"STARTED";
+NSString * const kGTLRMeet_SmartNote_State_StateUnspecified = @"STATE_UNSPECIFIED";
+
 // GTLRMeet_SmartNotesConfig.autoSmartNotesGeneration
 NSString * const kGTLRMeet_SmartNotesConfig_AutoSmartNotesGeneration_AutoGenerationTypeUnspecified = @"AUTO_GENERATION_TYPE_UNSPECIFIED";
 NSString * const kGTLRMeet_SmartNotesConfig_AutoSmartNotesGeneration_Off = @"OFF";
@@ -161,6 +167,16 @@ NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMeet_GatewaySipAccess
+//
+
+@implementation GTLRMeet_GatewaySipAccess
+@dynamic sipAccessCode, uri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMeet_ListConferenceRecordsResponse
 //
 
@@ -249,6 +265,28 @@ NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMeet_ListSmartNotesResponse
+//
+
+@implementation GTLRMeet_ListSmartNotesResponse
+@dynamic nextPageToken, smartNotes;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"smartNotes" : [GTLRMeet_SmartNote class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"smartNotes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMeet_ListTranscriptEntriesResponse
 //
 
@@ -325,6 +363,16 @@ NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMeet_PhoneAccess
+//
+
+@implementation GTLRMeet_PhoneAccess
+@dynamic languageCode, phoneNumber, pin, regionCode;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMeet_PhoneUser
 //
 
@@ -365,6 +413,16 @@ NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On = 
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRMeet_SmartNote
+//
+
+@implementation GTLRMeet_SmartNote
+@dynamic docsDestination, endTime, name, startTime, state;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRMeet_SmartNotesConfig
 //
 
@@ -379,7 +437,17 @@ NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscriptionGeneration_On = 
 //
 
 @implementation GTLRMeet_Space
-@dynamic activeConference, config, meetingCode, meetingUri, name;
+@dynamic activeConference, config, gatewaySipAccess, meetingCode, meetingUri,
+         name, phoneAccess;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"gatewaySipAccess" : [GTLRMeet_GatewaySipAccess class],
+    @"phoneAccess" : [GTLRMeet_PhoneAccess class]
+  };
+  return map;
+}
+
 @end
 
 

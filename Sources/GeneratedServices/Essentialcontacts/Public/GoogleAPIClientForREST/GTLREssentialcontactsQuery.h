@@ -170,8 +170,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The name of the resource to compute contacts for. Format:
- *  organizations/{organization_id}, folders/{folder_id} or
- *  projects/{project_id}
+ *  organizations/{organization}, folders/{folder} or projects/{project} (where
+ *  {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -184,8 +184,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  resources.
  *
  *  @param parent Required. The name of the resource to compute contacts for.
- *    Format: organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    Format: organizations/{organization}, folders/{folder} or
+ *    projects/{project} (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_FoldersContactsCompute
  *
@@ -209,8 +209,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The resource to save this contact for. Format:
- *  organizations/{organization_id}, folders/{folder_id} or
- *  projects/{project_id}
+ *  organizations/{organization}, folders/{folder} or projects/{project} (where
+ *  {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -223,8 +223,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *    GTLREssentialcontacts_GoogleCloudEssentialcontactsV1Contact to include in
  *    the query.
  *  @param parent Required. The resource to save this contact for. Format:
- *    organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    organizations/{organization}, folders/{folder} or projects/{project}
+ *    (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_FoldersContactsCreate
  */
@@ -245,9 +245,9 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The name of the contact to delete. Format:
- *  organizations/{organization_id}/contacts/{contact_id},
- *  folders/{folder_id}/contacts/{contact_id} or
- *  projects/{project_id}/contacts/{contact_id}
+ *  organizations/{organization}/contacts/{contact},
+ *  folders/{folder}/contacts/{contact} or projects/{project}/contacts/{contact}
+ *  (where {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -257,9 +257,10 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Deletes a contact.
  *
  *  @param name Required. The name of the contact to delete. Format:
- *    organizations/{organization_id}/contacts/{contact_id},
- *    folders/{folder_id}/contacts/{contact_id} or
- *    projects/{project_id}/contacts/{contact_id}
+ *    organizations/{organization}/contacts/{contact},
+ *    folders/{folder}/contacts/{contact} or
+ *    projects/{project}/contacts/{contact} (where {project} is the project
+ *    number)
  *
  *  @return GTLREssentialcontactsQuery_FoldersContactsDelete
  */
@@ -279,9 +280,9 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The name of the contact to retrieve. Format:
- *  organizations/{organization_id}/contacts/{contact_id},
- *  folders/{folder_id}/contacts/{contact_id} or
- *  projects/{project_id}/contacts/{contact_id}
+ *  organizations/{organization}/contacts/{contact},
+ *  folders/{folder}/contacts/{contact} or projects/{project}/contacts/{contact}
+ *  (where {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -291,9 +292,10 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Gets a single contact.
  *
  *  @param name Required. The name of the contact to retrieve. Format:
- *    organizations/{organization_id}/contacts/{contact_id},
- *    folders/{folder_id}/contacts/{contact_id} or
- *    projects/{project_id}/contacts/{contact_id}
+ *    organizations/{organization}/contacts/{contact},
+ *    folders/{folder}/contacts/{contact} or
+ *    projects/{project}/contacts/{contact} (where {project} is the project
+ *    number)
  *
  *  @return GTLREssentialcontactsQuery_FoldersContactsGet
  */
@@ -328,8 +330,9 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name. Format: organizations/{organization_id},
- *  folders/{folder_id} or projects/{project_id}
+ *  Required. The parent resource name. Format: organizations/{organization},
+ *  folders/{folder} or projects/{project} (where {project} is the project
+ *  number)
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -340,8 +343,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Lists the contacts that have been set on a resource.
  *
  *  @param parent Required. The parent resource name. Format:
- *    organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    organizations/{organization}, folders/{folder} or projects/{project}
+ *    (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_FoldersContactsList
  *
@@ -411,8 +414,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Required. The name of the resource to send the test message for. All
  *  contacts must either be set directly on this resource or inherited from
  *  another resource that is an ancestor of this one. Format:
- *  organizations/{organization_id}, folders/{folder_id} or
- *  projects/{project_id}
+ *  organizations/{organization}, folders/{folder} or projects/{project} (where
+ *  {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -428,8 +431,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  @param resource Required. The name of the resource to send the test message
  *    for. All contacts must either be set directly on this resource or
  *    inherited from another resource that is an ancestor of this one. Format:
- *    organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    organizations/{organization}, folders/{folder} or projects/{project}
+ *    (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_FoldersContactsSendTestMessage
  */
@@ -505,8 +508,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The name of the resource to compute contacts for. Format:
- *  organizations/{organization_id}, folders/{folder_id} or
- *  projects/{project_id}
+ *  organizations/{organization}, folders/{folder} or projects/{project} (where
+ *  {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -519,8 +522,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  resources.
  *
  *  @param parent Required. The name of the resource to compute contacts for.
- *    Format: organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    Format: organizations/{organization}, folders/{folder} or
+ *    projects/{project} (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_OrganizationsContactsCompute
  *
@@ -544,8 +547,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The resource to save this contact for. Format:
- *  organizations/{organization_id}, folders/{folder_id} or
- *  projects/{project_id}
+ *  organizations/{organization}, folders/{folder} or projects/{project} (where
+ *  {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -558,8 +561,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *    GTLREssentialcontacts_GoogleCloudEssentialcontactsV1Contact to include in
  *    the query.
  *  @param parent Required. The resource to save this contact for. Format:
- *    organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    organizations/{organization}, folders/{folder} or projects/{project}
+ *    (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_OrganizationsContactsCreate
  */
@@ -580,9 +583,9 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The name of the contact to delete. Format:
- *  organizations/{organization_id}/contacts/{contact_id},
- *  folders/{folder_id}/contacts/{contact_id} or
- *  projects/{project_id}/contacts/{contact_id}
+ *  organizations/{organization}/contacts/{contact},
+ *  folders/{folder}/contacts/{contact} or projects/{project}/contacts/{contact}
+ *  (where {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -592,9 +595,10 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Deletes a contact.
  *
  *  @param name Required. The name of the contact to delete. Format:
- *    organizations/{organization_id}/contacts/{contact_id},
- *    folders/{folder_id}/contacts/{contact_id} or
- *    projects/{project_id}/contacts/{contact_id}
+ *    organizations/{organization}/contacts/{contact},
+ *    folders/{folder}/contacts/{contact} or
+ *    projects/{project}/contacts/{contact} (where {project} is the project
+ *    number)
  *
  *  @return GTLREssentialcontactsQuery_OrganizationsContactsDelete
  */
@@ -614,9 +618,9 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The name of the contact to retrieve. Format:
- *  organizations/{organization_id}/contacts/{contact_id},
- *  folders/{folder_id}/contacts/{contact_id} or
- *  projects/{project_id}/contacts/{contact_id}
+ *  organizations/{organization}/contacts/{contact},
+ *  folders/{folder}/contacts/{contact} or projects/{project}/contacts/{contact}
+ *  (where {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -626,9 +630,10 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Gets a single contact.
  *
  *  @param name Required. The name of the contact to retrieve. Format:
- *    organizations/{organization_id}/contacts/{contact_id},
- *    folders/{folder_id}/contacts/{contact_id} or
- *    projects/{project_id}/contacts/{contact_id}
+ *    organizations/{organization}/contacts/{contact},
+ *    folders/{folder}/contacts/{contact} or
+ *    projects/{project}/contacts/{contact} (where {project} is the project
+ *    number)
  *
  *  @return GTLREssentialcontactsQuery_OrganizationsContactsGet
  */
@@ -663,8 +668,9 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name. Format: organizations/{organization_id},
- *  folders/{folder_id} or projects/{project_id}
+ *  Required. The parent resource name. Format: organizations/{organization},
+ *  folders/{folder} or projects/{project} (where {project} is the project
+ *  number)
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -675,8 +681,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Lists the contacts that have been set on a resource.
  *
  *  @param parent Required. The parent resource name. Format:
- *    organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    organizations/{organization}, folders/{folder} or projects/{project}
+ *    (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_OrganizationsContactsList
  *
@@ -746,8 +752,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Required. The name of the resource to send the test message for. All
  *  contacts must either be set directly on this resource or inherited from
  *  another resource that is an ancestor of this one. Format:
- *  organizations/{organization_id}, folders/{folder_id} or
- *  projects/{project_id}
+ *  organizations/{organization}, folders/{folder} or projects/{project} (where
+ *  {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -763,8 +769,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  @param resource Required. The name of the resource to send the test message
  *    for. All contacts must either be set directly on this resource or
  *    inherited from another resource that is an ancestor of this one. Format:
- *    organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    organizations/{organization}, folders/{folder} or projects/{project}
+ *    (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_OrganizationsContactsSendTestMessage
  */
@@ -840,8 +846,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The name of the resource to compute contacts for. Format:
- *  organizations/{organization_id}, folders/{folder_id} or
- *  projects/{project_id}
+ *  organizations/{organization}, folders/{folder} or projects/{project} (where
+ *  {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -854,8 +860,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  resources.
  *
  *  @param parent Required. The name of the resource to compute contacts for.
- *    Format: organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    Format: organizations/{organization}, folders/{folder} or
+ *    projects/{project} (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_ProjectsContactsCompute
  *
@@ -879,8 +885,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The resource to save this contact for. Format:
- *  organizations/{organization_id}, folders/{folder_id} or
- *  projects/{project_id}
+ *  organizations/{organization}, folders/{folder} or projects/{project} (where
+ *  {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -893,8 +899,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *    GTLREssentialcontacts_GoogleCloudEssentialcontactsV1Contact to include in
  *    the query.
  *  @param parent Required. The resource to save this contact for. Format:
- *    organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    organizations/{organization}, folders/{folder} or projects/{project}
+ *    (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_ProjectsContactsCreate
  */
@@ -915,9 +921,9 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The name of the contact to delete. Format:
- *  organizations/{organization_id}/contacts/{contact_id},
- *  folders/{folder_id}/contacts/{contact_id} or
- *  projects/{project_id}/contacts/{contact_id}
+ *  organizations/{organization}/contacts/{contact},
+ *  folders/{folder}/contacts/{contact} or projects/{project}/contacts/{contact}
+ *  (where {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -927,9 +933,10 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Deletes a contact.
  *
  *  @param name Required. The name of the contact to delete. Format:
- *    organizations/{organization_id}/contacts/{contact_id},
- *    folders/{folder_id}/contacts/{contact_id} or
- *    projects/{project_id}/contacts/{contact_id}
+ *    organizations/{organization}/contacts/{contact},
+ *    folders/{folder}/contacts/{contact} or
+ *    projects/{project}/contacts/{contact} (where {project} is the project
+ *    number)
  *
  *  @return GTLREssentialcontactsQuery_ProjectsContactsDelete
  */
@@ -949,9 +956,9 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 
 /**
  *  Required. The name of the contact to retrieve. Format:
- *  organizations/{organization_id}/contacts/{contact_id},
- *  folders/{folder_id}/contacts/{contact_id} or
- *  projects/{project_id}/contacts/{contact_id}
+ *  organizations/{organization}/contacts/{contact},
+ *  folders/{folder}/contacts/{contact} or projects/{project}/contacts/{contact}
+ *  (where {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -961,9 +968,10 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Gets a single contact.
  *
  *  @param name Required. The name of the contact to retrieve. Format:
- *    organizations/{organization_id}/contacts/{contact_id},
- *    folders/{folder_id}/contacts/{contact_id} or
- *    projects/{project_id}/contacts/{contact_id}
+ *    organizations/{organization}/contacts/{contact},
+ *    folders/{folder}/contacts/{contact} or
+ *    projects/{project}/contacts/{contact} (where {project} is the project
+ *    number)
  *
  *  @return GTLREssentialcontactsQuery_ProjectsContactsGet
  */
@@ -998,8 +1006,9 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
- *  Required. The parent resource name. Format: organizations/{organization_id},
- *  folders/{folder_id} or projects/{project_id}
+ *  Required. The parent resource name. Format: organizations/{organization},
+ *  folders/{folder} or projects/{project} (where {project} is the project
+ *  number)
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1010,8 +1019,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Lists the contacts that have been set on a resource.
  *
  *  @param parent Required. The parent resource name. Format:
- *    organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    organizations/{organization}, folders/{folder} or projects/{project}
+ *    (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_ProjectsContactsList
  *
@@ -1081,8 +1090,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  Required. The name of the resource to send the test message for. All
  *  contacts must either be set directly on this resource or inherited from
  *  another resource that is an ancestor of this one. Format:
- *  organizations/{organization_id}, folders/{folder_id} or
- *  projects/{project_id}
+ *  organizations/{organization}, folders/{folder} or projects/{project} (where
+ *  {project} is the project number)
  */
 @property(nonatomic, copy, nullable) NSString *resource;
 
@@ -1098,8 +1107,8 @@ FOUNDATION_EXTERN NSString * const kGTLREssentialcontactsNotificationCategoriesT
  *  @param resource Required. The name of the resource to send the test message
  *    for. All contacts must either be set directly on this resource or
  *    inherited from another resource that is an ancestor of this one. Format:
- *    organizations/{organization_id}, folders/{folder_id} or
- *    projects/{project_id}
+ *    organizations/{organization}, folders/{folder} or projects/{project}
+ *    (where {project} is the project number)
  *
  *  @return GTLREssentialcontactsQuery_ProjectsContactsSendTestMessage
  */

@@ -24,6 +24,36 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+// ----------------------------------------------------------------------------
+// Constants - For some of the query classes' properties below.
+
+// ----------------------------------------------------------------------------
+// view
+
+/**
+ *  Includes only the file or directory name. This is the default behavior.
+ *
+ *  Value: "DIRECTORY_CONTENTS_VIEW_BASIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewBasic;
+/**
+ *  Includes all metadata for each file or directory. Currently not supported by
+ *  CMEK-protected workspaces.
+ *
+ *  Value: "DIRECTORY_CONTENTS_VIEW_METADATA"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewMetadata;
+/**
+ *  The default unset value. Defaults to DIRECTORY_CONTENTS_VIEW_BASIC.
+ *
+ *  Value: "DIRECTORY_CONTENTS_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataformViewDirectoryContentsViewUnspecified;
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 /**
  *  Parent class for other Dataform query classes.
  */
@@ -31,6 +61,129 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Selector specifying which fields to include in a partial response. */
 @property(nonatomic, copy, nullable) NSString *fields;
+
+@end
+
+/**
+ *  Creates a new Folder in a given project and location.
+ *
+ *  Method: dataform.projects.locations.folders.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsFoldersCreate : GTLRDataformQuery
+
+/**
+ *  Required. The location in which to create the Folder. Must be in the format
+ *  `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataform_Folder.
+ *
+ *  Creates a new Folder in a given project and location.
+ *
+ *  @param object The @c GTLRDataform_Folder to include in the query.
+ *  @param parent Required. The location in which to create the Folder. Must be
+ *    in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsFoldersCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataform_Folder *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single Folder.
+ *
+ *  Method: dataform.projects.locations.folders.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsFoldersDelete : GTLRDataformQuery
+
+/** Required. The Folder's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataform_Empty.
+ *
+ *  Deletes a single Folder.
+ *
+ *  @param name Required. The Folder's name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsFoldersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a Folder with its contents (Folders, Repositories, Workspaces,
+ *  ReleaseConfigs, and WorkflowConfigs).
+ *
+ *  Method: dataform.projects.locations.folders.deleteTree
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsFoldersDeleteTree : GTLRDataformQuery
+
+/**
+ *  Required. The Folder's name. Format:
+ *  projects/{project}/locations/{location}/folders/{folder}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataform_Operation.
+ *
+ *  Deletes a Folder with its contents (Folders, Repositories, Workspaces,
+ *  ReleaseConfigs, and WorkflowConfigs).
+ *
+ *  @param object The @c GTLRDataform_DeleteFolderTreeRequest to include in the
+ *    query.
+ *  @param name Required. The Folder's name. Format:
+ *    projects/{project}/locations/{location}/folders/{folder}
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsFoldersDeleteTree
+ */
++ (instancetype)queryWithObject:(GTLRDataform_DeleteFolderTreeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches a single Folder.
+ *
+ *  Method: dataform.projects.locations.folders.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsFoldersGet : GTLRDataformQuery
+
+/** Required. The Folder's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataform_Folder.
+ *
+ *  Fetches a single Folder.
+ *
+ *  @param name Required. The Folder's name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsFoldersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
 
 @end
 
@@ -81,6 +234,139 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDataformQuery_ProjectsLocationsFoldersGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Moves a Folder to a new Folder, TeamFolder, or the root location.
+ *
+ *  Method: dataform.projects.locations.folders.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsFoldersMove : GTLRDataformQuery
+
+/** Required. The full resource name of the Folder to move. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataform_Operation.
+ *
+ *  Moves a Folder to a new Folder, TeamFolder, or the root location.
+ *
+ *  @param object The @c GTLRDataform_MoveFolderRequest to include in the query.
+ *  @param name Required. The full resource name of the Folder to move.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsFoldersMove
+ */
++ (instancetype)queryWithObject:(GTLRDataform_MoveFolderRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Updates a single Folder.
+ *
+ *  Method: dataform.projects.locations.folders.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsFoldersPatch : GTLRDataformQuery
+
+/** Identifier. The Folder's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Specifies the fields to be updated in the Folder. If left unset,
+ *  all fields that can be updated, will be updated. A few fields cannot be
+ *  updated and will be ignored if specified in the update_mask (e.g.
+ *  parent_name, team_folder_name).
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDataform_Folder.
+ *
+ *  Updates a single Folder.
+ *
+ *  @param object The @c GTLRDataform_Folder to include in the query.
+ *  @param name Identifier. The Folder's name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsFoldersPatch
+ */
++ (instancetype)queryWithObject:(GTLRDataform_Folder *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the contents of a given Folder.
+ *
+ *  Method: dataform.projects.locations.folders.queryFolderContents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsFoldersQueryFolderContents : GTLRDataformQuery
+
+/**
+ *  Optional. Optional filtering for the returned list. Filtering is currently
+ *  only supported on the `display_name` field. Example: *
+ *  `filter="display_name="MyFolder""`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. Resource name of the Folder to list contents for. Format:
+ *  projects/ * /locations/ * /folders/ *
+ */
+@property(nonatomic, copy, nullable) NSString *folder;
+
+/**
+ *  Optional. Field to additionally sort results by. Will order Folders before
+ *  Repositories, and then by `order_by` in ascending order. Supported keywords:
+ *  display_name (default), create_time, last_modified_time. Examples: *
+ *  `orderBy="display_name"` * `orderBy="display_name desc"`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of paths to return. The server may return fewer
+ *  items than requested. If unspecified, the server will pick an appropriate
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous `QueryFolderContents` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `QueryFolderContents`, with the exception of
+ *  `page_size`, must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDataform_QueryFolderContentsResponse.
+ *
+ *  Returns the contents of a given Folder.
+ *
+ *  @param folder Required. Resource name of the Folder to list contents for.
+ *    Format: projects/ * /locations/ * /folders/ *
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsFoldersQueryFolderContents
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithFolder:(NSString *)folder;
 
 @end
 
@@ -226,10 +512,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: dataform.projects.locations.list
  *
@@ -240,8 +532,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRDataformQuery_ProjectsLocationsList : GTLRDataformQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -271,10 +563,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRDataform_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -452,6 +750,75 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Returns the contents of a caller's root folder in a given location. The root
+ *  folder contains all resources that are created by the user and not contained
+ *  in any other folder.
+ *
+ *  Method: dataform.projects.locations.queryUserRootContents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsQueryUserRootContents : GTLRDataformQuery
+
+/**
+ *  Optional. Optional filtering for the returned list. Filtering is currently
+ *  only supported on the `display_name` field. Example: *
+ *  `filter="display_name="MyFolder""`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. Location of the user root folder to list contents for. Format:
+ *  projects/ * /locations/ *
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Optional. Field to additionally sort results by. Will order Folders before
+ *  Repositories, and then by `order_by` in ascending order. Supported keywords:
+ *  display_name (default), created_at, last_modified_at. Examples: *
+ *  `orderBy="display_name"` * `orderBy="display_name desc"`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of paths to return. The server may return fewer
+ *  items than requested. If unspecified, the server will pick an appropriate
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous `QueryUserRootContents` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `QueryUserRootFolderContents`, with the exception of
+ *  `page_size`, must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDataform_QueryUserRootContentsResponse.
+ *
+ *  Returns the contents of a caller's root folder in a given location. The root
+ *  folder contains all resources that are created by the user and not contained
+ *  in any other folder.
+ *
+ *  @param location Required. Location of the user root folder to list contents
+ *    for. Format: projects/ * /locations/ *
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsQueryUserRootContents
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithLocation:(NSString *)location;
+
+@end
+
+/**
  *  Applies a Git commit to a Repository. The Repository must not have a value
  *  for `git_remote_settings.url`.
  *
@@ -528,7 +895,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsGet : GTLRDataformQuery
 
-/** Required. The compilation result's name. */
+/**
+ *  Required. The compilation result's name.
+ *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:GetCompilationResultRequest)
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -537,6 +907,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a single CompilationResult.
  *
  *  @param name Required. The compilation result's name.
+ *    LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:GetCompilationResultRequest)
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsGet
  */
@@ -555,7 +926,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesCompilationResultsList : GTLRDataformQuery
 
-/** Optional. Filter for the returned list. */
+/**
+ *  Optional. Filter for the returned list.
+ *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:ListCompilationResultsRequest)
+ */
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
@@ -977,6 +1351,36 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Moves a Repository to a new location.
+ *
+ *  Method: dataform.projects.locations.repositories.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsRepositoriesMove : GTLRDataformQuery
+
+/** Required. The full resource name of the repository to move. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataform_Operation.
+ *
+ *  Moves a Repository to a new location.
+ *
+ *  @param object The @c GTLRDataform_MoveRepositoryRequest to include in the
+ *    query.
+ *  @param name Required. The full resource name of the repository to move.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesMove
+ */
++ (instancetype)queryWithObject:(GTLRDataform_MoveRepositoryRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Updates a single Repository. **Note:** *This method does not fully implement
  *  [AIP/134](https://google.aip.dev/134). The wildcard entry (\\*) is treated
  *  as a bad request, and when the `field_mask` is omitted, the request is
@@ -1140,6 +1544,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Required. The ID to use for the release config, which will become the final
  *  component of the release config's resource name.
+ *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:CreateReleaseConfigRequest)
  */
 @property(nonatomic, copy, nullable) NSString *releaseConfigId;
 
@@ -1171,7 +1576,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsDelete : GTLRDataformQuery
 
-/** Required. The release config's name. */
+/**
+ *  Required. The release config's name.
+ *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:DeleteReleaseConfigRequest)
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1180,6 +1588,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Deletes a single ReleaseConfig.
  *
  *  @param name Required. The release config's name.
+ *    LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:DeleteReleaseConfigRequest)
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsDelete
  */
@@ -1198,7 +1607,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @interface GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsGet : GTLRDataformQuery
 
-/** Required. The release config's name. */
+/**
+ *  Required. The release config's name.
+ *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:GetReleaseConfigRequest)
+ */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
@@ -1207,6 +1619,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a single ReleaseConfig.
  *
  *  @param name Required. The release config's name.
+ *    LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:GetReleaseConfigRequest)
  *
  *  @return GTLRDataformQuery_ProjectsLocationsRepositoriesReleaseConfigsGet
  */
@@ -1237,6 +1650,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  Provide this to retrieve the subsequent page. When paginating, all other
  *  parameters provided to `ListReleaseConfigs`, with the exception of
  *  `page_size`, must match the call that provided the page token.
+ *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:ListReleaseConfigsRequest)
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2346,6 +2760,25 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, copy, nullable) NSString *path;
 
+/**
+ *  Optional. Specifies the metadata to return for each directory entry. If
+ *  unspecified, the default is `DIRECTORY_CONTENTS_VIEW_BASIC`. Currently the
+ *  `DIRECTORY_CONTENTS_VIEW_METADATA` view is not supported by CMEK-protected
+ *  workspaces.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataformViewDirectoryContentsViewUnspecified The default
+ *        unset value. Defaults to DIRECTORY_CONTENTS_VIEW_BASIC. (Value:
+ *        "DIRECTORY_CONTENTS_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRDataformViewDirectoryContentsViewBasic Includes only the file
+ *        or directory name. This is the default behavior. (Value:
+ *        "DIRECTORY_CONTENTS_VIEW_BASIC")
+ *    @arg @c kGTLRDataformViewDirectoryContentsViewMetadata Includes all
+ *        metadata for each file or directory. Currently not supported by
+ *        CMEK-protected workspaces. (Value: "DIRECTORY_CONTENTS_VIEW_METADATA")
+ */
+@property(nonatomic, copy, nullable) NSString *view;
+
 /** Required. The workspace's name. */
 @property(nonatomic, copy, nullable) NSString *workspace;
 
@@ -2663,6 +3096,129 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
+ *  Creates a new TeamFolder in a given project and location.
+ *
+ *  Method: dataform.projects.locations.teamFolders.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsTeamFoldersCreate : GTLRDataformQuery
+
+/**
+ *  Required. The location in which to create the TeamFolder. Must be in the
+ *  format `projects/ * /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDataform_TeamFolder.
+ *
+ *  Creates a new TeamFolder in a given project and location.
+ *
+ *  @param object The @c GTLRDataform_TeamFolder to include in the query.
+ *  @param parent Required. The location in which to create the TeamFolder. Must
+ *    be in the format `projects/ * /locations/ *`.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsTeamFoldersCreate
+ */
++ (instancetype)queryWithObject:(GTLRDataform_TeamFolder *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a single TeamFolder.
+ *
+ *  Method: dataform.projects.locations.teamFolders.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsTeamFoldersDelete : GTLRDataformQuery
+
+/** Required. The TeamFolder's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataform_Empty.
+ *
+ *  Deletes a single TeamFolder.
+ *
+ *  @param name Required. The TeamFolder's name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsTeamFoldersDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Deletes a TeamFolder with its contents (Folders, Repositories, Workspaces,
+ *  ReleaseConfigs, and WorkflowConfigs).
+ *
+ *  Method: dataform.projects.locations.teamFolders.deleteTree
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsTeamFoldersDeleteTree : GTLRDataformQuery
+
+/**
+ *  Required. The TeamFolder's name. Format:
+ *  projects/{project}/locations/{location}/teamFolders/{team_folder}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataform_Operation.
+ *
+ *  Deletes a TeamFolder with its contents (Folders, Repositories, Workspaces,
+ *  ReleaseConfigs, and WorkflowConfigs).
+ *
+ *  @param object The @c GTLRDataform_DeleteTeamFolderTreeRequest to include in
+ *    the query.
+ *  @param name Required. The TeamFolder's name. Format:
+ *    projects/{project}/locations/{location}/teamFolders/{team_folder}
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsTeamFoldersDeleteTree
+ */
++ (instancetype)queryWithObject:(GTLRDataform_DeleteTeamFolderTreeRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches a single TeamFolder.
+ *
+ *  Method: dataform.projects.locations.teamFolders.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsTeamFoldersGet : GTLRDataformQuery
+
+/** Required. The TeamFolder's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRDataform_TeamFolder.
+ *
+ *  Fetches a single TeamFolder.
+ *
+ *  @param name Required. The TeamFolder's name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsTeamFoldersGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
  *  Gets the access control policy for a resource. Returns an empty policy if
  *  the resource exists and does not have a policy set.
  *
@@ -2709,6 +3265,174 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return GTLRDataformQuery_ProjectsLocationsTeamFoldersGetIamPolicy
  */
 + (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Updates a single TeamFolder.
+ *
+ *  Method: dataform.projects.locations.teamFolders.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsTeamFoldersPatch : GTLRDataformQuery
+
+/** Identifier. The TeamFolder's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Specifies the fields to be updated in the Folder. If left unset,
+ *  all fields will be updated.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRDataform_TeamFolder.
+ *
+ *  Updates a single TeamFolder.
+ *
+ *  @param object The @c GTLRDataform_TeamFolder to include in the query.
+ *  @param name Identifier. The TeamFolder's name.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsTeamFoldersPatch
+ */
++ (instancetype)queryWithObject:(GTLRDataform_TeamFolder *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Returns the contents of a given TeamFolder.
+ *
+ *  Method: dataform.projects.locations.teamFolders.queryContents
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsTeamFoldersQueryContents : GTLRDataformQuery
+
+/**
+ *  Optional. Optional filtering for the returned list. Filtering is currently
+ *  only supported on the `display_name` field. Example: *
+ *  `filter="display_name="MyFolder""`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Field to additionally sort results by. Will order Folders before
+ *  Repositories, and then by `order_by` in ascending order. Supported keywords:
+ *  `display_name` (default), `create_time`, last_modified_time. Examples: *
+ *  `orderBy="display_name"` * `orderBy="display_name desc"`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of paths to return. The server may return fewer
+ *  items than requested. If unspecified, the server will pick an appropriate
+ *  default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous `QueryTeamFolderContents`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `QueryTeamFolderContents`, with the exception
+ *  of `page_size`, must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Resource name of the TeamFolder to list contents for. Format:
+ *  `projects/ * /locations/ * /teamFolders/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *teamFolder;
+
+/**
+ *  Fetches a @c GTLRDataform_QueryTeamFolderContentsResponse.
+ *
+ *  Returns the contents of a given TeamFolder.
+ *
+ *  @param teamFolder Required. Resource name of the TeamFolder to list contents
+ *    for. Format: `projects/ * /locations/ * /teamFolders/ *`.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsTeamFoldersQueryContents
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithTeamFolder:(NSString *)teamFolder;
+
+@end
+
+/**
+ *  Returns all TeamFolders in a given location that the caller has access to
+ *  and match the provided filter.
+ *
+ *  Method: dataform.projects.locations.teamFolders.search
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataformBigquery
+ *    @c kGTLRAuthScopeDataformCloudPlatform
+ */
+@interface GTLRDataformQuery_ProjectsLocationsTeamFoldersSearch : GTLRDataformQuery
+
+/**
+ *  Optional. Optional filtering for the returned list. Filtering is currently
+ *  only supported on the `display_name` field. Example: *
+ *  `filter="display_name="MyFolder""`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Required. Location in which to query TeamFolders. Format: `projects/ *
+ *  /locations/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *location;
+
+/**
+ *  Optional. Field to additionally sort results by. Supported keywords:
+ *  `display_name` (default), `create_time`, `last_modified_time`. Examples: *
+ *  `orderBy="display_name"` * `orderBy="display_name desc"`
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Maximum number of TeamFolders to return. The server may return
+ *  fewer items than requested. If unspecified, the server will pick an
+ *  appropriate default.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. Page token received from a previous `SearchTeamFolders` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `SearchTeamFolders`, with the exception of
+ *  `page_size`, must match the call that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c GTLRDataform_SearchTeamFoldersResponse.
+ *
+ *  Returns all TeamFolders in a given location that the caller has access to
+ *  and match the provided filter.
+ *
+ *  @param location Required. Location in which to query TeamFolders. Format:
+ *    `projects/ * /locations/ *`.
+ *
+ *  @return GTLRDataformQuery_ProjectsLocationsTeamFoldersSearch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithLocation:(NSString *)location;
 
 @end
 

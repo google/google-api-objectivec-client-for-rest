@@ -211,6 +211,38 @@ NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_AccessType
 NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_Global = @"GLOBAL";
 NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_Regional = @"REGIONAL";
 
+// GTLRNetworkconnectivity_RemoteTransportProfile.flow
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_InputOnly = @"INPUT_ONLY";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_InputOrOutput = @"INPUT_OR_OUTPUT";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_KeyProvisioningFlowUnspecified = @"KEY_PROVISIONING_FLOW_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_OutputOnly = @"OUTPUT_ONLY";
+
+// GTLRNetworkconnectivity_RemoteTransportProfile.orderState
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_OrderState_Closed = @"CLOSED";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_OrderState_Open = @"OPEN";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_OrderState_StateUnspecified = @"STATE_UNSPECIFIED";
+
+// GTLRNetworkconnectivity_RemoteTransportProfile.sla
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Sla_High = @"HIGH";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Sla_Maximum = @"MAXIMUM";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Sla_ServiceLevelAvailabilityUnspecified = @"SERVICE_LEVEL_AVAILABILITY_UNSPECIFIED";
+
+// GTLRNetworkconnectivity_RemoteTransportProfile.supportedBandwidths
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_BandwidthUnspecified = @"BANDWIDTH_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps100g = @"BPS_100G";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps100m = @"BPS_100M";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps10g = @"BPS_10G";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps1g = @"BPS_1G";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps200m = @"BPS_200M";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps20g = @"BPS_20G";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps2g = @"BPS_2G";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps300m = @"BPS_300M";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps400m = @"BPS_400M";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps500m = @"BPS_500M";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps50g = @"BPS_50G";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps50m = @"BPS_50M";
+NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps5g = @"BPS_5G";
+
 // GTLRNetworkconnectivity_Route.state
 NSString * const kGTLRNetworkconnectivity_Route_State_Accepting = @"ACCEPTING";
 NSString * const kGTLRNetworkconnectivity_Route_State_Active   = @"ACTIVE";
@@ -322,6 +354,36 @@ NSString * const kGTLRNetworkconnectivity_StateReason_Code_Rejected = @"REJECTED
 NSString * const kGTLRNetworkconnectivity_StateReason_Code_UpdateFailed = @"UPDATE_FAILED";
 NSString * const kGTLRNetworkconnectivity_StateReason_Code_UpdatePendingReview = @"UPDATE_PENDING_REVIEW";
 NSString * const kGTLRNetworkconnectivity_StateReason_Code_UpdateRejected = @"UPDATE_REJECTED";
+
+// GTLRNetworkconnectivity_Transport.bandwidth
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_BandwidthUnspecified = @"BANDWIDTH_UNSPECIFIED";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps100g = @"BPS_100G";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps100m = @"BPS_100M";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps10g = @"BPS_10G";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps1g = @"BPS_1G";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps200m = @"BPS_200M";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps20g = @"BPS_20G";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps2g = @"BPS_2G";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps300m = @"BPS_300M";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps400m = @"BPS_400M";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps500m = @"BPS_500M";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps50g = @"BPS_50G";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps50m = @"BPS_50M";
+NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps5g = @"BPS_5G";
+
+// GTLRNetworkconnectivity_Transport.stackType
+NSString * const kGTLRNetworkconnectivity_Transport_StackType_Ipv4Ipv6 = @"IPV4_IPV6";
+NSString * const kGTLRNetworkconnectivity_Transport_StackType_Ipv4Only = @"IPV4_ONLY";
+NSString * const kGTLRNetworkconnectivity_Transport_StackType_StackTypeUnspecified = @"STACK_TYPE_UNSPECIFIED";
+
+// GTLRNetworkconnectivity_Transport.state
+NSString * const kGTLRNetworkconnectivity_Transport_State_Active = @"ACTIVE";
+NSString * const kGTLRNetworkconnectivity_Transport_State_Creating = @"CREATING";
+NSString * const kGTLRNetworkconnectivity_Transport_State_Deleting = @"DELETING";
+NSString * const kGTLRNetworkconnectivity_Transport_State_Deprovisioned = @"DEPROVISIONED";
+NSString * const kGTLRNetworkconnectivity_Transport_State_PendingConfig = @"PENDING_CONFIG";
+NSString * const kGTLRNetworkconnectivity_Transport_State_PendingKey = @"PENDING_KEY";
+NSString * const kGTLRNetworkconnectivity_Transport_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRNetworkconnectivity_Warnings.code
 NSString * const kGTLRNetworkconnectivity_Warnings_Code_ResourceBeingModified = @"RESOURCE_BEING_MODIFIED";
@@ -1328,6 +1390,29 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetworkconnectivity_ListRemoteTransportProfilesResponse
+//
+
+@implementation GTLRNetworkconnectivity_ListRemoteTransportProfilesResponse
+@dynamic nextPageToken, remoteTransportProfiles, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"remoteTransportProfiles" : [GTLRNetworkconnectivity_RemoteTransportProfile class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"remoteTransportProfiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetworkconnectivity_ListRoutesResponse
 //
 
@@ -1482,6 +1567,29 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 + (NSString *)collectionItemsKey {
   return @"spokes";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_ListTransportsResponse
+//
+
+@implementation GTLRNetworkconnectivity_ListTransportsResponse
+@dynamic nextPageToken, transports, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"transports" : [GTLRNetworkconnectivity_Transport class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"transports";
 }
 
 @end
@@ -1895,6 +2003,43 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
 
 @implementation GTLRNetworkconnectivity_RejectSpokeUpdateRequest
 @dynamic details, requestId, spokeEtag, spokeUri;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_RemoteTransportProfile
+//
+
+@implementation GTLRNetworkconnectivity_RemoteTransportProfile
+@dynamic descriptionProperty, displayName, flow, labels, name, orderState,
+         provider, providerSite, sla, supportedBandwidths;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"supportedBandwidths" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_RemoteTransportProfile_Labels
+//
+
+@implementation GTLRNetworkconnectivity_RemoteTransportProfile_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
 @end
 
 
@@ -2316,6 +2461,45 @@ NSString * const kGTLRNetworkconnectivity_Warnings_Code_WarningUnspecified = @"W
     @"permissions" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_Transport
+//
+
+@implementation GTLRNetworkconnectivity_Transport
+@dynamic advertisedRoutes, bandwidth, createTime, descriptionProperty,
+         generatedActivationKey, labels, mtuLimit, name, network,
+         peeringNetwork, providedActivationKey, remoteAccountId, remoteProfile,
+         stackType, state, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"advertisedRoutes" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetworkconnectivity_Transport_Labels
+//
+
+@implementation GTLRNetworkconnectivity_Transport_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

@@ -2,10 +2,9 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Vertex AI API (aiplatform/v1)
+//   Agent Platform API (aiplatform/v1)
 // Description:
-//   Train high-quality custom machine learning models with minimal machine
-//   learning expertise and effort.
+//   Build, scale, govern, and optimize sophisticated agents and models.
 // Documentation:
 //   https://cloud.google.com/vertex-ai/
 

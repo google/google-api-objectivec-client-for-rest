@@ -352,6 +352,44 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDns_GoogleLongrunningOperation
+//
+
+@implementation GTLRDns_GoogleLongrunningOperation
+@dynamic done, error, metadata, name, response;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_GoogleLongrunningOperation_Metadata
+//
+
+@implementation GTLRDns_GoogleLongrunningOperation_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_GoogleLongrunningOperation_Response
+//
+
+@implementation GTLRDns_GoogleLongrunningOperation_Response
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDns_KeyDigest
 //
 
@@ -1146,6 +1184,38 @@ NSString * const kGTLRDns_RRSetRoutingPolicyLoadBalancerTarget_LoadBalancerType_
     @"signatureRrdatas" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_Status
+//
+
+@implementation GTLRDns_Status
+@dynamic code, details, message;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"details" : [GTLRDns_Status_Details_Item class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDns_Status_Details_Item
+//
+
+@implementation GTLRDns_Status_Details_Item
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

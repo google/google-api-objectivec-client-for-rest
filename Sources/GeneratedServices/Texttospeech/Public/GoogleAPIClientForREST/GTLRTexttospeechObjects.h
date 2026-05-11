@@ -26,6 +26,8 @@
 @class GTLRTexttospeech_Operation;
 @class GTLRTexttospeech_Operation_Metadata;
 @class GTLRTexttospeech_Operation_Response;
+@class GTLRTexttospeech_SafetySetting;
+@class GTLRTexttospeech_SafetySettings;
 @class GTLRTexttospeech_Status;
 @class GTLRTexttospeech_Status_Details_Item;
 @class GTLRTexttospeech_SynthesisInput;
@@ -174,6 +176,81 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedU
 FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_CustomVoiceParams_ReportedUsage_ReportedUsageUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRTexttospeech_SafetySetting.category
+
+/**
+ *  Content that promotes, facilitates, or enables dangerous activities.
+ *
+ *  Value: "HARM_CATEGORY_DANGEROUS_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_SafetySetting_Category_HarmCategoryDangerousContent;
+/**
+ *  Abusive, threatening, or content intended to bully, torment, or ridicule.
+ *
+ *  Value: "HARM_CATEGORY_HARASSMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_SafetySetting_Category_HarmCategoryHarassment;
+/**
+ *  Content that promotes violence or incites hatred against individuals or
+ *  groups based on certain attributes.
+ *
+ *  Value: "HARM_CATEGORY_HATE_SPEECH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_SafetySetting_Category_HarmCategoryHateSpeech;
+/**
+ *  Content that contains sexually explicit material.
+ *
+ *  Value: "HARM_CATEGORY_SEXUALLY_EXPLICIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_SafetySetting_Category_HarmCategorySexuallyExplicit;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "HARM_CATEGORY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_SafetySetting_Category_HarmCategoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRTexttospeech_SafetySetting.threshold
+
+/**
+ *  Block content with a low harm probability or higher.
+ *
+ *  Value: "BLOCK_LOW_AND_ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_SafetySetting_Threshold_BlockLowAndAbove;
+/**
+ *  Block content with a medium harm probability or higher.
+ *
+ *  Value: "BLOCK_MEDIUM_AND_ABOVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_SafetySetting_Threshold_BlockMediumAndAbove;
+/**
+ *  Do not block any content, regardless of its harm probability.
+ *
+ *  Value: "BLOCK_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_SafetySetting_Threshold_BlockNone;
+/**
+ *  Block content with a high harm probability.
+ *
+ *  Value: "BLOCK_ONLY_HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_SafetySetting_Threshold_BlockOnlyHigh;
+/**
+ *  The harm block threshold is unspecified.
+ *
+ *  Value: "HARM_BLOCK_THRESHOLD_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_SafetySetting_Threshold_HarmBlockThresholdUnspecified;
+/**
+ *  Turn off the safety filter entirely.
+ *
+ *  Value: "OFF"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_SafetySetting_Threshold_Off;
+
+// ----------------------------------------------------------------------------
 // GTLRTexttospeech_Voice.ssmlGender
 
 /**
@@ -257,11 +334,20 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
 @property(nonatomic, strong, nullable) NSNumber *lowLatencyJourneySynthesis;
 
 /**
- *  Optional. Input only. If true, relaxes safety filters for Gemini TTS.
+ *  Optional. Input only. Deprecated, use safety_settings instead. If true,
+ *  relaxes safety filters for Gemini TTS.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *relaxSafetyFilters;
+@property(nonatomic, strong, nullable) NSNumber *relaxSafetyFilters GTLR_DEPRECATED;
+
+/**
+ *  Optional. Input only. This applies to Gemini TTS only. If set, the category
+ *  specified in the safety setting will be blocked if the harm probability is
+ *  above the threshold. Otherwise, the safety filter will be disabled by
+ *  default.
+ */
+@property(nonatomic, strong, nullable) GTLRTexttospeech_SafetySettings *safetySettings;
 
 @end
 
@@ -662,6 +748,70 @@ FOUNDATION_EXTERN NSString * const kGTLRTexttospeech_VoiceSelectionParams_SsmlGe
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRTexttospeech_Operation_Response : GTLRObject
+@end
+
+
+/**
+ *  Safety setting for a single harm category.
+ */
+@interface GTLRTexttospeech_SafetySetting : GTLRObject
+
+/**
+ *  The harm category to apply the safety setting to.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTexttospeech_SafetySetting_Category_HarmCategoryDangerousContent
+ *        Content that promotes, facilitates, or enables dangerous activities.
+ *        (Value: "HARM_CATEGORY_DANGEROUS_CONTENT")
+ *    @arg @c kGTLRTexttospeech_SafetySetting_Category_HarmCategoryHarassment
+ *        Abusive, threatening, or content intended to bully, torment, or
+ *        ridicule. (Value: "HARM_CATEGORY_HARASSMENT")
+ *    @arg @c kGTLRTexttospeech_SafetySetting_Category_HarmCategoryHateSpeech
+ *        Content that promotes violence or incites hatred against individuals
+ *        or groups based on certain attributes. (Value:
+ *        "HARM_CATEGORY_HATE_SPEECH")
+ *    @arg @c kGTLRTexttospeech_SafetySetting_Category_HarmCategorySexuallyExplicit
+ *        Content that contains sexually explicit material. (Value:
+ *        "HARM_CATEGORY_SEXUALLY_EXPLICIT")
+ *    @arg @c kGTLRTexttospeech_SafetySetting_Category_HarmCategoryUnspecified
+ *        Default value. This value is unused. (Value:
+ *        "HARM_CATEGORY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *category;
+
+/**
+ *  The harm block threshold for the safety setting.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRTexttospeech_SafetySetting_Threshold_BlockLowAndAbove Block
+ *        content with a low harm probability or higher. (Value:
+ *        "BLOCK_LOW_AND_ABOVE")
+ *    @arg @c kGTLRTexttospeech_SafetySetting_Threshold_BlockMediumAndAbove
+ *        Block content with a medium harm probability or higher. (Value:
+ *        "BLOCK_MEDIUM_AND_ABOVE")
+ *    @arg @c kGTLRTexttospeech_SafetySetting_Threshold_BlockNone Do not block
+ *        any content, regardless of its harm probability. (Value: "BLOCK_NONE")
+ *    @arg @c kGTLRTexttospeech_SafetySetting_Threshold_BlockOnlyHigh Block
+ *        content with a high harm probability. (Value: "BLOCK_ONLY_HIGH")
+ *    @arg @c kGTLRTexttospeech_SafetySetting_Threshold_HarmBlockThresholdUnspecified
+ *        The harm block threshold is unspecified. (Value:
+ *        "HARM_BLOCK_THRESHOLD_UNSPECIFIED")
+ *    @arg @c kGTLRTexttospeech_SafetySetting_Threshold_Off Turn off the safety
+ *        filter entirely. (Value: "OFF")
+ */
+@property(nonatomic, copy, nullable) NSString *threshold;
+
+@end
+
+
+/**
+ *  Safety settings for the request.
+ */
+@interface GTLRTexttospeech_SafetySettings : GTLRObject
+
+/** The safety settings for the request. */
+@property(nonatomic, strong, nullable) NSArray<GTLRTexttospeech_SafetySetting *> *settings;
+
 @end
 
 

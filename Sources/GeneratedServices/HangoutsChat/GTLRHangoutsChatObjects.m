@@ -265,6 +265,13 @@ NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visibility_Hidden = @"
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visibility_VisibilityUnspecified = @"VISIBILITY_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_GoogleAppsCardV1Widget_Visibility_Visible = @"VISIBLE";
 
+// GTLRHangoutsChat_GoogleChatV1Section.type
+NSString * const kGTLRHangoutsChat_GoogleChatV1Section_Type_CustomSection = @"CUSTOM_SECTION";
+NSString * const kGTLRHangoutsChat_GoogleChatV1Section_Type_DefaultApps = @"DEFAULT_APPS";
+NSString * const kGTLRHangoutsChat_GoogleChatV1Section_Type_DefaultDirectMessages = @"DEFAULT_DIRECT_MESSAGES";
+NSString * const kGTLRHangoutsChat_GoogleChatV1Section_Type_DefaultSpaces = @"DEFAULT_SPACES";
+NSString * const kGTLRHangoutsChat_GoogleChatV1Section_Type_SectionTypeUnspecified = @"SECTION_TYPE_UNSPECIFIED";
+
 // GTLRHangoutsChat_ImageButton.icon
 NSString * const kGTLRHangoutsChat_ImageButton_Icon_Airplane   = @"AIRPLANE";
 NSString * const kGTLRHangoutsChat_ImageButton_Icon_Bookmark   = @"BOOKMARK";
@@ -353,6 +360,11 @@ NSString * const kGTLRHangoutsChat_Membership_State_Invited    = @"INVITED";
 NSString * const kGTLRHangoutsChat_Membership_State_Joined     = @"JOINED";
 NSString * const kGTLRHangoutsChat_Membership_State_MembershipStateUnspecified = @"MEMBERSHIP_STATE_UNSPECIFIED";
 NSString * const kGTLRHangoutsChat_Membership_State_NotAMember = @"NOT_A_MEMBER";
+
+// GTLRHangoutsChat_PositionSectionRequest.relativePosition
+NSString * const kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_End = @"END";
+NSString * const kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_PositionUnspecified = @"POSITION_UNSPECIFIED";
+NSString * const kGTLRHangoutsChat_PositionSectionRequest_RelativePosition_Start = @"START";
 
 // GTLRHangoutsChat_QuotedMessageMetadata.quoteType
 NSString * const kGTLRHangoutsChat_QuotedMessageMetadata_QuoteType_QuoteTypeUnspecified = @"QUOTE_TYPE_UNSPECIFIED";
@@ -833,6 +845,28 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 //
 
 @implementation GTLRHangoutsChat_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_FindGroupChatsResponse
+//
+
+@implementation GTLRHangoutsChat_FindGroupChatsResponse
+@dynamic nextPageToken, spaces;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"spaces" : [GTLRHangoutsChat_Space class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"spaces";
+}
+
 @end
 
 
@@ -1538,6 +1572,16 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_GoogleChatV1Section
+//
+
+@implementation GTLRHangoutsChat_GoogleChatV1Section
+@dynamic displayName, name, sortOrder, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_Group
 //
 
@@ -1680,6 +1724,50 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 + (NSString *)collectionItemsKey {
   return @"reactions";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ListSectionItemsResponse
+//
+
+@implementation GTLRHangoutsChat_ListSectionItemsResponse
+@dynamic nextPageToken, sectionItems;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sectionItems" : [GTLRHangoutsChat_SectionItem class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sectionItems";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_ListSectionsResponse
+//
+
+@implementation GTLRHangoutsChat_ListSectionsResponse
+@dynamic nextPageToken, sections;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"sections" : [GTLRHangoutsChat_GoogleChatV1Section class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"sections";
 }
 
 @end
@@ -1873,8 +1961,8 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
          attachedGifs, attachment, cards, cardsV2, clientAssignedMessageId,
          createTime, deleteTime, deletionMetadata, emojiReactionSummaries,
          fallbackText, formattedText, lastUpdateTime, matchedUrl, name,
-         privateMessageViewer, quotedMessageMetadata, sender, slashCommand,
-         space, text, thread, threadReply;
+         privateMessageViewer, quotedMessageMetadata, sender, silent,
+         slashCommand, space, text, thread, threadReply;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1978,6 +2066,26 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHangoutsChat_MoveSectionItemRequest
+//
+
+@implementation GTLRHangoutsChat_MoveSectionItemRequest
+@dynamic targetSection;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_MoveSectionItemResponse
+//
+
+@implementation GTLRHangoutsChat_MoveSectionItemResponse
+@dynamic sectionItem;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHangoutsChat_OnClick
 //
 
@@ -2014,6 +2122,26 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
 @implementation GTLRHangoutsChat_PermissionSettings
 @dynamic manageApps, manageMembersAndGroups, manageWebhooks, modifySpaceDetails,
          postMessages, replyMessages, toggleHistory, useAtMentionAll;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_PositionSectionRequest
+//
+
+@implementation GTLRHangoutsChat_PositionSectionRequest
+@dynamic relativePosition, sortOrder;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_PositionSectionResponse
+//
+
+@implementation GTLRHangoutsChat_PositionSectionResponse
+@dynamic section;
 @end
 
 
@@ -2161,6 +2289,16 @@ NSString * const kGTLRHangoutsChat_WorkflowDataSourceMarkup_Type_UserWithFreeFor
   return map;
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHangoutsChat_SectionItem
+//
+
+@implementation GTLRHangoutsChat_SectionItem
+@dynamic name, space;
 @end
 
 

@@ -74,6 +74,11 @@ NSString * const kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewCluster
 NSString * const kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_Ready = @"READY";
 NSString * const kGTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState_ReplicationState_StateNotKnown = @"STATE_NOT_KNOWN";
 
+// GTLRBigtableAdmin_Instance.edition
+NSString * const kGTLRBigtableAdmin_Instance_Edition_EditionUnspecified = @"EDITION_UNSPECIFIED";
+NSString * const kGTLRBigtableAdmin_Instance_Edition_Enterprise = @"ENTERPRISE";
+NSString * const kGTLRBigtableAdmin_Instance_Edition_EnterprisePlus = @"ENTERPRISE_PLUS";
+
 // GTLRBigtableAdmin_Instance.state
 NSString * const kGTLRBigtableAdmin_Instance_State_Creating    = @"CREATING";
 NSString * const kGTLRBigtableAdmin_Instance_State_Ready       = @"READY";
@@ -83,6 +88,13 @@ NSString * const kGTLRBigtableAdmin_Instance_State_StateNotKnown = @"STATE_NOT_K
 NSString * const kGTLRBigtableAdmin_Instance_Type_Development  = @"DEVELOPMENT";
 NSString * const kGTLRBigtableAdmin_Instance_Type_Production   = @"PRODUCTION";
 NSString * const kGTLRBigtableAdmin_Instance_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
+
+// GTLRBigtableAdmin_MemoryLayer.state
+NSString * const kGTLRBigtableAdmin_MemoryLayer_State_Disabled = @"DISABLED";
+NSString * const kGTLRBigtableAdmin_MemoryLayer_State_Enabling = @"ENABLING";
+NSString * const kGTLRBigtableAdmin_MemoryLayer_State_Ready    = @"READY";
+NSString * const kGTLRBigtableAdmin_MemoryLayer_State_Resizing = @"RESIZING";
+NSString * const kGTLRBigtableAdmin_MemoryLayer_State_StateNotKnown = @"STATE_NOT_KNOWN";
 
 // GTLRBigtableAdmin_RestoreInfo.sourceType
 NSString * const kGTLRBigtableAdmin_RestoreInfo_SourceType_Backup = @"BACKUP";
@@ -191,7 +203,15 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_AutomatedBackupPolicy
-@dynamic frequency, retentionPeriod;
+@dynamic frequency, locations, retentionPeriod;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"locations" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -729,6 +749,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2MemoryLayerMemoryConfig
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2MemoryLayerMemoryConfig
+@dynamic storageSizeGib;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeAggregate
 //
 
@@ -789,6 +819,16 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBool
+@dynamic encoding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBoolEncoding
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeBoolEncoding
 @end
 
 
@@ -865,6 +905,44 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeGeography
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32
+@dynamic encoding;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32Encoding
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32Encoding
+@dynamic bigEndianBytes, orderedCodeBytes;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32EncodingBigEndianBytes
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32EncodingBigEndianBytes
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32EncodingOrderedCodeBytes
+//
+
+@implementation GTLRBigtableAdmin_GoogleBigtableAdminV2TypeInt32EncodingOrderedCodeBytes
 @end
 
 
@@ -1069,8 +1147,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_Instance
-@dynamic createTime, displayName, labels, name, satisfiesPzi, satisfiesPzs,
-         state, tags, type;
+@dynamic createTime, displayName, edition, labels, name, satisfiesPzi,
+         satisfiesPzs, state, tags, type;
 @end
 
 
@@ -1323,6 +1401,29 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigtableAdmin_ListMemoryLayersResponse
+//
+
+@implementation GTLRBigtableAdmin_ListMemoryLayersResponse
+@dynamic failedLocations, memoryLayers, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"failedLocations" : [NSString class],
+    @"memoryLayers" : [GTLRBigtableAdmin_MemoryLayer class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"memoryLayers";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigtableAdmin_ListOperationsResponse
 //
 
@@ -1465,6 +1566,30 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 + (Class)classForAdditionalProperties {
   return [GTLRBigtableAdmin_GoogleBigtableAdminV2MaterializedViewClusterState class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_MemoryConfig
+//
+
+@implementation GTLRBigtableAdmin_MemoryConfig
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_MemoryLayer
+//
+
+@implementation GTLRBigtableAdmin_MemoryLayer
+@dynamic ETag, memoryConfig, name, state;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
 }
 
 @end
@@ -1732,7 +1857,7 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 //
 
 @implementation GTLRBigtableAdmin_StandardIsolation
-@dynamic priority;
+@dynamic memoryConfig, priority;
 @end
 
 
@@ -1901,8 +2026,8 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_Type
 @dynamic aggregateType, arrayType, boolType, bytesType, dateType, enumType,
-         float32Type, float64Type, geographyType, int64Type, mapType, protoType,
-         stringType, structType, timestampType;
+         float32Type, float64Type, geographyType, int32Type, int64Type, mapType,
+         protoType, stringType, structType, timestampType;
 @end
 
 
@@ -2009,6 +2134,26 @@ NSString * const kGTLRBigtableAdmin_TableProgress_State_StateUnspecified = @"STA
 
 @implementation GTLRBigtableAdmin_UpdateLogicalViewRequest
 @dynamic logicalView, updateMask;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_UpdateMemoryLayerMetadata
+//
+
+@implementation GTLRBigtableAdmin_UpdateMemoryLayerMetadata
+@dynamic finishTime, originalRequest, requestTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBigtableAdmin_UpdateMemoryLayerRequest
+//
+
+@implementation GTLRBigtableAdmin_UpdateMemoryLayerRequest
+@dynamic memoryLayer, updateMask;
 @end
 
 

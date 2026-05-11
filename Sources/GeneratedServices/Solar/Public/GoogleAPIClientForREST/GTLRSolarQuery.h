@@ -25,6 +25,23 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// additionalInsights
+
+/**
+ *  The default value. The default BuildingInsights will be returned.
+ *
+ *  Value: "ADDITIONAL_INSIGHTS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSolarAdditionalInsightsAdditionalInsightsUnspecified;
+/**
+ *  Determines whether the response will include the detected arrays. If
+ *  specified, the `detected_arrays` field will be populated in the response.
+ *
+ *  Value: "DETECTED_ARRAYS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSolarAdditionalInsightsDetectedArrays;
+
+// ----------------------------------------------------------------------------
 // experiments
 
 /**
@@ -145,6 +162,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSolarViewImageryLayers;
  *    @c kGTLRAuthScopeSolarCloudPlatform
  */
 @interface GTLRSolarQuery_BuildingInsightsFindClosest : GTLRSolarQuery
+
+/**
+ *  Optional. A list of additional_insights to be included in the response.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSolarAdditionalInsightsAdditionalInsightsUnspecified The
+ *        default value. The default BuildingInsights will be returned. (Value:
+ *        "ADDITIONAL_INSIGHTS_UNSPECIFIED")
+ *    @arg @c kGTLRSolarAdditionalInsightsDetectedArrays Determines whether the
+ *        response will include the detected arrays. If specified, the
+ *        `detected_arrays` field will be populated in the response. (Value:
+ *        "DETECTED_ARRAYS")
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *additionalInsights;
 
 /**
  *  Optional. Whether to require exact quality of the imagery. If set to false,

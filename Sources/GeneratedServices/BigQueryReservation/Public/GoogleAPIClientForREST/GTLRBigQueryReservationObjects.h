@@ -484,7 +484,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *  reservations, the reservation will scale up to 1000 slots with 200 baseline
  *  and 800 idle slots. 2. if there are 500 idle slots available in other
  *  reservations, the reservation will scale up to 700 slots with 200 baseline
- *  and 300 idle slots. Please note, in this mode, the reservation might not be
+ *  and 500 idle slots. Please note, in this mode, the reservation might not be
  *  able to scale up to max_slots. Please note, in this mode, the
  *  ignore_idle_slots field must be set to false. Otherwise the request will be
  *  rejected with error code `google.rpc.Code.INVALID_ARGUMENT`.
@@ -581,7 +581,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *  `principal://iam.googleapis.com/projects/-/serviceAccounts/SA_EMAIL_ADDRESS`
  *  for service accounts, *
  *  `principal://iam.googleapis.com/projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/subject/SUBJECT_ID`
- *  for workload identity pool identities.
+ *  for workload identity pool identities. * The special value
+ *  `unknown_or_deleted_user` represents principals which cannot be read from
+ *  the user info service, for example deleted users.
  */
 @property(nonatomic, copy, nullable) NSString *principal;
 
@@ -1587,7 +1589,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryReservation_Reservation_ScalingM
  *        if there are 1000 idle slots available in other reservations, the
  *        reservation will scale up to 1000 slots with 200 baseline and 800 idle
  *        slots. 2. if there are 500 idle slots available in other reservations,
- *        the reservation will scale up to 700 slots with 200 baseline and 300
+ *        the reservation will scale up to 700 slots with 200 baseline and 500
  *        idle slots. Please note, in this mode, the reservation might not be
  *        able to scale up to max_slots. Please note, in this mode, the
  *        ignore_idle_slots field must be set to false. Otherwise the request

@@ -3230,6 +3230,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *  justification codes.
  *  https://cloud.google.com/assured-workloads/key-access-justifications/docs/justification-codes
  *  By default, this field is absent, and all justification codes are allowed.
+ *  If the `key_access_justifications_policy.allowed_access_reasons` is empty
+ *  (zero allowed justification code), all encrypt, decrypt, and sign operations
+ *  will fail.
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsPolicy *keyAccessJustificationsPolicy;
 
@@ -4913,20 +4916,20 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 
 /**
- *  The configuration of a protection level for a project's Key Access
- *  Justifications enrollment.
+ *  Represents the configuration of a protection level for a project's Key
+ *  Access Justifications enrollment.
  */
 @interface GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig : GTLRObject
 
 /**
- *  Whether the project has KAJ logging enabled.
+ *  Indicates whether the project has KAJ logging enabled.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *auditLogging;
 
 /**
- *  Whether the project is enrolled in KAJ policy enforcement.
+ *  Indicates whether the project is enrolled in KAJ policy enforcement.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -4937,14 +4940,17 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 /**
  *  A KeyAccessJustificationsPolicy specifies zero or more allowed AccessReason
- *  values for encrypt, decrypt, and sign operations on a CryptoKey.
+ *  values for encrypt, decrypt, and sign operations on a CryptoKey or
+ *  KeyAccessJustificationsPolicyConfig (the default Key Access Justifications
+ *  policy).
  */
 @interface GTLRCloudKMS_KeyAccessJustificationsPolicy : GTLRObject
 
 /**
- *  The list of allowed reasons for access to a CryptoKey. Zero allowed access
- *  reasons means all encrypt, decrypt, and sign operations for the CryptoKey
- *  associated with this policy will fail.
+ *  The list of allowed reasons for access to a CryptoKey. Note that empty
+ *  allowed_access_reasons has a different meaning depending on where this
+ *  message appears. If this is under KeyAccessJustificationsPolicyConfig, it
+ *  means allow-all. If this is under CryptoKey, it means deny-all.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *allowedAccessReasons;
 
@@ -4952,21 +4958,35 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 
 /**
- *  A singleton configuration for Key Access Justifications policies.
+ *  Represents a singleton configuration for Key Access Justifications policies.
  */
 @interface GTLRCloudKMS_KeyAccessJustificationsPolicyConfig : GTLRObject
 
 /**
- *  Optional. The default key access justification policy used when a CryptoKey
- *  is created in this folder. This is only used when a Key Access
- *  Justifications policy is not provided in the CreateCryptoKeyRequest. This
- *  overrides any default policies in its ancestry.
+ *  Optional. Specifies the default key access justifications (KAJ) policy used
+ *  when a CryptoKey is created in this folder. This is only used when a Key
+ *  Access Justifications policy is not provided in the CreateCryptoKeyRequest.
+ *  This overrides any default policies in its ancestry. If this field is unset,
+ *  or is set but contains an empty allowed_access_reasons list, no default Key
+ *  Access Justifications (KAJ) policy configuration is active. In this
+ *  scenario, all newly created keys will default to an "allow-all" policy.
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsPolicy *defaultKeyAccessJustificationPolicy;
 
 /**
- *  Identifier. The resource name for this KeyAccessJustificationsPolicyConfig
- *  in the format of "{organizations|folders|projects}/ * /kajPolicyConfig".
+ *  Output only. Indicates whether this parent resource is available to default
+ *  policy feature. Please consult [the prerequisite of default policy
+ *  feature](https://cloud.google.com/assured-workloads/key-access-justifications/docs/set-default-policy#before)
+ *  for more details.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultPolicyAvailable;
+
+/**
+ *  Identifier. Represents the resource name for this
+ *  KeyAccessJustificationsPolicyConfig in the format of
+ *  "{organizations|folders|projects}/ * /kajPolicyConfig".
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -6873,23 +6893,26 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 
 /**
- *  Response message for
+ *  Represents a response message for
  *  KeyAccessJustificationsConfig.ShowEffectiveKeyAccessJustificationsEnrollmentConfig
  */
 @interface GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsEnrollmentConfigResponse : GTLRObject
 
 /**
- *  The effective KeyAccessJustificationsEnrollmentConfig for external keys.
+ *  Contains the effective KeyAccessJustificationsEnrollmentConfig for external
+ *  keys.
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig *externalConfig;
 
 /**
- *  The effective KeyAccessJustificationsEnrollmentConfig for hardware keys.
+ *  Contains the effective KeyAccessJustificationsEnrollmentConfig for hardware
+ *  keys.
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig *hardwareConfig;
 
 /**
- *  The effective KeyAccessJustificationsEnrollmentConfig for software keys.
+ *  Contains the effective KeyAccessJustificationsEnrollmentConfig for software
+ *  keys.
  */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsEnrollmentConfig *softwareConfig;
 
@@ -6897,12 +6920,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 
 
 /**
- *  Response message for
+ *  Represents a response message for
  *  KeyAccessJustificationsConfig.ShowEffectiveKeyAccessJustificationsPolicyConfig.
  */
 @interface GTLRCloudKMS_ShowEffectiveKeyAccessJustificationsPolicyConfigResponse : GTLRObject
 
-/** The effective KeyAccessJustificationsPolicyConfig. */
+/** Contains the effective KeyAccessJustificationsPolicyConfig. */
 @property(nonatomic, strong, nullable) GTLRCloudKMS_KeyAccessJustificationsPolicyConfig *effectiveKajPolicy;
 
 @end
@@ -6930,6 +6953,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
  *  time otherwise the SingleTenantHsmInstance will become disabled.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *disableTime;
+
+/**
+ *  Optional. Immutable. Indicates whether key portability is enabled for the
+ *  SingleTenantHsmInstance. This can only be set at creation time. Key
+ *  portability features are disabled by default and not yet available in GA.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *keyPortabilityEnabled;
 
 /**
  *  Identifier. The resource name for this SingleTenantHsmInstance in the format
@@ -6977,7 +7009,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudKMS_SingleTenantHsmInstanceProposal
 /**
  *  Output only. The system-defined duration that an instance can remain
  *  unrefreshed until it is automatically disabled. This will have a value of
- *  120 days.
+ *  730 days.
  */
 @property(nonatomic, strong, nullable) GTLRDuration *unrefreshedDurationUntilDisable;
 

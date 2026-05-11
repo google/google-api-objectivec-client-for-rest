@@ -83,6 +83,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDe
  */
 FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDeploying;
 /**
+ *  Flagged by an automation as soon to be expired.
+ *
+ *  Value: "STATE_EXPIRING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateExpiring;
+/**
  *  State FAILED
  *
  *  Value: "STATE_FAILED"
@@ -784,6 +790,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCCAIPlatform_WeeklySchedule_Days_Wednesd
  *        (Value: "STATE_DEPLOYED")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateDeploying State
  *        DEPLOYING (Value: "STATE_DEPLOYING")
+ *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateExpiring Flagged by an
+ *        automation as soon to be expired. (Value: "STATE_EXPIRING")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateFailed State FAILED
  *        (Value: "STATE_FAILED")
  *    @arg @c kGTLRCCAIPlatform_ContactCenter_State_StateFailingOver State in

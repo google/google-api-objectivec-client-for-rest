@@ -175,43 +175,56 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GdataMedia_Refer
 // GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo.integrationState
 
 /**
- *  Aab integration state unspecified
+ *  AAB integration state unspecified.
  *
  *  Value: "AAB_INTEGRATION_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AabIntegrationStateUnspecified;
 /**
- *  Play App status is unavailable
+ *  Play App status is unavailable.
  *
  *  Value: "AAB_STATE_UNAVAILABLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AabStateUnavailable;
 /**
- *  The app in Play developer account is not in a published state
+ *  The ad-hoc sharing key has not been generated for this app.
+ *
+ *  Value: "ADHOC_SHARING_KEY_NOT_GENERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AdhocSharingKeyNotGenerated;
+/**
+ *  The ad-hoc sharing key is not yet registered in ADI for this app.
+ *
+ *  Value: "ADHOC_SHARING_KEY_NOT_REGISTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AdhocSharingKeyNotRegistered;
+/**
+ *  The app in the Play developer account is not in a published state.
  *
  *  Value: "APP_NOT_PUBLISHED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AppNotPublished;
 /**
- *  App can receive app bundle uploads
+ *  App can receive app bundle uploads.
  *
  *  Value: "INTEGRATED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_Integrated;
 /**
- *  There is no app in linked Play developer account with the same bundle id
+ *  There is no app in the linked Play developer account with the same bundle
+ *  ID.
  *
  *  Value: "NO_APP_WITH_GIVEN_BUNDLE_ID_IN_PLAY_ACCOUNT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_NoAppWithGivenBundleIdInPlayAccount;
 /**
- *  Firebase project is not linked to a Play developer account
+ *  Firebase project is not linked to a Play developer account.
  *
  *  Value: "PLAY_ACCOUNT_NOT_LINKED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAccountNotLinked;
 /**
- *  Play IAS terms not accepted
+ *  Play in-app sharing terms not accepted.
  *
  *  Value: "PLAY_IAS_TERMS_NOT_ACCEPTED"
  */
@@ -441,6 +454,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  */
 @property(nonatomic, copy, nullable) NSString *fromFileName;
 
+/** The content type of the file detected by Fusion ID. go/fusionid */
+@property(nonatomic, copy, nullable) NSString *fromFusionId;
+
 /**
  *  The content type of the file as specified in the request headers, multipart
  *  headers, or RUPIO start request.
@@ -453,6 +469,15 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *  only true for agents that are providing a REST API).
  */
 @property(nonatomic, copy, nullable) NSString *fromUrlPath;
+
+/**
+ *  Metadata information from Fusion ID detection. Serialized
+ *  FusionIdDetectionMetadata proto. Only set if from_fusion_id is set.
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fusionIdDetectionMetadata;
 
 @end
 
@@ -890,23 +915,30 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAp
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AabIntegrationStateUnspecified
- *        Aab integration state unspecified (Value:
+ *        AAB integration state unspecified. (Value:
  *        "AAB_INTEGRATION_STATE_UNSPECIFIED")
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AabStateUnavailable
- *        Play App status is unavailable (Value: "AAB_STATE_UNAVAILABLE")
+ *        Play App status is unavailable. (Value: "AAB_STATE_UNAVAILABLE")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AdhocSharingKeyNotGenerated
+ *        The ad-hoc sharing key has not been generated for this app. (Value:
+ *        "ADHOC_SHARING_KEY_NOT_GENERATED")
+ *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AdhocSharingKeyNotRegistered
+ *        The ad-hoc sharing key is not yet registered in ADI for this app.
+ *        (Value: "ADHOC_SHARING_KEY_NOT_REGISTERED")
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AppNotPublished
- *        The app in Play developer account is not in a published state (Value:
- *        "APP_NOT_PUBLISHED")
+ *        The app in the Play developer account is not in a published state.
+ *        (Value: "APP_NOT_PUBLISHED")
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_Integrated
- *        App can receive app bundle uploads (Value: "INTEGRATED")
+ *        App can receive app bundle uploads. (Value: "INTEGRATED")
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_NoAppWithGivenBundleIdInPlayAccount
- *        There is no app in linked Play developer account with the same bundle
- *        id (Value: "NO_APP_WITH_GIVEN_BUNDLE_ID_IN_PLAY_ACCOUNT")
+ *        There is no app in the linked Play developer account with the same
+ *        bundle ID. (Value: "NO_APP_WITH_GIVEN_BUNDLE_ID_IN_PLAY_ACCOUNT")
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayAccountNotLinked
- *        Firebase project is not linked to a Play developer account (Value:
+ *        Firebase project is not linked to a Play developer account. (Value:
  *        "PLAY_ACCOUNT_NOT_LINKED")
  *    @arg @c kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_PlayIasTermsNotAccepted
- *        Play IAS terms not accepted (Value: "PLAY_IAS_TERMS_NOT_ACCEPTED")
+ *        Play in-app sharing terms not accepted. (Value:
+ *        "PLAY_IAS_TERMS_NOT_ACCEPTED")
  */
 @property(nonatomic, copy, nullable) NSString *integrationState;
 

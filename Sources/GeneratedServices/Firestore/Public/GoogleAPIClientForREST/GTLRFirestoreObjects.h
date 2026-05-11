@@ -70,6 +70,11 @@
 @class GTLRFirestore_GoogleFirestoreAdminV1Progress;
 @class GTLRFirestore_GoogleFirestoreAdminV1ResourceIdentity;
 @class GTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseRequest_Tags;
+@class GTLRFirestore_GoogleFirestoreAdminV1SearchConfig;
+@class GTLRFirestore_GoogleFirestoreAdminV1SearchGeoSpec;
+@class GTLRFirestore_GoogleFirestoreAdminV1SearchIndexOptions;
+@class GTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec;
+@class GTLRFirestore_GoogleFirestoreAdminV1SearchTextSpec;
 @class GTLRFirestore_GoogleFirestoreAdminV1SourceEncryptionOptions;
 @class GTLRFirestore_GoogleFirestoreAdminV1SourceInfo;
 @class GTLRFirestore_GoogleFirestoreAdminV1Stats;
@@ -1113,6 +1118,40 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreD
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1RestoreDatabaseMetadata_OperationState_Successful;
 
 // ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec.indexType
+
+/**
+ *  The index type is unspecified. Not a valid option.
+ *
+ *  Value: "TEXT_INDEX_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_IndexType_TextIndexTypeUnspecified;
+/**
+ *  Field values are tokenized. This is the only way currently supported for
+ *  MONGODB_COMPATIBLE_API.
+ *
+ *  Value: "TOKENIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_IndexType_Tokenized;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec.matchType
+
+/**
+ *  Match on any indexed field. This is the only way currently supported for
+ *  MONGODB_COMPATIBLE_API.
+ *
+ *  Value: "MATCH_GLOBALLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_MatchType_MatchGlobally;
+/**
+ *  The match type is unspecified. Not a valid option.
+ *
+ *  Value: "TEXT_MATCH_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_MatchType_TextMatchTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRFirestore_GoogleFirestoreAdminV1TtlConfig.state
 
 /**
@@ -1263,6 +1302,28 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Order_Direction_Descending;
  *  Value: "DIRECTION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirestore_Order_Direction_DirectionUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRFirestore_ReadWrite.concurrencyMode
+
+/**
+ *  Start the transaction with the database-level default concurrency mode.
+ *
+ *  Value: "CONCURRENCY_MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_ReadWrite_ConcurrencyMode_ConcurrencyModeUnspecified;
+/**
+ *  Use optimistic concurrency control for the new transaction.
+ *
+ *  Value: "OPTIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_ReadWrite_ConcurrencyMode_Optimistic;
+/**
+ *  Use pessimistic concurrency control for the new transaction.
+ *
+ *  Value: "PESSIMISTIC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirestore_ReadWrite_ConcurrencyMode_Pessimistic;
 
 // ----------------------------------------------------------------------------
 // GTLRFirestore_TargetChange.targetChangeType
@@ -2948,9 +3009,14 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1CmekConfig *cmekConfig;
 
 /**
- *  The concurrency control mode to use for this database. If unspecified in a
- *  CreateDatabase request, this will default based on the database edition:
- *  Optimistic for Enterprise and Pessimistic for all other databases.
+ *  The default concurrency control mode to use for this database. If
+ *  unspecified in a CreateDatabase request, this will default based on the
+ *  database edition: Optimistic for Enterprise and Pessimistic for all other
+ *  databases. While transactions can explicitly specify their own concurrency
+ *  mode, this setting defines the default behavior when left unspecified.
+ *  Important: This database-level setting is not respected for Firestore with
+ *  MongoDB compatibility. All transactions through the MongoDB compatibility
+ *  layer will use optimistic concurrency control, regardless of this setting.
  *
  *  Likely values:
  *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1Database_ConcurrencyMode_ConcurrencyModeUnspecified
@@ -3710,6 +3776,13 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 @property(nonatomic, copy, nullable) NSString *queryScope;
 
 /**
+ *  Optional. Options for search indexes that are at the index definition level.
+ *  This field is only currently supported for indexes with
+ *  MONGODB_COMPATIBLE_API ApiScope.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1SearchIndexOptions *searchIndexOptions;
+
+/**
  *  Optional. The number of shards for the index.
  *
  *  Uses NSNumber of intValue.
@@ -3853,6 +3926,9 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        "ORDER_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *order;
+
+/** Indicates that this field supports search operations. */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1SearchConfig *searchConfig;
 
 /**
  *  Indicates that this field supports nearest neighbor and distance operations
@@ -4229,6 +4305,114 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 
 /**
+ *  The configuration for how to index a field for search.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1SearchConfig : GTLRObject
+
+/**
+ *  Optional. The specification for building a geo search index for a field.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1SearchGeoSpec *geoSpec;
+
+/**
+ *  Optional. The specification for building a text search index for a field.
+ */
+@property(nonatomic, strong, nullable) GTLRFirestore_GoogleFirestoreAdminV1SearchTextSpec *textSpec;
+
+@end
+
+
+/**
+ *  The specification for how to build a geo search index for a field.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1SearchGeoSpec : GTLRObject
+
+/**
+ *  Optional. Disables geoJSON indexing for the field. By default, geoJSON
+ *  points are indexed.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *geoJsonIndexingDisabled;
+
+@end
+
+
+/**
+ *  Options for search indexes at the definition level.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1SearchIndexOptions : GTLRObject
+
+/**
+ *  Optional. The language to use for text search indexes. Used as the default
+ *  language if not overridden at the document level by specifying the
+ *  `text_language_override_field`. The language is specified as a BCP 47
+ *  language code. For indexes with MONGODB_COMPATIBLE_API ApiScope: If
+ *  unspecified, the default language is English. For indexes with `ANY_API`
+ *  ApiScope: If unspecified, the default behavior is autodetect.
+ */
+@property(nonatomic, copy, nullable) NSString *textLanguage;
+
+/**
+ *  Optional. The field in the document that specifies which language to use for
+ *  that specific document. For indexes with MONGODB_COMPATIBLE_API ApiScope: if
+ *  unspecified, the language is taken from the "language" field if it exists or
+ *  from `text_language` if it does not.
+ */
+@property(nonatomic, copy, nullable) NSString *textLanguageOverrideFieldPath;
+
+@end
+
+
+/**
+ *  Specification of how the field should be indexed for search text indexes.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec : GTLRObject
+
+/**
+ *  Required. How to index the text field value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_IndexType_TextIndexTypeUnspecified
+ *        The index type is unspecified. Not a valid option. (Value:
+ *        "TEXT_INDEX_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_IndexType_Tokenized
+ *        Field values are tokenized. This is the only way currently supported
+ *        for MONGODB_COMPATIBLE_API. (Value: "TOKENIZED")
+ */
+@property(nonatomic, copy, nullable) NSString *indexType;
+
+/**
+ *  Required. How to match the text field value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_MatchType_MatchGlobally
+ *        Match on any indexed field. This is the only way currently supported
+ *        for MONGODB_COMPATIBLE_API. (Value: "MATCH_GLOBALLY")
+ *    @arg @c kGTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec_MatchType_TextMatchTypeUnspecified
+ *        The match type is unspecified. Not a valid option. (Value:
+ *        "TEXT_MATCH_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *matchType;
+
+@end
+
+
+/**
+ *  The specification for how to build a text search index for a field.
+ */
+@interface GTLRFirestore_GoogleFirestoreAdminV1SearchTextSpec : GTLRObject
+
+/**
+ *  Required. Specifications for how the field should be indexed. Repeated so
+ *  that the field can be indexed in multiple ways.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirestore_GoogleFirestoreAdminV1SearchTextIndexSpec *> *indexSpecs;
+
+@end
+
+
+/**
  *  The configuration options for using the same encryption method as the
  *  source.
  */
@@ -4289,14 +4473,26 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  The TTL (time-to-live) configuration for documents that have this `Field`
- *  set. Storing a timestamp value into a TTL-enabled field will be treated as
- *  the document's absolute expiration time. For Enterprise edition databases,
- *  the timestamp value may also be stored in an array value in the TTL-enabled
- *  field. Timestamp values in the past indicate that the document is eligible
- *  for immediate expiration. Using any other data type or leaving the field
- *  absent will disable expiration for the individual document.
+ *  set. A timestamp stored in a TTL-enabled field will be used to determine the
+ *  expiration time of the document. The expiration time is the sum of the
+ *  timestamp value and the `expiration_offset`. For Enterprise edition
+ *  databases, the timestamp value may alternatively be stored in an array value
+ *  in the TTL-enabled field. An expiration time in the past indicates that the
+ *  document is eligible for immediate expiration. Using any other data type or
+ *  leaving the field absent will disable expiration for the individual
+ *  document.
  */
 @interface GTLRFirestore_GoogleFirestoreAdminV1TtlConfig : GTLRObject
+
+/**
+ *  Optional. The offset, relative to the timestamp value from the TTL-enabled
+ *  field, used to determine the document's expiration time.
+ *  `expiration_offset.seconds` must be between 0 and 2,147,483,647 inclusive.
+ *  Values more precise than seconds are rejected. If unset, defaults to 0, in
+ *  which case the expiration time is the same as the timestamp value from the
+ *  TTL-enabled field.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *expirationOffset;
 
 /**
  *  Output only. The state of the TTL configuration.
@@ -4341,6 +4537,12 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
  *        The TTL config is being removed. (Value: "REMOVE")
  */
 @property(nonatomic, copy, nullable) NSString *changeType;
+
+/**
+ *  The offset, relative to the timestamp value in the TTL-enabled field, used
+ *  determine the document's expiration time.
+ */
+@property(nonatomic, strong, nullable) GTLRDuration *expirationOffset;
 
 @end
 
@@ -5068,10 +5270,27 @@ FOUNDATION_EXTERN NSString * const kGTLRFirestore_Value_NullValue_NullValue;
 
 /**
  *  Options for a transaction that can be used to read and write documents.
- *  Firestore does not allow 3rd party auth requests to create read-write.
- *  transactions.
  */
 @interface GTLRFirestore_ReadWrite : GTLRObject
+
+/**
+ *  Optional. The concurrency control mode to use for this transaction. A
+ *  database is able to use different concurrency modes for different
+ *  transactions simultaneously. 3rd party auth requests are only allowed to
+ *  create optimistic read-write transactions and must specify that here even if
+ *  the database-level setting is already configured to optimistic.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirestore_ReadWrite_ConcurrencyMode_ConcurrencyModeUnspecified
+ *        Start the transaction with the database-level default concurrency
+ *        mode. (Value: "CONCURRENCY_MODE_UNSPECIFIED")
+ *    @arg @c kGTLRFirestore_ReadWrite_ConcurrencyMode_Optimistic Use optimistic
+ *        concurrency control for the new transaction. (Value: "OPTIMISTIC")
+ *    @arg @c kGTLRFirestore_ReadWrite_ConcurrencyMode_Pessimistic Use
+ *        pessimistic concurrency control for the new transaction. (Value:
+ *        "PESSIMISTIC")
+ */
+@property(nonatomic, copy, nullable) NSString *concurrencyMode;
 
 /**
  *  An optional transaction to retry.

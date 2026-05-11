@@ -13,8 +13,9 @@
 // ----------------------------------------------------------------------------
 // Authorization scopes
 
-NSString * const kGTLRAuthScopeCloudComposerCloudcomposer = @"https://www.googleapis.com/auth/cloudcomposer";
-NSString * const kGTLRAuthScopeCloudComposerCloudPlatform = @"https://www.googleapis.com/auth/cloud-platform";
+NSString * const kGTLRAuthScopeCloudComposerCloudcomposer      = @"https://www.googleapis.com/auth/cloudcomposer";
+NSString * const kGTLRAuthScopeCloudComposerCloudcomposerReadonly = @"https://www.googleapis.com/auth/cloudcomposer.readonly";
+NSString * const kGTLRAuthScopeCloudComposerCloudPlatform      = @"https://www.googleapis.com/auth/cloud-platform";
 
 // ----------------------------------------------------------------------------
 //   GTLRCloudComposerService

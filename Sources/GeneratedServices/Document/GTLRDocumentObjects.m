@@ -4303,7 +4303,8 @@ NSString * const kGTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionReque
 //
 
 @implementation GTLRDocument_GoogleCloudDocumentaiV1TrainProcessorVersionRequestFoundationModelTuningOptions
-@dynamic learningRateMultiplier, trainSteps;
+@dynamic learningRateMultiplier, previousFineTunedProcessorVersionName,
+         trainSteps;
 @end
 
 

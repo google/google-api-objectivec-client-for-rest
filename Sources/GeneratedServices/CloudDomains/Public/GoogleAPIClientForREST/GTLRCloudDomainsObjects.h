@@ -1302,6 +1302,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDomains_TransferParameters_Transfer
  */
 @property(nonatomic, copy, nullable) NSString *updateMask;
 
+/**
+ *  Optional. If set, validates the request without actually updating the
+ *  management settings.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
+
 @end
 
 

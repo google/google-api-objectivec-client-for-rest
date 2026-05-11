@@ -103,10 +103,10 @@ NSString * const kGTLRServiceControl_ViolationInfo_PolicyType_PolicyTypeUnspecif
 //
 
 @implementation GTLRServiceControl_AuditLog
-@dynamic authenticationInfo, authorizationInfo, metadata, methodName,
-         numResponseItems, policyViolationInfo, request, requestMetadata,
-         resourceLocation, resourceName, resourceOriginalState, response,
-         serviceData, serviceName, status;
+@dynamic apiVersionIdentifier, authenticationInfo, authorizationInfo, metadata,
+         methodName, numResponseItems, policyViolationInfo, request,
+         requestMetadata, resourceLocation, resourceName, resourceOriginalState,
+         response, serviceData, serviceName, status;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

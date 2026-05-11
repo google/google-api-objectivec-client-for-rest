@@ -1263,7 +1263,8 @@ NSString * const kGTLRToolResults_TestIssue_Type_UsedRoboIgnoreDirective = @"use
 //
 
 @implementation GTLRToolResults_SkippedDetail
-@dynamic incompatibleAppVersion, incompatibleArchitecture, incompatibleDevice;
+@dynamic incompatibleAppVersion, incompatibleArchitecture, incompatibleDevice,
+         pendingTimeout;
 @end
 
 

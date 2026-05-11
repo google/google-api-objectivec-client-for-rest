@@ -514,10 +514,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: bigquerydatatransfer.projects.locations.list
  *
@@ -529,8 +535,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
 @interface GTLRBigQueryDataTransferQuery_ProjectsLocationsList : GTLRBigQueryDataTransferQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -560,10 +566,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataTransferStatesTransferStateU
  *  Fetches a @c GTLRBigQueryDataTransfer_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -1224,6 +1236,110 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_StartManualTransferRunsRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns a transfer resource.
+ *
+ *  Method: bigquerydatatransfer.projects.locations.transferConfigs.transferResources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
+ */
+@interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsTransferResourcesGet : GTLRBigQueryDataTransferQuery
+
+/**
+ *  Required. The name of the transfer resource in the form of: *
+ *  `projects/{project}/transferConfigs/{transfer_config}/transferResources/{transfer_resource}`
+ *  *
+ *  `projects/{project}/locations/{location}/transferConfigs/{transfer_config}/transferResources/{transfer_resource}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataTransfer_TransferResource.
+ *
+ *  Returns a transfer resource.
+ *
+ *  @param name Required. The name of the transfer resource in the form of: *
+ *    `projects/{project}/transferConfigs/{transfer_config}/transferResources/{transfer_resource}`
+ *    *
+ *    `projects/{project}/locations/{location}/transferConfigs/{transfer_config}/transferResources/{transfer_resource}`
+ *
+ *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsTransferResourcesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns information about transfer resources.
+ *
+ *  Method: bigquerydatatransfer.projects.locations.transferConfigs.transferResources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
+ */
+@interface GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsTransferResourcesList : GTLRBigQueryDataTransferQuery
+
+/**
+ *  Optional. Filter for the transfer resources. Currently supported filters
+ *  include: * Resource name: `name` - Wildcard supported * Resource type:
+ *  `type` * Resource destination: `destination` * Latest resource state:
+ *  `latest_status_detail.state` * Last update time: `update_time` - RFC-3339
+ *  format * Parent table name: `hierarchy_detail.partition_detail.table`
+ *  Multiple filters can be applied using the `AND/OR` operator. Examples: *
+ *  `name="*123" AND (type="TABLE" OR latest_status_detail.state="SUCCEEDED")` *
+ *  `update_time >= "2012-04-21T11:30:00-04:00"` *
+ *  `hierarchy_detail.partition_detail.table = "table1"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of transfer resources to return. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000. The default page
+ *  size is the maximum value of 1000 results.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListTransferResources`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListTransferResources` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of transfer configuration for which transfer resources should
+ *  be retrieved. The name should be in one of the following forms: *
+ *  `projects/{project}/transferConfigs/{transfer_config}` *
+ *  `projects/{project}/locations/{location_id}/transferConfigs/{transfer_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataTransfer_ListTransferResourcesResponse.
+ *
+ *  Returns information about transfer resources.
+ *
+ *  @param parent Required. Name of transfer configuration for which transfer
+ *    resources should be retrieved. The name should be in one of the following
+ *    forms: * `projects/{project}/transferConfigs/{transfer_config}` *
+ *    `projects/{project}/locations/{location_id}/transferConfigs/{transfer_config}`
+ *
+ *  @return GTLRBigQueryDataTransferQuery_ProjectsLocationsTransferConfigsTransferResourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 
@@ -1916,6 +2032,110 @@ GTLR_DEPRECATED
  */
 + (instancetype)queryWithObject:(GTLRBigQueryDataTransfer_StartManualTransferRunsRequest *)object
                          parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Returns a transfer resource.
+ *
+ *  Method: bigquerydatatransfer.projects.transferConfigs.transferResources.get
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
+ */
+@interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsTransferResourcesGet : GTLRBigQueryDataTransferQuery
+
+/**
+ *  Required. The name of the transfer resource in the form of: *
+ *  `projects/{project}/transferConfigs/{transfer_config}/transferResources/{transfer_resource}`
+ *  *
+ *  `projects/{project}/locations/{location}/transferConfigs/{transfer_config}/transferResources/{transfer_resource}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataTransfer_TransferResource.
+ *
+ *  Returns a transfer resource.
+ *
+ *  @param name Required. The name of the transfer resource in the form of: *
+ *    `projects/{project}/transferConfigs/{transfer_config}/transferResources/{transfer_resource}`
+ *    *
+ *    `projects/{project}/locations/{location}/transferConfigs/{transfer_config}/transferResources/{transfer_resource}`
+ *
+ *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsTransferResourcesGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Returns information about transfer resources.
+ *
+ *  Method: bigquerydatatransfer.projects.transferConfigs.transferResources.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBigQueryDataTransferBigquery
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatform
+ *    @c kGTLRAuthScopeBigQueryDataTransferCloudPlatformReadOnly
+ */
+@interface GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsTransferResourcesList : GTLRBigQueryDataTransferQuery
+
+/**
+ *  Optional. Filter for the transfer resources. Currently supported filters
+ *  include: * Resource name: `name` - Wildcard supported * Resource type:
+ *  `type` * Resource destination: `destination` * Latest resource state:
+ *  `latest_status_detail.state` * Last update time: `update_time` - RFC-3339
+ *  format * Parent table name: `hierarchy_detail.partition_detail.table`
+ *  Multiple filters can be applied using the `AND/OR` operator. Examples: *
+ *  `name="*123" AND (type="TABLE" OR latest_status_detail.state="SUCCEEDED")` *
+ *  `update_time >= "2012-04-21T11:30:00-04:00"` *
+ *  `hierarchy_detail.partition_detail.table = "table1"`
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of transfer resources to return. The maximum
+ *  value is 1000; values above 1000 will be coerced to 1000. The default page
+ *  size is the maximum value of 1000 results.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListTransferResources`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListTransferResources` must match the call
+ *  that provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. Name of transfer configuration for which transfer resources should
+ *  be retrieved. The name should be in one of the following forms: *
+ *  `projects/{project}/transferConfigs/{transfer_config}` *
+ *  `projects/{project}/locations/{location_id}/transferConfigs/{transfer_config}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBigQueryDataTransfer_ListTransferResourcesResponse.
+ *
+ *  Returns information about transfer resources.
+ *
+ *  @param parent Required. Name of transfer configuration for which transfer
+ *    resources should be retrieved. The name should be in one of the following
+ *    forms: * `projects/{project}/transferConfigs/{transfer_config}` *
+ *    `projects/{project}/locations/{location_id}/transferConfigs/{transfer_config}`
+ *
+ *  @return GTLRBigQueryDataTransferQuery_ProjectsTransferConfigsTransferResourcesList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

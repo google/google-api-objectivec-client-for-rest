@@ -12,9 +12,10 @@
 #import <GoogleAPIClientForREST/GTLRDataManager.h>
 
 // ----------------------------------------------------------------------------
-// Authorization scope
+// Authorization scopes
 
-NSString * const kGTLRAuthScopeDataManager = @"https://www.googleapis.com/auth/datamanager";
+NSString * const kGTLRAuthScopeDataManager            = @"https://www.googleapis.com/auth/datamanager";
+NSString * const kGTLRAuthScopeDataManagerPartnerlink = @"https://www.googleapis.com/auth/datamanager.partnerlink";
 
 // ----------------------------------------------------------------------------
 //   GTLRDataManagerService

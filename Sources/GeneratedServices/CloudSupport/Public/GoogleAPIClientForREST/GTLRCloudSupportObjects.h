@@ -703,10 +703,21 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudSupport_Media_ReferenceType_Path;
 @property(nonatomic, copy, nullable) NSString *fromFileName;
 
 /** # gdata.* are outside protos with mising documentation */
+@property(nonatomic, copy, nullable) NSString *fromFusionId;
+
+/** # gdata.* are outside protos with mising documentation */
 @property(nonatomic, copy, nullable) NSString *fromHeader;
 
 /** # gdata.* are outside protos with mising documentation */
 @property(nonatomic, copy, nullable) NSString *fromUrlPath;
+
+/**
+ *  # gdata.* are outside protos with mising documentation
+ *
+ *  Contains encoded binary data; GTLRBase64 can encode/decode (probably
+ *  web-safe format).
+ */
+@property(nonatomic, copy, nullable) NSString *fusionIdDetectionMetadata;
 
 @end
 

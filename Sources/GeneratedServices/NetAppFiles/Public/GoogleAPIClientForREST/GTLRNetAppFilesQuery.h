@@ -1263,10 +1263,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: netapp.projects.locations.list
  *
@@ -1276,8 +1282,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRNetAppFilesQuery_ProjectsLocationsList : GTLRNetAppFilesQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1307,10 +1313,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRNetAppFiles_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -1616,6 +1628,156 @@ NS_ASSUME_NONNULL_BEGIN
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  `ExecuteOntapDelete` dispatches the ONTAP `DELETE` request to the
+ *  `StoragePool` cluster.
+ *
+ *  Method: netapp.projects.locations.storagePools.ontap.executeOntapDelete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapDelete : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The resource path of the ONTAP resource. Format:
+ *  `projects/{project_number}/locations/{location_id}/storagePools/{storage_pool_id}/ontap/{ontap_resource_path}`.
+ *  For example:
+ *  `projects/123456789/locations/us-central1/storagePools/my-storage-pool/ontap/api/storage/volumes`.
+ */
+@property(nonatomic, copy, nullable) NSString *ontapPath;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_ExecuteOntapDeleteResponse.
+ *
+ *  `ExecuteOntapDelete` dispatches the ONTAP `DELETE` request to the
+ *  `StoragePool` cluster.
+ *
+ *  @param ontapPath Required. The resource path of the ONTAP resource. Format:
+ *    `projects/{project_number}/locations/{location_id}/storagePools/{storage_pool_id}/ontap/{ontap_resource_path}`.
+ *    For example:
+ *    `projects/123456789/locations/us-central1/storagePools/my-storage-pool/ontap/api/storage/volumes`.
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapDelete
+ */
++ (instancetype)queryWithOntapPath:(NSString *)ontapPath;
+
+@end
+
+/**
+ *  `ExecuteOntapGet` dispatches the ONTAP `GET` request to the `StoragePool`
+ *  cluster.
+ *
+ *  Method: netapp.projects.locations.storagePools.ontap.executeOntapGet
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapGet : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The resource path of the ONTAP resource. Format:
+ *  `projects/{project_number}/locations/{location_id}/storagePools/{storage_pool_id}/ontap/{ontap_resource_path}`.
+ *  For example:
+ *  `projects/123456789/locations/us-central1/storagePools/my-storage-pool/ontap/api/storage/volumes`.
+ */
+@property(nonatomic, copy, nullable) NSString *ontapPath;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_ExecuteOntapGetResponse.
+ *
+ *  `ExecuteOntapGet` dispatches the ONTAP `GET` request to the `StoragePool`
+ *  cluster.
+ *
+ *  @param ontapPath Required. The resource path of the ONTAP resource. Format:
+ *    `projects/{project_number}/locations/{location_id}/storagePools/{storage_pool_id}/ontap/{ontap_resource_path}`.
+ *    For example:
+ *    `projects/123456789/locations/us-central1/storagePools/my-storage-pool/ontap/api/storage/volumes`.
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapGet
+ */
++ (instancetype)queryWithOntapPath:(NSString *)ontapPath;
+
+@end
+
+/**
+ *  `ExecuteOntapPatch` dispatches the ONTAP `PATCH` request to the
+ *  `StoragePool` cluster.
+ *
+ *  Method: netapp.projects.locations.storagePools.ontap.executeOntapPatch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapPatch : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The resource path of the ONTAP resource. Format:
+ *  `projects/{project_number}/locations/{location_id}/storagePools/{storage_pool_id}/ontap/{ontap_resource_path}`.
+ *  For example:
+ *  `projects/123456789/locations/us-central1/storagePools/my-storage-pool/ontap/api/storage/volumes`.
+ */
+@property(nonatomic, copy, nullable) NSString *ontapPath;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_ExecuteOntapPatchResponse.
+ *
+ *  `ExecuteOntapPatch` dispatches the ONTAP `PATCH` request to the
+ *  `StoragePool` cluster.
+ *
+ *  @param object The @c GTLRNetAppFiles_ExecuteOntapPatchRequest to include in
+ *    the query.
+ *  @param ontapPath Required. The resource path of the ONTAP resource. Format:
+ *    `projects/{project_number}/locations/{location_id}/storagePools/{storage_pool_id}/ontap/{ontap_resource_path}`.
+ *    For example:
+ *    `projects/123456789/locations/us-central1/storagePools/my-storage-pool/ontap/api/storage/volumes`.
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapPatch
+ */
++ (instancetype)queryWithObject:(GTLRNetAppFiles_ExecuteOntapPatchRequest *)object
+                      ontapPath:(NSString *)ontapPath;
+
+@end
+
+/**
+ *  `ExecuteOntapPost` dispatches the ONTAP `POST` request to the `StoragePool`
+ *  cluster.
+ *
+ *  Method: netapp.projects.locations.storagePools.ontap.executeOntapPost
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeNetAppFilesCloudPlatform
+ */
+@interface GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapPost : GTLRNetAppFilesQuery
+
+/**
+ *  Required. The resource path of the ONTAP resource. Format:
+ *  `projects/{project_number}/locations/{location_id}/storagePools/{storage_pool_id}/ontap/{ontap_resource_path}`.
+ *  For example:
+ *  `projects/123456789/locations/us-central1/storagePools/my-storage-pool/ontap/api/storage/volumes`.
+ */
+@property(nonatomic, copy, nullable) NSString *ontapPath;
+
+/**
+ *  Fetches a @c GTLRNetAppFiles_ExecuteOntapPostResponse.
+ *
+ *  `ExecuteOntapPost` dispatches the ONTAP `POST` request to the `StoragePool`
+ *  cluster.
+ *
+ *  @param object The @c GTLRNetAppFiles_ExecuteOntapPostRequest to include in
+ *    the query.
+ *  @param ontapPath Required. The resource path of the ONTAP resource. Format:
+ *    `projects/{project_number}/locations/{location_id}/storagePools/{storage_pool_id}/ontap/{ontap_resource_path}`.
+ *    For example:
+ *    `projects/123456789/locations/us-central1/storagePools/my-storage-pool/ontap/api/storage/volumes`.
+ *
+ *  @return GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapPost
+ */
++ (instancetype)queryWithObject:(GTLRNetAppFiles_ExecuteOntapPostRequest *)object
+                      ontapPath:(NSString *)ontapPath;
 
 @end
 

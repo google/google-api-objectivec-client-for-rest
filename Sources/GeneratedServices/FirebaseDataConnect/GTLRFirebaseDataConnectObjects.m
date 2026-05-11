@@ -4,7 +4,7 @@
 // API:
 //   Firebase Data Connect API (firebasedataconnect/v1)
 // Description:
-//   Firebase Data Connect is a relational database service for mobile and web
+//   Firebase SQL Connect is a relational database service for mobile and web
 //   apps that lets you build and scale using a fully-managed PostgreSQL
 //   database powered by Cloud SQL. The REST API lets developers manage the
 //   connections to their database, change the schema of their database, and
@@ -16,6 +16,12 @@
 
 // ----------------------------------------------------------------------------
 // Constants
+
+// GTLRFirebaseDataConnect_GenerationStatus.state
+NSString * const kGTLRFirebaseDataConnect_GenerationStatus_State_AnalyzingCode = @"ANALYZING_CODE";
+NSString * const kGTLRFirebaseDataConnect_GenerationStatus_State_Completed = @"COMPLETED";
+NSString * const kGTLRFirebaseDataConnect_GenerationStatus_State_GeneratingCode = @"GENERATING_CODE";
+NSString * const kGTLRFirebaseDataConnect_GenerationStatus_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRFirebaseDataConnect_GraphqlErrorExtensions.code
 NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensions_Code_Aborted = @"ABORTED";
@@ -79,6 +85,16 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 
 @implementation GTLRFirebaseDataConnect_CloudSqlInstance
 @dynamic instance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_CodeChunk
+//
+
+@implementation GTLRFirebaseDataConnect_CodeChunk
+@dynamic code, languageCode;
 @end
 
 
@@ -283,6 +299,64 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 
 @implementation GTLRFirebaseDataConnect_File
 @dynamic content, path;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_GenerateQueryRequest
+//
+
+@implementation GTLRFirebaseDataConnect_GenerateQueryRequest
+@dynamic prompt, schemas;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"schemas" : [GTLRFirebaseDataConnect_Schema class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_GenerateQueryResponse
+//
+
+@implementation GTLRFirebaseDataConnect_GenerateQueryResponse
+@dynamic part, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_GenerateSchemaRequest
+//
+
+@implementation GTLRFirebaseDataConnect_GenerateSchemaRequest
+@dynamic prompt;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_GenerateSchemaResponse
+//
+
+@implementation GTLRFirebaseDataConnect_GenerateSchemaResponse
+@dynamic part, status;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_GenerationStatus
+//
+
+@implementation GTLRFirebaseDataConnect_GenerationStatus
+@dynamic message, state;
 @end
 
 
@@ -668,6 +742,16 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRFirebaseDataConnect_Part
+//
+
+@implementation GTLRFirebaseDataConnect_Part
+@dynamic codeChunk, textChunk;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRFirebaseDataConnect_PostgreSql
 //
 
@@ -829,6 +913,16 @@ NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict = @
   return [NSObject class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRFirebaseDataConnect_TextChunk
+//
+
+@implementation GTLRFirebaseDataConnect_TextChunk
+@dynamic text;
 @end
 
 

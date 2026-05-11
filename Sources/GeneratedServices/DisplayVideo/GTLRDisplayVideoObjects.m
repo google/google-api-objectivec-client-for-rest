@@ -725,6 +725,7 @@ NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegion
 NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnionTerritory = @"GEO_REGION_TYPE_UNION_TERRITORY";
 NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeUniversity = @"GEO_REGION_TYPE_UNIVERSITY";
 NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnknown = @"GEO_REGION_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeWard = @"GEO_REGION_TYPE_WARD";
 
 // GTLRDisplayVideo_Campaign.entityStatus
 NSString * const kGTLRDisplayVideo_Campaign_EntityStatus_EntityStatusActive = @"ENTITY_STATUS_ACTIVE";
@@ -1168,6 +1169,7 @@ NSString * const kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddin
 NSString * const kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeMaximizeConversions = @"DEMAND_GEN_BIDDING_STRATEGY_TYPE_MAXIMIZE_CONVERSIONS";
 NSString * const kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeMaximizeConversionValue = @"DEMAND_GEN_BIDDING_STRATEGY_TYPE_MAXIMIZE_CONVERSION_VALUE";
 NSString * const kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeTargetCpa = @"DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_CPA";
+NSString * const kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeTargetCpc = @"DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_CPC";
 NSString * const kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeTargetRoas = @"DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_ROAS";
 NSString * const kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeUnspecified = @"DEMAND_GEN_BIDDING_STRATEGY_TYPE_UNSPECIFIED";
 
@@ -1880,6 +1882,7 @@ NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRe
 NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnionTerritory = @"GEO_REGION_TYPE_UNION_TERRITORY";
 NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeUniversity = @"GEO_REGION_TYPE_UNIVERSITY";
 NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnknown = @"GEO_REGION_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeWard = @"GEO_REGION_TYPE_WARD";
 
 // GTLRDisplayVideo_GeoRegionTargetingOptionDetails.geoRegionType
 NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeAirport = @"GEO_REGION_TYPE_AIRPORT";
@@ -1921,6 +1924,7 @@ NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType
 NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnionTerritory = @"GEO_REGION_TYPE_UNION_TERRITORY";
 NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeUniversity = @"GEO_REGION_TYPE_UNIVERSITY";
 NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnknown = @"GEO_REGION_TYPE_UNKNOWN";
+NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeWard = @"GEO_REGION_TYPE_WARD";
 
 // GTLRDisplayVideo_GoogleAudience.googleAudienceType
 NSString * const kGTLRDisplayVideo_GoogleAudience_GoogleAudienceType_GoogleAudienceTypeAffinity = @"GOOGLE_AUDIENCE_TYPE_AFFINITY";
@@ -3041,10 +3045,10 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 @implementation GTLRDisplayVideo_AdGroupAd
 @dynamic adGroupAdId, adGroupId, adPolicy, adUrls, advertiserId, audioAd,
-         bumperAd, demandGenCarouselAd, demandGenImageAd, demandGenProductAd,
-         demandGenVideoAd, displayName, displayVideoSourceAd, entityStatus,
-         inStreamAd, mastheadAd, name, nonSkippableAd, videoDiscoverAd,
-         videoPerformanceAd;
+         bumperAd, dcmTrackingInfo, demandGenCarouselAd, demandGenImageAd,
+         demandGenProductAd, demandGenVideoAd, displayName,
+         displayVideoSourceAd, entityStatus, inStreamAd, mastheadAd, name,
+         nonSkippableAd, videoDiscoverAd, videoPerformanceAd;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -5111,6 +5115,16 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDisplayVideo_DcmTrackingInfo
+//
+
+@implementation GTLRDisplayVideo_DcmTrackingInfo
+@dynamic creativeId, placementId, trackingAdId;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest
 //
 
@@ -6283,9 +6297,9 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
          conversionCounting, creativeIds, demandGenSettings, displayName,
          entityStatus, excludeNewExchanges, flight, frequencyCap,
          insertionOrderId, integrationDetails, lineItemId, lineItemType,
-         mobileApp, name, pacing, partnerCosts, partnerRevenueModel,
-         reservationType, targetingExpansion, updateTime, warningMessages,
-         youtubeAndPartnersSettings;
+         mobileApp, name, optimizeFixedBidding, pacing, partnerCosts,
+         partnerRevenueModel, reservationType, targetingExpansion, updateTime,
+         warningMessages, youtubeAndPartnersSettings;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -8172,7 +8186,7 @@ NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_UnavailableReason_VideoUn
 //
 
 @implementation GTLRDisplayVideo_VideoAdInventoryControl
-@dynamic allowInFeed, allowInStream, allowShorts;
+@dynamic allowInFeed, allowInStream, allowNonSkippableInStream, allowShorts;
 @end
 
 

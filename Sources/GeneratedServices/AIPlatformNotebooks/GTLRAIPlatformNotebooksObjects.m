@@ -38,6 +38,10 @@ NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskEncryption_Gmek = @"GMEK"
 // GTLRAIPlatformNotebooks_BootDisk.diskType
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_DiskTypeUnspecified = @"DISK_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskBalanced = @"HYPERDISK_BALANCED";
+NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskBalancedHighAvailability = @"HYPERDISK_BALANCED_HIGH_AVAILABILITY";
+NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskExtreme = @"HYPERDISK_EXTREME";
+NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskMl = @"HYPERDISK_ML";
+NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_HyperdiskThroughput = @"HYPERDISK_THROUGHPUT";
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdBalanced = @"PD_BALANCED";
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdExtreme = @"PD_EXTREME";
 NSString * const kGTLRAIPlatformNotebooks_BootDisk_DiskType_PdSsd = @"PD_SSD";
@@ -55,6 +59,10 @@ NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskEncryption_Gmek = @"GMEK"
 // GTLRAIPlatformNotebooks_DataDisk.diskType
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_DiskTypeUnspecified = @"DISK_TYPE_UNSPECIFIED";
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskBalanced = @"HYPERDISK_BALANCED";
+NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskBalancedHighAvailability = @"HYPERDISK_BALANCED_HIGH_AVAILABILITY";
+NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskExtreme = @"HYPERDISK_EXTREME";
+NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskMl = @"HYPERDISK_ML";
+NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_HyperdiskThroughput = @"HYPERDISK_THROUGHPUT";
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_PdBalanced = @"PD_BALANCED";
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_PdExtreme = @"PD_EXTREME";
 NSString * const kGTLRAIPlatformNotebooks_DataDisk_DiskType_PdSsd = @"PD_SSD";

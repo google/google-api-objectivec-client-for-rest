@@ -17,6 +17,7 @@
 @class GTLRBigQueryDataPolicyService_AuditConfig;
 @class GTLRBigQueryDataPolicyService_AuditLogConfig;
 @class GTLRBigQueryDataPolicyService_Binding;
+@class GTLRBigQueryDataPolicyService_DataGovernanceTag;
 @class GTLRBigQueryDataPolicyService_DataMaskingPolicy;
 @class GTLRBigQueryDataPolicyService_DataPolicy;
 @class GTLRBigQueryDataPolicyService_Expr;
@@ -388,6 +389,28 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Ver
 
 
 /**
+ *  Data Governance tag This is a namespaced name specifying the key and the
+ *  value. For example: `project-id/pii/sensitive`.
+ */
+@interface GTLRBigQueryDataPolicyService_DataGovernanceTag : GTLRObject
+
+/**
+ *  Optional. Tag keys are globally unique. Tag key is expected to be in the
+ *  namespaced format, for example `parent-id/pii` where `parent-id` is the ID
+ *  of the parent organization or project resource for this tag key.
+ */
+@property(nonatomic, copy, nullable) NSString *key;
+
+/**
+ *  Optional. Specifies the tag value as the short name, for example
+ *  `sensitive`.
+ */
+@property(nonatomic, copy, nullable) NSString *value;
+
+@end
+
+
+/**
  *  The policy used to specify data masking rule.
  */
 @interface GTLRBigQueryDataPolicyService_DataMaskingPolicy : GTLRObject
@@ -465,6 +488,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Ver
  *  Represents the label-policy binding.
  */
 @interface GTLRBigQueryDataPolicyService_DataPolicy : GTLRObject
+
+/** Optional. Data Governance tag bound to the Data Policy. */
+@property(nonatomic, strong, nullable) GTLRBigQueryDataPolicyService_DataGovernanceTag *dataGovernanceTag;
 
 /**
  *  Optional. The data masking policy that specifies the data masking rule to

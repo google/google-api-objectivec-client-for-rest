@@ -75,6 +75,11 @@ NSString * const kGTLRDataproc_ClusterConfig_ClusterType_SingleNode = @"SINGLE_N
 NSString * const kGTLRDataproc_ClusterConfig_ClusterType_Standard = @"STANDARD";
 NSString * const kGTLRDataproc_ClusterConfig_ClusterType_ZeroScale = @"ZERO_SCALE";
 
+// GTLRDataproc_ClusterConfig.engine
+NSString * const kGTLRDataproc_ClusterConfig_Engine_Default    = @"DEFAULT";
+NSString * const kGTLRDataproc_ClusterConfig_Engine_EngineUnspecified = @"ENGINE_UNSPECIFIED";
+NSString * const kGTLRDataproc_ClusterConfig_Engine_Lightning  = @"LIGHTNING";
+
 // GTLRDataproc_ClusterOperationStatus.state
 NSString * const kGTLRDataproc_ClusterOperationStatus_State_Done = @"DONE";
 NSString * const kGTLRDataproc_ClusterOperationStatus_State_Pending = @"PENDING";
@@ -103,6 +108,11 @@ NSString * const kGTLRDataproc_ClusterStatus_Substate_Unspecified = @"UNSPECIFIE
 // GTLRDataproc_ClusterToRepair.clusterRepairAction
 NSString * const kGTLRDataproc_ClusterToRepair_ClusterRepairAction_ClusterRepairActionUnspecified = @"CLUSTER_REPAIR_ACTION_UNSPECIFIED";
 NSString * const kGTLRDataproc_ClusterToRepair_ClusterRepairAction_RepairErrorDueToUpdateCluster = @"REPAIR_ERROR_DUE_TO_UPDATE_CLUSTER";
+
+// GTLRDataproc_CohortInfo.cohortSource
+NSString * const kGTLRDataproc_CohortInfo_CohortSource_Airflow = @"AIRFLOW";
+NSString * const kGTLRDataproc_CohortInfo_CohortSource_CohortSourceUnspecified = @"COHORT_SOURCE_UNSPECIFIED";
+NSString * const kGTLRDataproc_CohortInfo_CohortSource_UserProvided = @"USER_PROVIDED";
 
 // GTLRDataproc_DiagnoseClusterRequest.tarballAccess
 NSString * const kGTLRDataproc_DiagnoseClusterRequest_TarballAccess_GoogleCloudSupport = @"GOOGLE_CLOUD_SUPPORT";
@@ -785,8 +795,9 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_Batch
 @dynamic createTime, creator, environmentConfig, labels, name, operation,
-         pysparkBatch, runtimeConfig, runtimeInfo, sparkBatch, sparkRBatch,
-         sparkSqlBatch, state, stateHistory, stateMessage, stateTime, uuid;
+         pysparkBatch, pysparkNotebookBatch, runtimeConfig, runtimeInfo,
+         sparkBatch, sparkRBatch, sparkSqlBatch, state, stateHistory,
+         stateMessage, stateTime, uuid;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -927,7 +938,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 @implementation GTLRDataproc_ClusterConfig
 @dynamic autoscalingConfig, auxiliaryNodeGroups, clusterTier, clusterType,
          configBucket, dataprocMetricConfig, diagnosticBucket, encryptionConfig,
-         endpointConfig, gceClusterConfig, gkeClusterConfig,
+         endpointConfig, engine, gceClusterConfig, gkeClusterConfig,
          initializationActions, lifecycleConfig, masterConfig, metastoreConfig,
          secondaryWorkerConfig, securityConfig, softwareConfig, tempBucket,
          workerConfig;
@@ -1091,6 +1102,16 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_CohortInfo
+//
+
+@implementation GTLRDataproc_CohortInfo
+@dynamic cohort, cohortSource;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_ConfidentialInstanceConfig
 //
 
@@ -1232,13 +1253,27 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 @implementation GTLRDataproc_ExecutionConfig
 @dynamic authenticationConfig, idleTtl, kmsKey, networkTags, networkUri,
-         serviceAccount, stagingBucket, subnetworkUri, ttl;
+         resourceManagerTags, serviceAccount, stagingBucket, subnetworkUri, ttl;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"networkTags" : [NSString class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_ExecutionConfig_ResourceManagerTags
+//
+
+@implementation GTLRDataproc_ExecutionConfig_ResourceManagerTags
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -1789,7 +1824,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_InstanceFlexibilityPolicy
-@dynamic instanceSelectionList, instanceSelectionResults, provisioningModelMix;
+@dynamic instanceMachineTypes, instanceSelectionList, instanceSelectionResults,
+         provisioningModelMix;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -1797,6 +1833,20 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
     @"instanceSelectionResults" : [GTLRDataproc_InstanceSelectionResult class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_InstanceFlexibilityPolicy_InstanceMachineTypes
+//
+
+@implementation GTLRDataproc_InstanceFlexibilityPolicy_InstanceMachineTypes
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -2973,6 +3023,42 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDataproc_PySparkNotebookBatch
+//
+
+@implementation GTLRDataproc_PySparkNotebookBatch
+@dynamic archiveUris, fileUris, jarFileUris, notebookFileUri, params,
+         pythonFileUris;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"archiveUris" : [NSString class],
+    @"fileUris" : [NSString class],
+    @"jarFileUris" : [NSString class],
+    @"pythonFileUris" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_PySparkNotebookBatch_Params
+//
+
+@implementation GTLRDataproc_PySparkNotebookBatch_Params
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDataproc_Quantiles
 //
 
@@ -3287,8 +3373,8 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_RuntimeInfo
-@dynamic approximateUsage, currentUsage, diagnosticOutputUri, endpoints,
-         outputUri, propertiesInfo;
+@dynamic approximateUsage, cohortInfo, currentUsage, diagnosticOutputUri,
+         endpoints, outputUri, propertiesInfo;
 @end
 
 
@@ -4106,7 +4192,7 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_SparkPlanGraphCluster
-@dynamic desc, metrics, name, nodes, sparkPlanGraphClusterId;
+@dynamic desc, metadata, metrics, name, nodes, sparkPlanGraphClusterId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4114,6 +4200,20 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
     @"nodes" : [GTLRDataproc_SparkPlanGraphNodeWrapper class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkPlanGraphCluster_Metadata
+//
+
+@implementation GTLRDataproc_SparkPlanGraphCluster_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -4135,13 +4235,27 @@ NSString * const kGTLRDataproc_YarnApplication_State_Submitted = @"SUBMITTED";
 //
 
 @implementation GTLRDataproc_SparkPlanGraphNode
-@dynamic desc, metrics, name, sparkPlanGraphNodeId;
+@dynamic desc, metadata, metrics, name, sparkPlanGraphNodeId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"metrics" : [GTLRDataproc_SqlPlanMetric class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDataproc_SparkPlanGraphNode_Metadata
+//
+
+@implementation GTLRDataproc_SparkPlanGraphNode_Metadata
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

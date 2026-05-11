@@ -35,6 +35,24 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRHomeGraphService_ComponentTraitUpdates
+//
+
+@implementation GTLRHomeGraphService_ComponentTraitUpdates
+@dynamic componentId, traitData;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"traitData" : [GTLRHomeGraphService_TraitData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRHomeGraphService_Device
 //
 
@@ -121,6 +139,84 @@
 //
 
 @implementation GTLRHomeGraphService_Empty
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_EventData
+//
+
+@implementation GTLRHomeGraphService_EventData
+@dynamic event, eventId, eventTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_EventData_Event
+//
+
+@implementation GTLRHomeGraphService_EventData_Event
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_Events
+//
+
+@implementation GTLRHomeGraphService_Events
+@dynamic componentId, events;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"events" : [GTLRHomeGraphService_EventData class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_HomeEvents
+//
+
+@implementation GTLRHomeGraphService_HomeEvents
+@dynamic deviceId, events;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"events" : [GTLRHomeGraphService_Events class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_HomeTraitUpdates
+//
+
+@implementation GTLRHomeGraphService_HomeTraitUpdates
+@dynamic components, deviceId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"components" : [GTLRHomeGraphService_ComponentTraitUpdates class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -224,7 +320,16 @@
 //
 
 @implementation GTLRHomeGraphService_ReportStateAndNotificationDevice
-@dynamic notifications, states;
+@dynamic homeEvents, homeTraits, notifications, states;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"homeEvents" : [GTLRHomeGraphService_HomeEvents class],
+    @"homeTraits" : [GTLRHomeGraphService_HomeTraitUpdates class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -338,6 +443,30 @@
     @"devices" : [GTLRHomeGraphService_Device class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_TraitData
+//
+
+@implementation GTLRHomeGraphService_TraitData
+@dynamic trait;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRHomeGraphService_TraitData_Trait
+//
+
+@implementation GTLRHomeGraphService_TraitData_Trait
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

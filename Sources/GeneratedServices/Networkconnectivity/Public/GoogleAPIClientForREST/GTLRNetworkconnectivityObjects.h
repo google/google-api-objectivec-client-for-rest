@@ -78,6 +78,8 @@
 @class GTLRNetworkconnectivity_PscPropagationStatus;
 @class GTLRNetworkconnectivity_RegionalEndpoint;
 @class GTLRNetworkconnectivity_RegionalEndpoint_Labels;
+@class GTLRNetworkconnectivity_RemoteTransportProfile;
+@class GTLRNetworkconnectivity_RemoteTransportProfile_Labels;
 @class GTLRNetworkconnectivity_Route;
 @class GTLRNetworkconnectivity_Route_Labels;
 @class GTLRNetworkconnectivity_RouterApplianceInstance;
@@ -102,6 +104,8 @@
 @class GTLRNetworkconnectivity_StateMetadata;
 @class GTLRNetworkconnectivity_StateReason;
 @class GTLRNetworkconnectivity_StateTimeline;
+@class GTLRNetworkconnectivity_Transport;
+@class GTLRNetworkconnectivity_Transport_Labels;
 @class GTLRNetworkconnectivity_VirtualMachine;
 @class GTLRNetworkconnectivity_Warnings;
 @class GTLRNetworkconnectivity_Warnings_Data;
@@ -1143,6 +1147,172 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_Acc
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RegionalEndpoint_AccessType_Regional;
 
 // ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_RemoteTransportProfile.flow
+
+/**
+ *  The activationKey field on the Transport must be included in a create or
+ *  patch request to establish connectivity.
+ *
+ *  Value: "INPUT_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_InputOnly;
+/**
+ *  Both activation key fields are allowed for establishing connectivity. If a
+ *  key is input, the generated key is still present after provisioning is
+ *  finished.
+ *
+ *  Value: "INPUT_OR_OUTPUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_InputOrOutput;
+/**
+ *  Unspecified key provisioning flow.
+ *
+ *  Value: "KEY_PROVISIONING_FLOW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_KeyProvisioningFlowUnspecified;
+/**
+ *  The generatedActivationKey field is populated and must be read from the
+ *  resource and passed into the other provider.
+ *
+ *  Value: "OUTPUT_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_OutputOnly;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_RemoteTransportProfile.orderState
+
+/**
+ *  Not enough capacity for customers to order.
+ *
+ *  Value: "CLOSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_OrderState_Closed;
+/**
+ *  Enough capacity to fulfill an order.
+ *
+ *  Value: "OPEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_OrderState_Open;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_OrderState_StateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_RemoteTransportProfile.sla
+
+/**
+ *  This represents a 99.9% service level on the availability of the configured
+ *  connectivity.
+ *
+ *  Value: "HIGH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Sla_High;
+/**
+ *  This represents a 99.99% service level on the availability of the configured
+ *  connectivity.
+ *
+ *  Value: "MAXIMUM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Sla_Maximum;
+/**
+ *  Unspecified service level availability.
+ *
+ *  Value: "SERVICE_LEVEL_AVAILABILITY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_Sla_ServiceLevelAvailabilityUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_RemoteTransportProfile.supportedBandwidths
+
+/**
+ *  Unspecified bandwidth.
+ *
+ *  Value: "BANDWIDTH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_BandwidthUnspecified;
+/**
+ *  100 Gigabits per second.
+ *
+ *  Value: "BPS_100G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps100g;
+/**
+ *  100 Megabits per second.
+ *
+ *  Value: "BPS_100M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps100m;
+/**
+ *  10 Gigabits per second.
+ *
+ *  Value: "BPS_10G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps10g;
+/**
+ *  1 Gigabit per second.
+ *
+ *  Value: "BPS_1G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps1g;
+/**
+ *  200 Megabits per second.
+ *
+ *  Value: "BPS_200M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps200m;
+/**
+ *  20 Gigabits per second.
+ *
+ *  Value: "BPS_20G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps20g;
+/**
+ *  2 Gigabits per second.
+ *
+ *  Value: "BPS_2G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps2g;
+/**
+ *  300 Megabits per second.
+ *
+ *  Value: "BPS_300M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps300m;
+/**
+ *  400 Megabits per second.
+ *
+ *  Value: "BPS_400M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps400m;
+/**
+ *  500 Megabits per second.
+ *
+ *  Value: "BPS_500M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps500m;
+/**
+ *  50 Gigabits per second.
+ *
+ *  Value: "BPS_50G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps50g;
+/**
+ *  50 Megabits per second.
+ *
+ *  Value: "BPS_50M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps50m;
+/**
+ *  5 Gigabits per second.
+ *
+ *  Value: "BPS_5G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_RemoteTransportProfile_SupportedBandwidths_Bps5g;
+
+// ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Route.state
 
 /**
@@ -1731,6 +1901,172 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_Upd
  *  Value: "UPDATE_REJECTED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_StateReason_Code_UpdateRejected;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Transport.bandwidth
+
+/**
+ *  Unspecified bandwidth.
+ *
+ *  Value: "BANDWIDTH_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_BandwidthUnspecified;
+/**
+ *  100 Gigabits per second.
+ *
+ *  Value: "BPS_100G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps100g;
+/**
+ *  100 Megabits per second.
+ *
+ *  Value: "BPS_100M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps100m;
+/**
+ *  10 Gigabits per second.
+ *
+ *  Value: "BPS_10G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps10g;
+/**
+ *  1 Gigabit per second.
+ *
+ *  Value: "BPS_1G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps1g;
+/**
+ *  200 Megabits per second.
+ *
+ *  Value: "BPS_200M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps200m;
+/**
+ *  20 Gigabits per second.
+ *
+ *  Value: "BPS_20G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps20g;
+/**
+ *  2 Gigabits per second.
+ *
+ *  Value: "BPS_2G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps2g;
+/**
+ *  300 Megabits per second.
+ *
+ *  Value: "BPS_300M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps300m;
+/**
+ *  400 Megabits per second.
+ *
+ *  Value: "BPS_400M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps400m;
+/**
+ *  500 Megabits per second.
+ *
+ *  Value: "BPS_500M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps500m;
+/**
+ *  50 Gigabits per second.
+ *
+ *  Value: "BPS_50G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps50g;
+/**
+ *  50 Megabits per second.
+ *
+ *  Value: "BPS_50M"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps50m;
+/**
+ *  5 Gigabits per second.
+ *
+ *  Value: "BPS_5G"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_Bandwidth_Bps5g;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Transport.stackType
+
+/**
+ *  Both IPv4 and IPv6 are supported.
+ *
+ *  Value: "IPV4_IPV6"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_StackType_Ipv4Ipv6;
+/**
+ *  Only IPv4 is supported. (default)
+ *
+ *  Value: "IPV4_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_StackType_Ipv4Only;
+/**
+ *  Unspecified stack type.
+ *
+ *  Value: "STACK_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_StackType_StackTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetworkconnectivity_Transport.state
+
+/**
+ *  The Transport is configured and the underlying connectivity is considered
+ *  operational.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_State_Active;
+/**
+ *  The resource exists locally and is being created / associated with the
+ *  resource on the remote provider’s end of the underlying connectivity.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_State_Creating;
+/**
+ *  The Transport is being deleted from GCP. The underlying connectivity is no
+ *  longer operational.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_State_Deleting;
+/**
+ *  The Transport was deleted on the remote provider's end and is no longer
+ *  operational. GCP has insufficient information to move the resource back to
+ *  PENDING_KEY state.
+ *
+ *  Value: "DEPROVISIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_State_Deprovisioned;
+/**
+ *  The Transport exists on both sides of the connection, and is waiting for
+ *  configuration to finalize and be verified as operational.
+ *
+ *  Value: "PENDING_CONFIG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_State_PendingConfig;
+/**
+ *  The Transport was created in GCP. Depending on the profile’s key
+ *  provisioning flow, this is either waiting for an activation key to be input
+ *  (the key will be validated that it uses remote resources that match the
+ *  Transport), or for the generated key to be input to the provider for
+ *  finalizing. The configured bandwidth is not yet guaranteed.
+ *
+ *  Value: "PENDING_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_State_PendingKey;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Transport_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetworkconnectivity_Warnings.code
@@ -4161,6 +4497,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 
 
 /**
+ *  Message for response to listing RemoteTransportProfiles
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "remoteTransportProfiles" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRNetworkconnectivity_ListRemoteTransportProfilesResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of RemoteTransportProfiles.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_RemoteTransportProfile *> *remoteTransportProfiles;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
  *  Response for HubService.ListRoutes method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -4368,6 +4731,33 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 @property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_Spoke *> *spokes;
 
 /** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  Message for response to listing Transports.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "transports" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRNetworkconnectivity_ListTransportsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of Transport.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRNetworkconnectivity_Transport *> *transports;
+
+/** Unordered list. Locations that could not be reached. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -5410,6 +5800,116 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
 /** Required. The URI of the spoke to reject update. */
 @property(nonatomic, copy, nullable) NSString *spokeUri;
 
+@end
+
+
+/**
+ *  Message describing RemoteTransportProfile object.
+ */
+@interface GTLRNetworkconnectivity_RemoteTransportProfile : GTLRObject
+
+/**
+ *  Output only. Description of the profile.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Human readable name of this profile, used to identify this
+ *  profile in the UI.
+ */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. Type of provisioning flows supported by this profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_InputOnly The
+ *        activationKey field on the Transport must be included in a create or
+ *        patch request to establish connectivity. (Value: "INPUT_ONLY")
+ *    @arg @c kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_InputOrOutput
+ *        Both activation key fields are allowed for establishing connectivity.
+ *        If a key is input, the generated key is still present after
+ *        provisioning is finished. (Value: "INPUT_OR_OUTPUT")
+ *    @arg @c kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_KeyProvisioningFlowUnspecified
+ *        Unspecified key provisioning flow. (Value:
+ *        "KEY_PROVISIONING_FLOW_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_RemoteTransportProfile_Flow_OutputOnly
+ *        The generatedActivationKey field is populated and must be read from
+ *        the resource and passed into the other provider. (Value:
+ *        "OUTPUT_ONLY")
+ */
+@property(nonatomic, copy, nullable) NSString *flow;
+
+/** Output only. Labels as key value pairs. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_RemoteTransportProfile_Labels *labels;
+
+/** Identifier. Name of the resource in the format of $provider-$site. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. Order state for this profile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_RemoteTransportProfile_OrderState_Closed
+ *        Not enough capacity for customers to order. (Value: "CLOSED")
+ *    @arg @c kGTLRNetworkconnectivity_RemoteTransportProfile_OrderState_Open
+ *        Enough capacity to fulfill an order. (Value: "OPEN")
+ *    @arg @c kGTLRNetworkconnectivity_RemoteTransportProfile_OrderState_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *orderState;
+
+/**
+ *  Output only. Name of the provider on the other end of this profile. E.g.
+ *  “Amazon Web Services” or “Microsoft Azure”.
+ */
+@property(nonatomic, copy, nullable) NSString *provider;
+
+/**
+ *  Output only. If the profile is a Cloud Service Provider with compute
+ *  resources, this is populated with the region where connectivity is being
+ *  established. If the profile provides facility-level selection, this is an
+ *  identity of the facility any connections on this profile are going through.
+ */
+@property(nonatomic, copy, nullable) NSString *providerSite;
+
+/**
+ *  Output only. Availability class that will be configured for this particular
+ *  RemoteTransportProfile.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_RemoteTransportProfile_Sla_High This
+ *        represents a 99.9% service level on the availability of the configured
+ *        connectivity. (Value: "HIGH")
+ *    @arg @c kGTLRNetworkconnectivity_RemoteTransportProfile_Sla_Maximum This
+ *        represents a 99.99% service level on the availability of the
+ *        configured connectivity. (Value: "MAXIMUM")
+ *    @arg @c kGTLRNetworkconnectivity_RemoteTransportProfile_Sla_ServiceLevelAvailabilityUnspecified
+ *        Unspecified service level availability. (Value:
+ *        "SERVICE_LEVEL_AVAILABILITY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *sla;
+
+/**
+ *  Output only. List of bandwidth enum values that are supported by this
+ *  profile.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *supportedBandwidths;
+
+@end
+
+
+/**
+ *  Output only. Labels as key value pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_RemoteTransportProfile_Labels : GTLRObject
 @end
 
 
@@ -6473,6 +6973,184 @@ FOUNDATION_EXTERN NSString * const kGTLRNetworkconnectivity_Warnings_Code_Warnin
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *permissions;
 
+@end
+
+
+/**
+ *  Message describing Transport object.
+ */
+@interface GTLRNetworkconnectivity_Transport : GTLRObject
+
+/**
+ *  Optional. List of IP Prefixes that will be advertised to the remote
+ *  provider. Both IPv4 and IPv6 addresses are supported.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *advertisedRoutes;
+
+/**
+ *  Optional. Bandwidth of the Transport. This must be one of the supported
+ *  bandwidths for the remote profile, and must be set when no activation key is
+ *  being provided.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_BandwidthUnspecified
+ *        Unspecified bandwidth. (Value: "BANDWIDTH_UNSPECIFIED")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps100g 100 Gigabits
+ *        per second. (Value: "BPS_100G")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps100m 100 Megabits
+ *        per second. (Value: "BPS_100M")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps10g 10 Gigabits
+ *        per second. (Value: "BPS_10G")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps1g 1 Gigabit per
+ *        second. (Value: "BPS_1G")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps200m 200 Megabits
+ *        per second. (Value: "BPS_200M")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps20g 20 Gigabits
+ *        per second. (Value: "BPS_20G")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps2g 2 Gigabits per
+ *        second. (Value: "BPS_2G")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps300m 300 Megabits
+ *        per second. (Value: "BPS_300M")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps400m 400 Megabits
+ *        per second. (Value: "BPS_400M")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps500m 500 Megabits
+ *        per second. (Value: "BPS_500M")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps50g 50 Gigabits
+ *        per second. (Value: "BPS_50G")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps50m 50 Megabits
+ *        per second. (Value: "BPS_50M")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_Bandwidth_Bps5g 5 Gigabits per
+ *        second. (Value: "BPS_5G")
+ */
+@property(nonatomic, copy, nullable) NSString *bandwidth;
+
+/** Output only. Create time stamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Optional. Description of the Transport.
+ *
+ *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
+ */
+@property(nonatomic, copy, nullable) NSString *descriptionProperty;
+
+/**
+ *  Output only. Google-generated activation key. This is only output if the
+ *  selected profile supports an OUTPUT key flow. Inputting this to the provider
+ *  is only valid while the resource is in a PENDING_KEY state. Once the
+ *  provider has accepted the key, the resource will move to the CONFIGURING
+ *  state.
+ */
+@property(nonatomic, copy, nullable) NSString *generatedActivationKey;
+
+/** Optional. Labels as key value pairs. */
+@property(nonatomic, strong, nullable) GTLRNetworkconnectivity_Transport_Labels *labels;
+
+/**
+ *  Output only. The maximum transmission unit (MTU) of a packet that can be
+ *  sent over this transport.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *mtuLimit;
+
+/** Identifier. Name of the resource. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. Immutable. Resource URI of the Network that will be peered with
+ *  this Transport. This field must be provided during resource creation and
+ *  cannot be changed.
+ */
+@property(nonatomic, copy, nullable) NSString *network;
+
+/**
+ *  Output only. VPC Network URI that was created for the VPC Peering connection
+ *  to the provided `network`. If VPC Peering is disconnected, this can be used
+ *  to re-establish.
+ */
+@property(nonatomic, copy, nullable) NSString *peeringNetwork;
+
+/**
+ *  Optional. Immutable. Key used for establishing a connection with the remote
+ *  transport. This key can only be provided if the profile supports an INPUT
+ *  key flow and the resource is in the PENDING_KEY state.
+ */
+@property(nonatomic, copy, nullable) NSString *providedActivationKey;
+
+/**
+ *  Optional. Immutable. The user supplied account id for the CSP associated
+ *  with the remote profile.
+ */
+@property(nonatomic, copy, nullable) NSString *remoteAccountId;
+
+/**
+ *  Optional. Immutable. Name of the remoteTransportProfile that this Transport
+ *  is connecting to.
+ */
+@property(nonatomic, copy, nullable) NSString *remoteProfile;
+
+/**
+ *  Optional. IP version stack for the established connectivity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Transport_StackType_Ipv4Ipv6 Both IPv4
+ *        and IPv6 are supported. (Value: "IPV4_IPV6")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_StackType_Ipv4Only Only IPv4 is
+ *        supported. (default) (Value: "IPV4_ONLY")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_StackType_StackTypeUnspecified
+ *        Unspecified stack type. (Value: "STACK_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *stackType;
+
+/**
+ *  Output only. State of the underlying connectivity.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetworkconnectivity_Transport_State_Active The Transport is
+ *        configured and the underlying connectivity is considered operational.
+ *        (Value: "ACTIVE")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_State_Creating The resource
+ *        exists locally and is being created / associated with the resource on
+ *        the remote provider’s end of the underlying connectivity. (Value:
+ *        "CREATING")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_State_Deleting The Transport is
+ *        being deleted from GCP. The underlying connectivity is no longer
+ *        operational. (Value: "DELETING")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_State_Deprovisioned The
+ *        Transport was deleted on the remote provider's end and is no longer
+ *        operational. GCP has insufficient information to move the resource
+ *        back to PENDING_KEY state. (Value: "DEPROVISIONED")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_State_PendingConfig The
+ *        Transport exists on both sides of the connection, and is waiting for
+ *        configuration to finalize and be verified as operational. (Value:
+ *        "PENDING_CONFIG")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_State_PendingKey The Transport
+ *        was created in GCP. Depending on the profile’s key provisioning flow,
+ *        this is either waiting for an activation key to be input (the key will
+ *        be validated that it uses remote resources that match the Transport),
+ *        or for the generated key to be input to the provider for finalizing.
+ *        The configured bandwidth is not yet guaranteed. (Value: "PENDING_KEY")
+ *    @arg @c kGTLRNetworkconnectivity_Transport_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Update time stamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Labels as key value pairs.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRNetworkconnectivity_Transport_Labels : GTLRObject
 @end
 
 

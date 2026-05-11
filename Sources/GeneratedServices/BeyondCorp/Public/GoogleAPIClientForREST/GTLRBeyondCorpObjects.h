@@ -874,7 +874,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
  *  A BeyondCorp AppConnection resource represents a BeyondCorp protected
  *  AppConnection to a remote application. It creates all the necessary GCP
  *  components needed for creating a BeyondCorp protected AppConnection.
- *  Multiple connectors can be authorised for a single AppConnection.
+ *  Multiple connectors can be authorized for a single AppConnection.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectionsV1AppConnection : GTLRObject
 
@@ -886,7 +886,7 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 /**
  *  Optional. List of [google.cloud.beyondcorp.v1main.Connector.name] that are
- *  authorised to be associated with this AppConnection.
+ *  authorized to be associated with this AppConnection.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *connectors;
 
@@ -1572,9 +1572,11 @@ FOUNDATION_EXTERN NSString * const kGTLRBeyondCorp_GoogleIamV1AuditLogConfig_Log
 
 
 /**
- *  ResourceInfo represents the information/status of an app connector resource.
- *  Such as: - remote_agent - container - runtime - appgateway - appconnector -
- *  appconnection - tunnel - logagent
+ *  ResourceInfo represents the information or status of an app connector
+ *  resource component that's used to report on various parts of the system. For
+ *  example, ResourceInfo can be used to convey the status of a remote_agent,
+ *  including the status of an appgateway for an runtime environment in a
+ *  container instance.
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpAppconnectorsV1ResourceInfo : GTLRObject
 
@@ -2429,7 +2431,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscovery : GTLRObject
 
-/** Required. External API configuration. */
+/** Optional. External API configuration. */
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGateway *apiGateway;
 
 @end
@@ -2441,7 +2443,7 @@ GTLR_DEPRECATED
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGateway : GTLRObject
 
 /**
- *  Required. Enables fetching resource model updates to alter service behavior
+ *  Optional. Enables fetching resource model updates to alter service behavior
  *  per Chrome profile.
  */
 @property(nonatomic, strong, nullable) GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGatewayOperationDescriptor *resourceOverride;
@@ -2454,7 +2456,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRBeyondCorp_GoogleCloudBeyondcorpSecuritygatewaysV1ServiceDiscoveryApiGatewayOperationDescriptor : GTLRObject
 
-/** Required. Contains the URI path fragment where HTTP request is sent. */
+/** Optional. Contains the URI path fragment where HTTP request is sent. */
 @property(nonatomic, copy, nullable) NSString *path;
 
 @end

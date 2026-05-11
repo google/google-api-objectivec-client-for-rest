@@ -130,6 +130,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsCreate : GTLRCloudDataplexQuery
 
@@ -166,6 +167,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsDelete : GTLRCloudDataplexQuery
 
@@ -195,6 +197,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsGet : GTLRCloudDataplexQuery
 
@@ -222,6 +225,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -271,6 +275,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsList : GTLRCloudDataplexQuery
 
@@ -336,6 +341,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsPatch : GTLRCloudDataplexQuery
 
@@ -382,6 +388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -424,6 +431,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsEncryptionConfigsTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -472,6 +480,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsOperationsCancel : GTLRCloudDataplexQuery
 
@@ -513,6 +522,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsOperationsDelete : GTLRCloudDataplexQuery
 
@@ -544,6 +554,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsOperationsGet : GTLRCloudDataplexQuery
 
@@ -573,6 +584,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_OrganizationsLocationsOperationsList : GTLRCloudDataplexQuery
 
@@ -624,6 +636,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesCreate : GTLRCloudDataplexQuery
 
@@ -668,6 +681,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesDelete : GTLRCloudDataplexQuery
 
@@ -704,6 +718,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesGet : GTLRCloudDataplexQuery
 
@@ -735,6 +752,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -784,6 +802,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesList : GTLRCloudDataplexQuery
 
@@ -850,6 +871,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesPatch : GTLRCloudDataplexQuery
 
@@ -899,6 +921,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -941,6 +964,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsAspectTypesTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -982,6 +1006,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -1033,6 +1058,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -1075,6 +1101,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsChangeRequestsTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -1115,6 +1142,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudDataplexViewTables;
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsCreate : GTLRCloudDataplexQuery
@@ -1166,6 +1194,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsDelete : GTLRCloudDataplexQuery
@@ -1206,6 +1235,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsGet : GTLRCloudDataplexQuery
@@ -1238,6 +1268,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -1287,6 +1318,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsList : GTLRCloudDataplexQuery
@@ -1350,6 +1382,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsPatch : GTLRCloudDataplexQuery
@@ -1402,6 +1435,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -1444,6 +1478,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataAttributeBindingsTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -1478,12 +1513,150 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  Method: dataplex.projects.locations.dataDomains.getIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsGetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  Optional. The maximum policy version that will be used to format the
+ *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
+ *  will be rejected.Requests for policies with any conditional role bindings
+ *  must specify version 3. Policies with no conditional role bindings may
+ *  specify any valid value or leave the field unset.The policy in the response
+ *  might use the policy version that you specified, or it might use a lower
+ *  policy version. For example, if you specify version 3, but the policy has no
+ *  conditional role bindings, the response uses version 1.To learn which
+ *  resources support conditions in their IAM policies, see the IAM
+ *  documentation
+ *  (https://cloud.google.com/iam/help/conditions/resource-policies).
+ */
+@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
+
+/**
+ *  REQUIRED: The resource for which the policy is being requested. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Gets the access control policy for a resource. Returns an empty policy if
+ *  the resource exists and does not have a policy set.
+ *
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsGetIamPolicy
+ */
++ (instancetype)queryWithResource:(NSString *)resource;
+
+@end
+
+/**
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  Method: dataplex.projects.locations.dataDomains.setIamPolicy
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsSetIamPolicy : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy is being specified. See Resource
+ *  names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
+ *
+ *  Sets the access control policy on the specified resource. Replaces any
+ *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
+ *  PERMISSION_DENIED errors.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
+ *    include in the query.
+ *  @param resource REQUIRED: The resource for which the policy is being
+ *    specified. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsSetIamPolicy
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  Method: dataplex.projects.locations.dataDomains.testIamPermissions
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsTestIamPermissions : GTLRCloudDataplexQuery
+
+/**
+ *  REQUIRED: The resource for which the policy detail is being requested. See
+ *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
+ *  appropriate value for this field.
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
+ *
+ *  Returns permissions that a caller has on the specified resource. If the
+ *  resource does not exist, this will return an empty set of permissions, not a
+ *  NOT_FOUND error.Note: This operation is designed to be used for building
+ *  permission-aware UIs and command-line tools, not for authorization checking.
+ *  This operation may "fail open" without warning.
+ *
+ *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
+ *    to include in the query.
+ *  @param resource REQUIRED: The resource for which the policy detail is being
+ *    requested. See Resource names
+ *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
+ *    value for this field.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataDomainsTestIamPermissions
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
+                       resource:(NSString *)resource;
+
+@end
+
+/**
  *  Creates a data product.
  *
  *  Method: dataplex.projects.locations.dataProducts.create
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsCreate : GTLRCloudDataplexQuery
 
@@ -1533,6 +1706,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsCreate : GTLRCloudDataplexQuery
 
@@ -1583,6 +1757,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsDelete : GTLRCloudDataplexQuery
 
@@ -1626,6 +1801,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsGet : GTLRCloudDataplexQuery
 
@@ -1656,6 +1834,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsList : GTLRCloudDataplexQuery
 
@@ -1719,6 +1900,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDataAssetsPatch : GTLRCloudDataplexQuery
 
@@ -1767,6 +1949,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsDelete : GTLRCloudDataplexQuery
 
@@ -1811,6 +1994,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGet : GTLRCloudDataplexQuery
 
@@ -1842,6 +2028,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -1891,6 +2078,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsList : GTLRCloudDataplexQuery
 
@@ -1962,6 +2152,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsPatch : GTLRCloudDataplexQuery
 
@@ -2011,6 +2202,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -2053,6 +2245,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataProductsTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -2093,6 +2286,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansCreate : GTLRCloudDataplexQuery
 
@@ -2144,6 +2338,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansDelete : GTLRCloudDataplexQuery
 
@@ -2187,6 +2382,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansGenerateDataQualityRules : GTLRCloudDataplexQuery
 
@@ -2228,6 +2424,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansGet : GTLRCloudDataplexQuery
 
@@ -2275,6 +2474,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -2318,6 +2518,46 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Cancels a running/pending DataScan job.
+ *
+ *  Method: dataplex.projects.locations.dataScans.jobs.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansJobsCancel : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The resource name of the DataScanJob:
+ *  projects/{project_id_or_number}/locations/{location_id}/dataScans/{data_scan_id}/jobs/{data_scan_job_id}
+ *  where project_id_or_number refers to a project_id or project_number and
+ *  location_id refers to a Google Cloud region.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRCloudDataplex_GoogleCloudDataplexV1CancelDataScanJobResponse.
+ *
+ *  Cancels a running/pending DataScan job.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleCloudDataplexV1CancelDataScanJobRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the DataScanJob:
+ *    projects/{project_id_or_number}/locations/{location_id}/dataScans/{data_scan_id}/jobs/{data_scan_job_id}
+ *    where project_id_or_number refers to a project_id or project_number and
+ *    location_id refers to a Google Cloud region.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsDataScansJobsCancel
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1CancelDataScanJobRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Generates recommended data quality rules based on the results of a data
  *  profiling scan.Use the recommendations to build rules for a data quality
  *  scan.
@@ -2326,6 +2566,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansJobsGenerateDataQualityRules : GTLRCloudDataplexQuery
 
@@ -2367,6 +2608,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansJobsGet : GTLRCloudDataplexQuery
 
@@ -2413,6 +2657,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansJobsList : GTLRCloudDataplexQuery
 
@@ -2481,6 +2728,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansList : GTLRCloudDataplexQuery
 
@@ -2542,6 +2792,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansPatch : GTLRCloudDataplexQuery
 
@@ -2593,6 +2844,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansRun : GTLRCloudDataplexQuery
 
@@ -2633,6 +2885,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -2675,6 +2928,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataScansTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -2715,6 +2969,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesCreate : GTLRCloudDataplexQuery
@@ -2763,6 +3018,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesDelete : GTLRCloudDataplexQuery
@@ -2800,6 +3056,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesGet : GTLRCloudDataplexQuery
@@ -2832,6 +3089,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -2881,6 +3139,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesList : GTLRCloudDataplexQuery
@@ -2939,6 +3198,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesPatch : GTLRCloudDataplexQuery
@@ -2989,6 +3249,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -3031,6 +3292,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesAttributesTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -3071,6 +3333,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesCreate : GTLRCloudDataplexQuery
@@ -3115,6 +3378,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesDelete : GTLRCloudDataplexQuery
@@ -3153,6 +3417,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesGet : GTLRCloudDataplexQuery
@@ -3180,6 +3445,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -3229,6 +3495,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesList : GTLRCloudDataplexQuery
@@ -3289,6 +3556,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 GTLR_DEPRECATED
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesPatch : GTLRCloudDataplexQuery
@@ -3339,6 +3607,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -3381,6 +3650,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsDataTaxonomiesTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -3421,6 +3691,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsCreate : GTLRCloudDataplexQuery
 
@@ -3465,6 +3736,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsDelete : GTLRCloudDataplexQuery
 
@@ -3501,6 +3773,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntriesCreate : GTLRCloudDataplexQuery
 
@@ -3551,6 +3824,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntriesDelete : GTLRCloudDataplexQuery
 
@@ -3581,6 +3855,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntriesGet : GTLRCloudDataplexQuery
 
@@ -3604,6 +3881,9 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. View to control which parts of an entry the service should return.
+ *  Please check the limitations on returned aspects in the Entry view
+ *  documentation. Amount of returned aspects depends on the selected Entry
+ *  View.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplexViewEntryViewUnspecified Unspecified EntryView.
@@ -3641,6 +3921,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntriesList : GTLRCloudDataplexQuery
 
@@ -3707,6 +3990,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntriesPatch : GTLRCloudDataplexQuery
 
@@ -3777,6 +4061,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksCreate : GTLRCloudDataplexQuery
 
@@ -3818,6 +4103,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksDelete : GTLRCloudDataplexQuery
 
@@ -3848,6 +4134,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksGet : GTLRCloudDataplexQuery
 
@@ -3878,6 +4165,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsEntryLinksPatch : GTLRCloudDataplexQuery
 
@@ -3928,6 +4216,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsGet : GTLRCloudDataplexQuery
 
@@ -3959,6 +4250,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -4008,6 +4300,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsList : GTLRCloudDataplexQuery
 
@@ -4066,6 +4361,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsPatch : GTLRCloudDataplexQuery
 
@@ -4115,6 +4411,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -4157,6 +4454,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryGroupsTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -4198,6 +4496,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryLinkTypesGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -4249,6 +4548,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryLinkTypesSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -4291,6 +4591,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryLinkTypesTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -4331,6 +4632,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryTypesCreate : GTLRCloudDataplexQuery
 
@@ -4375,6 +4677,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryTypesDelete : GTLRCloudDataplexQuery
 
@@ -4411,6 +4714,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryTypesGet : GTLRCloudDataplexQuery
 
@@ -4442,6 +4748,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryTypesGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -4491,6 +4798,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryTypesList : GTLRCloudDataplexQuery
 
@@ -4557,6 +4867,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryTypesPatch : GTLRCloudDataplexQuery
 
@@ -4606,6 +4917,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryTypesSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -4648,6 +4960,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsEntryTypesTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -4688,6 +5001,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGet : GTLRCloudDataplexQuery
 
@@ -4714,6 +5028,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesCreate : GTLRCloudDataplexQuery
 
@@ -4756,6 +5071,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesDelete : GTLRCloudDataplexQuery
 
@@ -4788,6 +5104,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesGet : GTLRCloudDataplexQuery
 
@@ -4819,6 +5138,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -4868,6 +5188,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesList : GTLRCloudDataplexQuery
 
@@ -4942,6 +5265,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesPatch : GTLRCloudDataplexQuery
 
@@ -4985,6 +5309,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -5027,6 +5352,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCategoriesTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -5067,6 +5393,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesCreate : GTLRCloudDataplexQuery
 
@@ -5112,6 +5439,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesDelete : GTLRCloudDataplexQuery
 
@@ -5150,6 +5478,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesGet : GTLRCloudDataplexQuery
 
@@ -5181,6 +5512,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -5230,6 +5562,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesList : GTLRCloudDataplexQuery
 
@@ -5296,6 +5631,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesPatch : GTLRCloudDataplexQuery
 
@@ -5345,6 +5681,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -5383,6 +5720,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsCreate : GTLRCloudDataplexQuery
 
@@ -5423,6 +5761,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsDelete : GTLRCloudDataplexQuery
 
@@ -5453,6 +5792,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsGet : GTLRCloudDataplexQuery
 
@@ -5484,6 +5826,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -5533,6 +5876,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsList : GTLRCloudDataplexQuery
 
@@ -5606,6 +5952,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsPatch : GTLRCloudDataplexQuery
 
@@ -5649,6 +5996,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -5691,6 +6039,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTermsTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -5735,6 +6084,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGlossariesTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -5776,6 +6126,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGovernanceRulesGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -5827,6 +6178,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGovernanceRulesSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -5869,6 +6221,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsGovernanceRulesTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -5909,6 +6262,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesActionsList : GTLRCloudDataplexQuery
 
@@ -5958,6 +6314,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesCreate : GTLRCloudDataplexQuery
 
@@ -6009,6 +6366,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesDelete : GTLRCloudDataplexQuery
 
@@ -6034,146 +6392,15 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: dataplex.projects.locations.lakes.environments.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
- */
-@interface GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsGetIamPolicy : GTLRCloudDataplexQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the
- *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
- *  will be rejected.Requests for policies with any conditional role bindings
- *  must specify version 3. Policies with no conditional role bindings may
- *  specify any valid value or leave the field unset.The policy in the response
- *  might use the policy version that you specified, or it might use a lower
- *  policy version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1.To learn which
- *  resources support conditions in their IAM policies, see the IAM
- *  documentation
- *  (https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See Resource
- *  names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
- *
- *  Method: dataplex.projects.locations.lakes.environments.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
- */
-@interface GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsSetIamPolicy : GTLRCloudDataplexQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See Resource
- *  names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
- *
- *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: dataplex.projects.locations.lakes.environments.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
- */
-@interface GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsTestIamPermissions : GTLRCloudDataplexQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
- *    to include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRCloudDataplexQuery_ProjectsLocationsLakesEnvironmentsTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
  *  Retrieves a lake resource.
  *
  *  Method: dataplex.projects.locations.lakes.get
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesGet : GTLRCloudDataplexQuery
 
@@ -6205,6 +6432,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -6254,6 +6482,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesList : GTLRCloudDataplexQuery
 
@@ -6310,6 +6541,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesPatch : GTLRCloudDataplexQuery
 
@@ -6358,6 +6590,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -6396,6 +6629,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksCreate : GTLRCloudDataplexQuery
 
@@ -6438,6 +6672,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksDelete : GTLRCloudDataplexQuery
 
@@ -6468,6 +6703,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksGet : GTLRCloudDataplexQuery
 
@@ -6499,6 +6737,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -6548,6 +6787,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksJobsCancel : GTLRCloudDataplexQuery
 
@@ -6581,6 +6821,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksJobsGet : GTLRCloudDataplexQuery
 
@@ -6611,6 +6854,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksJobsList : GTLRCloudDataplexQuery
 
@@ -6659,6 +6905,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksList : GTLRCloudDataplexQuery
 
@@ -6713,6 +6962,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksPatch : GTLRCloudDataplexQuery
 
@@ -6761,6 +7011,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksRun : GTLRCloudDataplexQuery
 
@@ -6796,6 +7047,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -6838,6 +7090,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTasksTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -6882,6 +7135,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -6922,6 +7176,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesActionsList : GTLRCloudDataplexQuery
 
@@ -6971,6 +7228,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsActionsList : GTLRCloudDataplexQuery
 
@@ -7020,6 +7280,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsCreate : GTLRCloudDataplexQuery
 
@@ -7069,6 +7330,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsDelete : GTLRCloudDataplexQuery
 
@@ -7100,6 +7362,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsGet : GTLRCloudDataplexQuery
 
@@ -7131,6 +7396,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -7180,6 +7446,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsList : GTLRCloudDataplexQuery
 
@@ -7234,6 +7503,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsPatch : GTLRCloudDataplexQuery
 
@@ -7283,6 +7553,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -7325,6 +7596,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesAssetsTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -7365,6 +7637,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesCreate : GTLRCloudDataplexQuery
 
@@ -7416,6 +7689,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesDelete : GTLRCloudDataplexQuery
 
@@ -7447,6 +7721,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesEntitiesCreate : GTLRCloudDataplexQuery
 
@@ -7486,6 +7761,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesEntitiesDelete : GTLRCloudDataplexQuery
 
@@ -7522,6 +7798,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesEntitiesGet : GTLRCloudDataplexQuery
 
@@ -7568,6 +7845,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesEntitiesList : GTLRCloudDataplexQuery
 
@@ -7639,6 +7917,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesEntitiesPartitionsCreate : GTLRCloudDataplexQuery
 
@@ -7678,6 +7957,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesEntitiesPartitionsDelete : GTLRCloudDataplexQuery
 
@@ -7715,6 +7995,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesEntitiesPartitionsGet : GTLRCloudDataplexQuery
 
@@ -7749,6 +8030,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesEntitiesPartitionsList : GTLRCloudDataplexQuery
 
@@ -7812,6 +8094,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesEntitiesUpdate : GTLRCloudDataplexQuery
 
@@ -7851,6 +8134,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesGet : GTLRCloudDataplexQuery
 
@@ -7882,6 +8168,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesGetIamPolicy : GTLRCloudDataplexQuery
 
@@ -7931,6 +8218,9 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
+ *    @c kGTLRAuthScopeCloudDataplexReadonly
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesList : GTLRCloudDataplexQuery
 
@@ -7985,6 +8275,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesPatch : GTLRCloudDataplexQuery
 
@@ -8034,6 +8325,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesSetIamPolicy : GTLRCloudDataplexQuery
 
@@ -8076,6 +8368,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLakesZonesTestIamPermissions : GTLRCloudDataplexQuery
 
@@ -8110,22 +8403,29 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: List all public locations: Use the path
- *  GET /v1/locations. List project-visible locations: Use the path GET
- *  /v1/projects/{project_id}/locations. This may include public locations as
- *  well as private or other locations specifically visible to the project.
+ *  Lists information about the supported locations for this service.This method
+ *  lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: Global locations: If name is empty, the
+ *  method lists the public locations available to all projects.
+ *  Project-specific locations: If name follows the format projects/{project},
+ *  the method lists locations visible to that specific project. This includes
+ *  public, private, or other project-specific locations enabled for the
+ *  project.For gRPC and client library implementations, the resource name is
+ *  passed as the name field. For direct service calls, the resource name is
+ *  incorporated into the request path based on the specific service
+ *  implementation and version.
  *
  *  Method: dataplex.projects.locations.list
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsList : GTLRCloudDataplexQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -8154,11 +8454,17 @@ GTLR_DEPRECATED
 /**
  *  Fetches a @c GTLRCloudDataplex_GoogleCloudLocationListLocationsResponse.
  *
- *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: List all public locations: Use the path
- *  GET /v1/locations. List project-visible locations: Use the path GET
- *  /v1/projects/{project_id}/locations. This may include public locations as
- *  well as private or other locations specifically visible to the project.
+ *  Lists information about the supported locations for this service.This method
+ *  lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: Global locations: If name is empty, the
+ *  method lists the public locations available to all projects.
+ *  Project-specific locations: If name follows the format projects/{project},
+ *  the method lists locations visible to that specific project. This includes
+ *  public, private, or other project-specific locations enabled for the
+ *  project.For gRPC and client library implementations, the resource name is
+ *  passed as the name field. For direct service calls, the resource name is
+ *  incorporated into the request path based on the specific service
+ *  implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -8179,6 +8485,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
  *    @c kGTLRAuthScopeCloudDataplexReadonly
  *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
@@ -8247,6 +8554,9 @@ GTLR_DEPRECATED
 
 /**
  *  Optional. View to control which parts of an entry the service should return.
+ *  Please check the limitations on returned aspects in the Entry view
+ *  documentation. Amount of returned aspects depends on the selected Entry
+ *  View.
  *
  *  Likely values:
  *    @arg @c kGTLRCloudDataplexViewEntryViewUnspecified Unspecified EntryView.
@@ -8284,6 +8594,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsLookupEntryLinks : GTLRCloudDataplexQuery
 
@@ -8361,6 +8672,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsCreate : GTLRCloudDataplexQuery
 
@@ -8406,6 +8718,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsDelete : GTLRCloudDataplexQuery
 
@@ -8436,6 +8749,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsGet : GTLRCloudDataplexQuery
 
@@ -8466,6 +8780,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsList : GTLRCloudDataplexQuery
 
@@ -8529,6 +8844,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataFeedsPatch : GTLRCloudDataplexQuery
 
@@ -8579,6 +8895,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsCancel : GTLRCloudDataplexQuery
 
@@ -8617,6 +8934,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsCreate : GTLRCloudDataplexQuery
 
@@ -8663,6 +8981,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsGet : GTLRCloudDataplexQuery
 
@@ -8693,6 +9012,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsMetadataJobsList : GTLRCloudDataplexQuery
 
@@ -8750,6 +9070,41 @@ GTLR_DEPRECATED
 @end
 
 /**
+ *  Modifies an entry using the permission on the source system.
+ *
+ *  Method: dataplex.projects.locations.modifyEntry
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
+ */
+@interface GTLRCloudDataplexQuery_ProjectsLocationsModifyEntry : GTLRCloudDataplexQuery
+
+/**
+ *  Required. The project to which the request should be attributed in the
+ *  following form: projects/{project}/locations/{location}.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRCloudDataplex_GoogleCloudDataplexV1Entry.
+ *
+ *  Modifies an entry using the permission on the source system.
+ *
+ *  @param object The @c
+ *    GTLRCloudDataplex_GoogleCloudDataplexV1ModifyEntryRequest to include in
+ *    the query.
+ *  @param name Required. The project to which the request should be attributed
+ *    in the following form: projects/{project}/locations/{location}.
+ *
+ *  @return GTLRCloudDataplexQuery_ProjectsLocationsModifyEntry
+ */
++ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleCloudDataplexV1ModifyEntryRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Starts asynchronous cancellation on a long-running operation. The server
  *  makes a best effort to cancel the operation, but success is not guaranteed.
  *  If the server doesn't support this method, it returns
@@ -8764,6 +9119,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsOperationsCancel : GTLRCloudDataplexQuery
 
@@ -8805,6 +9161,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsOperationsDelete : GTLRCloudDataplexQuery
 
@@ -8836,6 +9193,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsOperationsGet : GTLRCloudDataplexQuery
 
@@ -8865,6 +9223,7 @@ GTLR_DEPRECATED
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */
 @interface GTLRCloudDataplexQuery_ProjectsLocationsOperationsList : GTLRCloudDataplexQuery
 
@@ -8910,146 +9269,13 @@ GTLR_DEPRECATED
 @end
 
 /**
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  Method: dataplex.projects.locations.policyIntents.getIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
- */
-@interface GTLRCloudDataplexQuery_ProjectsLocationsPolicyIntentsGetIamPolicy : GTLRCloudDataplexQuery
-
-/**
- *  Optional. The maximum policy version that will be used to format the
- *  policy.Valid values are 0, 1, and 3. Requests specifying an invalid value
- *  will be rejected.Requests for policies with any conditional role bindings
- *  must specify version 3. Policies with no conditional role bindings may
- *  specify any valid value or leave the field unset.The policy in the response
- *  might use the policy version that you specified, or it might use a lower
- *  policy version. For example, if you specify version 3, but the policy has no
- *  conditional role bindings, the response uses version 1.To learn which
- *  resources support conditions in their IAM policies, see the IAM
- *  documentation
- *  (https://cloud.google.com/iam/help/conditions/resource-policies).
- */
-@property(nonatomic, assign) NSInteger optionsRequestedPolicyVersion;
-
-/**
- *  REQUIRED: The resource for which the policy is being requested. See Resource
- *  names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
- *
- *  Gets the access control policy for a resource. Returns an empty policy if
- *  the resource exists and does not have a policy set.
- *
- *  @param resource REQUIRED: The resource for which the policy is being
- *    requested. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRCloudDataplexQuery_ProjectsLocationsPolicyIntentsGetIamPolicy
- */
-+ (instancetype)queryWithResource:(NSString *)resource;
-
-@end
-
-/**
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
- *
- *  Method: dataplex.projects.locations.policyIntents.setIamPolicy
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
- */
-@interface GTLRCloudDataplexQuery_ProjectsLocationsPolicyIntentsSetIamPolicy : GTLRCloudDataplexQuery
-
-/**
- *  REQUIRED: The resource for which the policy is being specified. See Resource
- *  names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudDataplex_GoogleIamV1Policy.
- *
- *  Sets the access control policy on the specified resource. Replaces any
- *  existing policy.Can return NOT_FOUND, INVALID_ARGUMENT, and
- *  PERMISSION_DENIED errors.
- *
- *  @param object The @c GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest to
- *    include in the query.
- *  @param resource REQUIRED: The resource for which the policy is being
- *    specified. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRCloudDataplexQuery_ProjectsLocationsPolicyIntentsSetIamPolicy
- */
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1SetIamPolicyRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  Method: dataplex.projects.locations.policyIntents.testIamPermissions
- *
- *  Authorization scope(s):
- *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
- */
-@interface GTLRCloudDataplexQuery_ProjectsLocationsPolicyIntentsTestIamPermissions : GTLRCloudDataplexQuery
-
-/**
- *  REQUIRED: The resource for which the policy detail is being requested. See
- *  Resource names (https://cloud.google.com/apis/design/resource_names) for the
- *  appropriate value for this field.
- */
-@property(nonatomic, copy, nullable) NSString *resource;
-
-/**
- *  Fetches a @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsResponse.
- *
- *  Returns permissions that a caller has on the specified resource. If the
- *  resource does not exist, this will return an empty set of permissions, not a
- *  NOT_FOUND error.Note: This operation is designed to be used for building
- *  permission-aware UIs and command-line tools, not for authorization checking.
- *  This operation may "fail open" without warning.
- *
- *  @param object The @c GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest
- *    to include in the query.
- *  @param resource REQUIRED: The resource for which the policy detail is being
- *    requested. See Resource names
- *    (https://cloud.google.com/apis/design/resource_names) for the appropriate
- *    value for this field.
- *
- *  @return GTLRCloudDataplexQuery_ProjectsLocationsPolicyIntentsTestIamPermissions
- */
-+ (instancetype)queryWithObject:(GTLRCloudDataplex_GoogleIamV1TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource;
-
-@end
-
-/**
  *  Searches for Entries matching the given query and scope.
  *
  *  Method: dataplex.projects.locations.searchEntries
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeCloudDataplexCloudPlatform
+ *    @c kGTLRAuthScopeCloudDataplexCloudPlatformReadOnly
  *    @c kGTLRAuthScopeCloudDataplexReadonly
  *    @c kGTLRAuthScopeCloudDataplexReadWrite
  */

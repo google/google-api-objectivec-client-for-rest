@@ -1988,7 +1988,7 @@ NSString * const kGTLRYouTubeVideoTypeVideoTypeUnspecified = @"videoTypeUnspecif
 
 @implementation GTLRYouTubeQuery_TestsInsert
 
-@dynamic externalChannelId, part;
+@dynamic externalChannelId, onBehalfOfContentOwnerChannel, part;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{

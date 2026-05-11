@@ -30,6 +30,10 @@
 @class GTLRDeploymentManager_ErrorInfo_Metadatas;
 @class GTLRDeploymentManager_Expr;
 @class GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata;
+@class GTLRDeploymentManager_GetVersionOperationMetadata;
+@class GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo;
+@class GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_CurrentComponentVersions;
+@class GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_TargetComponentVersions;
 @class GTLRDeploymentManager_Help;
 @class GTLRDeploymentManager_HelpLink;
 @class GTLRDeploymentManager_ImportFile;
@@ -1604,6 +1608,62 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 
 
 /**
+ *  GTLRDeploymentManager_GetVersionOperationMetadata
+ */
+@interface GTLRDeploymentManager_GetVersionOperationMetadata : GTLRObject
+
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo *inlineSbomInfo;
+
+@end
+
+
+/**
+ *  GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo
+ */
+@interface GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo : GTLRObject
+
+/**
+ *  SBOM versions currently applied to the resource. The key is the component
+ *  name and the value is the version.
+ */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_CurrentComponentVersions *currentComponentVersions;
+
+/**
+ *  SBOM versions scheduled for the next maintenance. The key is the component
+ *  name and the value is the version.
+ */
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_TargetComponentVersions *targetComponentVersions;
+
+@end
+
+
+/**
+ *  SBOM versions currently applied to the resource. The key is the component
+ *  name and the value is the version.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_CurrentComponentVersions : GTLRObject
+@end
+
+
+/**
+ *  SBOM versions scheduled for the next maintenance. The key is the component
+ *  name and the value is the version.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_TargetComponentVersions : GTLRObject
+@end
+
+
+/**
  *  GTLRDeploymentManager_GlobalSetPolicyRequest
  */
 @interface GTLRDeploymentManager_GlobalSetPolicyRequest : GTLRObject
@@ -1867,6 +1927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDeploymentManager_SetCommonInstanceMetad
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_Operation_Error *error;
 
 @property(nonatomic, strong, nullable) GTLRDeploymentManager_FirewallPolicyRuleOperationMetadata *firewallPolicyRuleOperationMetadata;
+@property(nonatomic, strong, nullable) GTLRDeploymentManager_GetVersionOperationMetadata *getVersionOperationMetadata;
 
 /**
  *  [Output Only] If the operation fails, this field contains the HTTP error

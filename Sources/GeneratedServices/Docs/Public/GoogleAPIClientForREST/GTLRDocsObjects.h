@@ -105,6 +105,7 @@
 @class GTLRDocs_InsertInlineSheetsChartResponse;
 @class GTLRDocs_InsertPageBreakRequest;
 @class GTLRDocs_InsertPersonRequest;
+@class GTLRDocs_InsertRichLinkRequest;
 @class GTLRDocs_InsertSectionBreakRequest;
 @class GTLRDocs_InsertTableColumnRequest;
 @class GTLRDocs_InsertTableRequest;
@@ -208,6 +209,7 @@
 @class GTLRDocs_UnmergeTableCellsRequest;
 @class GTLRDocs_UpdateDocumentStyleRequest;
 @class GTLRDocs_UpdateDocumentTabPropertiesRequest;
+@class GTLRDocs_UpdateNamedStyleRequest;
 @class GTLRDocs_UpdateParagraphStyleRequest;
 @class GTLRDocs_UpdateSectionStyleRequest;
 @class GTLRDocs_UpdateTableCellStyleRequest;
@@ -2017,13 +2019,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /**
  *  The language code of the DateElement. For example, `en`. If unset, the
  *  default locale is `en`. Limited to the following locales: `af`, `am`, `ar`,
- *  `az`, `be`, `bg`, `bn`, `ca`, `cs`, `da`, `de`, `el`, `en`, `en-CA`,
+ *  `as`, `az`, `be`, `bg`, `bn`, `ca`, `cs`, `da`, `de`, `el`, `en`, `en-CA`,
  *  `en-GB`, `es`, `es-419`, `et`, `eu`, `fa`, `fi`, `fil`, `fr`, `fr-CA`, `gl`,
  *  `gu`, `hi`, `hr`, `hu`, `hy`, `id`, `is`, `it`, `iw`, `ja`, `ka`, `kk`,
- *  `km`, `kn`, `ko`, `lo`, `lt`, `lv`, `ml`, `mn`, `mr`, `ms`, `ne`, `nl`,
- *  `no`, `pa`, `pl`, `pt-BR`, `pt-PT`, `ro`, `ru`, `si`, `sk`, `sl`, `sr`,
- *  `sv`, `sw`, `ta`, `te`, `th`, `tr`, `uk`, `ur`, `vi`, `zh-CN`, `zh-HK`,
- *  `zh-TW`, `zu`, `cy`, `my`.
+ *  `km`, `kn`, `ko`, `lo`, `lt`, `lv`, `mk`, `ml`, `mn`, `mr`, `ms`, `ne`,
+ *  `nl`, `no`, `or`, `pa`, `pl`, `pt-BR`, `pt-PT`, `ro`, `ru`, `si`, `sk`,
+ *  `sl`, `sq`, `sr`, `sv`, `sw`, `ta`, `te`, `th`, `tr`, `uk`, `ur`, `uz`,
+ *  `vi`, `zh-CN`, `zh-HK`, `zh-TW`, `zu`, `cy`, `my`.
  */
 @property(nonatomic, copy, nullable) NSString *locale;
 
@@ -2055,14 +2057,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
  *  For example, a timestamp of `18000` with a date format of
  *  `DATE_FORMAT_ISO8601` and time format of `TIME_FORMAT_HOUR_MINUTE` would be
  *  displayed as `1970-01-01 5:00 AM`. A timestamp of `18000` with date format
- *  of `DATE_FORMAT_8SO8601`, time format of `TIME_FORMAT_HOUR_MINUTE`, and time
+ *  of `DATE_FORMAT_ISO8601`, time format of `TIME_FORMAT_HOUR_MINUTE`, and time
  *  zone set to `America/New_York` will instead be `1970-01-01 12:00 AM`.
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *timestamp;
 
 /**
  *  The time zone of the DateElement, as defined by the Unicode Common Locale
- *  Data Repository (CLDR) project. For example, `America/New York`. If unset,
+ *  Data Repository (CLDR) project. For example, `America/New_York`. If unset,
  *  the default time zone is `etc/UTC`.
  */
 @property(nonatomic, copy, nullable) NSString *timeZoneId;
@@ -3970,6 +3972,32 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 
 /**
+ *  Inserts a RichLink at the specified location.
+ */
+@interface GTLRDocs_InsertRichLinkRequest : GTLRObject
+
+/**
+ *  Inserts the rich link at the end of a header, footer, footnote or the
+ *  document body.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_EndOfSegmentLocation *endOfSegmentLocation;
+
+/**
+ *  Inserts the rich link at a specific index in the document. The rich link
+ *  must be inserted inside the bounds of an existing Paragraph. For instance,
+ *  it cannot be inserted at a table's start index (i.e. between the table and
+ *  its preceding paragraph). The rich link cannot be inserted inside an
+ *  equation.
+ */
+@property(nonatomic, strong, nullable) GTLRDocs_Location *location;
+
+/** The properties of the rich link to insert. */
+@property(nonatomic, strong, nullable) GTLRDocs_RichLinkProperties *richLinkProperties;
+
+@end
+
+
+/**
  *  Inserts a section break at the given location. A newline character will be
  *  inserted before the section break.
  */
@@ -5810,6 +5838,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 /** Inserts a person mention. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertPersonRequest *insertPerson;
 
+/** Insert a rich link. */
+@property(nonatomic, strong, nullable) GTLRDocs_InsertRichLinkRequest *insertRichLink;
+
 /** Inserts a section break at the specified location. */
 @property(nonatomic, strong, nullable) GTLRDocs_InsertSectionBreakRequest *insertSectionBreak;
 
@@ -5848,6 +5879,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /** Updates the properties of a document tab. */
 @property(nonatomic, strong, nullable) GTLRDocs_UpdateDocumentTabPropertiesRequest *updateDocumentTabProperties;
+
+/** Updates a named style. */
+@property(nonatomic, strong, nullable) GTLRDocs_UpdateNamedStyleRequest *updateNamedStyle;
 
 /** Updates the paragraph style at the specified range. */
 @property(nonatomic, strong, nullable) GTLRDocs_UpdateParagraphStyleRequest *updateParagraphStyle;
@@ -7633,6 +7667,39 @@ FOUNDATION_EXTERN NSString * const kGTLRDocs_TextStyle_BaselineOffset_Superscrip
 
 /** The tab properties to update. */
 @property(nonatomic, strong, nullable) GTLRDocs_TabProperties *tabProperties;
+
+@end
+
+
+/**
+ *  Updates a named style.
+ */
+@interface GTLRDocs_UpdateNamedStyleRequest : GTLRObject
+
+/**
+ *  The NamedStyle fields that should be updated. At least `named_style_type`
+ *  must be specified. The root `named_style` is implied and should not be
+ *  specified. A single `"*"` can be used as short-hand for listing every field.
+ *  For example, to update the text style to bold, set `fields` to include
+ *  `"text_style"` and `"text_style.bold"`. To update the paragraph style's
+ *  alignment property, set `fields` to include `"paragraph_style"` and
+ *  `"paragraph_style.alignment"`. To reset a property to its default value,
+ *  include its field name in the field mask but leave the field itself unset.
+ *  Specifying `"text_style"` or `"paragraph_style"` with an empty TextStyle or
+ *  ParagraphStyle will reset all of its nested fields.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *fields;
+
+/** The document style to update. */
+@property(nonatomic, strong, nullable) GTLRDocs_NamedStyle *namedStyle;
+
+/**
+ *  The document tab to update. By default, the update is applied to the first
+ *  tab.
+ */
+@property(nonatomic, copy, nullable) NSString *tabId;
 
 @end
 

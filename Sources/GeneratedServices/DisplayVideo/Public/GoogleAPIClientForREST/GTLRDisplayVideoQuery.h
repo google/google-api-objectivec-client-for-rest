@@ -630,7 +630,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 @end
 
 /**
- *  Creates an ad group ad.
+ *  Creates an ad group ad. This method is only supported for Demand Gen ads.
+ *  Retrieval and management of Demand Gen resources is currently in beta. This
+ *  method is only available to allowlisted users.
  *
  *  Method: displayvideo.advertisers.adGroupAds.create
  *
@@ -645,7 +647,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Fetches a @c GTLRDisplayVideo_AdGroupAd.
  *
- *  Creates an ad group ad.
+ *  Creates an ad group ad. This method is only supported for Demand Gen ads.
+ *  Retrieval and management of Demand Gen resources is currently in beta. This
+ *  method is only available to allowlisted users.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroupAd to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -659,7 +663,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 @end
 
 /**
- *  Deletes an ad group ad.
+ *  Deletes an ad group ad. This method is only supported for Demand Gen ads.
+ *  Retrieval and management of Demand Gen resources is currently in beta. This
+ *  method is only available to allowlisted users.
  *
  *  Method: displayvideo.advertisers.adGroupAds.delete
  *
@@ -668,7 +674,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  */
 @interface GTLRDisplayVideoQuery_AdvertisersAdGroupAdsDelete : GTLRDisplayVideoQuery
 
-/** Required. The ID of the ad to delete. */
+/**
+ *  Required. The ID of the ad to delete. Only Demand Gen ads are supported.
+ */
 @property(nonatomic, assign) long long adGroupAdId;
 
 /** Required. The ID of the advertiser the ad belongs to. */
@@ -677,10 +685,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Fetches a @c GTLRDisplayVideo_Empty.
  *
- *  Deletes an ad group ad.
+ *  Deletes an ad group ad. This method is only supported for Demand Gen ads.
+ *  Retrieval and management of Demand Gen resources is currently in beta. This
+ *  method is only available to allowlisted users.
  *
  *  @param advertiserId Required. The ID of the advertiser the ad belongs to.
- *  @param adGroupAdId Required. The ID of the ad to delete.
+ *  @param adGroupAdId Required. The ID of the ad to delete. Only Demand Gen ads
+ *    are supported.
  *
  *  @return GTLRDisplayVideoQuery_AdvertisersAdGroupAdsDelete
  */
@@ -792,7 +803,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 @end
 
 /**
- *  Updates an ad group ad.
+ *  Updates an ad group ad. This method is only supported for Demand Gen ads.
+ *  Retrieval and management of Demand Gen resources is currently in beta. This
+ *  method is only available to allowlisted users.
  *
  *  Method: displayvideo.advertisers.adGroupAds.patch
  *
@@ -817,7 +830,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Fetches a @c GTLRDisplayVideo_AdGroupAd.
  *
- *  Updates an ad group ad.
+ *  Updates an ad group ad. This method is only supported for Demand Gen ads.
+ *  Retrieval and management of Demand Gen resources is currently in beta. This
+ *  method is only available to allowlisted users.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroupAd to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -839,9 +854,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Specifically, the operation will delete the assigned targeting options
  *  provided in BulkEditAdGroupAssignedTargetingOptionsRequest.delete_requests
  *  from each ad group, and then create the assigned targeting options provided
- *  in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. Only ad
- *  groups under a line item of line_item_type `LINE_ITEM_TYPE_DEMAND_GEN` are
- *  supported for this method.
+ *  in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. This
+ *  method is only supported for Demand Gen ad groups. Retrieval and management
+ *  of Demand Gen resources is currently in beta. This method is only available
+ *  to allowlisted users.
  *
  *  Method: displayvideo.advertisers.adGroups.bulkEditAssignedTargetingOptions
  *
@@ -862,9 +878,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Specifically, the operation will delete the assigned targeting options
  *  provided in BulkEditAdGroupAssignedTargetingOptionsRequest.delete_requests
  *  from each ad group, and then create the assigned targeting options provided
- *  in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. Only ad
- *  groups under a line item of line_item_type `LINE_ITEM_TYPE_DEMAND_GEN` are
- *  supported for this method.
+ *  in BulkEditAdGroupAssignedTargetingOptionsRequest.create_requests. This
+ *  method is only supported for Demand Gen ad groups. Retrieval and management
+ *  of Demand Gen resources is currently in beta. This method is only available
+ *  to allowlisted users.
  *
  *  @param object The @c
  *    GTLRDisplayVideo_BulkEditAdGroupAssignedTargetingOptionsRequest to include
@@ -962,6 +979,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Creates a new ad group. Returns the newly created ad group if successful.
+ *  This method is only supported for Demand Gen ad groups. Retrieval and
+ *  management of Demand Gen resources is currently in beta. This method is only
+ *  available to allowlisted users.
  *
  *  Method: displayvideo.advertisers.adGroups.create
  *
@@ -977,6 +997,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_AdGroup.
  *
  *  Creates a new ad group. Returns the newly created ad group if successful.
+ *  This method is only supported for Demand Gen ad groups. Retrieval and
+ *  management of Demand Gen resources is currently in beta. This method is only
+ *  available to allowlisted users.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroup to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -991,7 +1014,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Deletes a AdGroup. Returns error code `NOT_FOUND` if the ad group does not
- *  exist.
+ *  exist. This method is only supported for Demand Gen ad groups. Retrieval and
+ *  management of Demand Gen resources is currently in beta. This method is only
+ *  available to allowlisted users.
  *
  *  Method: displayvideo.advertisers.adGroups.delete
  *
@@ -1010,7 +1035,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_Empty.
  *
  *  Deletes a AdGroup. Returns error code `NOT_FOUND` if the ad group does not
- *  exist.
+ *  exist. This method is only supported for Demand Gen ad groups. Retrieval and
+ *  management of Demand Gen resources is currently in beta. This method is only
+ *  available to allowlisted users.
  *
  *  @param advertiserId Required. The ID of the advertiser this ad group belongs
  *    to.
@@ -1130,6 +1157,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Updates an existing ad group. Returns the updated ad group if successful.
+ *  This method is only supported for Demand Gen ad groups. Retrieval and
+ *  management of Demand Gen resources is currently in beta. This method is only
+ *  available to allowlisted users.
  *
  *  Method: displayvideo.advertisers.adGroups.patch
  *
@@ -1155,6 +1185,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_AdGroup.
  *
  *  Updates an existing ad group. Returns the updated ad group if successful.
+ *  This method is only supported for Demand Gen ad groups. Retrieval and
+ *  management of Demand Gen resources is currently in beta. This method is only
+ *  available to allowlisted users.
  *
  *  @param object The @c GTLRDisplayVideo_AdGroup to include in the query.
  *  @param advertiserId Output only. The unique ID of the advertiser the ad
@@ -1172,8 +1205,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 
 /**
  *  Assigns a targeting option to an ad group. Returns the assigned targeting
- *  option if successful. Only ad groups under a line item of line_item_type
- *  `LINE_ITEM_TYPE_DEMAND_GEN` are supported for this method.
+ *  option if successful. This method is only supported for Demand Gen ad
+ *  groups. Retrieval and management of Demand Gen resources is currently in
+ *  beta. This method is only available to allowlisted users.
  *
  *  Method: displayvideo.advertisers.adGroups.targetingTypes.assignedTargetingOptions.create
  *
@@ -1198,9 +1232,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` *
  *  `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
  *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` *
- *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
- *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
- *  `TARGETING_TYPE_YOUTUBE_VIDEO`
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_URL` *
+ *  `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -1372,8 +1405,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Fetches a @c GTLRDisplayVideo_AssignedTargetingOption.
  *
  *  Assigns a targeting option to an ad group. Returns the assigned targeting
- *  option if successful. Only ad groups under a line item of line_item_type
- *  `LINE_ITEM_TYPE_DEMAND_GEN` are supported for this method.
+ *  option if successful. This method is only supported for Demand Gen ad
+ *  groups. Retrieval and management of Demand Gen resources is currently in
+ *  beta. This method is only available to allowlisted users.
  *
  *  @param object The @c GTLRDisplayVideo_AssignedTargetingOption to include in
  *    the query.
@@ -1388,8 +1422,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
  *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` *
  *    `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_PARENTAL_STATUS` *
- *    `TARGETING_TYPE_REGIONAL_LOCATION_LIST` * `TARGETING_TYPE_URL` *
- *    `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO`
+ *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
+ *    `TARGETING_TYPE_YOUTUBE_VIDEO`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -1565,9 +1599,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 @end
 
 /**
- *  Deletes an assigned targeting option from an ad group. Only ad groups under
- *  a line item of line_item_type `LINE_ITEM_TYPE_DEMAND_GEN` are supported for
- *  this method.
+ *  Deletes an assigned targeting option from an ad group. This method is only
+ *  supported for Demand Gen ad groups with the AdGroupFormat
+ *  `AD_GROUP_FORMAT_DEMAND_GEN`. Retrieval and management of Demand Gen
+ *  resources is currently in beta. This method is only available to allowlisted
+ *  users.
  *
  *  Method: displayvideo.advertisers.adGroups.targetingTypes.assignedTargetingOptions.delete
  *
@@ -1592,7 +1628,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  targeting types: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
  *  `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
  *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` *
- *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` *
  *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_SESSION_POSITION` *
  *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
  *  `TARGETING_TYPE_YOUTUBE_VIDEO`
@@ -1766,9 +1803,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
 /**
  *  Fetches a @c GTLRDisplayVideo_Empty.
  *
- *  Deletes an assigned targeting option from an ad group. Only ad groups under
- *  a line item of line_item_type `LINE_ITEM_TYPE_DEMAND_GEN` are supported for
- *  this method.
+ *  Deletes an assigned targeting option from an ad group. This method is only
+ *  supported for Demand Gen ad groups with the AdGroupFormat
+ *  `AD_GROUP_FORMAT_DEMAND_GEN`. Retrieval and management of Demand Gen
+ *  resources is currently in beta. This method is only available to allowlisted
+ *  users.
  *
  *  @param advertiserId Required. The ID of the advertiser the ad group belongs
  *    to.
@@ -1778,8 +1817,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *    targeting option. Supported targeting types: * `TARGETING_TYPE_AGE_RANGE`
  *    * `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` *
  *    `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_CATEGORY` *
- *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
- *    `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_PARENTAL_STATUS` *
+ *    `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` *
+ *    `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_PARENTAL_STATUS` *
  *    `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_URL` *
  *    `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO`
  *  @param assignedTargetingOptionId Required. The ID of the assigned targeting
@@ -1988,7 +2028,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  targeting types include: * `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP`
  *  * `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
  *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` *
- *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` *
  *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_SESSION_POSITION` *
  *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
  *  `TARGETING_TYPE_YOUTUBE_VIDEO`
@@ -2174,7 +2215,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
  *    `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
  *    `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` *
- *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` *
+ *    `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *    `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` *
  *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_SESSION_POSITION` *
  *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
  *    `TARGETING_TYPE_YOUTUBE_VIDEO`
@@ -2416,8 +2458,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Supported targeting types include: * `TARGETING_TYPE_AGE_RANGE` *
  *  `TARGETING_TYPE_APP` * `TARGETING_TYPE_APP_CATEGORY` *
  *  `TARGETING_TYPE_AUDIENCE_GROUP` * `TARGETING_TYPE_CATEGORY` *
- *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
- *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_PARENTAL_STATUS` *
+ *  `TARGETING_TYPE_GENDER` * `TARGETING_TYPE_GEO_REGION` *
+ *  `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` *
+ *  `TARGETING_TYPE_LANGUAGE` * `TARGETING_TYPE_PARENTAL_STATUS` *
  *  `TARGETING_TYPE_SESSION_POSITION` * `TARGETING_TYPE_URL` *
  *  `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO`
  *
@@ -2602,7 +2645,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *    `TARGETING_TYPE_AGE_RANGE` * `TARGETING_TYPE_APP` *
  *    `TARGETING_TYPE_APP_CATEGORY` * `TARGETING_TYPE_AUDIENCE_GROUP` *
  *    `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` *
- *    `TARGETING_TYPE_HOUSEHOLD_INCOME` * `TARGETING_TYPE_KEYWORD` *
+ *    `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
+ *    `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` *
  *    `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_SESSION_POSITION` *
  *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
  *    `TARGETING_TYPE_YOUTUBE_VIDEO`
@@ -5869,7 +5913,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
  *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
  *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` *
- *  `TARGETING_TYPE_INVENTORY_MODE` * `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for
+ *  `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for
  *  `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) *
  *  `TARGETING_TYPE_YOUTUBE_VIDEO` (only for
  *  `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items)
@@ -6077,8 +6121,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *    `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
  *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
  *    `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` *
- *    `TARGETING_TYPE_INVENTORY_MODE` * `TARGETING_TYPE_YOUTUBE_CHANNEL` (only
- *    for `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) *
+ *    `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for
+ *    `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) *
  *    `TARGETING_TYPE_YOUTUBE_VIDEO` (only for
  *    `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items)
  *  @param assignedTargetingOptionId Required. An identifier unique to the
@@ -6344,7 +6388,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
  *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
  *  `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` *
- *  `TARGETING_TYPE_INVENTORY_MODE` * `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for
+ *  `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for
  *  `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) *
  *  `TARGETING_TYPE_YOUTUBE_VIDEO` (only for
  *  `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items)
@@ -6552,8 +6596,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *    `TARGETING_TYPE_SUB_EXCHANGE` * `TARGETING_TYPE_THIRD_PARTY_VERIFIER` *
  *    `TARGETING_TYPE_URL` * `TARGETING_TYPE_USER_REWARDED_CONTENT` *
  *    `TARGETING_TYPE_VIDEO_PLAYER_SIZE` * `TARGETING_TYPE_VIEWABILITY` *
- *    `TARGETING_TYPE_INVENTORY_MODE` * `TARGETING_TYPE_YOUTUBE_CHANNEL` (only
- *    for `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) *
+ *    `TARGETING_TYPE_YOUTUBE_CHANNEL` (only for
+ *    `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items) *
  *    `TARGETING_TYPE_YOUTUBE_VIDEO` (only for
  *    `LINE_ITEM_TYPE_YOUTUBE_AND_PARTNERS_VIDEO_SEQUENCE` line items)
  *
@@ -8066,8 +8110,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Required. Identifies the type of this assigned targeting option. Supported
  *  targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD` *
- *  `TARGETING_TYPE_INVENTORY_MODE`
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -8247,8 +8290,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  @param targetingType Required. Identifies the type of this assigned
  *    targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD` *
- *    `TARGETING_TYPE_INVENTORY_MODE`
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD`
  *
  *  Likely values for @c targetingType:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -8442,8 +8484,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  Required. Identifies the type of this assigned targeting option. Supported
  *  targeting types: * `TARGETING_TYPE_CHANNEL` *
  *  `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD` *
- *  `TARGETING_TYPE_INVENTORY_MODE`
+ *  `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD`
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideoTargetingTypeTargetingTypeUnspecified Default
@@ -8620,8 +8661,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideoYoutubeAssetTypeYoutubeAsset
  *  @param targetingType Required. Identifies the type of this assigned
  *    targeting option. Supported targeting types: * `TARGETING_TYPE_CHANNEL` *
  *    `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION` * `TARGETING_TYPE_OMID` *
- *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD` *
- *    `TARGETING_TYPE_INVENTORY_MODE`
+ *    `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` * `TARGETING_TYPE_KEYWORD`
  *  @param assignedTargetingOptionId Required. The ID of the assigned targeting
  *    option to delete.
  *

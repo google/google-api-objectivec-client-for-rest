@@ -81,6 +81,122 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @end
 
 /**
+ *  Fetches ResourceBackupConfigs.
+ *
+ *  Method: backupdr.folders.locations.resourceBackupConfigs.fetch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_FoldersLocationsResourceBackupConfigsFetch : GTLRBackupdrQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will use 100 as default. Maximum value is 500 and
+ *  values above 500 will be coerced to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project, folder or organization and location for which to
+ *  retrieve resource backup configs. Format:
+ *  'projects/{project_id}/locations/{location}',
+ *  'folders/{folder_id}/locations/{location}', or
+ *  'organizations/{organization_id}/locations/{location}'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_FetchResourceBackupConfigsResponse.
+ *
+ *  Fetches ResourceBackupConfigs.
+ *
+ *  @param parent Required. The project, folder or organization and location for
+ *    which to retrieve resource backup configs. Format:
+ *    'projects/{project_id}/locations/{location}',
+ *    'folders/{folder_id}/locations/{location}', or
+ *    'organizations/{organization_id}/locations/{location}'.
+ *
+ *  @return GTLRBackupdrQuery_FoldersLocationsResourceBackupConfigsFetch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Fetches ResourceBackupConfigs.
+ *
+ *  Method: backupdr.organizations.locations.resourceBackupConfigs.fetch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_OrganizationsLocationsResourceBackupConfigsFetch : GTLRBackupdrQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will use 100 as default. Maximum value is 500 and
+ *  values above 500 will be coerced to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project, folder or organization and location for which to
+ *  retrieve resource backup configs. Format:
+ *  'projects/{project_id}/locations/{location}',
+ *  'folders/{folder_id}/locations/{location}', or
+ *  'organizations/{organization_id}/locations/{location}'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_FetchResourceBackupConfigsResponse.
+ *
+ *  Fetches ResourceBackupConfigs.
+ *
+ *  @param parent Required. The project, folder or organization and location for
+ *    which to retrieve resource backup configs. Format:
+ *    'projects/{project_id}/locations/{location}',
+ *    'folders/{folder_id}/locations/{location}', or
+ *    'organizations/{organization_id}/locations/{location}'.
+ *
+ *  @return GTLRBackupdrQuery_OrganizationsLocationsResourceBackupConfigsFetch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
  *  Create a BackupPlanAssociation
  *
  *  Method: backupdr.projects.locations.backupPlanAssociations.create
@@ -2155,10 +2271,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: backupdr.projects.locations.list
  *
@@ -2168,8 +2290,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
 @interface GTLRBackupdrQuery_ProjectsLocationsList : GTLRBackupdrQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2199,10 +2321,16 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *  Fetches a @c GTLRBackupdr_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -2727,6 +2855,64 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdrViewBackupViewUnspecified;
  *        information.
  */
 + (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Fetches ResourceBackupConfigs.
+ *
+ *  Method: backupdr.projects.locations.resourceBackupConfigs.fetch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeBackupdrCloudPlatform
+ */
+@interface GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsFetch : GTLRBackupdrQuery
+
+/** Optional. Filtering results. */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/** Optional. Hint for how to order the results. */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/**
+ *  Optional. Requested page size. Server may return fewer items than requested.
+ *  If unspecified, server will use 100 as default. Maximum value is 500 and
+ *  values above 500 will be coerced to 500.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A token identifying a page of results the server should return.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The project, folder or organization and location for which to
+ *  retrieve resource backup configs. Format:
+ *  'projects/{project_id}/locations/{location}',
+ *  'folders/{folder_id}/locations/{location}', or
+ *  'organizations/{organization_id}/locations/{location}'.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRBackupdr_FetchResourceBackupConfigsResponse.
+ *
+ *  Fetches ResourceBackupConfigs.
+ *
+ *  @param parent Required. The project, folder or organization and location for
+ *    which to retrieve resource backup configs. Format:
+ *    'projects/{project_id}/locations/{location}',
+ *    'folders/{folder_id}/locations/{location}', or
+ *    'organizations/{organization_id}/locations/{location}'.
+ *
+ *  @return GTLRBackupdrQuery_ProjectsLocationsResourceBackupConfigsFetch
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
 
 @end
 

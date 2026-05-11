@@ -22,14 +22,17 @@
 @class GTLRDrive_About_TeamDriveThemes_Item;
 @class GTLRDrive_AccessProposal;
 @class GTLRDrive_AccessProposalRoleAndView;
+@class GTLRDrive_AddReviewer;
 @class GTLRDrive_App;
 @class GTLRDrive_AppIcons;
 @class GTLRDrive_Approval;
 @class GTLRDrive_Change;
 @class GTLRDrive_Channel_Params;
+@class GTLRDrive_ClientEncryptionDetails;
 @class GTLRDrive_Comment;
 @class GTLRDrive_Comment_QuotedFileContent;
 @class GTLRDrive_ContentRestriction;
+@class GTLRDrive_DecryptionMetadata;
 @class GTLRDrive_DownloadRestriction;
 @class GTLRDrive_DownloadRestrictionsMetadata;
 @class GTLRDrive_Drive;
@@ -59,6 +62,7 @@
 @class GTLRDrive_Permission;
 @class GTLRDrive_Permission_PermissionDetails_Item;
 @class GTLRDrive_Permission_TeamDrivePermissionDetails_Item;
+@class GTLRDrive_ReplaceReviewer;
 @class GTLRDrive_Reply;
 @class GTLRDrive_ReviewerResponse;
 @class GTLRDrive_Revision;
@@ -109,7 +113,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_Status_Declined;
  */
 FOUNDATION_EXTERN NSString * const kGTLRDrive_Approval_Status_InProgress;
 /**
- *  Approval status has not been set or was set to an invalid value.
+ *  The approval status has not been set or was set to an invalid value.
  *
  *  Value: "STATUS_UNSPECIFIED"
  */
@@ -142,25 +146,25 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ResolveAccessProposalRequest_Actio
 // GTLRDrive_ReviewerResponse.response
 
 /**
- *  The Reviewer has approved the item.
+ *  The reviewer has approved the item.
  *
  *  Value: "APPROVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Approved;
 /**
- *  The Reviewer has declined the item.
+ *  The reviewer has declined the item.
  *
  *  Value: "DECLINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Declined;
 /**
- *  The reviewer has not yet responded
+ *  The reviewer hasn't responded.
  *
  *  Value: "NO_RESPONSE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_NoResponse;
 /**
- *  Response was set to an unrecognized value.
+ *  The response was set to an unrecognized value.
  *
  *  Value: "RESPONSE_UNSPECIFIED"
  */
@@ -421,6 +425,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
+ *  Representation of a reviewer addition.
+ */
+@interface GTLRDrive_AddReviewer : GTLRObject
+
+/** Required. The email of the reviewer to add. */
+@property(nonatomic, copy, nullable) NSString *addedReviewerEmail;
+
+@end
+
+
+/**
  *  The `apps` resource provides a list of apps that a user has installed, with
  *  information about each app's supported MIME types, file extensions, and
  *  other details. Some resource methods (such as `apps.get`) require an
@@ -617,12 +632,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
- *  Metadata for an approval. An approval is a review/approve process for a
+ *  Metadata for an approval. An approval is a review or approve process for a
  *  Drive item.
  */
 @interface GTLRDrive_Approval : GTLRObject
 
-/** The Approval ID. */
+/** The approval ID. */
 @property(nonatomic, copy, nullable) NSString *approvalId;
 
 /** Output only. The time the approval was completed. */
@@ -634,7 +649,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 /** The time that the approval is due. */
 @property(nonatomic, strong, nullable) GTLRDateTime *dueTime;
 
-/** The user that requested the Approval. */
+/** The user that requested the approval. */
 @property(nonatomic, strong, nullable) GTLRDrive_User *initiator;
 
 /** This is always drive#approval. */
@@ -643,7 +658,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 /** Output only. The most recent time the approval was modified. */
 @property(nonatomic, strong, nullable) GTLRDateTime *modifyTime;
 
-/** The responses made on the Approval by reviewers. */
+/** The responses made on the approval by reviewers. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDrive_ReviewerResponse *> *reviewerResponses;
 
 /**
@@ -659,8 +674,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
  *        finished and the target was declined. (Value: "DECLINED")
  *    @arg @c kGTLRDrive_Approval_Status_InProgress The approval process has
  *        started and not finished. (Value: "IN_PROGRESS")
- *    @arg @c kGTLRDrive_Approval_Status_StatusUnspecified Approval status has
- *        not been set or was set to an invalid value. (Value:
+ *    @arg @c kGTLRDrive_Approval_Status_StatusUnspecified The approval status
+ *        has not been set or was set to an invalid value. (Value:
  *        "STATUS_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *status;
@@ -672,7 +687,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
- *  The response of an Approvals list request.
+ *  The response of an approvals list request.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
  *        its "items" property. If returned as the result of a query, it should
@@ -682,8 +697,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 @interface GTLRDrive_ApprovalList : GTLRCollectionObject
 
 /**
- *  The list of Approvals. If nextPageToken is populated, then this list may be
- *  incomplete and an additional page of results should be fetched.
+ *  The list of approvals. If `nextPageToken` is populated, then this list may
+ *  be incomplete and an additional page of results should be fetched.
  *
  *  @note This property is used to support NSFastEnumeration and indexed
  *        subscripting on this class.
@@ -694,12 +709,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  The page token for the next page of Approvals. This will be absent if the
- *  end of the Approvals list has been reached. If the token is rejected for any
+ *  The page token for the next page of approvals. This is absent if the end of
+ *  the approvals list has been reached. If the token is rejected for any
  *  reason, it should be discarded, and pagination should be restarted from the
  *  first page of results.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  Request for approving an approval as a reviewer.
+ */
+@interface GTLRDrive_ApproveApprovalRequest : GTLRObject
+
+/**
+ *  Optional. A message to accompany the reviewer response on the approval. This
+ *  message is included in notifications for the action and in the approval
+ *  activity log.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Request for cancelling an approval as an initiator.
+ */
+@interface GTLRDrive_CancelApprovalRequest : GTLRObject
+
+/**
+ *  Optional. A message to accompany the cancellation of the approval. This
+ *  message is included in notifications for the action and in the approval
+ *  activity log.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
 
 @end
 
@@ -877,6 +922,23 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
+ *  Details about the client-side encryption applied to the file.
+ */
+@interface GTLRDrive_ClientEncryptionDetails : GTLRObject
+
+/** The metadata used for client-side operations. */
+@property(nonatomic, strong, nullable) GTLRDrive_DecryptionMetadata *decryptionMetadata;
+
+/**
+ *  The encryption state of the file. The values expected here are: - encrypted
+ *  - unencrypted
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionState;
+
+@end
+
+
+/**
  *  A comment on a file. Some resource methods (such as `comments.update`)
  *  require a `commentId`. Use the `comments.list` method to retrieve the ID for
  *  a comment in a file.
@@ -989,6 +1051,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
+ *  Request for commenting on an approval.
+ */
+@interface GTLRDrive_CommentApprovalRequest : GTLRObject
+
+/**
+ *  Required. A message to comment on the approval. This message is included in
+ *  notifications for the action and in the approval activity log.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
  *  A list of comments on a file.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -1086,6 +1162,68 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
+ *  Request for declining an approval as a reviewer.
+ */
+@interface GTLRDrive_DeclineApprovalRequest : GTLRObject
+
+/**
+ *  Optional. A message to accompany the reviewer response on the approval. This
+ *  message is included in notifications for the action and in the approval
+ *  activity log.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  Representation of the CSE DecryptionMetadata.
+ */
+@interface GTLRDrive_DecryptionMetadata : GTLRObject
+
+/**
+ *  Chunk size used if content was encrypted with the AES 256 GCM Cipher.
+ *  Possible values are: - default - small
+ */
+@property(nonatomic, copy, nullable) NSString *aes256GcmChunkSize;
+
+/**
+ *  The URL-safe Base64 encoded HMAC-SHA256 digest of the resource metadata with
+ *  its DEK (Data Encryption Key); see
+ *  https://developers.google.com/workspace/cse/reference
+ */
+@property(nonatomic, copy, nullable) NSString *encryptionResourceKeyHash;
+
+/**
+ *  The signed JSON Web Token (JWT) which can be used to authorize the
+ *  requesting user with the Key ACL Service (KACLS). The JWT asserts that the
+ *  requesting user has at least read permissions on the file.
+ */
+@property(nonatomic, copy, nullable) NSString *jwt;
+
+/**
+ *  The ID of the KACLS (Key ACL Service) used to encrypt the file.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *kaclsId;
+
+/** The name of the KACLS (Key ACL Service) used to encrypt the file. */
+@property(nonatomic, copy, nullable) NSString *kaclsName;
+
+/** Key format for the unwrapped key. Must be `tinkAesGcmKey`. */
+@property(nonatomic, copy, nullable) NSString *keyFormat;
+
+/**
+ *  The URL-safe Base64 encoded wrapped key used to encrypt the contents of the
+ *  file.
+ */
+@property(nonatomic, copy, nullable) NSString *wrappedKey;
+
+@end
+
+
+/**
  *  A restriction for copy and download of the file.
  */
 @interface GTLRDrive_DownloadRestriction : GTLRObject
@@ -1098,7 +1236,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 @property(nonatomic, strong, nullable) NSNumber *restrictedForReaders;
 
 /**
- *  Whether download and copy is restricted for writers. If `true`, download is
+ *  Whether download and copy is restricted for writers. If true, download is
  *  also restricted for readers.
  *
  *  Uses NSNumber of boolValue.
@@ -1560,6 +1698,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 @property(nonatomic, strong, nullable) GTLRDrive_File_Capabilities *capabilities;
 
 /**
+ *  Client Side Encryption related details. Contains details about the
+ *  encryption state of the file and details regarding the encryption mechanism
+ *  that clients need to use when decrypting the contents of this item. This
+ *  will only be present on files and not on folders or shortcuts.
+ */
+@property(nonatomic, strong, nullable) GTLRDrive_ClientEncryptionDetails *clientEncryptionDetails;
+
+/**
  *  Additional information about the content of the file. These fields are never
  *  populated in responses.
  */
@@ -1692,7 +1838,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
  */
 @property(nonatomic, copy, nullable) NSString *kind;
 
-/** Output only. An overview of the labels on the file. */
+/** Label information on the file. */
 @property(nonatomic, strong, nullable) GTLRDrive_File_LabelInfo *labelInfo;
 
 /**
@@ -1839,11 +1985,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
  */
 @property(nonatomic, strong, nullable) GTLRDrive_User *sharingUser;
 
-/**
- *  Shortcut file details. Only populated for shortcut files, which have the
- *  mimeType field set to `application/vnd.google-apps.shortcut`. Can only be
- *  set on `files.create` requests.
- */
+/** Information about a shortcut file. */
 @property(nonatomic, strong, nullable) GTLRDrive_File_ShortcutDetails *shortcutDetails;
 
 /**
@@ -1891,8 +2033,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 /**
  *  Whether the file has been trashed, either explicitly or from a trashed
- *  parent folder. Only the owner may trash a file, and other users cannot see
- *  files in the owner's trash.
+ *  parent folder. Only the owner may trash a file, but other users can still
+ *  access the file in the owner's trash until it's permanently deleted.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -2317,6 +2459,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 @property(nonatomic, strong, nullable) NSNumber *canShare;
 
 /**
+ *  Whether the current user can start an approval on the file.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *canStartApproval;
+
+/**
  *  Output only. Whether the current user can move this file to trash.
  *
  *  Uses NSNumber of boolValue.
@@ -2493,7 +2642,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
- *  Output only. An overview of the labels on the file.
+ *  Label information on the file.
  */
 @interface GTLRDrive_File_LabelInfo : GTLRObject
 
@@ -2543,9 +2692,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
- *  Shortcut file details. Only populated for shortcut files, which have the
- *  mimeType field set to `application/vnd.google-apps.shortcut`. Can only be
- *  set on `files.create` requests.
+ *  Information about a shortcut file.
  */
 @interface GTLRDrive_File_ShortcutDetails : GTLRObject
 
@@ -2692,6 +2839,36 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
  *  new items are added or removed, your expected results might differ.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  JWT and associated metadata used to generate CSE files.
+ */
+@interface GTLRDrive_GenerateCseTokenResponse : GTLRObject
+
+/**
+ *  The current Key ACL Service (KACLS) ID associated with the JWT.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *currentKaclsId;
+
+/** Name of the KACLs that the returned KACLs ID points to. */
+@property(nonatomic, copy, nullable) NSString *currentKaclsName;
+
+/** The fileId for which the JWT was generated. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/** The signed JSON Web Token (JWT) for the file. */
+@property(nonatomic, copy, nullable) NSString *jwt;
+
+/**
+ *  Output only. Identifies what kind of resource this is. Value: the fixed
+ *  string `"drive#generateCseTokenResponse"`.
+ */
+@property(nonatomic, copy, nullable) NSString *kind;
 
 @end
 
@@ -3089,10 +3266,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
  */
 @property(nonatomic, copy, nullable) NSString *displayName;
 
-/** The domain to which this permission refers. */
+/** Output only. The domain to which this permission refers. */
 @property(nonatomic, copy, nullable) NSString *domain;
 
-/** The email address of the user or group to which this permission refers. */
+/**
+ *  Output only. The email address of the user or group to which this permission
+ *  refers.
+ */
 @property(nonatomic, copy, nullable) NSString *emailAddress;
 
 /**
@@ -3280,6 +3460,41 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
+ *  Request for reassigning an approval. Reviewers can be added or replaced, but
+ *  not removed.
+ */
+@interface GTLRDrive_ReassignApprovalRequest : GTLRObject
+
+/** Optional. The list of reviewers to add. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_AddReviewer *> *addReviewers;
+
+/**
+ *  Optional. A message to send to the new reviewers. This message is included
+ *  in notifications for the action and in the approval activity log.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Optional. The list of reviewer replacements. */
+@property(nonatomic, strong, nullable) NSArray<GTLRDrive_ReplaceReviewer *> *replaceReviewers;
+
+@end
+
+
+/**
+ *  Representation of a reviewer replacement.
+ */
+@interface GTLRDrive_ReplaceReviewer : GTLRObject
+
+/** Required. The email of the reviewer to add. */
+@property(nonatomic, copy, nullable) NSString *addedReviewerEmail;
+
+/** Required. The email of the reviewer to remove. */
+@property(nonatomic, copy, nullable) NSString *removedReviewerEmail;
+
+@end
+
+
+/**
  *  A reply to a comment on a file. Some resource methods (such as
  *  `replies.update`) require a `replyId`. Use the `replies.list` method to
  *  retrieve the ID for a reply.
@@ -3433,7 +3648,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
- *  A response on an Approval made by a specific Reviewer.
+ *  A response on an approval made by a specific reviewer.
  */
 @interface GTLRDrive_ReviewerResponse : GTLRObject
 
@@ -3441,21 +3656,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 @property(nonatomic, copy, nullable) NSString *kind;
 
 /**
- *  A Reviewer’s Response for the Approval.
+ *  A reviewer’s response for the approval.
  *
  *  Likely values:
- *    @arg @c kGTLRDrive_ReviewerResponse_Response_Approved The Reviewer has
+ *    @arg @c kGTLRDrive_ReviewerResponse_Response_Approved The reviewer has
  *        approved the item. (Value: "APPROVED")
- *    @arg @c kGTLRDrive_ReviewerResponse_Response_Declined The Reviewer has
+ *    @arg @c kGTLRDrive_ReviewerResponse_Response_Declined The reviewer has
  *        declined the item. (Value: "DECLINED")
- *    @arg @c kGTLRDrive_ReviewerResponse_Response_NoResponse The reviewer has
- *        not yet responded (Value: "NO_RESPONSE")
- *    @arg @c kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified Response
- *        was set to an unrecognized value. (Value: "RESPONSE_UNSPECIFIED")
+ *    @arg @c kGTLRDrive_ReviewerResponse_Response_NoResponse The reviewer
+ *        hasn't responded. (Value: "NO_RESPONSE")
+ *    @arg @c kGTLRDrive_ReviewerResponse_Response_ResponseUnspecified The
+ *        response was set to an unrecognized value. (Value:
+ *        "RESPONSE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *response;
 
-/** The user that is responsible for this response. */
+/** The user that's responsible for this response. */
 @property(nonatomic, strong, nullable) GTLRDrive_User *reviewer;
 
 @end
@@ -3613,6 +3829,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
+ *  Allows creating an approval on a file.
+ */
+@interface GTLRDrive_StartApprovalRequest : GTLRObject
+
+/** Optional. The time that the approval is due. */
+@property(nonatomic, strong, nullable) GTLRDateTime *dueTime;
+
+/**
+ *  Optional. Whether to lock the file when starting the approval.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *lockFile;
+
+/**
+ *  Optional. A message to send to reviewers when notifying them of the approval
+ *  request.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Required. The emails of the users who are set to review the approval. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *reviewerEmails;
+
+@end
+
+
+/**
  *  GTLRDrive_StartPageToken
  */
 @interface GTLRDrive_StartPageToken : GTLRObject
@@ -3678,16 +3921,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
- *  Deprecated: use the drive collection instead.
+ *  Deprecated: use the drive collection instead. Next ID: 33
  */
 @interface GTLRDrive_TeamDrive : GTLRObject
 
-/**
- *  An image file and cropping parameters from which a background image for this
- *  Team Drive is set. This is a write only field; it can only be set on
- *  `drive.teamdrives.update` requests that don't set `themeId`. When specified,
- *  all fields of the `backgroundImageFile` must be set.
- */
+/** The background image file for a Team Drive. */
 @property(nonatomic, strong, nullable) GTLRDrive_TeamDrive_BackgroundImageFile *backgroundImageFile;
 
 /** A short-lived link to this Team Drive's background image. */
@@ -3749,10 +3987,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 
 
 /**
- *  An image file and cropping parameters from which a background image for this
- *  Team Drive is set. This is a write only field; it can only be set on
- *  `drive.teamdrives.update` requests that don't set `themeId`. When specified,
- *  all fields of the `backgroundImageFile` must be set.
+ *  The background image file for a Team Drive.
  */
 @interface GTLRDrive_TeamDrive_BackgroundImageFile : GTLRObject
 
@@ -3826,8 +4061,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDrive_ReviewerResponse_Response_Response
 @property(nonatomic, strong, nullable) NSNumber *canChangeDomainUsersOnlyRestriction;
 
 /**
- *  Whether the current user can change organizer-applied download restrictions
- *  of this shared drive.
+ *  Output only. Whether the current user can change organizer-applied download
+ *  restrictions of this shared drive.
  *
  *  Uses NSNumber of boolValue.
  */

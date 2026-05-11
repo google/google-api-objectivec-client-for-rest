@@ -232,14 +232,18 @@ NSString * const kGTLRBackupdr_GuestOsFeature_Type_Windows     = @"WINDOWS";
 
 // GTLRBackupdr_LocationMetadata.unsupportedFeatures
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_AlloyDb = @"ALLOY_DB";
+NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_BvAf = @"BV_AF";
+NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_BvCustomProbers = @"BV_CUSTOM_PROBERS";
+NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_CepMonitoringComputeInstance = @"CEP_MONITORING_COMPUTE_INSTANCE";
+NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_CepMonitoringDisk = @"CEP_MONITORING_DISK";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_CloudSql = @"CLOUD_SQL";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ComputeInstance = @"COMPUTE_INSTANCE";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_Disk = @"DISK";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FeatureUnspecified = @"FEATURE_UNSPECIFIED";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_Filestore = @"FILESTORE";
+NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FtCustomProbers = @"FT_CUSTOM_PROBERS";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ManagementServer = @"MANAGEMENT_SERVER";
 NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ProtectionSummary = @"PROTECTION_SUMMARY";
-NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_SaasPlatform = @"SAAS_PLATFORM";
 
 // GTLRBackupdr_ManagementServer.state
 NSString * const kGTLRBackupdr_ManagementServer_State_Creating = @"CREATING";
@@ -289,6 +293,7 @@ NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_CloudSqlI
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineDisk = @"COMPUTE_ENGINE_DISK";
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineRegionalDisk = @"COMPUTE_ENGINE_REGIONAL_DISK";
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineVm = @"COMPUTE_ENGINE_VM";
+NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_FilestoreInstance = @"FILESTORE_INSTANCE";
 NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ResourceTypeUnspecified = @"RESOURCE_TYPE_UNSPECIFIED";
 
 // GTLRBackupdr_RuleConfigInfo.lastBackupState
@@ -588,9 +593,10 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
          backupApplianceLocks, backupRetentionInheritance, backupType,
          cloudSqlInstanceBackupProperties, computeInstanceBackupProperties,
          consistencyTime, createTime, descriptionProperty, diskBackupProperties,
-         enforcedRetentionEndTime, ETag, expireTime, gcpBackupPlanInfo,
-         gcpResource, kmsKeyVersions, labels, name, resourceSizeBytes,
-         satisfiesPzi, satisfiesPzs, serviceLocks, state, updateTime;
+         enforcedRetentionEndTime, ETag, expireTime,
+         filestoreInstanceBackupProperties, gcpBackupPlanInfo, gcpResource,
+         kmsKeyVersions, labels, name, resourceSizeBytes, satisfiesPzi,
+         satisfiesPzs, serviceLocks, state, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -726,10 +732,11 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_BackupPlan
-@dynamic backupRules, backupVault, backupVaultServiceAccount, createTime,
-         descriptionProperty, diskBackupPlanProperties, ETag, labels,
-         logRetentionDays, maxCustomOnDemandRetentionDays, name, resourceType,
-         revisionId, revisionName, state, supportedResourceTypes, updateTime;
+@dynamic backupRules, backupVault, backupVaultServiceAccount,
+         computeInstanceBackupPlanProperties, createTime, descriptionProperty,
+         diskBackupPlanProperties, ETag, labels, logRetentionDays,
+         maxCustomOnDemandRetentionDays, name, resourceType, revisionId,
+         revisionName, state, supportedResourceTypes, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -947,11 +954,21 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_ComputeInstanceBackupPlanProperties
+//
+
+@implementation GTLRBackupdr_ComputeInstanceBackupPlanProperties
+@dynamic guestFlush;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_ComputeInstanceBackupProperties
 //
 
 @implementation GTLRBackupdr_ComputeInstanceBackupProperties
-@dynamic canIpForward, descriptionProperty, disk, guestAccelerator,
+@dynamic canIpForward, descriptionProperty, disk, guestAccelerator, guestFlush,
          keyRevocationActionType, labels, machineType, metadata, minCpuPlatform,
          networkInterface, scheduling, serviceAccount, sourceInstance, tags;
 
@@ -1145,7 +1162,7 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 @dynamic alloyDbClusterDatasourceProperties,
          cloudSqlInstanceDatasourceProperties,
          computeInstanceDatasourceProperties, diskDatasourceProperties,
-         gcpResourcename, location, type;
+         filestoreInstanceDatasourceProperties, gcpResourcename, location, type;
 @end
 
 
@@ -1155,8 +1172,8 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 //
 
 @implementation GTLRBackupdr_DataSourceGcpResourceInfo
-@dynamic alloyDbClusterProperties, cloudSqlInstanceProperties, gcpResourcename,
-         location, type;
+@dynamic alloyDbClusterProperties, cloudSqlInstanceProperties,
+         filestoreInstanceProperties, gcpResourcename, location, type;
 @end
 
 
@@ -1485,6 +1502,28 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBackupdr_FetchResourceBackupConfigsResponse
+//
+
+@implementation GTLRBackupdr_FetchResourceBackupConfigsResponse
+@dynamic nextPageToken, resourceBackupConfigs;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"resourceBackupConfigs" : [GTLRBackupdr_ResourceBackupConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"resourceBackupConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBackupdr_FetchUsableBackupVaultsResponse
 //
 
@@ -1513,6 +1552,36 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_FilestoreInstanceBackupPlanAssociationProperties
 @dynamic instanceCreateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_FilestoreInstanceBackupProperties
+//
+
+@implementation GTLRBackupdr_FilestoreInstanceBackupProperties
+@dynamic sourceInstance;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_FilestoreInstanceDataSourceProperties
+//
+
+@implementation GTLRBackupdr_FilestoreInstanceDataSourceProperties
+@dynamic instanceCreateTime, name;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_FilestoreInstanceDataSourceReferenceProperties
+//
+
+@implementation GTLRBackupdr_FilestoreInstanceDataSourceReferenceProperties
+@dynamic instanceCreateTime, name;
 @end
 
 
@@ -1632,7 +1701,7 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 @implementation GTLRBackupdr_InitializeServiceRequest
 @dynamic backupPlanLocation, cloudSqlInstanceInitializationConfig, requestId,
-         resourceType;
+         resourceType, validateOnly;
 @end
 
 
@@ -2158,6 +2227,31 @@ NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_WeekOfMonthUnspecified
 
 + (Class)classForAdditionalProperties {
   return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_OperationMetadata
+//
+
+@implementation GTLRBackupdr_OperationMetadata
+@dynamic additionalInfo, apiVersion, createTime, endTime, requestedCancellation,
+         statusMessage, target, verb;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRBackupdr_OperationMetadata_AdditionalInfo
+//
+
+@implementation GTLRBackupdr_OperationMetadata_AdditionalInfo
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end

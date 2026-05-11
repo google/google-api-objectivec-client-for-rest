@@ -15,8 +15,10 @@
 // Authorization scopes
 
 NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMemberships = @"https://www.googleapis.com/auth/chat.app.memberships";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMembershipsReadonly = @"https://www.googleapis.com/auth/chat.app.memberships.readonly";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatAppMessagesReadonly = @"https://www.googleapis.com/auth/chat.app.messages.readonly";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatAppSpaces    = @"https://www.googleapis.com/auth/chat.app.spaces";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatAppSpacesReadonly = @"https://www.googleapis.com/auth/chat.app.spaces.readonly";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatBot          = @"https://www.googleapis.com/auth/chat.bot";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatMemberships  = @"https://www.googleapis.com/auth/chat.memberships";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly = @"https://www.googleapis.com/auth/chat.memberships.readonly";
@@ -26,6 +28,8 @@ NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReactionsReadonly = @"
 NSString * const kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly = @"https://www.googleapis.com/auth/chat.messages.readonly";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatSpaces       = @"https://www.googleapis.com/auth/chat.spaces";
 NSString * const kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly = @"https://www.googleapis.com/auth/chat.spaces.readonly";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatUsersReadstate = @"https://www.googleapis.com/auth/chat.users.readstate";
+NSString * const kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly = @"https://www.googleapis.com/auth/chat.users.readstate.readonly";
 NSString * const kGTLRAuthScopeWorkspaceEventsDrive            = @"https://www.googleapis.com/auth/drive";
 NSString * const kGTLRAuthScopeWorkspaceEventsDriveFile        = @"https://www.googleapis.com/auth/drive.file";
 NSString * const kGTLRAuthScopeWorkspaceEventsDriveMetadata    = @"https://www.googleapis.com/auth/drive.metadata";

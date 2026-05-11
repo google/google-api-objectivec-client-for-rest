@@ -737,20 +737,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
 @interface GTLRCloudIAP_OAuthSettings : GTLRObject
 
 /**
- *  Optional. OAuth 2.0 client ID used in the OAuth flow to generate an access
- *  token. If this field is set, you can skip obtaining the OAuth credentials in
- *  this step:
- *  https://developers.google.com/identity/protocols/OAuth2?hl=en_US#1.-obtain-oauth-2.0-credentials-from-the-google-api-console.
- *  However, this could allow for client sharing. The risks of client sharing
- *  are outlined here:
+ *  Optional. OAuth 2.0 client ID used in the OAuth flow. This allows for client
+ *  sharing. The risks of client sharing are outlined here:
  *  https://cloud.google.com/iap/docs/sharing-oauth-clients#risks.
  */
 @property(nonatomic, copy, nullable) NSString *clientId;
 
-/** Optional. Input only. OAuth secret paired with client ID */
+/** Optional. Input only. OAuth secret paired with client ID. */
 @property(nonatomic, copy, nullable) NSString *clientSecret;
 
-/** Output only. OAuth secret sha256 paired with client ID */
+/** Output only. OAuth secret SHA256 paired with client ID. */
 @property(nonatomic, copy, nullable) NSString *clientSecretSha256;
 
 /**
@@ -1019,7 +1015,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudIAP_ReauthSettings_PolicyType_Polic
  *  GCP region(s) where the resource exists (e.g., ["us-east1", "us-west1"]).
  *  For multi-regional resources specify the name of each GCP region in the
  *  resource's multi-region. NOTE: Only GCP cloud region names are supported -
- *  go/cloud-region-names.
+ *  go/cloud-region-names. - Constraints: - Individual location strings must be
+ *  less than 1000 bytes. - The cumulative size of all locations must be less
+ *  than 16KB.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *locations;
 

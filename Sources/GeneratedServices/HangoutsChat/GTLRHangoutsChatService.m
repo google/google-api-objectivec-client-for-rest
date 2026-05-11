@@ -22,9 +22,11 @@ NSString * const kGTLRAuthScopeHangoutsChatAdminSpaces         = @"https://www.g
 NSString * const kGTLRAuthScopeHangoutsChatAdminSpacesReadonly = @"https://www.googleapis.com/auth/chat.admin.spaces.readonly";
 NSString * const kGTLRAuthScopeHangoutsChatAppDelete           = @"https://www.googleapis.com/auth/chat.app.delete";
 NSString * const kGTLRAuthScopeHangoutsChatAppMemberships      = @"https://www.googleapis.com/auth/chat.app.memberships";
+NSString * const kGTLRAuthScopeHangoutsChatAppMembershipsReadonly = @"https://www.googleapis.com/auth/chat.app.memberships.readonly";
 NSString * const kGTLRAuthScopeHangoutsChatAppMessagesReadonly = @"https://www.googleapis.com/auth/chat.app.messages.readonly";
 NSString * const kGTLRAuthScopeHangoutsChatAppSpaces           = @"https://www.googleapis.com/auth/chat.app.spaces";
 NSString * const kGTLRAuthScopeHangoutsChatAppSpacesCreate     = @"https://www.googleapis.com/auth/chat.app.spaces.create";
+NSString * const kGTLRAuthScopeHangoutsChatAppSpacesReadonly   = @"https://www.googleapis.com/auth/chat.app.spaces.readonly";
 NSString * const kGTLRAuthScopeHangoutsChatBot                 = @"https://www.googleapis.com/auth/chat.bot";
 NSString * const kGTLRAuthScopeHangoutsChatCustomemojis        = @"https://www.googleapis.com/auth/chat.customemojis";
 NSString * const kGTLRAuthScopeHangoutsChatCustomemojisReadonly = @"https://www.googleapis.com/auth/chat.customemojis.readonly";
@@ -44,6 +46,8 @@ NSString * const kGTLRAuthScopeHangoutsChatSpacesCreate        = @"https://www.g
 NSString * const kGTLRAuthScopeHangoutsChatSpacesReadonly      = @"https://www.googleapis.com/auth/chat.spaces.readonly";
 NSString * const kGTLRAuthScopeHangoutsChatUsersReadstate      = @"https://www.googleapis.com/auth/chat.users.readstate";
 NSString * const kGTLRAuthScopeHangoutsChatUsersReadstateReadonly = @"https://www.googleapis.com/auth/chat.users.readstate.readonly";
+NSString * const kGTLRAuthScopeHangoutsChatUsersSections       = @"https://www.googleapis.com/auth/chat.users.sections";
+NSString * const kGTLRAuthScopeHangoutsChatUsersSectionsReadonly = @"https://www.googleapis.com/auth/chat.users.sections.readonly";
 NSString * const kGTLRAuthScopeHangoutsChatUsersSpacesettings  = @"https://www.googleapis.com/auth/chat.users.spacesettings";
 
 // ----------------------------------------------------------------------------

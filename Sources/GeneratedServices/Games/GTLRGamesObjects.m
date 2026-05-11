@@ -15,6 +15,11 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRGames_AchievementDefinition.achievementLifecycleState
+NSString * const kGTLRGames_AchievementDefinition_AchievementLifecycleState_AchievementLifecycleStateActive = @"ACHIEVEMENT_LIFECYCLE_STATE_ACTIVE";
+NSString * const kGTLRGames_AchievementDefinition_AchievementLifecycleState_AchievementLifecycleStateArchived = @"ACHIEVEMENT_LIFECYCLE_STATE_ARCHIVED";
+NSString * const kGTLRGames_AchievementDefinition_AchievementLifecycleState_AchievementLifecycleStateUnspecified = @"ACHIEVEMENT_LIFECYCLE_STATE_UNSPECIFIED";
+
 // GTLRGames_AchievementDefinition.achievementType
 NSString * const kGTLRGames_AchievementDefinition_AchievementType_Incremental = @"INCREMENTAL";
 NSString * const kGTLRGames_AchievementDefinition_AchievementType_Standard = @"STANDARD";
@@ -126,8 +131,8 @@ NSString * const kGTLRGames_Snapshot_Type_SaveGame = @"SAVE_GAME";
 //
 
 @implementation GTLRGames_AchievementDefinition
-@dynamic achievementType, descriptionProperty, experiencePoints,
-         formattedTotalSteps, identifier, initialState,
+@dynamic achievementLifecycleState, achievementType, descriptionProperty,
+         experiencePoints, formattedTotalSteps, identifier, initialState,
          isRevealedIconUrlDefault, isUnlockedIconUrlDefault, kind, name,
          revealedIconUrl, totalSteps, unlockedIconUrl;
 

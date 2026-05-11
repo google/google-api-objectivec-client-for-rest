@@ -62,6 +62,7 @@
 @class GTLRArtifactRegistry_Operation_Response;
 @class GTLRArtifactRegistry_Package;
 @class GTLRArtifactRegistry_Package_Annotations;
+@class GTLRArtifactRegistry_PlatformLogsConfig;
 @class GTLRArtifactRegistry_Policy;
 @class GTLRArtifactRegistry_PythonPackage;
 @class GTLRArtifactRegistry_PythonRepository;
@@ -375,6 +376,88 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_NpmRepository_PublicRep
  *  Value: "PUBLIC_REPOSITORY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_NpmRepository_PublicRepository_PublicRepositoryUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_PlatformLogsConfig.loggingState
+
+/**
+ *  Platform logs are disabled.
+ *
+ *  Value: "DISABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_LoggingState_Disabled;
+/**
+ *  Platform logs are enabled.
+ *
+ *  Value: "ENABLED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_LoggingState_Enabled;
+/**
+ *  Platform logs settings for the parent resource haven't been set. This is the
+ *  default state or when the user clears the settings for the parent.
+ *
+ *  Value: "LOGGING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_LoggingState_LoggingStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRArtifactRegistry_PlatformLogsConfig.severityLevel
+
+/**
+ *  Alert events that require a person must take an action immediately.
+ *
+ *  Value: "ALERT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Alert;
+/**
+ *  Critical events that cause more severe problems or outages.
+ *
+ *  Value: "CRITICAL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Critical;
+/**
+ *  Debug or trace information.
+ *
+ *  Value: "DEBUG"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Debug;
+/**
+ *  One or more systems are unusable.
+ *
+ *  Value: "EMERGENCY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Emergency;
+/**
+ *  Error events that are likely to cause problems.
+ *
+ *  Value: "ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Error;
+/**
+ *  Routine information, such as ongoing status or performance.
+ *
+ *  Value: "INFO"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Info;
+/**
+ *  Normal but significant events, such as start up, shut down, or a
+ *  configuration change.
+ *
+ *  Value: "NOTICE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Notice;
+/**
+ *  No severity level specified, meaning everything is being logged.
+ *
+ *  Value: "SEVERITY_LEVEL_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_SeverityLevelUnspecified;
+/**
+ *  Warning events that might cause problems.
+ *
+ *  Value: "WARNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Warning;
 
 // ----------------------------------------------------------------------------
 // GTLRArtifactRegistry_ProjectSettings.legacyRedirectionState
@@ -897,6 +980,13 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  */
 @property(nonatomic, copy, nullable) NSString *role;
 
+@end
+
+
+/**
+ *  The request message for Operations.CancelOperation.
+ */
+@interface GTLRArtifactRegistry_CancelOperationRequest : GTLRObject
 @end
 
 
@@ -2538,6 +2628,60 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
 
 
 /**
+ *  The platform logs config for a project or a repository.
+ */
+@interface GTLRArtifactRegistry_PlatformLogsConfig : GTLRObject
+
+/**
+ *  Optional. The state of the platform logs: enabled or disabled.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_LoggingState_Disabled
+ *        Platform logs are disabled. (Value: "DISABLED")
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_LoggingState_Enabled
+ *        Platform logs are enabled. (Value: "ENABLED")
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_LoggingState_LoggingStateUnspecified
+ *        Platform logs settings for the parent resource haven't been set. This
+ *        is the default state or when the user clears the settings for the
+ *        parent. (Value: "LOGGING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *loggingState;
+
+/**
+ *  Optional. The severity level for the logs. Logs will be generated if their
+ *  severity level is >= than the value of the severity level mentioned here.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Alert Alert
+ *        events that require a person must take an action immediately. (Value:
+ *        "ALERT")
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Critical
+ *        Critical events that cause more severe problems or outages. (Value:
+ *        "CRITICAL")
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Debug Debug
+ *        or trace information. (Value: "DEBUG")
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Emergency
+ *        One or more systems are unusable. (Value: "EMERGENCY")
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Error Error
+ *        events that are likely to cause problems. (Value: "ERROR")
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Info
+ *        Routine information, such as ongoing status or performance. (Value:
+ *        "INFO")
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Notice
+ *        Normal but significant events, such as start up, shut down, or a
+ *        configuration change. (Value: "NOTICE")
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_SeverityLevelUnspecified
+ *        No severity level specified, meaning everything is being logged.
+ *        (Value: "SEVERITY_LEVEL_UNSPECIFIED")
+ *    @arg @c kGTLRArtifactRegistry_PlatformLogsConfig_SeverityLevel_Warning
+ *        Warning events that might cause problems. (Value: "WARNING")
+ */
+@property(nonatomic, copy, nullable) NSString *severityLevel;
+
+@end
+
+
+/**
  *  An Identity and Access Management (IAM) policy, which specifies access
  *  controls for Google Cloud resources. A `Policy` is a collection of
  *  `bindings`. A `binding` binds one or more `members`, or principals, to a
@@ -2621,6 +2765,23 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *version;
+
+@end
+
+
+/**
+ *  The Artifact Registry logging configurations that apply to a Project.
+ */
+@interface GTLRArtifactRegistry_ProjectConfig : GTLRObject
+
+/**
+ *  Identifier. The name of the project's configuration. Always of the form:
+ *  projects/{project}/locations/{location}/projectConfig
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Configuration for platform logs. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_PlatformLogsConfig *platformLogsConfig;
 
 @end
 
@@ -2907,6 +3068,9 @@ FOUNDATION_EXTERN NSString * const kGTLRArtifactRegistry_YumArtifact_PackageType
  *  a project, repository names must be unique.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/** Optional. Configuration for platform logs. */
+@property(nonatomic, strong, nullable) GTLRArtifactRegistry_PlatformLogsConfig *platformLogsConfig;
 
 /**
  *  Output only. The repository endpoint, for example:

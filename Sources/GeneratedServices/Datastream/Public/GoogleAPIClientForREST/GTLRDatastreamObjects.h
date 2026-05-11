@@ -653,6 +653,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /** Output only. Errors which caused the backfill job to fail. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDatastream_Error *> *errors;
 
+/** Output only. The filter for performing a partial backfill. */
+@property(nonatomic, strong, nullable) GTLRDatastream_EventFilter *eventFilter;
+
 /** Output only. Backfill job's end time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastEndTime;
 
@@ -1354,13 +1357,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
  *  email = 1; repeated EmailType type = 2; } string full_name = 1; repeated
  *  EmailAddress email_addresses = 2; } In this example, in proto `field` could
  *  take one of the following values: * `full_name` for a violation in the
- *  `full_name` value * `email_addresses[1].email` for a violation in the
+ *  `full_name` value * `email_addresses[0].email` for a violation in the
  *  `email` field of the first `email_addresses` message *
- *  `email_addresses[3].type[2]` for a violation in the second `type` value in
+ *  `email_addresses[2].type[1]` for a violation in the second `type` value in
  *  the third `email_addresses` message. In JSON, the same values are
  *  represented as: * `fullName` for a violation in the `fullName` value *
- *  `emailAddresses[1].email` for a violation in the `email` field of the first
- *  `emailAddresses` message * `emailAddresses[3].type[2]` for a violation in
+ *  `emailAddresses[0].email` for a violation in the `email` field of the first
+ *  `emailAddresses` message * `emailAddresses[2].type[1]` for a violation in
  *  the second `type` value in the third `emailAddresses` message.
  */
 @property(nonatomic, copy, nullable) NSString *field;
@@ -3330,7 +3333,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 @interface GTLRDatastream_QuotaFailureViolation : GTLRObject
 
 /**
- *  The API Service from which the `QuotaFailure.Violation` orginates. In some
+ *  The API Service from which the `QuotaFailure.Violation` originates. In some
  *  cases, Quota issues originate from an API Service other than the one that
  *  was called. In other words, a dependency of the called API Service could be
  *  the cause of the `QuotaFailure`, and this field would have the dependency
@@ -4302,7 +4305,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDatastream_ValidationMessage_Level_Warni
 /**
  *  Optional. Optional event filter. If not set, or empty, the backfill will be
  *  performed on the entire object. This is currently used for partial backfill
- *  and only supported for SQL Server sources.
+ *  and only supported for SQL sources.
  */
 @property(nonatomic, strong, nullable) GTLRDatastream_EventFilter *eventFilter;
 

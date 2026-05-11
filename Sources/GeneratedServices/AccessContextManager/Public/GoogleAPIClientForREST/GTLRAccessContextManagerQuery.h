@@ -359,7 +359,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Returns the IAM permissions that the caller has on the specified Access
  *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
- *  or ServicePerimeter. This method does not support other resources.
+ *  or ServicePerimeter. This method does not support other resources. **IAM
+ *  Permissions**: No specific IAM permission is required to call this method.
+ *  It returns the subset of the requested permissions that the caller
+ *  possesses.
  *
  *  Method: accesscontextmanager.accessPolicies.accessLevels.testIamPermissions
  *
@@ -380,7 +383,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  Returns the IAM permissions that the caller has on the specified Access
  *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
- *  or ServicePerimeter. This method does not support other resources.
+ *  or ServicePerimeter. This method does not support other resources. **IAM
+ *  Permissions**: No specific IAM permission is required to call this method.
+ *  It returns the subset of the requested permissions that the caller
+ *  possesses.
  *
  *  @param object The @c GTLRAccessContextManager_TestIamPermissionsRequest to
  *    include in the query.
@@ -1072,7 +1078,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  perimeters provided. This is done atomically. The long-running operation
  *  from this RPC has a successful status after all replacements propagate to
  *  long-lasting storage. Replacements containing errors result in an error
- *  response for the first error encountered. Upon an error, replacement are
+ *  response for the first error encountered. Upon an error, replacements are
  *  cancelled and existing service perimeters are not affected. The
  *  Operation.response field contains ReplaceServicePerimetersResponse.
  *
@@ -1096,7 +1102,7 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *  perimeters provided. This is done atomically. The long-running operation
  *  from this RPC has a successful status after all replacements propagate to
  *  long-lasting storage. Replacements containing errors result in an error
- *  response for the first error encountered. Upon an error, replacement are
+ *  response for the first error encountered. Upon an error, replacements are
  *  cancelled and existing service perimeters are not affected. The
  *  Operation.response field contains ReplaceServicePerimetersResponse.
  *
@@ -1116,7 +1122,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Returns the IAM permissions that the caller has on the specified Access
  *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
- *  or ServicePerimeter. This method does not support other resources.
+ *  or ServicePerimeter. This method does not support other resources. **IAM
+ *  Permissions**: No specific IAM permission is required to call this method.
+ *  It returns the subset of the requested permissions that the caller
+ *  possesses.
  *
  *  Method: accesscontextmanager.accessPolicies.servicePerimeters.testIamPermissions
  *
@@ -1137,7 +1146,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  Returns the IAM permissions that the caller has on the specified Access
  *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
- *  or ServicePerimeter. This method does not support other resources.
+ *  or ServicePerimeter. This method does not support other resources. **IAM
+ *  Permissions**: No specific IAM permission is required to call this method.
+ *  It returns the subset of the requested permissions that the caller
+ *  possesses.
  *
  *  @param object The @c GTLRAccessContextManager_TestIamPermissionsRequest to
  *    include in the query.
@@ -1198,7 +1210,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Returns the IAM permissions that the caller has on the specified Access
  *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
- *  or ServicePerimeter. This method does not support other resources.
+ *  or ServicePerimeter. This method does not support other resources. **IAM
+ *  Permissions**: No specific IAM permission is required to call this method.
+ *  It returns the subset of the requested permissions that the caller
+ *  possesses.
  *
  *  Method: accesscontextmanager.accessPolicies.testIamPermissions
  *
@@ -1219,7 +1234,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
  *
  *  Returns the IAM permissions that the caller has on the specified Access
  *  Context Manager resource. The resource can be an AccessPolicy, AccessLevel,
- *  or ServicePerimeter. This method does not support other resources.
+ *  or ServicePerimeter. This method does not support other resources. **IAM
+ *  Permissions**: No specific IAM permission is required to call this method.
+ *  It returns the subset of the requested permissions that the caller
+ *  possesses.
  *
  *  @param object The @c GTLRAccessContextManager_TestIamPermissionsRequest to
  *    include in the query.
@@ -1604,7 +1622,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Lists all supported permissions in VPCSC Granular Controls.
+ *  Lists all supported permissions in VPC Service Controls ingress and egress
+ *  rules for Granular Controls.
  *
  *  Method: accesscontextmanager.permissions.list
  *
@@ -1615,17 +1634,21 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 
 /**
  *  Optional. This flag specifies the maximum number of services to return per
- *  page. Default is 100.
+ *  page. Default value is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Optional. Token to start on a later page. Default is the first page. */
+/**
+ *  Optional. Use this token to retrieve a specific page of results. Default is
+ *  the first page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAccessContextManager_ListSupportedPermissionsResponse.
  *
- *  Lists all supported permissions in VPCSC Granular Controls.
+ *  Lists all supported permissions in VPC Service Controls ingress and egress
+ *  rules for Granular Controls.
  *
  *  @return GTLRAccessContextManagerQuery_PermissionsList
  */
@@ -1634,7 +1657,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Returns a VPC-SC supported service based on the service name.
+ *  Returns a VPC-SC supported service based on the service name. **IAM
+ *  Permissions**: Requires the following IAM permissions to use this method: -
+ *  `serviceusage.services.use` on the project.
  *
  *  Method: accesscontextmanager.services.get
  *
@@ -1653,7 +1678,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 /**
  *  Fetches a @c GTLRAccessContextManager_SupportedService.
  *
- *  Returns a VPC-SC supported service based on the service name.
+ *  Returns a VPC-SC supported service based on the service name. **IAM
+ *  Permissions**: Requires the following IAM permissions to use this method: -
+ *  `serviceusage.services.use` on the project.
  *
  *  @param name The name of the service to get information about. The names must
  *    be in the same format as used in defining a service perimeter, for
@@ -1666,7 +1693,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 @end
 
 /**
- *  Lists all VPC-SC supported services.
+ *  Lists all VPC-SC supported services. **IAM Permissions**: Requires the
+ *  following IAM permissions to use this method: - `serviceusage.services.use`
+ *  on the project.
  *
  *  Method: accesscontextmanager.services.list
  *
@@ -1677,17 +1706,22 @@ FOUNDATION_EXTERN NSString * const kGTLRAccessContextManagerAccessLevelFormatLev
 
 /**
  *  This flag specifies the maximum number of services to return per page.
- *  Default is 100.
+ *  Default value is 100.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Token to start on a later page. Default is the first page. */
+/**
+ *  Use this token to retrieve a specific page of results. Default is the first
+ *  page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRAccessContextManager_ListSupportedServicesResponse.
  *
- *  Lists all VPC-SC supported services.
+ *  Lists all VPC-SC supported services. **IAM Permissions**: Requires the
+ *  following IAM permissions to use this method: - `serviceusage.services.use`
+ *  on the project.
  *
  *  @return GTLRAccessContextManagerQuery_ServicesList
  *

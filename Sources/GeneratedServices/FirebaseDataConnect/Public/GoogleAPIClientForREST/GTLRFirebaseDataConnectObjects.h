@@ -4,7 +4,7 @@
 // API:
 //   Firebase Data Connect API (firebasedataconnect/v1)
 // Description:
-//   Firebase Data Connect is a relational database service for mobile and web
+//   Firebase SQL Connect is a relational database service for mobile and web
 //   apps that lets you build and scale using a fully-managed PostgreSQL
 //   database powered by Cloud SQL. The REST API lets developers manage the
 //   connections to their database, change the schema of their database, and
@@ -20,6 +20,7 @@
 
 @class GTLRFirebaseDataConnect_ClientCache;
 @class GTLRFirebaseDataConnect_CloudSqlInstance;
+@class GTLRFirebaseDataConnect_CodeChunk;
 @class GTLRFirebaseDataConnect_Connector;
 @class GTLRFirebaseDataConnect_Connector_Annotations;
 @class GTLRFirebaseDataConnect_Connector_Labels;
@@ -30,6 +31,7 @@
 @class GTLRFirebaseDataConnect_ExecuteQueryRequest_Variables;
 @class GTLRFirebaseDataConnect_ExecuteQueryResponse_Data;
 @class GTLRFirebaseDataConnect_File;
+@class GTLRFirebaseDataConnect_GenerationStatus;
 @class GTLRFirebaseDataConnect_GraphqlError;
 @class GTLRFirebaseDataConnect_GraphqlErrorExtensions;
 @class GTLRFirebaseDataConnect_GraphqlRequest_Variables;
@@ -46,6 +48,7 @@
 @class GTLRFirebaseDataConnect_Operation;
 @class GTLRFirebaseDataConnect_Operation_Metadata;
 @class GTLRFirebaseDataConnect_Operation_Response;
+@class GTLRFirebaseDataConnect_Part;
 @class GTLRFirebaseDataConnect_PostgreSql;
 @class GTLRFirebaseDataConnect_Schema;
 @class GTLRFirebaseDataConnect_Schema_Annotations;
@@ -57,6 +60,7 @@
 @class GTLRFirebaseDataConnect_SourceLocation;
 @class GTLRFirebaseDataConnect_Status;
 @class GTLRFirebaseDataConnect_Status_Details_Item;
+@class GTLRFirebaseDataConnect_TextChunk;
 @class GTLRFirebaseDataConnect_Workaround;
 
 // Generated comments include content from the discovery document; avoid them
@@ -68,6 +72,34 @@ NS_ASSUME_NONNULL_BEGIN
 
 // ----------------------------------------------------------------------------
 // Constants - For some of the classes' properties below.
+
+// ----------------------------------------------------------------------------
+// GTLRFirebaseDataConnect_GenerationStatus.state
+
+/**
+ *  The agent is analyzing schema or operations.
+ *
+ *  Value: "ANALYZING_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GenerationStatus_State_AnalyzingCode;
+/**
+ *  Generation is complete.
+ *
+ *  Value: "COMPLETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GenerationStatus_State_Completed;
+/**
+ *  The agent is generating code
+ *
+ *  Value: "GENERATING_CODE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GenerationStatus_State_GeneratingCode;
+/**
+ *  Unspecified state.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GenerationStatus_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRFirebaseDataConnect_GraphqlErrorExtensions.code
@@ -271,12 +303,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_GraphqlErrorExtensio
 // GTLRFirebaseDataConnect_PostgreSql.schemaMigration
 
 /**
- *  Connect to the SQL database and identify any missing SQL resources used in
- *  the given Firebase Data Connect Schema. Automatically create necessary SQL
- *  resources (SQL table, column, etc) before deploying the schema. During
- *  migration steps, the SQL Schema must comply with the previous before_deploy
- *  setting in case the migration is interrupted. Therefore, the previous
- *  before_deploy setting must not be `schema_validation=STRICT`.
+ *  Waits for the Cloud SQL instance to be provisioned and automatically creates
+ *  necessary SQL resources (tables, columns, etc.) to match the desired FDC
+ *  schema. This operation is strictly additive and executes as a Long-Running
+ *  Operation during provisioning. Rejects migrations on a non-empty existing
+ *  SQL schema.
  *
  *  Value: "MIGRATE_COMPATIBLE"
  */
@@ -292,33 +323,36 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaMig
 // GTLRFirebaseDataConnect_PostgreSql.schemaValidation
 
 /**
- *  Connect to the SQL database and validate that the SQL DDL has all the SQL
- *  resources used in the given Firebase Data Connect Schema. Surface any
- *  missing resources as `FAILED_PRECONDITION` with an
- *  `IncompatibleSqlSchemaError` error detail. Succeed even if there are unknown
- *  tables and columns.
+ *  Connects to the SQL database and validates that it contains all the SQL
+ *  resources required by the FDC schema. Succeeds even if the database contains
+ *  additional tables or columns not used by FDC. Suitable when sharing a
+ *  database with other tools or legacy applications.
  *
  *  Value: "COMPATIBLE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Compatible;
 /**
- *  Skip no SQL schema validation. Use it with extreme caution. CreateSchema or
- *  UpdateSchema will succeed even if SQL database is unavailable or SQL schema
- *  is incompatible. Generated SQL may fail at execution time.
+ *  Skips SQL schema validation. Deployment succeeds even if the database is
+ *  pending provisioning, unavailable, or incompatible. Under NONE, newly
+ *  created services route requests to a temporary ephemeral database (in-memory
+ *  emulation) so the API can be tested immediately. Ephemeral data expires
+ *  after 24 hours unless successfully validated or migrated to a linked
+ *  database.
  *
  *  Value: "NONE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_None;
 /**
- *  Unspecified SQL schema validation. Default to STRICT.
+ *  Unspecified SQL schema validation. Defaults to STRICT.
  *
  *  Value: "SQL_SCHEMA_VALIDATION_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_SqlSchemaValidationUnspecified;
 /**
- *  Connect to the SQL database and validate that the SQL DDL matches the schema
- *  exactly. Surface any discrepancies as `FAILED_PRECONDITION` with an
- *  `IncompatibleSqlSchemaError` error detail.
+ *  Connects to the SQL database and validates that the SQL DDL matches the FDC
+ *  schema exactly. Any discrepancies (extra or missing tables/columns) result
+ *  in a FAILED_PRECONDITION error with required SQL diffs. Recommended for
+ *  greenfield projects to ensure full schema consistency.
  *
  *  Value: "STRICT"
  */
@@ -375,6 +409,23 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  *  projects/{project}/locations/{location}/instances/{instance} ```
  */
 @property(nonatomic, copy, nullable) NSString *instance;
+
+@end
+
+
+/**
+ *  A chunk of code.
+ */
+@interface GTLRFirebaseDataConnect_CodeChunk : GTLRObject
+
+/** Required. The code content string. */
+@property(nonatomic, copy, nullable) NSString *code;
+
+/**
+ *  Optional. Specifies the language if we expand support beyond GraphQL (e.g.,
+ *  SQL or JSON) The standard is BCP-47 language code.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
 
 @end
 
@@ -459,7 +510,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
- *  Data Connect specific properties for a path under response.data.
+ *  SQL Connect specific properties for a path under response.data.
  */
 @interface GTLRFirebaseDataConnect_DataConnectProperties : GTLRObject
 
@@ -490,7 +541,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
- *  A data source that backs Firebase Data Connect services.
+ *  A data source that backs Firebase SQL Connect services.
  */
 @interface GTLRFirebaseDataConnect_Datasource : GTLRObject
 
@@ -514,7 +565,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
- *  The ExecuteMutation request to Firebase Data Connect.
+ *  The ExecuteMutation request to Firebase SQL Connect.
  */
 @interface GTLRFirebaseDataConnect_ExecuteMutationRequest : GTLRObject
 
@@ -544,7 +595,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
- *  The ExecuteMutation response from Firebase Data Connect.
+ *  The ExecuteMutation response from Firebase SQL Connect.
  */
 @interface GTLRFirebaseDataConnect_ExecuteMutationResponse : GTLRObject
 
@@ -573,7 +624,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
- *  The ExecuteQuery request to Firebase Data Connect.
+ *  The ExecuteQuery request to Firebase SQL Connect.
  */
 @interface GTLRFirebaseDataConnect_ExecuteQueryRequest : GTLRObject
 
@@ -603,7 +654,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
- *  The ExecuteQuery response from Firebase Data Connect.
+ *  The ExecuteQuery response from Firebase SQL Connect.
  */
 @interface GTLRFirebaseDataConnect_ExecuteQueryResponse : GTLRObject
 
@@ -651,17 +702,111 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
+ *  Request message for GenerateQuery.
+ */
+@interface GTLRFirebaseDataConnect_GenerateQueryRequest : GTLRObject
+
+/**
+ *  Required. The natural language description of the desired query. Example:
+ *  "Find all users who signed up in the last 7 days."
+ */
+@property(nonatomic, copy, nullable) NSString *prompt;
+
+/**
+ *  Optional. The user's locally defined FDC Schema(s). If not defined, the
+ *  backend will fetch the user's deployed schema.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDataConnect_Schema *> *schemas;
+
+@end
+
+
+/**
+ *  Output for streaming generate query requests
+ */
+@interface GTLRFirebaseDataConnect_GenerateQueryResponse : GTLRObject
+
+/** Required. The content from the current conversational turn. */
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Part *part;
+
+/**
+ *  Essential for providing responsive UI feedback (e.g., a spinner or
+ *  "Analyzing schema..." step).
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_GenerationStatus *status;
+
+@end
+
+
+/**
+ *  Request message for GenerateSchema.
+ */
+@interface GTLRFirebaseDataConnect_GenerateSchemaRequest : GTLRObject
+
+/**
+ *  Required. The natural language description of the data model to generate.
+ *  Example: "A blog system with Users, Posts, and Comments. Users can have
+ *  multiple posts."
+ */
+@property(nonatomic, copy, nullable) NSString *prompt;
+
+@end
+
+
+/**
+ *  Output for streaming generate schema requests
+ */
+@interface GTLRFirebaseDataConnect_GenerateSchemaResponse : GTLRObject
+
+/** The content from the current conversational turn. */
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Part *part;
+
+/**
+ *  Essential for providing responsive UI feedback (e.g., a spinner or
+ *  "Analyzing schema..." step).
+ */
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_GenerationStatus *status;
+
+@end
+
+
+/**
+ *  Represents the progress of the server side generation request.
+ */
+@interface GTLRFirebaseDataConnect_GenerationStatus : GTLRObject
+
+/** Output only. A message providing more details about the state. */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/**
+ *  Output only. The state of generation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRFirebaseDataConnect_GenerationStatus_State_AnalyzingCode The
+ *        agent is analyzing schema or operations. (Value: "ANALYZING_CODE")
+ *    @arg @c kGTLRFirebaseDataConnect_GenerationStatus_State_Completed
+ *        Generation is complete. (Value: "COMPLETED")
+ *    @arg @c kGTLRFirebaseDataConnect_GenerationStatus_State_GeneratingCode The
+ *        agent is generating code (Value: "GENERATING_CODE")
+ *    @arg @c kGTLRFirebaseDataConnect_GenerationStatus_State_StateUnspecified
+ *        Unspecified state. (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  GraphqlError conforms to the GraphQL error spec.
- *  https://spec.graphql.org/draft/#sec-Errors Firebase Data Connect API
- *  surfaces `GraphqlError` in various APIs: - Upon compile error,
- *  `UpdateSchema` and `UpdateConnector` return Code.Invalid_Argument with a
- *  list of `GraphqlError` in error details. - Upon query compile error,
- *  `ExecuteGraphql`, `ExecuteGraphqlRead` and `IntrospectGraphql` return
- *  Code.OK with a list of `GraphqlError` in response body. - Upon query
- *  execution error, `ExecuteGraphql`, `ExecuteGraphqlRead`, `ExecuteMutation`,
- *  `ExecuteQuery`, `IntrospectGraphql`, `ImpersonateQuery` and
- *  `ImpersonateMutation` all return Code.OK with a list of `GraphqlError` in
- *  response body.
+ *  https://spec.graphql.org/draft/#sec-Errors Firebase SQL Connect API surfaces
+ *  `GraphqlError` in various APIs: - Upon compile error, `UpdateSchema` and
+ *  `UpdateConnector` return Code.Invalid_Argument with a list of `GraphqlError`
+ *  in error details. - Upon query compile error, `ExecuteGraphql`,
+ *  `ExecuteGraphqlRead` and `IntrospectGraphql` return Code.OK with a list of
+ *  `GraphqlError` in response body. - Upon query execution error,
+ *  `ExecuteGraphql`, `ExecuteGraphqlRead`, `ExecuteMutation`, `ExecuteQuery`,
+ *  `IntrospectGraphql`, `ImpersonateQuery` and `ImpersonateMutation` all return
+ *  Code.OK with a list of `GraphqlError` in response body.
  */
 @interface GTLRFirebaseDataConnect_GraphqlError : GTLRObject
 
@@ -815,11 +960,11 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 /**
  *  More detailed error message to assist debugging. It contains application
- *  business logic that are inappropriate to leak publicly. In the emulator,
- *  Data Connect API always includes it to assist local development and
- *  debugging. In the backend, ConnectorService always hides it. GraphqlService
- *  without impersonation always include it. GraphqlService with impersonation
- *  includes it only if explicitly opted-in with `include_debug_details` in
+ *  business logic that are inappropriate to leak publicly. In the emulator, SQL
+ *  Connect API always includes it to assist local development and debugging. In
+ *  the backend, ConnectorService always hides it. GraphqlService without
+ *  impersonation always include it. GraphqlService with impersonation includes
+ *  it only if explicitly opted-in with `include_debug_details` in
  *  `GraphqlRequestExtensions`.
  */
 @property(nonatomic, copy, nullable) NSString *debugDetails;
@@ -860,8 +1005,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
- *  The GraphQL request to Firebase Data Connect. It strives to match the
- *  GraphQL over HTTP spec.
+ *  The GraphQL request to Firebase SQL Connect. It strives to match the GraphQL
+ *  over HTTP spec.
  *  https://github.com/graphql/graphql-over-http/blob/main/spec/GraphQLOverHTTP.md#post
  */
 @interface GTLRFirebaseDataConnect_GraphqlRequest : GTLRObject
@@ -914,8 +1059,8 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
- *  The GraphQL response from Firebase Data Connect. It strives to match the
- *  GraphQL over HTTP spec. Note: Firebase Data Connect always responds with
+ *  The GraphQL response from Firebase SQL Connect. It strives to match the
+ *  GraphQL over HTTP spec. Note: Firebase SQL Connect always responds with
  *  `Content-Type: application/json`.
  *  https://github.com/graphql/graphql-over-http/blob/main/spec/GraphQLOverHTTP.md#body
  */
@@ -972,9 +1117,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  */
 @interface GTLRFirebaseDataConnect_GraphqlResponseExtensions : GTLRObject
 
-/**
- *  Data Connect specific GraphQL extension, a list of paths and properties.
- */
+/** SQL Connect specific GraphQL extension, a list of paths and properties. */
 @property(nonatomic, strong, nullable) NSArray<GTLRFirebaseDataConnect_DataConnectProperties *> *dataConnect;
 
 @end
@@ -995,7 +1138,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
- *  The Impersonate request to Firebase Data Connect.
+ *  The Impersonate request to Firebase SQL Connect.
  */
 @interface GTLRFirebaseDataConnect_ImpersonateRequest : GTLRObject
 
@@ -1411,6 +1554,20 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
+ *  Represents a chunk of content.
+ */
+@interface GTLRFirebaseDataConnect_Part : GTLRObject
+
+/** Optional. A chunk of code. */
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_CodeChunk *codeChunk;
+
+/** Optional. A chunk of text. */
+@property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_TextChunk *textChunk;
+
+@end
+
+
+/**
  *  Settings for PostgreSQL data source.
  */
 @interface GTLRFirebaseDataConnect_PostgreSql : GTLRObject
@@ -1422,10 +1579,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 @property(nonatomic, copy, nullable) NSString *database;
 
 /**
- *  Output only. Ephemeral is true if this data connect service is served from
+ *  Output only. Ephemeral is true if this SQL Connect service is served from
  *  temporary in-memory emulation of Postgres. While Cloud SQL is being
- *  provisioned, the data connect service provides the ephemeral service to help
- *  developers get started. Once the Cloud SQL is provisioned, Data Connect
+ *  provisioned, the SQL Connect service provides the ephemeral service to help
+ *  developers get started. Once the Cloud SQL is provisioned, SQL Connect
  *  service will transfer its data on a best-effort basis to the Cloud SQL
  *  instance. WARNING: Ephemeral data sources will expire after 24 hour. The
  *  data will be lost if they aren't transferred to the Cloud SQL instance.
@@ -1444,17 +1601,16 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 @property(nonatomic, copy, nullable) NSString *schema;
 
 /**
- *  Optional. Configure how to perform Postgresql schema migration.
+ *  Optional. Configure how to perform automatic PostgreSQL schema migration
+ *  before deploying the FDC schema. This is an additive-only operation.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_MigrateCompatible
- *        Connect to the SQL database and identify any missing SQL resources
- *        used in the given Firebase Data Connect Schema. Automatically create
- *        necessary SQL resources (SQL table, column, etc) before deploying the
- *        schema. During migration steps, the SQL Schema must comply with the
- *        previous before_deploy setting in case the migration is interrupted.
- *        Therefore, the previous before_deploy setting must not be
- *        `schema_validation=STRICT`. (Value: "MIGRATE_COMPATIBLE")
+ *        Waits for the Cloud SQL instance to be provisioned and automatically
+ *        creates necessary SQL resources (tables, columns, etc.) to match the
+ *        desired FDC schema. This operation is strictly additive and executes
+ *        as a Long-Running Operation during provisioning. Rejects migrations on
+ *        a non-empty existing SQL schema. (Value: "MIGRATE_COMPATIBLE")
  *    @arg @c kGTLRFirebaseDataConnect_PostgreSql_SchemaMigration_SqlSchemaMigrationUnspecified
  *        Unspecified SQL schema migration. (Value:
  *        "SQL_SCHEMA_MIGRATION_UNSPECIFIED")
@@ -1462,27 +1618,32 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 @property(nonatomic, copy, nullable) NSString *schemaMigration;
 
 /**
- *  Optional. Configure how much Postgresql schema validation to perform.
+ *  Optional. Configure how much PostgreSQL schema validation to perform against
+ *  the live database before deploying the FDC schema.
  *
  *  Likely values:
  *    @arg @c kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Compatible
- *        Connect to the SQL database and validate that the SQL DDL has all the
- *        SQL resources used in the given Firebase Data Connect Schema. Surface
- *        any missing resources as `FAILED_PRECONDITION` with an
- *        `IncompatibleSqlSchemaError` error detail. Succeed even if there are
- *        unknown tables and columns. (Value: "COMPATIBLE")
- *    @arg @c kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_None Skip no
- *        SQL schema validation. Use it with extreme caution. CreateSchema or
- *        UpdateSchema will succeed even if SQL database is unavailable or SQL
- *        schema is incompatible. Generated SQL may fail at execution time.
- *        (Value: "NONE")
+ *        Connects to the SQL database and validates that it contains all the
+ *        SQL resources required by the FDC schema. Succeeds even if the
+ *        database contains additional tables or columns not used by FDC.
+ *        Suitable when sharing a database with other tools or legacy
+ *        applications. (Value: "COMPATIBLE")
+ *    @arg @c kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_None Skips
+ *        SQL schema validation. Deployment succeeds even if the database is
+ *        pending provisioning, unavailable, or incompatible. Under NONE, newly
+ *        created services route requests to a temporary ephemeral database
+ *        (in-memory emulation) so the API can be tested immediately. Ephemeral
+ *        data expires after 24 hours unless successfully validated or migrated
+ *        to a linked database. (Value: "NONE")
  *    @arg @c kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_SqlSchemaValidationUnspecified
- *        Unspecified SQL schema validation. Default to STRICT. (Value:
+ *        Unspecified SQL schema validation. Defaults to STRICT. (Value:
  *        "SQL_SCHEMA_VALIDATION_UNSPECIFIED")
  *    @arg @c kGTLRFirebaseDataConnect_PostgreSql_SchemaValidation_Strict
- *        Connect to the SQL database and validate that the SQL DDL matches the
- *        schema exactly. Surface any discrepancies as `FAILED_PRECONDITION`
- *        with an `IncompatibleSqlSchemaError` error detail. (Value: "STRICT")
+ *        Connects to the SQL database and validates that the SQL DDL matches
+ *        the FDC schema exactly. Any discrepancies (extra or missing
+ *        tables/columns) result in a FAILED_PRECONDITION error with required
+ *        SQL diffs. Recommended for greenfield projects to ensure full schema
+ *        consistency. (Value: "STRICT")
  */
 @property(nonatomic, copy, nullable) NSString *schemaValidation;
 
@@ -1498,7 +1659,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
- *  The application schema of a Firebase Data Connect service.
+ *  The application schema of a Firebase SQL Connect service.
  */
 @interface GTLRFirebaseDataConnect_Schema : GTLRObject
 
@@ -1577,7 +1738,7 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 
 
 /**
- *  A Firebase Data Connect service.
+ *  A Firebase SQL Connect service.
  */
 @interface GTLRFirebaseDataConnect_Service : GTLRObject
 
@@ -1602,10 +1763,10 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
 @property(nonatomic, strong, nullable) GTLRFirebaseDataConnect_Service_Labels *labels;
 
 /**
- *  Identifier. The relative resource name of the Firebase Data Connect service,
+ *  Identifier. The relative resource name of the Firebase SQL Connect service,
  *  in the format: ```
  *  projects/{project}/locations/{location}/services/{service} ``` Note that the
- *  service ID is specific to Firebase Data Connect and does not correspond to
+ *  service ID is specific to Firebase SQL Connect and does not correspond to
  *  any of the instance IDs of the underlying data source connections.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1726,6 +1887,17 @@ FOUNDATION_EXTERN NSString * const kGTLRFirebaseDataConnect_PostgreSql_SchemaVal
  *        -additionalProperties to fetch them all at once.
  */
 @interface GTLRFirebaseDataConnect_Status_Details_Item : GTLRObject
+@end
+
+
+/**
+ *  A chunk of conversational text.
+ */
+@interface GTLRFirebaseDataConnect_TextChunk : GTLRObject
+
+/** Required. The text content string. */
+@property(nonatomic, copy, nullable) NSString *text;
+
 @end
 
 

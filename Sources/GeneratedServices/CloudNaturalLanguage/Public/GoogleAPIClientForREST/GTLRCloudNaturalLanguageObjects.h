@@ -307,6 +307,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C2d;
 /** Value: "C3" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C3;
+/** Value: "C3D" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C3d;
 /** Value: "C4" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C4;
 /** Value: "C4A" */
@@ -447,6 +449,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2Standard60;
 /** Value: "C2_STANDARD_8" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2Standard8;
+/** Value: "C3D_HIGHCPU_16" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu16;
+/** Value: "C3D_HIGHCPU_180" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu180;
+/** Value: "C3D_HIGHCPU_30" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu30;
+/** Value: "C3D_HIGHCPU_360" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu360;
+/** Value: "C3D_HIGHCPU_60" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu60;
+/** Value: "C3D_HIGHCPU_8" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu8;
+/** Value: "C3D_HIGHCPU_90" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu90;
+/** Value: "C3D_HIGHMEM_16" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem16;
+/** Value: "C3D_HIGHMEM_180" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem180;
+/** Value: "C3D_HIGHMEM_30" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem30;
+/** Value: "C3D_HIGHMEM_360" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem360;
+/** Value: "C3D_HIGHMEM_60" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem60;
+/** Value: "C3D_HIGHMEM_8" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem8;
+/** Value: "C3D_HIGHMEM_90" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem90;
+/** Value: "C3D_STANDARD_16" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard16;
+/** Value: "C3D_STANDARD_180" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard180;
+/** Value: "C3D_STANDARD_30" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard30;
+/** Value: "C3D_STANDARD_360" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard360;
+/** Value: "C3D_STANDARD_60" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard60;
+/** Value: "C3D_STANDARD_8" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard8;
+/** Value: "C3D_STANDARD_90" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard90;
 /** Value: "C3_HIGHCPU_176" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highcpu176;
 /** Value: "C3_HIGHCPU_22" */
@@ -861,8 +905,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4aStandard8;
 /** Value: "N4_HIGHCPU_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu16;
+/** Value: "N4_HIGHCPU_2" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu2;
 /** Value: "N4_HIGHCPU_32" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu32;
+/** Value: "N4_HIGHCPU_4" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu4;
 /** Value: "N4_HIGHCPU_48" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu48;
 /** Value: "N4_HIGHCPU_64" */
@@ -873,8 +921,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu80;
 /** Value: "N4_HIGHMEM_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem16;
+/** Value: "N4_HIGHMEM_2" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem2;
 /** Value: "N4_HIGHMEM_32" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem32;
+/** Value: "N4_HIGHMEM_4" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem4;
 /** Value: "N4_HIGHMEM_48" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem48;
 /** Value: "N4_HIGHMEM_64" */
@@ -885,8 +937,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem80;
 /** Value: "N4_STANDARD_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Standard16;
+/** Value: "N4_STANDARD_2" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Standard2;
 /** Value: "N4_STANDARD_32" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Standard32;
+/** Value: "N4_STANDARD_4" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Standard4;
 /** Value: "N4_STANDARD_48" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Standard48;
 /** Value: "N4_STANDARD_64" */
@@ -1179,6 +1235,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2Standard60;
 /** Value: "C2_STANDARD_8" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2Standard8;
+/** Value: "C3D_HIGHCPU_16" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu16;
+/** Value: "C3D_HIGHCPU_180" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu180;
+/** Value: "C3D_HIGHCPU_30" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu30;
+/** Value: "C3D_HIGHCPU_360" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu360;
+/** Value: "C3D_HIGHCPU_60" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu60;
+/** Value: "C3D_HIGHCPU_8" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu8;
+/** Value: "C3D_HIGHCPU_90" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu90;
+/** Value: "C3D_HIGHMEM_16" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem16;
+/** Value: "C3D_HIGHMEM_180" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem180;
+/** Value: "C3D_HIGHMEM_30" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem30;
+/** Value: "C3D_HIGHMEM_360" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem360;
+/** Value: "C3D_HIGHMEM_60" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem60;
+/** Value: "C3D_HIGHMEM_8" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem8;
+/** Value: "C3D_HIGHMEM_90" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem90;
+/** Value: "C3D_STANDARD_16" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard16;
+/** Value: "C3D_STANDARD_180" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard180;
+/** Value: "C3D_STANDARD_30" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard30;
+/** Value: "C3D_STANDARD_360" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard360;
+/** Value: "C3D_STANDARD_60" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard60;
+/** Value: "C3D_STANDARD_8" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard8;
+/** Value: "C3D_STANDARD_90" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard90;
 /** Value: "C3_HIGHCPU_176" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highcpu176;
 /** Value: "C3_HIGHCPU_22" */
@@ -1593,8 +1691,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4aStandard8;
 /** Value: "N4_HIGHCPU_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu16;
+/** Value: "N4_HIGHCPU_2" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu2;
 /** Value: "N4_HIGHCPU_32" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu32;
+/** Value: "N4_HIGHCPU_4" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu4;
 /** Value: "N4_HIGHCPU_48" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu48;
 /** Value: "N4_HIGHCPU_64" */
@@ -1605,8 +1707,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu80;
 /** Value: "N4_HIGHMEM_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem16;
+/** Value: "N4_HIGHMEM_2" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem2;
 /** Value: "N4_HIGHMEM_32" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem32;
+/** Value: "N4_HIGHMEM_4" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem4;
 /** Value: "N4_HIGHMEM_48" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem48;
 /** Value: "N4_HIGHMEM_64" */
@@ -1617,8 +1723,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem80;
 /** Value: "N4_STANDARD_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Standard16;
+/** Value: "N4_STANDARD_2" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Standard2;
 /** Value: "N4_STANDARD_32" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Standard32;
+/** Value: "N4_STANDARD_4" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Standard4;
 /** Value: "N4_STANDARD_48" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Standard48;
 /** Value: "N4_STANDARD_64" */
@@ -1746,6 +1856,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2Standard60;
 /** Value: "C2_STANDARD_8" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2Standard8;
+/** Value: "C3D_HIGHCPU_16" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu16;
+/** Value: "C3D_HIGHCPU_180" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu180;
+/** Value: "C3D_HIGHCPU_30" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu30;
+/** Value: "C3D_HIGHCPU_360" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu360;
+/** Value: "C3D_HIGHCPU_60" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu60;
+/** Value: "C3D_HIGHCPU_8" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu8;
+/** Value: "C3D_HIGHCPU_90" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu90;
+/** Value: "C3D_HIGHMEM_16" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem16;
+/** Value: "C3D_HIGHMEM_180" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem180;
+/** Value: "C3D_HIGHMEM_30" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem30;
+/** Value: "C3D_HIGHMEM_360" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem360;
+/** Value: "C3D_HIGHMEM_60" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem60;
+/** Value: "C3D_HIGHMEM_8" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem8;
+/** Value: "C3D_HIGHMEM_90" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem90;
+/** Value: "C3D_STANDARD_16" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard16;
+/** Value: "C3D_STANDARD_180" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard180;
+/** Value: "C3D_STANDARD_30" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard30;
+/** Value: "C3D_STANDARD_360" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard360;
+/** Value: "C3D_STANDARD_60" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard60;
+/** Value: "C3D_STANDARD_8" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard8;
+/** Value: "C3D_STANDARD_90" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard90;
 /** Value: "C3_HIGHCPU_176" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highcpu176;
 /** Value: "C3_HIGHCPU_22" */
@@ -2160,8 +2312,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4aStandard8;
 /** Value: "N4_HIGHCPU_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu16;
+/** Value: "N4_HIGHCPU_2" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu2;
 /** Value: "N4_HIGHCPU_32" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu32;
+/** Value: "N4_HIGHCPU_4" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu4;
 /** Value: "N4_HIGHCPU_48" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu48;
 /** Value: "N4_HIGHCPU_64" */
@@ -2172,8 +2328,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu80;
 /** Value: "N4_HIGHMEM_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem16;
+/** Value: "N4_HIGHMEM_2" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem2;
 /** Value: "N4_HIGHMEM_32" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem32;
+/** Value: "N4_HIGHMEM_4" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem4;
 /** Value: "N4_HIGHMEM_48" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem48;
 /** Value: "N4_HIGHMEM_64" */
@@ -2184,8 +2344,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSp
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem80;
 /** Value: "N4_STANDARD_16" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Standard16;
+/** Value: "N4_STANDARD_2" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Standard2;
 /** Value: "N4_STANDARD_32" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Standard32;
+/** Value: "N4_STANDARD_4" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Standard4;
 /** Value: "N4_STANDARD_48" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Standard48;
 /** Value: "N4_STANDARD_64" */
@@ -2218,6 +2382,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C2d;
 /** Value: "C3" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C3;
+/** Value: "C3D" */
+FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C3d;
 /** Value: "C4" */
 FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_RamMetric_RamType_C4;
 /** Value: "C4A" */
@@ -3530,6 +3696,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        (Value: "C2")
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C2d Value "C2D"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C3 Value "C3"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C3d Value "C3D"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C4 Value "C4"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C4a Value "C4A"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_CpuType_C4d Value "C4D"
@@ -3647,6 +3814,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "C2_STANDARD_60"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C2Standard8 Value
  *        "C2_STANDARD_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu16 Value
+ *        "C3D_HIGHCPU_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu180
+ *        Value "C3D_HIGHCPU_180"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu30 Value
+ *        "C3D_HIGHCPU_30"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu360
+ *        Value "C3D_HIGHCPU_360"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu60 Value
+ *        "C3D_HIGHCPU_60"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu8 Value
+ *        "C3D_HIGHCPU_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighcpu90 Value
+ *        "C3D_HIGHCPU_90"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem16 Value
+ *        "C3D_HIGHMEM_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem180
+ *        Value "C3D_HIGHMEM_180"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem30 Value
+ *        "C3D_HIGHMEM_30"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem360
+ *        Value "C3D_HIGHMEM_360"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem60 Value
+ *        "C3D_HIGHMEM_60"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem8 Value
+ *        "C3D_HIGHMEM_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dHighmem90 Value
+ *        "C3D_HIGHMEM_90"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard16
+ *        Value "C3D_STANDARD_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard180
+ *        Value "C3D_STANDARD_180"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard30
+ *        Value "C3D_STANDARD_30"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard360
+ *        Value "C3D_STANDARD_360"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard60
+ *        Value "C3D_STANDARD_60"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard8 Value
+ *        "C3D_STANDARD_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3dStandard90
+ *        Value "C3D_STANDARD_90"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highcpu176 Value
  *        "C3_HIGHCPU_176"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_C3Highcpu22 Value
@@ -4061,8 +4270,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "N4A_STANDARD_8"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu16 Value
  *        "N4_HIGHCPU_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu2 Value
+ *        "N4_HIGHCPU_2"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu32 Value
  *        "N4_HIGHCPU_32"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu4 Value
+ *        "N4_HIGHCPU_4"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu48 Value
  *        "N4_HIGHCPU_48"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highcpu64 Value
@@ -4073,8 +4286,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "N4_HIGHCPU_80"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem16 Value
  *        "N4_HIGHMEM_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem2 Value
+ *        "N4_HIGHMEM_2"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem32 Value
  *        "N4_HIGHMEM_32"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem4 Value
+ *        "N4_HIGHMEM_4"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem48 Value
  *        "N4_HIGHMEM_48"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Highmem64 Value
@@ -4085,8 +4302,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "N4_HIGHMEM_80"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Standard16 Value
  *        "N4_STANDARD_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Standard2 Value
+ *        "N4_STANDARD_2"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Standard32 Value
  *        "N4_STANDARD_32"
+ *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Standard4 Value
+ *        "N4_STANDARD_4"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Standard48 Value
  *        "N4_STANDARD_48"
  *    @arg @c kGTLRCloudNaturalLanguage_CpuMetric_MachineSpec_N4Standard64 Value
@@ -4477,6 +4698,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "C2_STANDARD_60"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C2Standard8 Value
  *        "C2_STANDARD_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu16 Value
+ *        "C3D_HIGHCPU_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu180
+ *        Value "C3D_HIGHCPU_180"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu30 Value
+ *        "C3D_HIGHCPU_30"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu360
+ *        Value "C3D_HIGHCPU_360"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu60 Value
+ *        "C3D_HIGHCPU_60"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu8 Value
+ *        "C3D_HIGHCPU_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighcpu90 Value
+ *        "C3D_HIGHCPU_90"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem16 Value
+ *        "C3D_HIGHMEM_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem180
+ *        Value "C3D_HIGHMEM_180"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem30 Value
+ *        "C3D_HIGHMEM_30"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem360
+ *        Value "C3D_HIGHMEM_360"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem60 Value
+ *        "C3D_HIGHMEM_60"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem8 Value
+ *        "C3D_HIGHMEM_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dHighmem90 Value
+ *        "C3D_HIGHMEM_90"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard16
+ *        Value "C3D_STANDARD_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard180
+ *        Value "C3D_STANDARD_180"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard30
+ *        Value "C3D_STANDARD_30"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard360
+ *        Value "C3D_STANDARD_360"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard60
+ *        Value "C3D_STANDARD_60"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard8 Value
+ *        "C3D_STANDARD_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3dStandard90
+ *        Value "C3D_STANDARD_90"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highcpu176 Value
  *        "C3_HIGHCPU_176"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_C3Highcpu22 Value
@@ -4891,8 +5154,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "N4A_STANDARD_8"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu16 Value
  *        "N4_HIGHCPU_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu2 Value
+ *        "N4_HIGHCPU_2"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu32 Value
  *        "N4_HIGHCPU_32"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu4 Value
+ *        "N4_HIGHCPU_4"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu48 Value
  *        "N4_HIGHCPU_48"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highcpu64 Value
@@ -4903,8 +5170,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "N4_HIGHCPU_80"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem16 Value
  *        "N4_HIGHMEM_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem2 Value
+ *        "N4_HIGHMEM_2"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem32 Value
  *        "N4_HIGHMEM_32"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem4 Value
+ *        "N4_HIGHMEM_4"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem48 Value
  *        "N4_HIGHMEM_48"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Highmem64 Value
@@ -4915,8 +5186,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "N4_HIGHMEM_80"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Standard16 Value
  *        "N4_STANDARD_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Standard2 Value
+ *        "N4_STANDARD_2"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Standard32 Value
  *        "N4_STANDARD_32"
+ *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Standard4 Value
+ *        "N4_STANDARD_4"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Standard48 Value
  *        "N4_STANDARD_48"
  *    @arg @c kGTLRCloudNaturalLanguage_GpuMetric_MachineSpec_N4Standard64 Value
@@ -5139,6 +5414,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "C2_STANDARD_60"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C2Standard8 Value
  *        "C2_STANDARD_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu16 Value
+ *        "C3D_HIGHCPU_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu180
+ *        Value "C3D_HIGHCPU_180"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu30 Value
+ *        "C3D_HIGHCPU_30"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu360
+ *        Value "C3D_HIGHCPU_360"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu60 Value
+ *        "C3D_HIGHCPU_60"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu8 Value
+ *        "C3D_HIGHCPU_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighcpu90 Value
+ *        "C3D_HIGHCPU_90"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem16 Value
+ *        "C3D_HIGHMEM_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem180
+ *        Value "C3D_HIGHMEM_180"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem30 Value
+ *        "C3D_HIGHMEM_30"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem360
+ *        Value "C3D_HIGHMEM_360"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem60 Value
+ *        "C3D_HIGHMEM_60"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem8 Value
+ *        "C3D_HIGHMEM_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dHighmem90 Value
+ *        "C3D_HIGHMEM_90"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard16
+ *        Value "C3D_STANDARD_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard180
+ *        Value "C3D_STANDARD_180"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard30
+ *        Value "C3D_STANDARD_30"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard360
+ *        Value "C3D_STANDARD_360"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard60
+ *        Value "C3D_STANDARD_60"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard8 Value
+ *        "C3D_STANDARD_8"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3dStandard90
+ *        Value "C3D_STANDARD_90"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highcpu176 Value
  *        "C3_HIGHCPU_176"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_C3Highcpu22 Value
@@ -5553,8 +5870,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "N4A_STANDARD_8"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu16 Value
  *        "N4_HIGHCPU_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu2 Value
+ *        "N4_HIGHCPU_2"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu32 Value
  *        "N4_HIGHCPU_32"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu4 Value
+ *        "N4_HIGHCPU_4"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu48 Value
  *        "N4_HIGHCPU_48"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highcpu64 Value
@@ -5565,8 +5886,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "N4_HIGHCPU_80"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem16 Value
  *        "N4_HIGHMEM_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem2 Value
+ *        "N4_HIGHMEM_2"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem32 Value
  *        "N4_HIGHMEM_32"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem4 Value
+ *        "N4_HIGHMEM_4"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem48 Value
  *        "N4_HIGHMEM_48"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Highmem64 Value
@@ -5577,8 +5902,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        "N4_HIGHMEM_80"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Standard16 Value
  *        "N4_STANDARD_16"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Standard2 Value
+ *        "N4_STANDARD_2"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Standard32 Value
  *        "N4_STANDARD_32"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Standard4 Value
+ *        "N4_STANDARD_4"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Standard48 Value
  *        "N4_STANDARD_48"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_MachineSpec_N4Standard64 Value
@@ -5611,6 +5940,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudNaturalLanguage_XPSVisualization_Ty
  *        (Value: "C2")
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_C2d Value "C2D"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_C3 Value "C3"
+ *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_C3d Value "C3D"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_C4 Value "C4"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_C4a Value "C4A"
  *    @arg @c kGTLRCloudNaturalLanguage_RamMetric_RamType_C4d Value "C4D"

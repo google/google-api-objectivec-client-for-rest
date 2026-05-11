@@ -170,7 +170,8 @@ NSString * const kGTLRCloudSupport_Media_ReferenceType_Path    = @"PATH";
 //
 
 @implementation GTLRCloudSupport_ContentTypeInfo
-@dynamic bestGuess, fromBytes, fromFileName, fromHeader, fromUrlPath;
+@dynamic bestGuess, fromBytes, fromFileName, fromFusionId, fromHeader,
+         fromUrlPath, fusionIdDetectionMetadata;
 @end
 
 

@@ -443,6 +443,54 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRDeploymentManager_GetVersionOperationMetadata
+//
+
+@implementation GTLRDeploymentManager_GetVersionOperationMetadata
+@dynamic inlineSbomInfo;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo
+//
+
+@implementation GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo
+@dynamic currentComponentVersions, targetComponentVersions;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_CurrentComponentVersions
+//
+
+@implementation GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_CurrentComponentVersions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_TargetComponentVersions
+//
+
+@implementation GTLRDeploymentManager_GetVersionOperationMetadataSbomInfo_TargetComponentVersions
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRDeploymentManager_GlobalSetPolicyRequest
 //
 
@@ -592,11 +640,11 @@ NSString * const kGTLRDeploymentManager_SetCommonInstanceMetadataOperationMetada
 
 @implementation GTLRDeploymentManager_Operation
 @dynamic clientOperationId, creationTimestamp, descriptionProperty, endTime,
-         error, firewallPolicyRuleOperationMetadata, httpErrorMessage,
-         httpErrorStatusCode, identifier, insertTime,
-         instancesBulkInsertOperationMetadata, kind, name, operationGroupId,
-         operationType, progress, region, selfLink, selfLinkWithId,
-         setAutoscalerLinkOperationMetadata,
+         error, firewallPolicyRuleOperationMetadata,
+         getVersionOperationMetadata, httpErrorMessage, httpErrorStatusCode,
+         identifier, insertTime, instancesBulkInsertOperationMetadata, kind,
+         name, operationGroupId, operationType, progress, region, selfLink,
+         selfLinkWithId, setAutoscalerLinkOperationMetadata,
          setCommonInstanceMetadataOperationMetadata, startTime, status,
          statusMessage, targetId, targetLink, user, warnings, zoneProperty;
 

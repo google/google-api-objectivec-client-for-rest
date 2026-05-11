@@ -22,8 +22,18 @@
 @class GTLRConfig_Deployment;
 @class GTLRConfig_Deployment_Annotations;
 @class GTLRConfig_Deployment_Labels;
+@class GTLRConfig_DeploymentGroup;
+@class GTLRConfig_DeploymentGroup_Annotations;
+@class GTLRConfig_DeploymentGroup_Labels;
+@class GTLRConfig_DeploymentGroupRevision;
 @class GTLRConfig_DeploymentOperationMetadata;
+@class GTLRConfig_DeploymentOperationSummary;
+@class GTLRConfig_DeploymentSource;
+@class GTLRConfig_DeploymentSpec;
+@class GTLRConfig_DeploymentUnit;
+@class GTLRConfig_DeploymentUnitProgress;
 @class GTLRConfig_Expr;
+@class GTLRConfig_ExternalValueSource;
 @class GTLRConfig_GitSource;
 @class GTLRConfig_Location;
 @class GTLRConfig_Location_Labels;
@@ -41,6 +51,8 @@
 @class GTLRConfig_PropertyChange;
 @class GTLRConfig_PropertyDrift;
 @class GTLRConfig_ProviderConfig;
+@class GTLRConfig_ProvisionDeploymentGroupOperationMetadata;
+@class GTLRConfig_ProvisionDeploymentGroupRequest_DeploymentSpecs;
 @class GTLRConfig_Resource;
 @class GTLRConfig_Resource_CaiAssets;
 @class GTLRConfig_ResourceCAIInfo;
@@ -53,6 +65,7 @@
 @class GTLRConfig_Status;
 @class GTLRConfig_Status_Details_Item;
 @class GTLRConfig_TerraformBlueprint;
+@class GTLRConfig_TerraformBlueprint_ExternalValues;
 @class GTLRConfig_TerraformBlueprint_InputValues;
 @class GTLRConfig_TerraformError;
 @class GTLRConfig_TerraformOutput;
@@ -276,6 +289,105 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_Deployment_State_Suspended;
 FOUNDATION_EXTERN NSString * const kGTLRConfig_Deployment_State_Updating;
 
 // ----------------------------------------------------------------------------
+// GTLRConfig_DeploymentGroup.provisioningState
+
+/**
+ *  The deployment group is deprovisioned.
+ *
+ *  Value: "DEPROVISIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_Deprovisioned;
+/**
+ *  The deployment group is being deprovisioned.
+ *
+ *  Value: "DEPROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_Deprovisioning;
+/**
+ *  The deployment group failed to be deprovisioned.
+ *
+ *  Value: "FAILED_TO_DEPROVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_FailedToDeprovision;
+/**
+ *  The deployment group failed to be provisioned.
+ *
+ *  Value: "FAILED_TO_PROVISION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_FailedToProvision;
+/**
+ *  The deployment group is provisioned.
+ *
+ *  Value: "PROVISIONED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_Provisioned;
+/**
+ *  The deployment group is being provisioned.
+ *
+ *  Value: "PROVISIONING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_Provisioning;
+/**
+ *  Unspecified provisioning state.
+ *
+ *  Value: "PROVISIONING_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_ProvisioningState_ProvisioningStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRConfig_DeploymentGroup.state
+
+/**
+ *  The deployment group is healthy.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_State_Active;
+/**
+ *  The deployment group is being created.
+ *
+ *  Value: "CREATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_State_Creating;
+/**
+ *  The deployment group has been deleted.
+ *
+ *  Value: "DELETED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_State_Deleted;
+/**
+ *  The deployment group is being deleted.
+ *
+ *  Value: "DELETING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_State_Deleting;
+/**
+ *  The deployment group has encountered an unexpected error.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_State_Failed;
+/**
+ *  The default value. This value is used if the state is omitted.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_State_StateUnspecified;
+/**
+ *  The deployment group is no longer being actively reconciled. This may be the
+ *  result of recovering the project after deletion.
+ *
+ *  Value: "SUSPENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_State_Suspended;
+/**
+ *  The deployment group is being updated.
+ *
+ *  Value: "UPDATING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentGroup_State_Updating;
+
+// ----------------------------------------------------------------------------
 // GTLRConfig_DeploymentOperationMetadata.step
 
 /**
@@ -357,6 +469,217 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationMetadata_Step_
  *  Value: "VALIDATING_REPOSITORY"
  */
 FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationMetadata_Step_ValidatingRepository;
+
+// ----------------------------------------------------------------------------
+// GTLRConfig_DeploymentOperationSummary.deploymentStep
+
+/**
+ *  Unspecified deployment step
+ *
+ *  Value: "DEPLOYMENT_STEP_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_DeploymentStepUnspecified;
+/**
+ *  Downloading the blueprint onto the Google Cloud Storage bucket
+ *
+ *  Value: "DOWNLOADING_BLUEPRINT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_DownloadingBlueprint;
+/**
+ *  Operation failed
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_Failed;
+/**
+ *  Infra Manager is creating a Google Cloud Storage bucket to store artifacts
+ *  and metadata about the deployment and revision
+ *
+ *  Value: "PREPARING_STORAGE_BUCKET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_PreparingStorageBucket;
+/**
+ *  Running quota validation
+ *
+ *  Value: "RUNNING_QUOTA_VALIDATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningQuotaValidation;
+/**
+ *  Actuating resources using Terraform using `terraform apply`
+ *
+ *  Value: "RUNNING_TF_APPLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfApply;
+/**
+ *  Destroying resources using Terraform using `terraform destroy`
+ *
+ *  Value: "RUNNING_TF_DESTROY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfDestroy;
+/**
+ *  Initializing Terraform using `terraform init`
+ *
+ *  Value: "RUNNING_TF_INIT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfInit;
+/**
+ *  Running `terraform plan`
+ *
+ *  Value: "RUNNING_TF_PLAN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfPlan;
+/**
+ *  Validating the uploaded TF state file when unlocking a deployment
+ *
+ *  Value: "RUNNING_TF_VALIDATE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfValidate;
+/**
+ *  Operation was successful
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_Succeeded;
+/**
+ *  Unlocking a deployment
+ *
+ *  Value: "UNLOCKING_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_UnlockingDeployment;
+/**
+ *  Validating the provided repository.
+ *
+ *  Value: "VALIDATING_REPOSITORY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentOperationSummary_DeploymentStep_ValidatingRepository;
+
+// ----------------------------------------------------------------------------
+// GTLRConfig_DeploymentUnitProgress.intent
+
+/**
+ *  Delete deployment in latest successful revision while no longer referenced
+ *  in any deployment unit in the current deployment group.
+ *
+ *  Value: "CLEAN_UP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_CleanUp;
+/**
+ *  Create deployment in the unit from the deployment spec.
+ *
+ *  Value: "CREATE_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_CreateDeployment;
+/**
+ *  Delete deployment in the unit.
+ *
+ *  Value: "DELETE_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_DeleteDeployment;
+/**
+ *  Unspecified intent.
+ *
+ *  Value: "INTENT_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_IntentUnspecified;
+/**
+ *  Recreate deployment in the unit.
+ *
+ *  Value: "RECREATE_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_RecreateDeployment;
+/**
+ *  Expected to be unchanged.
+ *
+ *  Value: "UNCHANGED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_Unchanged;
+/**
+ *  Update deployment in the unit.
+ *
+ *  Value: "UPDATE_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_Intent_UpdateDeployment;
+
+// ----------------------------------------------------------------------------
+// GTLRConfig_DeploymentUnitProgress.state
+
+/**
+ *  The deployment unit was aborted, likely due to failures in other dependent
+ *  deployment units.
+ *
+ *  Value: "ABORTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_State_Aborted;
+/**
+ *  The underlying deployment of the unit is being created or updated.
+ *
+ *  Value: "APPLYING_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_State_ApplyingDeployment;
+/**
+ *  The deployment is being deleted.
+ *
+ *  Value: "DELETING_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_State_DeletingDeployment;
+/**
+ *  The underlying deployment operation of the unit has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_State_Failed;
+/**
+ *  The deployment is being previewed.
+ *
+ *  Value: "PREVIEWING_DEPLOYMENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_State_PreviewingDeployment;
+/**
+ *  The deployment unit is queued for deployment creation or update.
+ *
+ *  Value: "QUEUED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_State_Queued;
+/**
+ *  The deployment unit was skipped because there were no changes to apply.
+ *
+ *  Value: "SKIPPED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_State_Skipped;
+/**
+ *  The default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_State_StateUnspecified;
+/**
+ *  The underlying deployment operation of the unit has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeploymentUnitProgress_State_Succeeded;
+
+// ----------------------------------------------------------------------------
+// GTLRConfig_DeprovisionDeploymentGroupRequest.deletePolicy
+
+/**
+ *  Abandons resources and only deletes the deployment and its metadata.
+ *
+ *  Value: "ABANDON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeprovisionDeploymentGroupRequest_DeletePolicy_Abandon;
+/**
+ *  Deletes resources actuated by the deployment.
+ *
+ *  Value: "DELETE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeprovisionDeploymentGroupRequest_DeletePolicy_Delete;
+/**
+ *  Unspecified policy, resources will be deleted.
+ *
+ *  Value: "DELETE_POLICY_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_DeprovisionDeploymentGroupRequest_DeletePolicy_DeletePolicyUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRConfig_Preview.errorCode
@@ -572,6 +895,58 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_ProviderConfig_SourceType_Provide
  *  Value: "SERVICE_MAINTAINED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRConfig_ProviderConfig_SourceType_ServiceMaintained;
+
+// ----------------------------------------------------------------------------
+// GTLRConfig_ProvisionDeploymentGroupOperationMetadata.step
+
+/**
+ *  Locking the deployments to the deployment group for atomic actuation.
+ *
+ *  Value: "ASSOCIATING_DEPLOYMENTS_TO_DEPLOYMENT_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_AssociatingDeploymentsToDeploymentGroup;
+/**
+ *  Deprovisioning the deployment units.
+ *
+ *  Value: "DEPROVISIONING_DEPLOYMENT_UNITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_DeprovisioningDeploymentUnits;
+/**
+ *  Unlocking the deployments from the deployment group after actuation.
+ *
+ *  Value: "DISASSOCIATING_DEPLOYMENTS_FROM_DEPLOYMENT_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_DisassociatingDeploymentsFromDeploymentGroup;
+/**
+ *  The operation has failed.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_Failed;
+/**
+ *  Unspecified step.
+ *
+ *  Value: "PROVISION_DEPLOYMENT_GROUP_STEP_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_ProvisionDeploymentGroupStepUnspecified;
+/**
+ *  Provisioning the deployment units.
+ *
+ *  Value: "PROVISIONING_DEPLOYMENT_UNITS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_ProvisioningDeploymentUnits;
+/**
+ *  The operation has succeeded.
+ *
+ *  Value: "SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_Succeeded;
+/**
+ *  Validating the deployment group.
+ *
+ *  Value: "VALIDATING_DEPLOYMENT_GROUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_ValidatingDeploymentGroup;
 
 // ----------------------------------------------------------------------------
 // GTLRConfig_Resource.intent
@@ -1324,6 +1699,162 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 
 
 /**
+ *  A DeploymentGroup is a collection of DeploymentUnits that in a DAG-like
+ *  structure.
+ */
+@interface GTLRConfig_DeploymentGroup : GTLRObject
+
+/**
+ *  Optional. Arbitrary key-value metadata storage e.g. to help client tools
+ *  identify deployment group during automation. See
+ *  https://google.aip.dev/148#annotations for details on format and size
+ *  limitations.
+ */
+@property(nonatomic, strong, nullable) GTLRConfig_DeploymentGroup_Annotations *annotations;
+
+/** Output only. Time when the deployment group was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  The deployment units of the deployment group in a DAG like structure. When a
+ *  deployment group is being provisioned, the deployment units are deployed in
+ *  a DAG order. The provided units must be in a DAG order, otherwise an error
+ *  will be returned.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConfig_DeploymentUnit *> *deploymentUnits;
+
+/** Optional. User-defined metadata for the deployment group. */
+@property(nonatomic, strong, nullable) GTLRConfig_DeploymentGroup_Labels *labels;
+
+/**
+ *  Identifier. The name of the deployment group. Format:
+ *  'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The error status of the deployment group provisioning or
+ *  deprovisioning.
+ */
+@property(nonatomic, strong, nullable) GTLRConfig_Status *provisioningError;
+
+/**
+ *  Output only. The provisioning state of the deployment group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConfig_DeploymentGroup_ProvisioningState_Deprovisioned The
+ *        deployment group is deprovisioned. (Value: "DEPROVISIONED")
+ *    @arg @c kGTLRConfig_DeploymentGroup_ProvisioningState_Deprovisioning The
+ *        deployment group is being deprovisioned. (Value: "DEPROVISIONING")
+ *    @arg @c kGTLRConfig_DeploymentGroup_ProvisioningState_FailedToDeprovision
+ *        The deployment group failed to be deprovisioned. (Value:
+ *        "FAILED_TO_DEPROVISION")
+ *    @arg @c kGTLRConfig_DeploymentGroup_ProvisioningState_FailedToProvision
+ *        The deployment group failed to be provisioned. (Value:
+ *        "FAILED_TO_PROVISION")
+ *    @arg @c kGTLRConfig_DeploymentGroup_ProvisioningState_Provisioned The
+ *        deployment group is provisioned. (Value: "PROVISIONED")
+ *    @arg @c kGTLRConfig_DeploymentGroup_ProvisioningState_Provisioning The
+ *        deployment group is being provisioned. (Value: "PROVISIONING")
+ *    @arg @c kGTLRConfig_DeploymentGroup_ProvisioningState_ProvisioningStateUnspecified
+ *        Unspecified provisioning state. (Value:
+ *        "PROVISIONING_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *provisioningState;
+
+/**
+ *  Output only. Additional information regarding the current provisioning
+ *  state.
+ */
+@property(nonatomic, copy, nullable) NSString *provisioningStateDescription;
+
+/**
+ *  Output only. Current state of the deployment group.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConfig_DeploymentGroup_State_Active The deployment group is
+ *        healthy. (Value: "ACTIVE")
+ *    @arg @c kGTLRConfig_DeploymentGroup_State_Creating The deployment group is
+ *        being created. (Value: "CREATING")
+ *    @arg @c kGTLRConfig_DeploymentGroup_State_Deleted The deployment group has
+ *        been deleted. (Value: "DELETED")
+ *    @arg @c kGTLRConfig_DeploymentGroup_State_Deleting The deployment group is
+ *        being deleted. (Value: "DELETING")
+ *    @arg @c kGTLRConfig_DeploymentGroup_State_Failed The deployment group has
+ *        encountered an unexpected error. (Value: "FAILED")
+ *    @arg @c kGTLRConfig_DeploymentGroup_State_StateUnspecified The default
+ *        value. This value is used if the state is omitted. (Value:
+ *        "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRConfig_DeploymentGroup_State_Suspended The deployment group
+ *        is no longer being actively reconciled. This may be the result of
+ *        recovering the project after deletion. (Value: "SUSPENDED")
+ *    @arg @c kGTLRConfig_DeploymentGroup_State_Updating The deployment group is
+ *        being updated. (Value: "UPDATING")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Additional information regarding the current state. */
+@property(nonatomic, copy, nullable) NSString *stateDescription;
+
+/** Output only. Time when the deployment group was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Optional. Arbitrary key-value metadata storage e.g. to help client tools
+ *  identify deployment group during automation. See
+ *  https://google.aip.dev/148#annotations for details on format and size
+ *  limitations.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConfig_DeploymentGroup_Annotations : GTLRObject
+@end
+
+
+/**
+ *  Optional. User-defined metadata for the deployment group.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRConfig_DeploymentGroup_Labels : GTLRObject
+@end
+
+
+/**
+ *  A DeploymentGroupRevision represents a snapshot of a DeploymentGroup at a
+ *  given point in time, created when a DeploymentGroup is provisioned or
+ *  deprovisioned.
+ */
+@interface GTLRConfig_DeploymentGroupRevision : GTLRObject
+
+/** Output only. The alternative IDs of the deployment group revision. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *alternativeIds;
+
+/** Output only. Time when the deployment group revision was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Identifier. The name of the deployment group revision. Format:
+ *  'projects/{project_id}/locations/{location}/deploymentGroups/{deployment_group}/revisions/{revision}'.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The snapshot of the deployment group at this revision. */
+@property(nonatomic, strong, nullable) GTLRConfig_DeploymentGroup *snapshot;
+
+@end
+
+
+/**
  *  Ephemeral metadata content describing the state of a deployment operation.
  */
 @interface GTLRConfig_DeploymentOperationMetadata : GTLRObject
@@ -1379,6 +1910,259 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
  *        Validating the provided repository. (Value: "VALIDATING_REPOSITORY")
  */
 @property(nonatomic, copy, nullable) NSString *step;
+
+@end
+
+
+/**
+ *  The summary of the deployment operation.
+ */
+@interface GTLRConfig_DeploymentOperationSummary : GTLRObject
+
+/**
+ *  Output only. Location of Deployment operations artifacts in
+ *  `gs://{bucket}/{object}` format.
+ */
+@property(nonatomic, copy, nullable) NSString *artifacts;
+
+/** Output only. Cloud Build instance UUID associated with this operation. */
+@property(nonatomic, copy, nullable) NSString *build;
+
+/**
+ *  Output only. Location of Deployment operations content in
+ *  `gs://{bucket}/{object}` format.
+ */
+@property(nonatomic, copy, nullable) NSString *content;
+
+/**
+ *  Output only. The current step the deployment operation is running.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_DeploymentStepUnspecified
+ *        Unspecified deployment step (Value: "DEPLOYMENT_STEP_UNSPECIFIED")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_DownloadingBlueprint
+ *        Downloading the blueprint onto the Google Cloud Storage bucket (Value:
+ *        "DOWNLOADING_BLUEPRINT")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_Failed
+ *        Operation failed (Value: "FAILED")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_PreparingStorageBucket
+ *        Infra Manager is creating a Google Cloud Storage bucket to store
+ *        artifacts and metadata about the deployment and revision (Value:
+ *        "PREPARING_STORAGE_BUCKET")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningQuotaValidation
+ *        Running quota validation (Value: "RUNNING_QUOTA_VALIDATION")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfApply
+ *        Actuating resources using Terraform using `terraform apply` (Value:
+ *        "RUNNING_TF_APPLY")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfDestroy
+ *        Destroying resources using Terraform using `terraform destroy` (Value:
+ *        "RUNNING_TF_DESTROY")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfInit
+ *        Initializing Terraform using `terraform init` (Value:
+ *        "RUNNING_TF_INIT")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfPlan
+ *        Running `terraform plan` (Value: "RUNNING_TF_PLAN")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_RunningTfValidate
+ *        Validating the uploaded TF state file when unlocking a deployment
+ *        (Value: "RUNNING_TF_VALIDATE")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_Succeeded
+ *        Operation was successful (Value: "SUCCEEDED")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_UnlockingDeployment
+ *        Unlocking a deployment (Value: "UNLOCKING_DEPLOYMENT")
+ *    @arg @c kGTLRConfig_DeploymentOperationSummary_DeploymentStep_ValidatingRepository
+ *        Validating the provided repository. (Value: "VALIDATING_REPOSITORY")
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentStep;
+
+/**
+ *  Output only. Location of Deployment operations logs in
+ *  `gs://{bucket}/{object}` format.
+ */
+@property(nonatomic, copy, nullable) NSString *logs;
+
+@end
+
+
+/**
+ *  Configuration for a value sourced from a Deployment.
+ */
+@interface GTLRConfig_DeploymentSource : GTLRObject
+
+/**
+ *  Required. The resource name of the source Deployment to import the output
+ *  from. Format:
+ *  projects/{project}/locations/{location}/deployments/{deployment} The source
+ *  deployment must be in the same project and location.
+ */
+@property(nonatomic, copy, nullable) NSString *deployment;
+
+/**
+ *  Required. The name of the output variable in the source deployment's latest
+ *  successfully applied revision.
+ */
+@property(nonatomic, copy, nullable) NSString *outputName;
+
+@end
+
+
+/**
+ *  Spec for a deployment to be created.
+ */
+@interface GTLRConfig_DeploymentSpec : GTLRObject
+
+/** Required. The deployment to be created. */
+@property(nonatomic, strong, nullable) GTLRConfig_Deployment *deployment;
+
+/**
+ *  Required. The id of the deployment to be created which doesn't include the
+ *  project id and location.
+ */
+@property(nonatomic, copy, nullable) NSString *deploymentId;
+
+@end
+
+
+/**
+ *  A DeploymentUnit is a container for a deployment and its dependencies. An
+ *  existing deployment can be provided directly in the unit, or the unit can
+ *  act as a placeholder to define the DAG, with the deployment specs supplied
+ *  in a `provisionDeploymentRequest`.
+ */
+@interface GTLRConfig_DeploymentUnit : GTLRObject
+
+/**
+ *  Required. The IDs of the deployment units within the deployment group that
+ *  this unit depends on.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *dependencies;
+
+/**
+ *  Optional. The name of the deployment to be provisioned. Format:
+ *  'projects/{project_id}/locations/{location}/deployments/{deployment}'.
+ */
+@property(nonatomic, copy, nullable) NSString *deployment;
+
+/**
+ *  The id of the deployment unit. Must be unique within the deployment group.
+ *
+ *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+ */
+@property(nonatomic, copy, nullable) NSString *identifier;
+
+@end
+
+
+/**
+ *  The progress of a deployment unit provisioning or deprovisioning.
+ */
+@interface GTLRConfig_DeploymentUnitProgress : GTLRObject
+
+/**
+ *  Output only. The name of the deployment to be provisioned. Format:
+ *  'projects/{project}/locations/{location}/deployments/{deployment}'.
+ */
+@property(nonatomic, copy, nullable) NSString *deployment;
+
+/** Output only. The summary of the deployment operation. */
+@property(nonatomic, strong, nullable) GTLRConfig_DeploymentOperationSummary *deploymentOperationSummary;
+
+/**
+ *  Output only. Holds the error status of the deployment unit provisioning.
+ */
+@property(nonatomic, strong, nullable) GTLRConfig_Status *error;
+
+/**
+ *  Output only. The intent of the deployment unit.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_Intent_CleanUp Delete
+ *        deployment in latest successful revision while no longer referenced in
+ *        any deployment unit in the current deployment group. (Value:
+ *        "CLEAN_UP")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_Intent_CreateDeployment Create
+ *        deployment in the unit from the deployment spec. (Value:
+ *        "CREATE_DEPLOYMENT")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_Intent_DeleteDeployment Delete
+ *        deployment in the unit. (Value: "DELETE_DEPLOYMENT")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_Intent_IntentUnspecified
+ *        Unspecified intent. (Value: "INTENT_UNSPECIFIED")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_Intent_RecreateDeployment
+ *        Recreate deployment in the unit. (Value: "RECREATE_DEPLOYMENT")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_Intent_Unchanged Expected to be
+ *        unchanged. (Value: "UNCHANGED")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_Intent_UpdateDeployment Update
+ *        deployment in the unit. (Value: "UPDATE_DEPLOYMENT")
+ */
+@property(nonatomic, copy, nullable) NSString *intent;
+
+/**
+ *  Output only. The current step of the deployment unit provisioning.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_State_Aborted The deployment
+ *        unit was aborted, likely due to failures in other dependent deployment
+ *        units. (Value: "ABORTED")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_State_ApplyingDeployment The
+ *        underlying deployment of the unit is being created or updated. (Value:
+ *        "APPLYING_DEPLOYMENT")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_State_DeletingDeployment The
+ *        deployment is being deleted. (Value: "DELETING_DEPLOYMENT")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_State_Failed The underlying
+ *        deployment operation of the unit has failed. (Value: "FAILED")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_State_PreviewingDeployment The
+ *        deployment is being previewed. (Value: "PREVIEWING_DEPLOYMENT")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_State_Queued The deployment
+ *        unit is queued for deployment creation or update. (Value: "QUEUED")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_State_Skipped The deployment
+ *        unit was skipped because there were no changes to apply. (Value:
+ *        "SKIPPED")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_State_StateUnspecified The
+ *        default value. This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRConfig_DeploymentUnitProgress_State_Succeeded The underlying
+ *        deployment operation of the unit has succeeded. (Value: "SUCCEEDED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/** Output only. Additional information regarding the current state. */
+@property(nonatomic, copy, nullable) NSString *stateDescription;
+
+/** Output only. The unit id of the deployment unit to be provisioned. */
+@property(nonatomic, copy, nullable) NSString *unitId;
+
+@end
+
+
+/**
+ *  The request message for the DeprovisionDeploymentGroup method.
+ */
+@interface GTLRConfig_DeprovisionDeploymentGroupRequest : GTLRObject
+
+/**
+ *  Optional. Policy on how resources within each deployment should be handled
+ *  during deletion. This policy is applied globally to the deletion of all
+ *  deployments in this group. This corresponds to the 'delete_policy' field in
+ *  DeleteDeploymentRequest.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConfig_DeprovisionDeploymentGroupRequest_DeletePolicy_Abandon
+ *        Abandons resources and only deletes the deployment and its metadata.
+ *        (Value: "ABANDON")
+ *    @arg @c kGTLRConfig_DeprovisionDeploymentGroupRequest_DeletePolicy_Delete
+ *        Deletes resources actuated by the deployment. (Value: "DELETE")
+ *    @arg @c kGTLRConfig_DeprovisionDeploymentGroupRequest_DeletePolicy_DeletePolicyUnspecified
+ *        Unspecified policy, resources will be deleted. (Value:
+ *        "DELETE_POLICY_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *deletePolicy;
+
+/**
+ *  Optional. If set to true, this option is propagated to the deletion of each
+ *  deployment in the group. This corresponds to the 'force' field in
+ *  DeleteDeploymentRequest.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
 
 @end
 
@@ -1486,6 +2270,17 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 
 
 /**
+ *  Configuration for a source of an external value.
+ */
+@interface GTLRConfig_ExternalValueSource : GTLRObject
+
+/** A source from a Deployment. */
+@property(nonatomic, strong, nullable) GTLRConfig_DeploymentSource *deploymentSource;
+
+@end
+
+
+/**
  *  A set of files in a Git repository.
  */
 @interface GTLRConfig_GitSource : GTLRObject
@@ -1519,6 +2314,66 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
  *  Uses NSNumber of longLongValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *lockId;
+
+@end
+
+
+/**
+ *  The response message for the ListDeploymentGroupRevisions method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deploymentGroupRevisions" property. If returned as the result of
+ *        a query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRConfig_ListDeploymentGroupRevisionsResponse : GTLRCollectionObject
+
+/**
+ *  The deployment group revisions from the specified collection.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConfig_DeploymentGroupRevision *> *deploymentGroupRevisions;
+
+/**
+ *  Token to be supplied to the next ListDeploymentGroupRevisions request via
+ *  `page_token` to obtain the next set of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Unordered list. Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
+@end
+
+
+/**
+ *  The response message for the ListDeploymentGroups method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "deploymentGroups" property. If returned as the result of a query,
+ *        it should support automatic pagination (when @c shouldFetchNextPages
+ *        is enabled).
+ */
+@interface GTLRConfig_ListDeploymentGroupsResponse : GTLRCollectionObject
+
+/**
+ *  The deployment groups from the specified collection.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConfig_DeploymentGroup *> *deploymentGroups;
+
+/**
+ *  Token to be supplied to the next ListDeploymentGroups request via
+ *  `page_token` to obtain the next set of results.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/** Locations that could not be reached. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -1992,6 +2847,9 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 
 /** Output only. Metadata about the preview operation state. */
 @property(nonatomic, strong, nullable) GTLRConfig_PreviewOperationMetadata *previewMetadata;
+
+/** Output only. Metadata about ProvisionDeploymentGroup operation state. */
+@property(nonatomic, strong, nullable) GTLRConfig_ProvisionDeploymentGroupOperationMetadata *provisionDeploymentGroupMetadata;
 
 /**
  *  Output only. Identifies whether the user has requested cancellation of the
@@ -2495,6 +3353,87 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 
 
 /**
+ *  Operation metadata for `ProvisionDeploymentGroup` and
+ *  `DeprovisionDeploymentGroup` long-running operations.
+ */
+@interface GTLRConfig_ProvisionDeploymentGroupOperationMetadata : GTLRObject
+
+/**
+ *  Output only. Progress information for each deployment unit within the
+ *  operation.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRConfig_DeploymentUnitProgress *> *deploymentUnitProgresses;
+
+/**
+ *  Output only. The current step of the deployment group operation.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_AssociatingDeploymentsToDeploymentGroup
+ *        Locking the deployments to the deployment group for atomic actuation.
+ *        (Value: "ASSOCIATING_DEPLOYMENTS_TO_DEPLOYMENT_GROUP")
+ *    @arg @c kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_DeprovisioningDeploymentUnits
+ *        Deprovisioning the deployment units. (Value:
+ *        "DEPROVISIONING_DEPLOYMENT_UNITS")
+ *    @arg @c kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_DisassociatingDeploymentsFromDeploymentGroup
+ *        Unlocking the deployments from the deployment group after actuation.
+ *        (Value: "DISASSOCIATING_DEPLOYMENTS_FROM_DEPLOYMENT_GROUP")
+ *    @arg @c kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_Failed
+ *        The operation has failed. (Value: "FAILED")
+ *    @arg @c kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_ProvisionDeploymentGroupStepUnspecified
+ *        Unspecified step. (Value:
+ *        "PROVISION_DEPLOYMENT_GROUP_STEP_UNSPECIFIED")
+ *    @arg @c kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_ProvisioningDeploymentUnits
+ *        Provisioning the deployment units. (Value:
+ *        "PROVISIONING_DEPLOYMENT_UNITS")
+ *    @arg @c kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_Succeeded
+ *        The operation has succeeded. (Value: "SUCCEEDED")
+ *    @arg @c kGTLRConfig_ProvisionDeploymentGroupOperationMetadata_Step_ValidatingDeploymentGroup
+ *        Validating the deployment group. (Value:
+ *        "VALIDATING_DEPLOYMENT_GROUP")
+ */
+@property(nonatomic, copy, nullable) NSString *step;
+
+@end
+
+
+/**
+ *  The request message for the ProvisionDeploymentGroup method.
+ */
+@interface GTLRConfig_ProvisionDeploymentGroupRequest : GTLRObject
+
+/**
+ *  Optional. The deployment specs of the deployment units to be created within
+ *  the same project and location of the deployment group. The key is the unit
+ *  ID, and the value is the `DeploymentSpec`. Provisioning will fail if a
+ *  `deployment_spec` has a `deployment_id` that matches an existing deployment
+ *  in the same project and location. If an existing deployment was part of the
+ *  last successful revision but is no longer in the current DeploymentGroup's
+ *  `deployment_units`, it will be recreated if included in `deployment_specs`.
+ */
+@property(nonatomic, strong, nullable) GTLRConfig_ProvisionDeploymentGroupRequest_DeploymentSpecs *deploymentSpecs;
+
+@end
+
+
+/**
+ *  Optional. The deployment specs of the deployment units to be created within
+ *  the same project and location of the deployment group. The key is the unit
+ *  ID, and the value is the `DeploymentSpec`. Provisioning will fail if a
+ *  `deployment_spec` has a `deployment_id` that matches an existing deployment
+ *  in the same project and location. If an existing deployment was part of the
+ *  last successful revision but is no longer in the current DeploymentGroup's
+ *  `deployment_units`, it will be recreated if included in `deployment_specs`.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConfig_DeploymentSpec. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConfig_ProvisionDeploymentGroupRequest_DeploymentSpecs : GTLRObject
+@end
+
+
+/**
  *  Resource represents a Google Cloud Platform resource actuated by IM.
  *  Resources are child resources of Revisions.
  */
@@ -2984,6 +3923,12 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 @interface GTLRConfig_TerraformBlueprint : GTLRObject
 
 /**
+ *  Optional. Map of input variable names in this blueprint to configurations
+ *  for importing values from external sources.
+ */
+@property(nonatomic, strong, nullable) GTLRConfig_TerraformBlueprint_ExternalValues *externalValues;
+
+/**
  *  URI of an object in Google Cloud Storage. Format: `gs://{bucket}/{object}`
  *  URI may also specify an object version for zipped objects. Format:
  *  `gs://{bucket}/{object}#{version}`
@@ -2996,6 +3941,19 @@ FOUNDATION_EXTERN NSString * const kGTLRConfig_TerraformVersion_State_StateUnspe
 /** Optional. Input variable values for the Terraform blueprint. */
 @property(nonatomic, strong, nullable) GTLRConfig_TerraformBlueprint_InputValues *inputValues;
 
+@end
+
+
+/**
+ *  Optional. Map of input variable names in this blueprint to configurations
+ *  for importing values from external sources.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRConfig_ExternalValueSource. Use @c -additionalJSONKeys and @c
+ *        -additionalPropertyForName: to get the list of properties and then
+ *        fetch them; or @c -additionalProperties to fetch them all at once.
+ */
+@interface GTLRConfig_TerraformBlueprint_ExternalValues : GTLRObject
 @end
 
 

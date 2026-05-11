@@ -44,6 +44,9 @@
 @class GTLRDataform_Expr;
 @class GTLRDataform_FileOperation;
 @class GTLRDataform_FileSearchResult;
+@class GTLRDataform_FilesystemEntryMetadata;
+@class GTLRDataform_Folder;
+@class GTLRDataform_FolderContentsEntry;
 @class GTLRDataform_GitRemoteSettings;
 @class GTLRDataform_IncrementalLoadMode;
 @class GTLRDataform_IncrementalTableConfig;
@@ -70,6 +73,7 @@
 @class GTLRDataform_ReleaseConfig;
 @class GTLRDataform_Repository;
 @class GTLRDataform_Repository_Labels;
+@class GTLRDataform_RootContentsEntry;
 @class GTLRDataform_ScheduledExecutionRecord;
 @class GTLRDataform_ScheduledReleaseRecord;
 @class GTLRDataform_SearchResult;
@@ -79,6 +83,9 @@
 @class GTLRDataform_Status;
 @class GTLRDataform_Status_Details_Item;
 @class GTLRDataform_Target;
+@class GTLRDataform_TeamFolder;
+@class GTLRDataform_TeamFolderContentsEntry;
+@class GTLRDataform_TeamFolderSearchResult;
 @class GTLRDataform_UncommittedFileChange;
 @class GTLRDataform_WorkflowConfig;
 @class GTLRDataform_WorkflowInvocation;
@@ -113,6 +120,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_ComputeRepositoryAccessTokenSta
  *  Value: "NOT_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_NotFound;
+/**
+ *  The token is not accessible due to permission issues.
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_PermissionDenied;
 /**
  *  Default value. This value is unused.
  *
@@ -833,6 +846,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 /**
  *  Output only. The identifier of the action where this error occurred, if
  *  available.
+ *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:CompilationError)
  */
 @property(nonatomic, strong, nullable) GTLRDataform_Target *actionTarget;
 
@@ -985,6 +999,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *        The token could not be found in Secret Manager (or the Dataform
  *        Service Account did not have permission to access it). (Value:
  *        "NOT_FOUND")
+ *    @arg @c kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_PermissionDenied
+ *        The token is not accessible due to permission issues. (Value:
+ *        "PERMISSION_DENIED")
  *    @arg @c kGTLRDataform_ComputeRepositoryAccessTokenStatusResponse_TokenStatus_TokenStatusUnspecified
  *        Default value. This value is unused. (Value:
  *        "TOKEN_STATUS_UNSPECIFIED")
@@ -1120,6 +1137,46 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  `DeleteFolderTree` request message.
+ */
+@interface GTLRDataform_DeleteFolderTreeRequest : GTLRObject
+
+/**
+ *  Optional. If `false` (default): The operation will fail if any Repository
+ *  within the folder hierarchy has associated Release Configs or Workflow
+ *  Configs. If `true`: The operation will attempt to delete everything,
+ *  including any Release Configs and Workflow Configs linked to Repositories
+ *  within the folder hierarchy. This permanently removes schedules and
+ *  resources.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+@end
+
+
+/**
+ *  `DeleteTeamFolderTree` request message.
+ */
+@interface GTLRDataform_DeleteTeamFolderTreeRequest : GTLRObject
+
+/**
+ *  Optional. If `false` (default): The operation will fail if any Repository
+ *  within the folder hierarchy has associated Release Configs or Workflow
+ *  Configs. If `true`: The operation will attempt to delete everything,
+ *  including any Release Configs and Workflow Configs linked to Repositories
+ *  within the folder hierarchy. This permanently removes schedules and
+ *  resources.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *force;
+
+@end
+
+
+/**
  *  Represents a single entry in a directory.
  */
 @interface GTLRDataform_DirectoryEntry : GTLRObject
@@ -1129,6 +1186,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** A file in the directory. */
 @property(nonatomic, copy, nullable) NSString *file;
+
+/** Entry with metadata. */
+@property(nonatomic, strong, nullable) GTLRDataform_FilesystemEntryMetadata *metadata;
 
 @end
 
@@ -1332,6 +1392,86 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  Represents metadata for a single entry in a filesystem.
+ */
+@interface GTLRDataform_FilesystemEntryMetadata : GTLRObject
+
+/**
+ *  Output only. Provides the size of the entry in bytes. For directories, this
+ *  will be 0.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *sizeBytes;
+
+/** Output only. Represents the time of the last modification of the entry. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Represents a Dataform Folder. This is a resource that is used to organize
+ *  Files and other Folders and provide hierarchical access controls.
+ */
+@interface GTLRDataform_Folder : GTLRObject
+
+/**
+ *  Optional. The containing Folder resource name. This should take the format:
+ *  projects/{project}/locations/{location}/folders/{folder},
+ *  projects/{project}/locations/{location}/teamFolders/{teamFolder}, or just ""
+ *  if this is a root Folder. This field can only be updated through MoveFolder.
+ */
+@property(nonatomic, copy, nullable) NSString *containingFolder;
+
+/** Output only. The timestamp of when the Folder was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The IAM principal identifier of the creator of the Folder. */
+@property(nonatomic, copy, nullable) NSString *creatorIamPrincipal;
+
+/** Required. The Folder's user-friendly name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. All the metadata information that is used internally to serve
+ *  the resource. For example: timestamps, flags, status fields, etc. The format
+ *  of this field is a JSON string.
+ */
+@property(nonatomic, copy, nullable) NSString *internalMetadata;
+
+/** Identifier. The Folder's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The resource name of the TeamFolder that this Folder is
+ *  associated with. This should take the format:
+ *  projects/{project}/locations/{location}/teamFolders/{teamFolder}. If this is
+ *  not set, the Folder is not associated with a TeamFolder and is a UserFolder.
+ */
+@property(nonatomic, copy, nullable) NSString *teamFolderName;
+
+/** Output only. The timestamp of when the Folder was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Represents a single content entry.
+ */
+@interface GTLRDataform_FolderContentsEntry : GTLRObject
+
+/** A subfolder. */
+@property(nonatomic, strong, nullable) GTLRDataform_Folder *folder;
+
+/** A repository. */
+@property(nonatomic, strong, nullable) GTLRDataform_Repository *repository;
+
+@end
+
+
+/**
  *  Controls Git remote configuration for a repository.
  */
 @interface GTLRDataform_GitRemoteSettings : GTLRObject
@@ -1343,7 +1483,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *authenticationTokenSecretVersion;
 
-/** Required. The Git remote's default branch name. */
+/**
+ *  Required. The Git remote's default branch name. If not set, `main` will be
+ *  used and stored for the repository.
+ */
 @property(nonatomic, copy, nullable) NSString *defaultBranch;
 
 /** Optional. Authentication fields for remote uris using SSH protocol. */
@@ -1578,7 +1721,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
-/** Locations which could not be reached. */
+/**
+ *  Locations which could not be reached.
+ *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:ListCompilationResultsResponse)
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1664,7 +1810,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataform_ReleaseConfig *> *releaseConfigs;
 
-/** Locations which could not be reached. */
+/**
+ *  Locations which could not be reached.
+ *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:ListReleaseConfigsResponse)
+ */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
@@ -1953,6 +2102,38 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  `MoveFolder` request message.
+ */
+@interface GTLRDataform_MoveFolderRequest : GTLRObject
+
+/**
+ *  Optional. The name of the Folder, TeamFolder, or root location to move the
+ *  Folder to. Can be in the format of: "" to move into the root User folder,
+ *  `projects/ * /locations/ * /folders/ *`, `projects/ * /locations/ *
+ *  /teamFolders/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *destinationContainingFolder;
+
+@end
+
+
+/**
+ *  `MoveRepository` request message.
+ */
+@interface GTLRDataform_MoveRepositoryRequest : GTLRObject
+
+/**
+ *  Optional. The name of the Folder, TeamFolder, or root location to move the
+ *  repository to. Can be in the format of: "" to move into the root User
+ *  folder, `projects/ * /locations/ * /folders/ *`, `projects/ * /locations/ *
+ *  /teamFolders/ *`
+ */
+@property(nonatomic, copy, nullable) NSString *destinationContainingFolder;
+
+@end
+
+
+/**
  *  Represents a notebook.
  */
 @interface GTLRDataform_Notebook : GTLRObject
@@ -1985,9 +2166,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, copy, nullable) NSString *contents;
 
 /**
- *  Output only. The ID of the Vertex job that executed the notebook in contents
- *  and also the ID used for the outputs created in Google Cloud Storage
- *  buckets. Only set once the job has started to run.
+ *  Output only. The ID of the Gemini Enterprise Agent Platform job that
+ *  executed the notebook in contents and also the ID used for the outputs
+ *  created in Google Cloud Storage buckets. Only set once the job has started
+ *  to run.
  */
 @property(nonatomic, copy, nullable) NSString *jobId;
 
@@ -2416,6 +2598,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 
 /**
+ *  `QueryFolderContents` response message.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataform_QueryFolderContentsResponse : GTLRCollectionObject
+
+/**
+ *  List of entries in the folder.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataform_FolderContentsEntry *> *entries;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
  *  `QueryRepositoryDirectoryContents` response message.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -2432,6 +2641,60 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDataform_DirectoryEntry *> *directoryEntries;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  `QueryTeamFolderContents` response message.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataform_QueryTeamFolderContentsResponse : GTLRCollectionObject
+
+/**
+ *  List of entries in the TeamFolder.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataform_TeamFolderContentsEntry *> *entries;
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+@end
+
+
+/**
+ *  `QueryUserRootContents` response message.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "entries" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataform_QueryUserRootContentsResponse : GTLRCollectionObject
+
+/**
+ *  List of entries in the folder.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataform_RootContentsEntry *> *entries;
 
 /**
  *  A token, which can be sent as `page_token` to retrieve the next page. If
@@ -2708,6 +2971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  Output only. All the metadata information that is used internally to serve
  *  the resource. For example: timestamps, flags, status fields, etc. The format
  *  of this field is a JSON string.
+ *  LINT.ThenChange(//depot/google3/google/cloud/dataform/v2main/data_pipelines.proto:ReleaseConfig)
  */
 @property(nonatomic, copy, nullable) NSString *internalMetadata;
 
@@ -2790,6 +3054,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  */
 @interface GTLRDataform_Repository : GTLRObject
 
+/**
+ *  Optional. The name of the containing folder of the repository. The field is
+ *  immutable and it can be modified via a MoveRepository operation. Format:
+ *  `projects/ * /locations/ * /folders/ *`. or `projects/ * /locations/ *
+ *  /teamFolders/ *`.
+ */
+@property(nonatomic, copy, nullable) NSString *containingFolder;
+
 /** Output only. The timestamp of when the repository was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
@@ -2849,6 +3121,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 @property(nonatomic, strong, nullable) NSNumber *setAuthenticatedUserAdmin;
 
 /**
+ *  Output only. The resource name of the TeamFolder that this Repository is
+ *  associated with. This should take the format:
+ *  projects/{project}/locations/{location}/teamFolders/{teamFolder}. If this is
+ *  not set, the Repository is not associated with a TeamFolder.
+ */
+@property(nonatomic, copy, nullable) NSString *teamFolderName;
+
+/**
  *  Optional. If set, fields of `workspace_compilation_overrides` override the
  *  default compilation settings that are specified in dataform.json when
  *  creating workspace-scoped compilation results. See documentation for
@@ -2896,6 +3176,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  `ResetWorkspaceChanges` response message.
  */
 @interface GTLRDataform_ResetWorkspaceChangesResponse : GTLRObject
+@end
+
+
+/**
+ *  Represents a single content entry.
+ */
+@interface GTLRDataform_RootContentsEntry : GTLRObject
+
+/** A subfolder. */
+@property(nonatomic, strong, nullable) GTLRDataform_Folder *folder;
+
+/** A repository. */
+@property(nonatomic, strong, nullable) GTLRDataform_Repository *repository;
+
 @end
 
 
@@ -2986,6 +3280,33 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Details when search result is a file. */
 @property(nonatomic, strong, nullable) GTLRDataform_FileSearchResult *file;
+
+@end
+
+
+/**
+ *  `SearchTeamFolders` response message.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "results" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRDataform_SearchTeamFoldersResponse : GTLRCollectionObject
+
+/**
+ *  A token, which can be sent as `page_token` to retrieve the next page. If
+ *  this field is omitted, there are no subsequent pages.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of TeamFolders that match the search query.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRDataform_TeamFolderSearchResult *> *results;
 
 @end
 
@@ -3112,6 +3433,66 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
 
 /** Optional. The action's schema (BigQuery dataset ID), within `database`. */
 @property(nonatomic, copy, nullable) NSString *schema;
+
+@end
+
+
+/**
+ *  Represents a Dataform TeamFolder. This is a resource that sits at the
+ *  project level and is used to organize Repositories and Folders with
+ *  hierarchical access controls. They provide a team context and stricter
+ *  access controls.
+ */
+@interface GTLRDataform_TeamFolder : GTLRObject
+
+/** Output only. The timestamp of when the TeamFolder was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. The IAM principal identifier of the creator of the TeamFolder.
+ */
+@property(nonatomic, copy, nullable) NSString *creatorIamPrincipal;
+
+/** Required. The TeamFolder's user-friendly name. */
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+/**
+ *  Output only. All the metadata information that is used internally to serve
+ *  the resource. For example: timestamps, flags, status fields, etc. The format
+ *  of this field is a JSON string.
+ */
+@property(nonatomic, copy, nullable) NSString *internalMetadata;
+
+/** Identifier. The TeamFolder's name. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. The timestamp of when the TeamFolder was last updated. */
+@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
+
+@end
+
+
+/**
+ *  Represents a single content entry.
+ */
+@interface GTLRDataform_TeamFolderContentsEntry : GTLRObject
+
+/** A subfolder. */
+@property(nonatomic, strong, nullable) GTLRDataform_Folder *folder;
+
+/** A repository. */
+@property(nonatomic, strong, nullable) GTLRDataform_Repository *repository;
+
+@end
+
+
+/**
+ *  Represents a single content entry.
+ */
+@interface GTLRDataform_TeamFolderSearchResult : GTLRObject
+
+/** A TeamFolder resource that is in the project / location. */
+@property(nonatomic, strong, nullable) GTLRDataform_TeamFolder *teamFolder;
 
 @end
 
@@ -3395,6 +3776,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataform_WorkflowInvocationAction_State_
  *  is protected by a KMS key.
  */
 @property(nonatomic, strong, nullable) GTLRDataform_DataEncryptionState *dataEncryptionState;
+
+/**
+ *  Optional. If set to true, workspaces will not be moved if its linked
+ *  Repository is moved. Instead, it will be deleted.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *disableMoves;
 
 /**
  *  Output only. All the metadata information that is used internally to serve

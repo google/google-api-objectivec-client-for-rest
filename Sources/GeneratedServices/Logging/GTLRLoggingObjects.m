@@ -1013,7 +1013,7 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 @implementation GTLRLogging_LogEntry
 @dynamic apphub, apphubDestination, apphubSource, errorGroups, httpRequest,
-         insertId, jsonPayload, labels, logName, metadata, operation,
+         insertId, jsonPayload, labels, logName, metadata, operation, otel,
          protoPayload, receiveTimestamp, resource, severity, sourceLocation,
          spanId, split, textPayload, timestamp, trace, traceSampled;
 
@@ -1050,6 +1050,20 @@ NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified = @"REASO
 
 + (Class)classForAdditionalProperties {
   return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLogging_LogEntry_Otel
+//
+
+@implementation GTLRLogging_LogEntry_Otel
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
 }
 
 @end

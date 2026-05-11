@@ -36,6 +36,8 @@ NSString * const kGTLRFirebaseAppDistribution_GdataMedia_ReferenceType_Path = @"
 // GTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo.integrationState
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AabIntegrationStateUnspecified = @"AAB_INTEGRATION_STATE_UNSPECIFIED";
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AabStateUnavailable = @"AAB_STATE_UNAVAILABLE";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AdhocSharingKeyNotGenerated = @"ADHOC_SHARING_KEY_NOT_GENERATED";
+NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AdhocSharingKeyNotRegistered = @"ADHOC_SHARING_KEY_NOT_REGISTERED";
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_AppNotPublished = @"APP_NOT_PUBLISHED";
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_Integrated = @"INTEGRATED";
 NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1AabInfo_IntegrationState_NoAppWithGivenBundleIdInPlayAccount = @"NO_APP_WITH_GIVEN_BUNDLE_ID_IN_PLAY_ACCOUNT";
@@ -82,7 +84,8 @@ NSString * const kGTLRFirebaseAppDistribution_GoogleFirebaseAppdistroV1UploadRel
 //
 
 @implementation GTLRFirebaseAppDistribution_GdataContentTypeInfo
-@dynamic bestGuess, fromBytes, fromFileName, fromHeader, fromUrlPath;
+@dynamic bestGuess, fromBytes, fromFileName, fromFusionId, fromHeader,
+         fromUrlPath, fusionIdDetectionMetadata;
 @end
 
 

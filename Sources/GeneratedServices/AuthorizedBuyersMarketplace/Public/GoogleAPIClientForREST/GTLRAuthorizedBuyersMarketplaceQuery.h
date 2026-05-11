@@ -127,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  syntax](https://developers.google.com/authorized-buyers/apis/guides/list-filters)
  *  Supported columns for filtering are: * deal.displayName * deal.dealType *
  *  deal.createTime * deal.updateTime * deal.flightStartTime *
- *  deal.flightEndTime * deal.eligibleSeatIds * dealServingStatus
+ *  deal.flightEndTime * deal.eligibleSeatIds * dealServingStatus * readyToServe
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
@@ -1041,7 +1041,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  syntax](https://developers.google.com/authorized-buyers/apis/guides/list-filters)
  *  Supported columns for filtering are: * deal.displayName * deal.dealType *
  *  deal.createTime * deal.updateTime * deal.flightStartTime *
- *  deal.flightEndTime * deal.eligibleSeatIds * dealServingStatus
+ *  deal.flightEndTime * deal.eligibleSeatIds * dealServingStatus * readyToServe
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 

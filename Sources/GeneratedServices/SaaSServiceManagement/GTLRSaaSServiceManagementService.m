@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   SaaS Runtime API (saasservicemgmt/v1beta1)
+//   App Lifecycle Manager API (saasservicemgmt/v1)
 // Description:
 //   Model, deploy, and operate your SaaS at scale.
 // Documentation:

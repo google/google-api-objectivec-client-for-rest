@@ -2497,6 +2497,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_Secondary GTLR_DEPRECATED;
 /**
+ *  Represents a dataset resource.
+ *
+ *  Value: "SUB_RESOURCE_TYPE_DATASET"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeDataset;
+/**
  *  An instance acting as an external primary.
  *
  *  Value: "SUB_RESOURCE_TYPE_EXTERNAL_PRIMARY"
@@ -2527,6 +2533,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeReadReplica;
 /**
+ *  Represents a reservation resource.
+ *
+ *  Value: "SUB_RESOURCE_TYPE_RESERVATION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeReservation;
+/**
  *  A cluster or an instance acting as a secondary.
  *
  *  Value: "SUB_RESOURCE_TYPE_SECONDARY"
@@ -2538,6 +2550,34 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterP
  *  Value: "SUB_RESOURCE_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata.modes
+
+/**
+ *  Datastore mode.
+ *
+ *  Value: "MODE_DATASTORE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Modes_ModeDatastore;
+/**
+ *  MongoDB compatible mode.
+ *
+ *  Value: "MODE_MONGODB_COMPATIBLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Modes_ModeMongodbCompatible;
+/**
+ *  Native mode.
+ *
+ *  Value: "MODE_NATIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Modes_ModeNative;
+/**
+ *  Default mode.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_Modes_ModeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata.suspensionReason
@@ -6799,6 +6839,14 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 @property(nonatomic, copy, nullable) NSString *ip;
 
 /**
+ *  Output only. Indicates whether the node set up to be configured as a hot
+ *  standby.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isHotStandby;
+
+/**
  *  Output only. Determined by state of the compute VM and postgres-service
  *  health. Compute VM state can have values listed in
  *  https://cloud.google.com/compute/docs/instances/instance-life-cycle and
@@ -8655,7 +8703,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 
 /**
- *  Common model for database resource instance metadata. Next ID: 31
+ *  Common model for database resource instance metadata. Next ID: 32
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata : GTLRObject
 
@@ -8772,6 +8820,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *        An instance acting as a read-replica. (Value: "READ_REPLICA")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_Secondary
  *        A cluster or an instance acting as a secondary. (Value: "SECONDARY")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeDataset
+ *        Represents a dataset resource. (Value: "SUB_RESOURCE_TYPE_DATASET")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeExternalPrimary
  *        An instance acting as an external primary. (Value:
  *        "SUB_RESOURCE_TYPE_EXTERNAL_PRIMARY")
@@ -8786,6 +8836,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeReadReplica
  *        An instance acting as a read-replica. (Value:
  *        "SUB_RESOURCE_TYPE_READ_REPLICA")
+ *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeReservation
+ *        Represents a reservation resource. (Value:
+ *        "SUB_RESOURCE_TYPE_RESERVATION")
  *    @arg @c kGTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceMetadata_InstanceType_SubResourceTypeSecondary
  *        A cluster or an instance acting as a secondary. (Value:
  *        "SUB_RESOURCE_TYPE_SECONDARY")
@@ -8810,6 +8863,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Optional. Maintenance info for the resource. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainResourceMaintenanceInfo *maintenanceInfo;
+
+/** Optional. The modes of the database resource. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *modes;
 
 /**
  *  Identifier for this resource's immediate parent/primary resource if the
@@ -9337,7 +9393,7 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 /**
  *  Database resource signal data. This is used to send signals to Condor which
  *  are based on the DB/Instance/Fleet level configurations. These will be used
- *  to send signals for all inventory types. Next ID: 9
+ *  to send signals for all inventory types. Next ID: 10
  */
 @interface GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceSignalData : GTLRObject
 
@@ -9349,6 +9405,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudAlloyDBAdmin_WeeklySchedule_DaysOfW
 
 /** Required. Last time signal was refreshed */
 @property(nonatomic, strong, nullable) GTLRDateTime *lastRefreshTime;
+
+/** Required. Resource location. */
+@property(nonatomic, copy, nullable) NSString *location;
 
 /** Database resource id. */
 @property(nonatomic, strong, nullable) GTLRCloudAlloyDBAdmin_StorageDatabasecenterPartnerapiV1mainDatabaseResourceId *resourceId;

@@ -4,7 +4,7 @@
 // API:
 //   Firebase Data Connect API (firebasedataconnect/v1)
 // Description:
-//   Firebase Data Connect is a relational database service for mobile and web
+//   Firebase SQL Connect is a relational database service for mobile and web
 //   apps that lets you build and scale using a fully-managed PostgreSQL
 //   database powered by Cloud SQL. The REST API lets developers manage the
 //   connections to their database, change the schema of their database, and
@@ -65,10 +65,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: firebasedataconnect.projects.locations.list
  *
@@ -78,8 +84,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseDataConnectQuery_ProjectsLocationsList : GTLRFirebaseDataConnectQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -109,10 +115,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRFirebaseDataConnect_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -528,7 +540,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Impersonate a mutation defined on a Firebase Data Connect connector. It
+ *  Impersonate a mutation defined on a Firebase SQL Connect connector. It
  *  grants the admin SDK access to mutations defined in the given connector. The
  *  caller can choose to impersonate a particular Firebase Auth user, or skip
  *  \@auth completely.
@@ -551,7 +563,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirebaseDataConnect_GraphqlResponse.
  *
- *  Impersonate a mutation defined on a Firebase Data Connect connector. It
+ *  Impersonate a mutation defined on a Firebase SQL Connect connector. It
  *  grants the admin SDK access to mutations defined in the given connector. The
  *  caller can choose to impersonate a particular Firebase Auth user, or skip
  *  \@auth completely.
@@ -571,7 +583,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Impersonate a query defined on a Firebase Data Connect connector. It grants
+ *  Impersonate a query defined on a Firebase SQL Connect connector. It grants
  *  the admin SDK access to queries defined in the given connector. The caller
  *  can choose to impersonate a particular Firebase Auth user, or skip \@auth
  *  completely.
@@ -594,7 +606,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Fetches a @c GTLRFirebaseDataConnect_GraphqlResponse.
  *
- *  Impersonate a query defined on a Firebase Data Connect connector. It grants
+ *  Impersonate a query defined on a Firebase SQL Connect connector. It grants
  *  the admin SDK access to queries defined in the given connector. The caller
  *  can choose to impersonate a particular Firebase Auth user, or skip \@auth
  *  completely.
@@ -872,7 +884,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Execute any GraphQL query and mutation against the Firebase Data Connect's
+ *  Execute any GraphQL query or mutation against the Firebase SQL Connect's
  *  generated GraphQL schema. Grants full read and write access to the connected
  *  data sources. Note: Use introspection query to explore the generated GraphQL
  *  schema.
@@ -885,23 +897,22 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesExecuteGraphql : GTLRFirebaseDataConnectQuery
 
 /**
- *  Required. The relative resource name of Firebase Data Connect service, in
- *  the format: ``` projects/{project}/locations/{location}/services/{service}
- *  ```
+ *  Required. The relative resource name of Firebase SQL Connect service, in the
+ *  format: ``` projects/{project}/locations/{location}/services/{service} ```
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseDataConnect_GraphqlResponse.
  *
- *  Execute any GraphQL query and mutation against the Firebase Data Connect's
+ *  Execute any GraphQL query or mutation against the Firebase SQL Connect's
  *  generated GraphQL schema. Grants full read and write access to the connected
  *  data sources. Note: Use introspection query to explore the generated GraphQL
  *  schema.
  *
  *  @param object The @c GTLRFirebaseDataConnect_GraphqlRequest to include in
  *    the query.
- *  @param name Required. The relative resource name of Firebase Data Connect
+ *  @param name Required. The relative resource name of Firebase SQL Connect
  *    service, in the format: ```
  *    projects/{project}/locations/{location}/services/{service} ```
  *
@@ -913,7 +924,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Execute any GraphQL query against the Firebase Data Connect's generated
+ *  Execute any GraphQL query against the Firebase SQL Connect's generated
  *  GraphQL schema. Grants full read to the connected data sources.
  *  `ExecuteGraphqlRead` is identical to `ExecuteGraphql` except it only accepts
  *  read-only query.
@@ -926,29 +937,106 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesExecuteGraphqlRead : GTLRFirebaseDataConnectQuery
 
 /**
- *  Required. The relative resource name of Firebase Data Connect service, in
- *  the format: ``` projects/{project}/locations/{location}/services/{service}
- *  ```
+ *  Required. The relative resource name of Firebase SQL Connect service, in the
+ *  format: ``` projects/{project}/locations/{location}/services/{service} ```
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseDataConnect_GraphqlResponse.
  *
- *  Execute any GraphQL query against the Firebase Data Connect's generated
+ *  Execute any GraphQL query against the Firebase SQL Connect's generated
  *  GraphQL schema. Grants full read to the connected data sources.
  *  `ExecuteGraphqlRead` is identical to `ExecuteGraphql` except it only accepts
  *  read-only query.
  *
  *  @param object The @c GTLRFirebaseDataConnect_GraphqlRequest to include in
  *    the query.
- *  @param name Required. The relative resource name of Firebase Data Connect
+ *  @param name Required. The relative resource name of Firebase SQL Connect
  *    service, in the format: ```
  *    projects/{project}/locations/{location}/services/{service} ```
  *
  *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesExecuteGraphqlRead
  */
 + (instancetype)queryWithObject:(GTLRFirebaseDataConnect_GraphqlRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Generates a GraphQL query based on a natural language prompt and the
+ *  provided schema context. This is a stateless method; the schema is provided
+ *  per request to support local development states. Streams results with
+ *  real-time status and output chunks.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.generateQuery
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesGenerateQuery : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Required. The resource name of the service in which to generate the query.
+ *  Format: projects/{project}/locations/{location}/services/{service}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_GenerateQueryResponse.
+ *
+ *  Generates a GraphQL query based on a natural language prompt and the
+ *  provided schema context. This is a stateless method; the schema is provided
+ *  per request to support local development states. Streams results with
+ *  real-time status and output chunks.
+ *
+ *  @param object The @c GTLRFirebaseDataConnect_GenerateQueryRequest to include
+ *    in the query.
+ *  @param name Required. The resource name of the service in which to generate
+ *    the query. Format:
+ *    projects/{project}/locations/{location}/services/{service}
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesGenerateQuery
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_GenerateQueryRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Generates GraphQL schema based on a natural language prompt or data
+ *  description. This allows users to scaffold new types and tables quickly.
+ *  Streams results with real-time status and output chunks.
+ *
+ *  Method: firebasedataconnect.projects.locations.services.generateSchema
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeFirebaseDataConnectCloudPlatform
+ */
+@interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesGenerateSchema : GTLRFirebaseDataConnectQuery
+
+/**
+ *  Required. The resource name of the service in which to generate the schema.
+ *  Format: projects/{project}/locations/{location}/services/{service}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRFirebaseDataConnect_GenerateSchemaResponse.
+ *
+ *  Generates GraphQL schema based on a natural language prompt or data
+ *  description. This allows users to scaffold new types and tables quickly.
+ *  Streams results with real-time status and output chunks.
+ *
+ *  @param object The @c GTLRFirebaseDataConnect_GenerateSchemaRequest to
+ *    include in the query.
+ *  @param name Required. The resource name of the service in which to generate
+ *    the schema. Format:
+ *    projects/{project}/locations/{location}/services/{service}
+ *
+ *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesGenerateSchema
+ */
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_GenerateSchemaRequest *)object
                            name:(NSString *)name;
 
 @end
@@ -984,7 +1072,7 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 /**
- *  Execute introspection query against the Firebase Data Connect's generated
+ *  Execute introspection query against the Firebase SQL Connect's generated
  *  GraphQL schema. GraphQL introspection query provides metadata such as what
  *  tables the schema have, what queries and mutations can be performed on the
  *  schema, and so on. Read more at https://graphql.org/learn/introspection.
@@ -999,16 +1087,15 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesIntrospectGraphql : GTLRFirebaseDataConnectQuery
 
 /**
- *  Required. The relative resource name of Firebase Data Connect service, in
- *  the format: ``` projects/{project}/locations/{location}/services/{service}
- *  ```
+ *  Required. The relative resource name of Firebase SQL Connect service, in the
+ *  format: ``` projects/{project}/locations/{location}/services/{service} ```
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
 /**
  *  Fetches a @c GTLRFirebaseDataConnect_GraphqlResponse.
  *
- *  Execute introspection query against the Firebase Data Connect's generated
+ *  Execute introspection query against the Firebase SQL Connect's generated
  *  GraphQL schema. GraphQL introspection query provides metadata such as what
  *  tables the schema have, what queries and mutations can be performed on the
  *  schema, and so on. Read more at https://graphql.org/learn/introspection.
@@ -1017,7 +1104,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFirebaseDataConnect_GraphqlRequest to include in
  *    the query.
- *  @param name Required. The relative resource name of Firebase Data Connect
+ *  @param name Required. The relative resource name of Firebase SQL Connect
  *    service, in the format: ```
  *    projects/{project}/locations/{location}/services/{service} ```
  *
@@ -1095,10 +1182,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign) BOOL allowMissing;
 
 /**
- *  Identifier. The relative resource name of the Firebase Data Connect service,
+ *  Identifier. The relative resource name of the Firebase SQL Connect service,
  *  in the format: ```
  *  projects/{project}/locations/{location}/services/{service} ``` Note that the
- *  service ID is specific to Firebase Data Connect and does not correspond to
+ *  service ID is specific to Firebase SQL Connect and does not correspond to
  *  any of the instance IDs of the underlying data source connections.
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1142,12 +1229,11 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRFirebaseDataConnect_Service to include in the
  *    query.
- *  @param name Identifier. The relative resource name of the Firebase Data
+ *  @param name Identifier. The relative resource name of the Firebase SQL
  *    Connect service, in the format: ```
  *    projects/{project}/locations/{location}/services/{service} ``` Note that
- *    the service ID is specific to Firebase Data Connect and does not
- *    correspond to any of the instance IDs of the underlying data source
- *    connections.
+ *    the service ID is specific to Firebase SQL Connect and does not correspond
+ *    to any of the instance IDs of the underlying data source connections.
  *
  *  @return GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesPatch
  */

@@ -29,6 +29,38 @@ NS_ASSUME_NONNULL_BEGIN
 // Constants - For some of the query classes' properties below.
 
 // ----------------------------------------------------------------------------
+// createMessageNotificationOptionsNotificationType
+
+/**
+ *  Force notify recipients. This bypasses users' space notification settings
+ *  and [Chat Do Not Disturb
+ *  settings](https://support.google.com/chat/answer/9093489). This option does
+ *  not bypass device-level Do Not Disturb settings. Requires [app
+ *  authentication]
+ *  (https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
+ *
+ *  Value: "NOTIFICATION_TYPE_FORCE_NOTIFY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeForceNotify;
+/**
+ *  Default behavior. Notification behavior is similar to when the human user
+ *  sends the message using the Chat UI: no notification is sent to the human
+ *  sender.
+ *
+ *  Value: "NOTIFICATION_TYPE_NONE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeNone;
+/**
+ *  Silence the notification as if the recipients have [Chat Do Not
+ *  Disturb](https://support.google.com/chat/answer/9093489) enabled or have
+ *  muted the space. Requires [app authentication]
+ *  (https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
+ *
+ *  Value: "NOTIFICATION_TYPE_SILENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeSilent;
+
+// ----------------------------------------------------------------------------
 // messageReplyOption
 
 /**
@@ -53,6 +85,32 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Value: "REPLY_MESSAGE_OR_FAIL"
  */
 FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessageOrFail;
+
+// ----------------------------------------------------------------------------
+// spaceView
+
+/**
+ *  Populates Space resource fields. Note: the `permissionSettings` field will
+ *  not be populated. Requests that specify SPACE_VIEW_EXPANDED must include
+ *  scopes that allow reading space data, for example,
+ *  https://www.googleapis.com/auth/chat.spaces or
+ *  https://www.googleapis.com/auth/chat.spaces.readonly.
+ *
+ *  Value: "SPACE_VIEW_EXPANDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewExpanded;
+/**
+ *  Populates only the Space resource name.
+ *
+ *  Value: "SPACE_VIEW_RESOURCE_NAME_ONLY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewResourceNameOnly;
+/**
+ *  The default / unset value.
+ *
+ *  Value: "SPACE_VIEW_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatSpaceViewSpaceViewUnspecified;
 
 // ----------------------------------------------------------------------------
 // Query Classes
@@ -696,6 +754,115 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  `https://www.googleapis.com/auth/chat.spaces`
  *
  *  @return GTLRHangoutsChatQuery_SpacesFindDirectMessage
+ */
++ (instancetype)query;
+
+@end
+
+/**
+ *  Returns all spaces with `spaceType == GROUP_CHAT`, whose human memberships
+ *  contain exactly the calling user, and the users specified in
+ *  `FindGroupChatsRequest.users`. Only members that have joined the
+ *  conversation are supported. For an example, see [Find group
+ *  chats](https://developers.google.com/workspace/chat/find-group-chats). If
+ *  the calling user blocks, or is blocked by, some users, and no spaces with
+ *  the entire specified set of users are found, this method returns spaces that
+ *  don't include the blocked or blocking users. The specified set of users must
+ *  contain only human (non-app) memberships. A request that contains non-human
+ *  users doesn't return any spaces. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.memberships.readonly` -
+ *  `https://www.googleapis.com/auth/chat.memberships`
+ *
+ *  Method: chat.spaces.findGroupChats
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatMemberships
+ *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly
+ */
+@interface GTLRHangoutsChatQuery_SpacesFindGroupChats : GTLRHangoutsChatQuery
+
+/**
+ *  Optional. The maximum number of spaces to return. The service might return
+ *  fewer than this value. If unspecified, at most 10 spaces are returned. The
+ *  maximum value is 30. If you use a value more than 30, it's automatically
+ *  changed to 30. Negative values return an `INVALID_ARGUMENT` error.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous call to find group chats.
+ *  Provide this parameter to retrieve the subsequent page. When paginating, all
+ *  other parameters provided should match the call that provided the token.
+ *  Passing different values may lead to unexpected results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Requested space view type. If unset, defaults to
+ *  `SPACE_VIEW_RESOURCE_NAME_ONLY`. Requests that specify `SPACE_VIEW_EXPANDED`
+ *  must include scopes that allow reading space data, for example,
+ *  https://www.googleapis.com/auth/chat.spaces or
+ *  https://www.googleapis.com/auth/chat.spaces.readonly.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatSpaceViewSpaceViewUnspecified The default / unset
+ *        value. (Value: "SPACE_VIEW_UNSPECIFIED")
+ *    @arg @c kGTLRHangoutsChatSpaceViewSpaceViewResourceNameOnly Populates only
+ *        the Space resource name. (Value: "SPACE_VIEW_RESOURCE_NAME_ONLY")
+ *    @arg @c kGTLRHangoutsChatSpaceViewSpaceViewExpanded Populates Space
+ *        resource fields. Note: the `permissionSettings` field will not be
+ *        populated. Requests that specify SPACE_VIEW_EXPANDED must include
+ *        scopes that allow reading space data, for example,
+ *        https://www.googleapis.com/auth/chat.spaces or
+ *        https://www.googleapis.com/auth/chat.spaces.readonly. (Value:
+ *        "SPACE_VIEW_EXPANDED")
+ */
+@property(nonatomic, copy, nullable) NSString *spaceView;
+
+/**
+ *  Optional. Resource names of all human users in group chat with the calling
+ *  user. Chat apps can't be included in the request. The maximum number of
+ *  users that can be specified in a single request is `49`. Format:
+ *  `users/{user}`, where `{user}` is either the `id` for the
+ *  [person](https://developers.google.com/people/api/rest/v1/people) from the
+ *  People API, or the `id` for the
+ *  [user](https://developers.google.com/admin-sdk/directory/reference/rest/v1/users)
+ *  in the Directory API. For example, to find all group chats with the calling
+ *  user and two other users, with People API profile IDs `123456789` and
+ *  `987654321`, you can use `users/123456789` and `users/987654321`. You can
+ *  also use the email as an alias for `{user}`. For example,
+ *  `users/example\@gmail.com` where `example\@gmail.com` is the email of the
+ *  Google Chat user.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *users;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_FindGroupChatsResponse.
+ *
+ *  Returns all spaces with `spaceType == GROUP_CHAT`, whose human memberships
+ *  contain exactly the calling user, and the users specified in
+ *  `FindGroupChatsRequest.users`. Only members that have joined the
+ *  conversation are supported. For an example, see [Find group
+ *  chats](https://developers.google.com/workspace/chat/find-group-chats). If
+ *  the calling user blocks, or is blocked by, some users, and no spaces with
+ *  the entire specified set of users are found, this method returns spaces that
+ *  don't include the blocked or blocking users. The specified set of users must
+ *  contain only human (non-app) memberships. A request that contains non-human
+ *  users doesn't return any spaces. Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with one of the following [authorization
+ *  scopes](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.memberships.readonly` -
+ *  `https://www.googleapis.com/auth/chat.memberships`
+ *
+ *  @return GTLRHangoutsChatQuery_SpacesFindGroupChats
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
  */
 + (instancetype)query;
 
@@ -1528,6 +1695,31 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
 @interface GTLRHangoutsChatQuery_SpacesMessagesCreate : GTLRHangoutsChatQuery
 
 /**
+ *  The notification type for the message.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeNone
+ *        Default behavior. Notification behavior is similar to when the human
+ *        user sends the message using the Chat UI: no notification is sent to
+ *        the human sender. (Value: "NOTIFICATION_TYPE_NONE")
+ *    @arg @c kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeForceNotify
+ *        Force notify recipients. This bypasses users' space notification
+ *        settings and [Chat Do Not Disturb
+ *        settings](https://support.google.com/chat/answer/9093489). This option
+ *        does not bypass device-level Do Not Disturb settings. Requires [app
+ *        authentication]
+ *        (https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
+ *        (Value: "NOTIFICATION_TYPE_FORCE_NOTIFY")
+ *    @arg @c kGTLRHangoutsChatCreateMessageNotificationOptionsNotificationTypeNotificationTypeSilent
+ *        Silence the notification as if the recipients have [Chat Do Not
+ *        Disturb](https://support.google.com/chat/answer/9093489) enabled or
+ *        have muted the space. Requires [app authentication]
+ *        (https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
+ *        (Value: "NOTIFICATION_TYPE_SILENT")
+ */
+@property(nonatomic, copy, nullable) NSString *createMessageNotificationOptionsNotificationType;
+
+/**
  *  Optional. A custom ID for a message. Lets Chat apps get, update, or delete a
  *  message without needing to store the system-assigned ID in the message's
  *  resource name (represented in the message `name` field). The value for this
@@ -1720,11 +1912,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  commands](https://developers.google.com/workspace/chat/slash-commands) that
  *  invoke the Chat app. -
  *  `https://www.googleapis.com/auth/chat.app.messages.readonly` with
- *  [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  (available in [Developer
- *  Preview](https://developers.google.com/workspace/preview)). When using this
- *  authentication scope, this method returns details about a public message in
- *  a space. - [User
+ *  [administrator approval](https://support.google.com/a?p=chat-app-auth). When
+ *  using this authentication scope, this method returns details about a public
+ *  message in a space. - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.messages.readonly` -
@@ -1766,11 +1956,9 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  commands](https://developers.google.com/workspace/chat/slash-commands) that
  *  invoke the Chat app. -
  *  `https://www.googleapis.com/auth/chat.app.messages.readonly` with
- *  [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  (available in [Developer
- *  Preview](https://developers.google.com/workspace/preview)). When using this
- *  authentication scope, this method returns details about a public message in
- *  a space. - [User
+ *  [administrator approval](https://support.google.com/a?p=chat-app-auth). When
+ *  using this authentication scope, this method returns details about a public
+ *  message in a space. - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.messages.readonly` -
@@ -1801,8 +1989,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) with
- *  the authorization scope: -
+ *  with the authorization scope: -
  *  `https://www.googleapis.com/auth/chat.app.messages.readonly`. When using
  *  this authentication scope, this method only returns public messages in a
  *  space. It doesn't include private messages. - [User
@@ -1896,8 +2083,7 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) with
- *  the authorization scope: -
+ *  with the authorization scope: -
  *  `https://www.googleapis.com/auth/chat.app.messages.readonly`. When using
  *  this authentication scope, this method only returns public messages in a
  *  space. It doesn't include private messages. - [User
@@ -2494,6 +2680,8 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatAdminSpaces
  *    @c kGTLRAuthScopeHangoutsChatAdminSpacesReadonly
+ *    @c kGTLRAuthScopeHangoutsChatSpaces
+ *    @c kGTLRAuthScopeHangoutsChatSpacesReadonly
  */
 @interface GTLRHangoutsChatQuery_SpacesSearch : GTLRHangoutsChatQuery
 
@@ -2730,11 +2918,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  appropriate for reading the requested data: - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) with
- *  one of the following authorization scopes: -
+ *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.app.spaces` -
+ *  `https://www.googleapis.com/auth/chat.app.spaces.readonly` -
  *  `https://www.googleapis.com/auth/chat.app.messages.readonly` -
- *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
+ *  `https://www.googleapis.com/auth/chat.app.memberships` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships.readonly` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
@@ -2753,8 +2942,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatAppMemberships
+ *    @c kGTLRAuthScopeHangoutsChatAppMembershipsReadonly
  *    @c kGTLRAuthScopeHangoutsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeHangoutsChatAppSpaces
+ *    @c kGTLRAuthScopeHangoutsChatAppSpacesReadonly
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly
  *    @c kGTLRAuthScopeHangoutsChatMessages
@@ -2789,11 +2980,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  appropriate for reading the requested data: - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) with
- *  one of the following authorization scopes: -
+ *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.app.spaces` -
+ *  `https://www.googleapis.com/auth/chat.app.spaces.readonly` -
  *  `https://www.googleapis.com/auth/chat.app.messages.readonly` -
- *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
+ *  `https://www.googleapis.com/auth/chat.app.memberships` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships.readonly` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
@@ -2831,11 +3023,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  appropriate for reading the requested data: - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) with
- *  one of the following authorization scopes: -
+ *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.app.spaces` -
+ *  `https://www.googleapis.com/auth/chat.app.spaces.readonly` -
  *  `https://www.googleapis.com/auth/chat.app.messages.readonly` -
- *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
+ *  `https://www.googleapis.com/auth/chat.app.memberships` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships.readonly` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
@@ -2854,8 +3047,10 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeHangoutsChatAppMemberships
+ *    @c kGTLRAuthScopeHangoutsChatAppMembershipsReadonly
  *    @c kGTLRAuthScopeHangoutsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeHangoutsChatAppSpaces
+ *    @c kGTLRAuthScopeHangoutsChatAppSpacesReadonly
  *    @c kGTLRAuthScopeHangoutsChatMemberships
  *    @c kGTLRAuthScopeHangoutsChatMembershipsReadonly
  *    @c kGTLRAuthScopeHangoutsChatMessages
@@ -2938,11 +3133,12 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *  appropriate for reading the requested data: - [App
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app)
  *  with [administrator approval](https://support.google.com/a?p=chat-app-auth)
- *  in [Developer Preview](https://developers.google.com/workspace/preview) with
- *  one of the following authorization scopes: -
+ *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.app.spaces` -
+ *  `https://www.googleapis.com/auth/chat.app.spaces.readonly` -
  *  `https://www.googleapis.com/auth/chat.app.messages.readonly` -
- *  `https://www.googleapis.com/auth/chat.app.memberships` - [User
+ *  `https://www.googleapis.com/auth/chat.app.memberships` -
+ *  `https://www.googleapis.com/auth/chat.app.memberships.readonly` - [User
  *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
  *  with one of the following authorization scopes: -
  *  `https://www.googleapis.com/auth/chat.spaces.readonly` -
@@ -2968,6 +3164,408 @@ FOUNDATION_EXTERN NSString * const kGTLRHangoutsChatMessageReplyOptionReplyMessa
  *        information.
  */
 + (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Creates a section in Google Chat. Sections help users group conversations
+ *  and customize the list of spaces displayed in Chat navigation panel. Only
+ *  sections of type `CUSTOM_SECTION` can be created. For details, see [Create
+ *  and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections`
+ *
+ *  Method: chat.users.sections.create
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersSections
+ */
+@interface GTLRHangoutsChatQuery_UsersSectionsCreate : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The parent resource name where the section is created. Format:
+ *  `users/{user}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_GoogleChatV1Section.
+ *
+ *  Creates a section in Google Chat. Sections help users group conversations
+ *  and customize the list of spaces displayed in Chat navigation panel. Only
+ *  sections of type `CUSTOM_SECTION` can be created. For details, see [Create
+ *  and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections`
+ *
+ *  @param object The @c GTLRHangoutsChat_GoogleChatV1Section to include in the
+ *    query.
+ *  @param parent Required. The parent resource name where the section is
+ *    created. Format: `users/{user}`
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSectionsCreate
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_GoogleChatV1Section *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a section of type `CUSTOM_SECTION`. If the section contains items,
+ *  such as spaces, the items are moved to Google Chat's default sections and
+ *  are not deleted. For details, see [Create and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections`
+ *
+ *  Method: chat.users.sections.delete
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersSections
+ */
+@interface GTLRHangoutsChatQuery_UsersSectionsDelete : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The name of the section to delete. Format:
+ *  `users/{user}/sections/{section}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_Empty.
+ *
+ *  Deletes a section of type `CUSTOM_SECTION`. If the section contains items,
+ *  such as spaces, the items are moved to Google Chat's default sections and
+ *  are not deleted. For details, see [Create and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections`
+ *
+ *  @param name Required. The name of the section to delete. Format:
+ *    `users/{user}/sections/{section}`
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSectionsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists items in a section. Only spaces can be section items. For details, see
+ *  [Create and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections` -
+ *  `https://www.googleapis.com/auth/chat.users.sections.readonly`
+ *
+ *  Method: chat.users.sections.items.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersSections
+ *    @c kGTLRAuthScopeHangoutsChatUsersSectionsReadonly
+ */
+@interface GTLRHangoutsChatQuery_UsersSectionsItemsList : GTLRHangoutsChatQuery
+
+/**
+ *  Optional. A query filter. Currently only supports filtering by space. For
+ *  example, `space = spaces/{space}`. Invalid queries are rejected with an
+ *  `INVALID_ARGUMENT` error.
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. The maximum number of section items to return. The service may
+ *  return fewer than this value. If unspecified, at most 10 section items will
+ *  be returned. The maximum value is 100. If you use a value more than 100,
+ *  it's automatically changed to 100. Negative values return an
+ *  `INVALID_ARGUMENT` error.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous list section items call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided should match the call that provided the page token.
+ *  Passing different values to the other parameters might lead to unexpected
+ *  results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which is the section resource name that owns this
+ *  collection of section items. Only supports listing section items for the
+ *  calling user. When you're filtering by space, use the wildcard `-` to search
+ *  across all sections. For example, `users/{user}/sections/-`. Format:
+ *  `users/{user}/sections/{section}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_ListSectionItemsResponse.
+ *
+ *  Lists items in a section. Only spaces can be section items. For details, see
+ *  [Create and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections` -
+ *  `https://www.googleapis.com/auth/chat.users.sections.readonly`
+ *
+ *  @param parent Required. The parent, which is the section resource name that
+ *    owns this collection of section items. Only supports listing section items
+ *    for the calling user. When you're filtering by space, use the wildcard `-`
+ *    to search across all sections. For example, `users/{user}/sections/-`.
+ *    Format: `users/{user}/sections/{section}`
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSectionsItemsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Moves an item from one section to another. For example, if a section
+ *  contains spaces, this method can be used to move a space to a different
+ *  section. For details, see [Create and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections`
+ *
+ *  Method: chat.users.sections.items.move
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersSections
+ */
+@interface GTLRHangoutsChatQuery_UsersSectionsItemsMove : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The resource name of the section item to move. Format:
+ *  `users/{user}/sections/{section}/items/{item}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_MoveSectionItemResponse.
+ *
+ *  Moves an item from one section to another. For example, if a section
+ *  contains spaces, this method can be used to move a space to a different
+ *  section. For details, see [Create and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections`
+ *
+ *  @param object The @c GTLRHangoutsChat_MoveSectionItemRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the section item to move. Format:
+ *    `users/{user}/sections/{section}/items/{item}`
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSectionsItemsMove
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_MoveSectionItemRequest *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Lists sections available to the Chat user. Sections help users group their
+ *  conversations and customize the list of spaces displayed in Chat navigation
+ *  panel. For details, see [Create and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections` -
+ *  `https://www.googleapis.com/auth/chat.users.sections.readonly`
+ *
+ *  Method: chat.users.sections.list
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersSections
+ *    @c kGTLRAuthScopeHangoutsChatUsersSectionsReadonly
+ */
+@interface GTLRHangoutsChatQuery_UsersSectionsList : GTLRHangoutsChatQuery
+
+/**
+ *  Optional. The maximum number of sections to return. The service may return
+ *  fewer than this value. If unspecified, at most 10 sections will be returned.
+ *  The maximum value is 100. If you use a value more than 100, it's
+ *  automatically changed to 100. Negative values return an `INVALID_ARGUMENT`
+ *  error.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous list sections call. Provide
+ *  this to retrieve the subsequent page. When paginating, all other parameters
+ *  provided should match the call that provided the page token. Passing
+ *  different values to the other parameters might lead to unexpected results.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Required. The parent, which is the user resource name that owns this
+ *  collection of sections. Only supports listing sections for the calling user.
+ *  To refer to the calling user, set one of the following: - The `me` alias.
+ *  For example, `users/me`. - Their Workspace email address. For example,
+ *  `users/user\@example.com`. - Their user id. For example, `users/123456789`.
+ *  Format: `users/{user}`
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_ListSectionsResponse.
+ *
+ *  Lists sections available to the Chat user. Sections help users group their
+ *  conversations and customize the list of spaces displayed in Chat navigation
+ *  panel. For details, see [Create and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections` -
+ *  `https://www.googleapis.com/auth/chat.users.sections.readonly`
+ *
+ *  @param parent Required. The parent, which is the user resource name that
+ *    owns this collection of sections. Only supports listing sections for the
+ *    calling user. To refer to the calling user, set one of the following: -
+ *    The `me` alias. For example, `users/me`. - Their Workspace email address.
+ *    For example, `users/user\@example.com`. - Their user id. For example,
+ *    `users/123456789`. Format: `users/{user}`
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSectionsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a section. Only sections of type `CUSTOM_SECTION` can be updated.
+ *  For details, see [Create and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections`
+ *
+ *  Method: chat.users.sections.patch
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersSections
+ */
+@interface GTLRHangoutsChatQuery_UsersSectionsPatch : GTLRHangoutsChatQuery
+
+/**
+ *  Identifier. Resource name of the section. For system sections, the section
+ *  ID is a constant string: - DEFAULT_DIRECT_MESSAGES:
+ *  `users/{user}/sections/default-direct-messages` - DEFAULT_SPACES:
+ *  `users/{user}/sections/default-spaces` - DEFAULT_APPS:
+ *  `users/{user}/sections/default-apps` Format:
+ *  `users/{user}/sections/{section}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Required. The mask to specify which fields to update. Currently supported
+ *  field paths: - `display_name`
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_GoogleChatV1Section.
+ *
+ *  Updates a section. Only sections of type `CUSTOM_SECTION` can be updated.
+ *  For details, see [Create and organize sections in Google
+ *  Chat](https://support.google.com/chat/answer/16059854). Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections`
+ *
+ *  @param object The @c GTLRHangoutsChat_GoogleChatV1Section to include in the
+ *    query.
+ *  @param name Identifier. Resource name of the section. For system sections,
+ *    the section ID is a constant string: - DEFAULT_DIRECT_MESSAGES:
+ *    `users/{user}/sections/default-direct-messages` - DEFAULT_SPACES:
+ *    `users/{user}/sections/default-spaces` - DEFAULT_APPS:
+ *    `users/{user}/sections/default-apps` Format:
+ *    `users/{user}/sections/{section}`
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSectionsPatch
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_GoogleChatV1Section *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
+ *  Changes the sort order of a section. For details, see [Create and organize
+ *  sections in Google Chat](https://support.google.com/chat/answer/16059854).
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections`
+ *
+ *  Method: chat.users.sections.position
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeHangoutsChatUsersSections
+ */
+@interface GTLRHangoutsChatQuery_UsersSectionsPosition : GTLRHangoutsChatQuery
+
+/**
+ *  Required. The resource name of the section to position. Format:
+ *  `users/{user}/sections/{section}`
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRHangoutsChat_PositionSectionResponse.
+ *
+ *  Changes the sort order of a section. For details, see [Create and organize
+ *  sections in Google Chat](https://support.google.com/chat/answer/16059854).
+ *  Requires [user
+ *  authentication](https://developers.google.com/workspace/chat/authenticate-authorize-chat-user)
+ *  with the [authorization
+ *  scope](https://developers.google.com/workspace/chat/authenticate-authorize#chat-api-scopes):
+ *  - `https://www.googleapis.com/auth/chat.users.sections`
+ *
+ *  @param object The @c GTLRHangoutsChat_PositionSectionRequest to include in
+ *    the query.
+ *  @param name Required. The resource name of the section to position. Format:
+ *    `users/{user}/sections/{section}`
+ *
+ *  @return GTLRHangoutsChatQuery_UsersSectionsPosition
+ */
++ (instancetype)queryWithObject:(GTLRHangoutsChat_PositionSectionRequest *)object
+                           name:(NSString *)name;
 
 @end
 

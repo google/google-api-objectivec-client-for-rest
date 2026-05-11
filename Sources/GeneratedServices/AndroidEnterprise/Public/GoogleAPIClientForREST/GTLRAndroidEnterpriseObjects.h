@@ -3365,7 +3365,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidEnterprise_WebApp_DisplayMode_Sta
 /**
  *  The body of the private key credentials file, in string format. This is only
  *  populated when the ServiceAccountKey is created, and is not stored by
- *  Google.
+ *  Google. When type is "pkcs12", the contents of the data field is base64
+ *  encoded and has the password "notasecret".
  */
 @property(nonatomic, copy, nullable) NSString *data;
 

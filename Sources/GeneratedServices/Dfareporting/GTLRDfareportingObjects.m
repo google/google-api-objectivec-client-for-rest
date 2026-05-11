@@ -3704,7 +3704,7 @@ NSString * const kGTLRDfareporting_YoutubeSettings_CallToActions_CallToActionWat
 //
 
 @implementation GTLRDfareporting_DependentFieldValue
-@dynamic elementId, fieldId;
+@dynamic dynamicFeedId, elementId, fieldId;
 @end
 
 

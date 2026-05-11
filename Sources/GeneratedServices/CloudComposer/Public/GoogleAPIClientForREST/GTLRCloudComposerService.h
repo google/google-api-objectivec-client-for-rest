@@ -32,6 +32,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudComposerCloudcomposer;
 /**
+ *  Authorization scope: See your Google Cloud Composer data and the email
+ *  address of your Google Account
+ *
+ *  Value "https://www.googleapis.com/auth/cloudcomposer.readonly"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeCloudComposerCloudcomposerReadonly;
+/**
  *  Authorization scope: See, edit, configure, and delete your Google Cloud data
  *  and see the email address for your Google Account.
  *

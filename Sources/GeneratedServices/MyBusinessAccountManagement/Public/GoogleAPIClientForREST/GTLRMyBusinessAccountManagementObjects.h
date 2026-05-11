@@ -765,7 +765,10 @@ FOUNDATION_EXTERN NSString * const kGTLRMyBusinessAccountManagement_Invitation_T
  */
 @interface GTLRMyBusinessAccountManagement_TargetLocation : GTLRObject
 
-/** The address of the location to which the user is invited. */
+/**
+ *  The address of the location to which the user is invited. Not always
+ *  populated.
+ */
 @property(nonatomic, copy, nullable) NSString *address;
 
 /** The name of the location to which the user is invited. */

@@ -52,7 +52,6 @@
 @class GTLRSecurityPosture_ResourceTypes;
 @class GTLRSecurityPosture_SecurityHealthAnalyticsCustomModule;
 @class GTLRSecurityPosture_SecurityHealthAnalyticsModule;
-@class GTLRSecurityPosture_SeverityCountThreshold;
 @class GTLRSecurityPosture_Status;
 @class GTLRSecurityPosture_Status_Details_Item;
 @class GTLRSecurityPosture_Violation;
@@ -439,40 +438,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SecurityHealthAnalyticsM
  *  Value: "ENABLEMENT_STATE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SecurityHealthAnalyticsModule_ModuleEnablementState_EnablementStateUnspecified;
-
-// ----------------------------------------------------------------------------
-// GTLRSecurityPosture_SeverityCountThreshold.severity
-
-/**
- *  Critical severity.
- *
- *  Value: "CRITICAL"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_Critical;
-/**
- *  High severity.
- *
- *  Value: "HIGH"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_High;
-/**
- *  Low severity.
- *
- *  Value: "LOW"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_Low;
-/**
- *  Medium severity.
- *
- *  Value: "MEDIUM"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_Medium;
-/**
- *  Default value. This value is unused.
- *
- *  Value: "SEVERITY_UNSPECIFIED"
- */
-FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_SeverityCountThreshold_Severity_SeverityUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSecurityPosture_Violation.severity
@@ -948,35 +913,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_Violation_Severity_Sever
  *  web-safe format).
  */
 @property(nonatomic, copy, nullable) NSString *tfPlan;
-
-@end
-
-
-/**
- *  Represents the criteria for considering an IaC validation as a failure.
- */
-@interface GTLRSecurityPosture_IacValidationFailureCriteria : GTLRObject
-
-/** Output only. The time at which the resource was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Optional. The etag for optimistic concurrency. */
-@property(nonatomic, copy, nullable) NSString *ETag;
-
-/**
- *  Identifier. The resource name of the IacValidationFailureCriteria. Format:
- *  organizations/{organization}/locations/{location}/iacValidationFailureCriteria
- */
-@property(nonatomic, copy, nullable) NSString *name;
-
-/**
- *  Optional. A list of severity thresholds. An IaC validation fails if any
- *  threshold is exceeded.
- */
-@property(nonatomic, strong, nullable) NSArray<GTLRSecurityPosture_SeverityCountThreshold *> *severityCountThresholds;
-
-/** Output only. The time at which the resource was last updated. */
-@property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
 @end
 
@@ -1959,39 +1895,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSecurityPosture_Violation_Severity_Sever
  *  category for all the asset violation findings that the detector returns.
  */
 @property(nonatomic, copy, nullable) NSString *moduleName;
-
-@end
-
-
-/**
- *  Represents a threshold for a specific severity.
- */
-@interface GTLRSecurityPosture_SeverityCountThreshold : GTLRObject
-
-/**
- *  Optional. The severity level, reusing the existing Violation.Severity.
- *
- *  Likely values:
- *    @arg @c kGTLRSecurityPosture_SeverityCountThreshold_Severity_Critical
- *        Critical severity. (Value: "CRITICAL")
- *    @arg @c kGTLRSecurityPosture_SeverityCountThreshold_Severity_High High
- *        severity. (Value: "HIGH")
- *    @arg @c kGTLRSecurityPosture_SeverityCountThreshold_Severity_Low Low
- *        severity. (Value: "LOW")
- *    @arg @c kGTLRSecurityPosture_SeverityCountThreshold_Severity_Medium Medium
- *        severity. (Value: "MEDIUM")
- *    @arg @c kGTLRSecurityPosture_SeverityCountThreshold_Severity_SeverityUnspecified
- *        Default value. This value is unused. (Value: "SEVERITY_UNSPECIFIED")
- */
-@property(nonatomic, copy, nullable) NSString *severity;
-
-/**
- *  Optional. If violation count meets or exceeds this threshold, validation
- *  fails.
- *
- *  Uses NSNumber of intValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *thresholdCount;
 
 @end
 

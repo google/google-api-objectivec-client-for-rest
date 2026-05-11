@@ -157,6 +157,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.autoscalingPolicies.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesCreate : GTLRDataprocQuery
@@ -200,6 +201,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.autoscalingPolicies.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesDelete : GTLRDataprocQuery
@@ -243,6 +245,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.autoscalingPolicies.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesGet : GTLRDataprocQuery
@@ -286,6 +289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.autoscalingPolicies.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesGetIamPolicy : GTLRDataprocQuery
@@ -323,6 +327,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.autoscalingPolicies.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesList : GTLRDataprocQuery
@@ -381,6 +386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.autoscalingPolicies.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesSetIamPolicy : GTLRDataprocQuery
@@ -423,6 +429,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.autoscalingPolicies.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesTestIamPermissions : GTLRDataprocQuery
@@ -464,6 +471,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.autoscalingPolicies.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsAutoscalingPoliciesUpdate : GTLRDataprocQuery
@@ -509,6 +517,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.analyze
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesAnalyze : GTLRDataprocQuery
@@ -543,6 +552,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesCreate : GTLRDataprocQuery
@@ -592,6 +602,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesDelete : GTLRDataprocQuery
@@ -625,7 +636,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesGet : GTLRDataprocQuery
 
@@ -656,7 +669,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesList : GTLRDataprocQuery
 
@@ -722,7 +737,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.access
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccess : GTLRDataprocQuery
 
@@ -756,7 +773,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.accessEnvironmentInfo
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessEnvironmentInfo : GTLRDataprocQuery
 
@@ -790,7 +809,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.accessJob
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessJob : GTLRDataprocQuery
 
@@ -828,7 +849,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.accessSqlPlan
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessSqlPlan : GTLRDataprocQuery
 
@@ -866,7 +889,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.accessSqlQuery
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessSqlQuery : GTLRDataprocQuery
 
@@ -912,7 +937,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.accessStageAttempt
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessStageAttempt : GTLRDataprocQuery
 
@@ -963,7 +990,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.accessStageRddGraph
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsAccessStageRddGraph : GTLRDataprocQuery
 
@@ -1003,7 +1032,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.search
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearch : GTLRDataprocQuery
 
@@ -1077,7 +1108,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.searchExecutors
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchExecutors : GTLRDataprocQuery
 
@@ -1143,7 +1176,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.searchExecutorStageSummary
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchExecutorStageSummary : GTLRDataprocQuery
 
@@ -1202,7 +1237,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.searchJobs
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchJobs : GTLRDataprocQuery
 
@@ -1270,7 +1307,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.searchSqlQueries
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchSqlQueries : GTLRDataprocQuery
 
@@ -1331,7 +1370,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.searchStageAttempts
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStageAttempts : GTLRDataprocQuery
 
@@ -1397,7 +1438,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.searchStageAttemptTasks
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStageAttemptTasks : GTLRDataprocQuery
 
@@ -1476,7 +1519,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.searchStages
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSearchStages : GTLRDataprocQuery
 
@@ -1557,7 +1602,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.summarizeExecutors
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeExecutors : GTLRDataprocQuery
 
@@ -1591,7 +1638,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.summarizeJobs
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeJobs : GTLRDataprocQuery
 
@@ -1625,7 +1674,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.summarizeStageAttemptTasks
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeStageAttemptTasks : GTLRDataprocQuery
 
@@ -1666,7 +1717,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.summarizeStages
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsSummarizeStages : GTLRDataprocQuery
 
@@ -1700,6 +1753,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.batches.sparkApplications.write
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsBatchesSparkApplicationsWrite : GTLRDataprocQuery
@@ -1743,6 +1797,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsOperationsCancel : GTLRDataprocQuery
@@ -1780,6 +1835,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.operations.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsOperationsDelete : GTLRDataprocQuery
@@ -1811,7 +1867,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsOperationsGet : GTLRDataprocQuery
 
@@ -1840,7 +1898,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsOperationsList : GTLRDataprocQuery
 
@@ -1891,6 +1951,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsCreate : GTLRDataprocQuery
@@ -1940,6 +2001,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsDelete : GTLRDataprocQuery
@@ -1979,7 +2041,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsGet : GTLRDataprocQuery
 
@@ -2005,7 +2069,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsList : GTLRDataprocQuery
 
@@ -2062,7 +2128,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.access
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccess : GTLRDataprocQuery
 
@@ -2096,7 +2164,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.accessEnvironmentInfo
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessEnvironmentInfo : GTLRDataprocQuery
 
@@ -2131,7 +2201,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.accessJob
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessJob : GTLRDataprocQuery
 
@@ -2169,7 +2241,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.accessSqlPlan
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessSqlPlan : GTLRDataprocQuery
 
@@ -2208,7 +2282,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.accessSqlQuery
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessSqlQuery : GTLRDataprocQuery
 
@@ -2254,7 +2330,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.accessStageAttempt
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessStageAttempt : GTLRDataprocQuery
 
@@ -2305,7 +2383,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.accessStageRddGraph
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsAccessStageRddGraph : GTLRDataprocQuery
 
@@ -2345,7 +2425,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.search
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearch : GTLRDataprocQuery
 
@@ -2420,7 +2502,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.searchExecutors
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchExecutors : GTLRDataprocQuery
 
@@ -2486,7 +2570,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.searchExecutorStageSummary
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchExecutorStageSummary : GTLRDataprocQuery
 
@@ -2545,7 +2631,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.searchJobs
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchJobs : GTLRDataprocQuery
 
@@ -2621,7 +2709,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.searchSqlQueries
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchSqlQueries : GTLRDataprocQuery
 
@@ -2685,7 +2775,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.searchStageAttempts
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStageAttempts : GTLRDataprocQuery
 
@@ -2752,7 +2844,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.searchStageAttemptTasks
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStageAttemptTasks : GTLRDataprocQuery
 
@@ -2832,7 +2926,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.searchStages
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSearchStages : GTLRDataprocQuery
 
@@ -2920,7 +3016,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.summarizeExecutors
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeExecutors : GTLRDataprocQuery
 
@@ -2954,7 +3052,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.summarizeJobs
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeJobs : GTLRDataprocQuery
 
@@ -2995,7 +3095,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.summarizeStageAttemptTasks
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeStageAttemptTasks : GTLRDataprocQuery
 
@@ -3036,7 +3138,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.summarizeStages
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsSummarizeStages : GTLRDataprocQuery
 
@@ -3077,6 +3181,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.sparkApplications.write
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsSparkApplicationsWrite : GTLRDataprocQuery
@@ -3112,6 +3217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessions.terminate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionsTerminate : GTLRDataprocQuery
@@ -3141,6 +3247,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessionTemplates.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesCreate : GTLRDataprocQuery
@@ -3172,6 +3279,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessionTemplates.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesDelete : GTLRDataprocQuery
@@ -3198,7 +3306,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessionTemplates.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesGet : GTLRDataprocQuery
 
@@ -3224,7 +3334,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessionTemplates.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesList : GTLRDataprocQuery
 
@@ -3274,6 +3386,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.sessionTemplates.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsSessionTemplatesPatch : GTLRDataprocQuery
@@ -3302,6 +3415,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.workflowTemplates.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesCreate : GTLRDataprocQuery
@@ -3344,6 +3458,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.workflowTemplates.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesDelete : GTLRDataprocQuery
@@ -3394,7 +3509,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.workflowTemplates.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesGet : GTLRDataprocQuery
 
@@ -3445,6 +3562,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.workflowTemplates.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesGetIamPolicy : GTLRDataprocQuery
@@ -3491,6 +3609,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.workflowTemplates.instantiate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiate : GTLRDataprocQuery
@@ -3556,6 +3675,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.workflowTemplates.instantiateInline
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesInstantiateInline : GTLRDataprocQuery
@@ -3620,7 +3740,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.workflowTemplates.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesList : GTLRDataprocQuery
 
@@ -3674,6 +3796,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.workflowTemplates.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesSetIamPolicy : GTLRDataprocQuery
@@ -3716,6 +3839,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.workflowTemplates.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesTestIamPermissions : GTLRDataprocQuery
@@ -3757,6 +3881,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.locations.workflowTemplates.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsLocationsWorkflowTemplatesUpdate : GTLRDataprocQuery
@@ -3802,6 +3927,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.autoscalingPolicies.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesCreate : GTLRDataprocQuery
@@ -3845,6 +3971,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.autoscalingPolicies.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesDelete : GTLRDataprocQuery
@@ -3888,6 +4015,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.autoscalingPolicies.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesGet : GTLRDataprocQuery
@@ -3931,6 +4059,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.autoscalingPolicies.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesGetIamPolicy : GTLRDataprocQuery
@@ -3968,6 +4097,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.autoscalingPolicies.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesList : GTLRDataprocQuery
@@ -4026,6 +4156,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.autoscalingPolicies.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesSetIamPolicy : GTLRDataprocQuery
@@ -4068,6 +4199,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.autoscalingPolicies.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesTestIamPermissions : GTLRDataprocQuery
@@ -4109,6 +4241,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.autoscalingPolicies.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsAutoscalingPoliciesUpdate : GTLRDataprocQuery
@@ -4156,6 +4289,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersCreate : GTLRDataprocQuery
@@ -4225,6 +4359,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersDelete : GTLRDataprocQuery
@@ -4302,6 +4437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.diagnose
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersDiagnose : GTLRDataprocQuery
@@ -4350,7 +4486,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersGet : GTLRDataprocQuery
 
@@ -4391,6 +4529,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersGetIamPolicy : GTLRDataprocQuery
@@ -4430,6 +4569,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.injectCredentials
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersInjectCredentials : GTLRDataprocQuery
@@ -4476,7 +4616,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersList : GTLRDataprocQuery
 
@@ -4484,7 +4626,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Optional. A filter constraining the clusters to list. Filters are
  *  case-sensitive and have the following syntax:field = value AND field = value
  *  ...where field is one of status.state, clusterName, or labels.[KEY], and
- *  [KEY] is a label key. value can be * to match all values. status.state can
+ *  [KEY] is a label key. value can be "*" to match all values. status.state can
  *  be one of the following: ACTIVE, INACTIVE, CREATING, RUNNING, ERROR,
  *  DELETING, UPDATING, STOPPING, or STOPPED. ACTIVE contains the CREATING,
  *  UPDATING, and RUNNING states. INACTIVE contains the DELETING, ERROR,
@@ -4496,10 +4638,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  */
 @property(nonatomic, copy, nullable) NSString *filter;
 
-/** Optional. The standard List page size. */
+/**
+ *  Optional. The maximum number of clusters to return in each response. The
+ *  service may return fewer than this value. If unspecified, the default value
+ *  is 200. The maximum value is 1000.
+ */
 @property(nonatomic, assign) NSInteger pageSize;
 
-/** Optional. The standard List page token. */
+/**
+ *  Optional. A page token received from a previous ListClusters call. Provide
+ *  this token to retrieve the subsequent page.
+ */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
@@ -4539,6 +4688,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.nodeGroups.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsCreate : GTLRDataprocQuery
@@ -4599,7 +4749,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.nodeGroups.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsGet : GTLRDataprocQuery
 
@@ -4629,6 +4781,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.nodeGroups.repair
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsRepair : GTLRDataprocQuery
@@ -4664,6 +4817,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.nodeGroups.resize
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersNodeGroupsResize : GTLRDataprocQuery
@@ -4702,6 +4856,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersPatch : GTLRDataprocQuery
@@ -4793,6 +4948,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.repair
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersRepair : GTLRDataprocQuery
@@ -4838,6 +4994,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersSetIamPolicy : GTLRDataprocQuery
@@ -4876,6 +5033,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.start
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersStart : GTLRDataprocQuery
@@ -4919,6 +5077,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.stop
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersStop : GTLRDataprocQuery
@@ -4966,6 +5125,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.clusters.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsClustersTestIamPermissions : GTLRDataprocQuery
@@ -5010,6 +5170,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.jobs.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsCancel : GTLRDataprocQuery
@@ -5057,6 +5218,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.jobs.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsDelete : GTLRDataprocQuery
@@ -5098,7 +5260,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.jobs.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsGet : GTLRDataprocQuery
 
@@ -5139,6 +5303,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.jobs.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsGetIamPolicy : GTLRDataprocQuery
@@ -5176,7 +5341,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.jobs.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsList : GTLRDataprocQuery
 
@@ -5257,6 +5424,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.jobs.patch
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsPatch : GTLRDataprocQuery
@@ -5311,6 +5479,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.jobs.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsSetIamPolicy : GTLRDataprocQuery
@@ -5349,6 +5518,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.jobs.submit
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsSubmit : GTLRDataprocQuery
@@ -5386,6 +5556,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.jobs.submitAsOperation
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsSubmitAsOperation : GTLRDataprocQuery
@@ -5427,6 +5598,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.jobs.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsJobsTestIamPermissions : GTLRDataprocQuery
@@ -5475,6 +5647,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.operations.cancel
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsCancel : GTLRDataprocQuery
@@ -5512,6 +5685,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.operations.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsDelete : GTLRDataprocQuery
@@ -5543,7 +5717,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.operations.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsGet : GTLRDataprocQuery
 
@@ -5572,6 +5748,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.operations.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsGetIamPolicy : GTLRDataprocQuery
@@ -5610,7 +5787,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.operations.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsList : GTLRDataprocQuery
 
@@ -5663,6 +5842,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.operations.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsSetIamPolicy : GTLRDataprocQuery
@@ -5705,6 +5885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.operations.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsOperationsTestIamPermissions : GTLRDataprocQuery
@@ -5745,6 +5926,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.workflowTemplates.create
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesCreate : GTLRDataprocQuery
@@ -5787,6 +5969,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.workflowTemplates.delete
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesDelete : GTLRDataprocQuery
@@ -5837,7 +6020,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.workflowTemplates.get
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesGet : GTLRDataprocQuery
 
@@ -5888,6 +6073,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.workflowTemplates.getIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesGetIamPolicy : GTLRDataprocQuery
@@ -5934,6 +6120,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.workflowTemplates.instantiate
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiate : GTLRDataprocQuery
@@ -5999,6 +6186,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.workflowTemplates.instantiateInline
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesInstantiateInline : GTLRDataprocQuery
@@ -6063,7 +6251,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.workflowTemplates.list
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
+ *    @c kGTLRAuthScopeDataprocReadOnly
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesList : GTLRDataprocQuery
 
@@ -6117,6 +6307,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.workflowTemplates.setIamPolicy
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesSetIamPolicy : GTLRDataprocQuery
@@ -6159,6 +6350,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.workflowTemplates.testIamPermissions
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesTestIamPermissions : GTLRDataprocQuery
@@ -6200,6 +6392,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataprocTaskStatusTaskStatusUnspecified;
  *  Method: dataproc.projects.regions.workflowTemplates.update
  *
  *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDataproc
  *    @c kGTLRAuthScopeDataprocCloudPlatform
  */
 @interface GTLRDataprocQuery_ProjectsRegionsWorkflowTemplatesUpdate : GTLRDataprocQuery

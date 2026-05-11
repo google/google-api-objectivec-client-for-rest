@@ -301,7 +301,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, copy, nullable) NSString *keyString;
 
 /**
- *  Output only. The resource name of the key. The `name` has the form:
+ *  Identifier. The resource name of the key. The `name` has the form:
  *  `projects//locations/global/keys/`. For example:
  *  `projects/123456867718/locations/global/keys/b7ff1f9f-8275-410a-94dd-3855ee9b5dd2`
  *  NOTE: Key is a global resource; hence the only supported value for location

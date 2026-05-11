@@ -107,6 +107,7 @@
 @class GTLRDatabaseMigrationService_Policy;
 @class GTLRDatabaseMigrationService_Position;
 @class GTLRDatabaseMigrationService_PostgresDestinationConfig;
+@class GTLRDatabaseMigrationService_PostgresHomogeneousConfig;
 @class GTLRDatabaseMigrationService_PostgreSqlConnectionProfile;
 @class GTLRDatabaseMigrationService_PostgresSourceConfig;
 @class GTLRDatabaseMigrationService_PostgresToSqlServerConfig;
@@ -4850,13 +4851,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  *  email = 1; repeated EmailType type = 2; } string full_name = 1; repeated
  *  EmailAddress email_addresses = 2; } In this example, in proto `field` could
  *  take one of the following values: * `full_name` for a violation in the
- *  `full_name` value * `email_addresses[1].email` for a violation in the
+ *  `full_name` value * `email_addresses[0].email` for a violation in the
  *  `email` field of the first `email_addresses` message *
- *  `email_addresses[3].type[2]` for a violation in the second `type` value in
+ *  `email_addresses[2].type[1]` for a violation in the second `type` value in
  *  the third `email_addresses` message. In JSON, the same values are
  *  represented as: * `fullName` for a violation in the `fullName` value *
- *  `emailAddresses[1].email` for a violation in the `email` field of the first
- *  `emailAddresses` message * `emailAddresses[3].type[2]` for a violation in
+ *  `emailAddresses[0].email` for a violation in the `email` field of the first
+ *  `emailAddresses` message * `emailAddresses[2].type[1]` for a violation in
  *  the second `type` value in the third `emailAddresses` message.
  */
 @property(nonatomic, copy, nullable) NSString *field;
@@ -6022,6 +6023,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
  */
 @property(nonatomic, copy, nullable) NSString *phase;
 
+/** Optional. Configuration for PostgreSQL homogeneous migration. */
+@property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_PostgresHomogeneousConfig *postgresHomogeneousConfig;
+
 /**
  *  Configuration for heterogeneous failback migrations from **PostgreSQL to SQL
  *  Server**.
@@ -6992,6 +6996,29 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 
 /**
+ *  Configuration for PostgreSQL to PostgreSQL migrations.
+ */
+@interface GTLRDatabaseMigrationService_PostgresHomogeneousConfig : GTLRObject
+
+/**
+ *  Required. Whether the migration is native logical.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *isNativeLogical;
+
+/**
+ *  Optional. Maximum number of additional subscriptions to use for the
+ *  migration job.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *maxAdditionalSubscriptions;
+
+@end
+
+
+/**
  *  Specifies connection parameters required specifically for PostgreSQL
  *  databases.
  */
@@ -7011,6 +7038,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDatabaseMigrationService_ValueListFilter
 
 /** Optional. The name of the specific database within the host. */
 @property(nonatomic, copy, nullable) NSString *database;
+
+/**
+ *  Optional. If true, Database Migration Service will use IAM database
+ *  authentication to connect to the database.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *enableIamAuthentication;
 
 /** Forward SSH tunnel connectivity. */
 @property(nonatomic, strong, nullable) GTLRDatabaseMigrationService_ForwardSshTunnelConnectivity *forwardSshConnectivity;

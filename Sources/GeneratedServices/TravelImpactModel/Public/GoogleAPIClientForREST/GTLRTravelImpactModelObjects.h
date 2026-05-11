@@ -426,7 +426,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
 @property(nonatomic, strong, nullable) GTLRTravelImpactModel_EmissionsGramsPerPax *emissionsGramsPerPax;
 
 /**
- *  Required. Matches the flight identifiers in the request. Note: all IATA
+ *  Identifier. Matches the flight identifiers in the request. Note: all IATA
  *  codes are capitalized.
  */
 @property(nonatomic, strong, nullable) GTLRTravelImpactModel_Flight *flight;
@@ -509,7 +509,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
  */
 @interface GTLRTravelImpactModel_Scope3FlightEmissions : GTLRObject
 
-/** Required. Matches the flight identifiers in the request. */
+/** Identifier. Matches the flight identifiers in the request. */
 @property(nonatomic, strong, nullable) GTLRTravelImpactModel_Scope3FlightSegment *flight;
 
 /**
@@ -663,7 +663,7 @@ FOUNDATION_EXTERN NSString * const kGTLRTravelImpactModel_Scope3FlightSegment_Ca
 @property(nonatomic, strong, nullable) GTLRTravelImpactModel_EmissionsGramsPerPax *emissionsGramsPerPax;
 
 /**
- *  Required. Matches the flight identifiers in the request. Note: all IATA
+ *  Identifier. Matches the flight identifiers in the request. Note: all IATA
  *  codes are capitalized.
  */
 @property(nonatomic, strong, nullable) GTLRTravelImpactModel_Market *market;

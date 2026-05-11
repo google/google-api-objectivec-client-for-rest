@@ -442,120 +442,6 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResou
 
 
 /**
- *  Represents the metadata of a generic long-running operation.
- */
-@interface GTLROSConfig_GoogleCloudOsconfigCommonV1alphaOperationMetadata : GTLRObject
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
- *  Represents the metadata of a generic long-running operation.
- */
-@interface GTLROSConfig_GoogleCloudOsconfigCommonV1mainOperationMetadata : GTLRObject
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
- *  Represents the metadata of a generic long-running operation.
- */
-@interface GTLROSConfig_GoogleCloudOsconfigCommonV1OperationMetadata : GTLRObject
-
-/** Output only. API version used to start the operation. */
-@property(nonatomic, copy, nullable) NSString *apiVersion;
-
-/** Output only. The time the operation was created. */
-@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
-
-/** Output only. The time the operation finished running. */
-@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
-
-/**
- *  Output only. Identifies whether the user has requested cancellation of the
- *  operation. Operations that have successfully been cancelled have
- *  Operation.error value with a google.rpc.Status.code of 1, corresponding to
- *  `Code.CANCELLED`.
- *
- *  Uses NSNumber of boolValue.
- */
-@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
-
-/** Output only. Human-readable status of the operation, if any. */
-@property(nonatomic, copy, nullable) NSString *statusMessage;
-
-/**
- *  Output only. Server-defined resource path for the target of the operation.
- */
-@property(nonatomic, copy, nullable) NSString *target;
-
-/** Output only. Name of the verb executed by the operation. */
-@property(nonatomic, copy, nullable) NSString *verb;
-
-@end
-
-
-/**
  *  OS policy assignment operation metadata provided by OS policy assignment API
  *  methods that return long running operations.
  */
@@ -807,21 +693,21 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResou
 
 
 /**
- *  PolicyOrchestrator helps managing project+zone level policy resources (e.g.
- *  OS Policy Assignments), by providing tools to create, update and delete them
- *  across projects and locations, at scale. Policy orchestrator functions as an
- *  endless loop. Each iteration orchestrator computes a set of resources that
- *  should be affected, then progressively applies changes to them. If for some
- *  reason this set of resources changes over time (e.g. new projects are
- *  added), the future loop iterations will address that. Orchestrator can
- *  either upsert or delete policy resources. For more details, see the
- *  description of the `action`, and `orchestrated_resource` fields. Note that
- *  policy orchestrator do not "manage" the resources it creates. Every
- *  iteration is independent and only minimal history of past actions is
- *  retained (apart from Cloud Logging). If orchestrator gets deleted, it does
- *  not affect the resources it created in the past. Those will remain where
- *  they were. Same applies if projects are removed from the orchestrator's
- *  scope.
+ *  A policy orchestrator manages project-level and zone-level policy resources,
+ *  such as OS policy assignments. It provides methods to create, update, and
+ *  delete these resources across projects and locations at scale. The policy
+ *  orchestrator operates as a continuous loop. In each iteration, the
+ *  orchestrator identifies the set of resources to be modified and
+ *  progressively applies changes. If the set of resources changes over time
+ *  (for example, if you add new projects), subsequent iterations address those
+ *  changes. The orchestrator can either upsert or delete policy resources. For
+ *  more details, see the `action` and `orchestrated_resource` fields. The
+ *  policy orchestrator does not manage the lifecycle of the resources it
+ *  creates. Each iteration is independent and, besides Cloud Logging, the
+ *  orchestrator retains only a minimal history of past actions. Deleting the
+ *  orchestrator does not affect previously created resources; these resources
+ *  remain in their current state. Similarly, removing projects from the
+ *  orchestrator's scope does not affect existing resources.
  */
 @interface GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator : GTLRObject
 
@@ -857,7 +743,7 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResou
 @property(nonatomic, strong, nullable) GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestrator_Labels *labels;
 
 /**
- *  Immutable. Identifier. In form of *
+ *  Immutable. Identifier. In the following format: *
  *  `organizations/{organization_id}/locations/global/policyOrchestrators/{orchestrator_id}`
  *  *
  *  `folders/{folder_id}/locations/global/policyOrchestrators/{orchestrator_id}`
@@ -884,8 +770,8 @@ FOUNDATION_EXTERN NSString * const kGTLROSConfig_OSPolicyResourceRepositoryResou
 @property(nonatomic, strong, nullable) GTLROSConfig_GoogleCloudOsconfigV2PolicyOrchestratorOrchestrationState *orchestrationState;
 
 /**
- *  Output only. Set to true, if the there are ongoing changes being applied by
- *  the orchestrator.
+ *  Output only. Set to true, if there are ongoing changes being applied by the
+ *  orchestrator.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1670,9 +1556,7 @@ GTLR_DEPRECATED
  */
 @interface GTLROSConfig_OSPolicyResourceFileResource : GTLRObject
 
-/**
- *  A a file with this content. The size of the content is limited to 32KiB.
- */
+/** A file with this content. The size of the content is limited to 32KiB. */
 @property(nonatomic, copy, nullable) NSString *content;
 
 /** A remote or local source. */

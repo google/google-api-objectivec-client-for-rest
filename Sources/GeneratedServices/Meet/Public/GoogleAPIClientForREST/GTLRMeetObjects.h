@@ -20,13 +20,16 @@
 @class GTLRMeet_ConferenceRecord;
 @class GTLRMeet_DocsDestination;
 @class GTLRMeet_DriveDestination;
+@class GTLRMeet_GatewaySipAccess;
 @class GTLRMeet_ModerationRestrictions;
 @class GTLRMeet_Participant;
 @class GTLRMeet_ParticipantSession;
+@class GTLRMeet_PhoneAccess;
 @class GTLRMeet_PhoneUser;
 @class GTLRMeet_Recording;
 @class GTLRMeet_RecordingConfig;
 @class GTLRMeet_SignedinUser;
+@class GTLRMeet_SmartNote;
 @class GTLRMeet_SmartNotesConfig;
 @class GTLRMeet_SpaceConfig;
 @class GTLRMeet_Transcript;
@@ -181,6 +184,35 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_RecordingConfig_AutoRecordingGenera
  *  Value: "ON"
  */
 FOUNDATION_EXTERN NSString * const kGTLRMeet_RecordingConfig_AutoRecordingGeneration_On;
+
+// ----------------------------------------------------------------------------
+// GTLRMeet_SmartNote.state
+
+/**
+ *  This smart notes session has ended, but the smart notes file hasn't been
+ *  generated yet.
+ *
+ *  Value: "ENDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SmartNote_State_Ended;
+/**
+ *  Smart notes file is generated and ready to download.
+ *
+ *  Value: "FILE_GENERATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SmartNote_State_FileGenerated;
+/**
+ *  An active smart notes session has started.
+ *
+ *  Value: "STARTED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SmartNote_State_Started;
+/**
+ *  Default, never used.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRMeet_SmartNote_State_StateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRMeet_SmartNotesConfig.autoSmartNotesGeneration
@@ -501,6 +533,29 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
 
 
 /**
+ *  Details how to join the conference through a SIP gateway.
+ */
+@interface GTLRMeet_GatewaySipAccess : GTLRObject
+
+/**
+ *  The permanent numeric code for manual entry on specially configured devices.
+ */
+@property(nonatomic, copy, nullable) NSString *sipAccessCode;
+
+/**
+ *  The Session Initiation Protocol (SIP) URI the conference can be reached
+ *  through. The string is in one of these formats: *
+ *  "sip:USER_ID\@GATEWAY_ADDRESS" * "sips:USER_ID\@GATEWAY_ADDRESS" where
+ *  USER_ID is the 13-digit universal pin (with the future option to support
+ *  using a Meet meeting code as well), and GATEWAY_ADDRESS is a valid address
+ *  to be resolved using a DNS SRV lookup, or a dotted quad.
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
  *  Response of ListConferenceRecords method.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -614,6 +669,33 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
  *        subscripting on this class.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRMeet_Recording *> *recordings;
+
+@end
+
+
+/**
+ *  Response for ListSmartNotes method.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "smartNotes" property. If returned as the result of a query, it
+ *        should support automatic pagination (when @c shouldFetchNextPages is
+ *        enabled).
+ */
+@interface GTLRMeet_ListSmartNotesResponse : GTLRCollectionObject
+
+/**
+ *  Token to be circulated back for further List call if current List doesn't
+ *  include all the smart notes. Unset if all smart notes are returned.
+ */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  List of smart notes in one page.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMeet_SmartNote *> *smartNotes;
 
 @end
 
@@ -793,6 +875,41 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
 
 
 /**
+ *  Phone access contains information required to dial into a conference using a
+ *  regional phone number and a PIN that is specific to that phone number.
+ */
+@interface GTLRMeet_PhoneAccess : GTLRObject
+
+/**
+ *  The BCP 47/LDML language code for the language associated with this phone
+ *  access. To be parsed by the i18n LanguageCode utility. Examples: "es-419"
+ *  for Latin American Spanish, "fr-CA" for Canadian French.
+ */
+@property(nonatomic, copy, nullable) NSString *languageCode;
+
+/**
+ *  The phone number to dial for this meeting space in E.164 format. Full phone
+ *  number with a leading '+' character.
+ */
+@property(nonatomic, copy, nullable) NSString *phoneNumber;
+
+/**
+ *  The PIN that users must enter after dialing the given number. The PIN
+ *  consists of only decimal digits and the length may vary.
+ */
+@property(nonatomic, copy, nullable) NSString *pin;
+
+/**
+ *  The CLDR/ISO 3166 region code for the country associated with this phone
+ *  access. To be parsed by the i18n RegionCode utility. Example: "SE" for
+ *  Sweden.
+ */
+@property(nonatomic, copy, nullable) NSString *regionCode;
+
+@end
+
+
+/**
  *  User dialing in from a phone where the user's identity is unknown because
  *  they haven't signed in with a Google Account.
  */
@@ -895,6 +1012,50 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
 
 
 /**
+ *  Metadata for a smart note generated from a conference. It refers to the
+ *  notes generated from Take Notes with Gemini during the conference.
+ */
+@interface GTLRMeet_SmartNote : GTLRObject
+
+/**
+ *  Output only. The Google Doc destination where the smart notes are saved.
+ */
+@property(nonatomic, strong, nullable) GTLRMeet_DocsDestination *docsDestination;
+
+/** Output only. Timestamp when the smart notes stopped. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifier. Resource name of the smart notes. Format:
+ *  `conferenceRecords/{conference_record}/smartNotes/{smart_note}`, where
+ *  `{smart_note}` is a 1:1 mapping to each unique smart notes session of the
+ *  conference.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/** Output only. Timestamp when the smart notes started. */
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+/**
+ *  Output only. Current state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRMeet_SmartNote_State_Ended This smart notes session has
+ *        ended, but the smart notes file hasn't been generated yet. (Value:
+ *        "ENDED")
+ *    @arg @c kGTLRMeet_SmartNote_State_FileGenerated Smart notes file is
+ *        generated and ready to download. (Value: "FILE_GENERATED")
+ *    @arg @c kGTLRMeet_SmartNote_State_Started An active smart notes session
+ *        has started. (Value: "STARTED")
+ *    @arg @c kGTLRMeet_SmartNote_State_StateUnspecified Default, never used.
+ *        (Value: "STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+@end
+
+
+/**
  *  Configuration related to smart notes in a meeting space. For more
  *  information about smart notes, see ["Take notes for me" in Google
  *  Meet](https://support.google.com/meet/answer/14754931).
@@ -933,6 +1094,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
 @property(nonatomic, strong, nullable) GTLRMeet_SpaceConfig *config;
 
 /**
+ *  Output only. The SIP-based access methods that can be used to join the
+ *  conference. Can be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMeet_GatewaySipAccess *> *gatewaySipAccess;
+
+/**
  *  Output only. Type friendly unique string used to join the meeting. Format:
  *  `[a-z]+-[a-z]+-[a-z]+`. For example, `abc-mnop-xyz`. The maximum length is
  *  128 characters. Can only be used as an alias of the space name to get the
@@ -955,6 +1122,12 @@ FOUNDATION_EXTERN NSString * const kGTLRMeet_TranscriptionConfig_AutoTranscripti
  *  space](https://developers.google.com/workspace/meet/api/guides/meeting-spaces#identify-meeting-space).
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. All regional phone access methods for this meeting space. Can
+ *  be empty.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRMeet_PhoneAccess *> *phoneAccess;
 
 @end
 

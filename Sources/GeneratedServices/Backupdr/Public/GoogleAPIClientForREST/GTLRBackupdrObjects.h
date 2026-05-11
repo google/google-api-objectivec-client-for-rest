@@ -50,6 +50,7 @@
 @class GTLRBackupdr_CloudSqlInstanceDataSourceProperties;
 @class GTLRBackupdr_CloudSqlInstanceDataSourceReferenceProperties;
 @class GTLRBackupdr_CloudSqlInstanceInitializationConfig;
+@class GTLRBackupdr_ComputeInstanceBackupPlanProperties;
 @class GTLRBackupdr_ComputeInstanceBackupProperties;
 @class GTLRBackupdr_ComputeInstanceBackupProperties_Labels;
 @class GTLRBackupdr_ComputeInstanceDataSourceProperties;
@@ -78,6 +79,9 @@
 @class GTLRBackupdr_Entry;
 @class GTLRBackupdr_Expr;
 @class GTLRBackupdr_FilestoreInstanceBackupPlanAssociationProperties;
+@class GTLRBackupdr_FilestoreInstanceBackupProperties;
+@class GTLRBackupdr_FilestoreInstanceDataSourceProperties;
+@class GTLRBackupdr_FilestoreInstanceDataSourceReferenceProperties;
 @class GTLRBackupdr_GcpBackupConfig;
 @class GTLRBackupdr_GCPBackupPlanInfo;
 @class GTLRBackupdr_GcpResource;
@@ -100,6 +104,7 @@
 @class GTLRBackupdr_Operation;
 @class GTLRBackupdr_Operation_Metadata;
 @class GTLRBackupdr_Operation_Response;
+@class GTLRBackupdr_OperationMetadata_AdditionalInfo;
 @class GTLRBackupdr_PitrSettings;
 @class GTLRBackupdr_PlanConfig;
 @class GTLRBackupdr_PlanRule;
@@ -1211,6 +1216,18 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_GuestOsFeature_Type_Windows;
 
 /** Value: "ALLOY_DB" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_AlloyDb;
+/** Value: "BV_AF" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_BvAf;
+/**
+ *  Remove once parity achieved between BV_AF and BV_CUSTOM_PROBERS.
+ *
+ *  Value: "BV_CUSTOM_PROBERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_BvCustomProbers;
+/** Value: "CEP_MONITORING_COMPUTE_INSTANCE" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_CepMonitoringComputeInstance;
+/** Value: "CEP_MONITORING_DISK" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_CepMonitoringDisk;
 /** Value: "CLOUD_SQL" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_CloudSql;
 /** Value: "COMPUTE_INSTANCE" */
@@ -1221,12 +1238,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFea
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FeatureUnspecified;
 /** Value: "FILESTORE" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_Filestore;
+/** Value: "FT_CUSTOM_PROBERS" */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_FtCustomProbers;
 /** Value: "MANAGEMENT_SERVER" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ManagementServer;
 /** Value: "PROTECTION_SUMMARY" */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_ProtectionSummary;
-/** Value: "SAAS_PLATFORM" */
-FOUNDATION_EXTERN NSString * const kGTLRBackupdr_LocationMetadata_UnsupportedFeatures_SaasPlatform;
 
 // ----------------------------------------------------------------------------
 // GTLRBackupdr_ManagementServer.state
@@ -1454,6 +1471,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetReso
  *  Value: "COMPUTE_ENGINE_VM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineVm;
+/**
+ *  Filestore Instance.
+ *
+ *  Value: "FILESTORE_INSTANCE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_FilestoreInstance;
 /**
  *  Resource type not set.
  *
@@ -2541,6 +2564,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 /** Optional. When this backup is automatically expired. */
 @property(nonatomic, strong, nullable) GTLRDateTime *expireTime;
 
+/** Output only. Filestore specific backup properties. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_FilestoreInstanceBackupProperties *filestoreInstanceBackupProperties;
+
 /** Output only. Configuration for a Google Cloud resource. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_GCPBackupPlanInfo *gcpBackupPlanInfo;
 
@@ -2982,6 +3008,13 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  Account.
  */
 @property(nonatomic, copy, nullable) NSString *backupVaultServiceAccount;
+
+/**
+ *  Optional. Defines optional properties specific to backups of disk-based
+ *  resources, such as Compute Engine. This includes settings like whether to
+ *  perform a guest flush.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_ComputeInstanceBackupPlanProperties *computeInstanceBackupPlanProperties;
 
 /** Output only. When the `BackupPlan` was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
@@ -3715,6 +3748,23 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  --- ComputeInstanceBackupPlanProperties Message ---
+ */
+@interface GTLRBackupdr_ComputeInstanceBackupPlanProperties : GTLRObject
+
+/**
+ *  Optional. Indicates whether to perform a guest flush operation before taking
+ *  a compute backup. When set to false, the system will create crash-consistent
+ *  backups. Default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *guestFlush;
+
+@end
+
+
+/**
  *  ComputeInstanceBackupProperties represents Compute Engine instance backup
  *  properties.
  */
@@ -3752,6 +3802,15 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  created from these properties.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_AcceleratorConfig *> *guestAccelerator;
+
+/**
+ *  Optional. Indicates whether to perform a guest flush operation before taking
+ *  a compute backup. When set to false, the system will create crash-consistent
+ *  backups. Default value is false.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *guestFlush;
 
 /**
  *  KeyRevocationActionType of the instance. Supported options are "STOP" and
@@ -4349,6 +4408,12 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) GTLRBackupdr_DiskDataSourceProperties *diskDatasourceProperties;
 
 /**
+ *  Output only. FilestoreInstanceDataSourceProperties has a subset of FileStore
+ *  instance properties that are useful at the Datasource level.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_FilestoreInstanceDataSourceProperties *filestoreInstanceDatasourceProperties;
+
+/**
  *  Output only. Full resource pathname URL of the source Google Cloud resource.
  */
 @property(nonatomic, copy, nullable) NSString *gcpResourcename;
@@ -4375,6 +4440,9 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Output only. The properties of the Cloud SQL instance. */
 @property(nonatomic, strong, nullable) GTLRBackupdr_CloudSqlInstanceDataSourceReferenceProperties *cloudSqlInstanceProperties;
+
+/** Output only. The properties of the Filestore instance. */
+@property(nonatomic, strong, nullable) GTLRBackupdr_FilestoreInstanceDataSourceReferenceProperties *filestoreInstanceProperties;
 
 /**
  *  Output only. The resource name of the Google Cloud resource. Ex:
@@ -5084,6 +5152,30 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Response for FetchResourceBackupConfigs.
+ *
+ *  @note This class supports NSFastEnumeration and indexed subscripting over
+ *        its "resourceBackupConfigs" property. If returned as the result of a
+ *        query, it should support automatic pagination (when @c
+ *        shouldFetchNextPages is enabled).
+ */
+@interface GTLRBackupdr_FetchResourceBackupConfigsResponse : GTLRCollectionObject
+
+/** A token identifying a page of results the server should return. */
+@property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  The list of ResourceBackupConfigs for the specified scope.
+ *
+ *  @note This property is used to support NSFastEnumeration and indexed
+ *        subscripting on this class.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRBackupdr_ResourceBackupConfig *> *resourceBackupConfigs;
+
+@end
+
+
+/**
  *  Response message for fetching usable BackupVaults.
  *
  *  @note This class supports NSFastEnumeration and indexed subscripting over
@@ -5121,6 +5213,53 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 /** Output only. The time when the instance was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *instanceCreateTime;
+
+@end
+
+
+/**
+ *  FilestoreInstanceBackupProperties represents the properties of a Filestore
+ *  instance that are backed up by the datasource. .
+ */
+@interface GTLRBackupdr_FilestoreInstanceBackupProperties : GTLRObject
+
+/** Output only. The source instance of the backup. */
+@property(nonatomic, copy, nullable) NSString *sourceInstance;
+
+@end
+
+
+/**
+ *  FilestoreInstanceDataSourceProperties represents the properties of a
+ *  Filestore resource that are stored in the DataSource. .
+ */
+@interface GTLRBackupdr_FilestoreInstanceDataSourceProperties : GTLRObject
+
+/** Output only. The instance creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *instanceCreateTime;
+
+/**
+ *  Output only. Name of the Filestore instance backed up by the datasource.
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
+ *  FilestoreInstanceDataSourceReferenceProperties represents the properties of
+ *  a Filestore resource that are stored in the DataSourceReference. .
+ */
+@interface GTLRBackupdr_FilestoreInstanceDataSourceReferenceProperties : GTLRObject
+
+/** Output only. The instance creation timestamp. */
+@property(nonatomic, strong, nullable) GTLRDateTime *instanceCreateTime;
+
+/**
+ *  Output only. Name of the Filestore instance backed up by the datasource.
+ *  Format: projects/{project}/instances/{instance}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
 
 @end
 
@@ -5432,6 +5571,14 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *  "storage.googleapis.com/Bucket".
  */
 @property(nonatomic, copy, nullable) NSString *resourceType;
+
+/**
+ *  Optional. If set, validates the request and returns the result, but does not
+ *  actually run it.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *validateOnly;
 
 @end
 
@@ -6382,6 +6529,63 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 
 
 /**
+ *  Represents the metadata of the long-running operation.
+ */
+@interface GTLRBackupdr_OperationMetadata : GTLRObject
+
+/**
+ *  Output only. AdditionalInfo contains additional Info related to backup plan
+ *  association resource.
+ */
+@property(nonatomic, strong, nullable) GTLRBackupdr_OperationMetadata_AdditionalInfo *additionalInfo;
+
+/** Output only. API version used to start the operation. */
+@property(nonatomic, copy, nullable) NSString *apiVersion;
+
+/** Output only. The time the operation was created. */
+@property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/** Output only. The time the operation finished running. */
+@property(nonatomic, strong, nullable) GTLRDateTime *endTime;
+
+/**
+ *  Output only. Identifies whether the user has requested cancellation of the
+ *  operation. Operations that have successfully been cancelled have
+ *  google.longrunning.Operation.error value with a google.rpc.Status.code of 1,
+ *  corresponding to 'Code.CANCELLED'.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *requestedCancellation;
+
+/** Output only. Human-readable status of the operation, if any. */
+@property(nonatomic, copy, nullable) NSString *statusMessage;
+
+/**
+ *  Output only. Server-defined resource path for the target of the operation.
+ */
+@property(nonatomic, copy, nullable) NSString *target;
+
+/** Output only. Name of the verb executed by the operation. */
+@property(nonatomic, copy, nullable) NSString *verb;
+
+@end
+
+
+/**
+ *  Output only. AdditionalInfo contains additional Info related to backup plan
+ *  association resource.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRBackupdr_OperationMetadata_AdditionalInfo : GTLRObject
+@end
+
+
+/**
  *  Point in time recovery settings of the backup configuration resource.
  */
 @interface GTLRBackupdr_PitrSettings : GTLRObject
@@ -6610,6 +6814,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
  *        Compute Engine Regional Disk. (Value: "COMPUTE_ENGINE_REGIONAL_DISK")
  *    @arg @c kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ComputeEngineVm
  *        Compute Engine VM. (Value: "COMPUTE_ENGINE_VM")
+ *    @arg @c kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_FilestoreInstance
+ *        Filestore Instance. (Value: "FILESTORE_INSTANCE")
  *    @arg @c kGTLRBackupdr_ResourceBackupConfig_TargetResourceType_ResourceTypeUnspecified
  *        Resource type not set. (Value: "RESOURCE_TYPE_UNSPECIFIED")
  */
@@ -7004,16 +7210,17 @@ FOUNDATION_EXTERN NSString * const kGTLRBackupdr_WeekDayOfMonth_WeekOfMonth_Week
 @property(nonatomic, strong, nullable) NSArray<NSString *> *daysOfWeek;
 
 /**
- *  Optional. Specifies frequency for hourly backups. A hourly frequency of 2
- *  means jobs will run every 2 hours from start time till end time defined.
- *  This is required for `recurrence_type`, `HOURLY` and is not applicable
- *  otherwise. A validation error will occur if a value is supplied and
- *  `recurrence_type` is not `HOURLY`. Value of hourly frequency should be
- *  between 4 and 23. Reason for limit : We found that there is bandwidth
- *  limitation of 3GB/S for GMI while taking a backup and 5GB/S while doing a
- *  restore. Given the amount of parallel backups and restore we are targeting,
- *  this will potentially take the backup time to mins and hours (in worst case
- *  scenario).
+ *  Optional. Specifies frequency for hourly backups. A hourly frequency of 1
+ *  means jobs will run every 1 hour from start time till end time defined. This
+ *  is required for `recurrence_type`, `HOURLY` and is not applicable otherwise.
+ *  A validation error will occur if a value is supplied and `recurrence_type`
+ *  is not `HOURLY`. The supported values for each resource type are as follows:
+ *  * `compute.googleapis.com/Instance`: 4-23 * `compute.googleapis.com/Disk`:
+ *  1-23 * `sqladmin.googleapis.com/Instance`: 6-23 *
+ *  `alloydb.googleapis.com/Cluster`: 1-23 * `file.googleapis.com/Instance`:
+ *  1-23 Refer to link
+ *  https://cloud.google.com/backup-disaster-recovery/docs/concepts/cloud_best_practices
+ *  for more details.
  *
  *  Uses NSNumber of intValue.
  */

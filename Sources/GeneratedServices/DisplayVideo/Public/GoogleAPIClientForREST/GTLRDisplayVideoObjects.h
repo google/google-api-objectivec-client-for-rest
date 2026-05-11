@@ -140,6 +140,7 @@
 @class GTLRDisplayVideo_DateRange;
 @class GTLRDisplayVideo_DayAndTime;
 @class GTLRDisplayVideo_DayAndTimeAssignedTargetingOptionDetails;
+@class GTLRDisplayVideo_DcmTrackingInfo;
 @class GTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest;
 @class GTLRDisplayVideo_DemandGenBiddingStrategy;
 @class GTLRDisplayVideo_DemandGenCarouselAd;
@@ -646,7 +647,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGro
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper;
 /**
- *  Demand Gen ads.
+ *  Demand Gen ads. Retrieval and management of Demand Gen resources is
+ *  currently in beta. This enum value is only available to allowlisted users.
  *
  *  Value: "AD_GROUP_FORMAT_DEMAND_GEN"
  */
@@ -4284,6 +4286,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptio
  *  Value: "GEO_REGION_TYPE_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnknown;
+/**
+ *  The geographic region is a ward.
+ *
+ *  Value: "GEO_REGION_TYPE_WARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeWard;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_Campaign.entityStatus
@@ -6727,6 +6735,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DemandGenBiddingStrategy_Ty
  *  Value: "DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_CPA"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeTargetCpa;
+/**
+ *  A bidding strategy that automatically optimizes cost per click.
+ *
+ *  Value: "DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_CPC"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeTargetCpc;
 /**
  *  A bidding strategy that automatically maximizes revenue while averaging a
  *  specific target Return On Ad Spend (ROAS).
@@ -10766,6 +10780,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingO
  *  Value: "GEO_REGION_TYPE_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnknown;
+/**
+ *  The geographic region is a ward.
+ *
+ *  Value: "GEO_REGION_TYPE_WARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeWard;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_GeoRegionTargetingOptionDetails.geoRegionType
@@ -11004,6 +11024,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDet
  *  Value: "GEO_REGION_TYPE_UNKNOWN"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnknown;
+/**
+ *  The geographic region is a ward.
+ *
+ *  Value: "GEO_REGION_TYPE_WARD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeWard;
 
 // ----------------------------------------------------------------------------
 // GTLRDisplayVideo_GoogleAudience.googleAudienceType
@@ -13300,7 +13326,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_EntityStatus_Entit
  */
 FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeAudioDefault;
 /**
- *  Demand Gen ads.
+ *  Demand Gen ads. Retrieval and management of Demand Gen resources is
+ *  currently in beta. This enum value is only available to allowlisted users.
  *
  *  Value: "LINE_ITEM_TYPE_DEMAND_GEN"
  */
@@ -17096,7 +17123,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatBumper Bumper
  *        ads. (Value: "AD_GROUP_FORMAT_BUMPER")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatDemandGen
- *        Demand Gen ads. (Value: "AD_GROUP_FORMAT_DEMAND_GEN")
+ *        Demand Gen ads. Retrieval and management of Demand Gen resources is
+ *        currently in beta. This enum value is only available to allowlisted
+ *        users. (Value: "AD_GROUP_FORMAT_DEMAND_GEN")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatInStream
  *        In-stream ads. (Value: "AD_GROUP_FORMAT_IN_STREAM")
  *    @arg @c kGTLRDisplayVideo_AdGroup_AdGroupFormat_AdGroupFormatMasthead
@@ -17127,8 +17156,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *adGroupId;
 
 /**
- *  Optional. Specifies the inventory control of the ad group. This field is
- *  required for Demand Gen ad groups.
+ *  Optional. Required for Demand Gen ad groups. Specifies the inventory control
+ *  of the ad group.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_AdGroupInventoryControl *adGroupInventoryControl;
 
@@ -17251,26 +17280,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_BumperAd *bumperAd;
 
 /**
+ *  Optional. The DCM tracking ad info. Only valid for Demand Gen ads. To remove
+ *  the DCM tracking ad info, please leave this field empty. Retrieval and
+ *  management of Demand Gen resources is currently in beta. This field is only
+ *  available to allowlisted users.
+ */
+@property(nonatomic, strong, nullable) GTLRDisplayVideo_DcmTrackingInfo *dcmTrackingInfo;
+
+/**
  *  Details of a [Demand Gen carousel
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#CarouselAd).
+ *  Retrieval and management of Demand Gen resources is currently in beta. This
+ *  field is only available to allowlisted users.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenCarouselAd *demandGenCarouselAd;
 
 /**
  *  Details of a [Demand Gen image
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#ImageAd).
+ *  Retrieval and management of Demand Gen resources is currently in beta. This
+ *  field is only available to allowlisted users.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenImageAd *demandGenImageAd;
 
 /**
  *  Details of a [Demand Gen product
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#Product-onlyAd).
+ *  Retrieval and management of Demand Gen resources is currently in beta. This
+ *  field is only available to allowlisted users.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenProductAd *demandGenProductAd;
 
 /**
  *  Details of a [Demand Gen video
  *  ad](//support.google.com/displayvideo/answer/15598924?&sjid=11207068802760924844-NC#VideoAd).
+ *  Retrieval and management of Demand Gen resources is currently in beta. This
+ *  field is only available to allowlisted users.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenVideoAd *demandGenVideoAd;
 
@@ -20943,9 +20988,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` *
  *  `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
  *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` *
- *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
- *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
- *  `TARGETING_TYPE_YOUTUBE_VIDEO`
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_URL` *
+ *  `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest *> *createRequests;
 
@@ -20957,9 +21001,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `TARGETING_TYPE_CATEGORY` * `TARGETING_TYPE_GENDER` *
  *  `TARGETING_TYPE_GEO_REGION` * `TARGETING_TYPE_HOUSEHOLD_INCOME` *
  *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_LANGUAGE` *
- *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_REGIONAL_LOCATION_LIST` *
- *  `TARGETING_TYPE_URL` * `TARGETING_TYPE_YOUTUBE_CHANNEL` *
- *  `TARGETING_TYPE_YOUTUBE_VIDEO`
+ *  `TARGETING_TYPE_PARENTAL_STATUS` * `TARGETING_TYPE_URL` *
+ *  `TARGETING_TYPE_YOUTUBE_CHANNEL` * `TARGETING_TYPE_YOUTUBE_VIDEO`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest *> *deleteRequests;
 
@@ -21003,7 +21046,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `CreateAssignedTargetingOptionsRequest`. Supported targeting types: *
  *  `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`
  *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_INVENTORY_MODE`
+ *  `TARGETING_TYPE_KEYWORD`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CreateAssignedTargetingOptionsRequest *> *createRequests;
 
@@ -21012,7 +21055,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  `DeleteAssignedTargetingOptionsRequest`. Supported targeting types: *
  *  `TARGETING_TYPE_CHANNEL` * `TARGETING_TYPE_DIGITAL_CONTENT_LABEL_EXCLUSION`
  *  * `TARGETING_TYPE_OMID` * `TARGETING_TYPE_SENSITIVE_CATEGORY_EXCLUSION` *
- *  `TARGETING_TYPE_KEYWORD` * `TARGETING_TYPE_INVENTORY_MODE`
+ *  `TARGETING_TYPE_KEYWORD`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_DeleteAssignedTargetingOptionsRequest *> *deleteRequests;
 
@@ -21736,6 +21779,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnknown
  *        The geographic region type is unknown. (Value:
  *        "GEO_REGION_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_BusinessChainTargetingOptionDetails_GeoRegionType_GeoRegionTypeWard
+ *        The geographic region is a ward. (Value: "GEO_REGION_TYPE_WARD")
  */
 @property(nonatomic, copy, nullable) NSString *geoRegionType;
 
@@ -21997,8 +22042,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_CarouselCard : GTLRObject
 
 /**
- *  Required. The call-to-action button shown on the card. Must use 10
- *  characters or less.
+ *  Required. The text on the call-to-action button shown on the card. Must use
+ *  10 characters or less.
  */
 @property(nonatomic, copy, nullable) NSString *callToAction;
 
@@ -23018,7 +23063,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  attribution model will determine how conversions are counted. The Primary
  *  model can be set by you for a floodlight config or group. More details
  *  [here](https://support.google.com/displayvideo/answer/7409983). Only
- *  applicable to Demand Gen line items.
+ *  applicable to Demand Gen line items. Retrieval and management of Demand Gen
+ *  resources is currently in beta. This field is only available to allowlisted
+ *  users.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -24620,8 +24667,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Required. The mechanism used to determine which timezone to use for this day
- *  and time targeting setting. For demand gen line items, this field is always
- *  TIME_ZONE_RESOLUTION_ADVERTISER.
+ *  and time targeting setting. For Demand Gen line items, this field is always
+ *  `TIME_ZONE_RESOLUTION_ADVERTISER`.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DayAndTimeAssignedTargetingOptionDetails_TimeZoneResolution_TimeZoneResolutionAdvertiser
@@ -24635,6 +24682,35 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        "TIME_ZONE_RESOLUTION_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *timeZoneResolution;
+
+@end
+
+
+/**
+ *  Details on the DCM tracking.
+ */
+@interface GTLRDisplayVideo_DcmTrackingInfo : GTLRObject
+
+/**
+ *  Required. The DCM creative id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *creativeId;
+
+/**
+ *  Required. The DCM placement id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *placementId;
+
+/**
+ *  Required. The DCM tracking ad id.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *trackingAdId;
 
 @end
 
@@ -24830,10 +24906,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_DemandGenBiddingStrategy : GTLRObject
 
 /**
- *  Output only. If AG doesn't set value for tCPA or tROAS, line item bidding
- *  value will be the effective_bidding_value, if the bidding strategy type is
- *  not tCPA or tROAS, effective_bidding_value is always 0. For line item, it
- *  will be the same as the value field.
+ *  Output only. The value effectively used by the bidding strategy. This field
+ *  will be the same as value if set. If value is not set and the strategy is
+ *  assigned to an ad group, this field will be inherited from the line item's
+ *  bidding strategy. If type is not
+ *  `DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_CPA` or
+ *  `DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_ROAS`, this field will be 0.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -24856,8 +24934,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *effectiveBiddingValueSource;
 
 /**
- *  Optional. The type of the bidding strategy. This can only be set at the line
- *  item level.
+ *  Optional. The type of the bidding strategy. This can only be set when
+ *  assigned to a line item. Ad groups will inherit this value from their line
+ *  item.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeMaximizeClicks
@@ -24873,6 +24952,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeTargetCpa
  *        A bidding strategy that automatically optimizes conversions per
  *        dollar. (Value: "DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_CPA")
+ *    @arg @c kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeTargetCpc
+ *        A bidding strategy that automatically optimizes cost per click.
+ *        (Value: "DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_CPC")
  *    @arg @c kGTLRDisplayVideo_DemandGenBiddingStrategy_Type_DemandGenBiddingStrategyTypeTargetRoas
  *        A bidding strategy that automatically maximizes revenue while
  *        averaging a specific target Return On Ad Spend (ROAS). (Value:
@@ -24884,9 +24966,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *type;
 
 /**
- *  Optional. The value used by the bidding strategy. This can be set at the
- *  line item and ad group level. This field is only applicable for the
+ *  Optional. The value used by the bidding strategy. This can be set when
+ *  assigned to line items or ad groups. This field is only applicable for the
  *  following strategy types: * `DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_CPA` *
+ *  `DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_CPC` *
  *  `DEMAND_GEN_BIDDING_STRATEGY_TYPE_TARGET_ROAS` Value of this field is in
  *  micros of the advertiser's currency or ROAS value. For example, 1000000
  *  represents 1.0 standard units of the currency or 100% ROAS value. If not
@@ -24911,8 +24994,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_CarouselCard *> *cards;
 
 /**
- *  Optional. The custom parameters to pass custom values to tracking URL
- *  template.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenCarouselAd_CustomParameters *customParameters;
 
@@ -24950,8 +25033,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Optional. The custom parameters to pass custom values to tracking URL
- *  template.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -24974,8 +25057,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *callToAction;
 
 /**
- *  Optional. The custom parameters to pass custom values to tracking URL
- *  template.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenImageAd_CustomParameters *customParameters;
 
@@ -25024,8 +25107,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Optional. The custom parameters to pass custom values to tracking URL
- *  template.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -25092,8 +25175,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *callToAction;
 
 /**
- *  Optional. The custom parameters to pass custom values to tracking URL
- *  template.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenProductAd_CustomParameters *customParameters;
 
@@ -25137,8 +25220,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Optional. The custom parameters to pass custom values to tracking URL
- *  template.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -25157,15 +25240,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Optional. Immutable. Whether location and language targeting can be set at
  *  the line item level. Otherwise, relevant targeting types must be assigned
- *  directly to the ad groups.
+ *  directly to ad groups.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *geoLanguageTargetingEnabled;
 
 /**
- *  Optional. The ID of the merchant which is linked to the line item for
- *  product feed.
+ *  Optional. The ID of the Merchant Center account used to provide a product
+ *  feed. This Merchant Center account must already be linked to the advertiser.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -25240,8 +25323,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ImageAsset *companionBanner;
 
 /**
- *  Optional. The custom parameters to pass custom values to tracking URL
- *  template.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenVideoAd_CustomParameters *customParameters;
 
@@ -25275,7 +25358,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Required. The logo image used by this ad. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_ImageAsset *logo;
 
-/** Required. The list of lone headlines shown on the ad. */
+/** Required. The list of long headlines shown on the ad. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *longHeadlines;
 
 /**
@@ -25293,8 +25376,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  Optional. The custom parameters to pass custom values to tracking URL
- *  template.
+ *  Optional. The custom parameters and accompanying values to add to the
+ *  tracking URL.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -27745,6 +27828,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnknown
  *        The geographic region type is unknown. (Value:
  *        "GEO_REGION_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionAssignedTargetingOptionDetails_GeoRegionType_GeoRegionTypeWard
+ *        The geographic region is a ward. (Value: "GEO_REGION_TYPE_WARD")
  */
 @property(nonatomic, copy, nullable) NSString *geoRegionType;
 
@@ -27899,6 +27984,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeUnknown
  *        The geographic region type is unknown. (Value:
  *        "GEO_REGION_TYPE_UNKNOWN")
+ *    @arg @c kGTLRDisplayVideo_GeoRegionTargetingOptionDetails_GeoRegionType_GeoRegionTypeWard
+ *        The geographic region is a ward. (Value: "GEO_REGION_TYPE_WARD")
  */
 @property(nonatomic, copy, nullable) NSString *geoRegionType;
 
@@ -28821,14 +28908,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Common ad attributes. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CommonInStreamAttribute *commonInStreamAttribute;
 
-/** The custom parameters to pass custom values to tracking URL template. */
+/**
+ *  The custom parameters and accompanying values to add to the tracking URL.
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_InStreamAd_CustomParameters *customParameters;
 
 @end
 
 
 /**
- *  The custom parameters to pass custom values to tracking URL template.
+ *  The custom parameters and accompanying values to add to the tracking URL.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -29095,7 +29184,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  An inventory source. Next ID: 22
+ *  An inventory source.
  */
 @interface GTLRDisplayVideo_InventorySource : GTLRObject
 
@@ -29862,8 +29951,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @interface GTLRDisplayVideo_KeywordAssignedTargetingOptionDetails : GTLRObject
 
 /**
- *  Optional. The policy names to exempt the keyword from. This field is only
- *  applicable for Demand Gen keywords, which are positively targeted.
+ *  Optional. The policy names to exempt the keyword from. When attempting to
+ *  target a keyword that violates a policy, the error returned will include the
+ *  name of the relevant policy. Use that name in this field to exempt the
+ *  targeted keyword from the policy. This field is only applicable for
+ *  positively-targeted keywords assigned to Demand Gen resources. Retrieval and
+ *  management of Demand Gen resources is currently in beta. This field is only
+ *  available to allowlisted users.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *exemptedPolicyNames;
 
@@ -30086,7 +30180,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  */
 @property(nonatomic, strong, nullable) NSArray<NSNumber *> *creativeIds;
 
-/** Optional. Settings specific to Demand Gen line items. */
+/**
+ *  Optional. Settings specific to Demand Gen line items. Only applicable to
+ *  Demand Gen line items. Retrieval and management of Demand Gen resources is
+ *  currently in beta. This field is only available to allowlisted users.
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_DemandGenSettings *demandGenSettings;
 
 /**
@@ -30139,10 +30237,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_LineItemFlight *flight;
 
 /**
- *  Optional. The impression frequency cap settings of the line item. The
- *  max_impressions field in this settings object must be used if assigning a
- *  limited cap. This field is REQUIRED for all line item types excluding
- *  LINE_ITEM_TYPE_DEMAND_GEN.
+ *  Optional. Required if the line item type is not `LINE_ITEM_TYPE_DEMAND_GEN`.
+ *  The impression frequency cap settings of the line item. The max_impressions
+ *  field in this settings object must be used if assigning a limited cap.
  */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_FrequencyCap *frequencyCap;
 
@@ -30172,7 +30269,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *        RTB Audio ads sold for a variety of environments. (Value:
  *        "LINE_ITEM_TYPE_AUDIO_DEFAULT")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDemandGen
- *        Demand Gen ads. (Value: "LINE_ITEM_TYPE_DEMAND_GEN")
+ *        Demand Gen ads. Retrieval and management of Demand Gen resources is
+ *        currently in beta. This enum value is only available to allowlisted
+ *        users. (Value: "LINE_ITEM_TYPE_DEMAND_GEN")
  *    @arg @c kGTLRDisplayVideo_LineItem_LineItemType_LineItemTypeDisplayDefault
  *        Image, HTML5, native, or rich media ads. (Value:
  *        "LINE_ITEM_TYPE_DISPLAY_DEFAULT")
@@ -30278,6 +30377,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Output only. The resource name of the line item. */
 @property(nonatomic, copy, nullable) NSString *name;
 
+/**
+ *  Optional. Whether to enable DV360's bid optimization for fixed bid line
+ *  items. By default, DV360 optimizes your fixed bid by automatically lowering
+ *  bids for impressions that are less likely to perform well. This optimization
+ *  is enabled by default (value is true). When this field is set to `false`,
+ *  this optimization is disabled, and the bid will not be lowered for any
+ *  reason. This setting only applies to line items with a `bidding_strategy` of
+ *  type `FIXED_BID`.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *optimizeFixedBidding;
+
 /** Required. The budget spending speed setting of the line item. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_Pacing *pacing;
 
@@ -30370,10 +30482,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /**
  *  Required. The type of the budget allocation.
  *  `LINE_ITEM_BUDGET_ALLOCATION_TYPE_AUTOMATIC` is only applicable when
- *  automatic budget allocation is enabled for the parent insertion order. For
- *  demand gen line items, budget allocation type must be
- *  `LINE_ITEM_BUDGET_ALLOCATION_TYPE_FIXED`. Demand Gen line items do not
- *  support other budget allocation types.
+ *  automatic budget allocation is enabled for the parent insertion order. This
+ *  field must be set to `LINE_ITEM_BUDGET_ALLOCATION_TYPE_FIXED` for Demand Gen
+ *  line items.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_LineItemBudget_BudgetAllocationType_LineItemBudgetAllocationTypeAutomatic
@@ -31966,14 +32077,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** Common ad attributes. */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_CommonInStreamAttribute *commonInStreamAttribute;
 
-/** The custom parameters to pass custom values to tracking URL template. */
+/**
+ *  The custom parameters and accompanying values to add to the tracking URL.
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_NonSkippableAd_CustomParameters *customParameters;
 
 @end
 
 
 /**
- *  The custom parameters to pass custom values to tracking URL template.
+ *  The custom parameters and accompanying values to add to the tracking URL.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -32813,9 +32926,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *markupAmount;
 
 /**
- *  Required. The markup type of the partner revenue model. Demand Gen line
- *  items only support
- *  `PARTNER_REVENUE_MODEL_MARKUP_TYPE_TOTAL_MEDIA_COST_MARKUP`.
+ *  Required. The markup type of the partner revenue model. This field must be
+ *  set to `PARTNER_REVENUE_MODEL_MARKUP_TYPE_TOTAL_MEDIA_COST_MARKUP` for
+ *  Demand Gen line items.
  *
  *  Likely values:
  *    @arg @c kGTLRDisplayVideo_PartnerRevenueModel_MarkupType_PartnerRevenueModelMarkupTypeCpm
@@ -33846,7 +33959,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *allowYoutubeShorts;
 
 /**
- *  Whether the ad group is opted-in to YouTube in-stream.
+ *  Whether the ad group is opted-in to YouTube in-stream inventory.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -34286,7 +34399,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Optional. Whether to exclude demographic expansion for Optimized Targeting.
- *  This field only applies to Demand Gen ad groups.
+ *  This field can only be set for Demand Gen ad groups. Retrieval and
+ *  management of Demand Gen resources is currently in beta. This field is only
+ *  available to allowlisted users.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -34604,8 +34719,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 /**
  *  Optional. The third-party vendors measuring brand safety. The following
- *  third-party vendors are applicable: * `THIRD_PARTY_VENDOR_DOUBLE_VERIFY` *
- *  `THIRD_PARTY_VENDOR_INTEGRAL_AD_SCIENCE` * `THIRD_PARTY_VENDOR_ZEFR`
+ *  third-party vendors are applicable: * `THIRD_PARTY_VENDOR_ZEFR` *
+ *  `THIRD_PARTY_VENDOR_DOUBLE_VERIFY` *
+ *  `THIRD_PARTY_VENDOR_INTEGRAL_AD_SCIENCE`
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ThirdPartyVendorConfig *> *brandSafetyVendorConfigs;
 
@@ -35144,6 +35260,13 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *allowInStream;
 
 /**
+ *  Optional. Indicates whether ads can serve as non-skippable in-stream format.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *allowNonSkippableInStream;
+
+/**
  *  Optional. Whether ads can serve as shorts format.
  *
  *  Uses NSNumber of boolValue.
@@ -35276,7 +35399,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** The list of companion banners used by this ad. */
 @property(nonatomic, strong, nullable) NSArray<GTLRDisplayVideo_ImageAsset *> *companionBanners;
 
-/** The custom parameters to pass custom values to tracking URL template. */
+/**
+ *  The custom parameters and accompanying values to add to the tracking URL.
+ */
 @property(nonatomic, strong, nullable) GTLRDisplayVideo_VideoPerformanceAd_CustomParameters *customParameters;
 
 /** The list of descriptions shown on the call-to-action banner. */
@@ -35299,7 +35424,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 /** The list of headlines shown on the call-to-action banner. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *headlines;
 
-/** The list of lone headlines shown on the call-to-action banner. */
+/** The list of long headlines shown on the call-to-action banner. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *longHeadlines;
 
 /** The URL address loaded in the background for tracking purposes. */
@@ -35312,7 +35437,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 
 
 /**
- *  The custom parameters to pass custom values to tracking URL template.
+ *  The custom parameters and accompanying values to add to the tracking URL.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -35572,10 +35697,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
  *  assigned at the line item level, this field is only applicable for the
  *  following strategy types: *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA` *
- *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS` *
- *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_RESERVE_SHARE_OF_VOICE` When the
- *  bidding strategy is assigned at the ad group level, this field is only
- *  applicable for the following strategy types: *
+ *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_ROAS` When the bidding
+ *  strategy is assigned at the ad group level, this field is only applicable
+ *  for the following strategy types: *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPM` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_MANUAL_CPV` *
  *  `YOUTUBE_AND_PARTNERS_BIDDING_STRATEGY_TYPE_TARGET_CPA` *
@@ -35698,8 +35822,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, strong, nullable) NSNumber *leadFormId;
 
 /**
- *  Optional. The ID of the merchant which is linked to the line item for
- *  product feed.
+ *  Optional. The ID of the Merchant Center account used to provide a product
+ *  feed. This Merchant Center account must already be linked to the advertiser.
  *
  *  Uses NSNumber of longLongValue.
  */
@@ -36049,7 +36173,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDisplayVideo_YoutubeVideoDetails_Unavail
 @property(nonatomic, copy, nullable) NSString *unavailableReason;
 
 /**
- *  Required. The YouTube video asset id. This is ad_asset.ad_asset_id.
+ *  Required. The YouTube video asset id. This is the adAssetId of an AdAsset
+ *  resource.
  *
  *  Uses NSNumber of longLongValue.
  */

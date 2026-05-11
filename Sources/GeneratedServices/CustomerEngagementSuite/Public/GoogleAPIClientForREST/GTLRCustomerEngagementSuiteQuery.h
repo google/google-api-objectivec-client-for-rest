@@ -28,6 +28,13 @@ NS_ASSUME_NONNULL_BEGIN
 // source
 
 /**
+ *  The conversation is from an agent tool. Agent tool runs the agent in a
+ *  separate session, which is persisted for testing and debugging purposes.
+ *
+ *  Value: "AGENT_TOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourceAgentTool;
+/**
  *  The conversation is from the evaluation.
  *
  *  Value: "EVAL"
@@ -55,6 +62,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourceSourceUnspe
 // ----------------------------------------------------------------------------
 // sources
 
+/**
+ *  The conversation is from an agent tool. Agent tool runs the agent in a
+ *  separate session, which is persisted for testing and debugging purposes.
+ *
+ *  Value: "AGENT_TOOL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesAgentTool;
 /**
  *  The conversation is from the evaluation.
  *
@@ -451,6 +465,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *        from the simulator. (Value: "SIMULATOR")
  *    @arg @c kGTLRCustomerEngagementSuiteSourceEval The conversation is from
  *        the evaluation. (Value: "EVAL")
+ *    @arg @c kGTLRCustomerEngagementSuiteSourceAgentTool The conversation is
+ *        from an agent tool. Agent tool runs the agent in a separate session,
+ *        which is persisted for testing and debugging purposes. (Value:
+ *        "AGENT_TOOL")
  */
 @property(nonatomic, copy, nullable) NSString *source GTLR_DEPRECATED;
 
@@ -494,6 +512,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *        from the simulator. (Value: "SIMULATOR")
  *    @arg @c kGTLRCustomerEngagementSuiteSourceEval The conversation is from
  *        the evaluation. (Value: "EVAL")
+ *    @arg @c kGTLRCustomerEngagementSuiteSourceAgentTool The conversation is
+ *        from an agent tool. Agent tool runs the agent in a separate session,
+ *        which is persisted for testing and debugging purposes. (Value:
+ *        "AGENT_TOOL")
  */
 @property(nonatomic, copy, nullable) NSString *source GTLR_DEPRECATED;
 
@@ -555,6 +577,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *        from the simulator. (Value: "SIMULATOR")
  *    @arg @c kGTLRCustomerEngagementSuiteSourceEval The conversation is from
  *        the evaluation. (Value: "EVAL")
+ *    @arg @c kGTLRCustomerEngagementSuiteSourceAgentTool The conversation is
+ *        from an agent tool. Agent tool runs the agent in a separate session,
+ *        which is persisted for testing and debugging purposes. (Value:
+ *        "AGENT_TOOL")
  */
 @property(nonatomic, copy, nullable) NSString *source;
 
@@ -571,6 +597,10 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *        from the simulator. (Value: "SIMULATOR")
  *    @arg @c kGTLRCustomerEngagementSuiteSourcesEval The conversation is from
  *        the evaluation. (Value: "EVAL")
+ *    @arg @c kGTLRCustomerEngagementSuiteSourcesAgentTool The conversation is
+ *        from an agent tool. Agent tool runs the agent in a separate session,
+ *        which is persisted for testing and debugging purposes. (Value:
+ *        "AGENT_TOOL")
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *sources;
 
@@ -1606,6 +1636,50 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @end
 
 /**
+ *  Initiates a single-turn interaction with the CES agent. Uses server-side
+ *  streaming to deliver incremental results and partial responses as they are
+ *  generated. By default, complete responses (e.g., messages from callbacks or
+ *  full LLM responses) are sent to the client as soon as they are available. To
+ *  enable streaming individual text chunks directly from the model, set
+ *  enable_text_streaming to true.
+ *
+ *  Method: ces.projects.locations.apps.sessions.streamRunSession
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeCustomerEngagementSuite
+ *    @c kGTLRAuthScopeCustomerEngagementSuiteCloudPlatform
+ */
+@interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsSessionsStreamRunSession : GTLRCustomerEngagementSuiteQuery
+
+/**
+ *  Required. The unique identifier of the session. Format:
+ *  `projects/{project}/locations/{location}/apps/{app}/sessions/{session}`
+ */
+@property(nonatomic, copy, nullable) NSString *session;
+
+/**
+ *  Fetches a @c GTLRCustomerEngagementSuite_RunSessionResponse.
+ *
+ *  Initiates a single-turn interaction with the CES agent. Uses server-side
+ *  streaming to deliver incremental results and partial responses as they are
+ *  generated. By default, complete responses (e.g., messages from callbacks or
+ *  full LLM responses) are sent to the client as soon as they are available. To
+ *  enable streaming individual text chunks directly from the model, set
+ *  enable_text_streaming to true.
+ *
+ *  @param object The @c GTLRCustomerEngagementSuite_RunSessionRequest to
+ *    include in the query.
+ *  @param session Required. The unique identifier of the session. Format:
+ *    `projects/{project}/locations/{location}/apps/{app}/sessions/{session}`
+ *
+ *  @return GTLRCustomerEngagementSuiteQuery_ProjectsLocationsAppsSessionsStreamRunSession
+ */
++ (instancetype)queryWithObject:(GTLRCustomerEngagementSuite_RunSessionRequest *)object
+                        session:(NSString *)session;
+
+@end
+
+/**
  *  Creates a new tool in the given app.
  *
  *  Method: ces.projects.locations.apps.tools.create
@@ -2277,10 +2351,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: ces.projects.locations.list
  *
@@ -2291,8 +2371,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
 @interface GTLRCustomerEngagementSuiteQuery_ProjectsLocationsList : GTLRCustomerEngagementSuiteQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -2322,10 +2402,16 @@ FOUNDATION_EXTERN NSString * const kGTLRCustomerEngagementSuiteSourcesSourceUnsp
  *  Fetches a @c GTLRCustomerEngagementSuite_ListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *

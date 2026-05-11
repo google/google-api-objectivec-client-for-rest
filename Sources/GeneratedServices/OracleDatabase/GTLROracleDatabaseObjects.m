@@ -72,6 +72,7 @@ NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_LicenseType_Li
 NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_LocalDisasterRecoveryType_Adg = @"ADG";
 NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_LocalDisasterRecoveryType_BackupBased = @"BACKUP_BASED";
 NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_LocalDisasterRecoveryType_LocalDisasterRecoveryTypeUnspecified = @"LOCAL_DISASTER_RECOVERY_TYPE_UNSPECIFIED";
+NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_LocalDisasterRecoveryType_NotAvailable = @"NOT_AVAILABLE";
 
 // GTLROracleDatabase_AutonomousDatabaseProperties.maintenanceScheduleType
 NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_MaintenanceScheduleType_Early = @"EARLY";
@@ -579,7 +580,7 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_AutonomousDatabase
-@dynamic adminPassword, cidr, createTime, database,
+@dynamic adminPassword, adminPasswordSecretVersion, cidr, createTime, database,
          disasterRecoverySupportedLocations, displayName, entitlementId, labels,
          name, network, odbNetwork, odbSubnet, peerAutonomousDatabases,
          properties, sourceConfig;
@@ -714,16 +715,17 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
          encryptionKeyHistoryEntries, failedDataRecoveryDuration,
          isAutoScalingEnabled, isLocalDataGuardEnabled,
          isStorageAutoScalingEnabled, licenseType, lifecycleDetails,
-         localAdgAutoFailoverMaxDataLossLimit, localDisasterRecoveryType,
-         localStandbyDb, maintenanceBeginTime, maintenanceEndTime,
-         maintenanceScheduleType, memoryPerOracleComputeUnitGbs, memoryTableGbs,
-         mtlsConnectionRequired, nCharacterSet, nextLongTermBackupTime, ocid,
-         ociUrl, openMode, operationsInsightsState, peerDbIds, permissionLevel,
-         privateEndpoint, privateEndpointIp, privateEndpointLabel,
-         refreshableMode, refreshableState, role, scheduledOperationDetails,
-         secretId, serviceAgentEmail, sqlWebDeveloperUrl, state,
-         supportedCloneRegions, totalAutoBackupStorageSizeGbs,
-         usedDataStorageSizeTbs, vaultId;
+         localAdgAutoFailoverMaxDataLossLimit,
+         localAdgAutoFailoverMaxDataLossLimitDuration, localDataGuardEnabled,
+         localDisasterRecoveryType, localStandbyDb, maintenanceBeginTime,
+         maintenanceEndTime, maintenanceScheduleType,
+         memoryPerOracleComputeUnitGbs, memoryTableGbs, mtlsConnectionRequired,
+         nCharacterSet, nextLongTermBackupTime, ocid, ociUrl, openMode,
+         operationsInsightsState, peerDbIds, permissionLevel, privateEndpoint,
+         privateEndpointIp, privateEndpointLabel, refreshableMode,
+         refreshableState, role, scheduledOperationDetails, secretId,
+         serviceAgentEmail, sqlWebDeveloperUrl, state, supportedCloneRegions,
+         totalAutoBackupStorageSizeGbs, usedDataStorageSizeTbs, vaultId;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -913,10 +915,11 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_Database
-@dynamic adminPassword, characterSet, createTime, databaseId, dbHomeName,
-         dbName, dbUniqueName, gcpOracleZone, name, ncharacterSet, ociUrl,
-         opsInsightsStatus, pluggableDatabaseId, pluggableDatabaseName,
-         properties, tdeWalletPassword;
+@dynamic adminPassword, adminPasswordSecretVersion, characterSet, createTime,
+         databaseId, dbHomeName, dbName, dbUniqueName, gcpOracleZone, name,
+         ncharacterSet, ociUrl, opsInsightsStatus, pluggableDatabaseId,
+         pluggableDatabaseName, properties, tdeWalletPassword,
+         tdeWalletPasswordSecretVersion;
 @end
 
 
@@ -1476,11 +1479,12 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_ListAutonomousDatabasesResponse
-@dynamic autonomousDatabases, nextPageToken;
+@dynamic autonomousDatabases, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"autonomousDatabases" : [GTLROracleDatabase_AutonomousDatabase class]
+    @"autonomousDatabases" : [GTLROracleDatabase_AutonomousDatabase class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1520,11 +1524,12 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_ListCloudExadataInfrastructuresResponse
-@dynamic cloudExadataInfrastructures, nextPageToken;
+@dynamic cloudExadataInfrastructures, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"cloudExadataInfrastructures" : [GTLROracleDatabase_CloudExadataInfrastructure class]
+    @"cloudExadataInfrastructures" : [GTLROracleDatabase_CloudExadataInfrastructure class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1542,11 +1547,12 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_ListCloudVmClustersResponse
-@dynamic cloudVmClusters, nextPageToken;
+@dynamic cloudVmClusters, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"cloudVmClusters" : [GTLROracleDatabase_CloudVmCluster class]
+    @"cloudVmClusters" : [GTLROracleDatabase_CloudVmCluster class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1696,11 +1702,12 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_ListDbSystemsResponse
-@dynamic dbSystems, nextPageToken;
+@dynamic dbSystems, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"dbSystems" : [GTLROracleDatabase_DbSystem class]
+    @"dbSystems" : [GTLROracleDatabase_DbSystem class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1762,11 +1769,12 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_ListExadbVmClustersResponse
-@dynamic exadbVmClusters, nextPageToken;
+@dynamic exadbVmClusters, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"exadbVmClusters" : [GTLROracleDatabase_ExadbVmCluster class]
+    @"exadbVmClusters" : [GTLROracleDatabase_ExadbVmCluster class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }
@@ -1784,11 +1792,12 @@ NSString * const kGTLROracleDatabase_ScheduledOperationDetails_DayOfWeek_Wednesd
 //
 
 @implementation GTLROracleDatabase_ListExascaleDbStorageVaultsResponse
-@dynamic exascaleDbStorageVaults, nextPageToken;
+@dynamic exascaleDbStorageVaults, nextPageToken, unreachable;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"exascaleDbStorageVaults" : [GTLROracleDatabase_ExascaleDbStorageVault class]
+    @"exascaleDbStorageVaults" : [GTLROracleDatabase_ExascaleDbStorageVault class],
+    @"unreachable" : [NSString class]
   };
   return map;
 }

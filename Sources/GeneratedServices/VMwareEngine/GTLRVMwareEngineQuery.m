@@ -290,7 +290,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsCreate
 
-@dynamic networkPeeringId, parent, requestId;
+@dynamic networkPeeringId, parent, requestId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
                          parent:(NSString *)parent {
@@ -374,7 +374,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPeeringsPatch
 
-@dynamic name, requestId, updateMask;
+@dynamic name, requestId, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPeering *)object
                            name:(NSString *)name {
@@ -420,7 +420,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesCreate
 
-@dynamic networkPolicyId, parent, requestId;
+@dynamic networkPolicyId, parent, requestId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPolicy *)object
                          parent:(NSString *)parent {
@@ -466,7 +466,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesCreate
 
-@dynamic externalAccessRuleId, parent, requestId;
+@dynamic externalAccessRuleId, parent, requestId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAccessRule *)object
                          parent:(NSString *)parent {
@@ -550,7 +550,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesExternalAccessRulesPatch
 
-@dynamic name, requestId, updateMask;
+@dynamic name, requestId, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAccessRule *)object
                            name:(NSString *)name {
@@ -634,7 +634,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsNetworkPoliciesPatch
 
-@dynamic name, requestId, updateMask;
+@dynamic name, requestId, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_NetworkPolicy *)object
                            name:(NSString *)name {
@@ -1082,7 +1082,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesCreate
 
-@dynamic externalAddressId, parent, requestId;
+@dynamic externalAddressId, parent, requestId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAddress *)object
                          parent:(NSString *)parent {
@@ -1166,7 +1166,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsExternalAddressesPatch
 
-@dynamic name, requestId, updateMask;
+@dynamic name, requestId, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_ExternalAddress *)object
                            name:(NSString *)name {
@@ -1664,7 +1664,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateCloudsPatch
 
-@dynamic name, requestId, updateMask;
+@dynamic name, requestId, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_PrivateCloud *)object
                            name:(NSString *)name {
@@ -2048,7 +2048,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateConnectionsCreate
 
-@dynamic parent, privateConnectionId, requestId;
+@dynamic parent, privateConnectionId, requestId, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_PrivateConnection *)object
                          parent:(NSString *)parent {
@@ -2132,7 +2132,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsPrivateConnectionsPatch
 
-@dynamic name, requestId, updateMask;
+@dynamic name, requestId, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_PrivateConnection *)object
                            name:(NSString *)name {
@@ -2178,7 +2178,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsVmwareEngineNetworksCreate
 
-@dynamic parent, requestId, vmwareEngineNetworkId;
+@dynamic parent, requestId, validateOnly, vmwareEngineNetworkId;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_Network *)object
                          parent:(NSString *)parent {
@@ -2266,7 +2266,7 @@
 
 @implementation GTLRVMwareEngineQuery_ProjectsLocationsVmwareEngineNetworksPatch
 
-@dynamic name, requestId, updateMask;
+@dynamic name, requestId, updateMask, validateOnly;
 
 + (instancetype)queryWithObject:(GTLRVMwareEngine_Network *)object
                            name:(NSString *)name {

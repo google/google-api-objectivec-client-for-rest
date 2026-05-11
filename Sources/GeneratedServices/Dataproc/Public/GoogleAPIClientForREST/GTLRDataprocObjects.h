@@ -54,6 +54,7 @@
 @class GTLRDataproc_ClusterSelector_ClusterLabels;
 @class GTLRDataproc_ClusterStatus;
 @class GTLRDataproc_ClusterToRepair;
+@class GTLRDataproc_CohortInfo;
 @class GTLRDataproc_ConfidentialInstanceConfig;
 @class GTLRDataproc_ConsolidatedExecutorSummary;
 @class GTLRDataproc_DiskConfig;
@@ -63,6 +64,7 @@
 @class GTLRDataproc_EndpointConfig_HttpPorts;
 @class GTLRDataproc_EnvironmentConfig;
 @class GTLRDataproc_ExecutionConfig;
+@class GTLRDataproc_ExecutionConfig_ResourceManagerTags;
 @class GTLRDataproc_ExecutorMetrics;
 @class GTLRDataproc_ExecutorMetrics_Metrics;
 @class GTLRDataproc_ExecutorMetricsDistributions;
@@ -98,6 +100,7 @@
 @class GTLRDataproc_InputMetrics;
 @class GTLRDataproc_InputQuantileMetrics;
 @class GTLRDataproc_InstanceFlexibilityPolicy;
+@class GTLRDataproc_InstanceFlexibilityPolicy_InstanceMachineTypes;
 @class GTLRDataproc_InstanceGroupAutoscalingPolicyConfig;
 @class GTLRDataproc_InstanceGroupConfig;
 @class GTLRDataproc_InstanceReference;
@@ -165,6 +168,8 @@
 @class GTLRDataproc_PySparkBatch;
 @class GTLRDataproc_PySparkJob;
 @class GTLRDataproc_PySparkJob_Properties;
+@class GTLRDataproc_PySparkNotebookBatch;
+@class GTLRDataproc_PySparkNotebookBatch_Params;
 @class GTLRDataproc_Quantiles;
 @class GTLRDataproc_QueryList;
 @class GTLRDataproc_RddDataDistribution;
@@ -215,8 +220,10 @@
 @class GTLRDataproc_SparkJob_Properties;
 @class GTLRDataproc_SparkPlanGraph;
 @class GTLRDataproc_SparkPlanGraphCluster;
+@class GTLRDataproc_SparkPlanGraphCluster_Metadata;
 @class GTLRDataproc_SparkPlanGraphEdge;
 @class GTLRDataproc_SparkPlanGraphNode;
+@class GTLRDataproc_SparkPlanGraphNode_Metadata;
 @class GTLRDataproc_SparkPlanGraphNodeWrapper;
 @class GTLRDataproc_SparkRBatch;
 @class GTLRDataproc_SparkRJob;
@@ -513,19 +520,19 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_BatchOperationMetadata_Operatio
 // GTLRDataproc_ClusterConfig.clusterTier
 
 /**
- *  Premium Dataproc cluster.
+ *  Premium cluster tier.
  *
  *  Value: "CLUSTER_TIER_PREMIUM"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierPremium;
 /**
- *  Standard Dataproc cluster.
+ *  Standard cluster tier.
  *
  *  Value: "CLUSTER_TIER_STANDARD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierStandard;
 /**
- *  Not set. Works the same as CLUSTER_TIER_STANDARD.
+ *  Uses standard tier if unspecified.
  *
  *  Value: "CLUSTER_TIER_UNSPECIFIED"
  */
@@ -559,6 +566,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterType_Stand
  *  Value: "ZERO_SCALE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_ClusterType_ZeroScale;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_ClusterConfig.engine
+
+/**
+ *  The cluster is a default engine cluster.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_Engine_Default;
+/**
+ *  The engine is not specified. Works the same as ENGINE_DEFAULT.
+ *
+ *  Value: "ENGINE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_Engine_EngineUnspecified;
+/**
+ *  The cluster is a lightning engine cluster.
+ *
+ *  Value: "LIGHTNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterConfig_Engine_Lightning;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_ClusterOperationStatus.state
@@ -710,6 +739,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterToRepair_ClusterRepairAc
  *  Value: "REPAIR_ERROR_DUE_TO_UPDATE_CLUSTER"
  */
 FOUNDATION_EXTERN NSString * const kGTLRDataproc_ClusterToRepair_ClusterRepairAction_RepairErrorDueToUpdateCluster;
+
+// ----------------------------------------------------------------------------
+// GTLRDataproc_CohortInfo.cohortSource
+
+/**
+ *  Composed from the labels coming from Airflow/Composer.
+ *
+ *  Value: "AIRFLOW"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_CohortInfo_CohortSource_Airflow;
+/**
+ *  Cohort source is unspecified.
+ *
+ *  Value: "COHORT_SOURCE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_CohortInfo_CohortSource_CohortSourceUnspecified;
+/**
+ *  Indicates that the cohort was explicitly provided.
+ *
+ *  Value: "USER_PROVIDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRDataproc_CohortInfo_CohortSource_UserProvided;
 
 // ----------------------------------------------------------------------------
 // GTLRDataproc_DiagnoseClusterRequest.tarballAccess
@@ -2568,6 +2619,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** Optional. PySpark batch config. */
 @property(nonatomic, strong, nullable) GTLRDataproc_PySparkBatch *pysparkBatch;
 
+/** Optional. PySpark notebook batch config. */
+@property(nonatomic, strong, nullable) GTLRDataproc_PySparkNotebookBatch *pysparkNotebookBatch;
+
 /** Optional. Runtime configuration for the batch execution. */
 @property(nonatomic, strong, nullable) GTLRDataproc_RuntimeConfig *runtimeConfig;
 
@@ -2910,12 +2964,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *
  *  Likely values:
  *    @arg @c kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierPremium Premium
- *        Dataproc cluster. (Value: "CLUSTER_TIER_PREMIUM")
+ *        cluster tier. (Value: "CLUSTER_TIER_PREMIUM")
  *    @arg @c kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierStandard
- *        Standard Dataproc cluster. (Value: "CLUSTER_TIER_STANDARD")
- *    @arg @c kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierUnspecified Not
- *        set. Works the same as CLUSTER_TIER_STANDARD. (Value:
- *        "CLUSTER_TIER_UNSPECIFIED")
+ *        Standard cluster tier. (Value: "CLUSTER_TIER_STANDARD")
+ *    @arg @c kGTLRDataproc_ClusterConfig_ClusterTier_ClusterTierUnspecified
+ *        Uses standard tier if unspecified. (Value: "CLUSTER_TIER_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *clusterTier;
 
@@ -2939,10 +2992,10 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. A Cloud Storage bucket used to stage job dependencies, config
  *  files, and job driver console output. If you do not specify a staging
- *  bucket, Cloud Dataproc will determine a Cloud Storage location (US, ASIA, or
- *  EU) for your cluster's staging bucket according to the Compute Engine zone
- *  where your cluster is deployed, and then create and manage this
- *  project-level, per-location bucket (see Dataproc staging and temp buckets
+ *  bucket, Dataproc determines a Cloud Storage location (US, ASIA, or EU) for
+ *  the cluster staging bucket according to the Compute Engine zone where the
+ *  cluster is deployed, and then creates and manages this project-level,
+ *  per-location bucket (see Dataproc staging and temp buckets
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
  *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
  *  Cloud Storage bucket.
@@ -2967,6 +3020,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 /** Optional. Port/endpoint configuration for this cluster */
 @property(nonatomic, strong, nullable) GTLRDataproc_EndpointConfig *endpointConfig;
+
+/**
+ *  Optional. The cluster engine.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_ClusterConfig_Engine_Default The cluster is a
+ *        default engine cluster. (Value: "DEFAULT")
+ *    @arg @c kGTLRDataproc_ClusterConfig_Engine_EngineUnspecified The engine is
+ *        not specified. Works the same as ENGINE_DEFAULT. (Value:
+ *        "ENGINE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_ClusterConfig_Engine_Lightning The cluster is a
+ *        lightning engine cluster. (Value: "LIGHTNING")
+ */
+@property(nonatomic, copy, nullable) NSString *engine;
 
 /**
  *  Optional. The shared Compute Engine config settings for all instances in a
@@ -3022,12 +3089,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /**
  *  Optional. A Cloud Storage bucket used to store ephemeral cluster and jobs
  *  data, such as Spark and MapReduce history files. If you do not specify a
- *  temp bucket, Dataproc will determine a Cloud Storage location (US, ASIA, or
- *  EU) for your cluster's temp bucket according to the Compute Engine zone
- *  where your cluster is deployed, and then create and manage this
- *  project-level, per-location bucket. The default bucket has a TTL of 90 days,
- *  but you can use any TTL (or none) if you specify a bucket (see Dataproc
- *  staging and temp buckets
+ *  temp bucket, Dataproc determines a Cloud Storage location (US, ASIA, or EU)
+ *  for the cluster temp bucket according to the Compute Engine zone where the
+ *  cluster is deployed, and then creates and manages this project-level,
+ *  per-location bucket. The default bucket has a TTL of 90 days, but you can
+ *  use any TTL (or none) if you specify a bucket (see Dataproc staging and temp
+ *  buckets
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
  *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
  *  Cloud Storage bucket.
@@ -3315,18 +3382,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 
 
 /**
+ *  Information about the cohort that the workload belongs to.
+ */
+@interface GTLRDataproc_CohortInfo : GTLRObject
+
+/** Output only. Final cohort that was used to tune the workload. */
+@property(nonatomic, copy, nullable) NSString *cohort;
+
+/**
+ *  Output only. Source of the cohort.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDataproc_CohortInfo_CohortSource_Airflow Composed from the
+ *        labels coming from Airflow/Composer. (Value: "AIRFLOW")
+ *    @arg @c kGTLRDataproc_CohortInfo_CohortSource_CohortSourceUnspecified
+ *        Cohort source is unspecified. (Value: "COHORT_SOURCE_UNSPECIFIED")
+ *    @arg @c kGTLRDataproc_CohortInfo_CohortSource_UserProvided Indicates that
+ *        the cohort was explicitly provided. (Value: "USER_PROVIDED")
+ */
+@property(nonatomic, copy, nullable) NSString *cohortSource;
+
+@end
+
+
+/**
  *  Confidential Instance Config for clusters using Confidential VMs
  *  (https://cloud.google.com/compute/confidential-vm/docs)
  */
 @interface GTLRDataproc_ConfidentialInstanceConfig : GTLRObject
 
 /**
- *  Optional. Defines whether the instance should have confidential compute
- *  enabled.
+ *  Optional. Deprecated: Use 'confidential_instance_type' instead. Defines
+ *  whether the instance should have confidential compute enabled.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute;
+@property(nonatomic, strong, nullable) NSNumber *enableConfidentialCompute GTLR_DEPRECATED;
 
 @end
 
@@ -3565,18 +3656,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @property(nonatomic, strong, nullable) NSNumber *bootDiskSizeGb;
 
 /**
- *  Optional. Type of the boot disk (default is "pd-standard"). Valid values:
- *  "pd-balanced" (Persistent Disk Balanced Solid State Drive), "pd-ssd"
- *  (Persistent Disk Solid State Drive), or "pd-standard" (Persistent Disk Hard
- *  Disk Drive). See Disk types
- *  (https://cloud.google.com/compute/docs/disks#disk-types).
+ *  Optional. Type of the boot disk (default is pd-standard). Valid values:
+ *  pd-balanced (Persistent Disk Balanced Solid State Drive), pd-ssd (Persistent
+ *  Disk Solid State Drive), or pd-standard (Persistent Disk Hard Disk Drive).
+ *  See Disk types (https://cloud.google.com/compute/docs/disks#disk-types).
  */
 @property(nonatomic, copy, nullable) NSString *bootDiskType;
 
 /**
- *  Optional. Interface type of local SSDs (default is "scsi"). Valid values:
- *  "scsi" (Small Computer System Interface), "nvme" (Non-Volatile Memory
- *  Express). See local SSD performance
+ *  Optional. Interface type of local SSDs (default is scsi). Valid values: scsi
+ *  (Small Computer System Interface), nvme (Non-Volatile Memory Express). See
+ *  local SSD performance
  *  (https://cloud.google.com/compute/docs/disks/local-ssd#performance).
  */
 @property(nonatomic, copy, nullable) NSString *localSsdInterface;
@@ -3756,6 +3846,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 /** Optional. Network URI to connect workload to. */
 @property(nonatomic, copy, nullable) NSString *networkUri;
 
+/**
+ *  Optional. Associates Resource Manager tags with the workload nodes. There is
+ *  a max limit of 30 tags. Keys and values can be either in numeric format,
+ *  such as tagKeys/{tag_key_id} and tagValues/{tag_value_id}, or in namespaced
+ *  format, such as {org_id|project_id}/{tag_key_short_name} and
+ *  {tag_value_short_name}.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_ExecutionConfig_ResourceManagerTags *resourceManagerTags;
+
 /** Optional. Service account that used to execute workload. */
 @property(nonatomic, copy, nullable) NSString *serviceAccount;
 
@@ -3790,6 +3889,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) GTLRDuration *ttl;
 
+@end
+
+
+/**
+ *  Optional. Associates Resource Manager tags with the workload nodes. There is
+ *  a max limit of 30 tags. Keys and values can be either in numeric format,
+ *  such as tagKeys/{tag_key_id} and tagValues/{tag_value_id}, or in namespaced
+ *  format, such as {org_id|project_id}/{tag_key_short_name} and
+ *  {tag_value_short_name}.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_ExecutionConfig_ResourceManagerTags : GTLRObject
 @end
 
 
@@ -4467,7 +4582,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  *  Optional. The Compute Engine network to be used for machine communications.
  *  Cannot be specified with subnetwork_uri. If neither network_uri nor
  *  subnetwork_uri is specified, the "default" network of the project is used,
- *  if it exists. Cannot be a "Custom Subnet Network" (see Using Subnetworks
+ *  if it exists. Cannot be a Custom Subnet Network (see Using Subnetworks
  *  (https://cloud.google.com/compute/docs/subnetworks) for more information).A
  *  full URL, partial URI, or short name are valid. Examples:
  *  https://www.googleapis.com/compute/v1/projects/[project_id]/global/networks/default
@@ -5117,6 +5232,14 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
 @interface GTLRDataproc_InstanceFlexibilityPolicy : GTLRObject
 
 /**
+ *  Output only. A map of instance short name to machine type. The key is the
+ *  short name of the Compute Engine instance, and the value is the full
+ *  machine-type name (e.g., 'n1-standard-16'). See Machine types for more
+ *  information on valid machine type strings.
+ */
+@property(nonatomic, strong, nullable) GTLRDataproc_InstanceFlexibilityPolicy_InstanceMachineTypes *instanceMachineTypes;
+
+/**
  *  Optional. List of instance selection options that the group will use when
  *  creating new VMs.
  */
@@ -5131,6 +5254,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDataproc_YarnApplication_State_Submitted
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_ProvisioningModelMix *provisioningModelMix;
 
+@end
+
+
+/**
+ *  Output only. A map of instance short name to machine type. The key is the
+ *  short name of the Compute Engine instance, and the value is the full
+ *  machine-type name (e.g., 'n1-standard-16'). See Machine types for more
+ *  information on valid machine type strings.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_InstanceFlexibilityPolicy_InstanceMachineTypes : GTLRObject
 @end
 
 
@@ -7665,6 +7803,50 @@ GTLR_DEPRECATED
 
 
 /**
+ *  A configuration for running a PySpark Notebook batch workload.
+ */
+@interface GTLRDataproc_PySparkNotebookBatch : GTLRObject
+
+/**
+ *  Optional. HCFS URIs of archives to be extracted into the working directory
+ *  of each executor. Supported file types: .jar, .tar, .tar.gz, .tgz, and .zip.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *archiveUris;
+
+/**
+ *  Optional. HCFS URIs of files to be placed in the working directory of each
+ *  executor
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *fileUris;
+
+/** Optional. HCFS URIs of jar files to be added to the Spark CLASSPATH. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *jarFileUris;
+
+/** Required. The HCFS URI of the notebook file to execute. */
+@property(nonatomic, copy, nullable) NSString *notebookFileUri;
+
+/** Optional. The parameters to pass to the notebook. */
+@property(nonatomic, strong, nullable) GTLRDataproc_PySparkNotebookBatch_Params *params;
+
+/** Optional. HCFS URIs of Python files to pass to the PySpark framework. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *pythonFileUris;
+
+@end
+
+
+/**
+ *  Optional. The parameters to pass to the notebook.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_PySparkNotebookBatch_Params : GTLRObject
+@end
+
+
+/**
  *  Quantile metrics data related to Tasks. Units can be seconds, bytes,
  *  milliseconds, etc depending on the message type.
  */
@@ -8304,6 +8486,9 @@ GTLR_DEPRECATED
  *  announcements, changes, fixes and other Dataproc developments).
  */
 @property(nonatomic, strong, nullable) GTLRDataproc_UsageMetrics *approximateUsage;
+
+/** Output only. Information about the cohort that the workload belongs to. */
+@property(nonatomic, strong, nullable) GTLRDataproc_CohortInfo *cohortInfo;
 
 /** Output only. Snapshot of current workload resource usage. */
 @property(nonatomic, strong, nullable) GTLRDataproc_UsageSnapshot *currentUsage;
@@ -9778,6 +9963,10 @@ GTLR_DEPRECATED
 @interface GTLRDataproc_SparkPlanGraphCluster : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *desc;
+
+/** Optional. Additional metadata for the spark plan graph cluster. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkPlanGraphCluster_Metadata *metadata;
+
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SqlPlanMetric *> *metrics;
 @property(nonatomic, copy, nullable) NSString *name;
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SparkPlanGraphNodeWrapper *> *nodes;
@@ -9789,6 +9978,18 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *sparkPlanGraphClusterId;
 
+@end
+
+
+/**
+ *  Optional. Additional metadata for the spark plan graph cluster.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SparkPlanGraphCluster_Metadata : GTLRObject
 @end
 
 
@@ -9820,6 +10021,10 @@ GTLR_DEPRECATED
 @interface GTLRDataproc_SparkPlanGraphNode : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *desc;
+
+/** Optional. Additional metadata for the spark plan graph cluster. */
+@property(nonatomic, strong, nullable) GTLRDataproc_SparkPlanGraphNode_Metadata *metadata;
+
 @property(nonatomic, strong, nullable) NSArray<GTLRDataproc_SqlPlanMetric *> *metrics;
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -9830,6 +10035,18 @@ GTLR_DEPRECATED
  */
 @property(nonatomic, strong, nullable) NSNumber *sparkPlanGraphNodeId;
 
+@end
+
+
+/**
+ *  Optional. Additional metadata for the spark plan graph cluster.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRDataproc_SparkPlanGraphNode_Metadata : GTLRObject
 @end
 
 
@@ -12039,10 +12256,10 @@ GTLR_DEPRECATED
 /**
  *  Optional. A Cloud Storage bucket used to stage job dependencies, config
  *  files, and job driver console output. If you do not specify a staging
- *  bucket, Cloud Dataproc will determine a Cloud Storage location (US, ASIA, or
- *  EU) for your cluster's staging bucket according to the Compute Engine zone
- *  where your cluster is deployed, and then create and manage this
- *  project-level, per-location bucket (see Dataproc staging and temp buckets
+ *  bucket, Dataproc determines a Cloud Storage location (US, ASIA, or EU) for
+ *  your cluster's staging bucket according to the Compute Engine zone where
+ *  your cluster is deployed, and then create and manage this project-level,
+ *  per-location bucket (see Dataproc staging and temp buckets
  *  (https://cloud.google.com/dataproc/docs/concepts/configuring-clusters/staging-bucket)).
  *  This field requires a Cloud Storage bucket name, not a gs://... URI to a
  *  Cloud Storage bucket.

@@ -180,6 +180,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowImportStrategy;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowInvocation;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowMultiLanguageSettings;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTraceMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTransition;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3FlowValidationResult;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3Form;
@@ -237,6 +238,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookInvocation;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookOutput;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookStep;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTraceMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTransition;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookVersion;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3QueryInput;
@@ -281,6 +283,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SessionEntityType;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SessionInfo_Parameters;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3SpeechProcessingMetadata;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SpeechToTextSettings;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3SynthesizeSpeechConfig;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TestCase;
@@ -317,6 +320,9 @@
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolUse_InputActionParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolUse_OutputActionParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3ToolVersion;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_InputParameters;
+@class GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_OutputParameters;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverage;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverageTransition;
 @class GTLRDialogflow_GoogleCloudDialogflowCxV3TransitionCoverageTransitionNode;
@@ -450,6 +456,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAnswersAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerEventSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerFaqSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet;
@@ -552,6 +559,7 @@
 @class GTLRDialogflow_GoogleCloudDialogflowV2IntentTrainingPhrasePart;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswer;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer;
+@class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerEventSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerFaqSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource;
 @class GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSourceSnippet;
@@ -1512,6 +1520,22 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3Tool
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig_ServiceAgentAuth_IdToken;
 /** Value: "SERVICE_AGENT_AUTH_UNSPECIFIED" */
 FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3ToolAuthenticationServiceAgentAuthConfig_ServiceAgentAuth_ServiceAgentAuthUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock.endState
+
+/** Value: "OUTPUT_STATE_CANCELLED" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateCancelled;
+/** Value: "OUTPUT_STATE_ESCALATED" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateEscalated;
+/** Value: "OUTPUT_STATE_FAILED" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateFailed;
+/** Value: "OUTPUT_STATE_OK" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateOk;
+/** Value: "OUTPUT_STATE_PENDING" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStatePending;
+/** Value: "OUTPUT_STATE_UNSPECIFIED" */
+FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRDialogflow_GoogleCloudDialogflowCxV3TurnSignals.failureReasons
@@ -3889,6 +3913,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 @property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *dtmfPattern;
 
 /**
  *  isFallback
@@ -6472,6 +6497,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTraceMetadata
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTraceMetadata : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *flow;
+
+@end
+
+
+/**
  *  GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTransition
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTransition : GTLRObject
@@ -7249,6 +7285,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, copy, nullable) NSString *descriptionProperty;
 
 @property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *dtmfPattern;
 
 /**
  *  isFallback
@@ -8512,6 +8549,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTraceMetadata
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTraceMetadata : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *displayName;
+@property(nonatomic, copy, nullable) NSString *playbook;
+
+@end
+
+
+/**
  *  GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTransition
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTransition : GTLRObject
@@ -8687,6 +8735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3ResponseMessage *> *responseMessages;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SentimentAnalysisResult *sentimentAnalysisResult;
 @property(nonatomic, copy, nullable) NSString *text;
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock *> *traceBlocks;
 @property(nonatomic, copy, nullable) NSString *transcript;
 @property(nonatomic, copy, nullable) NSString *triggerEvent;
 @property(nonatomic, copy, nullable) NSString *triggerIntent;
@@ -9424,6 +9473,16 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 
 /**
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3SpeechProcessingMetadata
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3SpeechProcessingMetadata : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *displayName;
+
+@end
+
+
+/**
  *  GTLRDialogflow_GoogleCloudDialogflowCxV3SpeechToTextSettings
  */
 @interface GTLRDialogflow_GoogleCloudDialogflowCxV3SpeechToTextSettings : GTLRObject
@@ -10004,6 +10063,67 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3Tool *tool;
 @property(nonatomic, strong, nullable) GTLRDateTime *updateTime;
 
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock : GTLRObject
+
+@property(nonatomic, strong, nullable) NSArray<GTLRDialogflow_GoogleCloudDialogflowCxV3Action *> *actions;
+@property(nonatomic, strong, nullable) GTLRDateTime *completeTime;
+
+/**
+ *  endState
+ *
+ *  Likely values:
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateCancelled
+ *        Value "OUTPUT_STATE_CANCELLED"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateEscalated
+ *        Value "OUTPUT_STATE_ESCALATED"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateFailed
+ *        Value "OUTPUT_STATE_FAILED"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateOk
+ *        Value "OUTPUT_STATE_OK"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStatePending
+ *        Value "OUTPUT_STATE_PENDING"
+ *    @arg @c kGTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_EndState_OutputStateUnspecified
+ *        Value "OUTPUT_STATE_UNSPECIFIED"
+ */
+@property(nonatomic, copy, nullable) NSString *endState;
+
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3FlowTraceMetadata *flowTraceMetadata;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_InputParameters *inputParameters;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_OutputParameters *outputParameters;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3PlaybookTraceMetadata *playbookTraceMetadata;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowCxV3SpeechProcessingMetadata *speechProcessingMetadata;
+@property(nonatomic, strong, nullable) GTLRDateTime *startTime;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_InputParameters
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_InputParameters : GTLRObject
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_OutputParameters
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowCxV3TraceBlock_OutputParameters : GTLRObject
 @end
 
 
@@ -12673,8 +12793,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswer : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *answerText;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerEventSource *eventSource;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerFaqSource *faqSource;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource *generativeSource;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource *playbookSource;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerEventSource
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerEventSource : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *event;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource *snippets;
 
 @end
 
@@ -13623,6 +13756,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 @property(nonatomic, copy, nullable) NSString *action;
 @property(nonatomic, copy, nullable) NSString *answerRecord;
+@property(nonatomic, copy, nullable) NSString *cesApp;
+@property(nonatomic, copy, nullable) NSString *cesTool;
+@property(nonatomic, copy, nullable) NSString *cesToolset;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCall_InputParameters *inputParameters;
 
@@ -13665,6 +13801,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 @property(nonatomic, copy, nullable) NSString *action;
 @property(nonatomic, copy, nullable) NSString *answerRecord;
+@property(nonatomic, copy, nullable) NSString *cesApp;
+@property(nonatomic, copy, nullable) NSString *cesTool;
+@property(nonatomic, copy, nullable) NSString *cesToolset;
 @property(nonatomic, copy, nullable) NSString *content;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2beta1ToolCallResultError *error;
@@ -15055,8 +15194,21 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 @interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswer : GTLRObject
 
 @property(nonatomic, copy, nullable) NSString *answerText;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerEventSource *eventSource;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerFaqSource *faqSource;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource *generativeSource;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource *playbookSource;
+
+@end
+
+
+/**
+ *  GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerEventSource
+ */
+@interface GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerEventSource : GTLRObject
+
+@property(nonatomic, copy, nullable) NSString *event;
+@property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2KnowledgeAssistAnswerKnowledgeAnswerGenerativeSource *snippets;
 
 @end
 
@@ -15866,6 +16018,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 @property(nonatomic, copy, nullable) NSString *action;
 @property(nonatomic, copy, nullable) NSString *answerRecord;
+@property(nonatomic, copy, nullable) NSString *cesApp;
+@property(nonatomic, copy, nullable) NSString *cesTool;
+@property(nonatomic, copy, nullable) NSString *cesToolset;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ToolCall_InputParameters *inputParameters;
 
@@ -15908,6 +16063,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDialogflow_GoogleCloudDialogflowV3alpha1
 
 @property(nonatomic, copy, nullable) NSString *action;
 @property(nonatomic, copy, nullable) NSString *answerRecord;
+@property(nonatomic, copy, nullable) NSString *cesApp;
+@property(nonatomic, copy, nullable) NSString *cesTool;
+@property(nonatomic, copy, nullable) NSString *cesToolset;
 @property(nonatomic, copy, nullable) NSString *content;
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 @property(nonatomic, strong, nullable) GTLRDialogflow_GoogleCloudDialogflowV2ToolCallResultError *error;

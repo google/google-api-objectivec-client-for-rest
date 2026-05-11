@@ -16,6 +16,7 @@
 
 // GTLRPubsub_AwsKinesis.state
 NSString * const kGTLRPubsub_AwsKinesis_State_Active           = @"ACTIVE";
+NSString * const kGTLRPubsub_AwsKinesis_State_ConflictingRegionConstraints = @"CONFLICTING_REGION_CONSTRAINTS";
 NSString * const kGTLRPubsub_AwsKinesis_State_ConsumerNotFound = @"CONSUMER_NOT_FOUND";
 NSString * const kGTLRPubsub_AwsKinesis_State_KinesisPermissionDenied = @"KINESIS_PERMISSION_DENIED";
 NSString * const kGTLRPubsub_AwsKinesis_State_PublishPermissionDenied = @"PUBLISH_PERMISSION_DENIED";
@@ -25,6 +26,7 @@ NSString * const kGTLRPubsub_AwsKinesis_State_StreamNotFound   = @"STREAM_NOT_FO
 // GTLRPubsub_AwsMsk.state
 NSString * const kGTLRPubsub_AwsMsk_State_Active               = @"ACTIVE";
 NSString * const kGTLRPubsub_AwsMsk_State_ClusterNotFound      = @"CLUSTER_NOT_FOUND";
+NSString * const kGTLRPubsub_AwsMsk_State_ConflictingRegionConstraints = @"CONFLICTING_REGION_CONSTRAINTS";
 NSString * const kGTLRPubsub_AwsMsk_State_MskPermissionDenied  = @"MSK_PERMISSION_DENIED";
 NSString * const kGTLRPubsub_AwsMsk_State_PublishPermissionDenied = @"PUBLISH_PERMISSION_DENIED";
 NSString * const kGTLRPubsub_AwsMsk_State_StateUnspecified     = @"STATE_UNSPECIFIED";
@@ -32,6 +34,7 @@ NSString * const kGTLRPubsub_AwsMsk_State_TopicNotFound        = @"TOPIC_NOT_FOU
 
 // GTLRPubsub_AzureEventHubs.state
 NSString * const kGTLRPubsub_AzureEventHubs_State_Active       = @"ACTIVE";
+NSString * const kGTLRPubsub_AzureEventHubs_State_ConflictingRegionConstraints = @"CONFLICTING_REGION_CONSTRAINTS";
 NSString * const kGTLRPubsub_AzureEventHubs_State_EventHubNotFound = @"EVENT_HUB_NOT_FOUND";
 NSString * const kGTLRPubsub_AzureEventHubs_State_EventHubsPermissionDenied = @"EVENT_HUBS_PERMISSION_DENIED";
 NSString * const kGTLRPubsub_AzureEventHubs_State_NamespaceNotFound = @"NAMESPACE_NOT_FOUND";
@@ -49,10 +52,21 @@ NSString * const kGTLRPubsub_BigQueryConfig_State_SchemaMismatch = @"SCHEMA_MISM
 NSString * const kGTLRPubsub_BigQueryConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRPubsub_BigQueryConfig_State_VertexAiLocationRestriction = @"VERTEX_AI_LOCATION_RESTRICTION";
 
+// GTLRPubsub_BigtableConfig.state
+NSString * const kGTLRPubsub_BigtableConfig_State_Active       = @"ACTIVE";
+NSString * const kGTLRPubsub_BigtableConfig_State_AppProfileMisconfigured = @"APP_PROFILE_MISCONFIGURED";
+NSString * const kGTLRPubsub_BigtableConfig_State_InTransitLocationRestriction = @"IN_TRANSIT_LOCATION_RESTRICTION";
+NSString * const kGTLRPubsub_BigtableConfig_State_NotFound     = @"NOT_FOUND";
+NSString * const kGTLRPubsub_BigtableConfig_State_PermissionDenied = @"PERMISSION_DENIED";
+NSString * const kGTLRPubsub_BigtableConfig_State_SchemaMismatch = @"SCHEMA_MISMATCH";
+NSString * const kGTLRPubsub_BigtableConfig_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRPubsub_BigtableConfig_State_VertexAiLocationRestriction = @"VERTEX_AI_LOCATION_RESTRICTION";
+
 // GTLRPubsub_CloudStorage.state
 NSString * const kGTLRPubsub_CloudStorage_State_Active         = @"ACTIVE";
 NSString * const kGTLRPubsub_CloudStorage_State_BucketNotFound = @"BUCKET_NOT_FOUND";
 NSString * const kGTLRPubsub_CloudStorage_State_CloudStoragePermissionDenied = @"CLOUD_STORAGE_PERMISSION_DENIED";
+NSString * const kGTLRPubsub_CloudStorage_State_ConflictingRegionConstraints = @"CONFLICTING_REGION_CONSTRAINTS";
 NSString * const kGTLRPubsub_CloudStorage_State_PublishPermissionDenied = @"PUBLISH_PERMISSION_DENIED";
 NSString * const kGTLRPubsub_CloudStorage_State_StateUnspecified = @"STATE_UNSPECIFIED";
 NSString * const kGTLRPubsub_CloudStorage_State_TooManyObjects = @"TOO_MANY_OBJECTS";
@@ -69,6 +83,7 @@ NSString * const kGTLRPubsub_CloudStorageConfig_State_VertexAiLocationRestrictio
 // GTLRPubsub_ConfluentCloud.state
 NSString * const kGTLRPubsub_ConfluentCloud_State_Active       = @"ACTIVE";
 NSString * const kGTLRPubsub_ConfluentCloud_State_ClusterNotFound = @"CLUSTER_NOT_FOUND";
+NSString * const kGTLRPubsub_ConfluentCloud_State_ConflictingRegionConstraints = @"CONFLICTING_REGION_CONSTRAINTS";
 NSString * const kGTLRPubsub_ConfluentCloud_State_ConfluentCloudPermissionDenied = @"CONFLUENT_CLOUD_PERMISSION_DENIED";
 NSString * const kGTLRPubsub_ConfluentCloud_State_PublishPermissionDenied = @"PUBLISH_PERMISSION_DENIED";
 NSString * const kGTLRPubsub_ConfluentCloud_State_StateUnspecified = @"STATE_UNSPECIFIED";
@@ -209,6 +224,16 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 @implementation GTLRPubsub_BigQueryConfig
 @dynamic dropUnknownFields, serviceAccountEmail, state, table, useTableSchema,
          useTopicSchema, writeMetadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRPubsub_BigtableConfig
+//
+
+@implementation GTLRPubsub_BigtableConfig
+@dynamic appProfileId, serviceAccountEmail, state, table, writeMetadata;
 @end
 
 
@@ -862,7 +887,7 @@ NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_Json = @"JSON";
 
 @implementation GTLRPubsub_Subscription
 @dynamic ackDeadlineSeconds, analyticsHubSubscriptionInfo, bigqueryConfig,
-         cloudStorageConfig, deadLetterPolicy, detached,
+         bigtableConfig, cloudStorageConfig, deadLetterPolicy, detached,
          enableExactlyOnceDelivery, enableMessageOrdering, expirationPolicy,
          filter, labels, messageRetentionDuration, messageTransforms, name,
          pushConfig, retainAckedMessages, retryPolicy, state, tags, topic,

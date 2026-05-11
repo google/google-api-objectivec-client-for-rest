@@ -1553,6 +1553,44 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 
 @end
 
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_RemoteTransportProfile class];
+  query.loggingName = @"networkconnectivity.projects.locations.remoteTransportProfiles.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/remoteTransportProfiles";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsRemoteTransportProfilesList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_ListRemoteTransportProfilesResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.remoteTransportProfiles.list";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesDelete
 
 @dynamic ETag, name, requestId;
@@ -1590,29 +1628,6 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkconnectivity_ServiceClass class];
   query.loggingName = @"networkconnectivity.projects.locations.serviceClasses.get";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
-  query.loggingName = @"networkconnectivity.projects.locations.serviceClasses.getIamPolicy";
   return query;
 }
 
@@ -1659,60 +1674,6 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
   query.loggingName = @"networkconnectivity.projects.locations.serviceClasses.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
-  query.loggingName = @"networkconnectivity.projects.locations.serviceClasses.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsServiceClassesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_TestIamPermissionsResponse class];
-  query.loggingName = @"networkconnectivity.projects.locations.serviceClasses.testIamPermissions";
   return query;
 }
 
@@ -1787,29 +1748,6 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 
 @end
 
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
-  query.loggingName = @"networkconnectivity.projects.locations.serviceConnectionMaps.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -1851,60 +1789,6 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
   query.loggingName = @"networkconnectivity.projects.locations.serviceConnectionMaps.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
-  query.loggingName = @"networkconnectivity.projects.locations.serviceConnectionMaps.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionMapsTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_TestIamPermissionsResponse class];
-  query.loggingName = @"networkconnectivity.projects.locations.serviceConnectionMaps.testIamPermissions";
   return query;
 }
 
@@ -1997,29 +1881,6 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
 
 @end
 
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesGetIamPolicy
-
-@dynamic optionsRequestedPolicyVersion, resource;
-
-+ (NSDictionary<NSString *, NSString *> *)parameterNameMap {
-  return @{ @"optionsRequestedPolicyVersion" : @"options.requestedPolicyVersion" };
-}
-
-+ (instancetype)queryWithResource:(NSString *)resource {
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:getIamPolicy";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesGetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:nil
-                       pathParameterNames:pathParams];
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
-  query.loggingName = @"networkconnectivity.projects.locations.serviceConnectionPolicies.getIamPolicy";
-  return query;
-}
-
-@end
-
 @implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesList
 
 @dynamic filter, orderBy, pageSize, pageToken, parent;
@@ -2061,60 +1922,6 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
   query.name = name;
   query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
   query.loggingName = @"networkconnectivity.projects.locations.serviceConnectionPolicies.patch";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesSetIamPolicy
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_SetIamPolicyRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:setIamPolicy";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesSetIamPolicy *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_Policy class];
-  query.loggingName = @"networkconnectivity.projects.locations.serviceConnectionPolicies.setIamPolicy";
-  return query;
-}
-
-@end
-
-@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesTestIamPermissions
-
-@dynamic resource;
-
-+ (instancetype)queryWithObject:(GTLRNetworkconnectivity_TestIamPermissionsRequest *)object
-                       resource:(NSString *)resource {
-  if (object == nil) {
-#if defined(DEBUG) && DEBUG
-    NSAssert(object != nil, @"Got a nil object");
-#endif
-    return nil;
-  }
-  NSArray *pathParams = @[ @"resource" ];
-  NSString *pathURITemplate = @"v1/{+resource}:testIamPermissions";
-  GTLRNetworkconnectivityQuery_ProjectsLocationsServiceConnectionPoliciesTestIamPermissions *query =
-    [[self alloc] initWithPathURITemplate:pathURITemplate
-                               HTTPMethod:@"POST"
-                       pathParameterNames:pathParams];
-  query.bodyObject = object;
-  query.resource = resource;
-  query.expectedObjectClass = [GTLRNetworkconnectivity_TestIamPermissionsResponse class];
-  query.loggingName = @"networkconnectivity.projects.locations.serviceConnectionPolicies.testIamPermissions";
   return query;
 }
 
@@ -2391,6 +2198,117 @@ NSString * const kGTLRNetworkconnectivityViewSpokeViewUnspecified = @"SPOKE_VIEW
   query.resource = resource;
   query.expectedObjectClass = [GTLRNetworkconnectivity_TestIamPermissionsResponse class];
   query.loggingName = @"networkconnectivity.projects.locations.spokes.testIamPermissions";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsCreate
+
+@dynamic parent, requestId, transportId;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_Transport *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/transports";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.transports.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsDelete
+
+@dynamic name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.transports.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_Transport class];
+  query.loggingName = @"networkconnectivity.projects.locations.transports.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/transports";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_ListTransportsResponse class];
+  query.loggingName = @"networkconnectivity.projects.locations.transports.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRNetworkconnectivity_Transport *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRNetworkconnectivityQuery_ProjectsLocationsTransportsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRNetworkconnectivity_GoogleLongrunningOperation class];
+  query.loggingName = @"networkconnectivity.projects.locations.transports.patch";
   return query;
 }
 

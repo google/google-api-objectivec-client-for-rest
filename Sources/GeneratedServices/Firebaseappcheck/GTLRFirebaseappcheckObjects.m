@@ -31,6 +31,11 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Off = @"OFF";
 NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_EnforcementMode_Unenforced = @"UNENFORCED";
 
+// GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service.replayProtection
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayProtection_Enforced = @"ENFORCED";
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayProtection_Off = @"OFF";
+NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_ReplayProtection_Unenforced = @"UNENFORCED";
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 #pragma clang diagnostic ignored "-Wdeprecated-implementations"
@@ -241,7 +246,12 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1DebugToken
-@dynamic displayName, name, token, updateTime;
+@dynamic displayName, ETag, name, token, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 
@@ -588,7 +598,12 @@ NSString * const kGTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service_Enforceme
 //
 
 @implementation GTLRFirebaseappcheck_GoogleFirebaseAppcheckV1Service
-@dynamic enforcementMode, name;
+@dynamic enforcementMode, ETag, name, replayProtection, updateTime;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
 @end
 
 

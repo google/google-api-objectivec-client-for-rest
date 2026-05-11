@@ -162,17 +162,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsList : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  The maximum number of resources to return. The service may return fewer than
- *  this value, even if there are additional pages. If unspecified, at most 50
- *  resources will be returned. The maximum value is 200; (higher values will be
- *  coerced to the maximum)
+ *  Optional. The maximum number of resources to return. The service may return
+ *  fewer than this value, even if there are additional pages. If unspecified,
+ *  at most 50 resources will be returned. The maximum value is 200; (higher
+ *  values will be coerced to the maximum)
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListAccounts` call. Provide this to
- *  retrieve the subsequent page. When paginating, all other parameters provided
- *  to `ListAccounts` must match the call that provided the page token.
+ *  Optional. A page token, received from a previous `ListAccounts` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListAccounts` must match the call that provided the
+ *  page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -211,7 +212,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGoogleAnalyticsAdminQuery_AccountsPatch : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  Output only. Resource name of this account. Format: accounts/{account}
+ *  Identifier. Resource name of this account. Format: accounts/{account}
  *  Example: "accounts/100"
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -233,7 +234,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaAccount to include in
  *    the query.
- *  @param name Output only. Resource name of this account. Format:
+ *  @param name Identifier. Resource name of this account. Format:
  *    accounts/{account} Example: "accounts/100"
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_AccountsPatch
@@ -392,18 +393,18 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRGoogleAnalyticsAdminQuery_AccountSummariesList : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  The maximum number of AccountSummary resources to return. The service may
- *  return fewer than this value, even if there are additional pages. If
- *  unspecified, at most 50 resources will be returned. The maximum value is
- *  200; (higher values will be coerced to the maximum)
+ *  Optional. The maximum number of AccountSummary resources to return. The
+ *  service may return fewer than this value, even if there are additional
+ *  pages. If unspecified, at most 50 resources will be returned. The maximum
+ *  value is 200; (higher values will be coerced to the maximum)
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListAccountSummaries` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListAccountSummaries` must match the call that provided the
- *  page token.
+ *  Optional. A page token, received from a previous `ListAccountSummaries`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListAccountSummaries` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -578,17 +579,17 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsList : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  The maximum number of resources to return. If unspecified, at most 50
- *  resources will be returned. The maximum value is 200; (higher values will be
- *  coerced to the maximum)
+ *  Optional. The maximum number of resources to return. If unspecified, at most
+ *  50 resources will be returned. The maximum value is 200; (higher values will
+ *  be coerced to the maximum)
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListConversionEvents` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListConversionEvents` must match the call that provided the
- *  page token.
+ *  Optional. A page token, received from a previous `ListConversionEvents`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListConversionEvents` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -631,7 +632,7 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsPatch : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  Output only. Resource name of this conversion event. Format:
+ *  Identifier. Resource name of this conversion event. Format:
  *  properties/{property}/conversionEvents/{conversion_event}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -654,7 +655,7 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaConversionEvent to
  *    include in the query.
- *  @param name Output only. Resource name of this conversion event. Format:
+ *  @param name Identifier. Resource name of this conversion event. Format:
  *    properties/{property}/conversionEvents/{conversion_event}
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesConversionEventsPatch
@@ -796,17 +797,17 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsList : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  The maximum number of resources to return. If unspecified, at most 50
- *  resources will be returned. The maximum value is 200 (higher values will be
- *  coerced to the maximum).
+ *  Optional. The maximum number of resources to return. If unspecified, at most
+ *  50 resources will be returned. The maximum value is 200 (higher values will
+ *  be coerced to the maximum).
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListCustomDimensions` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListCustomDimensions` must match the call that provided the
- *  page token.
+ *  Optional. A page token, received from a previous `ListCustomDimensions`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListCustomDimensions` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -841,7 +842,7 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsPatch : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  Output only. Resource name for this CustomDimension resource. Format:
+ *  Identifier. Resource name for this CustomDimension resource. Format:
  *  properties/{property}/customDimensions/{customDimension}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -862,7 +863,7 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaCustomDimension to
  *    include in the query.
- *  @param name Output only. Resource name for this CustomDimension resource.
+ *  @param name Identifier. Resource name for this CustomDimension resource.
  *    Format: properties/{property}/customDimensions/{customDimension}
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomDimensionsPatch
@@ -1023,7 +1024,7 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsPatch : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  Output only. Resource name for this CustomMetric resource. Format:
+ *  Identifier. Resource name for this CustomMetric resource. Format:
  *  properties/{property}/customMetrics/{customMetric}
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -1044,7 +1045,7 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaCustomMetric to include
  *    in the query.
- *  @param name Output only. Resource name for this CustomMetric resource.
+ *  @param name Identifier. Resource name for this CustomMetric resource.
  *    Format: properties/{property}/customMetrics/{customMetric}
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesCustomMetricsPatch
@@ -1300,17 +1301,18 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsMeasurementProtocolSecretsList : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  The maximum number of resources to return. If unspecified, at most 10
- *  resources will be returned. The maximum value is 10. Higher values will be
- *  coerced to the maximum.
+ *  Optional. The maximum number of resources to return. If unspecified, at most
+ *  10 resources will be returned. The maximum value is 10. Higher values will
+ *  be coerced to the maximum.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListMeasurementProtocolSecrets`
- *  call. Provide this to retrieve the subsequent page. When paginating, all
- *  other parameters provided to `ListMeasurementProtocolSecrets` must match the
- *  call that provided the page token.
+ *  Optional. A page token, received from a previous
+ *  `ListMeasurementProtocolSecrets` call. Provide this to retrieve the
+ *  subsequent page. When paginating, all other parameters provided to
+ *  `ListMeasurementProtocolSecrets` must match the call that provided the page
+ *  token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1351,7 +1353,7 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsMeasurementProtocolSecretsPatch : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  Output only. Resource name of this secret. This secret may be a child of any
+ *  Identifier. Resource name of this secret. This secret may be a child of any
  *  type of stream. Format:
  *  properties/{property}/dataStreams/{dataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
  */
@@ -1373,7 +1375,7 @@ GTLR_DEPRECATED
  *  @param object The @c
  *    GTLRGoogleAnalyticsAdmin_V1betaMeasurementProtocolSecret to include in the
  *    query.
- *  @param name Output only. Resource name of this secret. This secret may be a
+ *  @param name Identifier. Resource name of this secret. This secret may be a
  *    child of any type of stream. Format:
  *    properties/{property}/dataStreams/{dataStream}/measurementProtocolSecrets/{measurementProtocolSecret}
  *
@@ -1395,7 +1397,7 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesDataStreamsPatch : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  Output only. Resource name of this Data Stream. Format:
+ *  Identifier. Resource name of this Data Stream. Format:
  *  properties/{property_id}/dataStreams/{stream_id} Example:
  *  "properties/1000/dataStreams/2000"
  */
@@ -1417,7 +1419,7 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaDataStream to include in
  *    the query.
- *  @param name Output only. Resource name of this Data Stream. Format:
+ *  @param name Identifier. Resource name of this Data Stream. Format:
  *    properties/{property_id}/dataStreams/{stream_id} Example:
  *    "properties/1000/dataStreams/2000"
  *
@@ -1544,18 +1546,18 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesFirebaseLinksList : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  The maximum number of resources to return. The service may return fewer than
- *  this value, even if there are additional pages. If unspecified, at most 50
- *  resources will be returned. The maximum value is 200; (higher values will be
- *  coerced to the maximum)
+ *  Optional. The maximum number of resources to return. The service may return
+ *  fewer than this value, even if there are additional pages. If unspecified,
+ *  at most 50 resources will be returned. The maximum value is 200; (higher
+ *  values will be coerced to the maximum)
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListFirebaseLinks` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListFirebaseLinks` must match the call that provided the page
- *  token.
+ *  Optional. A page token, received from a previous `ListFirebaseLinks` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListFirebaseLinks` must match the call that provided
+ *  the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1712,17 +1714,17 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksList : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  The maximum number of resources to return. If unspecified, at most 50
- *  resources will be returned. The maximum value is 200 (higher values will be
- *  coerced to the maximum).
+ *  Optional. The maximum number of resources to return. If unspecified, at most
+ *  50 resources will be returned. The maximum value is 200 (higher values will
+ *  be coerced to the maximum).
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListGoogleAdsLinks` call. Provide
- *  this to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListGoogleAdsLinks` must match the call that provided the page
- *  token.
+ *  Optional. A page token, received from a previous `ListGoogleAdsLinks` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListGoogleAdsLinks` must match the call that
+ *  provided the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -1757,9 +1759,8 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesGoogleAdsLinksPatch : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  Output only. Format:
- *  properties/{propertyId}/googleAdsLinks/{googleAdsLinkId} Note:
- *  googleAdsLinkId is not the Google Ads customer ID.
+ *  Identifier. Format: properties/{propertyId}/googleAdsLinks/{googleAdsLinkId}
+ *  Note: googleAdsLinkId is not the Google Ads customer ID.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1780,7 +1781,7 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaGoogleAdsLink to include
  *    in the query.
- *  @param name Output only. Format:
+ *  @param name Identifier. Format:
  *    properties/{propertyId}/googleAdsLinks/{googleAdsLinkId} Note:
  *    googleAdsLinkId is not the Google Ads customer ID.
  *
@@ -1902,16 +1903,17 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesKeyEventsList : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  The maximum number of resources to return. If unspecified, at most 50
- *  resources will be returned. The maximum value is 200; (higher values will be
- *  coerced to the maximum)
+ *  Optional. The maximum number of resources to return. If unspecified, at most
+ *  50 resources will be returned. The maximum value is 200; (higher values will
+ *  be coerced to the maximum)
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListKeyEvents` call. Provide this to
- *  retrieve the subsequent page. When paginating, all other parameters provided
- *  to `ListKeyEvents` must match the call that provided the page token.
+ *  Optional. A page token, received from a previous `ListKeyEvents` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListKeyEvents` must match the call that provided the
+ *  page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2013,18 +2015,18 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *filter;
 
 /**
- *  The maximum number of resources to return. The service may return fewer than
- *  this value, even if there are additional pages. If unspecified, at most 50
- *  resources will be returned. The maximum value is 200; (higher values will be
- *  coerced to the maximum)
+ *  Optional. The maximum number of resources to return. The service may return
+ *  fewer than this value, even if there are additional pages. If unspecified,
+ *  at most 50 resources will be returned. The maximum value is 200; (higher
+ *  values will be coerced to the maximum)
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
- *  A page token, received from a previous `ListProperties` call. Provide this
- *  to retrieve the subsequent page. When paginating, all other parameters
- *  provided to `ListProperties` must match the call that provided the page
- *  token.
+ *  Optional. A page token, received from a previous `ListProperties` call.
+ *  Provide this to retrieve the subsequent page. When paginating, all other
+ *  parameters provided to `ListProperties` must match the call that provided
+ *  the page token.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
@@ -2063,8 +2065,8 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesPatch : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  Output only. Resource name of this property. Format:
- *  properties/{property_id} Example: "properties/1000"
+ *  Identifier. Resource name of this property. Format: properties/{property_id}
+ *  Example: "properties/1000"
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2085,7 +2087,7 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaProperty to include in
  *    the query.
- *  @param name Output only. Resource name of this property. Format:
+ *  @param name Identifier. Resource name of this property. Format:
  *    properties/{property_id} Example: "properties/1000"
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesPatch
@@ -2179,7 +2181,7 @@ GTLR_DEPRECATED
 @interface GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateDataRetentionSettings : GTLRGoogleAnalyticsAdminQuery
 
 /**
- *  Output only. Resource name for this DataRetentionSetting resource. Format:
+ *  Identifier. Resource name for this DataRetentionSetting resource. Format:
  *  properties/{property}/dataRetentionSettings
  */
 @property(nonatomic, copy, nullable) NSString *name;
@@ -2201,7 +2203,7 @@ GTLR_DEPRECATED
  *
  *  @param object The @c GTLRGoogleAnalyticsAdmin_V1betaDataRetentionSettings to
  *    include in the query.
- *  @param name Output only. Resource name for this DataRetentionSetting
+ *  @param name Identifier. Resource name for this DataRetentionSetting
  *    resource. Format: properties/{property}/dataRetentionSettings
  *
  *  @return GTLRGoogleAnalyticsAdminQuery_PropertiesUpdateDataRetentionSettings

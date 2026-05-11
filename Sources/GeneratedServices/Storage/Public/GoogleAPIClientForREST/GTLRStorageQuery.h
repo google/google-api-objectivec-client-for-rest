@@ -377,7 +377,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 @end
 
 /**
- *  Updates the config(ttl and admissionPolicy) of an Anywhere Cache instance.
+ *  Updates the config of an Anywhere Cache instance.
  *
  *  Method: storage.anywhereCaches.update
  *
@@ -397,7 +397,7 @@ FOUNDATION_EXTERN NSString * const kGTLRStorageProjectionNoAcl;
 /**
  *  Fetches a @c GTLRStorage_GoogleLongrunningOperation.
  *
- *  Updates the config(ttl and admissionPolicy) of an Anywhere Cache instance.
+ *  Updates the config of an Anywhere Cache instance.
  *
  *  @param object The @c GTLRStorage_AnywhereCache to include in the query.
  *  @param bucket Name of the parent bucket.

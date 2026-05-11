@@ -15,6 +15,7 @@
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDegraded = @"STATE_DEGRADED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDeployed = @"STATE_DEPLOYED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateDeploying = @"STATE_DEPLOYING";
+NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateExpiring = @"STATE_EXPIRING";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateFailed = @"STATE_FAILED";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateFailingOver = @"STATE_FAILING_OVER";
 NSString * const kGTLRCCAIPlatform_ContactCenter_State_StateInGracePeriod = @"STATE_IN_GRACE_PERIOD";

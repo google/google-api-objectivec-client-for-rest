@@ -144,6 +144,7 @@ NSString * const kGTLRServiceNetworking_Publishing_Organization_ClientLibraryOrg
 NSString * const kGTLRServiceNetworking_Publishing_Organization_Cloud = @"CLOUD";
 NSString * const kGTLRServiceNetworking_Publishing_Organization_GenerativeAi = @"GENERATIVE_AI";
 NSString * const kGTLRServiceNetworking_Publishing_Organization_Geo = @"GEO";
+NSString * const kGTLRServiceNetworking_Publishing_Organization_Health = @"HEALTH";
 NSString * const kGTLRServiceNetworking_Publishing_Organization_Photos = @"PHOTOS";
 NSString * const kGTLRServiceNetworking_Publishing_Organization_Shopping = @"SHOPPING";
 NSString * const kGTLRServiceNetworking_Publishing_Organization_StreetView = @"STREET_VIEW";

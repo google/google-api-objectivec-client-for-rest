@@ -9288,11 +9288,11 @@ GTLR_DEPRECATED
 @property(nonatomic, strong, nullable) NSNumber *hasVisualEffect;
 
 /**
- *  The cost of the gift in jewels.
+ *  The value of the gift in jewels.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *jewelsCount;
+@property(nonatomic, strong, nullable) NSNumber *jewelsAmount;
 
 /** The BCP-47 language code of the gift. */
 @property(nonatomic, copy, nullable) NSString *language;

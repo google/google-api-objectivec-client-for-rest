@@ -241,7 +241,8 @@ FOUNDATION_EXTERN NSString * const kGTLRBusinessProfilePerformance_DailySubEntit
 
 /**
  *  Represents all possible subentity types that are associated with
- *  DailyMetrics.
+ *  DailyMetrics. Note: Currently, all metrics are returned as daily aggregates
+ *  and sub-entity breakdowns are not supported.
  */
 @interface GTLRBusinessProfilePerformance_DailySubEntityType : GTLRObject
 

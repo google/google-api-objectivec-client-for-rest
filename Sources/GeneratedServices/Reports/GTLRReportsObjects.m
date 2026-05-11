@@ -78,12 +78,13 @@
 //
 
 @implementation GTLRReports_Activity_Events_Item
-@dynamic name, parameters, resourceIds, status, type;
+@dynamic name, parameters, resourceIds, sensitiveParameters, status, type;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"parameters" : [GTLRReports_Activity_Events_Item_Parameters_Item class],
-    @"resourceIds" : [NSString class]
+    @"resourceIds" : [NSString class],
+    @"sensitiveParameters" : [GTLRReports_Activity_Events_Item_SensitiveParameters_Item class]
   };
   return map;
 }
@@ -134,6 +135,27 @@
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRReports_Activity_Events_Item_SensitiveParameters_Item
+//
+
+@implementation GTLRReports_Activity_Events_Item_SensitiveParameters_Item
+@dynamic boolValue, intValue, messageValue, multiIntValue, multiMessageValue,
+         multiValue, name, value;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"multiIntValue" : [NSNumber class],
+    @"multiMessageValue" : [GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MultiMessageValue_Item class],
+    @"multiValue" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRReports_Activity_Events_Item_Parameters_Item_MessageValue
 //
 
@@ -156,6 +178,42 @@
 //
 
 @implementation GTLRReports_Activity_Events_Item_Parameters_Item_MultiMessageValue_Item
+@dynamic parameter;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameter" : [GTLRReports_NestedParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MessageValue
+//
+
+@implementation GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MessageValue
+@dynamic parameter;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"parameter" : [GTLRReports_NestedParameter class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MultiMessageValue_Item
+//
+
+@implementation GTLRReports_Activity_Events_Item_SensitiveParameters_Item_MultiMessageValue_Item
 @dynamic parameter;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {

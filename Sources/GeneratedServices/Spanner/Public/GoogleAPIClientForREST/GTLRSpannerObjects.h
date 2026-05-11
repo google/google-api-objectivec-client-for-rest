@@ -1019,30 +1019,35 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadRequest_OrderBy_OrderByUnspe
 // GTLRSpanner_ReadWrite.readLockMode
 
 /**
- *  Optimistic lock mode. Locks for reads within the transaction are not
- *  acquired on read. Instead the locks are acquired on a commit to validate
- *  that read/queried data has not changed since the transaction started.
- *  Semantics described only applies to SERIALIZABLE isolation.
+ *  Optimistic lock mode. Lock acquisition behavior depends on the isolation
+ *  level in use. In both SERIALIZABLE and REPEATABLE_READ isolation, reads and
+ *  writes do not acquire locks during transaction statement execution. See
+ *  [Concurrency
+ *  control](https://cloud.google.com/spanner/docs/concurrency-control) for
+ *  details on how the guarantees of each isolation level are provided at commit
+ *  time.
  *
  *  Value: "OPTIMISTIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_Optimistic;
 /**
- *  Pessimistic lock mode. Read locks are acquired immediately on read.
- *  Semantics described only applies to SERIALIZABLE isolation.
+ *  Pessimistic lock mode. Lock acquisition behavior depends on the isolation
+ *  level in use. In SERIALIZABLE isolation, reads and writes acquire necessary
+ *  locks during transaction statement execution. In REPEATABLE_READ isolation,
+ *  reads that explicitly request to be locked and writes acquire locks. See
+ *  [Concurrency
+ *  control](https://cloud.google.com/spanner/docs/concurrency-control) for
+ *  details on the types of locks acquired at each transaction step.
  *
  *  Value: "PESSIMISTIC"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSpanner_ReadWrite_ReadLockMode_Pessimistic;
 /**
- *  Default value. * If isolation level is REPEATABLE_READ, then it is an error
- *  to specify `read_lock_mode`. Locking semantics default to `OPTIMISTIC`. No
- *  validation checks are done for reads, except to validate that the data that
- *  was served at the snapshot time is unchanged at commit time in the following
- *  cases: 1. reads done as part of queries that use `SELECT FOR UPDATE` 2.
- *  reads done as part of statements with a `LOCK_SCANNED_RANGES` hint 3. reads
- *  done as part of DML statements * At all other isolation levels, if
- *  `read_lock_mode` is the default value, then pessimistic read locks are used.
+ *  Default value. * If isolation level is SERIALIZABLE, locking semantics
+ *  default to `PESSIMISTIC`. * If isolation level is REPEATABLE_READ, locking
+ *  semantics default to `OPTIMISTIC`. * See [Concurrency
+ *  control](https://cloud.google.com/spanner/docs/concurrency-control) for more
+ *  details.
  *
  *  Value: "READ_LOCK_MODE_UNSPECIFIED"
  */
@@ -1806,7 +1811,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /**
  *  Required for the CreateBackup operation. Name of the database from which
  *  this backup was created. This needs to be in the same instance as the
- *  backup. Values are of the form `projects//instances//databases/`.
+ *  backup. Values are of the form
+ *  `projects/{project}/instances/{instance}/databases/{database}`.
  */
 @property(nonatomic, copy, nullable) NSString *database;
 
@@ -1915,11 +1921,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /**
  *  Output only for the CreateBackup operation. Required for the UpdateBackup
  *  operation. A globally unique identifier for the backup which cannot be
- *  changed. Values are of the form `projects//instances//backups/a-z*[a-z0-9]`
- *  The final segment of the name must be between 2 and 60 characters in length.
- *  The backup is stored in the location(s) specified in the instance
- *  configuration of the instance containing the backup, identified by the
- *  prefix of the backup name of the form `projects//instances/`.
+ *  changed. Values are of the form
+ *  `projects/{project}/instances/{instance}/backups/a-z*[a-z0-9]` The final
+ *  segment of the name must be between 2 and 60 characters in length. The
+ *  backup is stored in the location(s) specified in the instance configuration
+ *  of the instance containing the backup, identified by the prefix of the
+ *  backup name of the form `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1936,21 +1943,22 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 /**
  *  Output only. The names of the destination backups being created by copying
  *  this source backup. The backup names are of the form
- *  `projects//instances//backups/`. Referencing backups may exist in different
- *  instances. The existence of any referencing backup prevents the backup from
- *  being deleted. When the copy operation is done (either successfully
- *  completed or cancelled or the destination backup is deleted), the reference
- *  to the backup is removed.
+ *  `projects/{project}/instances/{instance}/backups/{backup}`. Referencing
+ *  backups may exist in different instances. The existence of any referencing
+ *  backup prevents the backup from being deleted. When the copy operation is
+ *  done (either successfully completed or cancelled or the destination backup
+ *  is deleted), the reference to the backup is removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *referencingBackups;
 
 /**
  *  Output only. The names of the restored databases that reference the backup.
- *  The database names are of the form `projects//instances//databases/`.
- *  Referencing databases may exist in different instances. The existence of any
- *  referencing database prevents the backup from being deleted. When a restored
- *  database from the backup enters the `READY` state, the reference to the
- *  backup is removed.
+ *  The database names are of the form
+ *  `projects/{project}/instances/{instance}/databases/{database}`. Referencing
+ *  databases may exist in different instances. The existence of any referencing
+ *  database prevents the backup from being deleted. When a restored database
+ *  from the backup enters the `READY` state, the reference to the backup is
+ *  removed.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *referencingDatabases;
 
@@ -2019,7 +2027,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  A unique identifier for the instance partition. Values are of the form
- *  `projects//instances//instancePartitions/`
+ *  `projects/{project}/instances/{instance}/instancePartitions/{instance_partition_id}`
  */
 @property(nonatomic, copy, nullable) NSString *instancePartition;
 
@@ -2674,24 +2682,25 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  be in `us-central1` or `nam3`. The Cloud KMS key that is used to encrypt and
  *  decrypt the restored database. Set this field only when encryption_type is
  *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
- *  `projects//locations//keyRings//cryptoKeys/`.
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{kms_key_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
  *  Optional. Specifies the KMS configuration for the one or more keys used to
  *  protect the backup. Values are of the form
- *  `projects//locations//keyRings//cryptoKeys/`. KMS keys specified can be in
- *  any order. The keys referenced by `kms_key_names` must fully cover all
- *  regions of the backup's instance configuration. Some examples: * For
- *  regional (single-region) instance configurations, specify a regional
- *  location KMS key. * For multi-region instance configurations of type
- *  `GOOGLE_MANAGED`, either specify a multi-region location KMS key or multiple
- *  regional location KMS keys that cover all regions in the instance
- *  configuration. * For an instance configuration of type `USER_MANAGED`,
- *  specify only regional location KMS keys to cover each region in the instance
- *  configuration. Multi-region location KMS keys aren't supported for
- *  `USER_MANAGED` type instance configurations.
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{kms_key_name}`.
+ *  KMS keys specified can be in any order. The keys referenced by
+ *  `kms_key_names` must fully cover all regions of the backup's instance
+ *  configuration. Some examples: * For regional (single-region) instance
+ *  configurations, specify a regional location KMS key. * For multi-region
+ *  instance configurations of type `GOOGLE_MANAGED`, either specify a
+ *  multi-region location KMS key or multiple regional location KMS keys that
+ *  cover all regions in the instance configuration. * For an instance
+ *  configuration of type `USER_MANAGED`, specify only regional location KMS
+ *  keys to cover each region in the instance configuration. Multi-region
+ *  location KMS keys aren't supported for `USER_MANAGED` type instance
+ *  configurations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *kmsKeyNames;
 
@@ -2718,7 +2727,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  The name of the backup being created through the copy operation. Values are
- *  of the form `projects//instances//backups/`.
+ *  of the form `projects/{project}/instances/{instance}/backups/{backup}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -2727,7 +2736,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  The name of the source backup that is being copied. Values are of the form
- *  `projects//instances//backups/`.
+ *  `projects/{project}/instances/{instance}/backups/{backup}`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
 
@@ -2741,7 +2750,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 
 /**
  *  Required. The id of the backup copy. The `backup_id` appended to `parent`
- *  forms the full backup_uri of the form `projects//instances//backups/`.
+ *  forms the full backup_uri of the form
+ *  `projects/{project}/instances/{instance}/backups/{backup}`.
  */
 @property(nonatomic, copy, nullable) NSString *backupId;
 
@@ -2766,7 +2776,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  Required. The source backup to be copied. The source backup needs to be in
  *  READY state for it to be copied. Once CopyBackup is in progress, the source
  *  backup cannot be deleted or cleaned up on expiration until CopyBackup is
- *  finished. Values are of the form: `projects//instances//backups/`.
+ *  finished. Values are of the form:
+ *  `projects/{project}/instances/{instance}/backups/{backup}`.
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
 
@@ -2807,24 +2818,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
  *  be in `us-central1` or `nam3`. The Cloud KMS key that is used to encrypt and
  *  decrypt the restored database. Set this field only when encryption_type is
  *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
- *  `projects//locations//keyRings//cryptoKeys/`.
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{kms_key_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *kmsKeyName;
 
 /**
  *  Optional. Specifies the KMS configuration for the one or more keys used to
  *  protect the backup. Values are of the form
- *  `projects//locations//keyRings//cryptoKeys/`. The keys referenced by
- *  `kms_key_names` must fully cover all regions of the backup's instance
- *  configuration. Some examples: * For regional (single-region) instance
- *  configurations, specify a regional location KMS key. * For multi-region
- *  instance configurations of type `GOOGLE_MANAGED`, either specify a
- *  multi-region location KMS key or multiple regional location KMS keys that
- *  cover all regions in the instance configuration. * For an instance
- *  configuration of type `USER_MANAGED`, specify only regional location KMS
- *  keys to cover each region in the instance configuration. Multi-region
- *  location KMS keys aren't supported for `USER_MANAGED` type instance
- *  configurations.
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{kms_key_name}`.
+ *  The keys referenced by `kms_key_names` must fully cover all regions of the
+ *  backup's instance configuration. Some examples: * For regional
+ *  (single-region) instance configurations, specify a regional location KMS
+ *  key. * For multi-region instance configurations of type `GOOGLE_MANAGED`,
+ *  either specify a multi-region location KMS key or multiple regional location
+ *  KMS keys that cover all regions in the instance configuration. * For an
+ *  instance configuration of type `USER_MANAGED`, specify only regional
+ *  location KMS keys to cover each region in the instance configuration.
+ *  Multi-region location KMS keys aren't supported for `USER_MANAGED` type
+ *  instance configurations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *kmsKeyNames;
 
@@ -7029,29 +7040,32 @@ FOUNDATION_EXTERN NSString * const kGTLRSpanner_VisualizationData_KeyUnit_KeyUni
 @property(nonatomic, copy, nullable) NSString *multiplexedSessionPreviousTransactionId;
 
 /**
- *  Read lock mode for the transaction.
+ *  The read lock mode for the transaction.
  *
  *  Likely values:
  *    @arg @c kGTLRSpanner_ReadWrite_ReadLockMode_Optimistic Optimistic lock
- *        mode. Locks for reads within the transaction are not acquired on read.
- *        Instead the locks are acquired on a commit to validate that
- *        read/queried data has not changed since the transaction started.
- *        Semantics described only applies to SERIALIZABLE isolation. (Value:
- *        "OPTIMISTIC")
+ *        mode. Lock acquisition behavior depends on the isolation level in use.
+ *        In both SERIALIZABLE and REPEATABLE_READ isolation, reads and writes
+ *        do not acquire locks during transaction statement execution. See
+ *        [Concurrency
+ *        control](https://cloud.google.com/spanner/docs/concurrency-control)
+ *        for details on how the guarantees of each isolation level are provided
+ *        at commit time. (Value: "OPTIMISTIC")
  *    @arg @c kGTLRSpanner_ReadWrite_ReadLockMode_Pessimistic Pessimistic lock
- *        mode. Read locks are acquired immediately on read. Semantics described
- *        only applies to SERIALIZABLE isolation. (Value: "PESSIMISTIC")
+ *        mode. Lock acquisition behavior depends on the isolation level in use.
+ *        In SERIALIZABLE isolation, reads and writes acquire necessary locks
+ *        during transaction statement execution. In REPEATABLE_READ isolation,
+ *        reads that explicitly request to be locked and writes acquire locks.
+ *        See [Concurrency
+ *        control](https://cloud.google.com/spanner/docs/concurrency-control)
+ *        for details on the types of locks acquired at each transaction step.
+ *        (Value: "PESSIMISTIC")
  *    @arg @c kGTLRSpanner_ReadWrite_ReadLockMode_ReadLockModeUnspecified
- *        Default value. * If isolation level is REPEATABLE_READ, then it is an
- *        error to specify `read_lock_mode`. Locking semantics default to
- *        `OPTIMISTIC`. No validation checks are done for reads, except to
- *        validate that the data that was served at the snapshot time is
- *        unchanged at commit time in the following cases: 1. reads done as part
- *        of queries that use `SELECT FOR UPDATE` 2. reads done as part of
- *        statements with a `LOCK_SCANNED_RANGES` hint 3. reads done as part of
- *        DML statements * At all other isolation levels, if `read_lock_mode` is
- *        the default value, then pessimistic read locks are used. (Value:
- *        "READ_LOCK_MODE_UNSPECIFIED")
+ *        Default value. * If isolation level is SERIALIZABLE, locking semantics
+ *        default to `PESSIMISTIC`. * If isolation level is REPEATABLE_READ,
+ *        locking semantics default to `OPTIMISTIC`. * See [Concurrency
+ *        control](https://cloud.google.com/spanner/docs/concurrency-control)
+ *        for more details. (Value: "READ_LOCK_MODE_UNSPECIFIED")
  */
 @property(nonatomic, copy, nullable) NSString *readLockMode;
 

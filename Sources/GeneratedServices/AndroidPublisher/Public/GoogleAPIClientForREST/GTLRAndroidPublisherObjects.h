@@ -2118,38 +2118,39 @@ FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_RegionalTaxRateInfo_Tax
 // GTLRAndroidPublisher_ReleaseSummary.releaseLifecycleState
 
 /**
- *  Passed review and is ready to be published (due to managed publishing).
+ *  Passed review and is ready to be published manually by developer
  *
  *  Value: "RELEASE_LIFECYCLE_STATE_APPROVED_NOT_PUBLISHED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateApprovedNotPublished;
 /**
- *  The release is not yet ready and can be still edited.
+ *  The release is not yet ready and can still be edited.
  *
  *  Value: "RELEASE_LIFECYCLE_STATE_DRAFT"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateDraft;
 /**
- *  Submitted and undergoing the review process.
+ *  Submitted and in review
  *
  *  Value: "RELEASE_LIFECYCLE_STATE_IN_REVIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateInReview;
 /**
- *  Failed the review process.
+ *  App was rejected in review
  *
  *  Value: "RELEASE_LIFECYCLE_STATE_NOT_APPROVED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateNotApproved;
 /**
- *  The release is ready to be sent for review and awaiting developer action.
+ *  The release is ready to be sent for review and an action is required from
+ *  developer
  *
  *  Value: "RELEASE_LIFECYCLE_STATE_NOT_SENT_FOR_REVIEW"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateNotSentForReview;
 /**
- *  Currently available to users on the track. This includes fully or partially
- *  rolled out releases to users and any halted release that can be resumed.
+ *  Available to users on the track. This includes fully- or partially-rolled
+ *  out releases and any halted release that can be resumed.
  *
  *  Value: "RELEASE_LIFECYCLE_STATE_PUBLISHED"
  */
@@ -3448,7 +3449,7 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_ArtifactSummary : GTLRObject
 
 /**
- *  The version code of the artifact.
+ *  Artifact's version code
  *
  *  Uses NSNumber of intValue.
  */
@@ -5620,7 +5621,7 @@ GTLR_DEPRECATED
 
 /**
  *  Download metadata for split, standalone and universal APKs, as well as asset
- *  pack slices, signed with a given key.
+ *  pack slices, signed with a given key. Next ID: 10
  */
 @interface GTLRAndroidPublisher_GeneratedApksPerSigningKey : GTLRObject
 
@@ -5662,6 +5663,24 @@ GTLR_DEPRECATED
 
 /** Contains targeting information about the generated apks. */
 @property(nonatomic, strong, nullable) GTLRAndroidPublisher_TargetingInfo *targetingInfo;
+
+/**
+ *  List of generated split APKs without automatic protection, signed with a key
+ *  corresponding to certificate_sha256_hash. This field is only present if the
+ *  app uses automatic protection. In this case, `generated_split_apks` contains
+ *  APKs with automatic protection enabled, whereas this field contains APKs
+ *  without automatic protection.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_GeneratedSplitApk *> *unprotectedGeneratedSplitApks;
+
+/**
+ *  List of generated standalone APKs without automatic protection, signed with
+ *  a key corresponding to certificate_sha256_hash. This field is only present
+ *  if the app uses automatic protection. In this case,
+ *  `generated_standalone_apks` contains APKs with automatic protection enabled,
+ *  whereas this field contains APKs without automatic protection.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_GeneratedStandaloneApk *> *unprotectedGeneratedStandaloneApks;
 
 @end
 
@@ -6704,8 +6723,7 @@ GTLR_DEPRECATED
 @interface GTLRAndroidPublisher_ListReleaseSummariesResponse : GTLRObject
 
 /**
- *  List of releases for this track. There will be a maximum of 20 releases
- *  returned.
+ *  List of releases for this track. A maximum of 20 releases can be returned.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ReleaseSummary *> *releases;
 
@@ -9148,7 +9166,7 @@ GTLR_DEPRECATED
  */
 @interface GTLRAndroidPublisher_ReleaseSummary : GTLRObject
 
-/** List of active artifacts on this release. */
+/** List of active artifacts on this release */
 @property(nonatomic, strong, nullable) NSArray<GTLRAndroidPublisher_ArtifactSummary *> *activeArtifacts;
 
 /**
@@ -9156,24 +9174,23 @@ GTLR_DEPRECATED
  *
  *  Likely values:
  *    @arg @c kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateApprovedNotPublished
- *        Passed review and is ready to be published (due to managed
- *        publishing). (Value: "RELEASE_LIFECYCLE_STATE_APPROVED_NOT_PUBLISHED")
+ *        Passed review and is ready to be published manually by developer
+ *        (Value: "RELEASE_LIFECYCLE_STATE_APPROVED_NOT_PUBLISHED")
  *    @arg @c kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateDraft
- *        The release is not yet ready and can be still edited. (Value:
+ *        The release is not yet ready and can still be edited. (Value:
  *        "RELEASE_LIFECYCLE_STATE_DRAFT")
  *    @arg @c kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateInReview
- *        Submitted and undergoing the review process. (Value:
- *        "RELEASE_LIFECYCLE_STATE_IN_REVIEW")
+ *        Submitted and in review (Value: "RELEASE_LIFECYCLE_STATE_IN_REVIEW")
  *    @arg @c kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateNotApproved
- *        Failed the review process. (Value:
+ *        App was rejected in review (Value:
  *        "RELEASE_LIFECYCLE_STATE_NOT_APPROVED")
  *    @arg @c kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateNotSentForReview
- *        The release is ready to be sent for review and awaiting developer
- *        action. (Value: "RELEASE_LIFECYCLE_STATE_NOT_SENT_FOR_REVIEW")
+ *        The release is ready to be sent for review and an action is required
+ *        from developer (Value: "RELEASE_LIFECYCLE_STATE_NOT_SENT_FOR_REVIEW")
  *    @arg @c kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStatePublished
- *        Currently available to users on the track. This includes fully or
- *        partially rolled out releases to users and any halted release that can
- *        be resumed. (Value: "RELEASE_LIFECYCLE_STATE_PUBLISHED")
+ *        Available to users on the track. This includes fully- or
+ *        partially-rolled out releases and any halted release that can be
+ *        resumed. (Value: "RELEASE_LIFECYCLE_STATE_PUBLISHED")
  *    @arg @c kGTLRAndroidPublisher_ReleaseSummary_ReleaseLifecycleState_ReleaseLifecycleStateUnspecified
  *        Not specified. (Value: "RELEASE_LIFECYCLE_STATE_UNSPECIFIED")
  */
@@ -9183,8 +9200,8 @@ GTLR_DEPRECATED
 @property(nonatomic, copy, nullable) NSString *releaseName;
 
 /**
- *  Identifier of the track. More on [track
- *  name](https://developers.google.com/android-publisher/tracks).
+ *  Identifier for the track. [Learn more about track
+ *  names.](https://developers.google.com/android-publisher/tracks).
  */
 @property(nonatomic, copy, nullable) NSString *track;
 
@@ -9859,7 +9876,7 @@ GTLR_DEPRECATED
 
 /**
  *  The description of this subscription in the language of this listing.
- *  Maximum length - 80 characters. Plain text.
+ *  Maximum length - 200 characters. Plain text.
  *
  *  Remapped to 'descriptionProperty' to avoid NSObject's 'description'.
  */

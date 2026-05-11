@@ -452,9 +452,41 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBro
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Ignored = @"IGNORED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ChromeBrowserProfileCommandCommandResult_ResultType_Success = @"SUCCESS";
 
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig.type
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_CertificateAuthority = @"CERTIFICATE_AUTHORITY";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_ConnectorTypeUnspecified = @"CONNECTOR_TYPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_ContentAnalysis = @"CONTENT_ANALYSIS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_DeviceTrust = @"DEVICE_TRUST";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_IdentityBasedEnrollment = @"IDENTITY_BASED_ENROLLMENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_Reporting = @"REPORTING";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_RootStore = @"ROOT_STORE";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig_Type_Xdr = @"XDR";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus.state
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_ConfigStateUnknown = @"CONFIG_STATE_UNKNOWN";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_DisabledByFailures = @"DISABLED_BY_FAILURES";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus_State_Enabled = @"ENABLED";
+
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo.deviceType
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_ChromeBrowser = @"CHROME_BROWSER";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo_DeviceType_DeviceTypeUnspecified = @"DEVICE_TYPE_UNSPECIFIED";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig.scope
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_BrowserEnforcementScopeUnspecified = @"BROWSER_ENFORCEMENT_SCOPE_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_BrowsersAndProfiles = @"BROWSERS_AND_PROFILES";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_BrowsersOnly = @"BROWSERS_ONLY";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_Scope_ProfilesOnly = @"PROFILES_ONLY";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig.serviceProvider
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Duo = @"DUO";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Jumpcloud = @"JUMPCLOUD";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Okta = @"OKTA";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Omnissa = @"OMNISSA";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Onelogin = @"ONELOGIN";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_PingIdentity = @"PING_IDENTITY";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_ServiceProviderUnspecified = @"SERVICE_PROVIDER_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_UniversalDeviceTrust = @"UNIVERSAL_DEVICE_TRUST";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig_ServiceProvider_Zscaler = @"ZSCALER";
 
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData.source
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataConflictingPolicyData_Source_MachineLevelUserCloud = @"MACHINE_LEVEL_USER_CLOUD";
@@ -487,6 +519,38 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1Reporting
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_PolicySourceUnspecified = @"POLICY_SOURCE_UNSPECIFIED";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserCloud = @"USER_CLOUD";
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingDataPolicyData_Source_UserPlatform = @"USER_PLATFORM";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings.enabledDefaultEvents
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_AllDefaultEvents = @"ALL_DEFAULT_EVENTS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_BrowserCrashEvent = @"BROWSER_CRASH_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_BrowserExtensionInstallEvent = @"BROWSER_EXTENSION_INSTALL_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_ContentTransferEvent = @"CONTENT_TRANSFER_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_ContentUnscannedEvent = @"CONTENT_UNSCANNED_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_DataAccessControlEvent = @"DATA_ACCESS_CONTROL_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_DefaultEventUnspecified = @"DEFAULT_EVENT_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_MalwareTransferEvent = @"MALWARE_TRANSFER_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_PasswordChangedEvent = @"PASSWORD_CHANGED_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_PasswordReuseEvent = @"PASSWORD_REUSE_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_SensitiveDataTransferEvent = @"SENSITIVE_DATA_TRANSFER_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_SuspiciousUrlEvent = @"SUSPICIOUS_URL_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_UnsafeSiteVisitEvent = @"UNSAFE_SITE_VISIT_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDefaultEvents_UrlFilteringInterstitialEvent = @"URL_FILTERING_INTERSTITIAL_EVENT";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings.enabledDeviceEvents
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_AddRemoveUserEvent = @"ADD_REMOVE_USER_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_AllDeviceEvents = @"ALL_DEVICE_EVENTS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_CrdEvent = @"CRD_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_DeviceEventUnspecified = @"DEVICE_EVENT_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_LoginLogoutEvent = @"LOGIN_LOGOUT_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledDeviceEvents_PeripheralEvent = @"PERIPHERAL_EVENT";
+
+// GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings.enabledOptInEvents
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_AllOptInEvents = @"ALL_OPT_IN_EVENTS";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_ExtensionTelemetryEvent = @"EXTENSION_TELEMETRY_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_LoginEvent = @"LOGIN_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_OptInEventUnspecified = @"OPT_IN_EVENT_UNSPECIFIED";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_PasswordBreachEvent = @"PASSWORD_BREACH_EVENT";
+NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings_EnabledOptInEvents_UrlNavigationEvent = @"URL_NAVIGATION_EVENT";
 
 // GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile.keyUsages
 NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1ScepProfile_KeyUsages_KeyUsageKeyEncipherment = @"KEY_USAGE_KEY_ENCIPHERMENT";
@@ -539,13 +603,20 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementV1AppDetails
-@dynamic androidAppInfo, appId, chromeAppInfo, descriptionProperty, detailUri,
-         displayName, firstPublishTime, homepageUri, iconUri, isPaidApp,
-         latestPublishTime, name, privacyPolicyUri, publisher, reviewNumber,
-         reviewRating, revisionId, serviceError, type;
+@dynamic androidAppInfo, appId, categoryIds, chromeAppInfo, descriptionProperty,
+         detailUri, displayName, firstPublishTime, homepageUri, iconUri,
+         isPaidApp, latestPublishTime, name, privacyPolicyUri, publisher,
+         reviewNumber, reviewRating, revisionId, serviceError, type;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"categoryIds" : [NSString class]
+  };
+  return map;
 }
 
 @end
@@ -1156,6 +1227,28 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementV1FindInstalledAppProfilesResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1FindInstalledAppProfilesResponse
+@dynamic nextPageToken, profiles, totalSize;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"profiles" : [GTLRChromeManagement_GoogleChromeManagementV1ProfileAppInstallInstance class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"profiles";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementV1GraphicsAdapterInfo
 //
 
@@ -1485,6 +1578,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
   return @{ @"identifier" : @"id" };
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementV1ProfileAppInstallInstance
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementV1ProfileAppInstallInstance
+@dynamic email, profileId, profileOrgUnitId, profilePermanentId;
 @end
 
 
@@ -2074,11 +2177,93 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig
+@dynamic details, displayName, name, status, type;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigDetails
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigDetails
+@dynamic crowdStrikeConfig, crowdStrikeFalconNextGenConfig,
+         crowdStrikeXdrConfig, deviceTrustConfig, googleSecOpsConfig,
+         mipLabelConfig, paloAltoNetworksConfig, pubSubConfig, pubSubXdrConfig,
+         splunkConfig;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfigStatus
+@dynamic failureStartTime, state, updateTime;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeConfig
+@dynamic apiKey, host, reportingSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeFalconNextGenConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeFalconNextGenConfig
+@dynamic apiKey, host, reportingSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeXdrConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1CrowdStrikeXdrConfig
+@dynamic apiKey, host, xdrSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceInfo
 @dynamic affiliatedDeviceId, deviceType, hostname, machine;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1DeviceTrustConfig
+@dynamic scope, serviceAccounts, serviceProvider, urlMatchers;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"serviceAccounts" : [NSString class],
+    @"urlMatchers" : [NSString class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -2099,6 +2284,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1GenericProfile
 @dynamic profileAdapterConfigReference;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1GoogleSecOpsConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1GoogleSecOpsConfig
+@dynamic apiKey, host, reportingSettings;
 @end
 
 
@@ -2148,6 +2343,46 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ListConnectorConfigsResponse
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ListConnectorConfigsResponse
+@dynamic connectorConfigs, nextPageToken;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"connectorConfigs" : [GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"connectorConfigs";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1MipLabelConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1MipLabelConfig
+@dynamic domains, microsoftTenantId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"domains" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserRequest
 //
 
@@ -2163,6 +2398,36 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1MoveThirdPartyProfileUserResponse
 @dynamic thirdPartyProfileUser;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1PaloAltoNetworksConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1PaloAltoNetworksConfig
+@dynamic apiKey, host, reportingSettings;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubConfig
+@dynamic reportingSettings, topicFullPath;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubXdrConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1PubSubXdrConfig
+@dynamic topicFullPath, xdrSettings;
 @end
 
 
@@ -2259,6 +2524,26 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1ReportingSettings
+@dynamic enabledDefaultEvents, enabledDeviceEvents, enabledOptInEvents;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"enabledDefaultEvents" : [NSString class],
+    @"enabledDeviceEvents" : [NSString class],
+    @"enabledOptInEvents" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1ScepCaConnection
 //
 
@@ -2339,6 +2624,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1SplunkConfig
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1SplunkConfig
+@dynamic hecToken, host, portNumber, reportingSettings, source, unsecureScheme;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAltName
 //
 
@@ -2373,6 +2668,16 @@ NSString * const kGTLRChromeManagement_GoogleChromeManagementVersionsV1SubjectAl
 //
 
 @implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1UploadCertificateResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRChromeManagement_GoogleChromeManagementVersionsV1XdrSettings
+//
+
+@implementation GTLRChromeManagement_GoogleChromeManagementVersionsV1XdrSettings
+@dynamic enableAllXdrEvents;
 @end
 
 

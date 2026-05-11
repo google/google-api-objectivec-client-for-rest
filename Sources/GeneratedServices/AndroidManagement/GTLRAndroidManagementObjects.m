@@ -804,6 +804,11 @@ NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTi
 NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUnspecified = @"AUTO_DATE_AND_TIME_ZONE_UNSPECIFIED";
 NSString * const kGTLRAndroidManagement_Policy_AutoDateAndTimeZone_AutoDateAndTimeZoneUserChoice = @"AUTO_DATE_AND_TIME_ZONE_USER_CHOICE";
 
+// GTLRAndroidManagement_Policy.autofillPolicy
+NSString * const kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillDisabled = @"AUTOFILL_DISABLED";
+NSString * const kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillPolicyUnspecified = @"AUTOFILL_POLICY_UNSPECIFIED";
+NSString * const kGTLRAndroidManagement_Policy_AutofillPolicy_AutofillUserChoice = @"AUTOFILL_USER_CHOICE";
+
 // GTLRAndroidManagement_Policy.cameraAccess
 NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessDisabled = @"CAMERA_ACCESS_DISABLED";
 NSString * const kGTLRAndroidManagement_Policy_CameraAccess_CameraAccessEnforced = @"CAMERA_ACCESS_ENFORCED";
@@ -2895,7 +2900,7 @@ NSString * const kGTLRAndroidManagement_WorkAccountSetupConfig_AuthenticationTyp
 @dynamic accountTypesWithManagementDisabled, addUserDisabled,
          adjustVolumeDisabled, advancedSecurityOverrides, alwaysOnVpnPackage,
          androidDevicePolicyTracks, appAutoUpdatePolicy, appFunctions,
-         applications, assistContentPolicy, autoDateAndTimeZone,
+         applications, assistContentPolicy, autoDateAndTimeZone, autofillPolicy,
          autoTimeRequired, blockApplicationsEnabled, bluetoothConfigDisabled,
          bluetoothContactSharingDisabled, bluetoothDisabled, cameraAccess,
          cameraDisabled, cellBroadcastsConfigDisabled, choosePrivateKeyRules,

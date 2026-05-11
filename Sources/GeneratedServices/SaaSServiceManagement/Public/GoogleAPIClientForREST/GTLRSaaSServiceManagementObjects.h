@@ -2,7 +2,7 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   SaaS Runtime API (saasservicemgmt/v1beta1)
+//   App Lifecycle Manager API (saasservicemgmt/v1)
 // Description:
 //   Model, deploy, and operate your SaaS at scale.
 // Documentation:
@@ -19,6 +19,7 @@
 @class GTLRSaaSServiceManagement_Dependency;
 @class GTLRSaaSServiceManagement_Deprovision;
 @class GTLRSaaSServiceManagement_ErrorBudget;
+@class GTLRSaaSServiceManagement_FlagUpdate;
 @class GTLRSaaSServiceManagement_FromMapping;
 @class GTLRSaaSServiceManagement_GoogleCloudLocationLocation;
 @class GTLRSaaSServiceManagement_GoogleCloudLocationLocation_Labels;
@@ -42,7 +43,10 @@
 @class GTLRSaaSServiceManagement_Saas;
 @class GTLRSaaSServiceManagement_Saas_Annotations;
 @class GTLRSaaSServiceManagement_Saas_Labels;
+@class GTLRSaaSServiceManagement_SaasCondition;
 @class GTLRSaaSServiceManagement_Schedule;
+@class GTLRSaaSServiceManagement_Status;
+@class GTLRSaaSServiceManagement_Status_Details_Item;
 @class GTLRSaaSServiceManagement_Tenant;
 @class GTLRSaaSServiceManagement_Tenant_Annotations;
 @class GTLRSaaSServiceManagement_Tenant_Labels;
@@ -170,18 +174,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_RolloutControl_Act
 FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_RolloutControl_Action_RolloutActionUnspecified;
 
 // ----------------------------------------------------------------------------
-// GTLRSaaSServiceManagement_RolloutKind.maintenancePolicyEnforcement
-
-/** Value: "MAINTENANCE_POLICY_ENFORCEMENT_IGNORED" */
-FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementIgnored;
-/** Value: "MAINTENANCE_POLICY_ENFORCEMENT_SKIPPED" */
-FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementSkipped;
-/** Value: "MAINTENANCE_POLICY_ENFORCEMENT_STRICT" */
-FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementStrict;
-/** Value: "MAINTENANCE_POLICY_ENFORCEMENT_UNSPECIFIED" */
-FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementUnspecified;
-
-// ----------------------------------------------------------------------------
 // GTLRSaaSServiceManagement_RolloutKind.updateUnitKindStrategy
 
 /**
@@ -202,6 +194,104 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_RolloutKind_Update
  *  Value: "UPDATE_UNIT_KIND_STRATEGY_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_RolloutKind_UpdateUnitKindStrategy_UpdateUnitKindStrategyUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSaaSServiceManagement_Saas.state
+
+/**
+ *  Deprecated: Use STATE_ACTIVE.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_Active GTLR_DEPRECATED;
+/**
+ *  Deprecated: Use STATE_FAILED.
+ *
+ *  Value: "FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_Failed GTLR_DEPRECATED;
+/**
+ *  Deprecated: Use STATE_RUNNING.
+ *
+ *  Value: "RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_Running GTLR_DEPRECATED;
+/**
+ *  The Saas is ready
+ *
+ *  Value: "STATE_ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_StateActive;
+/**
+ *  Failure during process of importing, synchronizing or replicating
+ *  ApplicationTemplate processing
+ *
+ *  Value: "STATE_FAILED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_StateFailed;
+/**
+ *  In the process of importing, synchronizing or replicating
+ *  ApplicationTemplates
+ *
+ *  Value: "STATE_RUNNING"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_StateRunning;
+/**
+ *  State type is unspecified.
+ *
+ *  Value: "STATE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_Saas_State_StateTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSaaSServiceManagement_SaasCondition.status
+
+/**
+ *  Condition is false.
+ *
+ *  Value: "STATUS_FALSE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_SaasCondition_Status_StatusFalse;
+/**
+ *  Condition is true.
+ *
+ *  Value: "STATUS_TRUE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_SaasCondition_Status_StatusTrue;
+/**
+ *  Condition is unknown.
+ *
+ *  Value: "STATUS_UNKNOWN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_SaasCondition_Status_StatusUnknown;
+/**
+ *  Condition status is unspecified.
+ *
+ *  Value: "STATUS_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_SaasCondition_Status_StatusUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRSaaSServiceManagement_SaasCondition.type
+
+/**
+ *  Condition type is ready.
+ *
+ *  Value: "TYPE_READY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_SaasCondition_Type_TypeReady;
+/**
+ *  Condition type is synchronized.
+ *
+ *  Value: "TYPE_SYNCHRONIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_SaasCondition_Type_TypeSynchronized;
+/**
+ *  Condition type is unspecified.
+ *
+ *  Value: "TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_SaasCondition_Type_TypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRSaaSServiceManagement_Unit.managementMode
@@ -326,6 +416,13 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitCondition_Stat
 // ----------------------------------------------------------------------------
 // GTLRSaaSServiceManagement_UnitCondition.type
 
+/**
+ *  Condition type is flagsConfigInitialized. True when the flags configuration
+ *  is synchronized and ready to be served.
+ *
+ *  Value: "TYPE_FLAGS_CONFIG_INITIALIZED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitCondition_Type_TypeFlagsConfigInitialized;
 /**
  *  Condition type is operationError. True when the last unit operation fails
  *  with a non-ignorable error.
@@ -473,6 +570,18 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitOperationCondi
 // GTLRSaaSServiceManagement_UnitOperationCondition.type
 
 /**
+ *  Indicates if services and workloads have been registered with AppHub.
+ *
+ *  Value: "TYPE_APP_COMPONENTS_REGISTERED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeAppComponentsRegistered;
+/**
+ *  Indicates if AppHub app has been created.
+ *
+ *  Value: "TYPE_APP_CREATED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeAppCreated;
+/**
  *  Condition type is cancelled.
  *
  *  Value: "TYPE_CANCELLED"
@@ -502,6 +611,15 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitOperationCondi
  *  Value: "TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeUnspecified;
+/**
+ *  Indicates if the UnitOperation's core workload execution completed
+ *  successfully. The workload is the core execution operation performed for a
+ *  UnitOperation (e.g., provisioning, updating, or deprovisioning resources)
+ *  excluding post-operation checks.
+ *
+ *  Value: "TYPE_WORKLOAD_SUCCEEDED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeWorkloadSucceeded;
 
 // ----------------------------------------------------------------------------
 // GTLRSaaSServiceManagement_UnitVariable.type
@@ -519,11 +637,23 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  */
 FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_Int;
 /**
+ *  Variable type is list.
+ *
+ *  Value: "LIST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_List;
+/**
  *  Variable type is string.
  *
  *  Value: "STRING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_String;
+/**
+ *  Variable type is struct.
+ *
+ *  Value: "STRUCT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_Struct;
 /**
  *  Variable type is unspecified.
  *
@@ -632,6 +762,17 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  Uses NSNumber of intValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *allowedPercentage;
+
+@end
+
+
+/**
+ *  FlagUpdate is a UnitOperation that pushes new flag values to Units.
+ */
+@interface GTLRSaaSServiceManagement_FlagUpdate : GTLRObject
+
+/** Required. Flag release being applied by UnitOperation. */
+@property(nonatomic, copy, nullable) NSString *flagRelease;
 
 @end
 
@@ -1221,6 +1362,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, copy, nullable) NSString *ETag;
 
 /**
+ *  Optional. Immutable. Name of the FlagRelease to be rolled out to the target
+ *  Units. Release and FlagRelease are mutually exclusive. Note: `release`
+ *  comment needs to be adjusted to mention that "Release and FlagRelease are
+ *  mutually exclusive" when visibility restriction will be lifted.
+ */
+@property(nonatomic, copy, nullable) NSString *flagRelease;
+
+/**
  *  Optional. The labels on the resource, which can be used for categorization.
  *  similar to Kubernetes resource labels.
  */
@@ -1250,7 +1399,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, copy, nullable) NSString *releaseProperty;
 
 /**
- *  Optional. Immutable. Name of the RolloutKind this rollout is stemming from
+ *  Required. Immutable. Name of the RolloutKind this rollout is stemming from
  *  and adhering to.
  */
 @property(nonatomic, copy, nullable) NSString *rolloutKind;
@@ -1455,23 +1604,6 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_RolloutKind_Labels *labels;
 
 /**
- *  Optional. Value among strict (enforcing maintenance policy and only looking
- *  at Units with maintenance policy), ignore (ignoring maintenance policy) and
- *  skip (skipping Units with maintenance policy)
- *
- *  Likely values:
- *    @arg @c kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementIgnored
- *        Value "MAINTENANCE_POLICY_ENFORCEMENT_IGNORED"
- *    @arg @c kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementSkipped
- *        Value "MAINTENANCE_POLICY_ENFORCEMENT_SKIPPED"
- *    @arg @c kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementStrict
- *        Value "MAINTENANCE_POLICY_ENFORCEMENT_STRICT"
- *    @arg @c kGTLRSaaSServiceManagement_RolloutKind_MaintenancePolicyEnforcement_MaintenancePolicyEnforcementUnspecified
- *        Value "MAINTENANCE_POLICY_ENFORCEMENT_UNSPECIFIED"
- */
-@property(nonatomic, copy, nullable) NSString *maintenancePolicyEnforcement;
-
-/**
  *  Identifier. The resource name (full URI of the resource) following the
  *  standard naming scheme:
  *  "projects/{project}/locations/{location}/rolloutKinds/{rollout_kind_id}"
@@ -1571,6 +1703,14 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @interface GTLRSaaSServiceManagement_RolloutStats : GTLRObject
 
 /**
+ *  Optional. Output only. Estimated number of units based. The estimation is
+ *  computed upon creation of the rollout.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *estimatedTotalUnitCount;
+
+/**
  *  Optional. Output only. Unordered list. A breakdown of the progress of
  *  operations triggered by the rollout. Provides a count of Operations by their
  *  state. This can be used to determine the number of units which have been
@@ -1614,8 +1754,20 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  */
 @property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_Saas_Annotations *annotations;
 
+/**
+ *  Output only. A set of conditions which indicate the various conditions this
+ *  resource can have.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_SaasCondition *> *conditions;
+
 /** Output only. The timestamp when the resource was created. */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
+
+/**
+ *  Output only. If the state is FAILED, the corresponding error code and
+ *  message. Defaults to code=OK for all other states.
+ */
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_Status *error;
 
 /**
  *  Output only. An opaque value that uniquely identifies a version or
@@ -1642,6 +1794,30 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  "projects/{project}/locations/{location}/saas/{saas}"
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. State of the Saas. It is always in ACTIVE state if the
+ *  application_template is empty.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSaaSServiceManagement_Saas_State_Active Deprecated: Use
+ *        STATE_ACTIVE. (Value: "ACTIVE")
+ *    @arg @c kGTLRSaaSServiceManagement_Saas_State_Failed Deprecated: Use
+ *        STATE_FAILED. (Value: "FAILED")
+ *    @arg @c kGTLRSaaSServiceManagement_Saas_State_Running Deprecated: Use
+ *        STATE_RUNNING. (Value: "RUNNING")
+ *    @arg @c kGTLRSaaSServiceManagement_Saas_State_StateActive The Saas is
+ *        ready (Value: "STATE_ACTIVE")
+ *    @arg @c kGTLRSaaSServiceManagement_Saas_State_StateFailed Failure during
+ *        process of importing, synchronizing or replicating ApplicationTemplate
+ *        processing (Value: "STATE_FAILED")
+ *    @arg @c kGTLRSaaSServiceManagement_Saas_State_StateRunning In the process
+ *        of importing, synchronizing or replicating ApplicationTemplates
+ *        (Value: "STATE_RUNNING")
+ *    @arg @c kGTLRSaaSServiceManagement_Saas_State_StateTypeUnspecified State
+ *        type is unspecified. (Value: "STATE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
 
 /**
  *  Output only. The unique identifier of the resource. UID is unique in the
@@ -1691,6 +1867,54 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 
 /**
+ *  SaasCondition describes the status of a Saas.
+ */
+@interface GTLRSaaSServiceManagement_SaasCondition : GTLRObject
+
+/** Required. Last time the condition transited from one status to another. */
+@property(nonatomic, strong, nullable) GTLRDateTime *lastTransitionTime;
+
+/**
+ *  Required. Human readable message indicating details about the last
+ *  transition.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+/** Required. Brief reason for the condition's last transition. */
+@property(nonatomic, copy, nullable) NSString *reason;
+
+/**
+ *  Required. Status of the condition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSaaSServiceManagement_SaasCondition_Status_StatusFalse
+ *        Condition is false. (Value: "STATUS_FALSE")
+ *    @arg @c kGTLRSaaSServiceManagement_SaasCondition_Status_StatusTrue
+ *        Condition is true. (Value: "STATUS_TRUE")
+ *    @arg @c kGTLRSaaSServiceManagement_SaasCondition_Status_StatusUnknown
+ *        Condition is unknown. (Value: "STATUS_UNKNOWN")
+ *    @arg @c kGTLRSaaSServiceManagement_SaasCondition_Status_StatusUnspecified
+ *        Condition status is unspecified. (Value: "STATUS_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *status;
+
+/**
+ *  Required. Type of the condition.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRSaaSServiceManagement_SaasCondition_Type_TypeReady Condition
+ *        type is ready. (Value: "TYPE_READY")
+ *    @arg @c kGTLRSaaSServiceManagement_SaasCondition_Type_TypeSynchronized
+ *        Condition type is synchronized. (Value: "TYPE_SYNCHRONIZED")
+ *    @arg @c kGTLRSaaSServiceManagement_SaasCondition_Type_TypeUnspecified
+ *        Condition type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *type;
+
+@end
+
+
+/**
  *  A time specification to schedule the maintenance.
  */
 @interface GTLRSaaSServiceManagement_Schedule : GTLRObject
@@ -1701,6 +1925,51 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
+@end
+
+
+/**
+ *  The `Status` type defines a logical error model that is suitable for
+ *  different programming environments, including REST APIs and RPC APIs. It is
+ *  used by [gRPC](https://github.com/grpc). Each `Status` message contains
+ *  three pieces of data: error code, error message, and error details. You can
+ *  find out more about this error model and how to work with it in the [API
+ *  Design Guide](https://cloud.google.com/apis/design/errors).
+ */
+@interface GTLRSaaSServiceManagement_Status : GTLRObject
+
+/**
+ *  The status code, which should be an enum value of google.rpc.Code.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *code;
+
+/**
+ *  A list of messages that carry the error details. There is a common set of
+ *  message types for APIs to use.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRSaaSServiceManagement_Status_Details_Item *> *details;
+
+/**
+ *  A developer-facing error message, which should be in English. Any
+ *  user-facing error message should be localized and sent in the
+ *  google.rpc.Status.details field, or localized by the client.
+ */
+@property(nonatomic, copy, nullable) NSString *message;
+
+@end
+
+
+/**
+ *  GTLRSaaSServiceManagement_Status_Details_Item
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRSaaSServiceManagement_Status_Details_Item : GTLRObject
 @end
 
 
@@ -1724,8 +1993,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 /**
  *  Optional. Immutable. A reference to the consumer resource this SaaS Tenant
  *  is representing. The relationship with a consumer resource can be used by
- *  SaaS Runtime for retrieving consumer-defined settings and policies such as
- *  maintenance policies (using Unified Maintenance Policy API).
+ *  App Lifecycle Manager for retrieving consumer-defined settings and policies
+ *  such as maintenance policies (using Unified Maintenance Policy API).
  */
 @property(nonatomic, copy, nullable) NSString *consumerResource;
 
@@ -1754,8 +2023,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 /**
  *  Required. Immutable. A reference to the Saas that defines the product
- *  (managed service) that the producer wants to manage with SaaS Runtime. Part
- *  of the SaaS Runtime common data model.
+ *  (managed service) that the producer wants to manage with App Lifecycle
+ *  Manager. Part of the App Lifecycle Manager common data model.
  */
 @property(nonatomic, copy, nullable) NSString *saas;
 
@@ -1818,8 +2087,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, copy, nullable) NSString *dependency;
 
 /**
- *  Optional. Tells SaaS Runtime if this mapping should be used during lookup or
- *  not
+ *  Optional. Tells App Lifecycle Manager if this mapping should be used during
+ *  lookup or not
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1871,6 +2140,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  server agree on the ordering of a resource being written.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+/** Optional. Output only. Flag revisions used by this Unit. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *flagRevisions;
 
 /**
  *  Optional. Output only. Indicates the current input variables deployed by the
@@ -1942,6 +2214,21 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  Remapped to 'releaseProperty' to avoid NSObject's 'release'.
  */
 @property(nonatomic, copy, nullable) NSString *releaseProperty;
+
+/**
+ *  Output only. Reserved for future use.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzi;
+
+/**
+ *  Output only. Indicates whether the resource location satisfies Zone
+ *  Separation constraints. This is false by default.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
 
 /** Optional. Output only. List of scheduled UnitOperations for this unit. */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *scheduledOperations;
@@ -2093,6 +2380,10 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  Required. Type of the condition.
  *
  *  Likely values:
+ *    @arg @c kGTLRSaaSServiceManagement_UnitCondition_Type_TypeFlagsConfigInitialized
+ *        Condition type is flagsConfigInitialized. True when the flags
+ *        configuration is synchronized and ready to be served. (Value:
+ *        "TYPE_FLAGS_CONFIG_INITIALIZED")
  *    @arg @c kGTLRSaaSServiceManagement_UnitCondition_Type_TypeOperationError
  *        Condition type is operationError. True when the last unit operation
  *        fails with a non-ignorable error. (Value: "TYPE_OPERATION_ERROR")
@@ -2143,6 +2434,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /**
+ *  Optional. Default revisions of flags for this UnitKind. Newly created units
+ *  will use the flag default_flag_revisions present at the time of creation.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *defaultFlagRevisions;
+
+/**
  *  Optional. A reference to the Release object to use as default for creating
  *  new units of this UnitKind (optional). If not specified, a new unit must
  *  explicitly reference which release to use for its creation.
@@ -2190,8 +2487,9 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
 
 /**
  *  Required. Immutable. A reference to the Saas that defines the product
- *  (managed service) that the producer wants to manage with SaaS Runtime. Part
- *  of the SaaS Runtime common data model. Immutable once set.
+ *  (managed service) that the producer wants to manage with App Lifecycle
+ *  Manager. Part of the App Lifecycle Manager common data model. Immutable once
+ *  set.
  */
 @property(nonatomic, copy, nullable) NSString *saas;
 
@@ -2250,7 +2548,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  non-mutating operations). UnitOperations allow different actors interacting
  *  with the same unit to focus only on the change they have requested. This is
  *  a base object that contains the common fields in all unit operations. Next:
- *  19
+ *  22
  */
 @interface GTLRSaaSServiceManagement_UnitOperation : GTLRObject
 
@@ -2322,6 +2620,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  server agree on the ordering of a resource being written.
  */
 @property(nonatomic, copy, nullable) NSString *ETag;
+
+@property(nonatomic, strong, nullable) GTLRSaaSServiceManagement_FlagUpdate *flagUpdate;
 
 /**
  *  Optional. The labels on the resource, which can be used for categorization.
@@ -2473,6 +2773,11 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *  Required. Type of the condition.
  *
  *  Likely values:
+ *    @arg @c kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeAppComponentsRegistered
+ *        Indicates if services and workloads have been registered with AppHub.
+ *        (Value: "TYPE_APP_COMPONENTS_REGISTERED")
+ *    @arg @c kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeAppCreated
+ *        Indicates if AppHub app has been created. (Value: "TYPE_APP_CREATED")
  *    @arg @c kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeCancelled
  *        Condition type is cancelled. (Value: "TYPE_CANCELLED")
  *    @arg @c kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeRunning
@@ -2483,6 +2788,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *        Condition type is succeeded. (Value: "TYPE_SUCCEEDED")
  *    @arg @c kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeUnspecified
  *        Condition type is unspecified. (Value: "TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRSaaSServiceManagement_UnitOperationCondition_Type_TypeWorkloadSucceeded
+ *        Indicates if the UnitOperation's core workload execution completed
+ *        successfully. The workload is the core execution operation performed
+ *        for a UnitOperation (e.g., provisioning, updating, or deprovisioning
+ *        resources) excluding post-operation checks. (Value:
+ *        "TYPE_WORKLOAD_SUCCEEDED")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -2503,8 +2814,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSaaSServiceManagement_UnitVariable_Type_
  *        bool. (Value: "BOOL")
  *    @arg @c kGTLRSaaSServiceManagement_UnitVariable_Type_Int Variable type is
  *        int. (Value: "INT")
+ *    @arg @c kGTLRSaaSServiceManagement_UnitVariable_Type_List Variable type is
+ *        list. (Value: "LIST")
  *    @arg @c kGTLRSaaSServiceManagement_UnitVariable_Type_String Variable type
  *        is string. (Value: "STRING")
+ *    @arg @c kGTLRSaaSServiceManagement_UnitVariable_Type_Struct Variable type
+ *        is struct. (Value: "STRUCT")
  *    @arg @c kGTLRSaaSServiceManagement_UnitVariable_Type_TypeUnspecified
  *        Variable type is unspecified. (Value: "TYPE_UNSPECIFIED")
  */

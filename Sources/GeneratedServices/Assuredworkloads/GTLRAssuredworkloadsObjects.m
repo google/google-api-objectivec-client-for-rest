@@ -292,6 +292,27 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsRequest
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsRequest
+@dynamic archiveTime, batchSize, eventCutoffTime, maxEventsMove, organizationId,
+         region;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1ArchiveResourceEventsResponse
+@dynamic movedEventsCount;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1AssetMoveAnalysis
 //
 
@@ -521,6 +542,27 @@ NSString * const kGTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1WorkloadWork
 //
 
 @implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RestrictAllowedResourcesResponse
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsRequest
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsRequest
+@dynamic archiveEndTime, archiveStartTime, batchSize, maxEventsMove,
+         organizationId, region;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsResponse
+//
+
+@implementation GTLRAssuredworkloads_GoogleCloudAssuredworkloadsV1RevertArchivedResourceEventsResponse
+@dynamic movedEventsCount;
 @end
 
 

@@ -17,30 +17,6 @@
 // ----------------------------------------------------------------------------
 // Constants
 
-// GTLRApigee_ApiservingMcpMcpToolDataHandlingProfile.inputDataAccessLevel
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelConfidential = @"DATA_ACCESS_LEVEL_CONFIDENTIAL";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNeedToKnow = @"DATA_ACCESS_LEVEL_NEED_TO_KNOW";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelNoDataAccess = @"DATA_ACCESS_LEVEL_NO_DATA_ACCESS";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPii = @"DATA_ACCESS_LEVEL_PII";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelPublic = @"DATA_ACCESS_LEVEL_PUBLIC";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUnspecified = @"DATA_ACCESS_LEVEL_UNSPECIFIED";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_InputDataAccessLevel_DataAccessLevelUser = @"DATA_ACCESS_LEVEL_USER";
-
-// GTLRApigee_ApiservingMcpMcpToolDataHandlingProfile.outputDataAccessLevel
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelConfidential = @"DATA_ACCESS_LEVEL_CONFIDENTIAL";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNeedToKnow = @"DATA_ACCESS_LEVEL_NEED_TO_KNOW";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelNoDataAccess = @"DATA_ACCESS_LEVEL_NO_DATA_ACCESS";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPii = @"DATA_ACCESS_LEVEL_PII";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelPublic = @"DATA_ACCESS_LEVEL_PUBLIC";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUnspecified = @"DATA_ACCESS_LEVEL_UNSPECIFIED";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolDataHandlingProfile_OutputDataAccessLevel_DataAccessLevelUser = @"DATA_ACCESS_LEVEL_USER";
-
-// GTLRApigee_ApiservingMcpMcpToolLifecycleProfile.launchState
-NSString * const kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateDevelopment = @"LAUNCH_STATE_DEVELOPMENT";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateGeneralAvailability = @"LAUNCH_STATE_GENERAL_AVAILABILITY";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateProductionPreview = @"LAUNCH_STATE_PRODUCTION_PREVIEW";
-NSString * const kGTLRApigee_ApiservingMcpMcpToolLifecycleProfile_LaunchState_LaunchStateUnspecified = @"LAUNCH_STATE_UNSPECIFIED";
-
 // GTLRApigee_GoogleCloudApigeeV1Alias.type
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Alias_Type_AliasTypeUnspecified = @"ALIAS_TYPE_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1Alias_Type_Cert = @"CERT";
@@ -350,7 +326,18 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1RatePlan_State_StateUnspecified 
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_CloudTrace = @"CLOUD_TRACE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_ExporterUnspecified = @"EXPORTER_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_Jaeger = @"JAEGER";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_OpenTelemetryCloudTrace = @"OPEN_TELEMETRY_CLOUD_TRACE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_Exporter_OpenTelemetryCollector = @"OPEN_TELEMETRY_COLLECTOR";
+
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig.traceProtocol
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_OpenCensus = @"OPEN_CENSUS";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_Otlp = @"OTLP";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig_TraceProtocol_TraceProtocolUnspecified = @"TRACE_PROTOCOL_UNSPECIFIED";
+
+// GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride.traceProtocol
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_TraceProtocol_OpenCensus = @"OPEN_CENSUS";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_TraceProtocol_Otlp = @"OTLP";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride_TraceProtocol_TraceProtocolUnspecified = @"TRACE_PROTOCOL_UNSPECIFIED";
 
 // GTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig.sampler
 NSString * const kGTLRApigee_GoogleCloudApigeeV1RuntimeTraceSamplingConfig_Sampler_Off = @"OFF";
@@ -471,6 +458,7 @@ NSString * const kGTLRApigee_GoogleCloudApigeeV1TargetServerConfig_Protocol_Prot
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_CloudTrace = @"CLOUD_TRACE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_ExporterUnspecified = @"EXPORTER_UNSPECIFIED";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_Jaeger = @"JAEGER";
+NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCloudTrace = @"OPEN_TELEMETRY_CLOUD_TRACE";
 NSString * const kGTLRApigee_GoogleCloudApigeeV1TraceConfig_Exporter_OpenTelemetryCollector = @"OPEN_TELEMETRY_COLLECTOR";
 
 // GTLRApigee_GoogleCloudApigeeV1TraceSamplingConfig.sampler
@@ -502,26 +490,6 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_AdminRead = @"ADM
 NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_DataRead = @"DATA_READ";
 NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_DataWrite = @"DATA_WRITE";
 NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecified = @"LOG_TYPE_UNSPECIFIED";
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRApigee_ApiservingMcpMcpToolDataHandlingProfile
-//
-
-@implementation GTLRApigee_ApiservingMcpMcpToolDataHandlingProfile
-@dynamic inputDataAccessLevel, outputDataAccessLevel;
-@end
-
-
-// ----------------------------------------------------------------------------
-//
-//   GTLRApigee_ApiservingMcpMcpToolLifecycleProfile
-//
-
-@implementation GTLRApigee_ApiservingMcpMcpToolLifecycleProfile
-@dynamic launchState;
-@end
-
 
 // ----------------------------------------------------------------------------
 //
@@ -4661,7 +4629,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfig
 @dynamic endpoint, exporter, name, openTelemetryProtocolEnabled, overrides,
-         revisionCreateTime, revisionId, samplingConfig;
+         revisionCreateTime, revisionId, samplingConfig, traceProtocol;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -4680,7 +4648,7 @@ NSString * const kGTLRApigee_GoogleIamV1AuditLogConfig_LogType_LogTypeUnspecifie
 
 @implementation GTLRApigee_GoogleCloudApigeeV1RuntimeTraceConfigOverride
 @dynamic apiProxy, name, openTelemetryProtocolEnabled, revisionCreateTime,
-         revisionId, samplingConfig, uid;
+         revisionId, samplingConfig, traceProtocol, uid;
 @end
 
 

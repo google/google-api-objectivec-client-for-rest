@@ -125,6 +125,16 @@ NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Version_VersionUnspec
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRBigQueryDataPolicyService_DataGovernanceTag
+//
+
+@implementation GTLRBigQueryDataPolicyService_DataGovernanceTag
+@dynamic key, value;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRBigQueryDataPolicyService_DataMaskingPolicy
 //
 
@@ -139,8 +149,8 @@ NSString * const kGTLRBigQueryDataPolicyService_DataPolicy_Version_VersionUnspec
 //
 
 @implementation GTLRBigQueryDataPolicyService_DataPolicy
-@dynamic dataMaskingPolicy, dataPolicyId, dataPolicyType, ETag, grantees, name,
-         policyTag, version;
+@dynamic dataGovernanceTag, dataMaskingPolicy, dataPolicyId, dataPolicyType,
+         ETag, grantees, name, policyTag, version;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };

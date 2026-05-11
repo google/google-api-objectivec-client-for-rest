@@ -18,6 +18,12 @@ NSString * const kGTLRConfigDeletePolicyAbandon                = @"ABANDON";
 NSString * const kGTLRConfigDeletePolicyDelete                 = @"DELETE";
 NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecified = @"DELETE_POLICY_UNSPECIFIED";
 
+// deploymentReferencePolicy
+NSString * const kGTLRConfigDeploymentReferencePolicyDeploymentReferencePolicyUnspecified = @"DEPLOYMENT_REFERENCE_POLICY_UNSPECIFIED";
+NSString * const kGTLRConfigDeploymentReferencePolicyFailIfAnyReferencesExist = @"FAIL_IF_ANY_REFERENCES_EXIST";
+NSString * const kGTLRConfigDeploymentReferencePolicyFailIfMetadataReferencesExist = @"FAIL_IF_METADATA_REFERENCES_EXIST";
+NSString * const kGTLRConfigDeploymentReferencePolicyIgnoreDeploymentReferences = @"IGNORE_DEPLOYMENT_REFERENCES";
+
 // ----------------------------------------------------------------------------
 // Query Classes
 //
@@ -25,6 +31,209 @@ NSString * const kGTLRConfigDeletePolicyDeletePolicyUnspecified = @"DELETE_POLIC
 @implementation GTLRConfigQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsDeploymentGroupsCreate
+
+@dynamic deploymentGroupId, parent, requestId;
+
++ (instancetype)queryWithObject:(GTLRConfig_DeploymentGroup *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/deploymentGroups";
+  GTLRConfigQuery_ProjectsLocationsDeploymentGroupsCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRConfig_Operation class];
+  query.loggingName = @"config.projects.locations.deploymentGroups.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsDeploymentGroupsDelete
+
+@dynamic deploymentReferencePolicy, force, name, requestId;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRConfigQuery_ProjectsLocationsDeploymentGroupsDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRConfig_Operation class];
+  query.loggingName = @"config.projects.locations.deploymentGroups.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsDeploymentGroupsDeprovision
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRConfig_DeprovisionDeploymentGroupRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:deprovision";
+  GTLRConfigQuery_ProjectsLocationsDeploymentGroupsDeprovision *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRConfig_Operation class];
+  query.loggingName = @"config.projects.locations.deploymentGroups.deprovision";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsDeploymentGroupsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRConfigQuery_ProjectsLocationsDeploymentGroupsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRConfig_DeploymentGroup class];
+  query.loggingName = @"config.projects.locations.deploymentGroups.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsDeploymentGroupsList
+
+@dynamic filter, orderBy, pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/deploymentGroups";
+  GTLRConfigQuery_ProjectsLocationsDeploymentGroupsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRConfig_ListDeploymentGroupsResponse class];
+  query.loggingName = @"config.projects.locations.deploymentGroups.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsDeploymentGroupsPatch
+
+@dynamic name, requestId, updateMask;
+
++ (instancetype)queryWithObject:(GTLRConfig_DeploymentGroup *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRConfigQuery_ProjectsLocationsDeploymentGroupsPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRConfig_Operation class];
+  query.loggingName = @"config.projects.locations.deploymentGroups.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsDeploymentGroupsProvision
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRConfig_ProvisionDeploymentGroupRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:provision";
+  GTLRConfigQuery_ProjectsLocationsDeploymentGroupsProvision *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRConfig_Operation class];
+  query.loggingName = @"config.projects.locations.deploymentGroups.provision";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsDeploymentGroupsRevisionsGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRConfigQuery_ProjectsLocationsDeploymentGroupsRevisionsGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRConfig_DeploymentGroupRevision class];
+  query.loggingName = @"config.projects.locations.deploymentGroups.revisions.get";
+  return query;
+}
+
+@end
+
+@implementation GTLRConfigQuery_ProjectsLocationsDeploymentGroupsRevisionsList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/revisions";
+  GTLRConfigQuery_ProjectsLocationsDeploymentGroupsRevisionsList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRConfig_ListDeploymentGroupRevisionsResponse class];
+  query.loggingName = @"config.projects.locations.deploymentGroups.revisions.list";
+  return query;
+}
 
 @end
 

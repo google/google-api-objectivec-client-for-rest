@@ -241,16 +241,49 @@ NSString * const kGTLRLooker_ServiceAttachment_ConnectionStatus_Unknown = @"UNKN
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRLooker_IngressIpAllowlistConfig
+//
+
+@implementation GTLRLooker_IngressIpAllowlistConfig
+@dynamic allowlistRules, enabled, googleServicesEnabled;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"allowlistRules" : [GTLRLooker_IngressIpAllowlistRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRLooker_IngressIpAllowlistRule
+//
+
+@implementation GTLRLooker_IngressIpAllowlistRule
+@dynamic descriptionProperty, ipRange;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"descriptionProperty" : @"description" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRLooker_Instance
 //
 
 @implementation GTLRLooker_Instance
-@dynamic adminSettings, classType, consumerNetwork, controlledEgressConfig,
-         controlledEgressEnabled, createTime, customDomain,
-         denyMaintenancePeriod, egressPublicIp, encryptionConfig, fipsEnabled,
-         geminiEnabled, ingressPrivateIp, ingressPublicIp,
-         lastDenyMaintenancePeriod, linkedLspProjectNumber, lookerUri,
-         lookerVersion, maintenanceSchedule, maintenanceWindow, name,
+@dynamic adminSettings, catalogIntegrationOptOut, classType, consumerNetwork,
+         controlledEgressConfig, controlledEgressEnabled, createTime,
+         customDomain, denyMaintenancePeriod, egressPublicIp, encryptionConfig,
+         fipsEnabled, geminiEnabled, ingressIpAllowlistConfig, ingressPrivateIp,
+         ingressPublicIp, lastDenyMaintenancePeriod, linkedLspProjectNumber,
+         lookerUri, lookerVersion, maintenanceSchedule, maintenanceWindow, name,
          oauthConfig, periodicExportConfig, platformEdition, privateIpEnabled,
          pscConfig, pscEnabled, publicIpEnabled, reservedRange, satisfiesPzi,
          satisfiesPzs, state, updateTime, userMetadata;

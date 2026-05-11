@@ -233,10 +233,20 @@ NSString * const kGTLRNetAppFiles_StoragePool_EncryptionType_CloudKms = @"CLOUD_
 NSString * const kGTLRNetAppFiles_StoragePool_EncryptionType_EncryptionTypeUnspecified = @"ENCRYPTION_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_StoragePool_EncryptionType_ServiceManaged = @"SERVICE_MANAGED";
 
+// GTLRNetAppFiles_StoragePool.mode
+NSString * const kGTLRNetAppFiles_StoragePool_Mode_Default     = @"DEFAULT";
+NSString * const kGTLRNetAppFiles_StoragePool_Mode_ModeUnspecified = @"MODE_UNSPECIFIED";
+NSString * const kGTLRNetAppFiles_StoragePool_Mode_Ontap       = @"ONTAP";
+
 // GTLRNetAppFiles_StoragePool.qosType
 NSString * const kGTLRNetAppFiles_StoragePool_QosType_Auto     = @"AUTO";
 NSString * const kGTLRNetAppFiles_StoragePool_QosType_Manual   = @"MANUAL";
 NSString * const kGTLRNetAppFiles_StoragePool_QosType_QosTypeUnspecified = @"QOS_TYPE_UNSPECIFIED";
+
+// GTLRNetAppFiles_StoragePool.scaleType
+NSString * const kGTLRNetAppFiles_StoragePool_ScaleType_ScaleTypeDefault = @"SCALE_TYPE_DEFAULT";
+NSString * const kGTLRNetAppFiles_StoragePool_ScaleType_ScaleTypeScaleout = @"SCALE_TYPE_SCALEOUT";
+NSString * const kGTLRNetAppFiles_StoragePool_ScaleType_ScaleTypeUnspecified = @"SCALE_TYPE_UNSPECIFIED";
 
 // GTLRNetAppFiles_StoragePool.serviceLevel
 NSString * const kGTLRNetAppFiles_StoragePool_ServiceLevel_Extreme = @"EXTREME";
@@ -259,7 +269,6 @@ NSString * const kGTLRNetAppFiles_StoragePool_State_Updating   = @"UPDATING";
 NSString * const kGTLRNetAppFiles_StoragePool_Type_File        = @"FILE";
 NSString * const kGTLRNetAppFiles_StoragePool_Type_StoragePoolTypeUnspecified = @"STORAGE_POOL_TYPE_UNSPECIFIED";
 NSString * const kGTLRNetAppFiles_StoragePool_Type_Unified     = @"UNIFIED";
-NSString * const kGTLRNetAppFiles_StoragePool_Type_UnifiedLargeCapacity = @"UNIFIED_LARGE_CAPACITY";
 
 // GTLRNetAppFiles_TieringPolicy.tierAction
 NSString * const kGTLRNetAppFiles_TieringPolicy_TierAction_Enabled = @"ENABLED";
@@ -650,6 +659,150 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRNetAppFiles_ExecuteOntapDeleteResponse
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapDeleteResponse
+@dynamic body;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ExecuteOntapDeleteResponse_Body
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapDeleteResponse_Body
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ExecuteOntapGetResponse
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapGetResponse
+@dynamic body;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ExecuteOntapGetResponse_Body
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapGetResponse_Body
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ExecuteOntapPatchRequest
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapPatchRequest
+@dynamic body;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ExecuteOntapPatchRequest_Body
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapPatchRequest_Body
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ExecuteOntapPatchResponse
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapPatchResponse
+@dynamic body;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ExecuteOntapPatchResponse_Body
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapPatchResponse_Body
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ExecuteOntapPostRequest
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapPostRequest
+@dynamic body;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ExecuteOntapPostRequest_Body
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapPostRequest_Body
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ExecuteOntapPostResponse
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapPostResponse
+@dynamic body;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_ExecuteOntapPostResponse_Body
+//
+
+@implementation GTLRNetAppFiles_ExecuteOntapPostResponse_Body
+
++ (Class)classForAdditionalProperties {
+  return [NSObject class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRNetAppFiles_ExportPolicy
 //
 
@@ -798,6 +951,16 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
   return [NSString class];
 }
 
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRNetAppFiles_LargeCapacityConfig
+//
+
+@implementation GTLRNetAppFiles_LargeCapacityConfig
+@dynamic constituentCount;
 @end
 
 
@@ -1455,10 +1618,10 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
          capacityGib, coldTierSizeUsedGib, createTime, customPerformanceEnabled,
          descriptionProperty, enableHotTierAutoResize, encryptionType,
          globalAccessAllowed, hotTierSizeGib, hotTierSizeUsedGib, kmsConfig,
-         labels, ldapEnabled, name, network, psaRange, qosType, replicaZone,
-         satisfiesPzi, satisfiesPzs, serviceLevel, state, stateDetails,
-         totalIops, totalThroughputMibps, type, volumeCapacityGib, volumeCount,
-         zoneProperty;
+         labels, ldapEnabled, mode, name, network, psaRange, qosType,
+         replicaZone, satisfiesPzi, satisfiesPzs, scaleType, serviceLevel,
+         state, stateDetails, totalIops, totalThroughputMibps, type,
+         volumeCapacityGib, volumeCount, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1582,12 +1745,12 @@ NSString * const kGTLRNetAppFiles_Volume_State_Updating        = @"UPDATING";
          capacityGib, cloneDetails, coldTierSizeGib, createTime,
          descriptionProperty, encryptionType, exportPolicy, hasReplication,
          hotTierSizeUsedGib, hybridReplicationParameters, kerberosEnabled,
-         kmsConfig, labels, largeCapacity, ldapEnabled, mountOptions,
-         multipleEndpoints, name, network, protocols, psaRange, replicaZone,
-         restoreParameters, restrictedActions, securityStyle, serviceLevel,
-         shareName, smbSettings, snapReserve, snapshotDirectory, snapshotPolicy,
-         state, stateDetails, storagePool, throughputMibps, tieringPolicy,
-         unixPermissions, usedGib, zoneProperty;
+         kmsConfig, labels, largeCapacity, largeCapacityConfig, ldapEnabled,
+         mountOptions, multipleEndpoints, name, network, protocols, psaRange,
+         replicaZone, restoreParameters, restrictedActions, securityStyle,
+         serviceLevel, shareName, smbSettings, snapReserve, snapshotDirectory,
+         snapshotPolicy, state, stateDetails, storagePool, throughputMibps,
+         tieringPolicy, unixPermissions, usedGib, zoneProperty;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{

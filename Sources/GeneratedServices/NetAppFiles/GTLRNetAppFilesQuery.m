@@ -951,6 +951,98 @@
 
 @end
 
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapDelete
+
+@dynamic ontapPath;
+
++ (instancetype)queryWithOntapPath:(NSString *)ontapPath {
+  NSArray *pathParams = @[ @"ontapPath" ];
+  NSString *pathURITemplate = @"v1/{+ontapPath}";
+  GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.ontapPath = ontapPath;
+  query.expectedObjectClass = [GTLRNetAppFiles_ExecuteOntapDeleteResponse class];
+  query.loggingName = @"netapp.projects.locations.storagePools.ontap.executeOntapDelete";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapGet
+
+@dynamic ontapPath;
+
++ (instancetype)queryWithOntapPath:(NSString *)ontapPath {
+  NSArray *pathParams = @[ @"ontapPath" ];
+  NSString *pathURITemplate = @"v1/{+ontapPath}";
+  GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.ontapPath = ontapPath;
+  query.expectedObjectClass = [GTLRNetAppFiles_ExecuteOntapGetResponse class];
+  query.loggingName = @"netapp.projects.locations.storagePools.ontap.executeOntapGet";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapPatch
+
+@dynamic ontapPath;
+
++ (instancetype)queryWithObject:(GTLRNetAppFiles_ExecuteOntapPatchRequest *)object
+                      ontapPath:(NSString *)ontapPath {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"ontapPath" ];
+  NSString *pathURITemplate = @"v1/{+ontapPath}";
+  GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.ontapPath = ontapPath;
+  query.expectedObjectClass = [GTLRNetAppFiles_ExecuteOntapPatchResponse class];
+  query.loggingName = @"netapp.projects.locations.storagePools.ontap.executeOntapPatch";
+  return query;
+}
+
+@end
+
+@implementation GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapPost
+
+@dynamic ontapPath;
+
++ (instancetype)queryWithObject:(GTLRNetAppFiles_ExecuteOntapPostRequest *)object
+                      ontapPath:(NSString *)ontapPath {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"ontapPath" ];
+  NSString *pathURITemplate = @"v1/{+ontapPath}";
+  GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsOntapExecuteOntapPost *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.ontapPath = ontapPath;
+  query.expectedObjectClass = [GTLRNetAppFiles_ExecuteOntapPostResponse class];
+  query.loggingName = @"netapp.projects.locations.storagePools.ontap.executeOntapPost";
+  return query;
+}
+
+@end
+
 @implementation GTLRNetAppFilesQuery_ProjectsLocationsStoragePoolsPatch
 
 @dynamic name, updateMask;

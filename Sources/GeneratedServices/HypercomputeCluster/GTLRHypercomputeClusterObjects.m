@@ -15,6 +15,8 @@
 // Constants
 
 // GTLRHypercomputeCluster_GcsAutoclassConfig.terminalStorageClass
+NSString * const kGTLRHypercomputeCluster_GcsAutoclassConfig_TerminalStorageClass_Archive = @"ARCHIVE";
+NSString * const kGTLRHypercomputeCluster_GcsAutoclassConfig_TerminalStorageClass_Nearline = @"NEARLINE";
 NSString * const kGTLRHypercomputeCluster_GcsAutoclassConfig_TerminalStorageClass_TerminalStorageClassUnspecified = @"TERMINAL_STORAGE_CLASS_UNSPECIFIED";
 
 // GTLRHypercomputeCluster_NewBucketConfig.storageClass
@@ -705,7 +707,8 @@ NSString * const kGTLRHypercomputeCluster_OperationStep_State_Waiting = @"WAITIN
 //
 
 @implementation GTLRHypercomputeCluster_NewLustreConfig
-@dynamic capacityGb, descriptionProperty, filesystem, lustre;
+@dynamic capacityGb, descriptionProperty, filesystem, lustre,
+         perUnitStorageThroughput;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"descriptionProperty" : @"description" };

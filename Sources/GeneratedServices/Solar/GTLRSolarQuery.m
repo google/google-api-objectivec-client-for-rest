@@ -15,6 +15,10 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// additionalInsights
+NSString * const kGTLRSolarAdditionalInsightsAdditionalInsightsUnspecified = @"ADDITIONAL_INSIGHTS_UNSPECIFIED";
+NSString * const kGTLRSolarAdditionalInsightsDetectedArrays    = @"DETECTED_ARRAYS";
+
 // experiments
 NSString * const kGTLRSolarExperimentsExpandedCoverage      = @"EXPANDED_COVERAGE";
 NSString * const kGTLRSolarExperimentsExperimentUnspecified = @"EXPERIMENT_UNSPECIFIED";
@@ -46,8 +50,8 @@ NSString * const kGTLRSolarViewImageryLayers              = @"IMAGERY_LAYERS";
 
 @implementation GTLRSolarQuery_BuildingInsightsFindClosest
 
-@dynamic exactQualityRequired, experiments, locationLatitude, locationLongitude,
-         requiredQuality;
+@dynamic additionalInsights, exactQualityRequired, experiments,
+         locationLatitude, locationLongitude, requiredQuality;
 
 + (NSDictionary<NSString *, NSString *> *)parameterNameMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -59,6 +63,7 @@ NSString * const kGTLRSolarViewImageryLayers              = @"IMAGERY_LAYERS";
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
+    @"additionalInsights" : [NSString class],
     @"experiments" : [NSString class]
   };
   return map;

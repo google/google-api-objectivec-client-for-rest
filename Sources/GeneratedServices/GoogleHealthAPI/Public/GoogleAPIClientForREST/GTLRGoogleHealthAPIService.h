@@ -2,9 +2,12 @@
 
 // ----------------------------------------------------------------------------
 // API:
-//   Data Lineage API (datalineage/v1)
+//   Google Health API (health/v4)
+// Description:
+//   The Google Health API lets you view and manage health and fitness metrics
+//   and measurement data.
 // Documentation:
-//   https://cloud.google.com/data-catalog
+//   https://developers.google.com/health
 
 #import <GoogleAPIClientForREST/GTLRService.h>
 
@@ -28,22 +31,25 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Value "https://www.googleapis.com/auth/cloud-platform"
  */
-FOUNDATION_EXTERN NSString * const kGTLRAuthScopeDatalineageCloudPlatform;
+FOUNDATION_EXTERN NSString * const kGTLRAuthScopeGoogleHealthAPICloudPlatform;
 
 // ----------------------------------------------------------------------------
-//   GTLRDatalineageService
+//   GTLRGoogleHealthAPIService
 //
 
 /**
- *  Service for executing Data Lineage API queries.
+ *  Service for executing Google Health API queries.
+ *
+ *  The Google Health API lets you view and manage health and fitness metrics
+ *  and measurement data.
  */
-@interface GTLRDatalineageService : GTLRService
+@interface GTLRGoogleHealthAPIService : GTLRService
 
 // No new methods
 
 // Clients should create a standard query with any of the class methods in
-// GTLRDatalineageQuery.h. The query can the be sent with GTLRService's execute
-// methods,
+// GTLRGoogleHealthAPIQuery.h. The query can the be sent with GTLRService's
+// execute methods,
 //
 //   - (GTLRServiceTicket *)executeQuery:(GTLRQuery *)query
 //                     completionHandler:(void (^)(GTLRServiceTicket *ticket,

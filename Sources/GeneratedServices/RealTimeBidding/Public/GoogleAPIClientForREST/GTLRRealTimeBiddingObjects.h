@@ -1989,6 +1989,8 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
 @property(nonatomic, strong, nullable) GTLRRealTimeBidding_NativeContent *native;
 
 /**
+ *  Deprecated: FLEDGE is no longer supported. See:
+ *  https://privacysandbox.google.com/blog/update-on-plans-for-privacy-sandbox-technologies
  *  Experimental field that can be used during the [FLEDGE Origin
  *  Trial](/authorized-buyers/rtb/fledge-origin-trial). The URL to fetch an
  *  interest group ad used in [TURTLEDOVE on-device
@@ -1997,7 +1999,7 @@ FOUNDATION_EXTERN NSString * const kGTLRRealTimeBidding_VideoMetadata_VastVersio
  *  should be the same as the URL returned by
  *  [generateBid()](https://github.com/WICG/turtledove/blob/main/FLEDGE.md#32-on-device-bidding).
  */
-@property(nonatomic, copy, nullable) NSString *renderUrl;
+@property(nonatomic, copy, nullable) NSString *renderUrl GTLR_DEPRECATED;
 
 /**
  *  All restricted categories for the ads that may be shown from this creative.

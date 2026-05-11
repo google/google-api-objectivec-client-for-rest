@@ -110,12 +110,16 @@
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildApproval;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildOptions;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStepResults;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStepResults_Results;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1ConnectedRepository;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Dependency;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1DeveloperConnectConfig;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GenericArtifact;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GenericArtifactDependency;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitConfig;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSource;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceDependency;
@@ -127,11 +131,13 @@
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1InlineSecret_EnvMap;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1MavenArtifact;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1NpmPackage;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Oci;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1PoolOption;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1PythonPackage;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1RepoSource;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1RepoSource_Substitutions;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Results;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Results_BuildStepResults;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secret;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Secret_SecretEnv;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1SecretManagerSecret;
@@ -139,9 +145,12 @@
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1Source;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1SourceProvenance;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1SourceProvenance_FileHashes;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1StepResult;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSourceManifest;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGenericArtifact;
+@class GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGenericArtifact_FileHashes;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGoModule;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedMavenArtifact;
 @class GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedNpmPackage;
@@ -472,6 +481,12 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2Condition_State
 // ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource.medium
 
+/**
+ *  Explicitly sets the EmptyDir to be a disk.
+ *
+ *  Value: "DISK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource_Medium_Disk;
 /**
  *  When not specified, falls back to the default implementation which is
  *  currently in memory (this may change over time).
@@ -1839,6 +1854,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1Build
 FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStep_Status_Working;
 
 // ----------------------------------------------------------------------------
+// GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage.ociMediaType
+
+/**
+ *  The artifact is an image index, which can contain a list of image manifests.
+ *
+ *  Value: "IMAGE_INDEX"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage_OciMediaType_ImageIndex;
+/**
+ *  The artifact is an image manifest, which represents a single image with all
+ *  its layers.
+ *
+ *  Value: "IMAGE_MANIFEST"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage_OciMediaType_ImageManifest;
+/**
+ *  Default value.
+ *
+ *  Value: "OCI_MEDIA_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage_OciMediaType_OciMediaTypeUnspecified;
+
+// ----------------------------------------------------------------------------
 // GTLRCloudRun_GoogleDevtoolsCloudbuildV1FailureInfo.type
 
 /**
@@ -2612,6 +2650,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  but could change over time. +optional
  *
  *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource_Medium_Disk
+ *        Explicitly sets the EmptyDir to be a disk. (Value: "DISK")
  *    @arg @c kGTLRCloudRun_GoogleCloudRunV2EmptyDirVolumeSource_Medium_MediumUnspecified
  *        When not specified, falls back to the default implementation which is
  *        currently in memory (this may change over time). (Value:
@@ -3333,6 +3373,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Output only. Email address of the authenticated creator. */
 @property(nonatomic, copy, nullable) NSString *creator;
+
+/**
+ *  Optional. Disables public resolution of the default URI of this Instance.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *defaultUriDisabled;
 
 /** Output only. The deletion time. */
 @property(nonatomic, strong, nullable) GTLRDateTime *deleteTime;
@@ -4688,7 +4735,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Optional. Determines a threshold for concurrency utilization before scaling
  *  begins. Accepted values are between `0.1` and `0.95` (inclusive) or `0.0` to
- *  disable concurrency utilization as threshold for scaling.
+ *  disable concurrency utilization as threshold for scaling. CPU and
+ *  concurrency scaling cannot both be disabled.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -4697,7 +4745,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /**
  *  Optional. Determines a threshold for CPU utilization before scaling begins.
  *  Accepted values are between `0.1` and `0.95` (inclusive) or `0.0` to disable
- *  CPU utilization as threshold for scaling.
+ *  CPU utilization as threshold for scaling. CPU and concurrency scaling cannot
+ *  both be disabled.
  *
  *  Uses NSNumber of floatValue.
  */
@@ -5491,7 +5540,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @interface GTLRCloudRun_GoogleCloudRunV2SourceFile : GTLRObject
 
-/** Required. Input only. The source code as raw text. */
+/**
+ *  Required. Input only. Represents the exact, literal, and complete source
+ *  code of the file. Placeholders like `...` or comments such as `# [rest of
+ *  code]` should NEVER be used as omission. Every character in this field will
+ *  be built into the final container. Any omission will result in a broken
+ *  application.
+ */
 @property(nonatomic, copy, nullable) NSString *content;
 
 /**
@@ -6244,8 +6299,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /**
  *  Optional. Path within the volume from which the container's volume should be
- *  mounted. Defaults to "" (volume's root). This field is currently ignored for
- *  Secret volumes.
+ *  mounted. Defaults to "" (volume's root). This field is currently rejected in
+ *  Secret volume mounts.
  */
 @property(nonatomic, copy, nullable) NSString *subPath;
 
@@ -6336,8 +6391,8 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Output only. Email address of the authenticated creator. */
 @property(nonatomic, copy, nullable) NSString *creator;
 
-/** Not supported, and ignored by Cloud Run. */
-@property(nonatomic, strong, nullable) NSArray<NSString *> *customAudiences;
+/** Deprecated: Not supported, and ignored by Cloud Run. */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *customAudiences GTLR_DEPRECATED;
 
 /**
  *  Output only. The deletion time. It is only populated as a response to a
@@ -6862,6 +6917,13 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Artifacts : GTLRObject
 
 /**
+ *  Optional. A list of generic artifacts to be uploaded to Artifact Registry
+ *  upon successful completion of all build steps. If any artifacts fail to be
+ *  pushed, the build is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1GenericArtifact *> *genericArtifacts;
+
+/**
  *  Optional. A list of Go modules to be uploaded to Artifact Registry upon
  *  successful completion of all build steps. If any objects fail to be pushed,
  *  the build is marked FAILURE.
@@ -6904,6 +6966,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  fail to be pushed, the build is marked FAILURE.
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1ArtifactObjects *objects;
+
+/**
+ *  Optional. A list of OCI images to be uploaded to Artifact Registry upon
+ *  successful completion of all build steps. OCI images in the specified paths
+ *  will be uploaded to the specified Artifact Registry repository using the
+ *  builder service account's credentials. If any images fail to be pushed, the
+ *  build is marked FAILURE.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1Oci *> *oci;
 
 /**
  *  A list of Python packages to be uploaded to Artifact Registry upon
@@ -7491,6 +7562,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *pullTiming;
 
+/** Output only. Declaration of results for this build step. */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1StepResult *> *results;
+
 /**
  *  A shell script to be executed in the step. When script is provided, the user
  *  cannot specify the entrypoint or args.
@@ -7567,6 +7641,29 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  Results for a build step.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStepResults : GTLRObject
+
+/** Results for a build step. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStepResults_Results *results;
+
+@end
+
+
+/**
+ *  Results for a build step.
+ *
+ *  @note This class is documented as having more properties of NSString. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStepResults_Results : GTLRObject
+@end
+
+
+/**
  *  An image built by the pipeline.
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage : GTLRObject
@@ -7582,6 +7679,22 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  presented to `docker push`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Output only. The OCI media type of the artifact. Non-OCI images, such as
+ *  Docker images, will have an unspecified value.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage_OciMediaType_ImageIndex
+ *        The artifact is an image index, which can contain a list of image
+ *        manifests. (Value: "IMAGE_INDEX")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage_OciMediaType_ImageManifest
+ *        The artifact is an image manifest, which represents a single image
+ *        with all its layers. (Value: "IMAGE_MANIFEST")
+ *    @arg @c kGTLRCloudRun_GoogleDevtoolsCloudbuildV1BuiltImage_OciMediaType_OciMediaTypeUnspecified
+ *        Default value. (Value: "OCI_MEDIA_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *ociMediaType;
 
 /** Output only. Stores timing information for pushing the specified image. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *pushTiming;
@@ -7627,6 +7740,9 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *empty;
+
+/** Represents a generic artifact as a build dependency. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1GenericArtifactDependency *genericArtifact;
 
 /** Represents a git repository as a build dependency. */
 @property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1GitSourceDependency *gitSource;
@@ -7699,6 +7815,44 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 /** Collection of file hashes. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1Hash *> *fileHash;
+
+@end
+
+
+/**
+ *  Generic artifact to upload to Artifact Registry upon successful completion
+ *  of all build steps.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GenericArtifact : GTLRObject
+
+/**
+ *  Required. Path to the generic artifact in the build's workspace to be
+ *  uploaded to Artifact Registry.
+ */
+@property(nonatomic, copy, nullable) NSString *folder;
+
+/**
+ *  Required. Registry path to upload the generic artifact to, in the form
+ *  projects/$PROJECT/locations/$LOCATION/repositories/$REPO/packages/$PACKAGE/versions/$VERSION
+ */
+@property(nonatomic, copy, nullable) NSString *registryPath;
+
+@end
+
+
+/**
+ *  Represents a generic artifact as a build dependency.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1GenericArtifactDependency : GTLRObject
+
+/** Required. Where the artifact files should be placed on the worker. */
+@property(nonatomic, copy, nullable) NSString *destPath;
+
+/**
+ *  Required. The location to download the artifact files from. Ex:
+ *  projects/p1/locations/us/repositories/r1/packages/p1/versions/v1
+ */
+@property(nonatomic, copy, nullable) NSString *resource;
 
 @end
 
@@ -8005,6 +8159,30 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  OCI image to upload to Artifact Registry upon successful completion of all
+ *  build steps.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Oci : GTLRObject
+
+/**
+ *  Required. Path on the local file system where to find the container to
+ *  upload. e.g. /workspace/my-image.tar
+ */
+@property(nonatomic, copy, nullable) NSString *file;
+
+/**
+ *  Required. Registry path to upload the container to. e.g.
+ *  us-east1-docker.pkg.dev/my-project/my-repo/my-image
+ */
+@property(nonatomic, copy, nullable) NSString *registryPath;
+
+/** Optional. Tags to apply to the uploaded image. e.g. latest, 1.0.0 */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *tags;
+
+@end
+
+
+/**
  *  Details about how a build should be executed on a `WorkerPool`. See [running
  *  builds in a private
  *  pool](https://cloud.google.com/build/docs/private-pools/run-builds-in-private-pool)
@@ -8147,6 +8325,15 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *buildStepOutputs;
 
+/** Results for build steps. step_id -> */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1Results_BuildStepResults *buildStepResults;
+
+/**
+ *  Output only. Generic artifacts uploaded to Artifact Registry at the end of
+ *  the build.
+ */
+@property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGenericArtifact *> *genericArtifacts;
+
 /**
  *  Optional. Go module artifacts uploaded to Artifact Registry at the end of
  *  the build.
@@ -8173,6 +8360,19 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Python artifacts uploaded to Artifact Registry at the end of the build. */
 @property(nonatomic, strong, nullable) NSArray<GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedPythonPackage *> *pythonPackages;
 
+@end
+
+
+/**
+ *  Results for build steps. step_id ->
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudRun_GoogleDevtoolsCloudbuildV1BuildStepResults. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1Results_BuildStepResults : GTLRObject
 @end
 
 
@@ -8360,6 +8560,23 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 
 
 /**
+ *  StepResult is the declaration of a result for a build step.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1StepResult : GTLRObject
+
+/** Optional. The content of the attestation to be generated. */
+@property(nonatomic, copy, nullable) NSString *attestationContent;
+
+/** Optional. The type of attestation to be generated. */
+@property(nonatomic, copy, nullable) NSString *attestationType;
+
+/** Required. The name of the result. */
+@property(nonatomic, copy, nullable) NSString *name;
+
+@end
+
+
+/**
  *  Location of the source in an archive file in Cloud Storage.
  */
 @interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1StorageSource : GTLRObject
@@ -8444,6 +8661,48 @@ FOUNDATION_EXTERN NSString * const kGTLRCloudRun_GoogleIamV1AuditLogConfig_LogTy
 /** Start of time span. */
 @property(nonatomic, strong, nullable) GTLRDateTime *startTime;
 
+@end
+
+
+/**
+ *  A generic artifact uploaded to Artifact Registry using the GenericArtifact
+ *  directive.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGenericArtifact : GTLRObject
+
+/** Output only. The hash of the whole artifact. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes *artifactFingerprint;
+
+/** Output only. Path to the artifact in Artifact Registry. */
+@property(nonatomic, copy, nullable) NSString *artifactRegistryPackage;
+
+/** Output only. The file hashes that make up the generic artifact. */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGenericArtifact_FileHashes *fileHashes;
+
+/**
+ *  Output only. Stores timing information for pushing the specified artifact.
+ */
+@property(nonatomic, strong, nullable) GTLRCloudRun_GoogleDevtoolsCloudbuildV1TimeSpan *pushTiming;
+
+/**
+ *  Output only. URI of the uploaded artifact. Ex:
+ *  projects/p1/locations/us/repositories/r1/packages/p1/versions/v1
+ */
+@property(nonatomic, copy, nullable) NSString *uri;
+
+@end
+
+
+/**
+ *  Output only. The file hashes that make up the generic artifact.
+ *
+ *  @note This class is documented as having more properties of
+ *        GTLRCloudRun_GoogleDevtoolsCloudbuildV1FileHashes. Use @c
+ *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
+ *        of properties and then fetch them; or @c -additionalProperties to
+ *        fetch them all at once.
+ */
+@interface GTLRCloudRun_GoogleDevtoolsCloudbuildV1UploadedGenericArtifact_FileHashes : GTLRObject
 @end
 
 

@@ -868,7 +868,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Required. The instance of the backup operations. Values are of the form
- *  `projects//instances/`.
+ *  `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -885,7 +885,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  from the most recently started operation.
  *
  *  @param parent Required. The instance of the backup operations. Values are of
- *    the form `projects//instances/`.
+ *    the form `projects/{project}/instances/{instance}`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesBackupOperationsList
  *
@@ -917,7 +917,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Required. The name of the destination instance that will contain the backup
- *  copy. Values are of the form: `projects//instances/`.
+ *  copy. Values are of the form: `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -935,7 +935,8 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *
  *  @param object The @c GTLRSpanner_CopyBackupRequest to include in the query.
  *  @param parent Required. The name of the destination instance that will
- *    contain the backup copy. Values are of the form: `projects//instances/`.
+ *    contain the backup copy. Values are of the form:
+ *    `projects/{project}/instances/{instance}`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesBackupsCopy
  */
@@ -965,7 +966,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Required. The id of the backup to be created. The `backup_id` appended to
  *  `parent` forms the full backup name of the form
- *  `projects//instances//backups/`.
+ *  `projects/{project}/instances/{instance}/backups/{backup_id}`.
  */
 @property(nonatomic, copy, nullable) NSString *backupId;
 
@@ -998,24 +999,24 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  be in `us-central1` or `nam3`. The Cloud KMS key that is used to encrypt and
  *  decrypt the restored database. Set this field only when encryption_type is
  *  `CUSTOMER_MANAGED_ENCRYPTION`. Values are of the form
- *  `projects//locations//keyRings//cryptoKeys/`.
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{kms_key_name}`.
  */
 @property(nonatomic, copy, nullable) NSString *encryptionConfigKmsKeyName;
 
 /**
  *  Optional. Specifies the KMS configuration for the one or more keys used to
  *  protect the backup. Values are of the form
- *  `projects//locations//keyRings//cryptoKeys/`. The keys referenced by
- *  `kms_key_names` must fully cover all regions of the backup's instance
- *  configuration. Some examples: * For regional (single-region) instance
- *  configurations, specify a regional location KMS key. * For multi-region
- *  instance configurations of type `GOOGLE_MANAGED`, either specify a
- *  multi-region location KMS key or multiple regional location KMS keys that
- *  cover all regions in the instance configuration. * For an instance
- *  configuration of type `USER_MANAGED`, specify only regional location KMS
- *  keys to cover each region in the instance configuration. Multi-region
- *  location KMS keys aren't supported for `USER_MANAGED` type instance
- *  configurations.
+ *  `projects/{project}/locations/{location}/keyRings/{key_ring}/cryptoKeys/{kms_key_name}`.
+ *  The keys referenced by `kms_key_names` must fully cover all regions of the
+ *  backup's instance configuration. Some examples: * For regional
+ *  (single-region) instance configurations, specify a regional location KMS
+ *  key. * For multi-region instance configurations of type `GOOGLE_MANAGED`,
+ *  either specify a multi-region location KMS key or multiple regional location
+ *  KMS keys that cover all regions in the instance configuration. * For an
+ *  instance configuration of type `USER_MANAGED`, specify only regional
+ *  location KMS keys to cover each region in the instance configuration.
+ *  Multi-region location KMS keys aren't supported for `USER_MANAGED` type
+ *  instance configurations.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *encryptionConfigKmsKeyNames;
 
@@ -1024,7 +1025,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  be the same instance that contains the database the backup is created from.
  *  The backup will be stored in the locations specified in the instance
  *  configuration of this instance. Values are of the form
- *  `projects//instances/`.
+ *  `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1045,7 +1046,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *    created. This must be the same instance that contains the database the
  *    backup is created from. The backup will be stored in the locations
  *    specified in the instance configuration of this instance. Values are of
- *    the form `projects//instances/`.
+ *    the form `projects/{project}/instances/{instance}`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesBackupsCreate
  */
@@ -1067,7 +1068,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Required. Name of the backup to delete. Values are of the form
- *  `projects//instances//backups/`.
+ *  `projects/{project}/instances/{instance}/backups/{backup}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1077,7 +1078,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Deletes a pending or completed Backup.
  *
  *  @param name Required. Name of the backup to delete. Values are of the form
- *    `projects//instances//backups/`.
+ *    `projects/{project}/instances/{instance}/backups/{backup}`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesBackupsDelete
  */
@@ -1098,7 +1099,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Required. Name of the backup. Values are of the form
- *  `projects//instances//backups/`.
+ *  `projects/{project}/instances/{instance}/backups/{backup}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1108,7 +1109,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  Gets metadata on a pending or completed Backup.
  *
  *  @param name Required. Name of the backup. Values are of the form
- *    `projects//instances//backups/`.
+ *    `projects/{project}/instances/{instance}/backups/{backup}`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesBackupsGet
  */
@@ -1216,7 +1217,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 
 /**
  *  Required. The instance to list backups from. Values are of the form
- *  `projects//instances/`.
+ *  `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *parent;
 
@@ -1228,7 +1229,7 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  `create_time`.
  *
  *  @param parent Required. The instance to list backups from. Values are of the
- *    form `projects//instances/`.
+ *    form `projects/{project}/instances/{instance}`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesBackupsList
  *
@@ -1414,11 +1415,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
 /**
  *  Output only for the CreateBackup operation. Required for the UpdateBackup
  *  operation. A globally unique identifier for the backup which cannot be
- *  changed. Values are of the form `projects//instances//backups/a-z*[a-z0-9]`
- *  The final segment of the name must be between 2 and 60 characters in length.
- *  The backup is stored in the location(s) specified in the instance
- *  configuration of the instance containing the backup, identified by the
- *  prefix of the backup name of the form `projects//instances/`.
+ *  changed. Values are of the form
+ *  `projects/{project}/instances/{instance}/backups/a-z*[a-z0-9]` The final
+ *  segment of the name must be between 2 and 60 characters in length. The
+ *  backup is stored in the location(s) specified in the instance configuration
+ *  of the instance containing the backup, identified by the prefix of the
+ *  backup name of the form `projects/{project}/instances/{instance}`.
  */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -1442,11 +1444,12 @@ FOUNDATION_EXTERN NSString * const kGTLRSpannerViewViewUnspecified;
  *  @param name Output only for the CreateBackup operation. Required for the
  *    UpdateBackup operation. A globally unique identifier for the backup which
  *    cannot be changed. Values are of the form
- *    `projects//instances//backups/a-z*[a-z0-9]` The final segment of the name
- *    must be between 2 and 60 characters in length. The backup is stored in the
- *    location(s) specified in the instance configuration of the instance
- *    containing the backup, identified by the prefix of the backup name of the
- *    form `projects//instances/`.
+ *    `projects/{project}/instances/{instance}/backups/a-z*[a-z0-9]` The final
+ *    segment of the name must be between 2 and 60 characters in length. The
+ *    backup is stored in the location(s) specified in the instance
+ *    configuration of the instance containing the backup, identified by the
+ *    prefix of the backup name of the form
+ *    `projects/{project}/instances/{instance}`.
  *
  *  @return GTLRSpannerQuery_ProjectsInstancesBackupsPatch
  */

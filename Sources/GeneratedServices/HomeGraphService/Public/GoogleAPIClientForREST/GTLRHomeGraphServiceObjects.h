@@ -14,11 +14,17 @@
 
 @class GTLRHomeGraphService_AgentDeviceId;
 @class GTLRHomeGraphService_AgentOtherDeviceId;
+@class GTLRHomeGraphService_ComponentTraitUpdates;
 @class GTLRHomeGraphService_Device;
 @class GTLRHomeGraphService_Device_Attributes;
 @class GTLRHomeGraphService_Device_CustomData;
 @class GTLRHomeGraphService_DeviceInfo;
 @class GTLRHomeGraphService_DeviceNames;
+@class GTLRHomeGraphService_EventData;
+@class GTLRHomeGraphService_EventData_Event;
+@class GTLRHomeGraphService_Events;
+@class GTLRHomeGraphService_HomeEvents;
+@class GTLRHomeGraphService_HomeTraitUpdates;
 @class GTLRHomeGraphService_QueryRequestInput;
 @class GTLRHomeGraphService_QueryRequestPayload;
 @class GTLRHomeGraphService_QueryResponsePayload;
@@ -29,6 +35,8 @@
 @class GTLRHomeGraphService_ReportStateAndNotificationDevice_States;
 @class GTLRHomeGraphService_StateAndNotificationPayload;
 @class GTLRHomeGraphService_SyncResponsePayload;
+@class GTLRHomeGraphService_TraitData;
+@class GTLRHomeGraphService_TraitData_Trait;
 
 // Generated comments include content from the discovery document; avoid them
 // causing warnings since clang's checks are some what arbitrary.
@@ -62,6 +70,20 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** Unique third-party device ID. */
 @property(nonatomic, copy, nullable) NSString *deviceId;
+
+@end
+
+
+/**
+ *  Contains the set of updates for a component.
+ */
+@interface GTLRHomeGraphService_ComponentTraitUpdates : GTLRObject
+
+/** Required. ID of the component from the device provider. */
+@property(nonatomic, copy, nullable) NSString *componentId;
+
+/** Required. The updated trait data for the component. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_TraitData *> *traitData;
 
 @end
 
@@ -233,6 +255,80 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /**
+ *  Contains the details for a single event.
+ */
+@interface GTLRHomeGraphService_EventData : GTLRObject
+
+/** Required. The actual event payload. */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_EventData_Event *event;
+
+/** Required. The unique event ID from the device provider. */
+@property(nonatomic, copy, nullable) NSString *eventId;
+
+/** Required. The timestamp of the event. */
+@property(nonatomic, strong, nullable) GTLRDateTime *eventTime;
+
+@end
+
+
+/**
+ *  Required. The actual event payload.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRHomeGraphService_EventData_Event : GTLRObject
+@end
+
+
+/**
+ *  Contains a set of events for a specific component.
+ */
+@interface GTLRHomeGraphService_Events : GTLRObject
+
+/**
+ *  Optional. The ID of the provider component if the events are associated with
+ *  a specific component. Optional for WHDM events, required for UDDM events.
+ */
+@property(nonatomic, copy, nullable) NSString *componentId;
+
+/** Required. List of events associated with the component. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_EventData *> *events;
+
+@end
+
+
+/**
+ *  Contains the set of events for an item.
+ */
+@interface GTLRHomeGraphService_HomeEvents : GTLRObject
+
+/** Required. / Unique identifier for the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+/** Required. List of events for the item. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_Events *> *events;
+
+@end
+
+
+/**
+ *  Contains the set of updates for a device.
+ */
+@interface GTLRHomeGraphService_HomeTraitUpdates : GTLRObject
+
+/** Required. Trait updates for each component. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_ComponentTraitUpdates *> *components;
+
+/** Required. Unique identifier for the device. */
+@property(nonatomic, copy, nullable) NSString *deviceId;
+
+@end
+
+
+/**
  *  Request type for the
  *  [`Query`](#google.home.graph.v1.HomeGraphApiService.Query) call.
  */
@@ -340,6 +436,12 @@ NS_ASSUME_NONNULL_BEGIN
  *  The states and notifications specific to a device.
  */
 @interface GTLRHomeGraphService_ReportStateAndNotificationDevice : GTLRObject
+
+/** Optional. UDDM/WHDM trait events */
+@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_HomeEvents *> *homeEvents;
+
+/** Optional. UDDM/WHDM trait updates. */
+@property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_HomeTraitUpdates *> *homeTraits;
 
 /**
  *  Notifications metadata for devices. See the **Device NOTIFICATIONS** section
@@ -525,6 +627,29 @@ NS_ASSUME_NONNULL_BEGIN
 /** Devices associated with the third-party user. */
 @property(nonatomic, strong, nullable) NSArray<GTLRHomeGraphService_Device *> *devices;
 
+@end
+
+
+/**
+ *  Contains the trait payload for a single trait.
+ */
+@interface GTLRHomeGraphService_TraitData : GTLRObject
+
+/** Optional. The Home API trait payload. */
+@property(nonatomic, strong, nullable) GTLRHomeGraphService_TraitData_Trait *trait;
+
+@end
+
+
+/**
+ *  Optional. The Home API trait payload.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRHomeGraphService_TraitData_Trait : GTLRObject
 @end
 
 NS_ASSUME_NONNULL_END

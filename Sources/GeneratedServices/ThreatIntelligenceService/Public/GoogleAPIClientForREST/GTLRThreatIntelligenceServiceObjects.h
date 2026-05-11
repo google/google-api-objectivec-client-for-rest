@@ -566,7 +566,10 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
 /** Output only. The content of the document. */
 @property(nonatomic, copy, nullable) NSString *content;
 
-/** Output only. The time the document was created. */
+/**
+ *  Output only. The timestamp of the original external publication of the
+ *  document.
+ */
 @property(nonatomic, strong, nullable) GTLRDateTime *createTime;
 
 /** Output only. Time when GTI received the intel. */
@@ -1015,9 +1018,8 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
 @property(nonatomic, strong, nullable) NSArray<NSString *> *discoveryDocumentIds;
 
 /**
- *  Required. Data Leak specific severity This will be the string representation
- *  of the DataLeakFindingDetail.Severityenum. (e.g., "LOW", "MEDIUM", "HIGH",
- *  "CRITICAL")
+ *  Required. The severity of the Data Leak alert. Allowed values are: * `LOW` *
+ *  `MEDIUM` * `HIGH` * `CRITICAL`
  */
 @property(nonatomic, copy, nullable) NSString *severity;
 
@@ -1270,7 +1272,10 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
 /** Required. Array of ids to accommodate multiple discovery documents */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *discoveryDocumentIds;
 
-/** Required. IAB specific severity */
+/**
+ *  Required. The severity of the Initial Access Broker (IAB) alert. Allowed
+ *  values are: * `LOW` * `MEDIUM` * `HIGH` * `CRITICAL`
+ */
 @property(nonatomic, copy, nullable) NSString *severity;
 
 @end
@@ -1327,9 +1332,8 @@ FOUNDATION_EXTERN NSString * const kGTLRThreatIntelligenceService_SeverityAnalys
 @property(nonatomic, strong, nullable) NSArray<NSString *> *discoveryDocumentIds;
 
 /**
- *  Required. InsiderThreat specific severity This will be the string
- *  representation of the InsiderThreatFindingDetail.Severityenum. (e.g., "LOW",
- *  "MEDIUM", "HIGH", "CRITICAL")
+ *  Required. The severity of the Insider Threat alert. Allowed values are: *
+ *  `LOW` * `MEDIUM` * `HIGH` * `CRITICAL`
  */
 @property(nonatomic, copy, nullable) NSString *severity;
 

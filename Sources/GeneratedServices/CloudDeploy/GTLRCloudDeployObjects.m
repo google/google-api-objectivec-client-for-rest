@@ -48,6 +48,13 @@ NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeRestrictionViolate
 NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeRolloutUpdate = @"TYPE_ROLLOUT_UPDATE";
 NSString * const kGTLRCloudDeploy_AutomationRunEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
+// GTLRCloudDeploy_CustomCheckStatus.failureCause
+NSString * const kGTLRCloudDeploy_CustomCheckStatus_FailureCause_CloudBuildRequestFailed = @"CLOUD_BUILD_REQUEST_FAILED";
+NSString * const kGTLRCloudDeploy_CustomCheckStatus_FailureCause_CloudBuildUnavailable = @"CLOUD_BUILD_UNAVAILABLE";
+NSString * const kGTLRCloudDeploy_CustomCheckStatus_FailureCause_DeadlineExceeded = @"DEADLINE_EXCEEDED";
+NSString * const kGTLRCloudDeploy_CustomCheckStatus_FailureCause_ExecutionFailed = @"EXECUTION_FAILED";
+NSString * const kGTLRCloudDeploy_CustomCheckStatus_FailureCause_FailureCauseUnspecified = @"FAILURE_CAUSE_UNSPECIFIED";
+
 // GTLRCloudDeploy_CustomTargetTypeNotificationEvent.type
 NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeDeployPolicyEvaluation = @"TYPE_DEPLOY_POLICY_EVALUATION";
 NSString * const kGTLRCloudDeploy_CustomTargetTypeNotificationEvent_Type_TypeProcessAborted = @"TYPE_PROCESS_ABORTED";
@@ -106,6 +113,7 @@ NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeRollout
 NSString * const kGTLRCloudDeploy_DeployPolicyNotificationEvent_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 
 // GTLRCloudDeploy_ExecutionConfig.usages
+NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Analysis = @"ANALYSIS";
 NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Deploy = @"DEPLOY";
 NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_ExecutionEnvironmentUsageUnspecified = @"EXECUTION_ENVIRONMENT_USAGE_UNSPECIFIED";
 NSString * const kGTLRCloudDeploy_ExecutionConfig_Usages_Postdeploy = @"POSTDEPLOY";
@@ -468,6 +476,134 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_AlertPolicyCheck
+//
+
+@implementation GTLRCloudDeploy_AlertPolicyCheck
+@dynamic alertPolicies, identifier, labels;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alertPolicies" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_AlertPolicyCheck_Labels
+//
+
+@implementation GTLRCloudDeploy_AlertPolicyCheck_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_AlertPolicyCheckStatus
+//
+
+@implementation GTLRCloudDeploy_AlertPolicyCheckStatus
+@dynamic alertPolicies, failedAlertPolicies, failureMessage, identifier, labels;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alertPolicies" : [NSString class],
+    @"failedAlertPolicies" : [GTLRCloudDeploy_FailedAlertPolicy class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_AlertPolicyCheckStatus_Labels
+//
+
+@implementation GTLRCloudDeploy_AlertPolicyCheckStatus_Labels
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_Analysis
+//
+
+@implementation GTLRCloudDeploy_Analysis
+@dynamic customChecks, duration, googleCloud;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customChecks" : [GTLRCloudDeploy_CustomCheck class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_AnalysisJob
+//
+
+@implementation GTLRCloudDeploy_AnalysisJob
+@dynamic customChecks, duration, googleCloud;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"customChecks" : [GTLRCloudDeploy_CustomCheck class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_AnalysisJobRun
+//
+
+@implementation GTLRCloudDeploy_AnalysisJobRun
+@dynamic alertPolicyAnalyses, customCheckAnalyses, failedCheckId;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alertPolicyAnalyses" : [GTLRCloudDeploy_AlertPolicyCheckStatus class],
+    @"customCheckAnalyses" : [GTLRCloudDeploy_CustomCheckStatus class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_AnthosCluster
 //
 
@@ -755,7 +891,7 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_CanaryDeployment
-@dynamic percentages, postdeploy, predeploy, verify;
+@dynamic analysis, percentages, postdeploy, predeploy, verify, verifyConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -877,7 +1013,7 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_CloudRunMetadata
-@dynamic job, revision, service, serviceUrls, workerPool;
+@dynamic job, previousRevision, revision, service, serviceUrls, workerPool;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -895,7 +1031,7 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_CloudRunRenderMetadata
-@dynamic service, workerPool;
+@dynamic job, revision, service, workerPool;
 @end
 
 
@@ -912,6 +1048,39 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
     @"supportedVersions" : [GTLRCloudDeploy_SkaffoldVersion class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_ContainerTask
+//
+
+@implementation GTLRCloudDeploy_ContainerTask
+@dynamic args, command, env, image, script;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"args" : [NSString class],
+    @"command" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_ContainerTask_Env
+//
+
+@implementation GTLRCloudDeploy_ContainerTask_Env
+
++ (Class)classForAdditionalProperties {
+  return [NSString class];
 }
 
 @end
@@ -949,6 +1118,37 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
     @"phaseConfigs" : [GTLRCloudDeploy_PhaseConfig class]
   };
   return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_CustomCheck
+//
+
+@implementation GTLRCloudDeploy_CustomCheck
+@dynamic frequency, identifier, task;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_CustomCheckStatus
+//
+
+@implementation GTLRCloudDeploy_CustomCheckStatus
+@dynamic failureCause, failureMessage, frequency, identifier, latestBuild,
+         metadata, task;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"identifier" : @"id" };
 }
 
 @end
@@ -1018,12 +1218,22 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_CustomTargetTasks
+//
+
+@implementation GTLRCloudDeploy_CustomTargetTasks
+@dynamic deploy, render;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_CustomTargetType
 //
 
 @implementation GTLRCloudDeploy_CustomTargetType
 @dynamic annotations, createTime, customActions, customTargetTypeId,
-         descriptionProperty, ETag, labels, name, uid, updateTime;
+         descriptionProperty, ETag, labels, name, tasks, uid, updateTime;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   NSDictionary<NSString *, NSString *> *map = @{
@@ -1234,7 +1444,7 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_DeploymentJobs
-@dynamic deployJob, postdeployJob, predeployJob, verifyJob;
+@dynamic analysisJob, deployJob, postdeployJob, predeployJob, verifyJob;
 @end
 
 
@@ -1417,6 +1627,24 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_FailedAlertPolicy
+//
+
+@implementation GTLRCloudDeploy_FailedAlertPolicy
+@dynamic alertPolicy, alerts;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alerts" : [NSString class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_GatewayServiceMesh
 //
 
@@ -1433,6 +1661,24 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 
 @implementation GTLRCloudDeploy_GkeCluster
 @dynamic cluster, dnsEndpoint, internalIp, proxyUrl;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_GoogleCloudAnalysis
+//
+
+@implementation GTLRCloudDeploy_GoogleCloudAnalysis
+@dynamic alertPolicyChecks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"alertPolicyChecks" : [GTLRCloudDeploy_AlertPolicyCheck class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -1469,8 +1715,9 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_Job
-@dynamic advanceChildRolloutJob, createChildRolloutJob, deployJob, identifier,
-         jobRun, postdeployJob, predeployJob, skipMessage, state, verifyJob;
+@dynamic advanceChildRolloutJob, analysisJob, createChildRolloutJob, deployJob,
+         identifier, jobRun, postdeployJob, predeployJob, skipMessage, state,
+         verifyJob;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"identifier" : @"id" };
@@ -1485,9 +1732,9 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_JobRun
-@dynamic advanceChildRolloutJobRun, createChildRolloutJobRun, createTime,
-         deployJobRun, endTime, ETag, jobId, name, phaseId, postdeployJobRun,
-         predeployJobRun, startTime, state, uid, verifyJobRun;
+@dynamic advanceChildRolloutJobRun, analysisJobRun, createChildRolloutJobRun,
+         createTime, deployJobRun, endTime, ETag, jobId, name, phaseId,
+         postdeployJobRun, predeployJobRun, startTime, state, uid, verifyJobRun;
 
 + (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
   return @{ @"ETag" : @"etag" };
@@ -1519,6 +1766,16 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 
 @implementation GTLRCloudDeploy_KubernetesConfig
 @dynamic gatewayServiceMesh, serviceNetworking;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_KubernetesRenderMetadata
+//
+
+@implementation GTLRCloudDeploy_KubernetesRenderMetadata
+@dynamic canaryDeployment, deployment, kubernetesNamespace;
 @end
 
 
@@ -1930,7 +2187,8 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_PhaseConfig
-@dynamic percentage, phaseId, postdeploy, predeploy, profiles, verify;
+@dynamic analysis, percentage, phaseId, postdeploy, predeploy, profiles, verify,
+         verifyConfig;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
@@ -2029,11 +2287,12 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_Postdeploy
-@dynamic actions;
+@dynamic actions, tasks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"actions" : [NSString class]
+    @"actions" : [NSString class],
+    @"tasks" : [GTLRCloudDeploy_Task class]
   };
   return map;
 }
@@ -2047,11 +2306,12 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_PostdeployJob
-@dynamic actions;
+@dynamic actions, tasks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"actions" : [NSString class]
+    @"actions" : [NSString class],
+    @"tasks" : [GTLRCloudDeploy_Task class]
   };
   return map;
 }
@@ -2065,7 +2325,17 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_PostdeployJobRun
-@dynamic build, failureCause, failureMessage;
+@dynamic build, failureCause, failureMessage, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_PostdeployJobRunMetadata
+//
+
+@implementation GTLRCloudDeploy_PostdeployJobRunMetadata
+@dynamic custom;
 @end
 
 
@@ -2075,11 +2345,12 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_Predeploy
-@dynamic actions;
+@dynamic actions, tasks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"actions" : [NSString class]
+    @"actions" : [NSString class],
+    @"tasks" : [GTLRCloudDeploy_Task class]
   };
   return map;
 }
@@ -2093,11 +2364,12 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_PredeployJob
-@dynamic actions;
+@dynamic actions, tasks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
-    @"actions" : [NSString class]
+    @"actions" : [NSString class],
+    @"tasks" : [GTLRCloudDeploy_Task class]
   };
   return map;
 }
@@ -2111,7 +2383,17 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_PredeployJobRun
-@dynamic build, failureCause, failureMessage;
+@dynamic build, failureCause, failureMessage, metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_PredeployJobRunMetadata
+//
+
+@implementation GTLRCloudDeploy_PredeployJobRunMetadata
+@dynamic custom;
 @end
 
 
@@ -2312,7 +2594,7 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_RenderMetadata
-@dynamic cloudRun, custom;
+@dynamic cloudRun, custom, kubernetes;
 @end
 
 
@@ -2777,7 +3059,7 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_Standard
-@dynamic postdeploy, predeploy, verify;
+@dynamic analysis, postdeploy, predeploy, verify, verifyConfig;
 @end
 
 
@@ -3021,6 +3303,16 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_Task
+//
+
+@implementation GTLRCloudDeploy_Task
+@dynamic container;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_TerminateJobRunRequest
 //
 
@@ -3183,10 +3475,37 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudDeploy_Verify
+//
+
+@implementation GTLRCloudDeploy_Verify
+@dynamic tasks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tasks" : [GTLRCloudDeploy_Task class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudDeploy_VerifyJob
 //
 
 @implementation GTLRCloudDeploy_VerifyJob
+@dynamic tasks;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tasks" : [GTLRCloudDeploy_Task class]
+  };
+  return map;
+}
+
 @end
 
 
@@ -3196,7 +3515,18 @@ NSString * const kGTLRCloudDeploy_WeeklyWindow_DaysOfWeek_Wednesday = @"WEDNESDA
 //
 
 @implementation GTLRCloudDeploy_VerifyJobRun
-@dynamic artifactUri, build, eventLogPath, failureCause, failureMessage;
+@dynamic artifactUri, build, eventLogPath, failureCause, failureMessage,
+         metadata;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudDeploy_VerifyJobRunMetadata
+//
+
+@implementation GTLRCloudDeploy_VerifyJobRunMetadata
+@dynamic custom;
 @end
 
 

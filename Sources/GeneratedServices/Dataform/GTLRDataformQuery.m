@@ -11,9 +11,113 @@
 
 #import <GoogleAPIClientForREST/GTLRDataformQuery.h>
 
+// ----------------------------------------------------------------------------
+// Constants
+
+// view
+NSString * const kGTLRDataformViewDirectoryContentsViewBasic   = @"DIRECTORY_CONTENTS_VIEW_BASIC";
+NSString * const kGTLRDataformViewDirectoryContentsViewMetadata = @"DIRECTORY_CONTENTS_VIEW_METADATA";
+NSString * const kGTLRDataformViewDirectoryContentsViewUnspecified = @"DIRECTORY_CONTENTS_VIEW_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+// Query Classes
+//
+
 @implementation GTLRDataformQuery
 
 @dynamic fields;
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsFoldersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataform_Folder *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/folders";
+  GTLRDataformQuery_ProjectsLocationsFoldersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataform_Folder class];
+  query.loggingName = @"dataform.projects.locations.folders.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsFoldersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataformQuery_ProjectsLocationsFoldersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.loggingName = @"dataform.projects.locations.folders.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsFoldersDeleteTree
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataform_DeleteFolderTreeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:deleteTree";
+  GTLRDataformQuery_ProjectsLocationsFoldersDeleteTree *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Operation class];
+  query.loggingName = @"dataform.projects.locations.folders.deleteTree";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsFoldersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataformQuery_ProjectsLocationsFoldersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Folder class];
+  query.loggingName = @"dataform.projects.locations.folders.get";
+  return query;
+}
 
 @end
 
@@ -35,6 +139,79 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRDataform_Policy class];
   query.loggingName = @"dataform.projects.locations.folders.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsFoldersMove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataform_MoveFolderRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:move";
+  GTLRDataformQuery_ProjectsLocationsFoldersMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Operation class];
+  query.loggingName = @"dataform.projects.locations.folders.move";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsFoldersPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDataform_Folder *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataformQuery_ProjectsLocationsFoldersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Folder class];
+  query.loggingName = @"dataform.projects.locations.folders.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsFoldersQueryFolderContents
+
+@dynamic filter, folder, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithFolder:(NSString *)folder {
+  NSArray *pathParams = @[ @"folder" ];
+  NSString *pathURITemplate = @"v1/{+folder}:queryFolderContents";
+  GTLRDataformQuery_ProjectsLocationsFoldersQueryFolderContents *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.folder = folder;
+  query.expectedObjectClass = [GTLRDataform_QueryFolderContentsResponse class];
+  query.loggingName = @"dataform.projects.locations.folders.queryFolderContents";
   return query;
 }
 
@@ -237,6 +414,25 @@
   query.name = name;
   query.expectedObjectClass = [GTLRDataform_ListOperationsResponse class];
   query.loggingName = @"dataform.projects.locations.operations.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsQueryUserRootContents
+
+@dynamic filter, location, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithLocation:(NSString *)location {
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}:queryUserRootContents";
+  GTLRDataformQuery_ProjectsLocationsQueryUserRootContents *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.location = location;
+  query.expectedObjectClass = [GTLRDataform_QueryUserRootContentsResponse class];
+  query.loggingName = @"dataform.projects.locations.queryUserRootContents";
   return query;
 }
 
@@ -512,6 +708,33 @@
   query.parent = parent;
   query.expectedObjectClass = [GTLRDataform_ListRepositoriesResponse class];
   query.loggingName = @"dataform.projects.locations.repositories.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsRepositoriesMove
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataform_MoveRepositoryRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:move";
+  GTLRDataformQuery_ProjectsLocationsRepositoriesMove *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Operation class];
+  query.loggingName = @"dataform.projects.locations.repositories.move";
   return query;
 }
 
@@ -1343,7 +1566,7 @@
 
 @implementation GTLRDataformQuery_ProjectsLocationsRepositoriesWorkspacesQueryDirectoryContents
 
-@dynamic pageSize, pageToken, path, workspace;
+@dynamic pageSize, pageToken, path, view, workspace;
 
 + (instancetype)queryWithWorkspace:(NSString *)workspace {
   NSArray *pathParams = @[ @"workspace" ];
@@ -1560,6 +1783,98 @@
 
 @end
 
+@implementation GTLRDataformQuery_ProjectsLocationsTeamFoldersCreate
+
+@dynamic parent;
+
++ (instancetype)queryWithObject:(GTLRDataform_TeamFolder *)object
+                         parent:(NSString *)parent {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v1/{+parent}/teamFolders";
+  GTLRDataformQuery_ProjectsLocationsTeamFoldersCreate *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRDataform_TeamFolder class];
+  query.loggingName = @"dataform.projects.locations.teamFolders.create";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsTeamFoldersDelete
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataformQuery_ProjectsLocationsTeamFoldersDelete *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"DELETE"
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Empty class];
+  query.loggingName = @"dataform.projects.locations.teamFolders.delete";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsTeamFoldersDeleteTree
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRDataform_DeleteTeamFolderTreeRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:deleteTree";
+  GTLRDataformQuery_ProjectsLocationsTeamFoldersDeleteTree *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_Operation class];
+  query.loggingName = @"dataform.projects.locations.teamFolders.deleteTree";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsTeamFoldersGet
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataformQuery_ProjectsLocationsTeamFoldersGet *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_TeamFolder class];
+  query.loggingName = @"dataform.projects.locations.teamFolders.get";
+  return query;
+}
+
+@end
+
 @implementation GTLRDataformQuery_ProjectsLocationsTeamFoldersGetIamPolicy
 
 @dynamic optionsRequestedPolicyVersion, resource;
@@ -1578,6 +1893,71 @@
   query.resource = resource;
   query.expectedObjectClass = [GTLRDataform_Policy class];
   query.loggingName = @"dataform.projects.locations.teamFolders.getIamPolicy";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsTeamFoldersPatch
+
+@dynamic name, updateMask;
+
++ (instancetype)queryWithObject:(GTLRDataform_TeamFolder *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}";
+  GTLRDataformQuery_ProjectsLocationsTeamFoldersPatch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"PATCH"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRDataform_TeamFolder class];
+  query.loggingName = @"dataform.projects.locations.teamFolders.patch";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsTeamFoldersQueryContents
+
+@dynamic filter, orderBy, pageSize, pageToken, teamFolder;
+
++ (instancetype)queryWithTeamFolder:(NSString *)teamFolder {
+  NSArray *pathParams = @[ @"teamFolder" ];
+  NSString *pathURITemplate = @"v1/{+teamFolder}:queryContents";
+  GTLRDataformQuery_ProjectsLocationsTeamFoldersQueryContents *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.teamFolder = teamFolder;
+  query.expectedObjectClass = [GTLRDataform_QueryTeamFolderContentsResponse class];
+  query.loggingName = @"dataform.projects.locations.teamFolders.queryContents";
+  return query;
+}
+
+@end
+
+@implementation GTLRDataformQuery_ProjectsLocationsTeamFoldersSearch
+
+@dynamic filter, location, orderBy, pageSize, pageToken;
+
++ (instancetype)queryWithLocation:(NSString *)location {
+  NSArray *pathParams = @[ @"location" ];
+  NSString *pathURITemplate = @"v1/{+location}/teamFolders:search";
+  GTLRDataformQuery_ProjectsLocationsTeamFoldersSearch *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.location = location;
+  query.expectedObjectClass = [GTLRDataform_SearchTeamFoldersResponse class];
+  query.loggingName = @"dataform.projects.locations.teamFolders.search";
   return query;
 }
 

@@ -107,6 +107,7 @@ NSString * const kGTLROnDemandScanning_Justification_JustificationType_Vulnerabl
 NSString * const kGTLROnDemandScanning_Justification_JustificationType_VulnerableCodeNotPresent = @"VULNERABLE_CODE_NOT_PRESENT";
 
 // GTLROnDemandScanning_Occurrence.kind
+NSString * const kGTLROnDemandScanning_Occurrence_Kind_AiSkillAnalysis = @"AI_SKILL_ANALYSIS";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Attestation = @"ATTESTATION";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Build   = @"BUILD";
 NSString * const kGTLROnDemandScanning_Occurrence_Kind_Compliance = @"COMPLIANCE";
@@ -226,6 +227,24 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Low = @"
 NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Medium = @"MEDIUM";
 NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Minimal = @"MINIMAL";
 NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_SeverityUnspecified = @"SEVERITY_UNSPECIFIED";
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_AISkillAnalysisOccurrence
+//
+
+@implementation GTLROnDemandScanning_AISkillAnalysisOccurrence
+@dynamic findings, maxSeverity, skillName;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"findings" : [GTLROnDemandScanning_Finding class]
+  };
+  return map;
+}
+
+@end
+
 
 // ----------------------------------------------------------------------------
 //
@@ -752,7 +771,27 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_FileLocation
-@dynamic filePath, layerDetails;
+@dynamic filePath, layerDetails, lineNumber;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_Finding
+//
+
+@implementation GTLROnDemandScanning_Finding
+@dynamic category, location, scanner, severity;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLROnDemandScanning_FindingLocation
+//
+
+@implementation GTLROnDemandScanning_FindingLocation
+@dynamic filePath, lineNumber;
 @end
 
 
@@ -810,7 +849,7 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_GrafeasV1FileLocation
-@dynamic filePath, layerDetails;
+@dynamic filePath, layerDetails, lineNumber;
 @end
 
 
@@ -1246,10 +1285,10 @@ NSString * const kGTLROnDemandScanning_VulnerabilityOccurrence_Severity_Severity
 //
 
 @implementation GTLROnDemandScanning_Occurrence
-@dynamic attestation, build, compliance, createTime, deployment, discovery,
-         dsseAttestation, envelope, image, kind, name, noteName, package,
-         remediation, resourceUri, sbomReference, secret, updateTime, upgrade,
-         vulnerability;
+@dynamic advisoryPublishTime, aiSkillAnalysis, attestation, build, compliance,
+         createTime, deployment, discovery, dsseAttestation, envelope, image,
+         kind, name, noteName, package, remediation, resourceUri, sbomReference,
+         secret, updateTime, upgrade, vulnerability;
 
 + (BOOL)isKindValidForClassRegistry {
   // This class has a "kind" property that doesn't appear to be usable to

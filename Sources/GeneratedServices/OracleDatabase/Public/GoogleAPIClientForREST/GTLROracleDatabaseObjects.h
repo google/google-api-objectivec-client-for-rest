@@ -394,6 +394,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDatabasePropert
  *  Value: "LOCAL_DISASTER_RECOVERY_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_LocalDisasterRecoveryType_LocalDisasterRecoveryTypeUnspecified;
+/**
+ *  Local disaster recovery is not available.
+ *
+ *  Value: "NOT_AVAILABLE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_AutonomousDatabaseProperties_LocalDisasterRecoveryType_NotAvailable;
 
 // ----------------------------------------------------------------------------
 // GTLROracleDatabase_AutonomousDatabaseProperties.maintenanceScheduleType
@@ -2884,8 +2890,19 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @interface GTLROracleDatabase_AutonomousDatabase : GTLRObject
 
-/** Optional. Immutable. The password for the default ADMIN user. */
+/**
+ *  Optional. Immutable. The password for the default ADMIN user. Note: Only one
+ *  of `admin_password_secret_version` or `admin_password` can be populated.
+ */
 @property(nonatomic, copy, nullable) NSString *adminPassword;
+
+/**
+ *  Optional. Immutable. The resource name of a secret version in Secret Manager
+ *  which contains the database admin user's password. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}. Note: Only one of
+ *  `admin_password_secret_version` or `admin_password` can be populated.
+ */
+@property(nonatomic, copy, nullable) NSString *adminPasswordSecretVersion;
 
 /** Optional. Immutable. The subnet CIDR range for the Autonomous Database. */
 @property(nonatomic, copy, nullable) NSString *cidr;
@@ -3545,12 +3562,13 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, strong, nullable) NSNumber *isAutoScalingEnabled;
 
 /**
- *  Output only. This field indicates whether the Autonomous Database has local
- *  (in-region) Data Guard enabled.
+ *  Output only. Deprecated: Please use `local_data_guard_enabled` instead. This
+ *  field indicates whether the Autonomous Database has local (in-region) Data
+ *  Guard enabled.
  *
  *  Uses NSNumber of boolValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *isLocalDataGuardEnabled;
+@property(nonatomic, strong, nullable) NSNumber *isLocalDataGuardEnabled GTLR_DEPRECATED;
 
 /**
  *  Optional. Immutable. This field indicates if auto scaling is enabled for the
@@ -3580,12 +3598,31 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 @property(nonatomic, copy, nullable) NSString *lifecycleDetails;
 
 /**
- *  Output only. This field indicates the maximum data loss limit for an
- *  Autonomous Database, in seconds.
+ *  Output only. Deprecated: Please use
+ *  `local_adg_auto_failover_max_data_loss_limit_duration` instead. This field
+ *  indicates the maximum data loss limit for an Autonomous Database, in
+ *  seconds.
  *
  *  Uses NSNumber of intValue.
  */
-@property(nonatomic, strong, nullable) NSNumber *localAdgAutoFailoverMaxDataLossLimit;
+@property(nonatomic, strong, nullable) NSNumber *localAdgAutoFailoverMaxDataLossLimit GTLR_DEPRECATED;
+
+/**
+ *  Optional. This field indicates the maximum data loss limit for an Autonomous
+ *  Database, in seconds.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localAdgAutoFailoverMaxDataLossLimitDuration;
+
+/**
+ *  Optional. Indicates whether the Autonomous Database has a local (in-region)
+ *  standby database. Not applicable to cross-region Data Guard or dedicated
+ *  Exadata infrastructure.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *localDataGuardEnabled;
 
 /**
  *  Output only. This field indicates the local disaster recovery (DR) type of
@@ -3599,6 +3636,8 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *    @arg @c kGTLROracleDatabase_AutonomousDatabaseProperties_LocalDisasterRecoveryType_LocalDisasterRecoveryTypeUnspecified
  *        Default unspecified value. (Value:
  *        "LOCAL_DISASTER_RECOVERY_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLROracleDatabase_AutonomousDatabaseProperties_LocalDisasterRecoveryType_NotAvailable
+ *        Local disaster recovery is not available. (Value: "NOT_AVAILABLE")
  */
 @property(nonatomic, copy, nullable) NSString *localDisasterRecoveryType;
 
@@ -4717,8 +4756,19 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  */
 @interface GTLROracleDatabase_Database : GTLRObject
 
-/** Required. The password for the default ADMIN user. */
+/**
+ *  Optional. The password for the default ADMIN user. Note: Only one of
+ *  `admin_password_secret_version` or `admin_password` can be populated.
+ */
 @property(nonatomic, copy, nullable) NSString *adminPassword;
+
+/**
+ *  Optional. The resource name of a secret version in Secret Manager which
+ *  contains the database admin user's password. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}. Note: Only one of
+ *  `admin_password_secret_version` or `admin_password` can be populated.
+ */
+@property(nonatomic, copy, nullable) NSString *adminPasswordSecretVersion;
 
 /** Optional. The character set for the database. The default is AL32UTF8. */
 @property(nonatomic, copy, nullable) NSString *characterSet;
@@ -4804,8 +4854,21 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 /** Optional. The properties of the Database. */
 @property(nonatomic, strong, nullable) GTLROracleDatabase_DatabaseProperties *properties;
 
-/** Optional. The TDE wallet password for the database. */
+/**
+ *  Optional. The TDE wallet password for the database. Note: Only one of
+ *  `tde_wallet_password_secret_version` or `tde_wallet_password` can be
+ *  populated.
+ */
 @property(nonatomic, copy, nullable) NSString *tdeWalletPassword;
+
+/**
+ *  Optional. The resource name of a secret version in Secret Manager which
+ *  contains the TDE wallet password for the database. Format:
+ *  projects/{project}/secrets/{secret}/versions/{version}. Note: Only one of
+ *  `tde_wallet_password_secret_version` or `tde_wallet_password` can be
+ *  populated.
+ */
+@property(nonatomic, copy, nullable) NSString *tdeWalletPasswordSecretVersion;
 
 @end
 
@@ -6697,6 +6760,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  Unreachable locations when listing resources across all locations using
+ *  wildcard location '-'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -6745,6 +6814,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 /** A token for fetching next page of response. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  Unreachable locations when listing resources across all locations using
+ *  wildcard location '-'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -6768,6 +6843,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 
 /** A token to fetch the next page of results. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable locations when listing resources across all locations using
+ *  wildcard location '-'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 
@@ -6937,6 +7018,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  Unreachable locations when listing resources across all locations using
+ *  wildcard location '-'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -7009,6 +7096,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
 /** A token identifying a page of results the server should return. */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
 
+/**
+ *  Unreachable locations when listing resources across all locations using
+ *  wildcard location '-'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
+
 @end
 
 
@@ -7037,6 +7130,12 @@ FOUNDATION_EXTERN NSString * const kGTLROracleDatabase_ScheduledOperationDetails
  *  no more pages.
  */
 @property(nonatomic, copy, nullable) NSString *nextPageToken;
+
+/**
+ *  Unreachable locations when listing resources across all locations using
+ *  wildcard location '-'.
+ */
+@property(nonatomic, strong, nullable) NSArray<NSString *> *unreachable;
 
 @end
 

@@ -4,7 +4,7 @@
 // API:
 //   Firebase Data Connect API (firebasedataconnect/v1)
 // Description:
-//   Firebase Data Connect is a relational database service for mobile and web
+//   Firebase SQL Connect is a relational database service for mobile and web
 //   apps that lets you build and scale using a fully-managed PostgreSQL
 //   database powered by Cloud SQL. The REST API lets developers manage the
 //   connections to their database, change the schema of their database, and
@@ -471,6 +471,60 @@
   query.name = name;
   query.expectedObjectClass = [GTLRFirebaseDataConnect_GraphqlResponse class];
   query.loggingName = @"firebasedataconnect.projects.locations.services.executeGraphqlRead";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesGenerateQuery
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_GenerateQueryRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateQuery";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesGenerateQuery *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_GenerateQueryResponse class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.generateQuery";
+  return query;
+}
+
+@end
+
+@implementation GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesGenerateSchema
+
+@dynamic name;
+
++ (instancetype)queryWithObject:(GTLRFirebaseDataConnect_GenerateSchemaRequest *)object
+                           name:(NSString *)name {
+  if (object == nil) {
+#if defined(DEBUG) && DEBUG
+    NSAssert(object != nil, @"Got a nil object");
+#endif
+    return nil;
+  }
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v1/{+name}:generateSchema";
+  GTLRFirebaseDataConnectQuery_ProjectsLocationsServicesGenerateSchema *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:@"POST"
+                       pathParameterNames:pathParams];
+  query.bodyObject = object;
+  query.name = name;
+  query.expectedObjectClass = [GTLRFirebaseDataConnect_GenerateSchemaResponse class];
+  query.loggingName = @"firebasedataconnect.projects.locations.services.generateSchema";
   return query;
 }
 

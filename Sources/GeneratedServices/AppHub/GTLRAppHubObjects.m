@@ -47,6 +47,7 @@ NSString * const kGTLRAppHub_Environment_Type_TypeUnspecified = @"TYPE_UNSPECIFI
 
 // GTLRAppHub_FunctionalType.type
 NSString * const kGTLRAppHub_FunctionalType_Type_Agent         = @"AGENT";
+NSString * const kGTLRAppHub_FunctionalType_Type_Endpoint      = @"ENDPOINT";
 NSString * const kGTLRAppHub_FunctionalType_Type_McpServer     = @"MCP_SERVER";
 NSString * const kGTLRAppHub_FunctionalType_Type_TypeUnspecified = @"TYPE_UNSPECIFIED";
 

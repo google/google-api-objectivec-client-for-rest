@@ -227,10 +227,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  guarantee that for at least 60 minutes since the first request. For example,
  *  consider a situation where you make an initial request and the request times
  *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
+ *  check if the original operation with the same request ID was received, and
+ *  if so, will ignore the second request. This prevents clients from
+ *  accidentally creating duplicate commitments. The request ID must be a valid
+ *  UUID with the exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -282,10 +282,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  guarantee that for at least 60 minutes after the first request. For example,
  *  consider a situation where you make an initial request and the request times
  *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
+ *  check if the original operation with the same request ID was received, and
+ *  if so, will ignore the second request. This prevents clients from
+ *  accidentally creating duplicate commitments. The request ID must be a valid
+ *  UUID with the exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -476,10 +476,10 @@ NS_ASSUME_NONNULL_BEGIN
  *  guarantee that for at least 60 minutes since the first request. For example,
  *  consider a situation where you make an initial request and the request times
  *  out. If you make the request again with the same request ID, the server can
- *  check if original operation with the same request ID was received, and if
- *  so, will ignore the second request. This prevents clients from accidentally
- *  creating duplicate commitments. The request ID must be a valid UUID with the
- *  exception that zero UUID is not supported
+ *  check if the original operation with the same request ID was received, and
+ *  if so, will ignore the second request. This prevents clients from
+ *  accidentally creating duplicate commitments. The request ID must be a valid
+ *  UUID with the exception that zero UUID is not supported
  *  (00000000-0000-0000-0000-000000000000).
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
@@ -1490,10 +1490,16 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  Method: beyondcorp.projects.locations.list
  *
@@ -1503,8 +1509,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GTLRBeyondCorpQuery_ProjectsLocationsList : GTLRBeyondCorpQuery
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1534,10 +1540,16 @@ NS_ASSUME_NONNULL_BEGIN
  *  Fetches a @c GTLRBeyondCorp_GoogleCloudLocationListLocationsResponse.
  *
  *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: * **List all public locations:** Use the
- *  path `GET /v1/locations`. * **List project-visible locations:** Use the path
- *  `GET /v1/projects/{project_id}/locations`. This may include public locations
- *  as well as private or other locations specifically visible to the project.
+ *  method lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: * **Global locations**: If `name` is empty,
+ *  the method lists the public locations available to all projects. *
+ *  **Project-specific locations**: If `name` follows the format
+ *  `projects/{project}`, the method lists locations visible to that specific
+ *  project. This includes public, private, or other project-specific locations
+ *  enabled for the project. For gRPC and client library implementations, the
+ *  resource name is passed as the `name` field. For direct service calls, the
+ *  resource name is incorporated into the request path based on the specific
+ *  service implementation and version.
  *
  *  @param name The resource that owns the locations collection, if applicable.
  *
@@ -1736,8 +1748,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  Optional. An optional request ID to identify requests. Specify a unique
  *  request ID so that if you must retry your request, the server will know to
- *  ignore request if it has already been completed. The server will guarantee
- *  that for at least 60 minutes since the first request.
+ *  ignore the request if it has already been completed. The server will
+ *  guarantee that for at least 60 minutes since the first request.
  */
 @property(nonatomic, copy, nullable) NSString *requestId;
 

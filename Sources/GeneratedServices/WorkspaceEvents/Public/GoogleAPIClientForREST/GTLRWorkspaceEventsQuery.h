@@ -74,6 +74,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
  *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
  *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
@@ -110,9 +112,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  resource](https://developers.google.com/workspace/events/guides/events-chat),
  *  you can create a subscription as: - A Chat app by specifying an
  *  authorization scope that begins with `chat.app` and getting one-time
- *  administrator approval ([Developer
- *  Preview](https://developers.google.com/workspace/preview)). To learn more,
- *  see [Authorize as a Chat app with administrator
+ *  administrator approval. To learn more, see [Authorize as a Chat app with
+ *  administrator
  *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *  - A user by specifying an authorization scope that doesn't include `app` in
  *  its name. To learn more, see [Authorize as a Chat
@@ -122,8 +123,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpacesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessages
@@ -132,6 +135,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
  *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
  *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
@@ -158,9 +163,8 @@ NS_ASSUME_NONNULL_BEGIN
  *  resource](https://developers.google.com/workspace/events/guides/events-chat),
  *  you can create a subscription as: - A Chat app by specifying an
  *  authorization scope that begins with `chat.app` and getting one-time
- *  administrator approval ([Developer
- *  Preview](https://developers.google.com/workspace/preview)). To learn more,
- *  see [Authorize as a Chat app with administrator
+ *  administrator approval. To learn more, see [Authorize as a Chat app with
+ *  administrator
  *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *  - A user by specifying an authorization scope that doesn't include `app` in
  *  its name. To learn more, see [Authorize as a Chat
@@ -192,6 +196,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
  *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
  *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
@@ -259,6 +265,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
  *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
  *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
@@ -308,6 +316,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
  *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
  *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
@@ -376,10 +386,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  For a subscription on a [Chat target
  *  resource](https://developers.google.com/workspace/events/guides/events-chat),
  *  you can update a subscription as: - A Chat app by specifying an
- *  authorization scope that begins with `chat.app` andgetting one-time
- *  administrator approval ([Developer
- *  Preview](https://developers.google.com/workspace/preview)). To learn more,
- *  see [Authorize as a Chat app with administrator
+ *  authorization scope that begins with `chat.app` and getting one-time
+ *  administrator approval. To learn more, see [Authorize as a Chat app with
+ *  administrator
  *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *  - A user by specifying an authorization scope that doesn't include `app` in
  *  its name. To learn more, see [Authorize as a Chat
@@ -389,8 +398,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpacesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessages
@@ -399,6 +410,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
  *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
  *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
@@ -443,10 +456,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  For a subscription on a [Chat target
  *  resource](https://developers.google.com/workspace/events/guides/events-chat),
  *  you can update a subscription as: - A Chat app by specifying an
- *  authorization scope that begins with `chat.app` andgetting one-time
- *  administrator approval ([Developer
- *  Preview](https://developers.google.com/workspace/preview)). To learn more,
- *  see [Authorize as a Chat app with administrator
+ *  authorization scope that begins with `chat.app` and getting one-time
+ *  administrator approval. To learn more, see [Authorize as a Chat app with
+ *  administrator
  *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *  - A user by specifying an authorization scope that doesn't include `app` in
  *  its name. To learn more, see [Authorize as a Chat
@@ -474,10 +486,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  For a subscription on a [Chat target
  *  resource](https://developers.google.com/workspace/events/guides/events-chat),
  *  you can reactivate a subscription as: - A Chat app by specifying an
- *  authorization scope that begins with `chat.app` andgetting one-time
- *  administrator approval ([Developer
- *  Preview](https://developers.google.com/workspace/preview)). To learn more,
- *  see [Authorize as a Chat app with administrator
+ *  authorization scope that begins with `chat.app` and getting one-time
+ *  administrator approval. To learn more, see [Authorize as a Chat app with
+ *  administrator
  *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *  - A user by specifying an authorization scope that doesn't include `app` in
  *  its name. To learn more, see [Authorize as a Chat
@@ -487,8 +498,10 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  Authorization scope(s):
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppMemberships
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpaces
+ *    @c kGTLRAuthScopeWorkspaceEventsChatAppSpacesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMemberships
  *    @c kGTLRAuthScopeWorkspaceEventsChatMembershipsReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessages
@@ -497,6 +510,8 @@ NS_ASSUME_NONNULL_BEGIN
  *    @c kGTLRAuthScopeWorkspaceEventsChatMessagesReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpaces
  *    @c kGTLRAuthScopeWorkspaceEventsChatSpacesReadonly
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstate
+ *    @c kGTLRAuthScopeWorkspaceEventsChatUsersReadstateReadonly
  *    @c kGTLRAuthScopeWorkspaceEventsDrive
  *    @c kGTLRAuthScopeWorkspaceEventsDriveFile
  *    @c kGTLRAuthScopeWorkspaceEventsDriveMetadata
@@ -525,10 +540,9 @@ NS_ASSUME_NONNULL_BEGIN
  *  For a subscription on a [Chat target
  *  resource](https://developers.google.com/workspace/events/guides/events-chat),
  *  you can reactivate a subscription as: - A Chat app by specifying an
- *  authorization scope that begins with `chat.app` andgetting one-time
- *  administrator approval ([Developer
- *  Preview](https://developers.google.com/workspace/preview)). To learn more,
- *  see [Authorize as a Chat app with administrator
+ *  authorization scope that begins with `chat.app` and getting one-time
+ *  administrator approval. To learn more, see [Authorize as a Chat app with
+ *  administrator
  *  approval](https://developers.google.com/workspace/chat/authenticate-authorize-chat-app).
  *  - A user by specifying an authorization scope that doesn't include `app` in
  *  its name. To learn more, see [Authorize as a Chat

@@ -468,6 +468,25 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
 
 @end
 
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersGetMemoryLayer
+
+@dynamic name;
+
++ (instancetype)queryWithName:(NSString *)name {
+  NSArray *pathParams = @[ @"name" ];
+  NSString *pathURITemplate = @"v2/{+name}";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersGetMemoryLayer *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.name = name;
+  query.expectedObjectClass = [GTLRBigtableAdmin_MemoryLayer class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.getMemoryLayer";
+  return query;
+}
+
+@end
+
 @implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersHotTabletsList
 
 @dynamic endTime, pageSize, pageToken, parent, startTime;
@@ -501,6 +520,25 @@ NSString * const kGTLRBigtableAdminViewViewUnspecified         = @"VIEW_UNSPECIF
   query.parent = parent;
   query.expectedObjectClass = [GTLRBigtableAdmin_ListClustersResponse class];
   query.loggingName = @"bigtableadmin.projects.instances.clusters.list";
+  return query;
+}
+
+@end
+
+@implementation GTLRBigtableAdminQuery_ProjectsInstancesClustersMemoryLayersList
+
+@dynamic pageSize, pageToken, parent;
+
++ (instancetype)queryWithParent:(NSString *)parent {
+  NSArray *pathParams = @[ @"parent" ];
+  NSString *pathURITemplate = @"v2/{+parent}/memoryLayers";
+  GTLRBigtableAdminQuery_ProjectsInstancesClustersMemoryLayersList *query =
+    [[self alloc] initWithPathURITemplate:pathURITemplate
+                               HTTPMethod:nil
+                       pathParameterNames:pathParams];
+  query.parent = parent;
+  query.expectedObjectClass = [GTLRBigtableAdmin_ListMemoryLayersResponse class];
+  query.loggingName = @"bigtableadmin.projects.instances.clusters.memoryLayers.list";
   return query;
 }
 

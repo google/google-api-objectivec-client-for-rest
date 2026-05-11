@@ -13,11 +13,23 @@
 // ----------------------------------------------------------------------------
 // Constants
 
+// GTLRCloudRedis_AclPolicy.state
+NSString * const kGTLRCloudRedis_AclPolicy_State_Active        = @"ACTIVE";
+NSString * const kGTLRCloudRedis_AclPolicy_State_Deleting      = @"DELETING";
+NSString * const kGTLRCloudRedis_AclPolicy_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_AclPolicy_State_Updating      = @"UPDATING";
+
 // GTLRCloudRedis_AOFConfig.appendFsync
 NSString * const kGTLRCloudRedis_AOFConfig_AppendFsync_Always  = @"ALWAYS";
 NSString * const kGTLRCloudRedis_AOFConfig_AppendFsync_AppendFsyncUnspecified = @"APPEND_FSYNC_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_AOFConfig_AppendFsync_Everysec = @"EVERYSEC";
 NSString * const kGTLRCloudRedis_AOFConfig_AppendFsync_No      = @"NO";
+
+// GTLRCloudRedis_AuthToken.state
+NSString * const kGTLRCloudRedis_AuthToken_State_Active        = @"ACTIVE";
+NSString * const kGTLRCloudRedis_AuthToken_State_Creating      = @"CREATING";
+NSString * const kGTLRCloudRedis_AuthToken_State_Deleting      = @"DELETING";
+NSString * const kGTLRCloudRedis_AuthToken_State_StateUnspecified = @"STATE_UNSPECIFIED";
 
 // GTLRCloudRedis_AutomatedBackupConfig.automatedBackupMode
 NSString * const kGTLRCloudRedis_AutomatedBackupConfig_AutomatedBackupMode_AutomatedBackupModeUnspecified = @"AUTOMATED_BACKUP_MODE_UNSPECIFIED";
@@ -38,9 +50,12 @@ NSString * const kGTLRCloudRedis_Backup_BackupType_OnDemand    = @"ON_DEMAND";
 
 // GTLRCloudRedis_Backup.nodeType
 NSString * const kGTLRCloudRedis_Backup_NodeType_NodeTypeUnspecified = @"NODE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_Backup_NodeType_RedisHighcpuMedium = @"REDIS_HIGHCPU_MEDIUM";
+NSString * const kGTLRCloudRedis_Backup_NodeType_RedisHighmem2xlarge = @"REDIS_HIGHMEM_2XLARGE";
 NSString * const kGTLRCloudRedis_Backup_NodeType_RedisHighmemMedium = @"REDIS_HIGHMEM_MEDIUM";
 NSString * const kGTLRCloudRedis_Backup_NodeType_RedisHighmemXlarge = @"REDIS_HIGHMEM_XLARGE";
 NSString * const kGTLRCloudRedis_Backup_NodeType_RedisSharedCoreNano = @"REDIS_SHARED_CORE_NANO";
+NSString * const kGTLRCloudRedis_Backup_NodeType_RedisStandardLarge = @"REDIS_STANDARD_LARGE";
 NSString * const kGTLRCloudRedis_Backup_NodeType_RedisStandardSmall = @"REDIS_STANDARD_SMALL";
 
 // GTLRCloudRedis_Backup.state
@@ -58,13 +73,17 @@ NSString * const kGTLRCloudRedis_BackupRun_Status_Successful   = @"SUCCESSFUL";
 // GTLRCloudRedis_Cluster.authorizationMode
 NSString * const kGTLRCloudRedis_Cluster_AuthorizationMode_AuthModeDisabled = @"AUTH_MODE_DISABLED";
 NSString * const kGTLRCloudRedis_Cluster_AuthorizationMode_AuthModeIamAuth = @"AUTH_MODE_IAM_AUTH";
+NSString * const kGTLRCloudRedis_Cluster_AuthorizationMode_AuthModeTokenAuth = @"AUTH_MODE_TOKEN_AUTH";
 NSString * const kGTLRCloudRedis_Cluster_AuthorizationMode_AuthModeUnspecified = @"AUTH_MODE_UNSPECIFIED";
 
 // GTLRCloudRedis_Cluster.nodeType
 NSString * const kGTLRCloudRedis_Cluster_NodeType_NodeTypeUnspecified = @"NODE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisHighcpuMedium = @"REDIS_HIGHCPU_MEDIUM";
+NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisHighmem2xlarge = @"REDIS_HIGHMEM_2XLARGE";
 NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisHighmemMedium = @"REDIS_HIGHMEM_MEDIUM";
 NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisHighmemXlarge = @"REDIS_HIGHMEM_XLARGE";
 NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisSharedCoreNano = @"REDIS_SHARED_CORE_NANO";
+NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisStandardLarge = @"REDIS_STANDARD_LARGE";
 NSString * const kGTLRCloudRedis_Cluster_NodeType_RedisStandardSmall = @"REDIS_STANDARD_SMALL";
 
 // GTLRCloudRedis_Cluster.serverCaMode
@@ -317,6 +336,12 @@ NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResour
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeReservation = @"SUB_RESOURCE_TYPE_RESERVATION";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeSecondary = @"SUB_RESOURCE_TYPE_SECONDARY";
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_InstanceType_SubResourceTypeUnspecified = @"SUB_RESOURCE_TYPE_UNSPECIFIED";
+
+// GTLRCloudRedis_DatabaseResourceMetadata.modes
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Modes_ModeDatastore = @"MODE_DATASTORE";
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Modes_ModeMongodbCompatible = @"MODE_MONGODB_COMPATIBLE";
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Modes_ModeNative = @"MODE_NATIVE";
+NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_Modes_ModeUnspecified = @"MODE_UNSPECIFIED";
 
 // GTLRCloudRedis_DatabaseResourceMetadata.suspensionReason
 NSString * const kGTLRCloudRedis_DatabaseResourceMetadata_SuspensionReason_AbuserDetected = @"ABUSER_DETECTED";
@@ -691,11 +716,21 @@ NSString * const kGTLRCloudRedis_RetentionSettings_RetentionUnit_RetentionUnitOt
 NSString * const kGTLRCloudRedis_RetentionSettings_RetentionUnit_RetentionUnitUnspecified = @"RETENTION_UNIT_UNSPECIFIED";
 NSString * const kGTLRCloudRedis_RetentionSettings_RetentionUnit_Time = @"TIME";
 
+// GTLRCloudRedis_TokenAuthUser.state
+NSString * const kGTLRCloudRedis_TokenAuthUser_State_Active    = @"ACTIVE";
+NSString * const kGTLRCloudRedis_TokenAuthUser_State_Creating  = @"CREATING";
+NSString * const kGTLRCloudRedis_TokenAuthUser_State_Deleting  = @"DELETING";
+NSString * const kGTLRCloudRedis_TokenAuthUser_State_StateUnspecified = @"STATE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_TokenAuthUser_State_Updating  = @"UPDATING";
+
 // GTLRCloudRedis_UpdateInfo.targetNodeType
 NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_NodeTypeUnspecified = @"NODE_TYPE_UNSPECIFIED";
+NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisHighcpuMedium = @"REDIS_HIGHCPU_MEDIUM";
+NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisHighmem2xlarge = @"REDIS_HIGHMEM_2XLARGE";
 NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisHighmemMedium = @"REDIS_HIGHMEM_MEDIUM";
 NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisHighmemXlarge = @"REDIS_HIGHMEM_XLARGE";
 NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisSharedCoreNano = @"REDIS_SHARED_CORE_NANO";
+NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisStandardLarge = @"REDIS_STANDARD_LARGE";
 NSString * const kGTLRCloudRedis_UpdateInfo_TargetNodeType_RedisStandardSmall = @"REDIS_STANDARD_SMALL";
 
 // GTLRCloudRedis_WeeklyMaintenanceWindow.day
@@ -715,11 +750,73 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_AclPolicy
+//
+
+@implementation GTLRCloudRedis_AclPolicy
+@dynamic ETag, name, rules, state, version;
+
++ (NSDictionary<NSString *, NSString *> *)propertyToJSONKeyMap {
+  return @{ @"ETag" : @"etag" };
+}
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"rules" : [GTLRCloudRedis_AclRule class]
+  };
+  return map;
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_AclRule
+//
+
+@implementation GTLRCloudRedis_AclRule
+@dynamic rule, username;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_AddAuthTokenRequest
+//
+
+@implementation GTLRCloudRedis_AddAuthTokenRequest
+@dynamic authToken;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_AddTokenAuthUserRequest
+//
+
+@implementation GTLRCloudRedis_AddTokenAuthUserRequest
+@dynamic tokenAuthUser;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_AOFConfig
 //
 
 @implementation GTLRCloudRedis_AOFConfig
 @dynamic appendFsync;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_AuthToken
+//
+
+@implementation GTLRCloudRedis_AuthToken
+@dynamic createTime, name, state, token;
 @end
 
 
@@ -872,7 +969,7 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 //
 
 @implementation GTLRCloudRedis_Cluster
-@dynamic aclPolicy, allowFewerZonesDeployment,
+@dynamic aclPolicy, aclPolicyInSync, allowFewerZonesDeployment,
          asyncClusterEndpointsDeletionEnabled, authorizationMode,
          automatedBackupConfig, availableMaintenanceVersions, backupCollection,
          clusterEndpoints, createTime, crossClusterReplicationConfig,
@@ -1133,7 +1230,7 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
          backupRun, creationTime, currentState, customMetadata, edition,
          entitlements, expectedState, gcbdrConfiguration, identifier,
          instanceType, isDeletionProtectionEnabled, location,
-         machineConfiguration, maintenanceInfo, primaryResourceId,
+         machineConfiguration, maintenanceInfo, modes, primaryResourceId,
          primaryResourceLocation, product, resourceContainer, resourceFlags,
          resourceName, suspensionReason, tagsSet, updationTime, userLabelSet,
          zoneProperty;
@@ -1149,6 +1246,7 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"entitlements" : [GTLRCloudRedis_Entitlement class],
+    @"modes" : [NSString class],
     @"resourceFlags" : [GTLRCloudRedis_ResourceFlags class]
   };
   return map;
@@ -1504,6 +1602,52 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 // ----------------------------------------------------------------------------
 //
+//   GTLRCloudRedis_ListAclPoliciesResponse
+//
+
+@implementation GTLRCloudRedis_ListAclPoliciesResponse
+@dynamic aclPolicies, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"aclPolicies" : [GTLRCloudRedis_AclPolicy class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"aclPolicies";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ListAuthTokensResponse
+//
+
+@implementation GTLRCloudRedis_ListAuthTokensResponse
+@dynamic authTokens, nextPageToken, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"authTokens" : [GTLRCloudRedis_AuthToken class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"authTokens";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
 //   GTLRCloudRedis_ListBackupCollectionsResponse
 //
 
@@ -1634,6 +1778,29 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 + (NSString *)collectionItemsKey {
   return @"operations";
+}
+
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_ListTokenAuthUsersResponse
+//
+
+@implementation GTLRCloudRedis_ListTokenAuthUsersResponse
+@dynamic nextPageToken, tokenAuthUsers, unreachable;
+
++ (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
+  NSDictionary<NSString *, Class> *map = @{
+    @"tokenAuthUsers" : [GTLRCloudRedis_TokenAuthUser class],
+    @"unreachable" : [NSString class]
+  };
+  return map;
+}
+
++ (NSString *)collectionItemsKey {
+  return @"tokenAuthUsers";
 }
 
 @end
@@ -2177,6 +2344,16 @@ NSString * const kGTLRCloudRedis_ZoneDistributionConfig_Mode_ZoneDistributionMod
 
 @implementation GTLRCloudRedis_TlsCertificate
 @dynamic cert, createTime, expireTime, serialNumber, sha1Fingerprint;
+@end
+
+
+// ----------------------------------------------------------------------------
+//
+//   GTLRCloudRedis_TokenAuthUser
+//
+
+@implementation GTLRCloudRedis_TokenAuthUser
+@dynamic name, state;
 @end
 
 

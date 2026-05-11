@@ -32,6 +32,8 @@
 @class GTLRAlertCenter_Entity;
 @class GTLRAlertCenter_EntityList;
 @class GTLRAlertCenter_GmailMessageInfo;
+@class GTLRAlertCenter_IdentityProviderError;
+@class GTLRAlertCenter_KeyServiceError;
 @class GTLRAlertCenter_LoginDetails;
 @class GTLRAlertCenter_MaliciousEntity;
 @class GTLRAlertCenter_MatchInfo;
@@ -330,6 +332,176 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadForm
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_CloudPubsubTopic_PayloadFormat_PayloadFormatUnspecified;
 
 // ----------------------------------------------------------------------------
+// GTLRAlertCenter_DriveSyncStateChanged.syncState
+
+/**
+ *  Sync is paused
+ *
+ *  Value: "PAUSED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_DriveSyncStateChanged_SyncState_Paused;
+/**
+ *  Sync is resumed
+ *
+ *  Value: "RESUMED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_DriveSyncStateChanged_SyncState_Resumed;
+/**
+ *  Unspecified state
+ *
+ *  Value: "SYNC_STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_DriveSyncStateChanged_SyncState_SyncStateUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_DriveSyncStateChanged.syncStateChangeReason
+
+/**
+ *  Unspecified state change reason
+ *
+ *  Value: "SYNC_STATE_CHANGE_REASON_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_DriveSyncStateChanged_SyncStateChangeReason_SyncStateChangeReasonUnspecified;
+/**
+ *  Sync state was changed due to unusual activity, such as potential ransomware
+ *
+ *  Value: "UNUSUAL_ACTIVITY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_DriveSyncStateChanged_SyncStateChangeReason_UnusualActivity;
+/**
+ *  The user provided feedback indicating that the initial sync state change may
+ *  have been caused by a false positive
+ *
+ *  Value: "USER_FEEDBACK_FALSE_POSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_DriveSyncStateChanged_SyncStateChangeReason_UserFeedbackFalsePositive;
+/**
+ *  The user provided feedback indicating that the initial sync state change may
+ *  have been caused by unexpected activity
+ *
+ *  Value: "USER_FEEDBACK_TRUE_POSITIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_DriveSyncStateChanged_SyncStateChangeReason_UserFeedbackTruePositive;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_IdentityProviderError.errorInfo
+
+/**
+ *  Auth code exchange error.
+ *
+ *  Value: "AUTH_CODE_EXCHANGE_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_IdentityProviderError_ErrorInfo_AuthCodeExchangeError;
+/**
+ *  Authentication token has no "email" or "google_email" claim.
+ *
+ *  Value: "AUTHENTICATION_TOKEN_MISSING_CLAIM_EMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_IdentityProviderError_ErrorInfo_AuthenticationTokenMissingClaimEmail;
+/**
+ *  Email in the ID token is different from the user's email.
+ *
+ *  Value: "EMAIL_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_IdentityProviderError_ErrorInfo_EmailMismatch;
+/**
+ *  Error info not specified.
+ *
+ *  Value: "IDENTITY_PROVIDER_ERROR_INFO_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_IdentityProviderError_ErrorInfo_IdentityProviderErrorInfoUnspecified;
+/**
+ *  Client-side encryption .well-known URL did not contain all the necessary
+ *  information.
+ *
+ *  Value: "INVALID_CSE_CONFIGURATION_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_IdentityProviderError_ErrorInfo_InvalidCseConfigurationContent;
+/**
+ *  Discovery URL did not contain all the necessary information.
+ *
+ *  Value: "INVALID_DISCOVERY_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_IdentityProviderError_ErrorInfo_InvalidDiscoveryContent;
+/**
+ *  ID token returned by the identity provider is invalid.
+ *
+ *  Value: "INVALID_ID_TOKEN"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_IdentityProviderError_ErrorInfo_InvalidIdToken;
+/**
+ *  OIDC setup error.
+ *
+ *  Value: "INVALID_OIDC_SETUP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_IdentityProviderError_ErrorInfo_InvalidOidcSetup;
+/**
+ *  URL for client-side encryption configuration content was unreachable.
+ *
+ *  Value: "UNAVAILABLE_CSE_CONFIGURATION_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_IdentityProviderError_ErrorInfo_UnavailableCseConfigurationContent;
+/**
+ *  Discovery URL was unreachable.
+ *
+ *  Value: "UNAVAILABLE_DISCOVERY_CONTENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_IdentityProviderError_ErrorInfo_UnavailableDiscoveryContent;
+/**
+ *  Identity provider was unreachable.
+ *
+ *  Value: "UNAVAILABLE_IDP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_IdentityProviderError_ErrorInfo_UnavailableIdp;
+
+// ----------------------------------------------------------------------------
+// GTLRAlertCenter_KeyServiceError.errorInfo
+
+/**
+ *  Fetch request on the client has failed.
+ *
+ *  Value: "FETCH_REQUEST_ERROR"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_FetchRequestError;
+/**
+ *  Error info not specified.
+ *
+ *  Value: "KEY_SERVICE_ERROR_INFO_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_KeyServiceErrorInfoUnspecified;
+/**
+ *  The response has malformed JSON.
+ *
+ *  Value: "MALFORMED_JSON"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_MalformedJson;
+/**
+ *  SMIME only: The sign response does not include the algorithm name.
+ *
+ *  Value: "MISSING_ALGORITHM_NAME"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_MissingAlgorithmName;
+/**
+ *  The response did not contain the wrapped/unwrapped key.
+ *
+ *  Value: "MISSING_KEY"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_MissingKey;
+/**
+ *  SMIME sign only: The sign response did not contain the signature.
+ *
+ *  Value: "MISSING_SIGNATURE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_MissingSignature;
+/**
+ *  SMIME only: the algorithm name in the response is not supported by the
+ *  client.
+ *
+ *  Value: "UNSUPPORTED_ALGORITHM"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_KeyServiceError_ErrorInfo_UnsupportedAlgorithm;
+
+// ----------------------------------------------------------------------------
 // GTLRAlertCenter_MailPhishing.systemActionType
 
 /**
@@ -378,6 +550,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource
  *  Value: "DRIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive;
+/**
+ *  Gmail data source.
+ *
+ *  Value: "GMAIL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_DataSource_Gmail;
 
 // ----------------------------------------------------------------------------
 // GTLRAlertCenter_RuleViolationInfo.eventType
@@ -435,6 +613,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockFileDownload;
 /**
+ *  Block ChromeOS file transfer.
+ *
+ *  Value: "CHROME_BLOCK_FILE_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockFileTransfer;
+/**
  *  Block file upload.
  *
  *  Value: "CHROME_BLOCK_FILE_UPLOAD"
@@ -465,6 +649,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeBlockWebContentUpload;
 /**
+ *  Force save to cloud storage.
+ *
+ *  Value: "CHROME_FORCE_SAVE_TO_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeForceSaveToCloud;
+/**
  *  Store the content that violated the rule.
  *
  *  Value: "CHROME_STORE_CONTENT"
@@ -476,6 +666,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  *  Value: "CHROME_WARN_FILE_DOWNLOAD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnFileDownload;
+/**
+ *  Warn user about ChromeOS file transfer.
+ *
+ *  Value: "CHROME_WARN_FILE_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnFileTransfer;
 /**
  *  Warn user about uploaded file.
  *
@@ -501,6 +697,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWarnWebContentUpload;
 /**
+ *  Send watermark alert
+ *
+ *  Value: "CHROME_WATERMARK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_ChromeWatermark;
+/**
  *  Delete web protect evidence file
  *
  *  Value: "DELETE_WEBPROTECT_EVIDENCE"
@@ -525,11 +727,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Suppressed
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveRestrictDownloadPrintCopy;
 /**
+ *  Disable download, print, and copy for all collaborators in drive.
+ *
+ *  Value: "DRIVE_RESTRICT_DOWNLOAD_PRINT_COPY_FOR_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveRestrictDownloadPrintCopyForAll;
+/**
  *  Show a warning message when sharing a file externally.
  *
  *  Value: "DRIVE_WARN_ON_EXTERNAL_SHARING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_DriveWarnOnExternalSharing;
+/**
+ *  Apply classification labels.
+ *
+ *  Value: "GMAIL_APPLY_CLASSIFICATION_LABELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_GmailApplyClassificationLabels;
+/**
+ *  Block message.
+ *
+ *  Value: "GMAIL_BLOCK_MESSAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_GmailBlockMessage;
+/**
+ *  Quarantine message.
+ *
+ *  Value: "GMAIL_QUARANTINE_MESSAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_GmailQuarantineMessage;
+/**
+ *  Warn users.
+ *
+ *  Value: "GMAIL_WARN_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_SuppressedActionTypes_GmailWarnUsers;
 /**
  *  Activate Rule Action
  *
@@ -571,6 +803,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_Ch
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileUpload;
 /**
+ *  A file being transferred (copy or moved) between different file systems on
+ *  ChromeOS.
+ *
+ *  Value: "CHROMEOS_FILE_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeosFileTransfer;
+/**
  *  A page is being printed by Chrome.
  *
  *  Value: "CHROME_PAGE_PRINT"
@@ -594,6 +833,18 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_Ch
  *  Value: "DRIVE_SHARE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_DriveShare;
+/**
+ *  Gemini access.
+ *
+ *  Value: "GEMINI_ACCESS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_GeminiAccess;
+/**
+ *  An email message is sent.
+ *
+ *  Value: "MAIL_BEING_SENT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_Trigger_MailBeingSent;
 /**
  *  Trigger is unspecified.
  *
@@ -635,6 +886,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockFileDownload;
 /**
+ *  Block ChromeOS file transfer.
+ *
+ *  Value: "CHROME_BLOCK_FILE_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockFileTransfer;
+/**
  *  Block file upload.
  *
  *  Value: "CHROME_BLOCK_FILE_UPLOAD"
@@ -665,6 +922,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeBlockWebContentUpload;
 /**
+ *  Force save to cloud storage.
+ *
+ *  Value: "CHROME_FORCE_SAVE_TO_CLOUD"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeForceSaveToCloud;
+/**
  *  Store the content that violated the rule.
  *
  *  Value: "CHROME_STORE_CONTENT"
@@ -676,6 +939,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  *  Value: "CHROME_WARN_FILE_DOWNLOAD"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnFileDownload;
+/**
+ *  Warn user about ChromeOS file transfer.
+ *
+ *  Value: "CHROME_WARN_FILE_TRANSFER"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnFileTransfer;
 /**
  *  Warn user about uploaded file.
  *
@@ -701,6 +970,12 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWarnWebContentUpload;
 /**
+ *  Send watermark alert
+ *
+ *  Value: "CHROME_WATERMARK"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_ChromeWatermark;
+/**
  *  Delete web protect evidence file
  *
  *  Value: "DELETE_WEBPROTECT_EVIDENCE"
@@ -725,11 +1000,41 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredA
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveRestrictDownloadPrintCopy;
 /**
+ *  Disable download, print, and copy for all collaborators in drive.
+ *
+ *  Value: "DRIVE_RESTRICT_DOWNLOAD_PRINT_COPY_FOR_ALL"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveRestrictDownloadPrintCopyForAll;
+/**
  *  Show a warning message when sharing a file externally.
  *
  *  Value: "DRIVE_WARN_ON_EXTERNAL_SHARING"
  */
 FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_DriveWarnOnExternalSharing;
+/**
+ *  Apply classification labels.
+ *
+ *  Value: "GMAIL_APPLY_CLASSIFICATION_LABELS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_GmailApplyClassificationLabels;
+/**
+ *  Block message.
+ *
+ *  Value: "GMAIL_BLOCK_MESSAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_GmailBlockMessage;
+/**
+ *  Quarantine message.
+ *
+ *  Value: "GMAIL_QUARANTINE_MESSAGE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_GmailQuarantineMessage;
+/**
+ *  Warn users.
+ *
+ *  Value: "GMAIL_WARN_USERS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_RuleViolationInfo_TriggeredActionTypes_GmailWarnUsers;
 /**
  *  Activate Rule Action
  *
@@ -1072,6 +1377,13 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *  Metadata related to the action.
  */
 @interface GTLRAlertCenter_ActionInfo : GTLRObject
+
+/**
+ *  Google Cloud Storage location of the content that violated the rule. This
+ *  field has format: "/"
+ */
+@property(nonatomic, copy, nullable) NSString *evidenceLockerFilePath;
+
 @end
 
 
@@ -1560,6 +1872,20 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
+ *  Alerts for client-side encryption outages.
+ */
+@interface GTLRAlertCenter_ClientSideEncryptionServiceUnavailable : GTLRObject
+
+/** Identity providers impacted by an outage or misconfiguration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_IdentityProviderError *> *idpError;
+
+/** External key services impacted by an outage or misconfiguration. */
+@property(nonatomic, strong, nullable) NSArray<GTLRAlertCenter_KeyServiceError *> *keyServiceError;
+
+@end
+
+
+/**
  *  A reference to a Cloud Pubsub topic. To register for notifications, the
  *  owner of the topic must grant
  *  `alerts-api-push-notifications\@system.gserviceaccount.com` the
@@ -1752,6 +2078,55 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 
 /**
+ *  Alerts for when a user is restricted from syncing content from clients such
+ *  as Drive for Desktop.
+ */
+@interface GTLRAlertCenter_DriveSyncStateChanged : GTLRObject
+
+/** Email of the user affected. */
+@property(nonatomic, copy, nullable) NSString *email;
+
+/** Time at which sync was paused. */
+@property(nonatomic, strong, nullable) GTLRDateTime *syncPauseStartTime;
+
+/**
+ *  The current sync state.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_DriveSyncStateChanged_SyncState_Paused Sync is
+ *        paused (Value: "PAUSED")
+ *    @arg @c kGTLRAlertCenter_DriveSyncStateChanged_SyncState_Resumed Sync is
+ *        resumed (Value: "RESUMED")
+ *    @arg @c kGTLRAlertCenter_DriveSyncStateChanged_SyncState_SyncStateUnspecified
+ *        Unspecified state (Value: "SYNC_STATE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *syncState;
+
+/**
+ *  The reason for the sync state change.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_DriveSyncStateChanged_SyncStateChangeReason_SyncStateChangeReasonUnspecified
+ *        Unspecified state change reason (Value:
+ *        "SYNC_STATE_CHANGE_REASON_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_DriveSyncStateChanged_SyncStateChangeReason_UnusualActivity
+ *        Sync state was changed due to unusual activity, such as potential
+ *        ransomware (Value: "UNUSUAL_ACTIVITY")
+ *    @arg @c kGTLRAlertCenter_DriveSyncStateChanged_SyncStateChangeReason_UserFeedbackFalsePositive
+ *        The user provided feedback indicating that the initial sync state
+ *        change may have been caused by a false positive (Value:
+ *        "USER_FEEDBACK_FALSE_POSITIVE")
+ *    @arg @c kGTLRAlertCenter_DriveSyncStateChanged_SyncStateChangeReason_UserFeedbackTruePositive
+ *        The user provided feedback indicating that the initial sync state
+ *        change may have been caused by unexpected activity (Value:
+ *        "USER_FEEDBACK_TRUE_POSITIVE")
+ */
+@property(nonatomic, copy, nullable) NSString *syncStateChangeReason;
+
+@end
+
+
+/**
  *  A generic empty message that you can re-use to avoid defining duplicated
  *  empty messages in your APIs. A typical example is to use it as the request
  *  or the response type of an API method. For instance: service Foo { rpc
@@ -1882,6 +2257,111 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
 
 /** A one-line incident description. */
 @property(nonatomic, copy, nullable) NSString *title;
+
+@end
+
+
+/**
+ *  Error related to an identity provider.
+ */
+@interface GTLRAlertCenter_IdentityProviderError : GTLRObject
+
+/** Authorization base url of the identity provider. */
+@property(nonatomic, copy, nullable) NSString *authorizationBaseUrl;
+
+/**
+ *  Number of similar errors encountered.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorCount;
+
+/**
+ *  Info on the identity provider error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_IdentityProviderError_ErrorInfo_AuthCodeExchangeError
+ *        Auth code exchange error. (Value: "AUTH_CODE_EXCHANGE_ERROR")
+ *    @arg @c kGTLRAlertCenter_IdentityProviderError_ErrorInfo_AuthenticationTokenMissingClaimEmail
+ *        Authentication token has no "email" or "google_email" claim. (Value:
+ *        "AUTHENTICATION_TOKEN_MISSING_CLAIM_EMAIL")
+ *    @arg @c kGTLRAlertCenter_IdentityProviderError_ErrorInfo_EmailMismatch
+ *        Email in the ID token is different from the user's email. (Value:
+ *        "EMAIL_MISMATCH")
+ *    @arg @c kGTLRAlertCenter_IdentityProviderError_ErrorInfo_IdentityProviderErrorInfoUnspecified
+ *        Error info not specified. (Value:
+ *        "IDENTITY_PROVIDER_ERROR_INFO_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_IdentityProviderError_ErrorInfo_InvalidCseConfigurationContent
+ *        Client-side encryption .well-known URL did not contain all the
+ *        necessary information. (Value: "INVALID_CSE_CONFIGURATION_CONTENT")
+ *    @arg @c kGTLRAlertCenter_IdentityProviderError_ErrorInfo_InvalidDiscoveryContent
+ *        Discovery URL did not contain all the necessary information. (Value:
+ *        "INVALID_DISCOVERY_CONTENT")
+ *    @arg @c kGTLRAlertCenter_IdentityProviderError_ErrorInfo_InvalidIdToken ID
+ *        token returned by the identity provider is invalid. (Value:
+ *        "INVALID_ID_TOKEN")
+ *    @arg @c kGTLRAlertCenter_IdentityProviderError_ErrorInfo_InvalidOidcSetup
+ *        OIDC setup error. (Value: "INVALID_OIDC_SETUP")
+ *    @arg @c kGTLRAlertCenter_IdentityProviderError_ErrorInfo_UnavailableCseConfigurationContent
+ *        URL for client-side encryption configuration content was unreachable.
+ *        (Value: "UNAVAILABLE_CSE_CONFIGURATION_CONTENT")
+ *    @arg @c kGTLRAlertCenter_IdentityProviderError_ErrorInfo_UnavailableDiscoveryContent
+ *        Discovery URL was unreachable. (Value:
+ *        "UNAVAILABLE_DISCOVERY_CONTENT")
+ *    @arg @c kGTLRAlertCenter_IdentityProviderError_ErrorInfo_UnavailableIdp
+ *        Identity provider was unreachable. (Value: "UNAVAILABLE_IDP")
+ */
+@property(nonatomic, copy, nullable) NSString *errorInfo;
+
+@end
+
+
+/**
+ *  Error related to an external key service.
+ */
+@interface GTLRAlertCenter_KeyServiceError : GTLRObject
+
+/**
+ *  Number of similar errors encountered.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *errorCount;
+
+/**
+ *  Info on the key service error.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRAlertCenter_KeyServiceError_ErrorInfo_FetchRequestError Fetch
+ *        request on the client has failed. (Value: "FETCH_REQUEST_ERROR")
+ *    @arg @c kGTLRAlertCenter_KeyServiceError_ErrorInfo_KeyServiceErrorInfoUnspecified
+ *        Error info not specified. (Value:
+ *        "KEY_SERVICE_ERROR_INFO_UNSPECIFIED")
+ *    @arg @c kGTLRAlertCenter_KeyServiceError_ErrorInfo_MalformedJson The
+ *        response has malformed JSON. (Value: "MALFORMED_JSON")
+ *    @arg @c kGTLRAlertCenter_KeyServiceError_ErrorInfo_MissingAlgorithmName
+ *        SMIME only: The sign response does not include the algorithm name.
+ *        (Value: "MISSING_ALGORITHM_NAME")
+ *    @arg @c kGTLRAlertCenter_KeyServiceError_ErrorInfo_MissingKey The response
+ *        did not contain the wrapped/unwrapped key. (Value: "MISSING_KEY")
+ *    @arg @c kGTLRAlertCenter_KeyServiceError_ErrorInfo_MissingSignature SMIME
+ *        sign only: The sign response did not contain the signature. (Value:
+ *        "MISSING_SIGNATURE")
+ *    @arg @c kGTLRAlertCenter_KeyServiceError_ErrorInfo_UnsupportedAlgorithm
+ *        SMIME only: the algorithm name in the response is not supported by the
+ *        client. (Value: "UNSUPPORTED_ALGORITHM")
+ */
+@property(nonatomic, copy, nullable) NSString *errorInfo;
+
+/**
+ *  HTTP response status code from the key service.
+ *
+ *  Uses NSNumber of longLongValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *httpResponseCode;
+
+/** Url of the external key service. */
+@property(nonatomic, copy, nullable) NSString *keyServiceUrl;
 
 @end
 
@@ -2240,6 +2720,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *        Data source is unspecified. (Value: "DATA_SOURCE_UNSPECIFIED")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_Drive Drive data
  *        source. (Value: "DRIVE")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_DataSource_Gmail Gmail data
+ *        source. (Value: "GMAIL")
  */
 @property(nonatomic, copy, nullable) NSString *dataSource;
 
@@ -2291,6 +2773,9 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *        "CHROME_FILE_DOWNLOAD")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeFileUpload A file
  *        being uploaded from a Chrome browser. (Value: "CHROME_FILE_UPLOAD")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeosFileTransfer A
+ *        file being transferred (copy or moved) between different file systems
+ *        on ChromeOS. (Value: "CHROMEOS_FILE_TRANSFER")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromePagePrint A page
  *        is being printed by Chrome. (Value: "CHROME_PAGE_PRINT")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_ChromeUrlVisited A URL
@@ -2300,6 +2785,10 @@ FOUNDATION_EXTERN NSString * const kGTLRAlertCenter_VoiceMisconfiguration_Entity
  *        "CHROME_WEB_CONTENT_UPLOAD")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_DriveShare A Drive file
  *        is shared. (Value: "DRIVE_SHARE")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_GeminiAccess Gemini
+ *        access. (Value: "GEMINI_ACCESS")
+ *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_MailBeingSent An email
+ *        message is sent. (Value: "MAIL_BEING_SENT")
  *    @arg @c kGTLRAlertCenter_RuleViolationInfo_Trigger_TriggerUnspecified
  *        Trigger is unspecified. (Value: "TRIGGER_UNSPECIFIED")
  */

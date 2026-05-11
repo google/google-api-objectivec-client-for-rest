@@ -582,6 +582,178 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
 @end
 
 /**
+ *  Creates a connector config.
+ *
+ *  Method: chromemanagement.customers.connectorConfigs.create
+ */
+@interface GTLRChromeManagementQuery_CustomersConnectorConfigsCreate : GTLRChromeManagementQuery
+
+/**
+ *  Optional. ID to use for the connector config, which becomes the final
+ *  component of the connector config's resource name. If provided, the ID must
+ *  be 1-63 characters long, and contain only lowercase letters, digits, and
+ *  hyphens. It must start with a letter, and end with a letter or number. If
+ *  not provided, the connector config will be assigned a random UUID.
+ */
+@property(nonatomic, copy, nullable) NSString *connectorConfigId;
+
+/** Required. Format: customers/{customer} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig.
+ *
+ *  Creates a connector config.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig to
+ *    include in the query.
+ *  @param parent Required. Format: customers/{customer}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersConnectorConfigsCreate
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig *)object
+                         parent:(NSString *)parent;
+
+@end
+
+/**
+ *  Deletes a connector config.
+ *
+ *  Method: chromemanagement.customers.connectorConfigs.delete
+ */
+@interface GTLRChromeManagementQuery_CustomersConnectorConfigsDelete : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format: customers/{customer}/connectorConfigs/{connector_config}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c GTLRChromeManagement_GoogleProtobufEmpty.
+ *
+ *  Deletes a connector config.
+ *
+ *  @param name Required. Format:
+ *    customers/{customer}/connectorConfigs/{connector_config}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersConnectorConfigsDelete
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Gets a connector config with customer ID and config ID.
+ *
+ *  Method: chromemanagement.customers.connectorConfigs.get
+ */
+@interface GTLRChromeManagementQuery_CustomersConnectorConfigsGet : GTLRChromeManagementQuery
+
+/**
+ *  Required. Format: customers/{customer}/connectorConfigs/{connector_config}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig.
+ *
+ *  Gets a connector config with customer ID and config ID.
+ *
+ *  @param name Required. Format:
+ *    customers/{customer}/connectorConfigs/{connector_config}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersConnectorConfigsGet
+ */
++ (instancetype)queryWithName:(NSString *)name;
+
+@end
+
+/**
+ *  Lists connector configs of a customer.
+ *
+ *  Method: chromemanagement.customers.connectorConfigs.list
+ */
+@interface GTLRChromeManagementQuery_CustomersConnectorConfigsList : GTLRChromeManagementQuery
+
+/**
+ *  Optional. The maximum number of connector configs to return. The default
+ *  page size is 50 if page_size is unspecified, and the maximum page size
+ *  allowed is 100. Values above 100 will be capped at 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/**
+ *  Optional. A page token, received from a previous `ListConnectorConfigs`
+ *  call. Provide this to retrieve the subsequent page. When paginating, all
+ *  other parameters provided to `ListConnectorConfigs` must match the call that
+ *  provided the page token.
+ */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/** Required. Format: customers/{customer} */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ListConnectorConfigsResponse.
+ *
+ *  Lists connector configs of a customer.
+ *
+ *  @param parent Required. Format: customers/{customer}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersConnectorConfigsList
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithParent:(NSString *)parent;
+
+@end
+
+/**
+ *  Updates a connector config.
+ *
+ *  Method: chromemanagement.customers.connectorConfigs.patch
+ */
+@interface GTLRChromeManagementQuery_CustomersConnectorConfigsPatch : GTLRChromeManagementQuery
+
+/**
+ *  Identifier. Format: customers/{customer}/connectorConfigs/{connector_config}
+ */
+@property(nonatomic, copy, nullable) NSString *name;
+
+/**
+ *  Optional. The update mask that can be used to specify which fields to
+ *  update.
+ *
+ *  String format is a comma-separated list of fields.
+ */
+@property(nonatomic, copy, nullable) NSString *updateMask;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig.
+ *
+ *  Updates a connector config.
+ *
+ *  @param object The @c
+ *    GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig to
+ *    include in the query.
+ *  @param name Identifier. Format:
+ *    customers/{customer}/connectorConfigs/{connector_config}
+ *
+ *  @return GTLRChromeManagementQuery_CustomersConnectorConfigsPatch
+ */
++ (instancetype)queryWithObject:(GTLRChromeManagement_GoogleChromeManagementVersionsV1ConnectorConfig *)object
+                           name:(NSString *)name;
+
+@end
+
+/**
  *  Creates a Chrome browser profile remote command.
  *
  *  Method: chromemanagement.customers.profiles.commands.create
@@ -1602,6 +1774,92 @@ FOUNDATION_EXTERN NSString * const kGTLRChromeManagementAppTypeTheme;
  *    associated to the account making the request.
  *
  *  @return GTLRChromeManagementQuery_CustomersReportsFindInstalledAppDevices
+ *
+ *  @note Automatic pagination will be done when @c shouldFetchNextPages is
+ *        enabled. See @c shouldFetchNextPages on @c GTLRService for more
+ *        information.
+ */
++ (instancetype)queryWithCustomer:(NSString *)customer;
+
+@end
+
+/**
+ *  Generate report of managed Chrome profiles that have a specified app
+ *  installed.
+ *
+ *  Method: chromemanagement.customers.reports.findInstalledAppProfiles
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeChromeManagementChromeManagementReportsReadonly
+ */
+@interface GTLRChromeManagementQuery_CustomersReportsFindInstalledAppProfiles : GTLRChromeManagementQuery
+
+/**
+ *  Required. Unique identifier of the app. For Chrome apps and extensions, the
+ *  32-character id (e.g. ehoadneljpdggcbbknedodolkkjodefl). For Android apps,
+ *  the package name (e.g. com.evernote).
+ */
+@property(nonatomic, copy, nullable) NSString *appId;
+
+/**
+ *  Type of the app. Optional. If not provided, an app type will be inferred
+ *  from the format of the app ID.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRChromeManagementAppTypeAppTypeUnspecified App type not
+ *        specified. (Value: "APP_TYPE_UNSPECIFIED")
+ *    @arg @c kGTLRChromeManagementAppTypeExtension Chrome extension. (Value:
+ *        "EXTENSION")
+ *    @arg @c kGTLRChromeManagementAppTypeApp Chrome app. (Value: "APP")
+ *    @arg @c kGTLRChromeManagementAppTypeTheme Chrome theme. (Value: "THEME")
+ *    @arg @c kGTLRChromeManagementAppTypeHostedApp Chrome hosted app. (Value:
+ *        "HOSTED_APP")
+ *    @arg @c kGTLRChromeManagementAppTypeAndroidApp ARC++ app. (Value:
+ *        "ANDROID_APP")
+ */
+@property(nonatomic, copy, nullable) NSString *appType;
+
+/**
+ *  Required. Customer id or "my_customer" to use the customer associated to the
+ *  account making the request.
+ */
+@property(nonatomic, copy, nullable) NSString *customer;
+
+/**
+ *  Optional. Query string to filter results, AND-separated fields in EBNF
+ *  syntax. Note: OR operations are not supported in this filter. Supported
+ *  filter fields: * last_active_date
+ */
+@property(nonatomic, copy, nullable) NSString *filter;
+
+/**
+ *  Optional. Field used to order results. Supported order by fields: * email *
+ *  profile_id * profile_permanent_id
+ */
+@property(nonatomic, copy, nullable) NSString *orderBy;
+
+/** Optional. The ID of the organizational unit. */
+@property(nonatomic, copy, nullable) NSString *orgUnitId;
+
+/**
+ *  Optional. Maximum number of results to return. Maximum and default are 100.
+ */
+@property(nonatomic, assign) NSInteger pageSize;
+
+/** Optional. Token to specify the page of the request to be returned. */
+@property(nonatomic, copy, nullable) NSString *pageToken;
+
+/**
+ *  Fetches a @c
+ *  GTLRChromeManagement_GoogleChromeManagementV1FindInstalledAppProfilesResponse.
+ *
+ *  Generate report of managed Chrome profiles that have a specified app
+ *  installed.
+ *
+ *  @param customer Required. Customer id or "my_customer" to use the customer
+ *    associated to the account making the request.
+ *
+ *  @return GTLRChromeManagementQuery_CustomersReportsFindInstalledAppProfiles
  *
  *  @note Automatic pagination will be done when @c shouldFetchNextPages is
  *        enabled. See @c shouldFetchNextPages on @c GTLRService for more

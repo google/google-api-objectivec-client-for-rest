@@ -23,6 +23,7 @@
 @class GTLRPubsub_AwsMsk;
 @class GTLRPubsub_AzureEventHubs;
 @class GTLRPubsub_BigQueryConfig;
+@class GTLRPubsub_BigtableConfig;
 @class GTLRPubsub_Binding;
 @class GTLRPubsub_CloudStorage;
 @class GTLRPubsub_CloudStorageConfig;
@@ -82,6 +83,14 @@ NS_ASSUME_NONNULL_BEGIN
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_Active;
 /**
+ *  Indicates an error state where the ingestion source cannot be processed
+ *  because the selected ingestion region is not permitted by the Regional
+ *  Access Boundary (RAB) restrictions on the project's service account.
+ *
+ *  Value: "CONFLICTING_REGION_CONSTRAINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsKinesis_State_ConflictingRegionConstraints;
+/**
  *  The Kinesis consumer does not exist.
  *
  *  Value: "CONSUMER_NOT_FOUND"
@@ -135,6 +144,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsMsk_State_Active;
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsMsk_State_ClusterNotFound;
 /**
+ *  Indicates an error state where the ingestion source cannot be processed
+ *  because the selected ingestion region is not permitted by the Regional
+ *  Access Boundary (RAB) restrictions on the project's service account.
+ *
+ *  Value: "CONFLICTING_REGION_CONSTRAINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsMsk_State_ConflictingRegionConstraints;
+/**
  *  Permission denied encountered while consuming data from Amazon MSK.
  *
  *  Value: "MSK_PERMISSION_DENIED"
@@ -168,6 +185,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_AwsMsk_State_TopicNotFound;
  *  Value: "ACTIVE"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_AzureEventHubs_State_Active;
+/**
+ *  Indicates an error state where the ingestion source cannot be processed
+ *  because the selected ingestion region is not permitted by the Regional
+ *  Access Boundary (RAB) restrictions on the project's service account.
+ *
+ *  Value: "CONFLICTING_REGION_CONSTRAINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_AzureEventHubs_State_ConflictingRegionConstraints;
 /**
  *  The provided Event Hub couldn't be found.
  *
@@ -268,6 +293,68 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_StateUnspeci
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigQueryConfig_State_VertexAiLocationRestriction;
 
 // ----------------------------------------------------------------------------
+// GTLRPubsub_BigtableConfig.state
+
+/**
+ *  The subscription can actively send messages to Bigtable.
+ *
+ *  Value: "ACTIVE"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigtableConfig_State_Active;
+/**
+ *  Unused in the current implementation. Placeholder for future use.
+ *
+ *  Value: "APP_PROFILE_MISCONFIGURED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigtableConfig_State_AppProfileMisconfigured;
+/**
+ *  Cannot write to the destination because enforce_in_transit is set to true
+ *  and the destination locations are not in the allowed regions.
+ *
+ *  Value: "IN_TRANSIT_LOCATION_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigtableConfig_State_InTransitLocationRestriction;
+/**
+ *  Unused in the current implementation. Placeholder for future use.
+ *
+ *  Value: "NOT_FOUND"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigtableConfig_State_NotFound;
+/**
+ *  Cannot write to Bigtable because of permission denied errors. This can
+ *  happen if: - The Bigtable instance, table, or app profile does not exist. -
+ *  The Pub/Sub service agent has not been granted the [appropriate Bigtable IAM
+ *  permission
+ *  bigtable.tables.mutateRows]({$universe.dns_names.final_documentation_domain}/bigtable/docs/access-control#permissions)
+ *  - The bigtable.googleapis.com API is not enabled for the project
+ *  ([instructions]({$universe.dns_names.final_documentation_domain}/service-usage/docs/enable-disable))
+ *
+ *  Value: "PERMISSION_DENIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigtableConfig_State_PermissionDenied;
+/**
+ *  Cannot write to Bigtable because of a missing column family ("data"), or if
+ *  there is no structured row key for the subscription name + message ID, if
+ *  because the app profile is not configured for single-cluster routing.
+ *
+ *  Value: "SCHEMA_MISMATCH"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigtableConfig_State_SchemaMismatch;
+/**
+ *  Default value. This value is unused.
+ *
+ *  Value: "STATE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigtableConfig_State_StateUnspecified;
+/**
+ *  Cannot write to Bigtable because the table is not in the same location as
+ *  where Vertex AI models used in `message_transform`s are deployed.
+ *
+ *  Value: "VERTEX_AI_LOCATION_RESTRICTION"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_BigtableConfig_State_VertexAiLocationRestriction;
+
+// ----------------------------------------------------------------------------
 // GTLRPubsub_CloudStorage.state
 
 /**
@@ -293,6 +380,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorage_State_BucketNotFound
  *  Value: "CLOUD_STORAGE_PERMISSION_DENIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorage_State_CloudStoragePermissionDenied;
+/**
+ *  Indicates an error state where the ingestion source cannot be processed
+ *  because the selected ingestion region is not permitted by the Regional
+ *  Access Boundary (RAB) restrictions on the project's service account.
+ *
+ *  Value: "CONFLICTING_REGION_CONSTRAINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_CloudStorage_State_ConflictingRegionConstraints;
 /**
  *  Permission denied encountered while publishing to the topic. This can happen
  *  if the Pub/Sub SA has not been granted the [appropriate publish
@@ -380,6 +475,14 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ConfluentCloud_State_Active;
  *  Value: "CLUSTER_NOT_FOUND"
  */
 FOUNDATION_EXTERN NSString * const kGTLRPubsub_ConfluentCloud_State_ClusterNotFound;
+/**
+ *  Indicates an error state where the ingestion source cannot be processed
+ *  because the selected ingestion region is not permitted by the Regional
+ *  Access Boundary (RAB) restrictions on the project's service account.
+ *
+ *  Value: "CONFLICTING_REGION_CONSTRAINTS"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRPubsub_ConfluentCloud_State_ConflictingRegionConstraints;
 /**
  *  Permission denied encountered while consuming data from Confluent Cloud.
  *
@@ -704,6 +807,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  Likely values:
  *    @arg @c kGTLRPubsub_AwsKinesis_State_Active Ingestion is active. (Value:
  *        "ACTIVE")
+ *    @arg @c kGTLRPubsub_AwsKinesis_State_ConflictingRegionConstraints
+ *        Indicates an error state where the ingestion source cannot be
+ *        processed because the selected ingestion region is not permitted by
+ *        the Regional Access Boundary (RAB) restrictions on the project's
+ *        service account. (Value: "CONFLICTING_REGION_CONSTRAINTS")
  *    @arg @c kGTLRPubsub_AwsKinesis_State_ConsumerNotFound The Kinesis consumer
  *        does not exist. (Value: "CONSUMER_NOT_FOUND")
  *    @arg @c kGTLRPubsub_AwsKinesis_State_KinesisPermissionDenied Permission
@@ -767,6 +875,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *        "ACTIVE")
  *    @arg @c kGTLRPubsub_AwsMsk_State_ClusterNotFound The provided MSK cluster
  *        wasn't found. (Value: "CLUSTER_NOT_FOUND")
+ *    @arg @c kGTLRPubsub_AwsMsk_State_ConflictingRegionConstraints Indicates an
+ *        error state where the ingestion source cannot be processed because the
+ *        selected ingestion region is not permitted by the Regional Access
+ *        Boundary (RAB) restrictions on the project's service account. (Value:
+ *        "CONFLICTING_REGION_CONSTRAINTS")
  *    @arg @c kGTLRPubsub_AwsMsk_State_MskPermissionDenied Permission denied
  *        encountered while consuming data from Amazon MSK. (Value:
  *        "MSK_PERMISSION_DENIED")
@@ -826,6 +939,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  Likely values:
  *    @arg @c kGTLRPubsub_AzureEventHubs_State_Active Ingestion is active.
  *        (Value: "ACTIVE")
+ *    @arg @c kGTLRPubsub_AzureEventHubs_State_ConflictingRegionConstraints
+ *        Indicates an error state where the ingestion source cannot be
+ *        processed because the selected ingestion region is not permitted by
+ *        the Regional Access Boundary (RAB) restrictions on the project's
+ *        service account. (Value: "CONFLICTING_REGION_CONSTRAINTS")
  *    @arg @c kGTLRPubsub_AzureEventHubs_State_EventHubNotFound The provided
  *        Event Hub couldn't be found. (Value: "EVENT_HUB_NOT_FOUND")
  *    @arg @c kGTLRPubsub_AzureEventHubs_State_EventHubsPermissionDenied
@@ -950,6 +1068,92 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  subscription name, message_id, and publish_time fields are put in their own
  *  columns while all other message properties (other than data) are written to
  *  a JSON object in the attributes column.
+ *
+ *  Uses NSNumber of boolValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *writeMetadata;
+
+@end
+
+
+/**
+ *  Configuration for a Bigtable subscription. The Pub/Sub message will be
+ *  written to a Bigtable row as follows: - row key: subscription name and
+ *  message ID delimited by #. - columns: message bytes written to a single
+ *  column family "data" with an empty-string column qualifier. - cell
+ *  timestamp: the message publish timestamp.
+ */
+@interface GTLRPubsub_BigtableConfig : GTLRObject
+
+/**
+ *  Optional. The app profile to use for the Bigtable writes. If not specified,
+ *  the "default" application profile will be used. The app profile must use
+ *  single-cluster routing.
+ */
+@property(nonatomic, copy, nullable) NSString *appProfileId;
+
+/**
+ *  Optional. The service account to use to write to Bigtable. The subscription
+ *  creator or updater that specifies this field must have
+ *  `iam.serviceAccounts.actAs` permission on the service account. If not
+ *  specified, the Pub/Sub [service
+ *  agent](https://cloud.google.com/iam/docs/service-agents),
+ *  service-{project_number}\@gcp-sa-pubsub.iam.gserviceaccount.com, is used.
+ */
+@property(nonatomic, copy, nullable) NSString *serviceAccountEmail;
+
+/**
+ *  Output only. An output-only field that indicates whether or not the
+ *  subscription can receive messages.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRPubsub_BigtableConfig_State_Active The subscription can
+ *        actively send messages to Bigtable. (Value: "ACTIVE")
+ *    @arg @c kGTLRPubsub_BigtableConfig_State_AppProfileMisconfigured Unused in
+ *        the current implementation. Placeholder for future use. (Value:
+ *        "APP_PROFILE_MISCONFIGURED")
+ *    @arg @c kGTLRPubsub_BigtableConfig_State_InTransitLocationRestriction
+ *        Cannot write to the destination because enforce_in_transit is set to
+ *        true and the destination locations are not in the allowed regions.
+ *        (Value: "IN_TRANSIT_LOCATION_RESTRICTION")
+ *    @arg @c kGTLRPubsub_BigtableConfig_State_NotFound Unused in the current
+ *        implementation. Placeholder for future use. (Value: "NOT_FOUND")
+ *    @arg @c kGTLRPubsub_BigtableConfig_State_PermissionDenied Cannot write to
+ *        Bigtable because of permission denied errors. This can happen if: -
+ *        The Bigtable instance, table, or app profile does not exist. - The
+ *        Pub/Sub service agent has not been granted the [appropriate Bigtable
+ *        IAM permission
+ *        bigtable.tables.mutateRows]({$universe.dns_names.final_documentation_domain}/bigtable/docs/access-control#permissions)
+ *        - The bigtable.googleapis.com API is not enabled for the project
+ *        ([instructions]({$universe.dns_names.final_documentation_domain}/service-usage/docs/enable-disable))
+ *        (Value: "PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_BigtableConfig_State_SchemaMismatch Cannot write to
+ *        Bigtable because of a missing column family ("data"), or if there is
+ *        no structured row key for the subscription name + message ID, if
+ *        because the app profile is not configured for single-cluster routing.
+ *        (Value: "SCHEMA_MISMATCH")
+ *    @arg @c kGTLRPubsub_BigtableConfig_State_StateUnspecified Default value.
+ *        This value is unused. (Value: "STATE_UNSPECIFIED")
+ *    @arg @c kGTLRPubsub_BigtableConfig_State_VertexAiLocationRestriction
+ *        Cannot write to Bigtable because the table is not in the same location
+ *        as where Vertex AI models used in `message_transform`s are deployed.
+ *        (Value: "VERTEX_AI_LOCATION_RESTRICTION")
+ */
+@property(nonatomic, copy, nullable) NSString *state;
+
+/**
+ *  Optional. The unique name of the table to write messages to. Values are of
+ *  the form `projects//instances//tables/`.
+ */
+@property(nonatomic, copy, nullable) NSString *table;
+
+/**
+ *  Optional. When true, write the subscription name, message_id, publish_time,
+ *  attributes, and ordering_key to additional columns in the table under the
+ *  pubsub_metadata column family. The subscription name, message_id, and
+ *  publish_time fields are put in their own columns while all other message
+ *  properties (other than data) are written to a JSON object in the attributes
+ *  column.
  *
  *  Uses NSNumber of boolValue.
  */
@@ -1096,6 +1300,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *        storage.objects.get: to read the objects in a bucket. -
  *        storage.buckets.get: to verify the bucket exists. (Value:
  *        "CLOUD_STORAGE_PERMISSION_DENIED")
+ *    @arg @c kGTLRPubsub_CloudStorage_State_ConflictingRegionConstraints
+ *        Indicates an error state where the ingestion source cannot be
+ *        processed because the selected ingestion region is not permitted by
+ *        the Regional Access Boundary (RAB) restrictions on the project's
+ *        service account. (Value: "CONFLICTING_REGION_CONSTRAINTS")
  *    @arg @c kGTLRPubsub_CloudStorage_State_PublishPermissionDenied Permission
  *        denied encountered while publishing to the topic. This can happen if
  *        the Pub/Sub SA has not been granted the [appropriate publish
@@ -1270,6 +1479,11 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *        (Value: "ACTIVE")
  *    @arg @c kGTLRPubsub_ConfluentCloud_State_ClusterNotFound The provided
  *        cluster wasn't found. (Value: "CLUSTER_NOT_FOUND")
+ *    @arg @c kGTLRPubsub_ConfluentCloud_State_ConflictingRegionConstraints
+ *        Indicates an error state where the ingestion source cannot be
+ *        processed because the selected ingestion region is not permitted by
+ *        the Regional Access Boundary (RAB) restrictions on the project's
+ *        service account. (Value: "CONFLICTING_REGION_CONSTRAINTS")
  *    @arg @c kGTLRPubsub_ConfluentCloud_State_ConfluentCloudPermissionDenied
  *        Permission denied encountered while consuming data from Confluent
  *        Cloud. (Value: "CONFLUENT_CLOUD_PERMISSION_DENIED")
@@ -1321,7 +1535,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  "marketing" See
+ *  https://{$universe.dns_names.final_documentation_domain}/pubsub/docs/tags
+ *  for more information on using tags with Pub/Sub resources.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_CreateSnapshotRequest_Tags *tags;
 
@@ -1344,7 +1560,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  "marketing" See
+ *  https://{$universe.dns_names.final_documentation_domain}/pubsub/docs/tags
+ *  for more information on using tags with Pub/Sub resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2456,9 +2674,10 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 
 
 /**
- *  A subscription resource. If none of `push_config`, `bigquery_config`, or
- *  `cloud_storage_config` is set, then the subscriber will pull and ack
- *  messages using API methods. At most one of these fields may be set.
+ *  A subscription resource. If none of `push_config`, `bigquery_config`,
+ *  `cloud_storage_config`, or `bigtable_config` is set, then the subscriber
+ *  will pull and ack messages using API methods. At most one of these fields
+ *  may be set.
  */
 @interface GTLRPubsub_Subscription : GTLRObject
 
@@ -2494,6 +2713,12 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
  *  is used to configure it.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_BigQueryConfig *bigqueryConfig;
+
+/**
+ *  Optional. If delivery to Bigtable is used with this subscription, this field
+ *  is used to configure it.
+ */
+@property(nonatomic, strong, nullable) GTLRPubsub_BigtableConfig *bigtableConfig;
 
 /**
  *  Optional. If delivery to Google Cloud Storage is used with this
@@ -2643,7 +2868,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  "marketing" See
+ *  https://{$universe.dns_names.final_documentation_domain}/pubsub/docs/tags
+ *  for more information on using tags with Pub/Sub resources.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Subscription_Tags *tags;
 
@@ -2683,7 +2910,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  "marketing" See
+ *  https://{$universe.dns_names.final_documentation_domain}/pubsub/docs/tags
+ *  for more information on using tags with Pub/Sub resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list
@@ -2828,7 +3057,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  "marketing" See
+ *  https://{$universe.dns_names.final_documentation_domain}/pubsub/docs/tags
+ *  for more information on using tags with Pub/Sub resources.
  */
 @property(nonatomic, strong, nullable) GTLRPubsub_Topic_Tags *tags;
 
@@ -2851,7 +3082,9 @@ FOUNDATION_EXTERN NSString * const kGTLRPubsub_ValidateMessageRequest_Encoding_J
 /**
  *  Optional. Input only. Immutable. Tag keys/values directly bound to this
  *  resource. For example: "123/environment": "production", "123/costCenter":
- *  "marketing"
+ *  "marketing" See
+ *  https://{$universe.dns_names.final_documentation_domain}/pubsub/docs/tags
+ *  for more information on using tags with Pub/Sub resources.
  *
  *  @note This class is documented as having more properties of NSString. Use @c
  *        -additionalJSONKeys and @c -additionalPropertyForName: to get the list

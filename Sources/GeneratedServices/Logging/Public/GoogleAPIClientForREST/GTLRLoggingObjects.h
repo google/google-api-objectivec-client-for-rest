@@ -48,6 +48,7 @@
 @class GTLRLogging_LogEntry;
 @class GTLRLogging_LogEntry_JsonPayload;
 @class GTLRLogging_LogEntry_Labels;
+@class GTLRLogging_LogEntry_Otel;
 @class GTLRLogging_LogEntry_ProtoPayload;
 @class GTLRLogging_LogEntryOperation;
 @class GTLRLogging_LogEntrySourceLocation;
@@ -1078,7 +1079,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_NotConsum
 /**
  *  Indicates suppression occurred due to relevant entries being received in
  *  excess of rate limits. For quotas and limits, see Logging API quotas and
- *  limits (https://cloud.google.com/logging/quotas#api-limits).
+ *  limits (https://docs.cloud.google.com/logging/quotas#api-limits).
  *
  *  Value: "RATE_LIMIT"
  */
@@ -1812,8 +1813,10 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
- *  A source that can be used to represent a field within various parts of a
- *  structured query, such as in SELECT, WHERE, or ORDER BY clauses.
+ *  A source that can be used to represent a "field of data" within various
+ *  parts of a structured query, such as in SELECT, WHERE, or ORDER BY clauses.
+ *  The term "field of data" is used here because it is not limited to literal
+ *  fields in the underlying data schema.
  */
 @interface GTLRLogging_FieldSource : GTLRObject
 
@@ -2486,14 +2489,14 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Optional. A filter that chooses which log entries to return. For more
  *  information, see Logging query language
- *  (https://{$universe.dns_names.final_documentation_domain}/logging/docs/view/logging-query-language).Only
+ *  (https://docs.cloud.google.com/logging/docs/view/logging-query-language).Only
  *  log entries that match the filter are returned. An empty filter matches all
  *  log entries in the resources listed in resource_names. Referencing a parent
  *  resource that is not listed in resource_names will cause the filter to
  *  return no results. The maximum length of a filter is 20,000 characters.To
  *  make queries faster, you can make the filter more selective by using
  *  restrictions on indexed fields
- *  (https://{$universe.dns_names.final_documentation_domain}/logging/docs/view/logging-query-language#indexed-fields)
+ *  (https://docs.cloud.google.com/logging/docs/view/logging-query-language#indexed-fields)
  *  as well as limit the time range of the query by adding range restrictions on
  *  the timestamp field.
  */
@@ -3081,11 +3084,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Output only. The Error Reporting (https://cloud.google.com/error-reporting)
  *  error groups associated with this LogEntry. Error Reporting sets the values
- *  for this field during error group creation.For more information, see View
- *  error details(
- *  https://cloud.google.com/error-reporting/docs/viewing-errors#view_error_details)This
- *  field isn't available during log routing
- *  (https://cloud.google.com/logging/docs/routing/overview)
+ *  for this field during error group creation.This field is populated only when
+ *  log entries are stored in Cloud Logging storage (Logs Explorer and
+ *  Observability Analytics). It is not available for use in log sink filters,
+ *  log-based metrics, or log-based alerts, and it is excluded from log exports
+ *  (Cloud Storage, BigQuery, and Pub/Sub).For more information, see View error
+ *  details(
+ *  https://cloud.google.com/error-reporting/docs/viewing-errors#view_error_details)
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogErrorGroup *> *errorGroups;
 
@@ -3158,6 +3163,15 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  applicable.
  */
 @property(nonatomic, strong, nullable) GTLRLogging_LogEntryOperation *operation;
+
+/**
+ *  Optional. The structured OpenTelemetry protocol payload. Contains the
+ *  OpenTelemetry Resource, Instrumentation Scope, and Entities attributes for
+ *  this log as they are defined in the OTLP specification, and any other fields
+ *  that do not have a direct analog in the LogEntry. See
+ *  https://opentelemetry.io/docs/specs/otel/logs/data-model/
+ */
+@property(nonatomic, strong, nullable) GTLRLogging_LogEntry_Otel *otel;
 
 /**
  *  The log entry payload, represented as a protocol buffer. Some Google Cloud
@@ -3314,6 +3328,22 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 
 
 /**
+ *  Optional. The structured OpenTelemetry protocol payload. Contains the
+ *  OpenTelemetry Resource, Instrumentation Scope, and Entities attributes for
+ *  this log as they are defined in the OTLP specification, and any other fields
+ *  that do not have a direct analog in the LogEntry. See
+ *  https://opentelemetry.io/docs/specs/otel/logs/data-model/
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRLogging_LogEntry_Otel : GTLRObject
+@end
+
+
+/**
  *  The log entry payload, represented as a protocol buffer. Some Google Cloud
  *  Platform services use this field for their log entry payloads.The following
  *  protocol buffer types are supported; user-defined types are not
@@ -3408,10 +3438,13 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  The id is a unique identifier for a particular error group; it is the last
  *  part of the error group resource name:
- *  /project/[PROJECT_ID]/errors/[ERROR_GROUP_ID]. Example: COShysOX0r_51QE. The
- *  id is derived from key parts of the error-log content and is treated as
- *  Service Data. For information about how Service Data is handled, see Google
- *  Cloud Privacy Notice (https://cloud.google.com/terms/cloud-privacy-notice).
+ *  /project/[PROJECT_ID]/errors/[ERROR_GROUP_ID]. Example: COShysOX0r_51QE.This
+ *  field can be used to search for log entries belonging to a specific error
+ *  group in Logs Explorer (e.g., error_groups.id = "ID") or Observability
+ *  Analytics.The id is derived from key parts of the error-log content and is
+ *  treated as Service Data. For information about how Service Data is handled,
+ *  see Google Cloud Privacy Notice
+ *  (https://cloud.google.com/terms/cloud-privacy-notice).
  *
  *  identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
  */
@@ -4624,7 +4657,9 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  alias. Use ProjectedField when you need more than just the raw source field
  *  name (for which you might use FieldSource directly in QueryBuilderConfig's
  *  field_sources list if no transformations or specific operation type are
- *  needed).
+ *  needed).A ProjectedField can represent either a field present in the data
+ *  schema (specified via the field property) or a virtual field that is
+ *  computed from other fields (specified via the virtual_field property).
  */
 @interface GTLRLogging_ProjectedField : GTLRObject
 
@@ -4644,8 +4679,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 @property(nonatomic, copy, nullable) NSString *cast;
 
 /**
- *  The field name. This will be the field that is selected using the dot
- *  notation to display the drill down value.
+ *  Optional. The field name. This will be the field that is selected using the
+ *  dot notation to display the drill down value.
  */
 @property(nonatomic, copy, nullable) NSString *field;
 
@@ -5298,8 +5333,8 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *    @arg @c kGTLRLogging_SuppressionInfo_Reason_RateLimit Indicates
  *        suppression occurred due to relevant entries being received in excess
  *        of rate limits. For quotas and limits, see Logging API quotas and
- *        limits (https://cloud.google.com/logging/quotas#api-limits). (Value:
- *        "RATE_LIMIT")
+ *        limits (https://docs.cloud.google.com/logging/quotas#api-limits).
+ *        (Value: "RATE_LIMIT")
  *    @arg @c kGTLRLogging_SuppressionInfo_Reason_ReasonUnspecified Unexpected
  *        default. (Value: "REASON_UNSPECIFIED")
  */
@@ -5331,7 +5366,7 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
 /**
  *  Optional. A filter that chooses which log entries to return. For more
  *  information, see Logging query language
- *  (https://{$universe.dns_names.final_documentation_domain}/logging/docs/view/logging-query-language).Only
+ *  (https://docs.cloud.google.com/logging/docs/view/logging-query-language).Only
  *  log entries that match the filter are returned. An empty filter matches all
  *  log entries in the resources listed in resource_names. Referencing a parent
  *  resource that is not listed in resource_names will cause the filter to
@@ -5471,14 +5506,14 @@ FOUNDATION_EXTERN NSString * const kGTLRLogging_SuppressionInfo_Reason_ReasonUns
  *  among the log entries that did not supply their own values, the entries
  *  earlier in the list will sort before the entries later in the list. See the
  *  entries.list method.Log entries with timestamps that are more than the logs
- *  retention period (https://cloud.google.com/logging/quotas) in the past or
- *  more than 24 hours in the future will not be available when calling
+ *  retention period (https://docs.cloud.google.com/logging/quotas) in the past
+ *  or more than 24 hours in the future will not be available when calling
  *  entries.list. However, those log entries can still be exported with LogSinks
- *  (https://cloud.google.com/logging/docs/api/tasks/exporting-logs).To improve
+ *  (https://docs.cloud.google.com/logging/docs/routing/overview).To improve
  *  throughput and to avoid exceeding the quota limit
- *  (https://cloud.google.com/logging/quotas) for calls to entries.write, you
- *  should try to include several log entries in this list, rather than calling
- *  this method for each individual log entry.
+ *  (https://docs.cloud.google.com/logging/quotas) for calls to entries.write,
+ *  you should try to include several log entries in this list, rather than
+ *  calling this method for each individual log entry.
  */
 @property(nonatomic, strong, nullable) NSArray<GTLRLogging_LogEntry *> *entries;
 

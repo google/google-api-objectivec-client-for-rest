@@ -2211,14 +2211,17 @@ NSString * const kGTLRAndroidPublisher_User_DeveloperAccountPermissions_Develope
 @implementation GTLRAndroidPublisher_GeneratedApksPerSigningKey
 @dynamic certificateSha256Hash, generatedAssetPackSlices,
          generatedRecoveryModules, generatedSplitApks, generatedStandaloneApks,
-         generatedUniversalApk, targetingInfo;
+         generatedUniversalApk, targetingInfo, unprotectedGeneratedSplitApks,
+         unprotectedGeneratedStandaloneApks;
 
 + (NSDictionary<NSString *, Class> *)arrayPropertyToClassMap {
   NSDictionary<NSString *, Class> *map = @{
     @"generatedAssetPackSlices" : [GTLRAndroidPublisher_GeneratedAssetPackSlice class],
     @"generatedRecoveryModules" : [GTLRAndroidPublisher_GeneratedRecoveryApk class],
     @"generatedSplitApks" : [GTLRAndroidPublisher_GeneratedSplitApk class],
-    @"generatedStandaloneApks" : [GTLRAndroidPublisher_GeneratedStandaloneApk class]
+    @"generatedStandaloneApks" : [GTLRAndroidPublisher_GeneratedStandaloneApk class],
+    @"unprotectedGeneratedSplitApks" : [GTLRAndroidPublisher_GeneratedSplitApk class],
+    @"unprotectedGeneratedStandaloneApks" : [GTLRAndroidPublisher_GeneratedStandaloneApk class]
   };
   return map;
 }

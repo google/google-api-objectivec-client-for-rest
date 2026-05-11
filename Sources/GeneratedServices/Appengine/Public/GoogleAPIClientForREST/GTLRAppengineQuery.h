@@ -1033,11 +1033,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @end
 
 /**
- *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: List all public locations: Use the path
- *  GET /v1/locations. List project-visible locations: Use the path GET
- *  /v1/projects/{project_id}/locations. This may include public locations as
- *  well as private or other locations specifically visible to the project.
+ *  Lists information about the supported locations for this service.This method
+ *  lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: Global locations: If name is empty, the
+ *  method lists the public locations available to all projects.
+ *  Project-specific locations: If name follows the format projects/{project},
+ *  the method lists locations visible to that specific project. This includes
+ *  public, private, or other project-specific locations enabled for the
+ *  project.For gRPC and client library implementations, the resource name is
+ *  passed as the name field. For direct service calls, the resource name is
+ *  incorporated into the request path based on the specific service
+ *  implementation and version.
  *
  *  Method: appengine.apps.locations.list
  *
@@ -1055,8 +1061,8 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 @property(nonatomic, copy, nullable) NSString *appsId;
 
 /**
- *  Optional. Do not use this field. It is unsupported and is ignored unless
- *  explicitly documented otherwise. This is primarily for internal usage.
+ *  Optional. Do not use this field unless explicitly documented otherwise. This
+ *  is primarily for internal usage.
  */
 @property(nonatomic, strong, nullable) NSArray<NSString *> *extraLocationTypes;
 
@@ -1082,11 +1088,17 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
 /**
  *  Fetches a @c GTLRAppengine_ListLocationsResponse.
  *
- *  Lists information about the supported locations for this service. This
- *  method can be called in two ways: List all public locations: Use the path
- *  GET /v1/locations. List project-visible locations: Use the path GET
- *  /v1/projects/{project_id}/locations. This may include public locations as
- *  well as private or other locations specifically visible to the project.
+ *  Lists information about the supported locations for this service.This method
+ *  lists locations based on the resource scope provided in the
+ *  ListLocationsRequest.name field: Global locations: If name is empty, the
+ *  method lists the public locations available to all projects.
+ *  Project-specific locations: If name follows the format projects/{project},
+ *  the method lists locations visible to that specific project. This includes
+ *  public, private, or other project-specific locations enabled for the
+ *  project.For gRPC and client library implementations, the resource name is
+ *  passed as the name field. For direct service calls, the resource name is
+ *  incorporated into the request path based on the specific service
+ *  implementation and version.
  *
  *  @param appsId Part of `name`. The resource that owns the locations
  *    collection, if applicable.
@@ -1537,6 +1549,49 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
  *  @return GTLRAppengineQuery_AppsServicesVersionsDelete
  */
 + (instancetype)queryWithAppsId:(NSString *)appsId
+                     servicesId:(NSString *)servicesId
+                     versionsId:(NSString *)versionsId;
+
+@end
+
+/**
+ *  Exports a user image to Artifact Registry.
+ *
+ *  Method: appengine.apps.services.versions.exportAppImage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_AppsServicesVersionsExportAppImage : GTLRAppengineQuery
+
+/**
+ *  Part of `name`. Required. Name of the App Engine version resource. Format:
+ *  apps/{app}/services/{service}/versions/{version}
+ */
+@property(nonatomic, copy, nullable) NSString *appsId;
+
+/** Part of `name`. See documentation of `appsId`. */
+@property(nonatomic, copy, nullable) NSString *servicesId;
+
+/** Part of `name`. See documentation of `appsId`. */
+@property(nonatomic, copy, nullable) NSString *versionsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_Operation.
+ *
+ *  Exports a user image to Artifact Registry.
+ *
+ *  @param object The @c GTLRAppengine_ExportAppImageRequest to include in the
+ *    query.
+ *  @param appsId Part of `name`. Required. Name of the App Engine version
+ *    resource. Format: apps/{app}/services/{service}/versions/{version}
+ *  @param servicesId Part of `name`. See documentation of `appsId`.
+ *  @param versionsId Part of `name`. See documentation of `appsId`.
+ *
+ *  @return GTLRAppengineQuery_AppsServicesVersionsExportAppImage
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_ExportAppImageRequest *)object
+                         appsId:(NSString *)appsId
                      servicesId:(NSString *)servicesId
                      versionsId:(NSString *)versionsId;
 
@@ -2822,6 +2877,59 @@ FOUNDATION_EXTERN NSString * const kGTLRAppengineViewFullCertificate;
                      applicationsId:(NSString *)applicationsId
                          servicesId:(NSString *)servicesId
                          versionsId:(NSString *)versionsId;
+
+@end
+
+/**
+ *  Exports a user image to Artifact Registry.
+ *
+ *  Method: appengine.projects.locations.applications.services.versions.exportAppImage
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeAppengineCloudPlatform
+ */
+@interface GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsExportAppImage : GTLRAppengineQuery
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *applicationsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *locationsId;
+
+/**
+ *  Part of `name`. Required. Name of the App Engine version resource. Format:
+ *  apps/{app}/services/{service}/versions/{version}
+ */
+@property(nonatomic, copy, nullable) NSString *projectsId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *servicesId;
+
+/** Part of `name`. See documentation of `projectsId`. */
+@property(nonatomic, copy, nullable) NSString *versionsId;
+
+/**
+ *  Fetches a @c GTLRAppengine_Operation.
+ *
+ *  Exports a user image to Artifact Registry.
+ *
+ *  @param object The @c GTLRAppengine_ExportAppImageRequest to include in the
+ *    query.
+ *  @param projectsId Part of `name`. Required. Name of the App Engine version
+ *    resource. Format: apps/{app}/services/{service}/versions/{version}
+ *  @param locationsId Part of `name`. See documentation of `projectsId`.
+ *  @param applicationsId Part of `name`. See documentation of `projectsId`.
+ *  @param servicesId Part of `name`. See documentation of `projectsId`.
+ *  @param versionsId Part of `name`. See documentation of `projectsId`.
+ *
+ *  @return GTLRAppengineQuery_ProjectsLocationsApplicationsServicesVersionsExportAppImage
+ */
++ (instancetype)queryWithObject:(GTLRAppengine_ExportAppImageRequest *)object
+                     projectsId:(NSString *)projectsId
+                    locationsId:(NSString *)locationsId
+                 applicationsId:(NSString *)applicationsId
+                     servicesId:(NSString *)servicesId
+                     versionsId:(NSString *)versionsId;
 
 @end
 

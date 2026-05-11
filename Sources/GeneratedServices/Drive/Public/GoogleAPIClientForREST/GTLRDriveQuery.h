@@ -221,7 +221,182 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Gets an Approval by ID.
+ *  Approves an approval. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  This is used to update the ReviewerResponse of the requesting user with a
+ *  Response of `APPROVED`. If this is the last required reviewer response, this
+ *  also completes the approval and sets the approval Status to `APPROVED`.
+ *
+ *  Method: drive.approvals.approve
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ */
+@interface GTLRDriveQuery_ApprovalsApprove : GTLRDriveQuery
+
+/** Required. The ID of the approval to approve. */
+@property(nonatomic, copy, nullable) NSString *approvalId;
+
+/** Required. The ID of the file that the approval is on. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Fetches a @c GTLRDrive_Approval.
+ *
+ *  Approves an approval. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  This is used to update the ReviewerResponse of the requesting user with a
+ *  Response of `APPROVED`. If this is the last required reviewer response, this
+ *  also completes the approval and sets the approval Status to `APPROVED`.
+ *
+ *  @param object The @c GTLRDrive_ApproveApprovalRequest to include in the
+ *    query.
+ *  @param fileId Required. The ID of the file that the approval is on.
+ *  @param approvalId Required. The ID of the approval to approve.
+ *
+ *  @return GTLRDriveQuery_ApprovalsApprove
+ */
++ (instancetype)queryWithObject:(GTLRDrive_ApproveApprovalRequest *)object
+                         fileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId;
+
+@end
+
+/**
+ *  Cancels an approval. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  Updates the approval Status to `CANCELLED`. This can be called by any user
+ *  with the `writer` permission on the file while the approval Status is
+ *  `IN_PROGRESS`.
+ *
+ *  Method: drive.approvals.cancel
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ */
+@interface GTLRDriveQuery_ApprovalsCancel : GTLRDriveQuery
+
+/** Required. The ID of the approval to cancel. */
+@property(nonatomic, copy, nullable) NSString *approvalId;
+
+/** Required. The ID of the file that the approval is on. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Fetches a @c GTLRDrive_Approval.
+ *
+ *  Cancels an approval. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  Updates the approval Status to `CANCELLED`. This can be called by any user
+ *  with the `writer` permission on the file while the approval Status is
+ *  `IN_PROGRESS`.
+ *
+ *  @param object The @c GTLRDrive_CancelApprovalRequest to include in the
+ *    query.
+ *  @param fileId Required. The ID of the file that the approval is on.
+ *  @param approvalId Required. The ID of the approval to cancel.
+ *
+ *  @return GTLRDriveQuery_ApprovalsCancel
+ */
++ (instancetype)queryWithObject:(GTLRDrive_CancelApprovalRequest *)object
+                         fileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId;
+
+@end
+
+/**
+ *  Comments on an approval. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  This sends a notification to both the initiator and the reviewers.
+ *  Additionally, a message is also added to the approval activity log.
+ *
+ *  Method: drive.approvals.comment
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ */
+@interface GTLRDriveQuery_ApprovalsComment : GTLRDriveQuery
+
+/** Required. The ID of the approval to comment on. */
+@property(nonatomic, copy, nullable) NSString *approvalId;
+
+/** Required. The ID of the file that the approval is on. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Fetches a @c GTLRDrive_Approval.
+ *
+ *  Comments on an approval. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  This sends a notification to both the initiator and the reviewers.
+ *  Additionally, a message is also added to the approval activity log.
+ *
+ *  @param object The @c GTLRDrive_CommentApprovalRequest to include in the
+ *    query.
+ *  @param fileId Required. The ID of the file that the approval is on.
+ *  @param approvalId Required. The ID of the approval to comment on.
+ *
+ *  @return GTLRDriveQuery_ApprovalsComment
+ */
++ (instancetype)queryWithObject:(GTLRDrive_CommentApprovalRequest *)object
+                         fileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId;
+
+@end
+
+/**
+ *  Declines an approval. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  This is used to update the ReviewerResponse of the requesting user with a
+ *  Response of `DECLINED`. This also completes the approval and sets the
+ *  approval Status to `DECLINED`.
+ *
+ *  Method: drive.approvals.decline
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ */
+@interface GTLRDriveQuery_ApprovalsDecline : GTLRDriveQuery
+
+/** Required. The ID of the approval to decline. */
+@property(nonatomic, copy, nullable) NSString *approvalId;
+
+/** Required. The ID of the file that the approval is on. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Fetches a @c GTLRDrive_Approval.
+ *
+ *  Declines an approval. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  This is used to update the ReviewerResponse of the requesting user with a
+ *  Response of `DECLINED`. This also completes the approval and sets the
+ *  approval Status to `DECLINED`.
+ *
+ *  @param object The @c GTLRDrive_DeclineApprovalRequest to include in the
+ *    query.
+ *  @param fileId Required. The ID of the file that the approval is on.
+ *  @param approvalId Required. The ID of the approval to decline.
+ *
+ *  @return GTLRDriveQuery_ApprovalsDecline
+ */
++ (instancetype)queryWithObject:(GTLRDrive_DeclineApprovalRequest *)object
+                         fileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId;
+
+@end
+
+/**
+ *  Gets an approval by ID. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
  *
  *  Method: drive.approvals.get
  *
@@ -235,19 +410,20 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  */
 @interface GTLRDriveQuery_ApprovalsGet : GTLRDriveQuery
 
-/** Required. The ID of the Approval. */
+/** Required. The ID of the approval. */
 @property(nonatomic, copy, nullable) NSString *approvalId;
 
-/** Required. The ID of the file the Approval is on. */
+/** Required. The ID of the file that the approval is on. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
  *  Fetches a @c GTLRDrive_Approval.
  *
- *  Gets an Approval by ID.
+ *  Gets an approval by ID. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
  *
- *  @param fileId Required. The ID of the file the Approval is on.
- *  @param approvalId Required. The ID of the Approval.
+ *  @param fileId Required. The ID of the file that the approval is on.
+ *  @param approvalId Required. The ID of the approval.
  *
  *  @return GTLRDriveQuery_ApprovalsGet
  */
@@ -257,7 +433,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
- *  Lists the Approvals on a file.
+ *  Lists the approvals on a file. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
  *
  *  Method: drive.approvals.list
  *
@@ -271,27 +448,28 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  */
 @interface GTLRDriveQuery_ApprovalsList : GTLRDriveQuery
 
-/** Required. The ID of the file the Approval is on. */
+/** Required. The ID of the file that the approval is on. */
 @property(nonatomic, copy, nullable) NSString *fileId;
 
 /**
- *  The maximum number of Approvals to return. When not set, at most 100
- *  Approvals will be returned.
+ *  The maximum number of approvals to return. When not set, at most 100
+ *  approvals are returned.
  */
 @property(nonatomic, assign) NSInteger pageSize;
 
 /**
  *  The token for continuing a previous list request on the next page. This
- *  should be set to the value of nextPageToken from a previous response.
+ *  should be set to the value of `nextPageToken` from a previous response.
  */
 @property(nonatomic, copy, nullable) NSString *pageToken;
 
 /**
  *  Fetches a @c GTLRDrive_ApprovalList.
  *
- *  Lists the Approvals on a file.
+ *  Lists the approvals on a file. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
  *
- *  @param fileId Required. The ID of the file the Approval is on.
+ *  @param fileId Required. The ID of the file that the approval is on.
  *
  *  @return GTLRDriveQuery_ApprovalsList
  *
@@ -300,6 +478,88 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *        information.
  */
 + (instancetype)queryWithFileId:(NSString *)fileId;
+
+@end
+
+/**
+ *  Reassigns the reviewers on an approval. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  Adds or replaces reviewers in the ReviewerResponse of the approval. This can
+ *  be called by any user with the `writer` permission on the file while the
+ *  approval Status is `IN_PROGRESS` and the Response for the reviewer being
+ *  reassigned is `NO_RESPONSE`. A user with the `reader` permission can only
+ *  reassign an approval that's assigned to themselves. Removing a reviewer
+ *  isn't allowed.
+ *
+ *  Method: drive.approvals.reassign
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ */
+@interface GTLRDriveQuery_ApprovalsReassign : GTLRDriveQuery
+
+/** Required. The ID of the approval to reassign. */
+@property(nonatomic, copy, nullable) NSString *approvalId;
+
+/** Required. The ID of the file that the approval is on. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Fetches a @c GTLRDrive_Approval.
+ *
+ *  Reassigns the reviewers on an approval. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *  Adds or replaces reviewers in the ReviewerResponse of the approval. This can
+ *  be called by any user with the `writer` permission on the file while the
+ *  approval Status is `IN_PROGRESS` and the Response for the reviewer being
+ *  reassigned is `NO_RESPONSE`. A user with the `reader` permission can only
+ *  reassign an approval that's assigned to themselves. Removing a reviewer
+ *  isn't allowed.
+ *
+ *  @param object The @c GTLRDrive_ReassignApprovalRequest to include in the
+ *    query.
+ *  @param fileId Required. The ID of the file that the approval is on.
+ *  @param approvalId Required. The ID of the approval to reassign.
+ *
+ *  @return GTLRDriveQuery_ApprovalsReassign
+ */
++ (instancetype)queryWithObject:(GTLRDrive_ReassignApprovalRequest *)object
+                         fileId:(NSString *)fileId
+                     approvalId:(NSString *)approvalId;
+
+@end
+
+/**
+ *  Starts an approval on a file. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *
+ *  Method: drive.approvals.start
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ *    @c kGTLRAuthScopeDriveFile
+ *    @c kGTLRAuthScopeDriveMetadata
+ */
+@interface GTLRDriveQuery_ApprovalsStart : GTLRDriveQuery
+
+/** Required. The ID of the file that the approval is created on. */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  Fetches a @c GTLRDrive_Approval.
+ *
+ *  Starts an approval on a file. For more information, see [Manage
+ *  approvals](https://developers.google.com/workspace/drive/api/guides/approvals).
+ *
+ *  @param object The @c GTLRDrive_StartApprovalRequest to include in the query.
+ *  @param fileId Required. The ID of the file that the approval is created on.
+ *
+ *  @return GTLRDriveQuery_ApprovalsStart
+ */
++ (instancetype)queryWithObject:(GTLRDrive_StartApprovalRequest *)object
+                         fileId:(NSString *)fileId;
 
 @end
 
@@ -1152,7 +1412,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Lists the user's shared drives. This method accepts the `q` parameter, which
  *  is a search query combining one or more search terms. For more information,
  *  see the [Search for shared
- *  drives](/workspace/drive/api/guides/search-shareddrives) guide.
+ *  drives](https://developers.google.com/workspace/drive/api/guides/search-shareddrives)
+ *  guide.
  *
  *  Method: drive.drives.list
  *
@@ -1191,7 +1452,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Lists the user's shared drives. This method accepts the `q` parameter, which
  *  is a search query combining one or more search terms. For more information,
  *  see the [Search for shared
- *  drives](/workspace/drive/api/guides/search-shareddrives) guide.
+ *  drives](https://developers.google.com/workspace/drive/api/guides/search-shareddrives)
+ *  guide.
  *
  *  @return GTLRDriveQuery_DrivesList
  *
@@ -1371,16 +1633,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Creates a file. For more information, see [Create and manage
- *  files](/workspace/drive/api/guides/create-file). This method supports an *
- *  /upload* URI and accepts uploaded media with the following characteristics:
- *  - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:* `* / *`
- *  (Specify a valid MIME type, rather than the literal `* / *` value. The
- *  literal `* / *` is only used to indicate that any valid MIME type can be
- *  uploaded. For more information, see [Google Workspace and Google Drive
- *  supported MIME types](/workspace/drive/api/guides/mime-types).) For more
- *  information on uploading files, see [Upload file
- *  data](/workspace/drive/api/guides/manage-uploads). Apps creating shortcuts
- *  with the `create` method must specify the MIME type
+ *  files](https://developers.google.com/workspace/drive/api/guides/create-file).
+ *  This method supports an * /upload* URI and accepts uploaded media with the
+ *  following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media
+ *  MIME types:* `* / *` (Specify a valid MIME type, rather than the literal `*
+ *  / *` value. The literal `* / *` is only used to indicate that any valid MIME
+ *  type can be uploaded. For more information, see [Google Workspace and Google
+ *  Drive supported MIME
+ *  types](https://developers.google.com/workspace/drive/api/guides/mime-types).)
+ *  For more information on uploading files, see [Upload file
+ *  data](https://developers.google.com/workspace/drive/api/guides/manage-uploads).
+ *  Apps creating shortcuts with the `create` method must specify the MIME type
  *  `application/vnd.google-apps.shortcut`. Apps should specify a file extension
  *  in the `name` property when inserting files with the API. For example, an
  *  operation to insert a JPEG file should specify something like `"name":
@@ -1471,16 +1734,17 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_File.
  *
  *  Creates a file. For more information, see [Create and manage
- *  files](/workspace/drive/api/guides/create-file). This method supports an *
- *  /upload* URI and accepts uploaded media with the following characteristics:
- *  - *Maximum file size:* 5,120 GB - *Accepted Media MIME types:* `* / *`
- *  (Specify a valid MIME type, rather than the literal `* / *` value. The
- *  literal `* / *` is only used to indicate that any valid MIME type can be
- *  uploaded. For more information, see [Google Workspace and Google Drive
- *  supported MIME types](/workspace/drive/api/guides/mime-types).) For more
- *  information on uploading files, see [Upload file
- *  data](/workspace/drive/api/guides/manage-uploads). Apps creating shortcuts
- *  with the `create` method must specify the MIME type
+ *  files](https://developers.google.com/workspace/drive/api/guides/create-file).
+ *  This method supports an * /upload* URI and accepts uploaded media with the
+ *  following characteristics: - *Maximum file size:* 5,120 GB - *Accepted Media
+ *  MIME types:* `* / *` (Specify a valid MIME type, rather than the literal `*
+ *  / *` value. The literal `* / *` is only used to indicate that any valid MIME
+ *  type can be uploaded. For more information, see [Google Workspace and Google
+ *  Drive supported MIME
+ *  types](https://developers.google.com/workspace/drive/api/guides/mime-types).)
+ *  For more information on uploading files, see [Upload file
+ *  data](https://developers.google.com/workspace/drive/api/guides/manage-uploads).
+ *  Apps creating shortcuts with the `create` method must specify the MIME type
  *  `application/vnd.google-apps.shortcut`. Apps should specify a file extension
  *  in the `name` property when inserting files with the API. For example, an
  *  operation to insert a JPEG file should specify something like `"name":
@@ -1704,6 +1968,42 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @end
 
 /**
+ *  Generates a CSE token which can be used to create or update CSE files.
+ *
+ *  Method: drive.files.generateCseToken
+ *
+ *  Authorization scope(s):
+ *    @c kGTLRAuthScopeDrive
+ */
+@interface GTLRDriveQuery_FilesGenerateCseToken : GTLRDriveQuery
+
+/**
+ *  The ID of the file for which the JWT should be generated. If not provided,
+ *  an id will be generated.
+ */
+@property(nonatomic, copy, nullable) NSString *fileId;
+
+/**
+ *  The ID of the expected parent of the file. Used when generating a JWT for a
+ *  new CSE file. If specified, the parent will be fetched, and if the parent is
+ *  a shared drive item, the shared drive's policy will be used to determine the
+ *  KACLS that should be used. It is invalid to specify both file_id and parent
+ *  in a single request.
+ */
+@property(nonatomic, copy, nullable) NSString *parent;
+
+/**
+ *  Fetches a @c GTLRDrive_GenerateCseTokenResponse.
+ *
+ *  Generates a CSE token which can be used to create or update CSE files.
+ *
+ *  @return GTLRDriveQuery_FilesGenerateCseToken
+ */
++ (instancetype)query;
+
+@end
+
+/**
  *  Generates a set of file IDs which can be provided in create or copy
  *  requests. For more information, see [Create and manage
  *  files](https://developers.google.com/workspace/drive/api/guides/create-file).
@@ -1760,14 +2060,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Gets a file's metadata or content by ID. For more information, see [Search
- *  for files and folders](/workspace/drive/api/guides/search-files). If you
- *  provide the URL parameter `alt=media`, then the response includes the file
- *  contents in the response body. Downloading content with `alt=media` only
- *  works if the file is stored in Drive. To download Google Docs, Sheets, and
- *  Slides use
- *  [`files.export`](/workspace/drive/api/reference/rest/v3/files/export)
+ *  for files and
+ *  folders](https://developers.google.com/workspace/drive/api/guides/search-files).
+ *  If you provide the URL parameter `alt=media`, then the response includes the
+ *  file contents in the response body. Downloading content with `alt=media`
+ *  only works if the file is stored in Drive. To download Google Docs, Sheets,
+ *  and Slides use
+ *  [`files.export`](https://developers.google.com/workspace/drive/api/reference/rest/v3/files/export)
  *  instead. For more information, see [Download and export
- *  files](/workspace/drive/api/guides/manage-downloads).
+ *  files](https://developers.google.com/workspace/drive/api/guides/manage-downloads).
  *
  *  Method: drive.files.get
  *
@@ -1827,14 +2128,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_File.
  *
  *  Gets a file's metadata or content by ID. For more information, see [Search
- *  for files and folders](/workspace/drive/api/guides/search-files). If you
- *  provide the URL parameter `alt=media`, then the response includes the file
- *  contents in the response body. Downloading content with `alt=media` only
- *  works if the file is stored in Drive. To download Google Docs, Sheets, and
- *  Slides use
- *  [`files.export`](/workspace/drive/api/reference/rest/v3/files/export)
+ *  for files and
+ *  folders](https://developers.google.com/workspace/drive/api/guides/search-files).
+ *  If you provide the URL parameter `alt=media`, then the response includes the
+ *  file contents in the response body. Downloading content with `alt=media`
+ *  only works if the file is stored in Drive. To download Google Docs, Sheets,
+ *  and Slides use
+ *  [`files.export`](https://developers.google.com/workspace/drive/api/reference/rest/v3/files/export)
  *  instead. For more information, see [Download and export
- *  files](/workspace/drive/api/guides/manage-downloads).
+ *  files](https://developers.google.com/workspace/drive/api/guides/manage-downloads).
  *
  *  @param fileId The ID of the file.
  *
@@ -1846,14 +2148,15 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches the requested resource data as a @c GTLRDataObject.
  *
  *  Gets a file's metadata or content by ID. For more information, see [Search
- *  for files and folders](/workspace/drive/api/guides/search-files). If you
- *  provide the URL parameter `alt=media`, then the response includes the file
- *  contents in the response body. Downloading content with `alt=media` only
- *  works if the file is stored in Drive. To download Google Docs, Sheets, and
- *  Slides use
- *  [`files.export`](/workspace/drive/api/reference/rest/v3/files/export)
+ *  for files and
+ *  folders](https://developers.google.com/workspace/drive/api/guides/search-files).
+ *  If you provide the URL parameter `alt=media`, then the response includes the
+ *  file contents in the response body. Downloading content with `alt=media`
+ *  only works if the file is stored in Drive. To download Google Docs, Sheets,
+ *  and Slides use
+ *  [`files.export`](https://developers.google.com/workspace/drive/api/reference/rest/v3/files/export)
  *  instead. For more information, see [Download and export
- *  files](/workspace/drive/api/guides/manage-downloads).
+ *  files](https://developers.google.com/workspace/drive/api/guides/manage-downloads).
  *
  *  @param fileId The ID of the file.
  *
@@ -1865,11 +2168,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 
 /**
  *  Lists the user's files. For more information, see [Search for files and
- *  folders](/workspace/drive/api/guides/search-files). This method accepts the
- *  `q` parameter, which is a search query combining one or more search terms.
- *  This method returns *all* files by default, including trashed files. If you
- *  don't want trashed files to appear in the list, use the `trashed=false`
- *  query parameter to remove trashed files from the results.
+ *  folders](https://developers.google.com/workspace/drive/api/guides/search-files).
+ *  This method accepts the `q` parameter, which is a search query combining one
+ *  or more search terms. This method returns *all* files by default, including
+ *  trashed files. If you don't want trashed files to appear in the list, use
+ *  the `trashed=false` query parameter to remove trashed files from the
+ *  results.
  *
  *  Method: drive.files.list
  *
@@ -1939,8 +2243,8 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  A comma-separated list of sort keys. Valid keys are: * `createdTime`: When
  *  the file was created. Avoid using this key for queries on large item
  *  collections as it might result in timeouts or other issues. For time-related
- *  sorting on large item collections, use `modifiedTime` instead. * `folder`:
- *  The folder ID. This field is sorted using alphabetical ordering. *
+ *  sorting on large item collections, use `modifiedTime desc` instead. *
+ *  `folder`: The folder ID. This field is sorted using alphabetical ordering. *
  *  `modifiedByMeTime`: The last time the file was modified by the user. *
  *  `modifiedTime`: The last time the file was modified by anyone. * `name`: The
  *  name of the file. This field is sorted using alphabetical ordering, so 1,
@@ -1957,8 +2261,11 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
 @property(nonatomic, copy, nullable) NSString *orderBy;
 
 /**
- *  The maximum number of files to return per page. Partial or empty result
- *  pages are possible even before the end of the files list has been reached.
+ *  The maximum number of files to return per page. Pages may be partial or
+ *  empty even before reaching the end of the file list. If unspecified, at most
+ *  100 files are returned for shared drives, and the entire list of files for
+ *  non-shared drives. The maximum value is 100; values above 100 are changed to
+ *  100.
  *
  *  @note If not set, the documented server-side default will be 100 (from the
  *        range 1..1000).
@@ -2008,11 +2315,12 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  Fetches a @c GTLRDrive_FileList.
  *
  *  Lists the user's files. For more information, see [Search for files and
- *  folders](/workspace/drive/api/guides/search-files). This method accepts the
- *  `q` parameter, which is a search query combining one or more search terms.
- *  This method returns *all* files by default, including trashed files. If you
- *  don't want trashed files to appear in the list, use the `trashed=false`
- *  query parameter to remove trashed files from the results.
+ *  folders](https://developers.google.com/workspace/drive/api/guides/search-files).
+ *  This method accepts the `q` parameter, which is a search query combining one
+ *  or more search terms. This method returns *all* files by default, including
+ *  trashed files. If you don't want trashed files to appear in the list, use
+ *  the `trashed=false` query parameter to remove trashed files from the
+ *  results.
  *
  *  @return GTLRDriveQuery_FilesList
  *
@@ -2122,9 +2430,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  MIME type, rather than the literal `* / *` value. The literal `* / *` is
  *  only used to indicate that any valid MIME type can be uploaded. For more
  *  information, see [Google Workspace and Google Drive supported MIME
- *  types](/workspace/drive/api/guides/mime-types).) For more information on
- *  uploading files, see [Upload file
- *  data](/workspace/drive/api/guides/manage-uploads).
+ *  types](https://developers.google.com/workspace/drive/api/guides/mime-types).)
+ *  For more information on uploading files, see [Upload file
+ *  data](https://developers.google.com/workspace/drive/api/guides/manage-uploads).
  *
  *  Method: drive.files.update
  *
@@ -2215,9 +2523,9 @@ FOUNDATION_EXTERN NSString * const kGTLRDriveCorpusUser;
  *  MIME type, rather than the literal `* / *` value. The literal `* / *` is
  *  only used to indicate that any valid MIME type can be uploaded. For more
  *  information, see [Google Workspace and Google Drive supported MIME
- *  types](/workspace/drive/api/guides/mime-types).) For more information on
- *  uploading files, see [Upload file
- *  data](/workspace/drive/api/guides/manage-uploads).
+ *  types](https://developers.google.com/workspace/drive/api/guides/mime-types).)
+ *  For more information on uploading files, see [Upload file
+ *  data](https://developers.google.com/workspace/drive/api/guides/manage-uploads).
  *
  *  @param object The @c GTLRDrive_File to include in the query.
  *  @param fileId The ID of the file.

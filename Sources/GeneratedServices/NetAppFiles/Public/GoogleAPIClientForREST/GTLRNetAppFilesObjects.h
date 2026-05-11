@@ -33,6 +33,12 @@
 @class GTLRNetAppFiles_CloneDetails;
 @class GTLRNetAppFiles_DailySchedule;
 @class GTLRNetAppFiles_DestinationVolumeParameters;
+@class GTLRNetAppFiles_ExecuteOntapDeleteResponse_Body;
+@class GTLRNetAppFiles_ExecuteOntapGetResponse_Body;
+@class GTLRNetAppFiles_ExecuteOntapPatchRequest_Body;
+@class GTLRNetAppFiles_ExecuteOntapPatchResponse_Body;
+@class GTLRNetAppFiles_ExecuteOntapPostRequest_Body;
+@class GTLRNetAppFiles_ExecuteOntapPostResponse_Body;
 @class GTLRNetAppFiles_ExportPolicy;
 @class GTLRNetAppFiles_HostGroup;
 @class GTLRNetAppFiles_HostGroup_Labels;
@@ -42,6 +48,7 @@
 @class GTLRNetAppFiles_HybridReplicationParameters_Labels;
 @class GTLRNetAppFiles_KmsConfig;
 @class GTLRNetAppFiles_KmsConfig_Labels;
+@class GTLRNetAppFiles_LargeCapacityConfig;
 @class GTLRNetAppFiles_Location;
 @class GTLRNetAppFiles_Location_Labels;
 @class GTLRNetAppFiles_Location_Metadata;
@@ -1164,6 +1171,28 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_EncryptionType_E
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_EncryptionType_ServiceManaged;
 
 // ----------------------------------------------------------------------------
+// GTLRNetAppFiles_StoragePool.mode
+
+/**
+ *  The resource is managed by the GCNV APIs.
+ *
+ *  Value: "DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_Mode_Default;
+/**
+ *  The `Mode` is not specified.
+ *
+ *  Value: "MODE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_Mode_ModeUnspecified;
+/**
+ *  The resource is managed by the GCNV ONTAP Mode APIs.
+ *
+ *  Value: "ONTAP"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_Mode_Ontap;
+
+// ----------------------------------------------------------------------------
 // GTLRNetAppFiles_StoragePool.qosType
 
 /**
@@ -1184,6 +1213,30 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_QosType_Manual;
  *  Value: "QOS_TYPE_UNSPECIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_QosType_QosTypeUnspecified;
+
+// ----------------------------------------------------------------------------
+// GTLRNetAppFiles_StoragePool.scaleType
+
+/**
+ *  Represents standard capacity and performance scale-type. Suitable for
+ *  general purpose workloads.
+ *
+ *  Value: "SCALE_TYPE_DEFAULT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_ScaleType_ScaleTypeDefault;
+/**
+ *  Represents higher capacity and performance scale-type. Suitable for more
+ *  demanding workloads.
+ *
+ *  Value: "SCALE_TYPE_SCALEOUT"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_ScaleType_ScaleTypeScaleout;
+/**
+ *  Unspecified scale type.
+ *
+ *  Value: "SCALE_TYPE_UNSPECIFIED"
+ */
+FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_ScaleType_ScaleTypeUnspecified;
 
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_StoragePool.serviceLevel
@@ -1292,12 +1345,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_Type_StoragePool
  *  Value: "UNIFIED"
  */
 FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_Type_Unified;
-/**
- *  Deprecated: UNIFIED_LARGE_CAPACITY was previously tag 3.
- *
- *  Value: "UNIFIED_LARGE_CAPACITY"
- */
-FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_StoragePool_Type_UnifiedLargeCapacity GTLR_DEPRECATED;
 
 // ----------------------------------------------------------------------------
 // GTLRNetAppFiles_TieringPolicy.tierAction
@@ -1820,7 +1867,8 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @property(nonatomic, copy, nullable) NSString *sourceSnapshot;
 
 /**
- *  Volume full name of this backup belongs to. Format:
+ *  Volume full name of this backup belongs to. Either source_volume or
+ *  ontap_source should be provided. Format:
  *  `projects/{projects_id}/locations/{location}/volumes/{volume_id}`
  */
 @property(nonatomic, copy, nullable) NSString *sourceVolume;
@@ -2579,6 +2627,156 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 
 /**
+ *  Response message for `ExecuteOntapDelete` API.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapDeleteResponse : GTLRObject
+
+/** The raw `JSON` body of the response. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_ExecuteOntapDeleteResponse_Body *body;
+
+@end
+
+
+/**
+ *  The raw `JSON` body of the response.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapDeleteResponse_Body : GTLRObject
+@end
+
+
+/**
+ *  Response message for `ExecuteOntapGet` API.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapGetResponse : GTLRObject
+
+/** The raw `JSON` body of the response. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_ExecuteOntapGetResponse_Body *body;
+
+@end
+
+
+/**
+ *  The raw `JSON` body of the response.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapGetResponse_Body : GTLRObject
+@end
+
+
+/**
+ *  Request message for `ExecuteOntapPatch` API.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapPatchRequest : GTLRObject
+
+/**
+ *  Required. The raw `JSON` body of the request. The body should be in the
+ *  format of the ONTAP resource. For example: ``` { "body": { "field1":
+ *  "value1", "field2": "value2", } } ```
+ */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_ExecuteOntapPatchRequest_Body *body;
+
+@end
+
+
+/**
+ *  Required. The raw `JSON` body of the request. The body should be in the
+ *  format of the ONTAP resource. For example: ``` { "body": { "field1":
+ *  "value1", "field2": "value2", } } ```
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapPatchRequest_Body : GTLRObject
+@end
+
+
+/**
+ *  Response message for `ExecuteOntapPatch` API.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapPatchResponse : GTLRObject
+
+/** The raw `JSON` body of the response. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_ExecuteOntapPatchResponse_Body *body;
+
+@end
+
+
+/**
+ *  The raw `JSON` body of the response.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapPatchResponse_Body : GTLRObject
+@end
+
+
+/**
+ *  Request message for `ExecuteOntapPost` API.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapPostRequest : GTLRObject
+
+/**
+ *  Required. The raw `JSON` body of the request. The body should be in the
+ *  format of the ONTAP resource. For example: ``` { "body": { "field1":
+ *  "value1", "field2": "value2", } } ```
+ */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_ExecuteOntapPostRequest_Body *body;
+
+@end
+
+
+/**
+ *  Required. The raw `JSON` body of the request. The body should be in the
+ *  format of the ONTAP resource. For example: ``` { "body": { "field1":
+ *  "value1", "field2": "value2", } } ```
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapPostRequest_Body : GTLRObject
+@end
+
+
+/**
+ *  Response message for `ExecuteOntapPost` API.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapPostResponse : GTLRObject
+
+/** The raw `JSON` body of the response. */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_ExecuteOntapPostResponse_Body *body;
+
+@end
+
+
+/**
+ *  The raw `JSON` body of the response.
+ *
+ *  @note This class is documented as having more properties of any valid JSON
+ *        type. Use @c -additionalJSONKeys and @c -additionalPropertyForName: to
+ *        get the list of properties and then fetch them; or @c
+ *        -additionalProperties to fetch them all at once.
+ */
+@interface GTLRNetAppFiles_ExecuteOntapPostResponse_Body : GTLRObject
+@end
+
+
+/**
  *  Defines the export policy for the volume.
  */
 @interface GTLRNetAppFiles_ExportPolicy : GTLRObject
@@ -2953,6 +3151,24 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *        fetch them all at once.
  */
 @interface GTLRNetAppFiles_KmsConfig_Labels : GTLRObject
+@end
+
+
+/**
+ *  Configuration for a Large Capacity Volume. A Large Capacity Volume supports
+ *  sizes ranging from 4.8 TiB to 20 PiB, it is composed of multiple internal
+ *  constituents, and must be created in a large capacity pool.
+ */
+@interface GTLRNetAppFiles_LargeCapacityConfig : GTLRObject
+
+/**
+ *  Optional. The number of internal constituents (e.g., FlexVols) for this
+ *  large volume. The minimum number of constituents is 2.
+ *
+ *  Uses NSNumber of intValue.
+ */
+@property(nonatomic, strong, nullable) NSNumber *constituentCount;
+
 @end
 
 
@@ -3921,8 +4137,10 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 @interface GTLRNetAppFiles_RestoreParameters : GTLRObject
 
 /**
- *  Full name of the backup resource. Format:
+ *  Full name of the backup resource. Format for standard backup:
  *  projects/{project}/locations/{location}/backupVaults/{backup_vault_id}/backups/{backup_id}
+ *  Format for BackupDR backup:
+ *  projects/{project}/locations/{location}/backupVaults/{backup_vault}/dataSources/{data_source}/backups/{backup}
  */
 @property(nonatomic, copy, nullable) NSString *sourceBackup;
 
@@ -4380,6 +4598,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  */
 @property(nonatomic, strong, nullable) NSNumber *ldapEnabled;
 
+/**
+ *  Optional. Mode of the storage pool. This field is used to control whether
+ *  the user can perform the ONTAP operations on the storage pool using the GCNV
+ *  ONTAP Mode APIs. If not specified during creation, it defaults to `DEFAULT`.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_StoragePool_Mode_Default The resource is managed
+ *        by the GCNV APIs. (Value: "DEFAULT")
+ *    @arg @c kGTLRNetAppFiles_StoragePool_Mode_ModeUnspecified The `Mode` is
+ *        not specified. (Value: "MODE_UNSPECIFIED")
+ *    @arg @c kGTLRNetAppFiles_StoragePool_Mode_Ontap The resource is managed by
+ *        the GCNV ONTAP Mode APIs. (Value: "ONTAP")
+ */
+@property(nonatomic, copy, nullable) NSString *mode;
+
 /** Identifier. Name of the storage pool */
 @property(nonatomic, copy, nullable) NSString *name;
 
@@ -4424,6 +4657,22 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *satisfiesPzs;
+
+/**
+ *  Optional. The scale type of the storage pool. Defaults to
+ *  `SCALE_TYPE_DEFAULT` if not specified.
+ *
+ *  Likely values:
+ *    @arg @c kGTLRNetAppFiles_StoragePool_ScaleType_ScaleTypeDefault Represents
+ *        standard capacity and performance scale-type. Suitable for general
+ *        purpose workloads. (Value: "SCALE_TYPE_DEFAULT")
+ *    @arg @c kGTLRNetAppFiles_StoragePool_ScaleType_ScaleTypeScaleout
+ *        Represents higher capacity and performance scale-type. Suitable for
+ *        more demanding workloads. (Value: "SCALE_TYPE_SCALEOUT")
+ *    @arg @c kGTLRNetAppFiles_StoragePool_ScaleType_ScaleTypeUnspecified
+ *        Unspecified scale type. (Value: "SCALE_TYPE_UNSPECIFIED")
+ */
+@property(nonatomic, copy, nullable) NSString *scaleType;
 
 /**
  *  Required. Service level of the storage pool
@@ -4486,9 +4735,7 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 /**
  *  Optional. Type of the storage pool. This field is used to control whether
  *  the pool supports `FILE` based volumes only or `UNIFIED` (both `FILE` and
- *  `BLOCK`) volumes or `UNIFIED_LARGE_CAPACITY` (both `FILE` and `BLOCK`)
- *  volumes with large capacity. If not specified during creation, it defaults
- *  to `FILE`.
+ *  `BLOCK`) volumes. If not specified during creation, it defaults to `FILE`.
  *
  *  Likely values:
  *    @arg @c kGTLRNetAppFiles_StoragePool_Type_File Storage pool type is file.
@@ -4498,9 +4745,6 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
  *        "STORAGE_POOL_TYPE_UNSPECIFIED")
  *    @arg @c kGTLRNetAppFiles_StoragePool_Type_Unified Storage pool type is
  *        unified. (Value: "UNIFIED")
- *    @arg @c kGTLRNetAppFiles_StoragePool_Type_UnifiedLargeCapacity Deprecated:
- *        UNIFIED_LARGE_CAPACITY was previously tag 3. (Value:
- *        "UNIFIED_LARGE_CAPACITY")
  */
 @property(nonatomic, copy, nullable) NSString *type;
 
@@ -4807,11 +5051,21 @@ FOUNDATION_EXTERN NSString * const kGTLRNetAppFiles_Volume_State_Updating;
 
 /**
  *  Optional. Flag indicating if the volume will be a large capacity volume or a
- *  regular volume.
+ *  regular volume. This field is used for legacy FILE pools. For Unified pools,
+ *  use the `large_capacity_config` field instead. This field and
+ *  `large_capacity_config` are mutually exclusive.
  *
  *  Uses NSNumber of boolValue.
  */
 @property(nonatomic, strong, nullable) NSNumber *largeCapacity;
+
+/**
+ *  Optional. Large capacity config for the volume. Enables and configures large
+ *  capacity for volumes in Unified pools with File protocols. Not applicable
+ *  for Block protocols in Unified pools. This field and the legacy
+ *  `large_capacity` boolean field are mutually exclusive.
+ */
+@property(nonatomic, strong, nullable) GTLRNetAppFiles_LargeCapacityConfig *largeCapacityConfig;
 
 /**
  *  Output only. Flag indicating if the volume is NFS LDAP enabled or not.
