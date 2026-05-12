@@ -1614,7 +1614,7 @@ static NSString *MappedParamInterfaceName(NSString *name, BOOL takesObject, BOOL
     for (GTLRDiscovery_JsonSchema *param in paramSchema) {
       // TODO: see the note in buildParameterLists: about how there could
       // be arrays that don't make it into the uniqueParameters list.
-      if (param.repeated || [param.type isEqual:@"array"]) {
+      if (param.repeated.boolValue || [param.type isEqual:@"array"]) {
         NSString *objcType = nil;
         NSString *itemsClassName = nil;
         [param sg_getQueryParamObjCType:&objcType
@@ -4479,7 +4479,7 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
   NSString *schemaType = resolvedSchema.type;
   NSString *schemaFormat = resolvedSchema.format;
 
-  NSAssert(resolvedSchema.repeated == nil,
+  NSAssert(!resolvedSchema.repeated.boolValue,
            @"Object scheme should use 'type' of 'array' and not 'repeated' : true");
 
   // Look it up...
@@ -4547,12 +4547,12 @@ static SGTypeInfo *LookupTypeInfo(NSString *typeString,
   // default values and we don't need to communicate the "removal" of some
   // property, we can use raw NSInteger, BOOL, etc. for the values. So only
   // need objects form of it is repeating.
-  SGTypeInfo *typeInfo = LookupTypeInfo(self.type, self.format, self.repeated);
+  SGTypeInfo *typeInfo = LookupTypeInfo(self.type, self.format, self.repeated.boolValue);
   NSAssert(typeInfo != nil,
            @"Looking at parameter '%@:%@', found a type/format pair of '%@/%@', and don't how to map that to Objective-C",
            self.sg_method.sg_name, self.sg_name, self.type, self.format);
 
-  if (self.repeated) {
+  if (self.repeated.boolValue) {
     // Repeating means it's an array.
     if (asPointer) *asPointer = YES;
     if (objcPropertySemantics) *objcPropertySemantics = @"strong";
