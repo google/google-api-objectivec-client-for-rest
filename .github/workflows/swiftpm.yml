@@ -24,13 +24,13 @@ on:
 jobs:
   swift:
     # The swift command line only support build/testing for macOS on.
-    runs-on: macos-15
+    runs-on: macos-26
     strategy:
       fail-fast: false
       matrix:
         CONFIGURATION: ["debug", "release"]
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - name: Build and Test Library
       run:  |
         set -eu
@@ -47,7 +47,7 @@ jobs:
         PLATFORM: ["ios", "macos", "tvos", "visionos", "watchos"]
         CONFIGURATION: ["Debug", "Release"]
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - name: Build and Test Library
       run:  |
         set -eu

@@ -31,13 +31,13 @@ on:
 
 jobs:
   examples:
-    runs-on: macos-15
+    runs-on: macos-26
     strategy:
       fail-fast: false
       matrix:
         SAMPLE: ["Calendar", "Drive", "YouTube", "Storage"]
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - name: Build Debug
       run:  |
         set -eu

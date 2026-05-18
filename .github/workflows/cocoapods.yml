@@ -24,14 +24,14 @@ jobs:
   # time, so this covers the Core spec and tests.
   pod-lib-lint-core:
     name: CocoaPods lib lint Core
-    runs-on: macos-15
+    runs-on: macos-26
     strategy:
       fail-fast: false
       matrix:
         pod_configuration: ["Debug", "Release"]
         extra_flags: ["", "--use-static-frameworks"]
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - name: "iOS, macOS, tvOS, and visionOS"
       run:  |
         pod lib lint --verbose ${{ matrix.extra_flags }} \
@@ -55,13 +55,13 @@ jobs:
   # resources without any real gain.
   pod-lib-lint-subspecs:
     name: CocoaPods lib lint SubSpecs
-    runs-on: macos-15
+    runs-on: macos-26
     strategy:
       fail-fast: false
       matrix:
         pod_configuration: ["Debug", "Release"]
     steps:
-    - uses: actions/checkout@v5
+    - uses: actions/checkout@v6
     - name: "macOS"
       run:  |
         pod lib lint --verbose \
