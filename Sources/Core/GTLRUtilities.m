@@ -85,14 +85,13 @@ NSNumber *GTLR_EnsureNSNumber(NSNumber *num) {
     if ([str rangeOfString:@"."].location != NSNotFound) {
       // This is a floating-point number.
       // Force the parser to use '.' as the decimal separator.
-      static NSLocale *usLocale = nil;
-      @synchronized([GTLRUtilities class]) {
-        if (usLocale == nil) {
-          usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-        }
-        newNum = [NSDecimalNumber decimalNumberWithString:(NSString*)num
-                                                   locale:(id)usLocale];
-      }
+      static NSLocale *usLocale;
+      static dispatch_once_t onceToken;
+      dispatch_once(&onceToken, ^{
+        usLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+      });
+      newNum = [NSDecimalNumber decimalNumberWithString:(NSString*)num
+                                                 locale:(id)usLocale];
     } else {
       // NSDecimalNumber +decimalNumberWithString:locale:
       // does not correctly create an NSNumber for large values like
