@@ -119,24 +119,20 @@ static NSData *DecodeBase64StringCommon(NSString *base64Str,
 
 NSData *GTLRDecodeBase64(NSString *base64Str) {
   static char decodingTable[128];
-  static BOOL hasInited = NO;
-
-  if (!hasInited) {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
     CreateDecodingTable(gStandardEncodingTable, sizeof(gStandardEncodingTable),
                         decodingTable);
-    hasInited = YES;
-  }
+  });
   return DecodeBase64StringCommon(base64Str, decodingTable, YES /* requirePadding */ );
 }
 
 NSData *GTLRDecodeWebSafeBase64(NSString *base64Str) {
   static char decodingTable[128];
-  static BOOL hasInited = NO;
-
-  if (!hasInited) {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
     CreateDecodingTable(gWebSafeEncodingTable, sizeof(gWebSafeEncodingTable),
                         decodingTable);
-    hasInited = YES;
-  }
+  });
   return DecodeBase64StringCommon(base64Str, decodingTable, NO /* requirePadding */);
 }

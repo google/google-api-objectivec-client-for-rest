@@ -484,11 +484,10 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
     },
   };
 
-  static BOOL hasLookedUpClasses = NO;
-  if (!hasLookedUpClasses) {
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
     // Unfortunately, you can't put [NSString class] into the static structure,
     // so this lookup has to be done at runtime.
-    hasLookedUpClasses = YES;
     for (uint32_t idx = 0; idx < sizeof(kImplInfo)/sizeof(kImplInfo[0]); ++idx) {
       if (kImplInfo[idx].returnClassName) {
         kImplInfo[idx].returnClass = objc_getClass(kImplInfo[idx].returnClassName);
@@ -496,7 +495,7 @@ static const GTLRDynamicImpInfo *DynamicImpInfoForProperty(objc_property_t prop,
                    @"GTLRRuntimeCommon: class lookup failed: %s", kImplInfo[idx].returnClassName);
       }
     }
-  }
+  });
 
   const char *attr = property_getAttributes(prop);
 
